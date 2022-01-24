@@ -1,0 +1,230 @@
+# Project information
+site_name: Amplitude Developer Doc
+site_url: 
+site_author: Amplitude
+site_description: >-
+  Get your digital optimization going with the Amplitude developer center.
+support_contact: https://amplitude.com
+community: https://community.amplitude.com
+help_site: https://help.amplitude.com
+# Repository
+repo_name: caseyamp/material-test
+repo_url: https://github.com/caseyamp/material-test
+edit_uri: "edit/main/docs/"
+
+# Copyright
+copyright: Copyright &copy; 2022 Amplitude
+
+# Configuration
+theme:
+  name: material
+  custom_dir: overrides
+  extra_javascript:
+    - javascripts/consent.js
+    - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+    - javascripts/tablesort.js
+  extra_css:
+    - stylesheets/extra.css
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+  
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - announce.dismiss # I can't get this to work 
+    - content.code.annotate
+    # - content.tabs.link
+    # - header.autohide
+    - navigation.expand
+    - navigation.indexes
+    - navigation.instant
+    #- navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Sans Mono
+  favicon: assets/favicon.ico
+  logo: assets/logo.png
+
+# Plugins
+plugins:
+  - search
+  - tags
+  - git-revision-date
+
+  
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - tables
+  #- toc:
+      #permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  #- pymdownx.magiclink:
+      #repo_url_shorthand: true
+      #user: 
+      #repo: 
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  consent:
+      title: Cookie consent
+      description: >- 
+        We use cookies to recognize your repeated visits and preferences, as well
+        as to measure the effectiveness of our documentation and whether users
+        find what they're searching for. With your consent, you're helping us to
+        make our documentation better.
+  generator: false #hides the generated with text in the footer
+  analytics:
+    provider: google
+    property: G-300279802 
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target=_blank>feedback form</a>.
+
+
+nav:
+- Analytics Docs:
+  - analytics/index.md
+  - SDKs:
+    - analytics/sdks/sdk-javascript-overview.md
+    - Javascript SDK Reference: https://amplitude.github.io/Amplitude-JavaScript/
+  - Integrations:
+    - analytics/analytics-shopify-plugin.md
+    - analytics/analytics-recieving-cohorts-from-amplitude.md
+- Experiment Docs:
+  - experiment/index.md
+- Data Docs: 
+  - data/index.md
+  - Getting Started:
+    - data/getting-started.md
+    - data/what-is-a-tracking-plan.md
+    - data/creating-your-tracking-plan.md
+    - data/best-practices.md
+    - data/track-page-views.md
+    - data/identifying-users-and-groups.md
+    - data/working-with-templates.md
+    - data/typical-workflow.md
+    - data/working-with-branches.md
+    - data/observe.md
+    - data/granular-event-destinations.md
+  - Instrumentation:
+    - data/using-the-ampli-cli.md
+    - data/integrating-with-ci.md
+    - data/using-the-tracking-library.md
+    - data/iglu-api.md
+    - data/unit-testing.md
+    - data/user-lookup.md
+    - data/import.md
+  - Sources:
+    - data/android-ampli.md
+    - data/browser-ampli.md
+    - data/ios-ampli.md
+    - data/nodejs-ampli.md
+    - data/jre-v3.md
+    - data/jre.md
+    - data/python.md
+    - data/ruby-v2.md
+    - data/dotnet.md
+  - Resources:
+    - data/migration-guide.md
+    - data/managing-your-account.md
+    - data/integrations.md
+  - Deprecated Sources:
+    - data/ios-legacy.md
+    - data/nodejs-legacy.md
+    - data/python-legacy.md
+    - data/nodejs.md
+    - data/ios.md
+    - data/android-legacy.md
+    - data/android.md
+    - data/browser-legacy.md
+    - data/browser.md
+- Partner Hub:
+  - partners/index.md
+
+
+            
+
+            
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+    
+
+    
+
+
