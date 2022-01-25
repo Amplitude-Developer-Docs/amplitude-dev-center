@@ -1,6 +1,7 @@
 ---
 id: jre-v3
 title: JRE (v3)
+icon: material/language-java
 ---
 
 import Tabs from '@theme/Tabs';

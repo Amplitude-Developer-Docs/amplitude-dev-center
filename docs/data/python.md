@@ -1,6 +1,7 @@
 ---
 id: python
 title: Python
+icon: material/language-python
 ---
 
 import Tabs from '@theme/Tabs';

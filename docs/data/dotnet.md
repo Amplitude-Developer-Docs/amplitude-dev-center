@@ -1,6 +1,7 @@
 ---
 id: dotnet
 title: .NET
+icon: material/dot-net
 ---
 
 import Tabs from '@theme/Tabs';

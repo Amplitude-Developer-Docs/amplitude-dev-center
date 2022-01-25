@@ -1,6 +1,7 @@
 ---
 id: ruby-v2
 title: Ruby
+icon: material/language-ruby
 ---
 
 import Tabs from '@theme/Tabs';

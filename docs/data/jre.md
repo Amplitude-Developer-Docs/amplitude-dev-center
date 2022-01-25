@@ -1,6 +1,7 @@
 ---
 id: jre
 title: JRE
+icon: material/language-java
 ---
 
 import Tabs from '@theme/Tabs';

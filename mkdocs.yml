@@ -37,9 +37,8 @@ theme:
     - content.code.annotate
     # - content.tabs.link
     # - header.autohide
-    - navigation.expand
+    #- navigation.expand
     - navigation.indexes
-    - navigation.instant
     #- navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
@@ -71,7 +70,6 @@ theme:
 # Plugins
 plugins:
   - search
-  - tags
   - git-revision-date
 
   
@@ -195,7 +193,6 @@ nav:
     - data/nodejs-legacy.md
     - data/python-legacy.md
     - data/nodejs.md
-    - data/ios.md
     - data/android-legacy.md
     - data/android.md
     - data/browser-legacy.md

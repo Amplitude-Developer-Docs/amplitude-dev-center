@@ -4,6 +4,7 @@ title: Browser
 tags: 
   - Data
   - Kerfluffle
+icon: material/language-javascript
 ---
 
 --8<-- "includes/growth.md"

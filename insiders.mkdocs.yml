@@ -1,0 +1,11 @@
+INHERIT: mkdocs.yml
+
+plugins:
+  - search
+  - tags
+  - git-revision-date
+
+
+# This is the hackiest thing -- in order to use config inheritance, everything must use the alternative syntax (key:value vs lists)
+# Lists are replaced wholesale with config inheritence. 
+# I couldn't get alternative syntax to work, so for now, mkdocs.yml plugins need to be all NON-insiders plugins, and insiders.mkdocs.yml is ALL plugins. 
