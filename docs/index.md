@@ -4,7 +4,10 @@ hide:
   - toc
   - feedback
 title: Amplitude Developer Center
+
 ---
+
+
 Maybe the home page could look something like this? 
 
 ![potential home page design](assets/images/doc-home-page.png)

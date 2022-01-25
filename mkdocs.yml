@@ -86,8 +86,8 @@ markdown_extensions:
   - meta
   - md_in_html
   - tables
-  #- toc:
-      #permalink: true
+  - toc:
+      permalink: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -101,11 +101,8 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.inlinehilite
   - pymdownx.keys
-  #- pymdownx.magiclink:
-      #repo_url_shorthand: true
-      #user: 
-      #repo: 
   - pymdownx.mark
+  - pymdownx.snippets
   - pymdownx.smartsymbols
   - pymdownx.superfences:
       custom_fences:

@@ -1,5 +1,5 @@
 ---
-title: "JavaScript"
+title: "JavaScript SDK Overview"
 tags:
   - javascript
   - sdk

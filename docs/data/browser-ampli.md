@@ -1,21 +1,53 @@
 ---
 id: browser-ampli
 title: Browser 
+tags: 
+  - Data
+  - Kerfluffle
 ---
+
+--8<-- "includes/growth.md"
 
 !!!note
     This doc covers the Ampli Browser runtime. The **Browser (Itly)** runtime is deprecated. See the [migration guide](#migrating-from-previous-version) to ugrade to the newest runtime. Docs for the Itly version are available [here](browser).
 
-
 Iteratively supports tracking analytics events from browser apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as an ES module.
 
 In TypeScript, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties, and they are strongly typed to allow for code completion and compile-time checks.
+!!! info inline end
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+    Curabitur feugiat, tortor non consequat
+    finibus, justo purus auctor massa, nec
+    semper lorem quam in massa.
 
 Because JavaScript is not a type-safe language, the library doesn't expose type-safe functions for the events in your team’s tracking plan. Instead, the auto-generated library performs those checks at runtime.
+
+``` mermaid
+stateDiagram-v2
+  state fork_state <<fork>>
+    [*] --> fork_state
+    fork_state --> State2
+    fork_state --> State3
+
+    state join_state <<join>>
+    State2 --> join_state
+    State3 --> join_state
+    join_state --> State4
+    State4 --> [*]
+```
 
 ## Installation
 
 These instructions are also available from the **Implementation** page of your Iteratively workspace.
+
+??? note annotate "Note with a Custom Title"
+
+    Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit. Nulla et
+    euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo
+    purus auctor massa, nec semper lorem quam in massa.
+
+  1.  :man_raising_hand: I'm an annotation!
 
 ### Install the Ampli CLI
 
@@ -36,6 +68,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
     yarn add amplitude-js
     ```
 
+
 !!!note
 
     When using Ampli in the browser we recommend loading amplitude-js as a module rather than as a JS snippet.
@@ -53,7 +86,7 @@ This prompts you to log in to your workspace and select a source.
 
 === "JavaScript"
 
-    ```bash
+    ```bash linenums="1" hl_lines="2 3"
     ➜ ampli pull sourcename
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
@@ -64,8 +97,14 @@ This prompts you to log in to your workspace and select a source.
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
-    Path: ./src/itly
+    Path: ./src/itly #(1)!
+    ``` 
+    
+    1. This is a code annotation
+    ```bash
+        More Code I guess
     ```
+
 
 === "TypeScript"
 
@@ -83,6 +122,9 @@ This prompts you to log in to your workspace and select a source.
     Path: ./src/itly
     ```
 
+#### This is a 4th level heading? 
+
+Would we do this? Maybe?
 
 ## API
 

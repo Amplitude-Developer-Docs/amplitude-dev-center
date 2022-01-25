@@ -1,6 +1,7 @@
 / Color variables
 :root {
 
+
   // Default color shades
   --md-default-fg-color:               hsla(0, 0%, 0%, 0.87);
   --md-default-fg-color--light:        hsla(0, 0%, 0%, 0.54);
