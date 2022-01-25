@@ -2,10 +2,12 @@ INHERIT: mkdocs.yml
 
 plugins:
   - search
-  - tags
+  - tags # Insiders
   - git-revision-date
 
 
-# This is the hackiest thing -- in order to use config inheritance, everything must use the alternative syntax (key:value vs lists)
+# Long explanation for this extra doc. 
+# In order to use config inheritance, everything must use the alternative syntax (key:value vs lists)
 # Lists are replaced wholesale with config inheritence. 
-# I couldn't get alternative syntax to work, so for now, mkdocs.yml plugins need to be all NON-insiders plugins, and insiders.mkdocs.yml is ALL plugins. 
+# I couldn't get alternative syntax to work on mkdocs.yml without throwing constant errors and strange behavior.
+# For now, mkdocs.yml plugins need to be all NON-insiders plugins, and insiders.mkdocs.yml is ALL plugins. 

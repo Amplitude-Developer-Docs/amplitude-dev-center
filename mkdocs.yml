@@ -1,9 +1,9 @@
 # Project information
 site_name: Amplitude Developer Doc
-site_url: 
+site_url: https://developer.amplitude.com
 site_author: Amplitude
 site_description: >-
-  Get your digital optimization going with the Amplitude developer center.
+  Get your digital optimization going with the Amplitude developer center. Put real words here. 
 support_contact: https://amplitude.com
 community: https://community.amplitude.com
 help_site: https://help.amplitude.com
@@ -33,11 +33,11 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
-    - announce.dismiss # I can't get this to work 
+    - announce.dismiss
     - content.code.annotate
-    # - content.tabs.link
+    - content.tabs.link
     # - header.autohide
-    #- navigation.expand
+    - navigation.expand
     - navigation.indexes
     #- navigation.sections
     - navigation.tabs
@@ -47,7 +47,7 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-    # - toc.integrate
+    # - toc.integrate #this is a really noisy feature, IMO. 
   palette:
     - scheme: default
       primary: indigo
@@ -68,11 +68,10 @@ theme:
   logo: assets/logo.png
 
 # Plugins
+# When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too. 
 plugins:
   - search
   - git-revision-date
-
-  
 
 # Extensions
 markdown_extensions:
@@ -124,7 +123,7 @@ extra:
   generator: false #hides the generated with text in the footer
   analytics:
     provider: google
-    property: G-300279802 
+    property: G-300279802 # dummy GA account, not hooked up. 
     feedback:
       title: Was this page helpful?
       ratings:
@@ -140,7 +139,7 @@ extra:
             Thanks for your feedback! Help us improve this page by
             using our <a href="..." target=_blank>feedback form</a>.
 
-
+# Navigation
 nav:
 - Analytics Docs:
   - analytics/index.md
