@@ -145,7 +145,7 @@ nav:
   - analytics/index.md
   - SDKs:
     - analytics/sdks/sdk-javascript-overview.md
-    - Javascript SDK Reference: https://amplitude.github.io/Amplitude-JavaScript/
+    - analytics/sdks/sdk-android-overview.md
   - Integrations:
     - analytics/analytics-shopify-plugin.md
     - analytics/analytics-recieving-cohorts-from-amplitude.md
@@ -187,15 +187,6 @@ nav:
     - data/migration-guide.md
     - data/managing-your-account.md
     - data/integrations.md
-  - Deprecated Sources:
-    - data/ios-legacy.md
-    - data/nodejs-legacy.md
-    - data/python-legacy.md
-    - data/nodejs.md
-    - data/android-legacy.md
-    - data/android.md
-    - data/browser-legacy.md
-    - data/browser.md
 - Partner Hub:
   - partners/index.md
 

@@ -1,9 +1,5 @@
 ---
 title: "Receiving Cohorts from Amplitude"
-slug: "receiving-cohorts-from-amplitude"
-hidden: false
-createdAt: "2021-09-14T05:26:23.777Z"
-updatedAt: "2021-11-16T16:58:05.880Z"
 tags:
   - analytics
   - integration
