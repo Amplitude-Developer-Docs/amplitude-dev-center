@@ -1,8 +1,17 @@
 ---
 title: Data Docs
 hide:
-	- toc
+  - tags
+  - feedback
 ---
+
+<style>
+/* Hides the edit button */
+
+  .md-content__button {
+    display: none;
+  }
+  </style>
 
 # Data Overview
 

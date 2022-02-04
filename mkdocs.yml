@@ -4,13 +4,10 @@ site_url: https://developer.amplitude.com
 site_author: Amplitude
 site_description: >-
   Get your digital optimization going with the Amplitude developer center. Put real words here. 
-support_contact: https://amplitude.com
-community: https://community.amplitude.com
-help_site: https://help.amplitude.com
 # Repository
 repo_name: caseyamp/material-test
 repo_url: https://github.com/caseyamp/material-test
-edit_uri: "edit/main/docs/"
+edit_uri: "blob/main/docs/"
 
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
@@ -19,12 +16,7 @@ copyright: Copyright &copy; 2022 Amplitude
 theme:
   name: material
   custom_dir: overrides
-  extra_javascript:
-    - javascripts/consent.js
-    - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
-    - javascripts/tablesort.js
-  extra_css:
-    - stylesheets/extra.css
+
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -48,25 +40,13 @@ theme:
     - search.share
     - search.suggest
     # - toc.integrate #this is a really noisy feature, IMO. 
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to dark mode
-    - scheme: slate
-      primary: red
-      accent: red
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to light mode
   font:
     text: IBM Plex Sans
     code: IBM Plex Sans Mono
   favicon: assets/favicon.ico
   logo: assets/logo.png
-
+extra_css:
+  - stylesheets/extra.css
 # Plugins
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too. 
 plugins:
@@ -113,6 +93,9 @@ markdown_extensions:
   - pymdownx.tilde
 
 extra:
+  support_contact: https://amplitude.com
+  community: https://community.amplitude.com
+  help_site: https://help.amplitude.com
   consent:
       title: Cookie consent
       description: >- 
@@ -143,6 +126,7 @@ extra:
 nav:
 - Analytics Docs:
   - analytics/index.md
+  - analytics/batch-event-upload.md
   - SDKs:
     - analytics/sdks/sdk-javascript-overview.md
     - analytics/sdks/sdk-android-overview.md
@@ -187,6 +171,7 @@ nav:
     - data/migration-guide.md
     - data/managing-your-account.md
     - data/integrations.md
+- API Reference: http://localhost:4567/#amplitude-api-reference
 - Partner Hub:
   - partners/index.md
 

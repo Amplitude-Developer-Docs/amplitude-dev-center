@@ -4,6 +4,8 @@ tags:
   - javascript
   - sdk
 icon: material/language-javascript
+hide:
+  - tags
 ---
 # JavaScript SDK
 

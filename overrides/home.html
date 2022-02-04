@@ -1,16 +1,293 @@
-{% extends "overrides/main.html" %}
+<!-- Custom HTML site displayed as the Home chapter -->
 
-  <!-- Additional styles for landing page -->
-  <style>
-/* Hides the edit button on pages with home.html template*/
+{% extends "main.html" %}
+{% block tabs %}
+{{ super() }}
+<style>
 
-  .md-content__button {
-    display: none;
-  }
-  </style>
+    .md-main {
+        flex-grow: 0
+    }
 
-<!-- Content -->
+    .md-main__inner {
+        display: flex;
+        height: 100%;
+    }
+
+    .home-container {
+        padding-top: .0rem;
+        background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-accent-fg-color) 99%,#fff 99%)
+    }
+
+    .home-hero {
+        margin: 32px 2.8rem;
+        color: var(--md-primary-bg-color);
+        justify-content: center;
+    }
+
+    .home-hero h1 {
+        margin-bottom: 1rem;
+        color: currentColor;
+        font-weight: 700
+    }
+
+    .home-hero__content {
+        padding-bottom: 1rem;
+        margin: 0 auto;
+    }
+
+    .home-hero__image{
+        width:17rem;
+        height:17rem;
+        order:1;
+        padding-right: 2.5rem;
+    }
+
+    .home-hero .md-button {
+        margin-top: .5rem;
+        margin-right: .5rem;
+        color: var(--md-primary-bg-color)
+    }
+
+    .home-hero .md-button--primary {
+        background-color: var(--md-primary-bg-color);
+        color: var(--md-accent-fg-color);
+        border-color: var(--md-primary-bg-color)
+    }
+
+    .home-hero .md-button:focus,
+    .home-hero .md-button:hover {
+        background-color: var(--md-accent-fg-color);
+        color: var(--md-default-bg-color);
+        border-color: var(--md-accent-fg-color)
+    }
+
+    .product-item h2 svg {
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+        transform: translateY(10%);
+    }
+
+    .top-hr {
+        margin-top: 42px;
+    }
+
+    .product-item {
+        font-weight: 300;
+        box-sizing: border-box;
+        padding: 0 15px;
+        word-break: break-word
+    }
+
+    .product-item h2 {
+        color: #1e61f0;
+        font-weight: 300;
+        font-size: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: inherit;
+    }
+
+    .product-item p {
+        font-size: 16px;
+        line-height: 1.5em;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        color: #111;
+        margin: 0 0 10px;
+        display: block;
+    }
+    .product-item ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: initial;
+        line-height: 1.8em;
+    }
+
+	.product-item a {
+		color: var(--md-accent-fg-color)
+	}
+
+    @media screen and (max-width:30em) {
+        .home-hero h1 {
+            font-size: 1.4rem
+        }
+    }
+
+    @media screen and (min-width:60em) {
+        .md-sidebar--secondary {
+            display: none
+        }
+
+        .home-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .home-hero__content {
+            margin-top: 3.5rem;
+            margin-bottom: 3.5rem;
+            margin-left: 1.0rem;
+            margin-right: 1.0rem;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width:76.25em) {
+        .md-sidebar--primary {
+            display: none
+        }
+
+        .top-hr {
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .bottom-hr {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 0 .2rem;
+        }
+
+        .product-item {
+            flex: 1;
+            min-width: 0;
+            border:#1e61f0;
+        }
+
+        /*.product-item:hover {
+            background-color: #c1e0fe;
+            border-radius: 6px;*/
+        }
+    }
+
+    .hr {
+        border-bottom: 1px solid #eee;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .text-center {
+        text-align: center;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 15px;
+        font-size: 23px;
+        font-weight: 300;
+        padding-bottom: 10px;
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+    }
+
+    .logos img {
+        flex: 1 1 auto;
+        padding: 25px;
+        max-height: 130px;
+        vertical-align: middle;
+    }
+
+    .hr-logos {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .md-footer-meta__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 1.0rem;
+    }
+
+</style>
+
+<!-- Main site Entry button descriptions -->
+<section class="home-container">
+    <div class="md-grid md-typeset">
+      <div class="home-hero">
+        <div class="home-hero__content">
+          <h1>Amplitude Developer Docs</h1>
+          <p>Choose a resource and get started.</p>
+          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
+            Get started
+          </a>
+          <a href="{{ config.extra.community }}" title="{{ lang.t('source.link.title') }}" class="md-button">
+            Go to the Community
+          </a>
+          <a href="{{ config.extra.community }}" title="{{ lang.t('source.link.title') }}" class="md-button">
+            I'm a button
+          </a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Main site box descriptions -->
+<div class="top-hr">
+    <div class="product-item">
+        <h2>
+        Manage your Data
+        </h2>
+        <p>Manage your data better with some snazzy copy here.</p>
+		<ul>
+        <li><a href="https://amplitude.com">Getting Started</a></li>
+		<li>Use Cases</li>
+		<li>Data Ingestion Guide</li>
+		<l1>See all the doc</li></ul>
+			
+    </div>
+    <div class="product-item">
+        <h2>Track Events
+        </h2>
+		<p>Use Amplitude Analytics to track events and do stuff.</p>
+        <ul>
+        <li><a href="https://amplitude.com">Getting Started</a></li>
+		<li>Use Cases</li>
+		<li>Featured Guide</li>
+		<li>See all the doc</>
+        </ul>
+    </div>
+    <div class="product-item">
+        <h2>
+            Experiment and Test
+        </h2>
+		<p>Use Amplitude Experiment to insert some marketing copy here</p>
+        <ul>
+        <li><a href="https://amplitude.com">Getting Started</a></li>
+		<li>Use Cases</li>
+		<li>Featured Guide</li>
+		<li>See all the doc</li></ul>
+    </div>
+	
+</div>
+
+<!--<div class="top-hr">
+    <div class="hr">
+    </div>
+</div> -->
+
+
+{% endblock %}
 {% block content %}{% endblock %}
-
-<!-- Application footer -->
-{% block footer %}{% endblock %}

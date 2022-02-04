@@ -1,5 +1,8 @@
 INHERIT: mkdocs.yml
 
+extra_css:
+    - stylesheets/extra.css
+
 plugins:
   - search
   - tags # Insiders
