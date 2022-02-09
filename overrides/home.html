@@ -62,13 +62,6 @@
         border-color: var(--md-accent-fg-color)
     }
 
-    .product-item h2 svg {
-        height: 30px;
-        float: left;
-        margin-right: 10px;
-        transform: translateY(10%);
-    }
-
     .top-hr {
         margin-top: 42px;
     }
@@ -79,11 +72,11 @@
         padding: 0 15px;
         word-break: break-word
         color: var(--md-primary-fg-color);
-        
+        border-left: 1px solid #1e61f0;
     }
 
     .product-item h2 {
-        color: #1e61f0;
+        color: var(--md-primary-fg-color);
         font-weight: 500;
         font-size: 25px;
         white-space: nowrap;
@@ -92,7 +85,6 @@
         line-height: normal;
         margin-top: 20px;
         margin-bottom: 10px;
-        font-family: inherit;
     }
 
     .product-item p {
@@ -104,19 +96,21 @@
     .product-item ul {
         list-style-type: none;
         margin: 0;
-        padding: 0;
+        padding: 0 0 5px 0;
+        padding-left: 2px;
         font-size: initial;
         line-height: 1.8em;
     }
 
 	.product-item a {
-		color: var(--md-accent-fg-color)
+		color: var(--md-accent-fg-color);
 	}
 
     @media screen and (max-width:30em) {
         .home-hero h1 {
-            font-size: 1.4rem
+            font-size: 1.4rem    
         }
+    
     }
 
     @media screen and (min-width:60em) {
@@ -166,7 +160,8 @@
         .product-item {
             flex: 1;
             min-width: 0;
-            border:#1e61f0;
+            mar
+            border-left: .25px solid #1e61f0;
         }
 
         /*.product-item:hover {
@@ -181,48 +176,10 @@
         margin: 20px 0;
     }
 
-    .text-center {
-        text-align: center;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 15px;
-        font-size: 23px;
-        font-weight: 300;
-        padding-bottom: 10px;
-    }
-
-    .logos {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: row wrap;
-        margin: 0 auto;
-    }
-
-    .logos img {
-        flex: 1 1 auto;
-        padding: 25px;
-        max-height: 130px;
-        vertical-align: middle;
-    }
-
-    .hr-logos {
-        margin-top: 0;
-        margin-bottom: 30px;
-    }
-
-    .md-footer-meta__inner {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 1.0rem;
-    }
 
 </style>
 
-<!-- Main site Entry button descriptions -->
+<!-- BUTTONS  -->
 <section class="home-container">
     <div class="md-grid md-typeset">
       <div class="home-hero">
@@ -281,11 +238,6 @@
     </div>
 	
 </div>
-
-<!--<div class="top-hr">
-    <div class="hr">
-    </div>
-</div> -->
 
 
 {% endblock %}

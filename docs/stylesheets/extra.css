@@ -1,4 +1,95 @@
+/* LOADING ALL THE FONTS */
 
+/* ibm-plex-sans-regular - latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-sans-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-regular.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-sans-italic - latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-sans-v13-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-italic.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-sans-600 - latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-sans-v13-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-600.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-sans-700 - latin */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-sans-v13-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-sans-v13-latin-700.svg#IBMPlexSans') format('svg'); /* Legacy iOS */
+}
+
+/* ibm-plex-mono-regular - latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-mono-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-regular.svg#IBMPlexMono') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-mono-italic - latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-mono-v11-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-italic.svg#IBMPlexMono') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-mono-600 - latin */ docs/assets/fonts/ibm-plex-mono-v11-latin-600.eot
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-mono-v11-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-600.svg#IBMPlexMono') format('svg'); /* Legacy iOS */
+}
+/* ibm-plex-mono-700 - latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../assets/fonts/ibm-plex-mono-v11-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/ibm-plex-mono-v11-latin-700.svg#IBMPlexMono') format('svg'); /* Legacy iOS */
+}
+ 
 :root {
 	--md-primary-fg-color:        #1e61f0;
 	--md-primary-fg-color--light: #ECB7B7;
@@ -17,13 +108,21 @@
   --md-default-bg-color--light:        hsla(0, 0%, 100%, 0.7);
   --md-default-bg-color--lighter:      hsla(0, 0%, 100%, 0.3);
   --md-default-bg-color--lightest:     hsla(0, 0%, 100%, 0.12);
-
+  --md-text-font: "IBM Plex Sans", Arial, sans-serif;
+  --md-text-code: "IBM Plex Mono", monospace;
 
   }
+
+
 .md-footer-meta {
   background-color: transparent;
 }
 
 .md-footer {
   background-color: var(--md-accent-fg-color);
+}
+
+/* Sets nav items to bold */
+.md-tabs__item { 
+  font-weight: bold;
 }

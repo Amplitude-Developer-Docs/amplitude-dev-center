@@ -40,9 +40,9 @@ theme:
     - search.share
     - search.suggest
     # - toc.integrate #this is a really noisy feature, IMO. 
-  font:
-    text: IBM Plex Sans
-    code: IBM Plex Sans Mono
+  font: false # Prevents autoloading of google fonts, for privacy reasons. 
+    #text: IBM Plex Sans
+    #code: IBM Plex Sans Mono
   favicon: assets/favicon.ico
   logo: assets/logo.png
 extra_css:
