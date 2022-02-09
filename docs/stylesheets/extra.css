@@ -9,7 +9,7 @@
   --md-footer-bg-color: #2f1761;
   --md-footer-fg-color--lighter: #c9c2f5;
 
-  --md-default-fg-color:               #171717;
+  --md-default-fg-color:               #13294B;
   --md-default-fg-color--light:        hsla(0, 0%, 0%, 0.54);
   --md-default-fg-color--lighter:      hsla(0, 0%, 0%, 0.32);
   --md-default-fg-color--lightest:     hsla(0, 0%, 0%, 0.07);
@@ -18,7 +18,7 @@
   --md-default-bg-color--lighter:      hsla(0, 0%, 100%, 0.3);
   --md-default-bg-color--lightest:     hsla(0, 0%, 100%, 0.12);
 
-  
+
   }
 .md-footer-meta {
   background-color: transparent;
