@@ -1,6 +1,6 @@
 /* This CSS overrides the theme defaults, MOST CSS changes belong here. */
 
-/* LOADING ALL THE FONTS */
+/* LOADING FONTS */
 
 /* ibm-plex-sans-regular - latin */
 @font-face {
@@ -69,7 +69,7 @@
        url('../assets/fonts/ibm-plex-mono-v11-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../assets/fonts/ibm-plex-mono-v11-latin-italic.svg#IBMPlexMono') format('svg'); /* Legacy iOS */
 }
-/* ibm-plex-mono-600 - latin */ docs/assets/fonts/ibm-plex-mono-v11-latin-600.eot
+/* ibm-plex-mono-600 - latin */ 
 @font-face {
   font-family: 'IBM Plex Mono';
   font-style: normal;
@@ -93,28 +93,41 @@
 }
  
 :root {
+
+  /* General Colors */
+
 	--md-primary-fg-color:        #1e61f0;
 	--md-primary-fg-color--light: #ECB7B7;
 	--md-primary-fg-color--dark:  #0f4f73;
   --md-accent-fg-color:         #2f1761;
-  --md-accent-bg-color:         #c1e0fe;
+  --md-accent-bg-color:         #fff;
   --md-accent-bg-color--light:  #f5d9e1;
   --md-footer-bg-color: #2f1761;
   --md-footer-fg-color--lighter: #c9c2f5;
+  --md-default-fg-color: #13294B; /*this is the default text color */
+  --heading-color: #3d3d3d;
 
-  --md-default-fg-color:               #13294B;
-  --md-default-fg-color--light:        hsla(0, 0%, 0%, 0.54);
-  --md-default-fg-color--lighter:      hsla(0, 0%, 0%, 0.32);
-  --md-default-fg-color--lightest:     hsla(0, 0%, 0%, 0.07);
-  --md-default-bg-color:               hsla(0, 0%, 100%, 1);
-  --md-default-bg-color--light:        hsla(0, 0%, 100%, 0.7);
-  --md-default-bg-color--lighter:      hsla(0, 0%, 100%, 0.3);
-  --md-default-bg-color--lightest:     hsla(0, 0%, 100%, 0.12);
+
+  /* Code color shades */
+  
+  --md-code-fg-color:                hsla(0, 0%, 96%, 1); 
+  --md-code-bg-color:                hsla(200, 18%, 26%, 1);
+
+  /* Set the fonts */ 
+
   --md-text-font: "IBM Plex Sans", Arial, sans-serif;
   --md-text-code: "IBM Plex Mono", monospace;
 
-  }
 
+  
+}
+
+.md-typeset h1  {
+  color: var(--heading-color);
+}
+
+
+/* footer overrides */
 
 .md-footer-meta {
   background-color: transparent;
@@ -125,6 +138,27 @@
 }
 
 /* Sets nav items to bold */
+
 .md-tabs__item { 
   font-weight: bold;
+}
+
+/* button overrides */ 
+
+.md-button:focus,
+.md-button:hover {
+    background-color: var(--md-accent-fg-color);
+    color: var(--md-default-bg-color);
+    border-color: var(--md-accent-fg-color)
+}
+
+/* Sets the announcment bar styles */
+
+.md-banner {
+  background-color: var(--md-primary-fg-color--light);
+  color: var(--md-default-fg-color)
+}
+.announcement p {
+  padding-bottom: 4px;
+  font-size: initial;
 }

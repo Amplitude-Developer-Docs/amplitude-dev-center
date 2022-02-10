@@ -7,3 +7,5 @@ hide:
 title: Amplitude Developer Center
 
 ---
+
+#overridden by overrides/home.html
