@@ -1,8 +1,10 @@
-<!-- Custom HTML site displayed as the Home chapter -->
+<!-- Custom CSS and HTML for the Home page -->
 
-{% extends "main.html" %}
+{% extends "main.html" %} <!-- extends the main template-->
 {% block tabs %}
 {{ super() }}
+
+<!-- Sets the CSS for the Home page template -->
 <style>
 
     .md-main {
@@ -15,42 +17,42 @@
     }
 
     /* Color background for top half of home page */
-    .home-container {
+    .banner-container {
         padding-top: .0rem;
         background: linear-gradient(to bottom, var(--md-primary-fg-color), var(--md-accent-fg-color) 99%,#fff 99%)
     }
 
-    .home-hero {
+    .banner-hero {
         margin: 32px 2.8rem;
         color: var(--md-primary-bg-color);
-        justify-content: center;
+        justify-content: right;
     }
 
-    .home-hero h1 {
+    .banner-hero h1 {
         margin-bottom: 1rem;
-        color: currentColor;
+        color: var(--md-primary-bg-color);
         font-weight: 700
     }
 
-    .home-hero__content {
+    .banner-hero__content {
         padding-bottom: 1rem;
         margin: 0 auto;
     }
 
-    .home-hero .md-button {
+    .banner-hero .md-button {
         margin-top: .5rem;
         margin-right: .5rem;
         color: var(--md-primary-bg-color)
     }
 
-    .home-hero .md-button--primary {
+    .banner-hero .md-button--primary {
         background-color: var(--md-primary-bg-color);
         color: var(--md-accent-fg-color);
         border-color: var(--md-primary-bg-color)
     }
 
-    .home-hero .md-button:focus,
-    .home-hero .md-button:hover {
+    .banner-hero .md-button:focus,
+    .banner-hero .md-button:hover {
         background-color: var(--md-accent-fg-color);
         color: var(--md-default-bg-color);
         border-color: var(--md-accent-fg-color)
@@ -66,7 +68,7 @@
         padding: 0 15px;
         word-break: break-word
         color: var(--md-primary-fg-color);
-        border-left: 1px solid #1e61f0;
+        border-left: 1px solid var(--md-primary-fg-color);
     }
 
     .product-item h2 {
@@ -101,7 +103,7 @@
 	}
 
     @media screen and (max-width:30em) {
-        .home-hero h1 {
+        .banner-hero h1 {
             font-size: 1.4rem    
         }
     
@@ -112,13 +114,13 @@
             display: none
         }
 
-        .home-hero {
+        .banner-hero {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .home-hero__content {
+        .banner-hero__content {
             margin-top: 3.5rem;
             margin-bottom: 3.5rem;
             margin-left: 1.0rem;
@@ -155,7 +157,7 @@
             flex: 1;
             min-width: 0;
             mar
-            border-left: .25px solid #1e61f0;
+            border-left: .25px solid var(--md-primary-fg-color);
         }
 
         /*.product-item:hover {
@@ -173,11 +175,12 @@
 
 </style>
 
+<!-- PAGE CONTENT -->
 <!-- BUTTONS  -->
-<section class="home-container">
+<section class="banner-container">
     <div class="md-grid md-typeset">
-      <div class="home-hero">
-        <div class="home-hero__content">
+      <div class="banner-hero">
+        <div class="banner-hero__content">
           <h1>Amplitude Developer Docs</h1>
           <p>Choose a resource and get started.</p>
           <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
