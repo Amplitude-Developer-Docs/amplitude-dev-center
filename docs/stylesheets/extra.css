@@ -97,13 +97,13 @@
 	--md-primary-fg-color--light: #ECB7B7;
 	--md-primary-fg-color--dark:  #0f4f73;
   --md-accent-fg-color:         #2f1761;
-  --md-accent-bg-color:         #c1e0fe;
+  --md-accent-bg-color:         #fff;
   --md-accent-bg-color--light:  #f5d9e1;
   --md-footer-bg-color: #2f1761;
   --md-footer-fg-color--lighter: #c9c2f5;
 
   --md-default-fg-color:               #13294B;
-  --md-default-fg-color--light:        hsla(0, 0%, 0%, 0.54);
+  --md-default-fg-color--light:        #282828;
   --md-default-fg-color--lighter:      hsla(0, 0%, 0%, 0.32);
   --md-default-fg-color--lightest:     hsla(0, 0%, 0%, 0.07);
   --md-default-bg-color:               hsla(0, 0%, 100%, 1);
@@ -113,8 +113,12 @@
   --md-text-font: "IBM Plex Sans", Arial, sans-serif;
   --md-text-code: "IBM Plex Mono", monospace;
 
+
   }
 
+  .md-typeset h1 {
+    color: var(--md-default-fg-color);
+  }
 
 .md-footer-meta {
   background-color: transparent;
@@ -128,3 +132,4 @@
 .md-tabs__item { 
   font-weight: bold;
 }
+
