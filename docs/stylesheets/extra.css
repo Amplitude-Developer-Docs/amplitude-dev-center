@@ -115,7 +115,6 @@
 
   /* Set the fonts */ 
 
-<<<<<<< HEAD
   --md-default-fg-color:               #13294B;
   --md-default-fg-color--light:        #282828;
   --md-default-fg-color--lighter:      hsla(0, 0%, 0%, 0.32);
@@ -130,27 +129,18 @@
 
   }
 
-  .md-typeset h1 {
+  .md-typeset h1 {                    /* overrides the weird H1 css inherited from the theme */
     color: var(--md-default-fg-color);
   }
-=======
-  --md-text-font: "IBM Plex Sans", Arial, sans-serif;
-  --md-text-code: "IBM Plex Mono", monospace;
-
-
-  
-}
-
-.md-typeset h1  {
-  color: var(--heading-color);
-}
-
-
-/* footer overrides */
->>>>>>> 8da775b1d27b7b01c3694fb48bbdbd812be3cb4a
 
 .md-footer-meta {
   background-color: transparent;
+}
+
+.md-footer-meta ul {
+  list-style-type: none;
+  font-size: small;
+  line-height: 1em;
 }
 
 .md-footer {
@@ -163,8 +153,6 @@
   font-weight: bold;
 }
 
-<<<<<<< HEAD
-=======
 /* button overrides */ 
 
 .md-button:focus,
@@ -175,13 +163,3 @@
 }
 
 /* Sets the announcment bar styles */
-
-.md-banner {
-  background-color: var(--md-primary-fg-color--light);
-  color: var(--md-default-fg-color)
-}
-.announcement p {
-  padding-bottom: 4px;
-  font-size: initial;
-}
->>>>>>> 8da775b1d27b7b01c3694fb48bbdbd812be3cb4a

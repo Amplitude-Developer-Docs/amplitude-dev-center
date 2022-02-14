@@ -25,7 +25,7 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
-    - announce.dismiss
+    #- announce.dismiss
     - content.code.annotate
     - content.tabs.link
     # - header.autohide

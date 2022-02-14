@@ -60,6 +60,8 @@
 
     .top-hr {
         margin-top: 42px;
+        flex-wrap: wrap;
+
     }
 
     .product-item {
@@ -77,7 +79,6 @@
         font-size: 25px;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
         line-height: normal;
         margin-top: 20px;
         margin-bottom: 10px;
@@ -88,6 +89,7 @@
         line-height: 1.5em;
         margin: 0 0 10px;
         display: block;
+        word-wrap: break-word;
     }
     .product-item ul {
         list-style-type: none;
@@ -105,6 +107,32 @@
     @media screen and (max-width:30em) {
         .banner-hero h1 {
             font-size: 1.4rem    
+        }
+
+        .product-item {
+            border-top: 1px solid var(--md-primary-fg-color);
+            border-left: none;
+        }
+    
+    }
+
+
+    @media screen and (max-width:76.24em) {
+        .banner-hero h1 {
+            font-size: 1.4rem    
+        }
+
+        .top-hr {
+            display: flex;
+            flex: 0 0 25em;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .product-item {
+            border-top: 1px solid var(--md-primary-fg-color);
+            border-left: none;
+            max-width: 40em;
         }
     
     }
@@ -156,7 +184,6 @@
         .product-item {
             flex: 1;
             min-width: 0;
-            mar
             border-left: .25px solid var(--md-primary-fg-color);
         }
 
@@ -181,8 +208,8 @@
     <div class="md-grid md-typeset">
       <div class="banner-hero">
         <div class="banner-hero__content">
-          <h1>Amplitude Developer Docs</h1>
-          <p>Choose a resource and get started.</p>
+          <h1>Welcome to the Amplitude Developer center</h1>
+          <p>This site contains all the content you need to get started with integrating, instrumenting, and extending Amplitude's products.</p>
           <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
             Get started
           </a>
@@ -211,6 +238,7 @@
 		<l1>See all the doc</li></ul>
 			
     </div>
+
     <div class="product-item">
         <h2>Track Events
         </h2>
@@ -233,9 +261,24 @@
 		<li>Featured Guide</li>
 		<li>See all the doc</li></ul>
     </div>
+
+    <div class="product-item">
+        <h2>
+        Manage your Data
+        </h2>
+        <p>Manage your data better with some snazzy copy here.</p>
+		<ul>
+        <li><a href="https://amplitude.com">Getting Started</a></li>
+		<li>Use Cases</li>
+		<li>Data Ingestion Guide</li>
+		<l1>See all the doc</li></ul>
+			
+    </div>
+
 	
 </div>
 
 
 {% endblock %}
-{% block content %}{% endblock %}
+{% block content %}
+{% endblock %}
