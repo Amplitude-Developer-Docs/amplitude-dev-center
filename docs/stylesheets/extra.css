@@ -151,8 +151,19 @@
 
 .md-tabs__item { 
   font-weight: bold;
+  color: var(--md-accent-bg-color);
 }
 
+.md-tabs__link { /* overrides the weird opacity settings that caused low contrast issues */
+  color: var(--md-accent-bg-color);
+  opacity: 90%;
+}
+
+.md-tabs__link--active { /* overrides the weird opacity settings that caused low contrast issues */
+  color: var(--md-accent-bg-color);
+  
+
+}
 /* button overrides */ 
 
 .md-button:focus,

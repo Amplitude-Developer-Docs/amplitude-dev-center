@@ -4,7 +4,7 @@
 {% block tabs %}
 {{ super() }}
 
-<!-- Sets the CSS for the Home page template -->
+<!-- Sets the CSS for the Home page template. It's included in the template because it's hard to conditionally specify  -->
 <style>
 
     .md-main {
@@ -64,6 +64,7 @@
 
     }
 
+    /* Product Items are the feature boxes */
     .product-item {
         font-weight: 300;
         box-sizing: border-box;
@@ -104,6 +105,11 @@
 		color: var(--md-accent-fg-color);
 	}
 
+
+/* Media queries */
+
+/* Teeny tiny mobile screens */
+
     @media screen and (max-width:30em) {
         .banner-hero h1 {
             font-size: 1.4rem    
@@ -116,7 +122,7 @@
     
     }
 
-
+/* Somewhere between tiny screen and wide monitor */
     @media screen and (max-width:76.24em) {
         .banner-hero h1 {
             font-size: 1.4rem    
@@ -132,7 +138,7 @@
         .product-item {
             border-top: 1px solid var(--md-primary-fg-color);
             border-left: none;
-            max-width: 40em;
+            width: 40em;
         }
     
     }
@@ -157,6 +163,7 @@
         }
     }
 
+    /* Big Screens */
     @media screen and (min-width:76.25em) {
         .md-sidebar--primary {
             display: none
@@ -187,10 +194,6 @@
             border-left: .25px solid var(--md-primary-fg-color);
         }
 
-        /*.product-item:hover {
-            background-color: #c1e0fe;
-            border-radius: 6px;*/
-        }
     }
 
     .hr {
@@ -202,8 +205,9 @@
 
 </style>
 
+
 <!-- PAGE CONTENT -->
-<!-- BUTTONS  -->
+<!-- BUTTONS AND INTRO TEXT -->
 <section class="banner-container">
     <div class="md-grid md-typeset">
       <div class="banner-hero">
@@ -264,13 +268,13 @@
 
     <div class="product-item">
         <h2>
-        Manage your Data
+        Other Resources
         </h2>
-        <p>Manage your data better with some snazzy copy here.</p>
+        <p>Find more help and connect with other users</p>
 		<ul>
-        <li><a href="https://amplitude.com">Getting Started</a></li>
-		<li>Use Cases</li>
-		<li>Data Ingestion Guide</li>
+        <li><a href="https://amplitude.com">The Amplitude Community</a></li>
+		<li>Link to resource</li>
+		<li>Link to another resource</li>
 		<l1>See all the doc</li></ul>
 			
     </div>

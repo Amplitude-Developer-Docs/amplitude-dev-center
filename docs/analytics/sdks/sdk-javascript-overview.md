@@ -12,11 +12,9 @@ hide:
 [![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js) 
 
 ???info "SDK Resources"
-    [JavaScript SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/){ .md-button}
-
-    [JavaScript SDK Repo :material-github:](https://github.com/amplitude/Amplitude-JavaScript){ .md-button}
-    
-    [JavaScript SDK Reference :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases){ .md-button}
+    - [JavaScript SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
+    - [JavaScript SDK Repo :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
+    - [JavaScript SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)
 
 
 ## SDK Installation
