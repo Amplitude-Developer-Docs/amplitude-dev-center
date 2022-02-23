@@ -23,7 +23,7 @@ OldLibrary.trackEvent(
 You track them like this:
 
 ```java
-Itly.productViewed(
+ampli.productViewed(
   name = "Moto 360"
 )
 ```
@@ -38,6 +38,5 @@ Iteratively supports 12 platforms today with more on the way.
 
 ## Destinations
 
-Iteratively supports the following analytics destinations out of the box. If your destination is not listed, you can create a custom destination to send events to another analytics provider or your own endpoint.
-
-<Destinations/>
+The Ampli SDK sends events to Amplitude out of the box. If you would like to send data to other analytics destinations,
+ you can create a custom [middleware](/middleware).

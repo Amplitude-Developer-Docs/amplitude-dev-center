@@ -59,8 +59,7 @@ To integrate Ampli with your CI system, modify your CI configuration to run [`am
 
 The following examples are for Bitbucket Pipelines but you can use the same images in any CI system that supports containers.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 <Tabs
   defaultValue="ampli"

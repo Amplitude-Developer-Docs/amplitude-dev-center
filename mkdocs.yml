@@ -25,7 +25,7 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
-    #- announce.dismiss
+    #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
     - content.code.annotate
     - content.tabs.link
     # - header.autohide
@@ -41,8 +41,6 @@ theme:
     - search.suggest
     # - toc.integrate #this is a really noisy feature, IMO. 
   font: false # Prevents autoloading of google fonts, for privacy reasons. 
-    #text: IBM Plex Sans
-    #code: IBM Plex Sans Mono
   favicon: assets/favicon.ico
   logo: assets/logo.png
 extra_css:
@@ -115,54 +113,62 @@ extra:
 
 # Navigation
 nav:
-- Analytics Docs:
+- Analytics:
   - analytics/index.md
-  - analytics/batch-event-upload.md
-  - SDKs:
-    - analytics/sdks/sdk-javascript-overview.md
-    - analytics/sdks/sdk-android-overview.md
-  - Integrations:
-    - analytics/analytics-shopify-plugin.md
-    - analytics/analytics-recieving-cohorts-from-amplitude.md
-- Experiment Docs:
+- Experiment:
   - experiment/index.md
-- Data Docs: 
+- Data: 
   - data/index.md
   - Getting Started:
     - data/getting-started.md
     - data/what-is-a-tracking-plan.md
     - data/creating-your-tracking-plan.md
-    - data/best-practices.md
-    - data/track-page-views.md
-    - data/identifying-users-and-groups.md
     - data/working-with-templates.md
-    - data/typical-workflow.md
+    - data/identifying-users-and-groups.md
+    - data/tracking-page-views.md
+    - data/best-practices.md
     - data/working-with-branches.md
+    - data/typical-workflow.md
     - data/observe.md
     - data/granular-event-destinations.md
+    - data/middleware-overview.md
   - Instrumentation:
+    - data/ampli-sdk-overview.md
     - data/using-the-ampli-cli.md
-    - data/integrating-with-ci.md
     - data/using-the-tracking-library.md
-    - data/iglu-api.md
+    - data/integrating-with-ci.md
     - data/unit-testing.md
     - data/user-lookup.md
-    - data/import.md
+    - data/iglu-api.md
   - Sources:
-    - data/android-ampli.md
     - data/browser-ampli.md
-    - data/ios-ampli.md
     - data/nodejs-ampli.md
-    - data/jre-v3.md
+    - data/ios-ampli.md
+    - data/android-ampli.md
+    - data/jre-ampli.md
+  - Sources (Legacy):
+    - data/browser.md
+    - data/nodejs.md
+    - data/ios.md 
+    - data/android.md
     - data/jre.md
     - data/python.md
-    - data/ruby-v2.md
+    - data/ruby.md 
     - data/dotnet.md
   - Resources:
-    - data/migration-guide.md
     - data/managing-your-account.md
+    - data/import.md
     - data/integrations.md
-- API Reference: http://localhost:4567/#amplitude-api-reference
+    - data/migration-guide.md
+- Integrations:
+    - integrations/index.md
+    - integrations/analytics-shopify-plugin.md
+    - integrations/analytics-recieving-cohorts-from-amplitude.md
+- API Reference:
+  - apis/index.md
+  - apis/identify-api.md
+  - apis/attribution-api.md
+
 - Partner Hub:
   - partners/index.md
 
