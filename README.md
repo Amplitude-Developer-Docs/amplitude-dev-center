@@ -20,7 +20,7 @@ Most dependencies are installed with this command.
    
 `npm install -g markdown-link-check`
   
-  We have a GitHub Action that runs a link checker for PRs, but it's annoying to only find out links are broken after you open your PR. If you install the link checker, you can run the linter locally with this command: `markdown-link-check -c .github/workflows/config.json  path/to/your/file.md`. It's not perfect, so if you find that the job repeatedly fails on a valid link, then add the pattern to ignore to the config.json file. 
+  We have a GitHub Action that runs a link checker for PRs, but it's annoying to only find out links are broken after you open your PR. If you install the link checker, you can run the linter locally with this command: `markdown-link-check -c .github/workflows/link-check-config.json path/to/your/file.md`. It's not perfect, so if you find that the job repeatedly fails on a valid link, then add the pattern to ignore to the config.json file. 
 
 ### 3. Clone this Repo
   
