@@ -1,9 +1,6 @@
 ---
-id: android-legacy
 title: Android (Legacy)
 ---
-
-
 
 Iteratively supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 

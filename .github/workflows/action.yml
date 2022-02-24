@@ -1,7 +1,5 @@
-name: Check Markdown links
-
-on: push
-
+on: [pull_request]
+name: Check links for modified files
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
@@ -9,6 +7,6 @@ jobs:
     - uses: actions/checkout@master
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
-        folder-path: "docs"
         use-quiet-mode: 'yes'
         use-verbose-mode: 'yes'
+        check-modified-files-only: 'yes'

@@ -1,34 +1,33 @@
 ---
-id: browser-ampli
 title: Browser
+description: Learn how to install and use the Ampli SDK for the browser JavaScript and Typescript runtimes.
+icon: material/language-javascript
 ---
 
 
 !!! note
-    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
-
+    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-browser-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](browser.md)**.
 
 
 Iteratively supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-:::tip
-Because JavaScript is not a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc. For a better development experience Ampli generates JSDocs for all methods and classes.
+??? tip "Enable real-time type checking for JavaScript"
+    Because JavaScript isn't a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc. For a better development experience Ampli generates JSDocs for all methods and classes.
 
-To enable real-time type checking in VSCode for JavaScript:
+    To enable real-time type checking in VSCode for JavaScript:
 
-1. Go to **Preferences > Settings** then search for **checkJs**.
-2. Select **JS/TS > Implicit Project Config: Check JS**.
+    1. Go to **Preferences > Settings** then search for **checkJs**.
+    2. Select **JS/TS > Implicit Project Config: Check JS**.
 
-After it's activated, type errors appear directly in the IDE.
+    After it's activated, type errors appear directly in the IDE.
 
-Jetbrains provides similar support:
+    Jetbrains provides similar support:
 
-1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
-2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
+    1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
+    2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
 
-:::
 
 
 ## Installation
@@ -37,40 +36,26 @@ These instructions are also available from the **Implementation** page of your I
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](using-the-ampli-cli.md).
 
 ### Install dependencies
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
-<Tabs
-  groupId="dependency-man"
-  defaultValue="npm"
-  values={[
-    { label: 'npm', value: 'npm', },
-    { label: 'Yarn', value: 'yarn', },
-  ]
-}>
-<TabItem value="npm">
+=== "npm"
 
-```bash
-npm install amplitude-js
-```
+    ```bash
+    npm install amplitude-js
+    ```
 
-</TabItem>
-<TabItem value="yarn">
+=== "Yarn"
 
-```bash
-yarn add amplitude-js
-```
+    ```bash
+    yarn add amplitude-js
+    ```
 
-</TabItem>
-</Tabs>
-
-:::note
-Note: when using Ampli in the browser, we recommend loading amplitude-js as a module rather than as a JS snippet.
-:::
-
+!!!note
+    Note: when using Ampli in the browser, we recommend loading amplitude-js as a module rather than as a JS snippet.
 
 ### Pull the SDK into your project
 
@@ -82,49 +67,37 @@ ampli pull
 
 This prompts you to log in to your workspace and select a source.
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="JavaScript"
-  values={[
-    { label: 'JavaScript', value: 'JavaScript', },
-    { label: 'TypeScript', value: 'TypeScript', },
-  ]
-}>
-<TabItem value="JavaScript">
+=== "TypeScript"
 
-```bash
-➜ ampli pull sourcename
-Ampli project is not initialized. No existing `ampli.json` configuration found.
-? Create a new Ampli project here? Yes
-Organization: Amplitude
-Workspace: My Workspace
-Source: sourcename
-Runtime: Browser - JavaScript
-Branch: main
-Pulling latest version (1.0.0)...
-Tracking library generated successfully.
-Path: ./src/itly
-```
+    ```bash
+    ➜ ampli pull sourcename
+    Ampli project is not initialized. No existing `ampli.json` configuration found.
+    ? Create a new Ampli project here? Yes
+    Organization: Amplitude
+    Workspace: My Workspace
+    Source: sourcename
+    Runtime: Browser - TypeScript
+    Branch: main
+    Pulling latest version (1.0.0)...
+    Tracking library generated successfully.
+    Path: ./src/itly
+    ```
 
-</TabItem>
-<TabItem value="TypeScript">
+=== "JavaScript"
 
-```bash
-➜ ampli pull sourcename
-Ampli project is not initialized. No existing `ampli.json` configuration found.
-? Create a new Ampli project here? Yes
-Organization: Amplitude
-Workspace: My Workspace
-Source: sourcename
-Runtime: Browser - TypeScript
-Branch: main
-Pulling latest version (1.0.0)...
-Tracking library generated successfully.
-Path: ./src/itly
-```
-
-</TabItem>
-</Tabs>
+    ```bash
+    ➜ ampli pull sourcename
+    Ampli project is not initialized. No existing `ampli.json` configuration found.
+    ? Create a new Ampli project here? Yes
+    Organization: Amplitude
+    Workspace: My Workspace
+    Source: sourcename
+    Runtime: Browser - JavaScript
+    Branch: main
+    Pulling latest version (1.0.0)...
+    Tracking library generated successfully.
+    Path: ./src/itly
+    ```
 
 ## API
 
@@ -153,102 +126,63 @@ The `identify()` function accepts an optional `userId`, optional user properties
 
 For example, your tracking plan contains a user property called `role`. The property's type is a string.
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-ampli.identify('user-id', {
-  role: 'admin'
-});
-```
+    ```js
+    ampli.identify('user-id', {
+      role: 'admin'
+    });
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-ampli.identify('user-id', {
-  role: 'admin'
-});
-```
-
-</TabItem>
-</Tabs>
-
-<br />
+    ```js
+    ampli.identify('user-id', {
+      role: 'admin'
+    });
+    ```
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
 
+=== "TypeScript"
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+    ```js
+    ampli.identify('user-id', {
+      role: 'admin'
+    }, {
+      deviceId: 'my-device-id'
+    });
+    ```
 
-```js
-ampli.identify('user-id', {
-  role: 'admin'
-}, {
-  deviceId: 'my-device-id'
-});
-```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-ampli.identify('user-id', {
-  role: 'admin'
-}, {
-  deviceId: 'my-device-id'
-});
-```
-
-</TabItem>
-</Tabs>
+    ```js
+    ampli.identify('user-id', {
+      role: 'admin'
+    }, {
+      deviceId: 'my-device-id'
+    });
+    ```
 
 ### Group
 
-:::note
-This feature is available for Growth customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532).
-:::
+!!! note
+    This feature is available for Growth customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532).
 
 Call `setGroup()` to associate a user with their group (for example, their department or company). The `setGroup()` function accepts a required `groupType`, and `groupName`.
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-ampli.setGroup('groupType', 'groupName');
-```
+    ```js
+    ampli.setGroup('groupType', 'groupName');
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-ampli.setGroup('groupType', 'groupName');
-```
-
-</TabItem>
-</Tabs>
+    ```js
+    ampli.setGroup('groupType', 'groupName');
+    ```
 
 Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group.
 
@@ -260,58 +194,34 @@ When setting groups, define a `groupType` and `groupName`. In the previous examp
 
  Your code might look like this:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-ampli.setGroup('orgId', ['10', '20']);
-```
+    ```js
+    ampli.setGroup('orgId', ['10', '20']);
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-ampli.setGroup('orgId', ['10', '20']);
-```
-
-</TabItem>
-</Tabs>
-
+    ```js
+    ampli.setGroup('orgId', ['10', '20']);
+    ```
 
 ### Track
 
 To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli SDK. The call is structured like this:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-ampli.eventName(properties: EventNameProperties, options: EventOptions, extra: MiddlewareExtra)
-```
+    ```js
+    ampli.eventName(properties: EventNameProperties, options: EventOptions, extra: MiddlewareExtra)
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-ampli.eventName(properties: EventNameProperties, options: EventOptions, extra: MiddlewareExtra)
-```
+    ```js
+    ampli.eventName(properties: EventNameProperties, options: EventOptions, extra: MiddlewareExtra)
+    ```
 
-</TabItem>
-</Tabs>
 
 The `properties` argument passes event properties.
 
@@ -323,112 +233,76 @@ For example, in the code snippet below, your tracking plan contains an event cal
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](#middleware).
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-ampli.songPlayed( {
-  songId: 'songId', // string,
-  songFavorited: true, // boolean
-}, {
-  deviceId: 'a-device-id',
-}, {
-  myMiddleware: { myMiddlewareProp: "value to send to middleware" }
-});
-```
+    ```js
+    ampli.songPlayed( {
+      songId: 'songId', // string,
+      songFavorited: true, // boolean
+    }, {
+      deviceId: 'a-device-id',
+    }, {
+      myMiddleware: { myMiddlewareProp: "value to send to middleware" }
+    });
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-ampli.songPlayed( {
-  songId: 'songId', // string,
-  songFavorited: true, // boolean
-}, {
-  deviceId: 'a-device-id',
-}, {
-  myMiddleware: { myMiddlewareProp: "value to send to middleware" }
-});
-```
+    ```js
+    ampli.songPlayed( {
+      songId: 'songId', // string,
+      songFavorited: true, // boolean
+    }, {
+      deviceId: 'a-device-id',
+    }, {
+      myMiddleware: { myMiddlewareProp: "value to send to middleware" }
+    });
+    ```
 
-</TabItem>
-</Tabs>
 
 
 Ampli also generates a class for each event.
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-const myEventObject = new SongPlayed({
-  songId: 'songId', // string,
-  songFavorited: true, // boolean
-});
-```
+    ```js
+    const myEventObject = new SongPlayed({
+      songId: 'songId', // string,
+      songFavorited: true, // boolean
+    });
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-const myEventObject = new SongPlayed({
-  songId: 'songId', // string,
-  songFavorited: true, // boolean
-});
-```
+    ```js
+    const myEventObject = new SongPlayed({
+      songId: 'songId', // string,
+      songFavorited: true, // boolean
+    });
+    ```
 
-</TabItem>
-</Tabs>
 
 Track Event objects using Ampli `track`:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-ampli.track(new SongPlayed({
-  songId: 'songId', // string,
-  songFavorited: true, // boolean
-}));
-```
+    ```js
+    ampli.track(new SongPlayed({
+      songId: 'songId', // string,
+      songFavorited: true, // boolean
+    }));
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-ampli.track(new SongPlayed({
-  songId: 'songId', // string,
-  songFavorited: true, // boolean
-}));
-```
+    ```js
+    ampli.track(new SongPlayed({
+      songId: 'songId', // string,
+      songFavorited: true, // boolean
+    }));
+    ```
 
-</TabItem>
-</Tabs>
-
-<br />
-
-##  Verify implementation status
+## Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
@@ -450,7 +324,7 @@ The output displays status and indicates what events are missing.
  ✘ Song Stopped Called when a user stops playing a song.
 Events Tracked: 2 missed, 3 total
 ```
-Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
+Learn more about [`ampli status`](using-the-ampli-cli.md#ampli-status).
 
 ## Migrating from an Itly Browser runtime
 
@@ -461,17 +335,19 @@ Migrate from an Itly Browser runtime to Ampli by following these steps.
 3. Remove legacy Itly dependencies from your project. This includes anything that contains `@itly`:
 
     `yarn remove @itly/sdk @itly/plugin-schema-validator @itly/plugin-amplitude ...`
-4. Add Amplitude dependencies:
 
-  `yarn add amplitude-js`
+4. Add Amplitude dependencies:
+  
+      `yarn add amplitude-js`
 
 5. Pull the latest Ampli SDK:
 
-   `ampli pull`
+    `ampli pull`
 
 6. Find and replace:
     - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
     - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
     - `itly.load()` => `ampli.load()`
     - All `itly.` with `ampli.`
+
 7. See updated Event tracking details on your Implementation page in the web app.
