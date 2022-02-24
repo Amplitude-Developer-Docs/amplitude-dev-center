@@ -6,7 +6,7 @@ icon: material/language-javascript
 
 
 
-!!! info "The Browser (Itly) runttime is deprecated" 
+!!! info "The Browser (Itly) runtime is deprecated" 
     Upgrade to the [Browser (Ampli)](browser-ampli.md) runtime. The Browser (Itly) runtime is deprecated. These docs aren't maintained.
 
 
