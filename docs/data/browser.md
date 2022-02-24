@@ -364,7 +364,7 @@ identify(userId: string | undefined, properties: Properties | undefined, options
 <br />
 
 #### Track
-Called when an event is tracked. The function receives a validated event with its complete set of properties (a combination of the event's own properties any any other properties associated with the source via a [source template](working-with-templates#adding-a-template-to-a-source)) The `track()` function has the following signature:
+Called when an event is tracked. The function receives a validated event with its complete set of properties (a combination of the event's own properties any any other properties associated with the source via a source template) The `track()` function has the following signature:
 
 ```js
 track(userId: string | undefined, event: Event, options: TrackOptions | undefined): void;
