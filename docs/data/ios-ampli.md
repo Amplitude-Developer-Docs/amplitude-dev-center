@@ -355,7 +355,12 @@ Migrate from an Itly iOS runtime to Ampli by following these steps.
     ```bash
     ampli pull
     ```
-5. Find and replace:
+
+5. Check your Ampli SDK path.
+
+    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+
+6. Find and replace:
 
     **Swift and Objective-C:**
       - `Itly => Ampli`
@@ -372,4 +377,4 @@ Migrate from an Itly iOS runtime to Ampli by following these steps.
       - `[Itly.group:groupId] => [Ampli.setGroup:groupType groupValue:groupValue)`
       - `[Itly instance] => [Ampli instance]`
 
-6. See updated Event tracking details on your Implementation page in the web app.
+7. See updated Event tracking details on your Implementation page in the web app.
