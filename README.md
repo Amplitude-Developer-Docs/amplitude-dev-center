@@ -1,20 +1,34 @@
 # README
 
-This is Casey's Material for MkDocs testing site. 
+This is the Amplitude Developer Center site. 
+
+To get started with contributing, first read <PLACEHOLDER FOR DOCS>.
 
 ## Install 
 
 ### 1. Install Material
 
-Almost every dependency is installed with this command. 
+Most dependencies are installed with this command. 
 
 `pip install mkdocs-material`
 
 ### 2. Install Git Revision Plugin
 
 `pip install mkdocs-git-revision-date-plugin`
+  
+### 3. (Optional) Install Local Link Checker
+   
+`npm install -g markdown-link-check`
+  
+  We have a GitHub Action that runs a link checker for PRs, but it's annoying to only find out links are broken after you open your PR. If you install the link checker, you can run the linter locally with this command: `markdown-link-check -c .github/workflows/config.json  path/to/your/file.md`. It's not perfect, so if you find that the job repeatedly fails on a valid link, then add the pattern to ignore to the config.json file. 
 
 ### 3. Clone this Repo
+  
+### 4. Create a branch and make your changes. When you're ready, open a PR against [PLACEHOLDER FOR STAGING BRANCH], and tag your reviewer. Opening a PR against [PLACEHOLDER FOR STAGING BRANCH] creates a preview site where you can check your changes. 
+
+### 5. Merge
+  
+After your PR is approved, merge it. 
 
 
 ## Notes
@@ -23,3 +37,4 @@ Almost every dependency is installed with this command.
 
 ## Resources 
 [Material Docs](https://squidfunk.github.io/mkdocs-material/)
+[Markdown Link Check](https://github.com/tcort/markdown-link-check)
