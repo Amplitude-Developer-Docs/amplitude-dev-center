@@ -1,5 +1,5 @@
 ---
-title: Best Practices
+title: Iteratively Best Practices
 description: Use Iteratively best practices to get the most out of your analytics tools. 
 ---
 
