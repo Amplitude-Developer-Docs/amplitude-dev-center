@@ -39,4 +39,5 @@ After your PR is approved, merge it.
 
 ## Resources 
 [Material Docs](https://squidfunk.github.io/mkdocs-material/)
+  
 [Markdown Link Check](https://github.com/tcort/markdown-link-check)
