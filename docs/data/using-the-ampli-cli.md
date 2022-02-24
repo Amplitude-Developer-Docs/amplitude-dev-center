@@ -128,11 +128,8 @@ By default, your tracking library will be placed in:
 | Browser | `./src/ampli` |
 | Node.js | `./src/ampli` |
 | iOS | `./ampli` |
-| Android | `./app/src/main/java/io/ampli` |
-| JRE | `./src/main/java/io/ampli` |
-| Python | `./ampli` |
-| Ruby | `./ampli` |
-| .NET | `./ampli` |
+| Android | `./app/src/main/java/com/amplitude/ampli` |
+| JRE | `./src/main/java/com/amplitude/ampli` |
 
 To override the default location, pass the `-p` argument. Ampli
 will remember your custom location and use it going forward.
@@ -141,7 +138,9 @@ will remember your custom location and use it going forward.
 ampli pull web -p ./src/analytics
 ```
 
-Include `-b {branch}` to generate a tracking library from a particular branch, rather than **main**. By default, the last published version will be used. If you'd like to generate a tracking library for another version, include `-v {version}` and specify the tracking plan's version.
+Include `-b {branch}` to generate a tracking library from a particular branch, rather than **main**. By default,
+the last published version will be used. If you'd like to generate a tracking library for another version, include
+`-v {version}` and specify the tracking plan's version.
 
 ### `ampli status`
 Check the status of your instrumentation by linting (verifying) your source code for analytics.

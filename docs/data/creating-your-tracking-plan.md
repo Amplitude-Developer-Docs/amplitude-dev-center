@@ -7,11 +7,11 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Now that we know what a [Tracking Plan](/what-is-a-tracking-plan) is and how it can benefit your company, let's get started.
 
-The Iteratively web app allows alxAl stakeholders to collaborate on a single source of truth for analytics definitions. It keeps everyone in sync on what data to track, when, and why, and maintains a consistent schema across engineering, product management, data science, and other consumers of analytics data.
+The Iteratively web app allows all stakeholders to collaborate on a single source of truth for analytics definitions. It keeps everyone in sync on what data to track, when, and why, and maintains a consistent schema across engineering, product management, data science, and other consumers of analytics data.
 
 ### Step 1: Add your Sources
 
-Sources represent the masin parts of your product, e.g. your `iOS`, `Android`, `Web`, and `Backend`. Create a new Source for every standalone part that will send events to your analytics backends.
+Sources represent the main parts of your product, e.g. your `iOS`, `Android`, `Web`, and `Backend`. Create a new Source for every standalone part that will send events to your analytics backends.
 
 From [Connections](//data.amplitude.com/connections) select `Add source` to create a new source.
 

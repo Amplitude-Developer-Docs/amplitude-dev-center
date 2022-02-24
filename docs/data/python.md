@@ -1,11 +1,9 @@
 ---
 id: python
-title: Python
-icon: material/language-python
+title: Python (Itly)
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 :::note Previous Version
 Still using the **Python (Legacy)** runtime? Docs for the previous version are available [here](python-legacy).

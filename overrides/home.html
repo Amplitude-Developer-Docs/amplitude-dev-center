@@ -39,6 +39,15 @@
         margin: 0 auto;
     }
 
+    .banner-hero__content p a {
+        color: var(--md-primary-bg-color);
+    }
+
+    .banner-hero__content p a:hover {
+        color: var(--md-primary-bg-color);
+        text-decoration: underline;
+    }
+
     .banner-hero .md-button {
         margin-top: .5rem;
         margin-right: .5rem;
@@ -213,15 +222,15 @@
       <div class="banner-hero">
         <div class="banner-hero__content">
           <h1>Welcome to the Amplitude Developer center</h1>
-          <p>This site contains all the content you need to get started with integrating, instrumenting, and extending Amplitude's products.</p>
+          <p>Get started integrating, instrumenting, and extending Amplitude's products. For our general help docs, visit the <a href="{{ config.extra.help_site }}">Help Center</a>. To get support or connect with other developers who are using Amplitude, visit the <a href="{{ config.extra.community }}">Amplitude Community</a>.</p>
           <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
             Get started
           </a>
           <a href="{{ config.extra.community }}" title="{{ lang.t('source.link.title') }}" class="md-button">
             Go to the Community
           </a>
-          <a href="{{ config.extra.community }}" title="{{ lang.t('source.link.title') }}" class="md-button">
-            I'm a button
+          <a href="{{ config.extra.help_site }}" title="{{ lang.t('source.link.title') }}" class="md-button">
+            Go to the Help Center
           </a>
         </div>
       </div>
@@ -239,7 +248,7 @@
         <li><a href="https://amplitude.com">Getting Started</a></li>
 		<li>Use Cases</li>
 		<li>Data Ingestion Guide</li>
-		<l1>See all the doc</li></ul>
+		<l1><a href="data/index.html">See all of the Data doc</a></li></ul>
 			
     </div>
 
@@ -251,7 +260,7 @@
         <li><a href="https://amplitude.com">Getting Started</a></li>
 		<li>Use Cases</li>
 		<li>Featured Guide</li>
-		<li>See all the doc</>
+		<li><a href="analytics/index.html">See all of the Amplitude Analytics docs</a></li>
         </ul>
     </div>
     <div class="product-item">
@@ -263,7 +272,7 @@
         <li><a href="https://amplitude.com">Getting Started</a></li>
 		<li>Use Cases</li>
 		<li>Featured Guide</li>
-		<li>See all the doc</li></ul>
+		<li><a href="experiment/index.html">See all of the Amplitude Experiment docs</a></li></ul>
     </div>
 
     <div class="product-item">

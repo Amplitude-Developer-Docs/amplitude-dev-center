@@ -1,11 +1,9 @@
 ---
 id: jre
-title: JRE
-icon: material/language-java
+title: JRE (Itly)
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 Iteratively supports tracking analytics events from JRE programs written in Java (6 and above).
 

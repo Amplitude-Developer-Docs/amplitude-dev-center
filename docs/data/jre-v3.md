@@ -1,11 +1,9 @@
 ---
 id: jre-v3
 title: JRE (v3)
-icon: material/language-java
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 Iteratively supports tracking analytics events from JRE programs written in Java (6 and above).
 

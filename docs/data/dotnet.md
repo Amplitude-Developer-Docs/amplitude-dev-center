@@ -1,11 +1,9 @@
 ---
 id: dotnet
-title: .NET
-icon: material/dot-net
+title: .NET (Itly)
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 Iteratively supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).
 

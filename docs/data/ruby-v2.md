@@ -1,11 +1,9 @@
 ---
 id: ruby-v2
 title: Ruby
-icon: material/language-ruby
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 :::note Previous Version
 Still using the **Ruby (Legacy)** runtime? Docs for the previous version are available [here](ruby).

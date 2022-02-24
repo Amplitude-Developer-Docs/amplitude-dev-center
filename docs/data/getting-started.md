@@ -1,12 +1,14 @@
 ---
-title: Getting Started with Data
+id: getting-started
+slug: /
+title: Getting Started
 ---
 
 Welcome to Iteratively's documentation! This will get you up to speed on the product and show you how to start instrumenting your application.
 
 <br/>
 
-![Iteratively Tracking Plan](../assets/images/diagram.png)
+![Iteratively Tracking Plan](/img/diagram.png)
 
 ## Iteratively Overview
 
