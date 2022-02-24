@@ -24,7 +24,9 @@ Most dependencies are installed with this command.
 
 ### 3. Clone this Repo
   
-### 4. Create a branch and make your changes. When you're ready, open a PR against [PLACEHOLDER FOR STAGING BRANCH], and tag your reviewer. Opening a PR against [PLACEHOLDER FOR STAGING BRANCH] creates a preview site where you can check your changes. 
+### 4. Create a branch and make your changes
+  
+  When you're ready, open a PR against [PLACEHOLDER FOR STAGING BRANCH], and tag your reviewer. Opening a PR against [PLACEHOLDER FOR STAGING BRANCH] creates a preview site where you can check your changes. 
 
 ### 5. Merge
   
