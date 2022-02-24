@@ -1,6 +1,7 @@
 ---
 title: Browser (Itly)
 description: This runtime is deprecated. Learn how to install and use the Itly SDK for the browser JavaScript and Typescript runtimes.
+icon: material/language-javascript
 ---
 
 
