@@ -7,7 +7,7 @@ jobs:
     - uses: actions/checkout@master
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
-        file-path: 'docs'
+        folder-path: 'docs'
         use-quiet-mode: 'yes'
         use-verbose-mode: 'yes'
         check-modified-files-only: 'yes'
