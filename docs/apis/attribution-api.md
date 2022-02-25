@@ -1,17 +1,17 @@
 ---
 title: Attribution API
+description: The Attribution API lets you send attribution campaign events to Amplitude. 
 ---
-
-## Attribution API
-
---8<-- "includes/postman.md"
 
 The Attribution API is for sending attribution campaign events (identified by `idfa`, `idfv`, or `adid`) that contain attribution information.
 
-## Before you begin
+--8<-- "includes/postman.md"
 
--   This API doesn't use authorization, but uses your API key. If you're using Postman, set your API key in Amplitude API Environment variables.
--   Before you send a request, make sure you're using the correct endpoint.
+## Authorization
+
+This API doesn't use authorization, but uses your API key. Pass your API key in the body of the request like `api-key={{api_key}}`. If you're using Postman, set your API key in Amplitude API Environment variables.
+
+## Endpoints
 
 | Region | Endpoint |
 | --- | --- |
@@ -20,16 +20,27 @@ The Attribution API is for sending attribution campaign events (identified by `
 
 ## Considerations
 
+- When attribution events can't be matched to an existing user, they're held for up to 72 hours for potential user matching. If an event isn't logged for a matching user within 72 hours of receiving the attribution data, then the **attribution data is dropped**.
+- For most of our partners, attribution is matched to Amplitude users/events via the Advertising ID (IDFA/IDFV or ADID). Therefore, you must send the Advertising ID for attribution requests and you must set the idfa, idfv, and adid fields in Amplitude as the Advertising ID.
+- If you are using the iOS SDK or Android SDK, you can enable tracking of the Advertising ID by following the instructions [here](https://developers.amplitude.com/docs/ios#advertising-id). If you are using JS SDK or React Native, these do not have the functionality to collect Advertising ID automatically due to Google's and Apple's privacy rules around advertising ID and web tracking. You will have to send the Advertising ID through the HTTP API endpoint so that Amplitude can match attribution data/events. See keys in our [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) doc.
 
--   If attribution events can't be matched to an existing user, then they are held for up to 72 hours for potential user matching. If an event isn't logged for a matching user within 72 hours of receiving the attribution data, then the **attribution data is dropped**.
--   For most of our partners, attribution is matched to Amplitude users/events via the Advertising ID (IDFA/IDFV or ADID). Therefore, you must send the Advertising ID for attribution requests and you must set the idfa, idfv, and adid fields in Amplitude as the Advertising ID.
--   If you are using the iOS SDK or Android SDK, you can enable tracking of the Advertising ID by following the instructions [here](https://developers.amplitude.com/docs/ios#advertising-id). If you are using JS SDK or React Native, these do not have the functionality to collect Advertising ID automatically due to Google's and Apple's privacy rules around advertising ID and web tracking. You will have to send the Advertising ID through our HTTP API endpoint so that Amplitude can match attribution data/events. See keys in our [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) doc.
+## Differences between HTTP API and Attribution API
+
+The HTTP API is for sending event data to Amplitude. These events must have a user id or a device id, and are ingested immediately.
+The Attribution API, on the other hand, is for sending attribution campaign events (identified by idfa/idfv/adid) that contain attribution information. The big difference between this and the HTTP API is that if we can't match the user when an attribution event is received, it is held for up to 72 hours. If we receive regular events with user information that matches the attribution events, the attribution events will be ingested into Amplitude. Otherwise, they will be discarded. This allows attribution information to be sent without worrying about polluting Amplitude with events from people who never actually use the app.
 
 
+## Send an Attribution Event
 
-### POST 
+Send a POST request to https://api2.amplitude.com/attribution with two arguments: `api_key` and `event`.
 
-https://api.amplitude.com/attribution
+### Required Arguments
+
+|Name| Description  | Example|
+|---|---|---|
+|`api_key`| Required. The project's API key. | `{{api_key}}`|
+|`event`| Required. A request parameter representing the event, in JSON format.| `{"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}`|
+
 
 !!! example "Attribution Examples"
 
@@ -53,33 +64,25 @@ https://api.amplitude.com/attribution
 			```
 
 
+#### Event Argument Keys
 
-##### Required Event Argument Keys
+These keys are available for the Event argument.
 
-You must include the following keys within the event argument:
+| Key              | Description                                                                                                                          | Example                                                  |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| `event_type`     | Required. String. The event info. Prefix with brackets "[YOUR COMPANY]".                                                             | "[YOUR COMPANY] Install"                                 |
+| `platform`       | Required. String. Either "ios" or "android".                                                                                         | "ios"                                                    |
+| `idfa` or `idfv` | Required for iOS. String. The Identifier for Advertiser or the Identifier for Vendor. You must include at least one for iOS devices. | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
+| `adid`           | Required for Android. String. The Google AdID, or Amazon Advertising ID for Amazon devices.                                          | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
+| `android_id`       | Optional. String. (Android) The Android ID                                                                                           | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
+| `user_properties`  | Optional. Dictionary. A dictionary of attribution properties prefixed with brackets "[YOUR COMPANY]".                                | {"[YOUR COMPANY] media source": "Facebook"}              |
+| `time`             | Optional. Long. Timestamp of the event in milliseconds since epoch.                                                                  | 1396381378123, will be set to the upload time by default |
 
-| Required Key | Type | Description | Example |
-| --- | --- | --- | --- |
-| event_type | string | Prefix with brackets "[YOUR COMPANY]". | "[YOUR COMPANY] Install" |
-| platform | string | Either "ios" or "android". | "ios" |
-| idfa or idfv | string | (*required for iOS*) The Identifier for Advertiser or the Identifier for Vendor. | AEBE52E7-03EE-455A-B3C4-E57283966239 |
-| adid | string | *(required for Android)* The Google AdID, or Amazon Advertising ID for Amazon devices. | AEBE52E7-03EE-455A-B3C4-E57283966239 |
 
-*Note: For iOS devices, you can send either the IDFA or the IDFV but you must send at least one.*
+## Responses
 
-##### Optional Event Argument Keys
 
-These optional keys are available.
-
-| Additional Key | Type | Description | Example |
-| --- | --- | --- | --- |
-| android_id | string | (Android) The Android ID | AEBE52E7-03EE-455A-B3C4-E57283966239 |
-| user_properties | dictionary | A dictionary of attribution properties prefixed with brackets "[YOUR COMPANY]". | {"[YOUR COMPANY] media source": "Facebook"} |
-| time | long | Timestamp of the event in milliseconds since epoch. | 1396381378123, will be set to the upload time by default |
-
-### Body (urlencoded)
-
-|Name|   | Description|
-|---|---|---|
-|api_key| INSERT API KEY| Required. Your API key.|
-|event| {"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}|Required. A request parameter representing the event, in JSON format.|
+| Code | Message                                                                                                                     |
+|------|-----------------------------------------------------------------------------------------------------------------------------|
+| 200  | Success                                                                                                                     |
+| 400  | The expected JSON is formatted incorrectly. Check the Attribution API developers center article for formatting information. |
