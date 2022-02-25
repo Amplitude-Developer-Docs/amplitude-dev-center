@@ -6,7 +6,7 @@ icon: material/android
 
 
 !!! note
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](browser.md)**.
+    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](android.md)**.
 
 Iteratively supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 
@@ -351,7 +351,11 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
     ampli pull
     ```
 
-4. Find and replace:
+4. Check your Ampli SDK path.
+
+    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+    
+5. Find and replace:
 
       **Kotlin and Java:**
       - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
@@ -368,4 +372,4 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
       - `Itly.getInstance().load()` => `Ampli.getInstance().load()`
       - `Itly.` => `Ampli.`
 
-5. See updated Event tracking details on your Implementation page in the web app.
+6. See updated Event tracking details on your Implementation page in the web app.

@@ -1,16 +1,13 @@
 ---
-id: android
 title: Android (Itly)
+description: This SDK is deprecated. Learn how to install and use the Ampli SDK for the Android Java and Kotlin runtimes. 
+icon: material/android
 ---
 
 
 
-:::note Previous Version
-Still using the **Android (Legacy)** runtime? Docs for the previous version are available [here](android-legacy).
-:::
-:::note Migrating
-Migrating from **Android (Legacy)** to the new **Android** runtime? A migration guide is available [here](#migrating-from-previous-version).
-:::
+!!! info "The Android (Itly) runtime is deprecated" 
+    Upgrade to the [Android (Ampli)](android-ampli.md) runtime. The Android (Itly) runtime is deprecated. These docs aren't maintained.
 
 Iteratively supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 
@@ -20,13 +17,12 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](using-the-ampli-cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./app/src/main/java/ly/iterative/itly/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `android`).
-:::
+!!!tip
+    `{source}` is the name of the source you created in your tracking plan (e.g. `android`).
 
 ### Install dependencies
 
@@ -46,29 +42,17 @@ Note: if you're not already requesting the [INTERNET permission](https://develop
 
 To use the library, you'll need to import it first:
 
-<Tabs
-  groupId="android-v3-source"
-  defaultValue="kotlin"
-  values={[
-    { label: 'Kotlin', value: 'kotlin', },
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```java
-import ly.iterative.itly.*
-```
+    ```java
+    import ly.iterative.itly.*
+    ```
 
-</TabItem>
-<TabItem value="java">
+=== "Java"
 
-```java
-import ly.iterative.itly.*
-```
-
-</TabItem>
-</Tabs>
+    ```java
+    import ly.iterative.itly.*
+    ```
 
 ## API
 
@@ -76,49 +60,37 @@ import ly.iterative.itly.*
 
 Load the Itly SDK once when your application starts. The `load()` method accepts a few configuration option arguments:
 
-<Tabs
-  groupId="android-v3-source"
-  defaultValue="kotlin"
-  values={[
-    { label: 'Kotlin', value: 'kotlin', },
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```java
-Itly.load(
-    Context(version = "1.0"),
-    DestinationsOptions(
-        AmplitudeOptions(applicationContext),
-        SegmentOptions(applicationContext)
-    ),
-    Options(
-        plugins = listOf(MyCustomDestination())
-    )
-);
-```
+    ```java
+    Itly.load(
+        Context(version = "1.0"),
+        DestinationsOptions(
+            AmplitudeOptions(applicationContext),
+            SegmentOptions(applicationContext)
+        ),
+        Options(
+            plugins = listOf(MyCustomDestination())
+        )
+    );
+    ```
 
-</TabItem>
-<TabItem value="java">
+=== "Java"
 
-```java
-Itly.getInstance().load(Options.builder()
-    .destinations(Destinations.builder()
-        .custom(new CustomOptions(new MyCustomDestination()))
-        .build())
-    .context(Context.builder()
-            .version("1.0")
+    ```java
+    Itly.getInstance().load(Options.builder()
+        .destinations(Destinations.builder()
+            .custom(new CustomOptions(new MyCustomDestination()))
             .build())
-    .logger(new Logger())
-    .disabled(false)
-    .environment(ItlyOptions.Environment.DEVELOPMENT)
-    .build()
-);
-```
-
-</TabItem>
-</Tabs>
+        .context(Context.builder()
+                .version("1.0")
+                .build())
+        .logger(new Logger())
+        .disabled(false)
+        .environment(ItlyOptions.Environment.DEVELOPMENT)
+        .build()
+    );
+    ```
 
 In our example above, we defined a tracking plan in the Itly web application to:
  - Include a property called *version* on every event
@@ -132,13 +104,13 @@ As a result, our SDK will be initialized to:
 
 | Arg | Description |
 |-|-|
-| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
+| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one source template associated with your your team's tracking plan.|
 | `destinations` | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.<br /><br />Optional.|
 | `options` | Specifies additional configuration options for the Itly SDK. Optional.<br /><br />`disabled`<br />Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.<br /><br />`environment`<br />Specifies the environment the Itly SDK is running in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it will log an error but still let the event through. In development, the SDK will throw an exception to alert you that something is wrong.<br /><br />Optional. Defaults to `development`.<br /><br />`plugins`<br />An array of additional plugins to load into the Itly SDK. Plugins allow you to extend the Itly SDK's event validation and event tracking functionality with your own. For example, a plugin can be used to implement a custom destination or a custom event validator.<br /><br />[Click here](#custom-destination) to learn about writing a custom destination plugin.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/android-kotlin-v3/app/src/main/java/ly/iterative/examples/kotlin/MyCustomDestination.kt) to see a sample custom destination plugin.<br /><br />`logger`<br />To log Itly's logs to a custom logger, implement the `ItlyLogger` protocol and set `logger` to an instance of your class. The Itly SDK will call into your class with all debug, info, warn, and error-level messages.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/android-kotlin/app/src/main/java/io/itly/ItlyBase.kt) to see an example written in Kotlin.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/android-java/app/src/main/java/io/itly/Itly.java) to see an example written in Java.<br /><br />Optional. Defaults to standard out. |
 
-:::note Note
-The Itly SDK will automatically load and initialize your analytics providers' libraries using your each library's official installation instructions.
-:::
+!!! note 
+    The Itly SDK will automatically load and initialize your analytics providers' libraries using your each library's official installation instructions.
+
 
 ### Track
 
@@ -146,33 +118,21 @@ To track an event, call the event’s corresponding function. Every event in you
 
 For example, in the code snippet below, our tracking plan contains an event called `Activity Created`. The event was defined with one required property called `title`. The property's type is an enum.
 
-<Tabs
-  groupId="android-v3-source"
-  defaultValue="kotlin"
-  values={[
-    { label: 'Kotlin', value: 'kotlin', },
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```java
-Itly.activityCreated(
-    title = ActivityCreated.Title.MAIN_ACTIVITY
-)
-```
+    ```java
+    Itly.activityCreated(
+        title = ActivityCreated.Title.MAIN_ACTIVITY
+    )
+    ```
 
-</TabItem>
-<TabItem value="java">
+=== "Java"
 
-```java
-Itly.getInstance().activityCreated(ActivityCreated.builder()
-  .title(ActivityCreated.Title.MAIN_ACTIVITY)
-  .build());
-```
-
-</TabItem>
-</Tabs>
+    ```java
+    Itly.getInstance().activityCreated(ActivityCreated.builder()
+      .title(ActivityCreated.Title.MAIN_ACTIVITY)
+      .build());
+    ```
 
 ## Example
 
