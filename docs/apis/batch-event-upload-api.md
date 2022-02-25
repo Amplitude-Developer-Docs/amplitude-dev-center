@@ -1,6 +1,6 @@
 ---
 title: Batch Event Upload Event API
-description: 
+description: The Batch Event Upload API lets you upload large amounts of event data.
 ---
 
 The Batch Event Upload API lets you upload large amounts of event data.
@@ -25,7 +25,7 @@ The event JSON format follows our [HTTP API format](https://developers.amplitude
 - To prevent instrumentation issues, device IDs and user IDs must be strings with a length of 5 characters or more. If an event has a device or user ID that's too short, the ID value is dropped from the event. If an event doesn't have a user or device ID, it may cause the API to reject the upload with a 400 error. You can change the minimum ID length using the `options` property.
 - Each API key can send up to 1000 events per second for any individual device ID or user ID. If you exceed that rate, the API rejects the upload, and gives a 429 response. Check the response summary for more information.
 
-## Batch Event Upload
+## Batch event upload
 
 Use this request to bulk upload events to Amplitude.
 
@@ -231,7 +231,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 |-------|-------|
 |`body`| Required. UploadRequestBody. A JSON object that contains your API key and an array of events.|
 
-##### Example Body 
+##### Example body 
 
 ```json
 {
@@ -300,7 +300,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 
 ```
 
-##### Body Properties
+##### Body properties
 
 These properties belong to the request's body.
 
@@ -310,7 +310,7 @@ These properties belong to the request's body.
 | `events` | Required. [[Event](https://developers.amplitude.com/docs/batch-event-upload-api#schemaevent)\]. Array of [Events](https://developers.amplitude.com/docs/batch-event-upload-api#definition-Event) to upload |
 | `options`  | Optional. [[options](https://developers.amplitude.com/docs/batch-event-upload-api#schemaRequestOptions)\]. Options for the request. |
 
-#### Event Properties
+#### Event properties
 
 These properties belong to the `events` object.
 
@@ -358,7 +358,7 @@ These properties belong to the `events` object.
 |     `plan.source`     |                                                                                                                                                                               Optional. String. The tracking plan source e.g. "web"                                                                                                                                                                               |
 |    `plan.version`     |                                                                                                                                                                            Optional. String. The tracking plan version e.g. "1", "15"                                                                                                                                                                             |
 
-#### Option Properties
+#### Option properties
 
 These properties belong to the `options` object. 
 
@@ -469,7 +469,7 @@ These properties belong to the `options` object.
 
 ```
 
-**SilencedDeviceID Properties**
+**SilencedDeviceID properties**
 
 
 | Name | Description |
@@ -494,7 +494,7 @@ These properties belong to the `options` object.
 
 ```
 
-**PayloadTooLargeError Properties**
+**PayloadTooLargeError properties**
 
 
 | Name | Description |
@@ -530,7 +530,7 @@ These properties belong to the `options` object.
 
 ```
 
-**TooManyRequestsForDeviceError Properties**
+**TooManyRequestsForDeviceError properties**
 
 
 | Name |  Description |
@@ -542,7 +542,7 @@ These properties belong to the `options` object.
 | throttled_users | Object. A map from user_id to their current events per second rate, for all users that exceed the app's current threshold |
 | throttled_events | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
 
-#### Code 429 Explained
+#### Code 429 explained
 
 When a request is rejected with a 429 status, it means that a device or user in that request was throttled. Details about which can be found in the error response data. Logging the response lets you investigate which users or devices were the cause of throttling.
 
@@ -556,7 +556,7 @@ For example, to reach an EPDS limit of 1000 requires that a device sends 30,000 
 
 In general, your app shouldn't measure EPDS or EPUS itself. Send requests to Amplitude as fast as possible. When you receive a 429, wait for a short period (for example, 15 seconds) before trying to send that request again.
 
-**Daily Limit**
+**Daily limit**
 
 In addition to the per-second limit, there is daily limit to prevent against spam and abuse. This limit is rarely exceeded. Events starts counting toward the daily limit after Amplitude determines that a user/device is spamming the system. After the threshold is reached, a daily limit of 500,000 events uploaded per rolling 24 hours is enforced. The 24 hour rolling period applies in one-hour intervals. The daily limit applies for each deviceid and each user_id for a project.
 

@@ -167,6 +167,7 @@ nav:
   - apis/index.md
   - apis/attribution-api.md
   - apis/batch-event-upload-api.md
+  - apis/behavioral-cohorts-api.md
   - apis/identify-api.md
 
 - Partner Hub:
