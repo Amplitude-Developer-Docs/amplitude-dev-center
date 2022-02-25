@@ -1,19 +1,14 @@
 ---
-id: browser
 title: Browser (Itly)
+description: This runtime is deprecated. Learn how to install and use the Itly SDK for the browser JavaScript and Typescript runtimes.
+icon: material/language-javascript
 ---
 
 
 
+!!! info "The Browser (Itly) runtime is deprecated" 
+    Upgrade to the [Browser (Ampli)](browser-ampli.md) runtime. The Browser (Itly) runtime is deprecated. These docs aren't maintained.
 
-:::note Upgrade to the [Browser (Ampli)](/browser-ampli.mdx) runtime. The Browser (Itly) runtime is deprecated.:::
-
-:::note Previous Version
-Still using the **Browser (Legacy)** runtime? Docs for the previous version are available [here](browser-legacy).
-:::
-:::note Migrating
-Migrating from **Browser (Legacy)** to the new **Browser** runtime? A migration guide is available [here](#migrating-from-previous-version).
-:::
 
 Iteratively supports tracking analytics events from browser apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as an ES module.
 
@@ -25,117 +20,82 @@ Since JavaScript is not a type-safe language, the library won't expose type-safe
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](using-the-ampli-cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the folder with your package.json file. By default, the SDK will be generated in `./src/itly/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `browser`).
-:::
+!!!tip
+    `{source}` is the name of the source you created in your tracking plan (e.g. `browser`).
 
 ### Install dependencies
 
-:::note Tip
-When you run `ampli pull {source}` for the first time, the Ampli CLI will provide an npm/yarn install command specific to your tracking plan that will include all required dependencies.
-:::
+!!!note 
+    When you run `ampli pull {source}` for the first time, the Ampli CLI will provide an npm/yarn install command specific to your tracking plan that will include all required dependencies.
 
 The generated Itly SDK has several dependencies. To install them, run:
 
-<Tabs
-  groupId="dependency-man"
-  defaultValue="npm"
-  values={[
-    { label: 'npm', value: 'npm', },
-    { label: 'Yarn', value: 'yarn', },
-  ]
-}>
-<TabItem value="npm">
+=== "npm"
 
-```bash
-npm install @itly/sdk \
+    ```bash
+    npm install @itly/sdk \
+                @itly/plugin-schema-validator
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add @itly/sdk \
             @itly/plugin-schema-validator
-```
-
-</TabItem>
-<TabItem value="yarn">
-
-```bash
-yarn add @itly/sdk \
-         @itly/plugin-schema-validator
-```
-
-</TabItem>
-</Tabs>
+    ```
 
 If you're using Amplitude or Segment the SDK will also depend on a few additional plugins that must be installed before your project will compile:
 
-<Tabs
-  groupId="dependency-man"
-  defaultValue="npm"
-  values={[
-    { label: 'npm', value: 'npm', },
-    { label: 'Yarn', value: 'yarn', },
-  ]
-}>
-<TabItem value="npm">
 
-```bash
-# if you're using Segment
-npm install @itly/plugin-segment
-# if you're using Amplitude
-npm install @itly/plugin-amplitude
-```
+=== "npm"
 
-</TabItem>
-<TabItem value="yarn">
+    ```bash
+    # if you're using Segment
+    npm install @itly/plugin-segment
+    # if you're using Amplitude
+    npm install @itly/plugin-amplitude
+    ```
 
-```bash
-# if you're using Segment
-yarn add @itly/plugin-segment
-# if you're using Amplitude
-yarn add @itly/plugin-amplitude
-```
+=== "yarn"
 
-</TabItem>
-</Tabs>
+    ```bash
+    # if you're using Segment
+    yarn add @itly/plugin-segment
+    # if you're using Amplitude
+    yarn add @itly/plugin-amplitude
+    ```
 
-:::note Note
-- To validate your analytics events, the SDK depends on [ajv](https://github.com/ajv-validator/ajv) (MIT).
-:::
+
+!!!note
+    To validate your analytics events, the SDK depends on [ajv](https://github.com/ajv-validator/ajv) (MIT).
+
 
 ### Import into your app
 
 To use the library, you'll need to import it first:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-import itly from './itly';
-```
+    ```js
+    import itly from './itly';
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-import itly from './itly';
-```
+    ```js
+    import itly from './itly';
+    ```
 
-</TabItem>
-</Tabs>
 
 You can now call functions on `itly` directly.
 
-:::note Note
-Adjust the relative import path to the location where `ampli pull` generated your SDK. By default, this path is `./src/itly`.
-:::
+!!!note
+    Adjust the relative import path to the location where `ampli pull` generated your SDK. By default, this path is `./src/itly`.
+
 
 ## API
 
@@ -143,44 +103,31 @@ Adjust the relative import path to the location where `ampli pull` generated you
 
 Load the Itly SDK once when your application starts. The `load()` function accepts an options object to configure the SDK's behavior:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-itly.load({ environment: 'development' });
-```
+    ```js
+    itly.load({ environment: 'development' });
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-itly.load({ environment: 'development' });
-```
-
-</TabItem>
-</Tabs>
+    ```js
+    itly.load({ environment: 'development' });
+    ```
 
 | Option ||||
 |-|-|-|-|
-| `context` | Object<br />`Context` | required | An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
+| `context` | Object<br />`Context` | required | An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one source template associated with your team's tracking plan.|
 | `disabled` | Boolean | optional | Specifies whether the Itly SDK does any work. When `true`, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.|
 | `environment` | String | optional | Specifies the environment the Itly SDK is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it will log an error but still let the event through. In development, the SDK will throw an exception to alert you that something is wrong.<br /><br />Defaults to `development`.|
 | `destinations` | Object<br />`DestinationsOptions` | optional | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.|
 | `validation` | Enum<br />`Validation` | optional | Configures the Itly SDK's behavior when events or traits fail validation against your tracking plan. Supports the following options:<br /><br />`Disabled`<br /> Disables validation altogether.<br /><br />`TrackOnInvalid`<br />Specifies whether events that failed validation should still be tracked.<br /><br />`ErrorOnInvalid`<br />Specifies whether the SDK should throw an exception when validation fails.<br /><br /> Defaults to `ErrorOnInvalid` in development, `TrackOnInvalid` in production.|
 | `plugins` | Array | optional | An array of additional plugins to load into the Itly SDK. Plugins allow you to extend the Itly SDK's event validation and event tracking functionality with your own. For example, a plugin can be used to implement a custom destination or a custom event validator.<br /><br />[Click here](#custom-destination) to learn about writing a custom destination plugin.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/browser-javascript-v3/src/CustomDestination.js) to see a sample custom destination plugin written in JavaScript.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/browser-typescript-v3/src/CustomDestination.ts) to see a sample custom destination plugin written in TypeScript.|
 
-:::note Note
-By default, the Itly SDK will automatically load and initialize your analytics providers' libraries using each library's official installation instructions.
+!!!note 
+    By default, the Itly SDK will automatically load and initialize your analytics providers' libraries using each library's official installation instructions.
 
-However, if the Itly SDK detects that your analytics provider's library has already been loaded (typically by checking whether it's available on `window`), it will skip loading and initializing it and will simply reuse it. This means your can easily and safely add Iteratively to your existing codebase without any other changes; Iteratively will run side-by-side with your existing instrumentation.
-:::
+    However, if the Itly SDK detects that your analytics provider's library has already been loaded (typically by checking whether it's available on `window`), it will skip loading and initializing it and will simply reuse it. This means your can easily and safely add Iteratively to your existing codebase without any other changes; Iteratively will run side-by-side with your existing instrumentation.
 
 ### Identify
 
@@ -192,89 +139,64 @@ The `identify()` function accepts an optional `userId`, optional `traits`, and o
 
 For example, in the code snippet below, our tracking plan contains a user trait called `role`. The trait's type is a string.
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-itly.identify('user-id', { role: 'admin' });
-```
+    ```js
+    itly.identify('user-id', { role: 'admin' });
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-itly.identify('user-id', { role: 'admin' });
-```
+    ```js
+    itly.identify('user-id', { role: 'admin' });
+    ```
 
-</TabItem>
-</Tabs>
-
-<br />
 
 The `options` argument allows you to pass additional metadata about this call, such as a callback function or custom configuration, to the SDK's destinations. For example, to specify that Segment should only send data to Intercom and Google Analytics:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-itly.identify(
-  'user-id',
-  {
-    role: 'admin',
-  },
-  {
-    segment: {
-      options: {
-        integrations: {
-          'All': false,
-          'Intercom': true,
-          'Google Analytics': true
+    ```js
+    itly.identify(
+      'user-id',
+      {
+        role: 'admin',
+      },
+      {
+        segment: {
+          options: {
+            integrations: {
+              'All': false,
+              'Intercom': true,
+              'Google Analytics': true
+            }
+          }
         }
       }
-    }
-  }
-);
-```
+    );
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-itly.identify(
-  'user-id',
-  {
-    role: 'admin',
-  },
-  {
-    segment: {
-      options: {
-        integrations: {
-          'All': false,
-          'Intercom': true,
-          'Google Analytics': true
+    ```js
+    itly.identify(
+      'user-id',
+      {
+        role: 'admin',
+      },
+      {
+        segment: {
+          options: {
+            integrations: {
+              'All': false,
+              'Intercom': true,
+              'Google Analytics': true
+            }
+          }
         }
       }
-    }
-  }
-);
-```
-
-</TabItem>
-</Tabs>
+    );
+    ```
 
 ### Group
 
@@ -286,65 +208,40 @@ The `group()` function accepts a required `groupId`, optional `traits`, and opti
 
 For example, in the code snippet below, our tracking plan contains a group trait called `name`. The trait's type is a string.
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-itly.group('group-id', { name: 'Iteratively, Inc.' });
-```
+    ```js
+    itly.group('group-id', { name: 'Iteratively, Inc.' });
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-itly.group('group-id', { name: 'Iteratively, Inc.' });
-```
-
-</TabItem>
-</Tabs>
-
-<br />
+    ```js
+    itly.group('group-id', { name: 'Iteratively, Inc.' });
+    ```
 
 The `options` argument allows you to pass additional metadata about this call, such as a callback function or custom configuration, to the SDK's destinations. For example, to specify that Segment should invoke a callback function when it's done calling `group()`:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
 
-```js
-itly.group('group-id', { name: 'Iteratively, Inc.' }, {
-  segment: {
-    callback: () => console.log('Segment is done!'),
-  }
-});
-```
+=== "TypeScript"
 
-</TabItem>
-<TabItem value="js">
+    ```js
+    itly.group('group-id', { name: 'Iteratively, Inc.' }, {
+      segment: {
+        callback: () => console.log('Segment is done!'),
+      }
+    });
+    ```
 
-```js
-itly.group('group-id', { name: 'Iteratively, Inc.' }, {
-  segment: {
-    callback: () => console.log('Segment is done!'),
-  }
-});
-```
+=== "JavaScript"
 
-</TabItem>
-</Tabs>
+    ```js
+    itly.group('group-id', { name: 'Iteratively, Inc.' }, {
+      segment: {
+        callback: () => console.log('Segment is done!'),
+      }
+    });
+    ```
 
 ### Track
 
@@ -352,87 +249,61 @@ To track an event, call the event’s corresponding function. Every event in you
 
 For example, in the code snippet below, our tracking plan contains an event called `User Signed In`. The event was defined with one required property called `platform`. The property's type is a string.
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-itly.userSignedIn({ platform: 'web' });
-```
+    ```js
+    itly.userSignedIn({ platform: 'web' });
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-itly.userSignedIn({ platform: 'web' });
-```
+    ```js
+    itly.userSignedIn({ platform: 'web' });
+    ```
 
-</TabItem>
-</Tabs>
-
-<br />
 
 The `options` argument allows you to pass additional metadata about this call, such as a callback function or custom configuration, to the SDK's destinations. For example, to specify that Segment should only track the event to Intercom and Google Analytics:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-itly.userSignedIn({ platform: 'web' },
-  {
-    segment: {
-      options: {
-        integrations: {
-          'All': false,
-          'Intercom': true,
-          'Google Analytics': true
+    ```js
+    itly.userSignedIn({ platform: 'web' },
+      {
+        segment: {
+          options: {
+            integrations: {
+              'All': false,
+              'Intercom': true,
+              'Google Analytics': true
+            }
+          }
         }
       }
-    }
-  }
-);
-```
+    );
+    ```
 
-</TabItem>
-<TabItem value="js">
+=== "JavaScript"
 
-```js
-itly.userSignedIn({ platform: 'web' },
-  {
-    segment: {
-      options: {
-        integrations: {
-          'All': false,
-          'Intercom': true,
-          'Google Analytics': true
+    ```js
+    itly.userSignedIn({ platform: 'web' },
+      {
+        segment: {
+          options: {
+            integrations: {
+              'All': false,
+              'Intercom': true,
+              'Google Analytics': true
+            }
+          }
         }
       }
-    }
-  }
-);
-```
-
-</TabItem>
-</Tabs>
+    );
+    ```
 
 ## Custom Destination
 
-:::note Advanced
-If you're using Iteratively with Amplitude or Segment you can safely skip this section!
-:::
+!!!note "Advanced Content"
+    If you're using Iteratively with Amplitude or Segment you can skip this section!
 
 To send clean, valid events to custom analytics destinations, or those not yet supported by the Itly SDK natively, the SDK is extensible via plugins. Writing a plugin is easy! Extend the `Plugin` class, call the base constructors with your plugin's ID, override `track()`, and include your new plugin in the `plugins` array when calling `itly.load()`.
 
@@ -440,14 +311,13 @@ Plugins allow you to implement your own processing logic for analytics tracking.
 
 The following functions are available to override when developing your plugin. Only override those functions that matter to your custom destination.
 
-:::note Examples
-A sample custom destination plugin is available [here](https://bitbucket.org/seasyd/examples/src/master/browser-javascript-v3/src/CustomDestination.js) in JavaScript and [here](https://bitbucket.org/seasyd/examples/src/master/browser-typescript-v3/src/CustomDestination.ts) in TypeScript.
-:::
+!!!example "Examples"
+    A sample custom destination plugin is available [here](https://bitbucket.org/seasyd/examples/src/master/browser-javascript-v3/src/CustomDestination.js) in JavaScript and [here](https://bitbucket.org/seasyd/examples/src/master/browser-typescript-v3/src/CustomDestination.ts) in TypeScript.
 
 #### Constructor
 Every plugin needs a unique ID. To provide one, add a constructor to your plugin and call the base constructor with your plugin's ID. This might look something like this:
 
-```javascript
+```js
   constructor() {
     super('custom-destination');
   }
@@ -457,7 +327,7 @@ Every plugin needs a unique ID. To provide one, add a constructor to your plugin
 #### Load
 Called when the Itly SDK is being loaded and is ready to load your plugin. The  function has the following signature:
 
-```javascript
+```js
 load(options: Options): void;
 ```
 
@@ -469,7 +339,7 @@ load(options: Options): void;
 #### Alias
 Called when Itly SDK's `alias()` function is called to associate one user ID with another (typically a known user ID with an anonymous one). The `alias()` function has the following signature:
 
-```javascript
+```js
 alias(userId: string, previousId: string | undefined, options: AliasOptions | undefined): void;
 ```
 
@@ -483,7 +353,7 @@ alias(userId: string, previousId: string | undefined, options: AliasOptions | un
 #### Identify
 Called when Itly SDK's `identify()` function is called to identify a user with a specific ID or set the user's traits. The `identify()` function has the following signature:
 
-```javascript
+```js
 identify(userId: string | undefined, properties: Properties | undefined, options: IdentifyOptions | undefined): void;
 ```
 
@@ -495,9 +365,9 @@ identify(userId: string | undefined, properties: Properties | undefined, options
 <br />
 
 #### Track
-Called when an event is tracked. The function receives a validated event with its complete set of properties (a combination of the event's own properties any any other properties associated with the source via a [source template](working-with-templates#adding-a-template-to-a-source)) The `track()` function has the following signature:
+Called when an event is tracked. The function receives a validated event with its complete set of properties (a combination of the event's own properties any any other properties associated with the source via a source template) The `track()` function has the following signature:
 
-```javascript
+```js
 track(userId: string | undefined, event: Event, options: TrackOptions | undefined): void;
 ```
 
@@ -511,7 +381,7 @@ track(userId: string | undefined, event: Event, options: TrackOptions | undefine
 #### Group
 Called when Itly SDK's `group()` function is called to associate the user with a specific account (for example, their department or company) or set the group's properties. The `group()` function has the following signature:
 
-```javascript
+```js
 group(userId: string | undefined, groupId: string, properties?: Properties | undefined, options: GroupOptions | undefined): void;
 ```
 
@@ -526,7 +396,7 @@ group(userId: string | undefined, groupId: string, properties?: Properties | und
 #### Page
 Called when Itly SDK's `page()` function is called to track a page view in a web application. The `page()` function has the following signature:
 
-```javascript
+```js
 page(userId: string | undefined, category: string | undefined, name: string | undefined, properties: Properties | undefined, options: PageOptions | undefined): void;
 ```
 
@@ -537,7 +407,7 @@ page(userId: string | undefined, category: string | undefined, name: string | un
 | `name` | String | optional | The page's name. |
 | `properties` | Object<br />`Properties` | optional | The page's traits. |
 | `options` | PageOptions | optional | See [Call Options](#call-options). |
-<br />
+
 
 #### Reset
 Called when Itly SDK's `reset()` function is called to reset the SDK's (and all plugins') state. This method is usually called when a user logs out. The `reset()` function has the following signature:
@@ -545,7 +415,6 @@ Called when Itly SDK's `reset()` function is called to reset the SDK's (and all 
 ```javascript
 reset(): void;
 ```
-<br />
 
 #### Call Options
 
@@ -553,90 +422,67 @@ Call Options are a powerful feature that allows your plugin's users to pass addi
 
 For example, let's assume you'd like your plugin's users to tell your plugin whether a particular event they're tracking is awesome. Your instrumention engineers would track the event like this:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
 
-```js
-itly.buttonClicked(
-  /* event's properties */
-  { label: 'Send Event' },
-  /* event's metadata for the custom destination plugin */
-  { 'custom-destination': { awesome: true } as CustomTrackOptions },
-)
-```
+=== "TypeScript"
 
-</TabItem>
-<TabItem value="js">
+    ```js
+    itly.buttonClicked(
+      /* event's properties */
+      { label: 'Send Event' },
+      /* event's metadata for the custom destination plugin */
+      { 'custom-destination': { awesome: true } as CustomTrackOptions },
+    )
+    ```
 
-```js
-itly.buttonClicked(
-  /* event's properties */
-  { label: 'Send Event' },
-  /* event's metadata for the custom destination plugin */
-  { 'custom-destination': { awesome: true } },
-)
-```
+=== "JavaScript"
 
-</TabItem>
-</Tabs>
+    ```js
+    itly.buttonClicked(
+      /* event's properties */
+      { label: 'Send Event' },
+      /* event's metadata for the custom destination plugin */
+      { 'custom-destination': { awesome: true } },
+    )
+    ```
 
-<br />
 And your plugin would read the call option metadata like this:
 
-<Tabs
-  groupId="browser-source"
-  defaultValue="tsx"
-  values={[
-    { label: 'TypeScript', value: 'tsx', },
-    { label: 'JavaScript', value: 'js', },
-  ]
-}>
-<TabItem value="tsx">
+=== "TypeScript"
 
-```js
-import { Plugin, Options, Event, PluginCallOptions } from './itly';
+    ```js
+    import { Plugin, Options, Event, PluginCallOptions } from './itly';
 
-export interface CustomTrackOptions extends PluginCallOptions {
-  awesome: boolean;
-}
+    export interface CustomTrackOptions extends PluginCallOptions {
+      awesome: boolean;
+    }
 
-export default class extends Plugin {
-  constructor() {
-    super('custom-destination');
-  }
+    export default class extends Plugin {
+      constructor() {
+        super('custom-destination');
+      }
 
-  track(_: string, event: Event, options?: CustomTrackOptions) {
-    console.log(options?.awesome);
-  }
-}
+      track(_: string, event: Event, options?: CustomTrackOptions) {
+        console.log(options?.awesome);
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    import { Plugin } from './itly';
+
+    export default class extends Plugin {
+      constructor() {
+        super('custom-destination');
+      }
+
+      track(_, event, options) {
+        console.log(options?.awesome);
+      }
+    }
 ```
 
-</TabItem>
-<TabItem value="js">
-
-```js
-import { Plugin } from './itly';
-
-export default class extends Plugin {
-  constructor() {
-    super('custom-destination');
-  }
-
-  track(_, event, options) {
-    console.log(options?.awesome);
-  }
-}
-```
-
-</TabItem>
-</Tabs>
 
 ## Migrating from Previous Version
 

@@ -344,10 +344,14 @@ Migrate from an Itly Browser runtime to Ampli by following these steps.
 
     `ampli pull`
 
-6. Find and replace:
+6. Check your Ampli SDK path.
+
+    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+    
+7. Find and replace:
     - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
     - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
     - `itly.load()` => `ampli.load()`
     - All `itly.` with `ampli.`
 
-7. See updated Event tracking details on your Implementation page in the web app.
+8. See updated Event tracking details on your Implementation page in the web app.

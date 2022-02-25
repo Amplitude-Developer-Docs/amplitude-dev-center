@@ -507,7 +507,11 @@ implementation 'org.json:json:20201115'
 ampli pull
 ```
 
-4. Find and replace:
+4. Check your Ampli SDK path.
+
+    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+    
+5. Find and replace:
 
   **Kotlin and Java:**
   - `import ly.iterative.itly.* => import com.amplitude.ampli.*`

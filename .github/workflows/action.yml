@@ -12,3 +12,4 @@ jobs:
         use-verbose-mode: 'yes'
         check-modified-files-only: 'yes'
         base-branch: 'main'
+        config-file: '.github/workflows/link-check-config.json'
