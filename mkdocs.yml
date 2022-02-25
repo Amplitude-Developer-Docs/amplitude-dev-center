@@ -165,8 +165,9 @@ nav:
     - integrations/analytics-recieving-cohorts-from-amplitude.md
 - API Reference:
   - apis/index.md
-  - apis/identify-api.md
   - apis/attribution-api.md
+  - apis/batch-event-upload-api.md
+  - apis/identify-api.md
 
 - Partner Hub:
   - partners/index.md

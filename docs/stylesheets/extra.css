@@ -173,4 +173,11 @@
     border-color: var(--md-accent-fg-color)
 }
 
-/* Sets the announcment bar styles */
+/* Makes tables make sense. Because MD table column width is based on the width of the first cell's content, this sets the width to a minimum of 180px.
+You can't wrap markdown in HTML, but you can use HTML in Markdown. 
+SO, it's hacky, but wrap the column header text in a div with this class to make the Markdown cooperate */
+
+.big-column {
+
+  min-width: 180px;
+}
