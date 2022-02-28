@@ -1,6 +1,6 @@
 ---
 title: Chart Annotations API
-description: 
+description: The Chart Annotations API lets you programmatically annotate important dates like feature releases and marketing campaigns on your organization's charts with a horizontal axis of calendar dates.
 ---
 
 The Chart Annotations API lets you programmatically annotate important dates like feature releases and marketing campaigns on your organization's charts with a horizontal axis of calendar dates.
@@ -128,4 +128,4 @@ A successful response returns the chart annotation's data.
         }
     ]
 }
-``
+```
