@@ -85,4 +85,4 @@ These keys are available for the Event argument.
 | Code | Message                                                                                                                     |
 |------|-----------------------------------------------------------------------------------------------------------------------------|
 | 200  | Success                                                                                                                     |
-| 400  | The expected JSON is formatted incorrectly. Check the Attribution API developers center article for formatting information. |
+| 400  | The expected JSON is formatted incorrectly.  |
