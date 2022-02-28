@@ -1,5 +1,7 @@
 # README
 
+THIS IS A WIP. PING CASEY SMITH FOR HELP 
+
 This is the Amplitude Developer Center site. 
 
 To get started with contributing, first read <PLACEHOLDER FOR DOCS>.
