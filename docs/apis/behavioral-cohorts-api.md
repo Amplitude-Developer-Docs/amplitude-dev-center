@@ -81,7 +81,7 @@ Host: amplitude.com
 Authorization: Basic {{api_key}}:{{secret:key}}
 ```
 
-### Get one cohort path variables
+### Get one cohort path parameters
 
 |Name|Description|
 |----|-----------|
@@ -117,7 +117,7 @@ Host: amplitude.com
 Authorization: Basic {{api_key}}:{{secret:key}}
 ```
 
-### Get request status path variables
+### Get request status path parameters
 
 |Name|Description|
 |----|-----------|
@@ -155,7 +155,7 @@ Host: amplitude.com
 Authorization: Basic {{api_key}}:{{secret:key}}
 ```
 
-### Download cohort path variables
+### Download cohort path parameters
 
 |Name|Description|
 |----|-----------|
