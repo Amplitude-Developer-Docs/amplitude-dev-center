@@ -169,6 +169,7 @@ nav:
   - apis/batch-event-upload-api.md
   - apis/behavioral-cohorts-api.md
   - apis/chart-annotations-api.md
+  - apis/ccpa-dsar-api.md
   - apis/identify-api.md
 
 - Partner Hub:
