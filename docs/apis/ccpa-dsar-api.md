@@ -148,7 +148,7 @@ Authorization: Basic {{org-api-key}}:{{org-secret_key}}
 | `endDate` | The end date for the data request. |
 | `status` | **staging**: not started  <br>**submitted**: in progress  <br>**done**: job completed and download URLs populated  <br>**failed**: job failed, may need to retry  <br> |
 | `failReason` | String. If the job failed, contains Information about the failure. |
-| `urls` | Array of strings. A list of dowload URLs for the data. |
+| `urls` | Array of strings. A list of download URLs for the data. |
 | `expires` | Data. The date that the output download links expire. |
 
 ## Get output files
