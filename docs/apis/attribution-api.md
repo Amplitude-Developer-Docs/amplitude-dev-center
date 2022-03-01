@@ -40,7 +40,6 @@ Send a POST request to https://api2.amplitude.com/attribution with two arguments
 |`api_key`| Required. The project's API key. | `{{api_key}}`|
 |`event`| Required. A request parameter representing the event, in JSON format.| `{"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}`|
 
-
 !!! example "Attribution Examples"
 
     === "iOS Attribution"

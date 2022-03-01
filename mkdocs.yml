@@ -170,6 +170,7 @@ nav:
   - apis/behavioral-cohorts-api.md
   - apis/chart-annotations-api.md
   - apis/ccpa-dsar-api.md
+  - apis/dashboard-rest-api.md
   - apis/identify-api.md
 
 - Partner Hub:
