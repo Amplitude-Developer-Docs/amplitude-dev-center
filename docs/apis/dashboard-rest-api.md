@@ -479,7 +479,7 @@ Remember that you may have to URL encode special characters in the names of even
 | <div class="big-column"> Name</div> | Description |
 | --- | --- |
 | `e` | Required. Include up to two. A full event. [Full description](#shared-query-parameters). *Note: Currently, the Dashboard REST API supports segmentation by up to two events. If you wish to query on a second event, the parameter would be "e2".* |
-| `m` | Optional. For non-property metrics: `uniques`, `totals`, `pct_dau`, or `average`. Defaults to `uniques`. For property metrics: `histogram`, `sums`, or `value_avg`.  To use property metrics, you must include a valid group by value  in parameter `e`.  *For custom formulas: "formula" (Note: This metric only supports up to two events currently and the second event needs to have the parameter "e2").* |
+| `m` | Optional. Non-property metrics: `uniques`, `totals`, `pct_dau`, or `average`. Defaults to `uniques`. Property metrics: `histogram`, `sums`, or `value_avg`.  To use property metrics, you must include a valid group by value  in parameter `e`.  *For custom formulas: "formula" (Note: This metric only supports up to two events currently and the second event needs to have the parameter "e2").* |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `i` | Set to -300000, -3600000, 1, 7, or 30 for real-time, hourly, daily, weekly, and monthly counts, respectively. Defaults to 1. Real-time segmentation is capped at 2 days, hourly segmentation is capped at 7 days, and daily at 365 days. |
