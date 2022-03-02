@@ -7,11 +7,23 @@
 		"pattern": "https://help.amplitude.com/hc/en-us/articles/"
 	  },
 	  {
-		"pattern": "https://api2.amplitude"
+		"pattern": "^https://api2.amplitude"
 	  },
 	  {
-		"pattern": "https://api.eu."
+		"pattern": "^https://api.eu"
 	  },
+
+	  {
+		"pattern": "^https://amplitude.com/api"
+	  },
+
+	  {
+		"pattern": "^https://analytics.eu.amplitude.com/api"
+	  },
+
+	  {
+		"pattern": "assets/images/"
+	  }
 
 	]
 	

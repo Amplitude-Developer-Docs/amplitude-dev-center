@@ -24,7 +24,7 @@ You can get data that's displayed on the dashboard graphs in JSON format via the
 
 ### Rate limits
 
-For each endpoint, there is a concurrent limit and a rate limit. The concurrent limit restricts the amount of requests you can run at the same time. The rate limit restricts the total number of queries you can run per hour. Exceeding any of these limits will return a 429 error. These limits are per project, and the 429 error will also include some information on how you are exceeding the limit.
+For each endpoint, there is a concurrent limit and a rate limit. The concurrent limit restricts the amount of requests you can run at the same time. The rate limit restricts the total number of queries you can run per hour. Exceeding these limits returns a 429 error. These limits are per project, and the 429 error also includes information on how you are exceeding the limit.
 
 **Concurrent Limit**: You can run up to 5 concurrent requests across all Amplitude REST API endpoints,including cohort download.
 
@@ -62,10 +62,10 @@ Here are the limits for these endpoints, measured in the cost per query:
 - **Concurrent Limit**: Up to 1000 cost at the same time.
 - **Rate Limit**: Up to 36,000 cost per hour.
 
-- [Event Segmentation](https://developers.amplitude.com/docs/dashboard-rest-api): Equal to the number of events you are looking at in the left module. If any event has a group by, add a cost of 4 per group by and event.
-- [Funnel Analysis](https://developers.amplitude.com/docs/dashboard-rest-api): The number of events you are looking at in the funnel multiplied by two. If any event has a group by, add a cost of 4 per group by and event.
-- [Retention Analysis](https://developers.amplitude.com/docs/dashboard-rest-api): The cost for this chart is 8.
-- [User Sessions](https://developers.amplitude.com/docs/dashboard-rest-api): The cost for this chart is 4.
+- [Event Segmentation](#event-segmentation): Equal to the number of events you are looking at in the left module. If any event has a group by, add a cost of 4 per group by and event.
+- [Funnel Analysis](#funnel-analysis): The number of events you are looking at in the funnel multiplied by two. If any event has a group by, add a cost of 4 per group by and event.
+- [Retention Analysis](#retention-analysis): The cost for this chart is 8.
+- [User Sessions](#get-average-sessions-per-user): The cost for this chart is 4.
 
 ## Shared query parameters
 
@@ -74,7 +74,7 @@ These query parameters are shared across several Dashboard REST API endpoints.
 !!!note "Notes about query parameters"
 
     - For built-in Amplitude properties, valid values are `version`, `country`, `city`, `region`, `DMA`, `language`, `platform`, `os`, `device`, `device_type`, `start_version`, and `paying`.
-    - For custom defined user properties, the key should be formatted as "gp:name".
+    - For custom user properties, the key should be formatted as `gp:name`.
 
 | Parameter | Description |
 | --- | --- |
@@ -88,9 +88,9 @@ The event parameter contains the following keys
 
 | <div class ="big-column">Name</div>| Description|
 |-----|------------|
-|`event_type`| Required. They type of the event.<br> For custom events, prefix the name with `ce:`. For example: "ce:name"). <br> For '[Amplitude] Any Active Event', use `_active`.<br> For '[Amplitude] Any Event', use `_all`. <br> For '[Amplitude] Revenue', use `revenue_amount`. <br> For '[Amplitude] Revenue (Verified)', use `verified_revenue`. <br>For '[Amplitude] Revenue (Unverified)', use `unverified_revenue`.|
-|`filters` | Optional. A list of property filters. Each filter should be represented as a JSON object with the following keys: <br>`subprop_type` Required. Either "event" or "user", indicating that the property is either an event or user property, respectively. <br> `subprop_key` Required.  The name of the property to filter on. Note: For non-Amplitude, custom user properties, prepend the user property name with "gp:". "gp:" isn't needed for event properties.<br>`subprop_op` Required. The operator for filtering on specific property values, either `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.<br>`subprop_value`: Required. A list of values to filter the event property by.|
-|`group_by` | Optional. A list of properties to group by (at most 2). Each group by is represented as a JSON object with these keys:<br> `type` (required) - Either "event" or "user", indicating that the property is either an event or user property, respectively. <br>`value` (required) - The name of the property to group by.|
+|`event_type`| Required. The event type.<br> For custom events, prefix the name with `ce:`. For example: "ce:name"). <br> For '[Amplitude] Any Active Event', use `_active`.<br> For '[Amplitude] Any Event', use `_all`. <br> For '[Amplitude] Revenue', use `revenue_amount`. <br> For '[Amplitude] Revenue (Verified)', use `verified_revenue`. <br>For '[Amplitude] Revenue (Unverified)', use `unverified_revenue`.|
+|`filters` | Optional. A list of property filters. Each filter is a JSON object with the following keys: <br>`subprop_type` Required. Either "event" or "user", indicating that the property is either an event or user property, respectively. <br> `subprop_key` Required. The name of the property to filter on. Note: For non-Amplitude, custom user properties, prepend the user property name with "gp:". "gp:" isn't needed for event properties.<br>`subprop_op` Required. The operator for filtering on specific property values, either `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.<br>`subprop_value`: Required. A list of values to filter the event property by.|
+|`group_by` | Optional. A list of properties to group by (at most 2). Each group by is a JSON object with these keys:<br> `type` (required) - Either "event" or "user", indicating that the property is either an event or user property, respectively. <br>`value` (required) - The name of the property to group by.|
 
 #### Event format example
 
@@ -123,7 +123,7 @@ The event parameter contains the following keys
 
 | Name| Description|
 |------|----------|
-|`prop`| Required. The name of the property to filter on. For behavioral cohorts, the name of the property is `userdata_cohort`. <br>Example ("XYXxxzz" is the identifier from the Behavioral Cohort's URL, https://analytics.amplitude.com/org_name/cohort/XYXxxzz.)<br>`s=\[\{"prop":"userdata_cohort","op":"is","values":\["XYXxxzz"\]\}\]`|
+|`prop`| Required. The name of the property to filter on. For behavioral cohorts, the name of the property is `userdata_cohort`. <br>Example ("XYXxxzz" is the identifier from the Behavioral Cohort's URL, https://analytics.amplitude.com/org_name/cohort/**XYXxxzz**.)<br>`s=\[\{"prop":"userdata_cohort","op":"is","values":\["XYXxxzz"\]\}\]`|
 |`op` |Required. The operator for filtering on specific property values. Allowed values are `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.|
 |`values`| Required. A list of values to filter the segment by. If you are segmenting by a cohort, the value is the cohort ID, found in URL of the cohort in the web app (for example, "5mjbq8w").|
 
@@ -239,15 +239,15 @@ Host: amplitude.com
 |`timeHistogramConfigBinMax`|Optional. Maximum value for bucketing, as a number. For example, "600".|
 |`timeHistogramConfigBinSize`| Optional. Size of each bucket, as a number. For example, "60".|
 
-### timeHistogramConfigBin Format
+### timeHistogramConfigBin format
 
 `timeHistogramConfigBinTimeUnit` is any of `['hours', 'minutes', 'seconds']`.
 
-To take advantage of custom binning, `timeHistogramConfigBinMin`, `timeHistogramConfigBinMax`, and `timeHistogramConfigBinTimeUnit` must be specified. When `timeHistogramConfigBinSize` isn't specified, Amplitude tries to determine the best bin sizing. For example, if you have `timeHistogramConfigBinMin=0`, `timeHistogramConfigBinMax=10`, and `timeHistogramConfigBinTimeUnit=minutes`, there is no guarantee regarding the final number of bins or bin bounds. If `timeHistogramConfigBinSize=1` is specified, there are guaranteed to be 10 bins, with each bin size equaling a minute.
+To take advantage of custom binning, you must specify `timeHistogramConfigBinMin`, `timeHistogramConfigBinMax`, and `timeHistogramConfigBinTimeUnit`. When `timeHistogramConfigBinSize` isn't specified, Amplitude tries to find the best bin sizing. For example, if you have `timeHistogramConfigBinMin=0`, `timeHistogramConfigBinMax=10`, and `timeHistogramConfigBinTimeUnit=minutes`, there is no guarantee for the final number of bins or bin bounds. If `timeHistogramConfigBinSize=1` is specified, then there are 10 bins, and each bin size equals a minute.
 
-When combined `timeHistogramConfigBin` parameters are invalid/missing, Amplitude will default to use default bins that are chosen because they approximate certain behaviors such as bounce rate. These bins are (in milliseconds): `[0, 3000), [3000, 10,000), [10,000, 30,000), [30,000, 60,000), [60,000, 180,000), [180,000, 600,000), [600,000, 1,800,000), [1,800,000, 3,600,000), [3,600,000, 86,400,000)`.
+When combined `timeHistogramConfigBin` parameters are invalid/missing, Amplitude defaults to use default bins that are chosen because they approximate certain behaviors such as bounce rate. These bins are (in milliseconds): `[0, 3000), [3000, 10,000), [10,000, 30,000), [30,000, 60,000), [60,000, 180,000), [180,000, 600,000), [600,000, 1,800,000), [1,800,000, 3,600,000), [3,600,000, 86,400,000)`.
 
-Session lengths are bounded at a maximum of 1 day (86,400,000 ms).
+Session lengths have a max length of 1 day (86,400,000 ms).
 
 ### Response
 
@@ -255,7 +255,7 @@ The response is a JSON object with this schema:
 
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
-| `series` | An array with one element which is itself an array that contains the counts (number of sessions) for each of the buckets. |
+| `series` | An array with one element which is itself an array that includes the counts (number of sessions) for each of the buckets. |
 | `xValues` | An array of the (string) session length intervals (buckets) of the format `[bucketStartInSeconds]s-[bucketEndInSeconds]s`. |
 
 ```json
@@ -296,7 +296,7 @@ Returns a JSON object with this schema:
 
 | Attribute | Description |
 | --- | --- |
-| `series` | An array with one element which is itself an array that contains the average session length for each day. |
+| `series` | An array with one element which is itself an array that includes the average session length for each day. |
 | `seriesMeta` | An array of labels with one for each segment. |
 | `segmentIndex` | This represents the index of the segment, referring to its position in the right module of the chart control panel. |
 | `xValues` | An array of (string) dates formatted like "YYYY-MM-DD" with one for each in the specified date range. |
@@ -341,7 +341,7 @@ Returns a JSON object with this schema:
 
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
-| `series` | An array with one element which is itself an array that contains the (float) average number of sessions per user for each day. |
+| `series` | An array with one element which is itself an array that includes the (float) average number of sessions per user for each day. |
 | `seriesMeta` | An array of labels with one for each segment. |
 | `segmentIndex` | This represents the index of the segment, referring to its position in the right module of the chart control panel |
 | `xValues` | An array of (string) dates formatted like "YYYY-MM-DD" with one for each in the specified date range |
@@ -380,7 +380,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 |----|-----------|
 |`start`| First date included in data series, formatted YYYYMMDD. For example, "20221001".|
 |`end`|Last date included in data series, formatted YYYYMMDD.  For example, "20221001".|
-|`p`| Required. The property to get the composition of. For built-in Amplitude properties, valid values are `version`, `country`, `city`, `region`, `DMA`, `language`, `platform`, `os`, `device`, `start_version`, and `paying`. For custom-defined user properties, the key should be formatted as gp:name.|
+|`p`| Required. The property to get the composition of. For built-in Amplitude properties, valid values are `version`, `country`, `city`, `region`, `DMA`, `language`, `platform`, `os`, `device`, `start_version`, and `paying`. For custom-defined user properties, format the key as gp:name.|
 
 ### Response
 
@@ -406,13 +406,13 @@ Returns a JSON object with this schema:
 
 ## Get events list
 
-Get the list of events with the current week's totals, uniques, and % DAU.
+Get the list of events with the current week's totals, uniques, and % DAU (daily active users).
 
 `GET https://amplitude.com/api/2/events/list`
 
 ### Example request
 
-```bash 
+```bash
 GET /api/2/events/list HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
@@ -426,7 +426,7 @@ Returns a JSON object with this schema:
 | --- | --- |
 | `non_active` | If the event is marked inactive or not. |
 | `value` | Name of the event in the raw data. |
-| `totals` | The total number of times the event has been performed this week. |
+| `totals` | The total number of times the event has happened this week. |
 | `deleted` | If the event is deleted or not. |
 | `flow_hidden` | If the event is hidden from Pathfinder/Pathfinder Users or not. |
 | `hidden` | If the event is hidden or not. |
@@ -472,14 +472,14 @@ Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
 ```
 
-Remember that you may have to URL encode special characters in the names of event types, event properties, and user properties. For example, Play Song is encoded Play%20Song.
+Remember that you may have to URL encode special characters in the names of event types, event properties, and user properties. For example, encode Play Song as Play%20Song.
 
 ### Query parameters
 
 | <div class="big-column"> Name</div> | Description |
 | --- | --- |
 | `e` | Required. Include up to two. A full event. [Full description](#shared-query-parameters). *Note: Currently, the Dashboard REST API supports segmentation by up to two events. If you wish to query on a second event, the parameter would be "e2".* |
-| `m` | Optional. For non-property metrics: `uniques`, `totals`, `pct_dau`, or `average`. Defaults to `uniques`. For property metrics: `histogram`, `sums`, or `value_avg`. A valid `group_by` value is required in parameter `e`). *For custom formulas: "formula" (Note: This metric only supports up to two events currently and the second event will need to have the parameter "e2").* |
+| `m` | Optional. For non-property metrics: `uniques`, `totals`, `pct_dau`, or `average`. Defaults to `uniques`. For property metrics: `histogram`, `sums`, or `value_avg`.  To use property metrics, you must include a valid group by value  in parameter `e`.  *For custom formulas: "formula" (Note: This metric only supports up to two events currently and the second event needs to have the parameter "e2").* |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `i` | Set to -300000, -3600000, 1, 7, or 30 for real-time, hourly, daily, weekly, and monthly counts, respectively. Defaults to 1. Real-time segmentation is capped at 2 days, hourly segmentation is capped at 7 days, and daily at 365 days. |
@@ -494,9 +494,9 @@ Remember that you may have to URL encode special characters in the names of even
 
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
-| `series` | An array with one element for each group, in the same order as "seriesLabels", where each element is itself an array that contains the value of the metric on each of the days specified in "xValues". |
+| `series` | An array with one element for each group, in the same order as "seriesLabels", where each element is itself an array that includes the value of the metric on each of the days specified in "xValues". |
 | `seriesLabels` | An array of labels, one for each group. |
-| `seriesCollapsed` | An array with one element for each group, in the same order as "seriesLabels", where each element is the value of the bar chart visualization in Event Segmentation. This will give the total unique users over a certain time interval. |
+| `seriesCollapsed` | An array with one element for each group, in the same order as "seriesLabels", where each element is the value of the bar chart visualization in Event Segmentation. This value is the total unique users over a certain time interval. |
 | `xValues` | An array of (string) dates in the form "YYYY-MM-DD", one for each date in the specified range. |
 
 ```json 
@@ -541,7 +541,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 |`e`| Required. A full event for each step in the funnel. [Full description](#shared-query-parameters)
 |`start`| Required. First date included in data series, formatted YYYYMMDD. For example, "20221001".|
 |`end`|Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001".|
-|`mode`|Optional. What mode to run the funnel in: "ordered" for events in the given order, "unordered" for events in any order, and "sequential" for events in the given order with no other events in between. (default: "ordered").|
+|`mode`|Optional. What mode to run the funnel in: "ordered" for events in the given order, "unordered" for events in any order, and "sequential" for events in the given order with no other events between. (default: "ordered").|
 |`n`| Optional. Either "new" or "active" to specify what set of users to consider in the funnel (default: "active").|
 |`s`| Optional. Segment definitions (default: none).|
 |`g`| Optional. The property to group by (default: none). [Full description](#shared-query-parameters).|
@@ -550,7 +550,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 ### Response
 
-The response contains an array with one element per group. Each element has these fields:
+The response includes an array with one element per group. Each element has these fields:
 
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
@@ -559,14 +559,14 @@ The response contains an array with one element per group. Each element has thes
 | `stepPrevStepCountDistribution` | The histogram data for each step for how many times users performed the previous step. |
 | `bins` | Data for one histogram bucket. start and end are the start/end of the histogram bin, the data in `bin_dist` is the users/count/propsum for that histogram bin. |
 | `dayMedianTransTimes` | Median transition times by day between steps. |
-| `series` | An array with one element for each group, where each element is itself an array that contains the median transition time between steps in milliseconds on each of the days specified in "xValues".  <br>  <br>**xValues:** An array of (string) dates in the form "YYYY-MM-DD", one for each date in the specified range. **formattedXValues:** An array of (string) dates in the form of "Month DD", one for each date in the specified range. |
-| `dayAvgTransTimes` | Average transition times by day between steps.  <br>  <br>**series** An array with one element for each group, where each element is itself an array that contains the average transition time between steps in milliseconds on each of the intervals specified in "xValues".  <br>**xValues** An array of (string) dates in the form "YYYY-MM-DD", one for each date in the specified range.  <br>**formattedXValues** An array of (string) dates in the form of "Month DD", one for each date in the specified range. |
+| `series` | An array with one element for each group, where each element is itself an array that includes the median transition time between steps in milliseconds on each of the days specified in "xValues".  <br>  <br>**xValues:** An array of (string) dates in the form "YYYY-MM-DD", one for each date in the specified range. **formattedXValues:** An array of (string) dates in the form of "Month DD", one for each date in the specified range. |
+| `dayAvgTransTimes` | Average transition times by day between steps.  <br>  <br>**series** An array with one element for each group, where each element is itself an array that includes the average transition time between steps in milliseconds on each of the intervals specified in "xValues".  <br>**xValues** An array of (string) dates in the form "YYYY-MM-DD", one for each date in the specified range.  <br>**formattedXValues** An array of (string) dates in the form of "Month DD", one for each date in the specified range. |
 | `stepByStep` | An array with one element for each step of the funnel, indicating the fraction of users from the previous step who completed that step. |
 | `medianTransTimes` | An array with one element for each step of the funnel, indicating the median transition time between steps in milliseconds. |
 | `cumulative` | An array with one element for each step of the funnel, indicating the fraction of the total users who completed that step. |
 | `cumulativeRaw` | An array with one element for each step of the funnel, indicating the number of users who completed that step. |
 | `avgTransTimes` | An array with one element for each step of the funnel, indicating the average transition time between steps in milliseconds. |
-| `dayFunnels` | Represents the number of users who completed each step of the funnel by day.  <br>  <br>**series** An array with one element for each group, where each element is itself an array that contains the number of users who have completed that step in the funnel on each of the intervals specified in "xValues."  <br>**xValues** An array of (string) dates in the form of "YYYY-MM-DD", one for each date in the specified range.  <br>**formattedXValues** An array of (string) dates in the form of "Month DD", one for each date in the specified range |
+| `dayFunnels` | Represents the number of users who completed each step of the funnel by day.  <br>  <br>**series** An array with one element for each group, where each element is itself an array that includes the number of users who have completed that step in the funnel on each of the intervals specified in "xValues."  <br>**xValues** An array of (string) dates in the form of "YYYY-MM-DD", one for each date in the specified range.  <br>**formattedXValues** An array of (string) dates in the form of "Month DD", one for each date in the specified range |
 | `events` | Labels for each event in the funnel |
 
 ```json
@@ -616,7 +616,7 @@ Get user retention for specific starting and returning actions.
 
 --8<-- "includes/postman.md"
 
-```bash 
+```bash
 GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
@@ -629,7 +629,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | `se` | Required. Full event for the start action. Supports two "event_type" values: "_new" for new users, and "_active" for all users. |
 | `re` | Required. Full event for the returning action. Supports one "event_type" value: "_all" for all events and "_active" for all active events. |
 | `rm` (optional) | Optional. The retention type: bracket, rolling, or n-day. Note that rolling implies unbounded retention. (Default: n-day, no need to call it explicitly). |
-| `rb`  | (optional, required if rm is set to bracket)The days within each bracket, formatted [0,4] (for example, if your bracket was Day 0 - Day 4, the parameter value would be [0,5]). |
+| `rb`  | (optional, required if `rm` is set to bracket)The days within each bracket, formatted [0,4] (for example, if your bracket was Day 0 - Day 4, the parameter value would be [0,5]). |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `i` (optional) | Optional. Either 1, 7, or 30 for daily, weekly, and monthly counts, respectively (default: 1). |
@@ -643,11 +643,11 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | `series` | A JSON object containing two keys.  <br>  <br>**dates** - An array of formatted string dates, one for each date in the specified range (in descending order).  <br>**values** - A JSON object with one key for each date, where each value is an array whose n-th element corresponds to the retention for n intervals (days, weeks, or months depending on i) out. This is by each interval. |
 | `count` | The number of users who were retained in that interval. |
 | `outof` | The total number of users in the cohort (users who performed the starting action on the date), respectively. |
-| `incomplete` | Whether or not users in that date have had enough time to be retained. |
+| `incomplete` | Whether users in that date have had enough time to be retained. |
 | `combined` | A JSON object where each value is an array whose n-th element corresponds to the retention for n intervals (days, weeks, or months depending on i) out. This object is the deduplicated aggregate of all date cohorts from the values JSON object. |
 | `seriesMeta` | An array of labels with one for each segment. |
 | `segmentIndex` | This represents the index of the segment, referring to its position in the right module of the chart control panel. |
-| `eventIndex` | This represents the index of the event, referring to which event if you have multiple return events selected in the left module. |
+| `eventIndex` | This represents the index of the event, referring to which event if you have many return events selected in the left module. |
 
 ```json
 {
@@ -677,7 +677,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 }
 ```
 
-## User Activity
+## User activity
 
 Get a user summary and their most recent 1000 events, plus all events from their most recent session. Exceeding the request limits results in 429 errors.
 
@@ -706,7 +706,7 @@ The response is a JSON object with this schema:
 | Attribute | Description |
 | --- | --- |
 | `events` | An array of JSON objects, one for each event performed by the user. |
-| `userData` | Aggregate statistics about the user and their user properties. |
+| `userData` | Total statistics about the user and their user properties. |
 
 ```json
 {
@@ -813,7 +813,7 @@ Returns a JSON object with this schema:
 | --- | --- |
 | `xValues` | An array of (string) times in the form "HH:mm", one for each time interval in a day starting from the current time. |
 | `seriesLabels` | An array of two labels: "Today" and "Yesterday". |
-| `series` | An array with one element for each group, in the same order as "seriesLabels", where each element is itself an array that contains the value of the metric on each of the days specified in "xValues". |
+| `series` | An array with one element for each group, in the same order as "seriesLabels", where each element is itself an array that includes the value of the metric on each of the days specified in "xValues". |
 
 ```json
 {
@@ -828,7 +828,7 @@ Returns a JSON object with this schema:
 }
 ```
 
-## Revenue Lifetime Value (LTV)
+## Revenue lifetime value (LTV)
 
 Get the lifetime value of new users.
 
@@ -846,7 +846,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 | Parameter | Description |
 | --- | --- |
-| `m` | Optional. One of the following metrics: 0 = ARPU, 1 = ARPPU, 2 = Total Revenue, 3 = Paying Users. Defaults to 0. |
+| `m` | Optional. One of the following metrics: 0 = average revenue per user (ARPU), 1 = average realized revenue per user (ARPPU), 2 = Total Revenue, 3 = Paying Users. Defaults to 0. |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001".  |
 | `i`  | Optional. Either 1, 7, or 30 for daily, weekly, and monthly counts, respectively. Defaults to 1. |
@@ -860,7 +860,7 @@ Returns a response containing JSON objects with this schema:
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
 | `seriesLabels` | An array of labels, one for each group. |
-| `series` | A JSON object containing two keys.<br>**dates** - An array of formatted string dates, one for each date in the specified range (in descending order). <br>**values** - A JSON object with one key for each date, where each value is a JSON object with keys `r1d`, `r2d`, ..., `r90d` for the n-day metric values as well as the keys `count`, `paid`, and `total_amount`, indicating the total number of users, number of paid users, and amount paid by the users for the group. |
+| `series` | A JSON object containing two keys.<br>**dates** - An array of formatted string dates, one for each date in the specified range (in descending order). <br>**values** - A JSON object with one key for each date, where each value is a JSON object with keys `r1d`, `r2d`, ..., `r90d` for the n-day metric values, and the keys `count`, `paid`, and `total_amount`, which indicate the total number of users, number of paid users, and amount paid by the users for the group. |
 
 ```json
 {
