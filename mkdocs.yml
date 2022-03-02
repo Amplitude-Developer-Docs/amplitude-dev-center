@@ -172,6 +172,7 @@ nav:
   - apis/ccpa-dsar-api.md
   - apis/dashboard-rest-api.md
   - apis/export-api.md
+  - apis/group-identify-api.md
   - apis/identify-api.md
 
 - Partner Hub:
