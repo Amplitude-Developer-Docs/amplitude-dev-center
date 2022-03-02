@@ -11,7 +11,7 @@ The Amplitude Accounts add-on makes analytical functionality available at the gr
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/api-key-auth-section.md"
+--8<-- "includes/auth-api-key.md"
 
 ## Endpoints
 

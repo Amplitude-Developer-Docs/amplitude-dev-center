@@ -7,7 +7,7 @@ The Export API lets you export your projects's event data.
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/basic-auth-section.md"
+--8<-- "includes/auth-basic.md"
 
 ## Endpoints
 

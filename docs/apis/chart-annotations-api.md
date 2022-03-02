@@ -7,7 +7,7 @@ The Chart Annotations API lets you programmatically annotate important dates lik
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/basic-auth-section.md"
+--8<-- "includes/auth-basic.md"
 
 ## Endpoints
 

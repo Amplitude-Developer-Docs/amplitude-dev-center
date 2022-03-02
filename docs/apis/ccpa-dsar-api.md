@@ -7,7 +7,7 @@ The California Consumer Privacy Act (CCPA) requires businesses to provide all da
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/basic-auth-org-key.md"
+--8<-- "includes/auth-basic-org-key.md"
 
 ## API overview
 

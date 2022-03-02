@@ -7,7 +7,7 @@ You can get data that's displayed on the dashboard graphs in JSON format via the
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/basic-auth-section.md"
+--8<-- "includes/authb-basic.md"
 
 ## Endpoints
 

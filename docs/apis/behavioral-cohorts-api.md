@@ -7,7 +7,7 @@ Use the Behavioral Cohorts API to list all your cohorts in Amplitude, export a c
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/basic-auth-section.md"
+--8<-- "includes/auth-basic.md"
 
 ## Endpoints
 

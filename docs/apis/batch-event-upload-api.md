@@ -9,7 +9,7 @@ The event JSON format follows our [HTTP API format](https://developers.amplitude
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/api-key-auth-section.md"
+--8<-- "includes/auth-api-key.md"
 
 ## Endpoints
 
