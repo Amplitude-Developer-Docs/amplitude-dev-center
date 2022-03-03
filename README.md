@@ -56,6 +56,7 @@ After your PR is approved, merge it.
 
 ## Notes
 - The files in the repo make use of [Insiders](https://squidfunk.github.io/mkdocs-material/insiders/) features. If you don't have Insiders, you can still build, but some [features](https://squidfunk.github.io/mkdocs-material/insiders/#available-features) won't render in your build. 
+- If you're using VS Code, install the [markdownlint extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint). This extension flags problems with your markdown. The project includes a config file to cut down on noisier errors.  
 
 
 ## Resources 
