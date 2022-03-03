@@ -1,6 +1,6 @@
 ---
 title: Releases API
-description: Programattically create releases in Amplitude using the Releases API.
+description: Programmatically create releases in Amplitude using the Releases API.
 ---
 
 Use the Releases API to programmatically create releases. Integrate this API into your deployment workflows so you can document the product changes your team introduces.
