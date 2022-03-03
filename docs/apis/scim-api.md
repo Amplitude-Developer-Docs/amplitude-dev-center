@@ -1,6 +1,6 @@
 ---
 title: SCIM API
-description: 
+description: The User Management API in Amplitude provides a programmatic solution to provisioning and group management through a public API. This API uses the System for Cross-domain Identity Management (SCIM) 2.0 Standard.
 ---
 
 The User Management API in Amplitude provides a programmatic solution to provisioning and

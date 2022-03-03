@@ -9,7 +9,7 @@ To get started with contributing, first read PLACEHOLDER FOR DOCS ONCE I WRITE T
 
 ## Install 
   
-  Before you get started, you need pip installed. To install the the link checker and Vale locally, you'll need to have brew and npm too. 
+  Before you get started, you need pip installed. To install the link checker and Vale locally, you'll need brew and npm too. 
 
 ### 1. Install Material
 
