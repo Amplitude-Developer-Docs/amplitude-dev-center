@@ -175,6 +175,7 @@ nav:
   - apis/group-identify-api.md
   - apis/identify-api.md
   - apis/releases-api.md
+  - apis/scim-api.md
 
 
 - Partner Hub:

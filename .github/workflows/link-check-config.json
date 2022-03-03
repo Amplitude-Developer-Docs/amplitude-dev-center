@@ -23,6 +23,10 @@
 
 	  {
 		"pattern": "assets/images/"
+	  },
+
+	  {
+		"pattern": "https://core.amplitude.com/scim/1/"
 	  }
 
 	]
