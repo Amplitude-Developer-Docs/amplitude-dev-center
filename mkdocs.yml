@@ -159,10 +159,10 @@ nav:
     - data/import.md
     - data/integrations.md
     - data/migration-guide.md
-- Integrations:
-    - integrations/index.md
-    - integrations/analytics-shopify-plugin.md
-    - integrations/analytics-recieving-cohorts-from-amplitude.md
+  - Integrations:
+      - integrations/index.md
+      - integrations/analytics-shopify-plugin.md
+      - integrations/analytics-recieving-cohorts-from-amplitude.md
 - API Reference:
   - apis/index.md
   - apis/attribution-api.md
@@ -176,7 +176,7 @@ nav:
   - apis/identify-api.md
   - apis/releases-api.md
   - apis/scim-api.md
-
+  - apis/taxonomy-api.md
 
 - Partner Hub:
   - partners/index.md
