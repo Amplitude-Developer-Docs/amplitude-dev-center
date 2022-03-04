@@ -115,6 +115,8 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
+  - Getting Started: 
+    - analytics/analytics-domain-proxy.md
   - Amplitude API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md
