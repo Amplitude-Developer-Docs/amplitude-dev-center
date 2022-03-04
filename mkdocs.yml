@@ -115,6 +115,20 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
+  - API Reference:
+    - apis/index.md
+    - apis/attribution-api.md
+    - apis/batch-event-upload-api.md
+    - apis/behavioral-cohorts-api.md
+    - apis/chart-annotations-api.md
+    - apis/ccpa-dsar-api.md
+    - apis/dashboard-rest-api.md
+    - apis/export-api.md
+    - apis/group-identify-api.md
+    - apis/identify-api.md
+    - apis/releases-api.md
+    - apis/scim-api.md
+    - apis/taxonomy-api.md
 - Experiment:
   - experiment/index.md
 - Data: 
@@ -163,21 +177,6 @@ nav:
       - integrations/index.md
       - integrations/analytics-shopify-plugin.md
       - integrations/analytics-recieving-cohorts-from-amplitude.md
-- API Reference:
-  - apis/index.md
-  - apis/attribution-api.md
-  - apis/batch-event-upload-api.md
-  - apis/behavioral-cohorts-api.md
-  - apis/chart-annotations-api.md
-  - apis/ccpa-dsar-api.md
-  - apis/dashboard-rest-api.md
-  - apis/export-api.md
-  - apis/group-identify-api.md
-  - apis/identify-api.md
-  - apis/releases-api.md
-  - apis/scim-api.md
-  - apis/taxonomy-api.md
-
 - Partner Hub:
   - partners/index.md
 

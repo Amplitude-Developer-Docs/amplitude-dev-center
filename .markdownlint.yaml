@@ -1,4 +1,4 @@
-# markdownlint YAML configuration with all properties set to their default value
+# markdownlint YAML configuration for the Amplitude Dev Center project
 
 # Path to configuration file to extend
 extends: null
