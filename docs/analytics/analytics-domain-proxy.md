@@ -1,6 +1,6 @@
 ---
 title: Use Domain Proxy to Relay Events
-description:  
+description: Get total control over the data that you send to Amplitude by using a domain proxy to relay requests. This guide explains the basics of setting up a self-owned proxy service and using it with Amplitude SDKs.
 ---
 
 Get total control over the data that you send to Amplitude by using a domain proxy to relay requests.
@@ -8,7 +8,7 @@ Get total control over the data that you send to Amplitude by using a domain pro
 
 !!! info
     This guide focuses on building a proxy to Amplitude’s HTTP API (`api.amplitude.com`). This configuration sends events directly from the proxy service to Amplitude.
-     In larger organizations, talk with your developer operations and information security teams before choosing and deploying a proxy server.
+     Talk with your developer operations and information security teams before choosing and deploying a proxy server.
 
 ## Introduction
 
