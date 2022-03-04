@@ -126,6 +126,7 @@ nav:
     - analytics/apis/dashboard-rest-api.md
     - analytics/apis/export-api.md
     - analytics/apis/group-identify-api.md
+    - analytics/apis/http-v2-api.md
     - analytics/apis/identify-api.md
     - analytics/apis/releases-api.md
     - analytics/apis/scim-api.md

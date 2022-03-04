@@ -7,14 +7,14 @@ Get total control over the data that you send to Amplitude by using a domain pro
  This guide explains the basics of setting up a self-owned proxy service and using it with Amplitude SDKs.
 
 !!! info
-    This guide focuses on building a proxy to Amplitude’s HTTP API (`api.amplitude.com`). This configuration sends events directly from the proxy service to Amplitude.
+    This guide focuses on building a proxy to Amplitude’s HTTP V2 API (`api2.amplitude.com`). This configuration sends events directly from the proxy service to Amplitude.
      Talk with your developer operations and information security teams before choosing and deploying a proxy server.
 
 ## Introduction
 
 A proxy service relays requests between a client and another service, acting as an intermediary step.
  Building a proxy service for your Amplitude org lets you proxy requests to the Amplitude API through your own domain.
- For example, you can send requests on client browsers to `your.domain.com/amplitude` instead of directly to `api.amplitude.com`. A proxy service relays the requests to the Amplitude platform.
+ For example, you can send requests on client browsers to `your.domain.com/amplitude` instead of directly to `api2.amplitude.com`. A proxy service relays the requests to the Amplitude platform.
 
 You can integrate proxy services into existing API endpoints or built as standalone services. Many cloud providers have tools for easy, flexible, and reliable configuration of proxy services.
 
@@ -46,7 +46,7 @@ The example in this guide uses [NGINX](https://nginx.org/en/) to build a proxy s
 ### Set up an NGINX server
 
 First, install NGINX for local development. Then, configure NGINX to proxy requests on a particular URL to Amplitude.
- Here is an example `nginx.conf` file that proxies requests from the `/amplitude` route to `api.amplitude.com`:
+ Here is an example `nginx.conf` file that proxies requests from the `/amplitude` route to `api2.amplitude.com`:
 
 ``` title="nginx.conf"
 worker_processes  1;
@@ -73,7 +73,7 @@ http {
         server_name  localhost;
 
         location /amplitude {
-          proxy_pass https://api.amplitude.com/;
+          proxy_pass https://api2.amplitude.com/;
         }
     }
 }
@@ -84,7 +84,7 @@ http {
 After you create the configuration file, you can start and test your proxy. Using the Amplitude HTTP API, send the requests to your endpoint instead of Amplitude's endpoint.
 
 !!!info
-    The HTTP API uses a slightly different endpoint from our SDKs, so to test, you need to temporarily set `proxy_pass` to `https://api.amplitude.com/2/httpapi/`.
+    The HTTP API uses a slightly different endpoint from our SDKs, so to test, you need to temporarily set `proxy_pass` to `https://api2.amplitude.com/2/httpapi/`.
 
 Here is an example curl command that would test your reverse proxy:
 
@@ -100,7 +100,7 @@ This call should return a `200` response code. In the web app, confirm that Ampl
 After the proxy is working correctly, configure the SDK. Amplitude’s SDKs are open source code that you can change. The SDKs already have built-in options to send events to your defined server endpoint.
 
 !!!note
-    The SDK's don't point at the same API endpoint as the HTTP API V2, but rather a special endpoint for its custom payloads. Send them instead to `https://api.amplitude.com/`.
+    The SDK's don't point at the same API endpoint as the HTTP API V2, but rather a special endpoint for its custom payloads. Send them instead to `https://api2.amplitude.com/`.
 
 - JavaScript(Web): Set the `apiEndpoint` option when initializing the SDK.
 - iOS/Android: Use the `setServerUrl` function to configure the server URL.
