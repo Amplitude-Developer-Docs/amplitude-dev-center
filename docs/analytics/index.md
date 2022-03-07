@@ -50,7 +50,7 @@ For example, in Tunes, you could send an “Play Song” event every time a user
 
 === "Unity"
 
-    ```unity
+    ```C#
     Amplitude.Instance.logEvent("play song");
     ```
 
@@ -97,7 +97,7 @@ For example, in Tunes, when someone presses the “Play Song” event, you can u
 
 === "Unity"
 
-    ```unity
+    ```c#
     Dictionary<string, object> songProperties = new Dictionary<string, object>() {
       {"title" , "Here comes the Sun" },
       {"artist" , "The Beatles"},
@@ -146,7 +146,7 @@ For example, in Tunes, you could keep track of whether a user was on a paid or f
 
 === "Unity"
 
-    ```unity
+    ```c#
     Amplitude.Instance.setUserProperty("plan", "premium");
     ```
 
