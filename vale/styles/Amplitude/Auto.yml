@@ -1,0 +1,10 @@
+extends: existence
+message: "In general, don't hyphenate '%s'."
+ignorecase: true
+level: error
+action:
+  name: convert
+  params:
+    - simple
+tokens:
+  - 'auto-\w+'

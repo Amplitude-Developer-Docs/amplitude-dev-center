@@ -1,0 +1,6 @@
+extends: existence
+message: "Future tense! Avoid using '%s'."
+ignorecase: true
+level: warning
+tokens:
+  - will

@@ -1,0 +1,7 @@
+extends: existence
+message: "Try to simplify this sentence."
+nonword: true
+scope: sentence
+level: suggestion
+tokens:
+  - ';'
