@@ -3,7 +3,7 @@ title: HTTP V2 API
 description: word
 ---
 
-Use the HTTP API V2 to send data directly from your server to our endpoint.
+Use the HTTP API V2 to send data directly from your server to the HTTP V2 endpoint.
 
 **The HTTP API V2 replaces the** [**deprecated HTTP API**](https://developers.amplitude.com/docs/http-api-deprecated)
 
@@ -24,45 +24,50 @@ Use the HTTP API V2 to send data directly from your server to our endpoint.
 
 **For Starter plan customers:**
 
-Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload, but don't send more than 10 events per batch. Amplitude expects fewer than 100 batches to be sent per second, and the 1000 events per second limit still applies.
+Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload, but don't send more than 10 events per batch. Amplitude expects fewer than 100 batches per second, and the 1000 events per second limit still applies.
 
 **For customers on Growth and Enterprise plans:**
 
-Contact Amplitude if you need to send more than 1000 events per second. There is no hard limit on the Enterprise plan. However, devices that exceed 30 events per second are throttled.
+Contact Support if you need to send more than 1000 events per second. There is no hard limit on the Enterprise plan, but devices that exceed 30 events per second are throttled.
 
-For request size, limit your requests to no more than 2000 events per request and under 1 MB. When you exceed these size limits, you get a 413 error.
+Request sizes should under 1 MB and contain fewer than 2000 events per request. When you exceed these size limits, you get a 413 error.
 
-For high-volume customers concerned with scale, partition your work based on `device_id` (or `user_id` if you don't have a `device_id`). This ensures that throttling on a particular `device_id` (or `user_id`) doesn't impact all senders in your system. If you are proxying events to Amplitude, make sure that throttling is forwarded to your clients to create backpressure instead of letting spammy clients slow down a partition of work in your system.
+For high-volume customers concerned with scale, partition your work based on `device_id` or `user_id`.
+ This ensures that throttling on a particular `device_id` (or `user_id`) doesn't impact all senders in your system.
+  If you are using a proxy service to send events to Amplitude, make sure that throttling is forwarded to your clients, instead of letting spammy clients slow down a partition of work in your system.
 
 ### All-zero device IDs: Limited Ad Tracking enabled
 
-As of iOS 10, Apple replaces the Identifier for Advertiser (IDFA) with all zeros if the user enables Limit Ad Tracking. Because device IDs are required for all events, Amplitude drops device IDs of all zeros and returns an error on the request.
+As of iOS 10, Apple replaces the Identifier for Advertiser (IDFA) with all zeros if the user enables Limit Ad Tracking. 
+Because all events require a device ID, Amplitude drops device IDs of all zeros and returns an error on the request.
 
-If you are passing the IDFA as the device ID, first run a check on the IDFA value, and if it's all zeros, pass a different value for the device ID (such as the Identifier for Vendor (IDFV)).
+If you are passing the IDFA as the device ID, first run a check on the IDFA value. If it's all zeros, pass a different value for the device ID (such as the Identifier for Vendor (IDFV).
 
 ### Windows Operating System
 
 If you are using a Windows operating system, then you may have to replace all single quotes with escaped double quotes.
 
-### String Character Limit
+### String character limit
 
-There is a character limit of 1024 characters for all string values (`user_id`, event or user property values, etc.).
+All string values have a character limit of 1024 characters (for example, `user_id`, event or user property values).
 
-### Setting Date Values
+### Setting date values
 
-Amplitude compares dates as strings, so best to use the ISO 8601 format (YYYY-MM-DDTHH:mm:ss). This format lets you perform date comparisons, (for example: '2016-01-31' > '2016-01-01'). Comparison also works for datetime values in this format (for example: '2017-08-07T10:09:08' > '2017-08-07T01:07:00').
+Amplitude compares dates as strings, so it's best to use the ISO 8601 format (`YYYY-MM-DDTHH:mm:ss`). This format lets you perform date comparisons, (for example: `'2016-01-31' > '2016-01-01'`). Comparison also works for datetime values in this format (for example: `'2017-08-07T10:09:08' > '2017-08-07T01:07:00'`).
 
-### Setting Time Values
+### Setting time values
 
 The `time` parameter in each event must be sent as millisecond since epoch. Any other format (such as ISO format) results in a 400 Bad Request response.
 
-### Event Deduplication
+### Event deduplication
 
-It is highly recommended that you send an `insert_id` for each event to prevent duplicate events from being received by Amplitude. We will ignore subsequent events sent with the same insert_id within the past 7 days. You can read more about this field below.
+It's highly recommended that you send an `insert_id` for each event to prevent sending duplicate events to Amplitude. Amplitude ignores subsequent events sent with the same `insert_id` within the past 7 days.
 
 ### Device IDs and User IDs minimum length
 
-Device IDs and User IDs must be strings with a length of 5 characters or more. This is to prevent potential instrumentation issues. If an event contains a device ID or user ID that is too short, the ID value will be removed from the event. This may cause the upload to be rejected with a 400 error if that event does not have a user ID or device ID value. The default minimum length of 5 characters can be overriden by passing `min_id_length` override option with the request (more on this field below).
+Device IDs and User IDs must be strings with a length of 5 characters or more. This is to prevent potential instrumentation issues.
+ If an event contains a device ID or user ID that's too short, the ID value is removed from the event.
+ If the event doesn't have a `user_id` or `device_id` value, the upload may be rejected with a 400 status. Override the default minimum length of 5 character by passing the `min_id_length` option with the request.
 
 ??? info "Invalid IDs"
     These IDs are invalid, and result in a 400 error:
@@ -88,16 +93,16 @@ This HTTP API V2 endpoint is an improvement and a replacement of the [deprecated
 
 The main improvements are:
 
-- The HTTP API V2 request and response format is the same with the [Batch Event Upload API](https://developers.amplitude.com/#Batch-Event-Upload). Since sending requests and parsing responses are done identically, all that is required to switch between the HTTP API V2 and the Batch API is to change the endpoint URL. The benefit of this is if you are being throttled on the HTTP API V2 then you can easily change to the batch endpoint by simply changing the endpoint URL.
-- The HTTP API V2 uses JSON response and provides better error reporting around 400s & throttling compared to the [deprecated HTTP API](https://developers.amplitude.com/?objc--ios#http-api). For example, 400 bad request will provide more details on which event index and event field is invalid, 429 throttling will provide more details on current eps (events per second) and which device is being throttle, etc. (More details on possible error responses below)
+- The HTTP API V2 request and response format is the same with the [Batch Event Upload API](https://developers.amplitude.com/#Batch-Event-Upload).
+- Because sending requests and parsing responses are done the same way, all that's required to switch between the HTTP API V2 and the Batch API is to change the endpoint URL.
+- The benefit of this is if you are being throttled on the HTTP API V2 then you can easily change to the batch endpoint by simply changing the endpoint URL.
+- The HTTP API V2 uses JSON response and provides better error reporting around 400 responses and throttling compared to the [deprecated HTTP API](https://developers.amplitude.com/?objc--ios#http-api). For example, a 400 response gives more details about the invalid event index and event field and a 429 response gives more details on current EPS (events per second) and which device is being throttled.
 - Better validations to reject incorrectly instrumented events  
-- Validation on `Content-type` header (must be set to `application/json`)  
-- Validation on proper JSON request body  
-- Validation on `event_type` name (cannot be event names that are reserved for Amplitude use) 
-- Validation on `device_id` length (must be 5 or more characters unless overrided with `min_id_length`)  
-- Validation on `user_id` length (must be 5 or more characters unless overrided with `min_id_length`)  
-- Validation on `time` field in event payload (must be number of milliseconds since the start of epoch time)
-
+- Validation on `Content-type` header. It must be `application/json`.
+- Validation on proper JSON request body.
+- Validation on `event_type` name. These can't be event names that are reserved for Amplitude use.
+- Validation on `device_id` and `user_id` length. ID must be 5 or more characters unless overridden with `min_id_length`.
+- Validation on `time` field in event payload. It must be number of milliseconds since the start of epoch time.
 
 ## Upload request
 
@@ -296,7 +301,6 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
 
 ### Upload request body parameters
 
-
 | Name | Description |
 | --- | --- |
 | `api_key` | Required. String. Amplitude project API key. |
@@ -377,12 +381,12 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | <div class="big-column">Name</div>| Description |
 | --- | --- |
 | `user_id` | Required if `device_id` isn't used. String. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. |
-| `device_id` | Required if `user_id` isn't used. String. A device-specific identifier, such as the Identifier for Vendor on iOS. If a `device_id` is not sent with the event, it will be set to a hashed version of the `user_id`. |
-| `event_type` | Required. String. A unique identifier for your event. The following event names are reserved for Amplitude use: "\[Amplitude\] Start Session", "\[Amplitude\] End Session", "\[Amplitude\] Revenue", "\[Amplitude\] Revenue (Verified)", "\[Amplitude\] Revenue (Unverified)", and "\[Amplitude\] Merged User". |
-| `time` | Optional. The timestamp of the event in milliseconds since epoch. If time is not sent with the event, it will be set to the request upload time. |
+| `device_id` | Required if `user_id` isn't used. String. A device-specific identifier, such as the Identifier for Vendor on iOS. If a `device_id` isn't sent with the event, then it's set to a hashed version of the `user_id`. |
+| `event_type` | Required. String. A unique identifier for your event. The following event names are reserved for Amplitude use: `[Amplitude]` Start Session", `[Amplitude]` End Session", `[Amplitude]` Revenue", `[Amplitude]` Revenue (Verified)", `[Amplitude]` Revenue (Unverified)", and `[Amplitude]` Merged User". |
+| `time` | Optional. The timestamp of the event in milliseconds since epoch. If time isn't sent with the event, then it's set to the request upload time. |
 | `event_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data to be sent along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `user_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data tied to the user. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
-| `groups` | Optional. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/1150017655322). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. *Note: You can only track up to 5 unique group types and 10 total group values. Any groups past that threshold will* ***not*** *be tracked.* |
+| `groups` | Optional. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/1150017655322). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. You can track up to 5 unique group types and 10 total group values. Any groups past that threshold aren't tracked.|
 | `app_version` | Optional. String. The current version of your application. |
 | `platform` | Optional. String. Platform of the device. |
 | `os_name` | Optional. String. The name of the mobile operating system or browser that the user is using. |
@@ -396,7 +400,7 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | `city`[^1] | Optional. String. The current city of the user. |
 | `dma` [^1]| Optional. String. The current Designated Market Area of the user. |
 | `language` | Optional. String. The language set by the user. |
-| `price` | Optional. Float. The price of the item purchased. Required for revenue data if the revenue field is not sent. You can use negative values to indicate refunds. |
+| `price` | Optional. Float. The price of the item purchased. Required for revenue data if the revenue field isn't sent. You can use negative values to indicate refunds. |
 | `quantity` | Optional. Integer. The quantity of the item purchased. Defaults to 1 if not specified. |
 | `revenue` | Optional. Float. revenue = price * quantity. If you send all 3 fields of price, quantity, and revenue, then (price * quantity) will be used as the revenue value. You can use negative values to indicate refunds. |
 | `productId` | Optional. String. An identifier for the item purchased. You must send a price and quantity or revenue with this field. |
@@ -409,15 +413,16 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | `adid` | Optional. String. (Android) Google Play Services advertising ID |
 | `android_id` | Optional. String. (Android) Android ID (not the advertising ID) |
 | `event_id` | Optional. Integer. (Optional) An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultanenously. |
-| `session_id` | Optional. LONG. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A session_id of -1 is the same as no session_id specified. |
-| `insert_id` | Optional. String. A unique identifier for the event. We will deduplicate subsequent events sent with an insert_id we have already seen before within the past 7 days. We recommend generation a UUID or using some combination of `device_id`, `user_id`, event_type, event_id, and time. |
+| `session_id` | Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A session_id of –1 is the same as no session_id specified. |
+| `insert_id` | Optional. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with an `insert_id` already used within the past 7 days. We recommend generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time. |
 | `plan` | Optional. Object. Tracking plan properties. Only branch, source, version properties are accepted. |
-| `plan.branch` | Optional. String. The tracking plan branch name e.g. "main" |
-| `plan.source` | Optional. String. The tracking plan source e.g. "web" |
-| `plan.version` | Optional. String. The tracking plan version e.g. "1", "15" |
+| `plan.branch` | Optional. String. The tracking plan branch name. For example: "main". |
+| `plan.source` | Optional. String. The tracking plan source. For example: "web". |
+| `plan.version` | Optional. String. The tracking plan version. For example: "1", "15". |
 
 [^1]:
-    `[Amplitude] Country`, `[Amplitude] City`, `[Amplitude] Region`, and `[Amplitude] DMA` are user properties pulled using GeoIP. We use MaxMind's database, which is widely accepted as the most reliable digital mapping source, to lookup location information from the user's IP address. For any HTTP API events, if GeoIP information is unavailable, then we pull the information from the 'location_lat' and 'location_lng' keys if those keys are populated. If these location properties are manually set, then Amplitude will not modify that property.
+    `[Amplitude] Country`, `[Amplitude] City`, `[Amplitude] Region`, and `[Amplitude] DMA` are user properties pulled using GeoIP. We use MaxMind's database, which is widely accepted as the most reliable digital mapping source, to lookup location information from the user's IP address.
+     For any HTTP API events, if GeoIP information is unavailable, then Amplitude pulls the information from the `location_lat` and `location_lng` keys if those keys are populated. If the location properties are manually set, then Amplitude doesn't change that property.
 
 ### Options
 
@@ -425,23 +430,14 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | --- | --- |
 | `min_id_length` | Optional. Integer. Overrides the default minimum length of 5 for `user_id` & `device_id` fields. |
 
-
 ## Response Format
 
-It's important that you implement retry logic and send an insert_id (used for deduplication of the same event) in your events, in the unlikely event that our API endpoint becomes unavailable and we are unable to ingest events. A 200 response means your event was successfully received by Amplitude. If you do not receive a 200 status code, then you should retry your request. Here are the HTTP status codes you may receive:
-
-| Status | Meaning | Description | Schema |
-| --- | --- | --- | --- |
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Successful real time event upload | [SuccessSummary](#200-response-successsummary) |
-| 400 | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | A 400 indicates invalid upload request. Possible reasons for invalid request: The request body is not valid JSON. The `error` will say "Invalid JSON request body". The request body is missing at least one of: required api_key and events array of at least one event. The `error` will say "Request missing required field". The `missing_field` will indicate which is missing. At least one of the events in the request is missing a required field. The `error` will say "Request missing required field". The `events_missing_required_fields` will be a map from field names to an array of indexes indicating the events missing those required fields. At least one of the events in the request has an invalid value for one of the fields (for example setting a string for the `time` field). The `error` will say "Invalid field values on some events". The `events_with_invalid_fields` will be a map from field names to an array of indexes indicating the events with invalid values for those fields. | [InvalidRequestError](https://developers.amplitude.com/docs/http-api-v2#schemainvalidrequesterror) |
-| 413 | [Payload Too Large](https://tools.ietf.org/html/rfc7231#section-6.5.11) | Payload size is too big (request size exceeds 1MB). You should split your events array payload into multiple requests and try again. | [PayloadTooLargeError](https://developers.amplitude.com/docs/http-api-v2#schemapayloadtoolargeerror) |
-| 429 | [Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4) | Too many requests for a user / device. Amplitude will throttle requests for users and devices that exceed 10 events per second (measured as an average over a recent time window). You should pause sending events for that user / device for a period of 30 seconds before retrying and continue retrying until you no longer receive a 429 response. | [TooManyRequestsForDeviceError](https://developers.amplitude.com/docs/http-api-v2#schematoomanyrequestsfordeviceerror) |
-| 500, 502, & 504 | [Server Error](https://tools.ietf.org/html/rfc2616#section-10.5.1) | We encountered an error while handling the request. A request with this response may or may not have been accepted by Amplitude, upon retrying the request, the events may or may not be duplicated. To resolve this risk, we recommend sending an insert_id in your requests. |  |
-| 503 | [Service Unavailable](https://tools.ietf.org/html/rfc2616#section-10.5.4) | If we do not commit your request to our system as a result of an internal failure, then we will return HTTP status code 503. A request with this response can be retried without any risk of duplicating an event. |  |
+We recommend that you implement retry logic and send an `insert_id` (used for deduplication of the same event) in your events.
+ This prevents lost events or duplicated events if the API is unavailable or a request fails.
 
 ### 200 Response SuccessSummary
 
-SuccessSummary
+[200 OK](https://tools.ietf.org/html/rfc7231#section-6.3.1): Successful real time event upload. If you don't receive a `200 OK` response, retry your request.
 
 ```json
 {
@@ -464,6 +460,13 @@ SuccessSummary
 
 ### 400 Response InvalidRequestError
 
+[400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1). A 400 indicates invalid upload request.
+
+Possible reasons for an invalid request:
+
+- The request body isn't valid JSON. The `error` returned is "Invalid JSON request body".
+- The request body is missing required fields. The `error` returned is "Request missing required field", and indicates which fields are missing.  
+- The events object has invalid fields. `events_with_invalid_fields` maps field names to an array of indexes indicating the events with invalid values.
 
 ```json
 {
@@ -490,7 +493,6 @@ SuccessSummary
 
 #### Properties
 
-
 | <div class="big-column">Name</div>   | Description |
 | --- | ---  |
 | `code`  | Integer. 400 error code |
@@ -501,6 +503,7 @@ SuccessSummary
 
 ### 413 Response PayloadTooLargeError
 
+[413 Payload Too Large](https://tools.ietf.org/html/rfc7231#section-6.5.11). The payload size is too big (request size exceeds 1MB). Split your events array payload into multiple requests and try again.
 
 ```json
 {
@@ -512,7 +515,6 @@ SuccessSummary
 
 #### Properties
 
-
 | Name |  Description |
 | --- |  --- |
 | `code` | Integer. 413 error code |
@@ -520,6 +522,9 @@ SuccessSummary
 
 ### 429 Response TooManyRequestsForDeviceError
 
+[429 Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4). Too many requests for a user or device. Amplitude throttles requests for users and devices that exceed 10 events per second
+ (measured as an average over a recent time window).
+  You should pause sending events for that user or device for a period of 30 seconds before retrying and continue retrying until you no longer receive a 429 response.
 
 ```json
 {
@@ -541,13 +546,22 @@ SuccessSummary
 
 ```
 
-### Properties
+#### Properties
 
 | <div class="big-column">Name</div>  | Description |
 | --- | --- |
 | `code` |Integer. 429 error code |
 | `error`  |String. Error description. |
-| `eps_threshold` | Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
+| `eps_threshold` | Integer. Your app's current events per second threshold. If you exceed this rate your requests are throttled. |
 | `throttled_devices` |  Object. A map from `device_id` to its current events per second rate, for all devices that exceed the app's current threshold. |
-| `throttled_users` |  Object. A map from `user_id` to their current events per second rate, for all users that exceed the app's current threshold |
-| `throttled_events` |  Array of indexes in the events array indicating events whose `user_id` and/or `device_id` got throttled |
+| `throttled_users` |  Object. A map from `user_id` to their current events per second rate, for all users that exceed the app's current threshold. |
+| `throttled_events` |  Array of indexes in the events array indicating events whose `user_id` or `device_id` were throttled. |
+
+### Server Error 500, 502, 504
+
+500, 502, and 504  [Server Error](https://tools.ietf.org/html/rfc2616#section-10.5.1). Amplitude encountered an error while handling the request.
+ A request with this response may not have been accepted by Amplitude, so the events could be duplicated if you retry the request. To avoid this risk, send an `insert_id` in your requests.
+
+### 503 Service Unavailable
+
+[503 Service Unavailable](https://tools.ietf.org/html/rfc2616#section-10.5.4).  Request failed because of an internal Amplitude issue. Retrying a request with a `503` response doesn't risk duplicating events.

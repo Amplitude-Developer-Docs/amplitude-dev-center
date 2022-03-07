@@ -12,12 +12,13 @@ NPM
 Objective-C
 js
 Boolean
-idfa
+IDFA
 gzipped
-adid
-idfv
+ADID
+IDFV
 deduplicated
 aggregate
 md
 Okta
 NGINX
+deduplication 
