@@ -382,7 +382,7 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | `time` | Optional. The timestamp of the event in milliseconds since epoch. If time is not sent with the event, it will be set to the request upload time. |
 | `event_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data to be sent along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `user_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data tied to the user. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
-| `groups` | Optional. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://amplitude.zendesk.com/hc/en-us/articles/115001765532). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. *Note: You can only track up to 5 unique group types and 10 total group values. Any groups past that threshold will* ***not*** *be tracked.* |
+| `groups` | Optional. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/1150017655322). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. *Note: You can only track up to 5 unique group types and 10 total group values. Any groups past that threshold will* ***not*** *be tracked.* |
 | `app_version` | Optional. String. The current version of your application. |
 | `platform` | Optional. String. Platform of the device. |
 | `os_name` | Optional. String. The name of the mobile operating system or browser that the user is using. |
@@ -403,7 +403,7 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | `revenueType` | Optional. String. The type of revenue for the item purchased. You must send a price and quantity or revenue with this field. |
 | `location_lat` | Optional. Float. The current Latitude of the user. |
 | `location_lng` | Optional. Float. The current Longitude of the user. |
-| `ip` | Optional. String. The IP address of the user. Use "$remote" to use the IP address on the upload request. We will use the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude has the ability to drop the location and IP address from events once it reaches our servers. You can submit a request to our platform specialist team [here](https://amplitude.zendesk.com/hc/en-us/requests/new) to configure this for you. |
+| `ip` | Optional. String. The IP address of the user. Use "$remote" to use the IP address on the upload request. We will use the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude has the ability to drop the location and IP address from events once it reaches our servers. Contact the Support team to configure this. |
 | `idfa` | Optional. String. (iOS) Identifier for Advertiser. |
 | `idfv` | Optional. String. (iOS) Identifier for Vendor. |
 | `adid` | Optional. String. (Android) Google Play Services advertising ID |
@@ -432,7 +432,7 @@ It's important that you implement retry logic and send an insert_id (used for de
 
 | Status | Meaning | Description | Schema |
 | --- | --- | --- | --- |
-| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Successful real time event upload | [SuccessSummary](200-response-successsummary) |
+| 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Successful real time event upload | [SuccessSummary](#200-response-successsummary) |
 | 400 | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | A 400 indicates invalid upload request. Possible reasons for invalid request: The request body is not valid JSON. The `error` will say "Invalid JSON request body". The request body is missing at least one of: required api_key and events array of at least one event. The `error` will say "Request missing required field". The `missing_field` will indicate which is missing. At least one of the events in the request is missing a required field. The `error` will say "Request missing required field". The `events_missing_required_fields` will be a map from field names to an array of indexes indicating the events missing those required fields. At least one of the events in the request has an invalid value for one of the fields (for example setting a string for the `time` field). The `error` will say "Invalid field values on some events". The `events_with_invalid_fields` will be a map from field names to an array of indexes indicating the events with invalid values for those fields. | [InvalidRequestError](https://developers.amplitude.com/docs/http-api-v2#schemainvalidrequesterror) |
 | 413 | [Payload Too Large](https://tools.ietf.org/html/rfc7231#section-6.5.11) | Payload size is too big (request size exceeds 1MB). You should split your events array payload into multiple requests and try again. | [PayloadTooLargeError](https://developers.amplitude.com/docs/http-api-v2#schemapayloadtoolargeerror) |
 | 429 | [Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4) | Too many requests for a user / device. Amplitude will throttle requests for users and devices that exceed 10 events per second (measured as an average over a recent time window). You should pause sending events for that user / device for a period of 30 seconds before retrying and continue retrying until you no longer receive a 429 response. | [TooManyRequestsForDeviceError](https://developers.amplitude.com/docs/http-api-v2#schematoomanyrequestsfordeviceerror) |
@@ -441,6 +441,7 @@ It's important that you implement retry logic and send an insert_id (used for de
 
 ### 200 Response SuccessSummary
 
+SuccessSummary
 
 ```json
 {
