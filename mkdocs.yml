@@ -121,6 +121,7 @@ nav:
     - analytics/apis/releases-api.md
     - analytics/apis/scim-api.md
     - analytics/apis/taxonomy-api.md
+    - analytics/apis/user-privacy-api.md
   - Amplitude SDKs:
     - analytics/sdks/sdk-android-overview.md
     - analytics/sdks/sdk-javascript-overview.md

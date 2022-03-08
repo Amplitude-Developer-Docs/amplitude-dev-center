@@ -201,7 +201,7 @@ Content-Length: 280
 | `ids` | Required. String\[\]. One or more user or Amplitude IDs to include in the cohort. Specify the ID type in the `id_type` field. |
 | `owner` | Required. String. The login email of the cohort's owner in Amplitude. |
 | `published` | Required. Boolean. Whether the cohort is discoverable or hidden. |
-| `existing_cohort_id` | Optional. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. https//analytics.amplitude.com/accountname/cohort/**1a2bc3d** |
+| `existing_cohort_id` | Optional. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. `https//analytics.amplitude.com/accountname/cohort/**1a2bc3d**`|
 
 ### Upload cohort response
 

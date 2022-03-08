@@ -1,6 +1,6 @@
 ---
 title: HTTP V2 API
-description: word
+description: Use the HTTP API V2 to send data directly from your server to the HTTP V2 endpoint.
 ---
 
 Use the HTTP API V2 to send data directly from your server to the HTTP V2 endpoint.

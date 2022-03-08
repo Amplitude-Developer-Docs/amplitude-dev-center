@@ -68,4 +68,6 @@ exceptions:
   - DAU
   - YYYY
   - UTC
+  - CCPA
+  - GDPR
 

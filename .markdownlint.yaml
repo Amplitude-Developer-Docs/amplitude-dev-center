@@ -70,9 +70,9 @@ MD013:
   # Number of characters for code blocks
   code_block_line_length: 80
   # Include code blocks
-  code_blocks: true
+  code_blocks: false
   # Include tables
-  tables: true
+  tables: false
   # Include headings
   headings: true
   # Include headings
@@ -177,8 +177,8 @@ MD036:
 # MD037/no-space-in-emphasis - Spaces inside emphasis markers
 MD037: true
 
-# MD038/no-space-in-code - Spaces inside code span elements
-MD038: true
+# MD038/no-space-in-code - Spaces inside code span elements. Not in use because of Material's admonition syntax
+MD038: false
 
 # MD039/no-space-in-links - Spaces inside link text
 MD039: true
@@ -197,7 +197,7 @@ MD041:
 MD042: true
 
 # MD043/required-headings/required-headers - Required heading structure
-MD043: null
+MD043: false
   # List of headings
  # headings: []
   # List of headings
@@ -214,7 +214,7 @@ MD044:
 MD045: true
 
 # MD046/code-block-style - Code block style Not in use because it gets confused by the tabs and admonition syntax. 
-#MD046: 
+MD046: false
   # Block style
   #style: "fenced"
 
