@@ -1,11 +1,11 @@
 ---
-title: Receiving Cohorts from Amplitude
-description: 
+title: Send Amplitude Behavioral Cohorts to Other Platforms
+description: Amplitude can sync behavioral cohorts to other partner platforms through a series of REST API calls. 
 ---
 
 With Amplitude, users who take similar actions in a product can be grouped into Behavioral cohorts, such as those who downloaded a song in a music app or added an item to a cart. Behavioral cohorts can also be defined as customers that don’t take a specific action, such as those who downloaded an app but never took the next step of signing up for a subscription.
 
-Amplitude can sync these Cohorts to other partner platforms through a series of REST API calls. Amplitude is able to create and update lists of cohort memberships (list-based) or set a user property or trait (property-based) in the Partner's platform.
+Amplitude can sync these cohorts to other partner platforms through a series of REST API calls. Amplitude is able to create and update lists of cohort memberships (list-based) or set a user property or trait (property-based) in the Partner's platform.
 
 ## Authentication
 
