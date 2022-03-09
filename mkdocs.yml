@@ -161,8 +161,8 @@ nav:
     - data/migration-guide.md
 - Integrations:
     - integrations/index.md
-    - integrations/analytics-shopify-plugin.md
-    - integrations/analytics-recieving-cohorts-from-amplitude.md
+    - integrations/shopify-plugin.md
+    - integrations/sending-cohorts.md
 - API Reference:
   - apis/index.md
   - apis/identify-api.md

@@ -1,20 +1,17 @@
 ---
-title: "Receiving Cohorts from Amplitude"
-tags:
-  - analytics
-  - integration
-  - cohorts
+title: Send Amplitude Behavioral Cohorts to Other Platforms
+description: Amplitude can sync behavioral cohorts to other partner platforms through a series of REST API calls. 
 ---
-# Overview
 
-With Amplitude, users who take similar actions in a product can be grouped into **Behavioral Cohorts**, such as those who downloaded a song in a music app or added an item to a cart. Behavioral Cohorts can also be defined as customers that don’t take a specific action, such as those who downloaded an app but never took the next step of signing up for a subscription.
+With Amplitude, users who take similar actions in a product can be grouped into Behavioral cohorts, such as those who downloaded a song in a music app or added an item to a cart. Behavioral cohorts can also be defined as customers that don’t take a specific action, such as those who downloaded an app but never took the next step of signing up for a subscription.
 
-Amplitude can sync these Cohorts to other partner platforms through a series of REST API calls. Amplitude is able to create/update lists of cohort memberships (i.e. List-based) or set a user property/trait (i.e. Property-based) in the Partner's platform. Currently, our Cohort endpoint supports authentication via an API Key. Syncs can be scheduled to export as a one-time sync, or be scheduled to export hourly or daily. That said, the first sync will be a full sync of the entire cohort, with each subsequent sync being just the delta of users who have moved in or out of the cohort's definition.
+Amplitude can sync these cohorts to other partner platforms through a series of REST API calls. Amplitude is able to create and update lists of cohort memberships (list-based) or set a user property or trait (property-based) in the Partner's platform.
 
 ## Authentication
 
 The REST API uses basic authentication. The partner must send across the api_key as username and an empty password
-[block:code]
+
+```json
 {
   "codes": [
     {
@@ -23,12 +20,26 @@ The REST API uses basic authentication. The partner must send across the api_key
     }
   ]
 }
-[/block]
+```
+
+## Considerations
+
+- Amplitude uses bulk API, and batches multiple users in a single API request. By default, batches have 1000 users but the batch size is configurable.
+- Syncs can be scheduled to export as a one-time sync, or be scheduled to export hourly or daily.
+- The first sync is a full sync of the entire cohort. Subsequent syncs include only the users who have moved in or out of the cohort's definition.
+- During the cohort sync, Amplitude sends a separate request for each cohort a user belongs to.
+- There aren't explicit rate limits. By default, Amplitude uses 4 threads to make requests to the downstream platform.
+- There isn't a limit on the number of cohorts that can be created in Amplitude.
+- If a request fails, Amplitude retries eight times exponentially backing off starting with a one-second delay and ramping up to over two minutes for the last retry.
+- Amplitude can create configurations that allow us to send membership information in different formats to conform to different APIs. Please contact the Support team if you’d like to discuss support for a specific format.
+
 ## List-Based Cohort Integration
+
 A list-based cohort integration works best if a cohort is represented as a list of user identifiers in the target system. A call to a list creation API is needed on the first sync, then subsequent calls to add API and remove API are made to keep the list membership up to date.
 
 ### List Creation
-[block:code]
+
+```json
 {
   "codes": [
     {
@@ -43,9 +54,11 @@ A list-based cohort integration works best if a cohort is represented as a list 
     }
   ]
 }
-[/block]
+```
+
 ### Adding Users to a List
-[block:code]
+
+```json
 {
   "codes": [
     {
@@ -55,9 +68,11 @@ A list-based cohort integration works best if a cohort is represented as a list 
     }
   ]
 }
-[/block]
+```
+
 ### Removing Users from a List
-[block:code]
+
+```json
 {
   "codes": [
     {
@@ -67,12 +82,15 @@ A list-based cohort integration works best if a cohort is represented as a list 
     }
   ]
 }
-[/block]
+```
+
 ## Property-Based Cohort Integration
+
 A property-based cohort integration works best with systems that represent cohort membership as a custom user property, such as a boolean flag or a tag. When cohort membership changes, Amplitude will invoke the updateAPI to update the user property accordingly. While no list creation API is needed, some manual setup may be required to create the custom user property.
 
 ### Single update
-[block:code]
+
+```json
 {
   "codes": [
     {
@@ -82,9 +100,11 @@ A property-based cohort integration works best with systems that represent cohor
     }
   ]
 }
-[/block]
+```
+
 ### Batch update
-[block:code]
+
+```json
 {
   "codes": [
     {
@@ -94,19 +114,23 @@ A property-based cohort integration works best with systems that represent cohor
     }
   ]
 }
-[/block]
+```
+
 **Responses**:
-  * **200**: Success
-  * **400**: Invalid request
-  * **401**: Unauthorized (bad api_key)
-  * **404**: Invalid User ID
-  * **429**: Throttling/rate limiting
+
+- **200**: Success
+- **400**: Invalid request
+- **401**: Unauthorized (bad `api_key`)
+- **404**: Invalid User ID
+- **429**: Throttling/rate limiting
 
 The property we pass over for cohort members will be set to true when a user becomes part of the cohort and it will be set to false when a user leaves the cohort.
 
 ## Testing
-In order to test, we recommend creating a mock payload that you would expect to receive from Amplitude. For cohort integrations, the typical payload structure is as follows: 
-[block:code]
+
+In order to test, we recommend creating a mock payload that you would expect to receive from Amplitude. For cohort integrations, the typical payload structure is as follows:
+
+```json
 {
   "codes": [
     {
@@ -115,29 +139,4 @@ In order to test, we recommend creating a mock payload that you would expect to 
     }
   ]
 }
-[/block]
-## FAQ
-[block:parameters]
-{
-  "data": {
-    "h-0": "Question",
-    "h-1": "Answer",
-    "0-0": "During the cohort sync, do you batch the users in a single API request or do you make one API call per user?",
-    "0-1": "We have a bulk API where we can process multiple users in a single API request. By default, batches will have 1000 users but the batch size is configurable.",
-    "1-0": "During the cohort sync do you send all of the cohorts a user belongs to together or is there a separate request for each user and each cohort?",
-    "1-1": "We handle sending separate requests for each cohort.",
-    "2-0": "During the initial full sync do you only send over users who are present in the cohort?",
-    "2-1": "We only send over users that are present in the cohort. During subsequent updates to the cohort, we will send updates that include users that are no longer in the cohort.",
-    "3-0": "(API Limits) Do you have any limits on the rate at which you make API requests to the downstream platform?",
-    "3-1": "We don’t have explicit rate limits. By default, we use 4 threads to make requests to the downstream platform.",
-    "4-0": "(Cohort Limits) Is there a limit on the number of cohorts that can be created in Amplitude?",
-    "4-1": "No",
-    "5-0": "Do you retry in the event of API failures?",
-    "5-1": "We retry eight times exponentially backing off starting with a one-second delay and ramping up to over two minutes for the last retry.",
-    "6-0": "Does the API need to receive membership updates in the exact format shared in this document?",
-    "6-1": "We are able to create configurations that allow us to send membership information in different formats to conform to different APIs. Please let us know if you’d like to discuss whether we’re able to support a specific format."
-  },
-  "cols": 2,
-  "rows": 7
-}
-[/block]
+```
