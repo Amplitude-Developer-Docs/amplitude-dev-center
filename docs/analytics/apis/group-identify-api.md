@@ -7,7 +7,7 @@ description: Use the Group Identify API to set or update properties of particula
 
 Use the Group Identify API to set or update properties of particular groups.
 
-The Amplitude Accounts add-on makes analytical functionality available at the group level. A group is an object that a set of users might belong to, like a company of customers, team of users, or a playlist with listeners. Groups can help you understand how accounts interact with your product, instead of how individual users interact.
+The Amplitude [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532-Accounts) makes analytical functionality available at the group level. A group is an object that a set of users might belong to, like a company of customers, team of users, or a playlist with listeners. Groups can help you understand how accounts interact with your product, instead of how individual users interact.
 
 --8<-- "includes/postman.md"
 
@@ -23,6 +23,7 @@ The Amplitude Accounts add-on makes analytical functionality available at the gr
 ## Considerations
 
 - Updates affect only future events, and don't update historical events.
+- You can track up to 5 unique group types and 10 total groups.
 
 ## Example request
 
