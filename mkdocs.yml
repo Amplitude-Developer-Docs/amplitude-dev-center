@@ -2,7 +2,8 @@
 site_name: Amplitude Developer Center
 site_url: https://docs.developers.amplitude.com
 site_author: Amplitude
-site_description: >- Developer resources for Amplitude's digital optimization products.
+site_description: >- 
+    Developer resources for Amplitude's digital optimization products.
 
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
@@ -97,9 +98,6 @@ extra:
   training_site: https://academy.amplitude.com/
   postman-workspace: wwww.postman.com
   more_resources: all-resources
-  analytics:
-    provider: analytics
-    property: amplitude 
   consent:
       title: Cookie consent
       description: >- 
@@ -182,10 +180,6 @@ nav:
     - integrations/index.md
     - integrations/shopify-plugin.md
     - integrations/sending-cohorts.md
-- API Reference:
-  - apis/index.md
-  - apis/identify-api.md
-  - apis/attribution-api.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
