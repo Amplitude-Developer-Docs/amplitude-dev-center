@@ -522,7 +522,7 @@ Possible reasons for an invalid request:
 
 ### 429 Response TooManyRequestsForDeviceError
 
-[429 Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4). Too many requests for a user or device. Amplitude throttles requests for users and devices that exceed 10 events per second
+[429 Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4). Too many requests for a user or device. Amplitude throttles requests for users and devices that exceed 30 events per second
  (measured as an average over a recent time window).
   You should pause sending events for that user or device for a period of 30 seconds before retrying and continue retrying until you no longer receive a 429 response.
 
@@ -530,12 +530,12 @@ Possible reasons for an invalid request:
 {
   "code": 429,
   "error": "Too many requests for some devices and users",
-  "eps_threshold": 10,
+  "eps_threshold": 30,
   "throttled_devices": {
-    "C8F9E604-F01A-4BD9-95C6-8E5357DF265D": 11
+    "C8F9E604-F01A-4BD9-95C6-8E5357DF265D": 31
   },
   "throttled_users": {
-    "datamonster@amplitude.com": 12
+    "datamonster@amplitude.com": 32
   },
   "throttled_events": [
     3,
