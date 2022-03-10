@@ -1,13 +1,8 @@
 # Project information
-site_name: Amplitude Developer Doc
-site_url: https://developer.amplitude.com
+site_name: Amplitude Developer Center
+site_url: https://docs.developers.amplitude.com
 site_author: Amplitude
-site_description: >-
-  Get your digital optimization going with the Amplitude developer center. Put real words here. 
-# Repository
-repo_name: Amplitude-Developer-Docs/amplitude-dev-center
-repo_url: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center
-edit_uri: "blob/main/docs/"
+site_description: >- Developer resources for Amplitude's digital optimization products.
 
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
@@ -99,6 +94,20 @@ extra:
   support_contact: https://amplitude.com 
   community: https://community.amplitude.com
   help_site: https://help.amplitude.com
+  training_site: https://academy.amplitude.com/
+  postman-workspace: wwww.postman.com
+  more_resources: all-resources
+  analytics:
+    provider: analytics
+    property: amplitude 
+  consent:
+      title: Cookie consent
+      description: >- 
+        We use cookies to recognize your repeated visits and preferences, as well
+        as to measure the effectiveness of our documentation and whether users
+        find what they're searching for. With your consent, you're helping us to
+        make our documentation better.
+
   generator: false #hides the generated with text in the footer
 
 # Navigation
@@ -169,12 +178,17 @@ nav:
     - data/import.md
     - data/integrations.md
     - data/migration-guide.md
-  - Integrations:
-      - integrations/index.md
-      - integrations/analytics-shopify-plugin.md
-      - integrations/analytics-recieving-cohorts-from-amplitude.md
-- Partner Hub:
-  - partners/index.md
+- Integrations:
+    - integrations/index.md
+    - integrations/shopify-plugin.md
+    - integrations/sending-cohorts.md
+- API Reference:
+  - apis/index.md
+  - apis/identify-api.md
+  - apis/attribution-api.md
+
+#- Partner Hub: # Hidden until we have content
+  #- partners/index.md
 
 
             
