@@ -129,9 +129,9 @@
 
   }
 
-  .md-typeset h1 {                    /* overrides the weird H1 css inherited from the theme */
+.md-typeset h1 {                    /* overrides the weird H1 css inherited from the theme */
     color: var(--md-default-fg-color);
-  }
+}
 
 .md-footer-meta {
   background-color: transparent;

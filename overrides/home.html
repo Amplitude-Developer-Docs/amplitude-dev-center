@@ -223,14 +223,14 @@
         <div class="banner-hero__content">
           <h1>Welcome to the Amplitude Developer center</h1>
           <p>Get started integrating, instrumenting, and extending Amplitude's products. For our general help docs, visit the <a href="{{ config.extra.help_site }}">Help Center</a>. To get support or connect with other developers who are using Amplitude, visit the <a href="{{ config.extra.community }}">Amplitude Community</a>.</p>
-          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
-            Get started
-          </a>
           <a href="{{ config.extra.community }}" title="{{ lang.t('source.link.title') }}" class="md-button">
             Go to the Community
           </a>
           <a href="{{ config.extra.help_site }}" title="{{ lang.t('source.link.title') }}" class="md-button">
             Go to the Help Center
+          </a>
+          <a href="{{ config.extra.more_resources }}" title="{{ lang.t('source.link.title') }}" class="md-button md-button--primary">
+            More resources
           </a>
         </div>
       </div>
@@ -243,39 +243,30 @@
         <h2>
         Manage your Data
         </h2>
-        <p>Manage your data better with some snazzy copy here.</p>
+        <p>Streamline customer data processing, and enrich and connect your data ecosystem.</p>
 		<ul>
-        <li><a href="https://amplitude.com">Getting Started</a></li>
-		<li>Use Cases</li>
-		<li>Data Ingestion Guide</li>
-		<l1><a href="data/index.html">See all of the Data doc</a></li></ul>
+		<l1><a href="data/index.html">Data Management docs</a></li></ul>
 			
     </div>
 
     <div class="product-item">
         <h2>Track Events
         </h2>
-		<p>Use Amplitude Analytics to track events and do stuff.</p>
+		<p>Use Amplitude Analytics to empower your teams with self-service insights about your customers.</p>
         <ul>
-        <li><a href="https://amplitude.com">Getting Started</a></li>
-		<li>Use Cases</li>
-		<li>Featured Guide</li>
-		<li><a href="analytics/index.html">See all of the Amplitude Analytics docs</a></li>
+		<li><a href="analytics/index.html">Amplitude Analytics docs</a></li>
         </ul>
     </div>
     <div class="product-item">
         <h2>
             Experiment and Test
         </h2>
-		<p>Use Amplitude Experiment to insert some marketing copy here</p>
+		<p>Amplitude Experiment helps you learn faster and adapt experiences for key segments.</p>
         <ul>
-        <li><a href="https://amplitude.com">Getting Started</a></li>
-		<li>Use Cases</li>
-		<li>Featured Guide</li>
-		<li><a href="experiment/index.html">See all of the Amplitude Experiment docs</a></li></ul>
+		<li><a href="experiment/index.html">Amplitude Experiment docs</a></li></ul>
     </div>
 
-    <div class="product-item">
+   <!---- <div class="product-item">
         <h2>
         Other Resources
         </h2>
@@ -285,8 +276,9 @@
 		<li>Link to resource</li>
 		<li>Link to another resource</li>
 		<l1>See all the doc</li></ul>
+        
 			
-    </div>
+    </div>-->
 
 	
 </div>

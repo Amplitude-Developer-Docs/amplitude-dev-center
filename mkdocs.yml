@@ -1,13 +1,9 @@
 # Project information
-site_name: Amplitude Developer Doc
-site_url: https://developer.amplitude.com
+site_name: Amplitude Developer Center
+site_url: https://docs.developers.amplitude.com
 site_author: Amplitude
 site_description: >-
-  Get your digital optimization going with the Amplitude developer center. Put real words here. 
-# Repository
-repo_name: caseyamp/material-test
-repo_url: https://github.com/caseyamp/material-test
-edit_uri: "blob/main/docs/"
+  Developer resources for Amplitude's digital optimization products.
 
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
@@ -99,6 +95,9 @@ extra:
   support_contact: https://amplitude.com
   community: https://community.amplitude.com
   help_site: https://help.amplitude.com
+  training_site: https://academy.amplitude.com/
+  postman-workspace: wwww.postman.com
+  more_resources: all-resources
   analytics:
     provider: analytics
     property: amplitude 
@@ -168,8 +167,8 @@ nav:
   - apis/identify-api.md
   - apis/attribution-api.md
 
-- Partner Hub:
-  - partners/index.md
+#- Partner Hub: # Hidden until we have content
+  #- partners/index.md
 
 
             
