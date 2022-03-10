@@ -2,8 +2,7 @@
 site_name: Amplitude Developer Center
 site_url: https://docs.developers.amplitude.com
 site_author: Amplitude
-site_description: >-
-  Developer resources for Amplitude's digital optimization products.
+site_description: >- Developer resources for Amplitude's digital optimization products.
 
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
@@ -42,7 +41,7 @@ theme:
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
-  - /javascripts/pageview.js
+  - /javascripts/accessibe.js # Script for Accessibe. Don't remove without speaking to Legal
 
 
 
@@ -91,8 +90,8 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-extra:
-  support_contact: https://amplitude.com
+extra:  
+  support_contact: https://amplitude.com 
   community: https://community.amplitude.com
   help_site: https://help.amplitude.com
   training_site: https://academy.amplitude.com/
@@ -108,12 +107,33 @@ extra:
         as to measure the effectiveness of our documentation and whether users
         find what they're searching for. With your consent, you're helping us to
         make our documentation better.
+
   generator: false #hides the generated with text in the footer
 
 # Navigation
 nav:
 - Analytics:
   - analytics/index.md
+  - Getting Started: 
+    - analytics/analytics-domain-proxy.md
+  - Amplitude API References:
+    - analytics/apis/attribution-api.md
+    - analytics/apis/batch-event-upload-api.md
+    - analytics/apis/behavioral-cohorts-api.md
+    - analytics/apis/chart-annotations-api.md
+    - analytics/apis/ccpa-dsar-api.md
+    - analytics/apis/dashboard-rest-api.md
+    - analytics/apis/export-api.md
+    - analytics/apis/group-identify-api.md
+    - analytics/apis/http-v2-api.md
+    - analytics/apis/identify-api.md
+    - analytics/apis/releases-api.md
+    - analytics/apis/scim-api.md
+    - analytics/apis/taxonomy-api.md
+    - analytics/apis/user-privacy-api.md
+  - Amplitude SDKs:
+    - analytics/sdks/sdk-android-overview.md
+    - analytics/sdks/sdk-javascript-overview.md
 - Experiment:
   - experiment/index.md
 - Data: 
