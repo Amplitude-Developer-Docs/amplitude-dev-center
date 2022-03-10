@@ -3,7 +3,8 @@ title: CCPA DSAR API
 description: The California Consumer Privacy Act (CCPA) requires our customers to provide all data about an end user on request. This Data Subject Access Request (DSAR) API makes it easy to retrieve all data about a user.
 ---
 
-The California Consumer Privacy Act (CCPA) requires businesses to provide all data about an end user upon request. This Data Subject Access Request (DSAR) API makes it easy to retrieve all data about a user.
+The California Consumer Privacy Act (CCPA) requires businesses to provide all data about an end user upon request.
+ This Data Subject Access Request (DSAR) API makes it easy to retrieve all data about a user.
 
 --8<-- "includes/postman.md"
 
@@ -31,8 +32,7 @@ Each file is gzipped, and the contents adhere to the following rules:
 - Each line is a JSON object
 - No order guarantee
 
-
-Example Output 
+Example Output
 
 ``` json
 {"amplitude_id":123456789,"app":12345,"event_time":"2020-02-15 01:00:00.123456","event_type":"first_event","server_upload_time":"2020-02-18 01:00:00.234567"}
@@ -41,13 +41,17 @@ Example Output
 
 ```
 
-### Rate Limits
+### Rate limits
 
-All DSAR endpoints share a budget of 14.4 K “cost” per hour. POST requests cost 8, and GET requests cost 1. Requests beyond this count will get 429 response codes.
+All DSAR endpoints share a budget of 14.4 K “cost” per hour. POST requests cost 8, and GET requests cost 1. Requests beyond this count get 429 response codes.
 
-In general for each POST, there is typically one output file per month per project the user has events for. For example, if you are fetching 13 months of data for a user with data in two projects, expect about 26 files.
+In general for each POST, there is typically one output file per month per project the user has events for.
+ For example, if you are fetching 13 months of data for a user with data in two projects, expect about 26 files.
 
-If you need to get data for 40 users per hour, you can spend `14400 / 40 = 360` cost per request. Conservatively allocating 52 GETs for output files (2x the previously computed amount) and 8 for the initial POST, you can poll for the status of the request `360 - 8 - 52 = 300` times. Given the 5 day SLA for results, this allows for checking the status every `52460 / 300 = 24` minutes over 5 days. A practical usage might be to have a service which runs every 30 minutes, posting 20 new requests and checking on the status of all outstanding requests.
+If you need to get data for 40 users per hour, you can spend `14400 / 40 = 360` cost per request.
+ Conservatively allocating 52 GETs for output files (twice the computed amount) and 8 for the initial POST, you can poll for the status of the request `360 - 8 - 52 = 300` times.
+ Given the 5 day SLA for results, this allows for checking the status every `52460 / 300 = 24` minutes over 5 days.
+  A practical usage might be to have a service which runs every 30 minutes, posting 20 new requests and checking on the status of all outstanding requests.
 
 ### SLAs
 
@@ -101,7 +105,7 @@ Authorization: Basic {{org-api-key}}:{{org-secret_key}}
 }
 ```
 
-### Create data request body parameters
+### Body parameter
 
 | Name | Description |
 | --- | --- |
@@ -110,7 +114,7 @@ Authorization: Basic {{org-api-key}}:{{org-secret_key}}
 | `startDate` | Required. Date. The start date for the data request. |
 | `endDate` | Required. Date. The end date for the data request. |
 
-### Create data request response
+### Response
 
 When successful, the call returns a `202 Accepted` response and `requestID`. Use the `requestID` to poll the job status.
 
@@ -131,13 +135,13 @@ Accept: application/json
 Authorization: Basic {{org-api-key}}:{{org-secret_key}}
 ```
 
-### Data request status path variables
+### Path variables
 
 |Name|Description|
 |----|-----------|
 |`requestId`|Required. The request ID retrieved with the [create data request](#create-data-request) call.|
 
-### Data request status response Body
+### Response body
 
 | Name | Description |
 | --- | --- |
@@ -155,7 +159,8 @@ Authorization: Basic {{org-api-key}}:{{org-secret_key}}
 
 Download a returned output file.
 
-The download link is valid for two days. Most clients used to send API requests automatically download the data from the S3 link. If your API client doesn't automatically download the file from the link, access it manually using your org API key as the username and your org secret key as the password.
+The download link is valid for two days. Most clients used to send API requests automatically download the data from the S3 link.
+ If your API client doesn't automatically download the file from the link, access it manually using your org API key as the username and your org secret key as the password.
 
 ```bash
 GET /api/2/dsar/requests/request_id/outputs/:output_id HTTP/1.1
@@ -163,9 +168,11 @@ Host: analytics.amplitude.com
 Authorization: Basic {{org-api-key}}:{{org-secret_key}}
 ```
 
-### Get output files path variables
+### Path variables
 
 | <div class="big-column">Name</div>|Description|
 |-----|-----|
 |`request_id`|Required. Integer. The ID of the request. Returned with the original GET request.|
 |`output_id`|Required. Integer. The ID of the output to download. An integer at the end of the URL returned in the status response after the job finishes.|
+
+--8<-- "includes/abbreviations.md"
