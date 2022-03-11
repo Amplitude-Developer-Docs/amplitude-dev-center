@@ -97,6 +97,7 @@ extra:
   help_site: https://help.amplitude.com
   training_site: https://academy.amplitude.com/
   postman-workspace: wwww.postman.com
+  report-issue: https://github.com/Amplitude-Developer-Docs/issues/issues
   more_resources: all-resources
   analytics:
     provider: google
@@ -113,8 +114,7 @@ extra:
           name: This page could be improved
           data: 0
           note: >- 
-            Thanks for your feedback! Help us improve this page by
-            using our <a href="..." target=_blank>feedback form</a>.
+            Thanks for your feedback! Help us improve this page by opening a <a href="https://github.com/Amplitude-Developer-Docs/issues/issues/new/?title=[Feedback]+{title}+-+{url}" target=_blank>GitHub issue</a>.
   consent:
       title: Cookie consent
       description: >- 
