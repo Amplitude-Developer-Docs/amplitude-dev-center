@@ -15,7 +15,7 @@ Need more help? In addition to the developer docs, Amplitude offers more resourc
             Help Center
           </a>: Visit the Help Center for general Amplitude documentation. The Help Center covers the web app and general Amplitude concepts in more detail.
 
-<a href="{{ config.extra.postman-workspace }}" title="{{ lang.t('source.link.title') }}" >
+<a href="{{ config.extra.postman_workspace }}" title="{{ lang.t('source.link.title') }}" >
             Postman Workspace
           </a>: Visit our Postman workspace for collections of API calls and other resources.
 

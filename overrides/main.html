@@ -1,2 +1,6 @@
 {% extends "base.html" %}
 
+{% block content %}
+{{ super() }}
+<a href="{{config.extra.report_issue}}" class="feedback-link">Report an issue with this page</a>
+{% endblock %}

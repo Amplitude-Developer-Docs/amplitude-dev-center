@@ -187,3 +187,9 @@ Wrap the column header text in a div with this class to make the Markdown cooper
 
   min-width: 100px;
 }
+
+.feedback-link {
+
+  font-size: small;
+
+}
