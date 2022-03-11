@@ -27,7 +27,12 @@
 
 	  {
 		"pattern": "https://core.amplitude.com/scim/1/"
-	  }
+	  },
+
+		{
+		"pattern": "https://developer.android.com"
+		}
+
 
 	]
 	
