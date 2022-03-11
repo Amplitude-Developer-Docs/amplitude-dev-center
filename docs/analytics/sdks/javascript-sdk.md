@@ -436,7 +436,7 @@ amplitude.getInstance().logEvent('Viewed Home Page');
 
 ### Web Attribution
 
-While Amplitude’s Javascript SDK doesn't collect web attribution data by default, setting it up is simple. The SDK can automatically collect this information if certain attribution configuration options are enabled.
+While Amplitude’s JavaScript SDK doesn't collect web attribution data by default, setting it up is simple. The SDK can automatically collect this information if certain attribution configuration options are enabled.
 
 Amplitude supports automatically tracking the following through the SDK configuration options:
 
@@ -452,11 +452,11 @@ UTM parameters stand for Urchin Traffic Monitor parameters and are useful for an
 
 There are five different standard UTM parameters:
 
-- `utm_source`: This identifies which website sent the traffic (e.g. Google, Facebook).
-- `utm_medium`: This identifies what type of link was used (e.g. banner, button, email).
-- `utm_campaign`: This identifies a specific campaign used (e.g. summer_sale).
-- `utm_term`: This identifies paid search terms used (e.g. product+analytics).
-- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (e.g. bannerlink, textlink).
+- `utm_source`: This identifies which website sent the traffic (for example: Google, Facebook).
+- `utm_medium`: This identifies what type of link was used (for example: banner, button, email).
+- `utm_campaign`: This identifies a specific campaign used (for example: summer_sale).
+- `utm_term`: This identifies paid search terms used (for example:  product+analytics).
+- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: bannerlink, textlink).
 
 Here is an example URL:
 
@@ -466,19 +466,19 @@ Here is an example URL:
 
 In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK automatically pulls UTM parameters from the referring URL and include them as user properties on all relevant events:
 
-- **includeGclid:** Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If utilized, Google will append a unique parameter (e.g. "?gclid=734fsdf3") to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
-- **includeFbclid:** Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If utilized, Facebook will append a unique parameter (e.g. "?fbclid=392foih3") to URLs at runtime. By setting this to true, the SDK captures `initial_fblid` and `fbclid` as user properties.
-- **includeUtm:** If true, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
-UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time. You can disable the once per session restriction through the saveParamsReferrerOncePerSession configuration option. When the SDK detects that it should start a new session, it pulls the UTM parameters that are available at the time. Those UTM parameters will be set as user properties which persists for all of the user's events going forward. However, initial UTM parameters are captured only once for each user via a setOnce operation. 
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If utilized, Google will append a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
+- `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If utilized, Facebook will append a unique parameter (for example: `"?fbclid=392foih3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_fblid` and `fbclid` as user properties.
+- `includeUtm`: If true, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
+UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time. You can disable the once per session restriction through the `saveParamsReferrerOncePerSession` configuration option. When the SDK detects that it should start a new session, it pulls the UTM parameters that are available at the time. Those UTM parameters are set as user properties which persists for all of the user's events going forward. However, initial UTM parameters are captured only once for each user via a setOnce operation. 
 
 #### Track Referrers
 
-If you want to track how users are getting to your website, then all you need to do is track the referrer (the referring site).
+If you want to track how users are getting to your website, then track the referrer (the referring site).
 
-Here are the fields Amplitude supports tracking automatically:
+Amplitude supports tracking these fields automatically:
 
-- `referrer`: The last page the user was on (e.g. <https://amplitude.com/behavioral-analytics-platform?ref=nav>).
-- `referring_domain`: The domain that the user was last on (e.g. amplitude.com).
+- `referrer`: The last page the user was on (for example, `<https://amplitude.com/behavioral-analytics-platform?ref=nav>`).
+- `referring_domain`: The domain that the user was last on (for example, `amplitude.com`).
 
 #### Enabling via SDK
 
@@ -506,7 +506,7 @@ Amplitude can capture the initial UTM parameters and referrer information for ea
 This is done by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, and `includeGclid` to `true`.
 
 !!!note
-    Initial attribution information for users can change if they are merged with another user.
+    Initial attribution information for users can change if they're merged with another user.
 
 #### Last-Touch Attribution
 
@@ -522,7 +522,8 @@ In addition to first-touch attribution, Amplitude will capture where a user came
 - `gclid`
 - `fbclid`
 
-This is done by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, and `includeGclid` to `true`. By default, the SDK will only save values at the start of the session so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session, that second set will not be saved.
+This is done by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, and `includeGclid` to `true`.
+ By default, the SDK only saves values at the start of the session so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session, that second set isn't saved.
 
 #### Multi-Touch Attribution
 
@@ -620,11 +621,11 @@ The cookie is used to keep track of a few bits of metadata for the SDK:
 
 #### Disabling Cookies
 
-Amplitude cookies can be disabled altogether using the `disableCookies` option. When you disable cookies, the JavaScript SDK will fallback to using `localStorage` to store its data. LocalStorage is a great alternative, but there is one small potential downside. If you track anonymous users across subdomains of your product (eg: `www.amplitude.com` vs `analytics.amplitude.com`), this doesn't work. Access to localStorage is restricted by subdomain.
+Amplitude cookies can be disabled altogether using the `disableCookies` option. When you disable cookies, the JavaScript SDK will fallback to using `localStorage` to store its data. LocalStorage is a great alternative, but there is one small potential downside. If you track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`), this doesn't work. Access to localStorage is restricted by subdomain.
 
 #### SameSite
 
-The JavaScript SDK defaults to setting the SameSite option on its cookies to `None`. This can be overridden with the `sameSiteCookie` option. We set the option to `Lax` option on our own sites at amplitude. Lax is recommended unless there are instances where you have third party sites that `POST` forms to your site. The default may change to `Lax` in the future.
+The JavaScript SDK defaults to setting the SameSite option on its cookies to `None`. This can be overridden with the `sameSiteCookie` option. We set the option to `Lax` option on our own sites at Amplitude. Lax is recommended unless there are instances where you have third party sites that `POST` forms to your site. The default may change to `Lax` in the future.
 
 #### HttpOnly Cookies
 
@@ -683,26 +684,34 @@ You can track anonymous behavior across two different domains. Anonymous users a
 Users who start on Site 1 and then navigate to Site 2 will need to have the Device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then needs to initialize the SDK with that Device ID. The SDK can parse the URL parameter automatically if `deviceIdFromUrlParam` is enabled.
 
 - From Site 1, grab the Device ID from `amplitude.getInstance().options.deviceId`.
-- Pass the Device ID to Site 2 via a URL parameter when the user navigates. (e.g. `www.example.com?amp_device_id=device_id_from_site_1`)
+- Pass the Device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?amp_device_id=device_id_from_site_1`)
 - Initialize the Amplitude SDK on Site 2 with `amplitude.init('API_KEY', null, {deviceIdFromUrlParam: true})`.
 
 ### Tracking UTM Parameters, Referrer, and gclid (JavaScript)
 
 Amplitude supports automatically tracking:
 
-- Standard UTM parameters from the user's cookie or URL parameters when the configuration option includeUtm is set to true during initialization.
+- Standard UTM parameters from the user's cookie or URL parameters when the configuration option `includeUtm` is set to true during initialization.
 - The referring URL when the configuration option includeReferrer is set to true during initialization.
-- gclid (Google Click ID) from URL parameters when the configuration option includeGclid is set to true during initialization.
+- `gclid` (Google Click ID) from URL parameters when the configuration option includeGclid is set to true during initialization.
 
-If tracking is enabled, then the SDK will set the values as user properties (e.g. referrer or utm_source) once per session (this is last touch attribution). The SDK will also save the initial values using a setOnce operation (e.g. initial_referrer or initial_utm_source), and once set that value will never change (this is first touch attribution).
+If tracking is enabled, then the SDK sets the values as user properties (for example,  `referrer` or `utm_source`) once per session. This is known as last touch attribution.
+ The SDK also saves the initial values like `initial_referrer` and `initial_utm_source` using a `setOnce` operation.
+ When these values are set, they never change. This is known as first touch attribution.
 
-*Note: By default, the SDK will only save the values at the start of the session.* For example, if a user lands on your site with an initial set of UTM parameters and triggers some flow that causes them to land on your site again with a different set of UTM parameters within the same Amplitude session, then that second set isn't saved. You can set the configuration option saveParamsReferrerOncePerSession to false to remove that restriction so that the SDK will always capture any new values from the user.
+!!!note "`saveParamsReferrerOncePerSession`"
+    By default, the SDK only saves the values at the start of the session. For example, if a user lands on your site with an initial set of UTM parameters and triggers some flow that causes them
+     to land on your site again with a different set of UTM parameters within the same Amplitude session, the second set isn't saved.
+      You can set the configuration option `saveParamsReferrerOncePerSession` to `false` to remove that restriction so that the SDK always captures new values from the user.
 
-*Note: By default, the SDK will carry over existing UTM Parameters and Referrer values at the start of a new session.* For example, if a users session expires, the SDK will map the user's Referrer and UTM Parameters to existing values. *To reset those values to null upon instantiating a new session, set unsetParamsReferrerOnNewSession to true.*
+!!!note "`unsetParamsReferrerOnNewSession`"
+    By default, the SDK carries over existing UTM Parameters and Referrer values at the start of a new session. For example, if a users session expires, the SDK maps the user's Referrer and UTM Parameters to existing values. 
+    To reset those values to null upon instantiating a new session, set `unsetParamsReferrerOnNewSession` to `true`.
 
 ### Callbacks for logEvent, Identify, and Redirect
 
-You can pass a callback function to logEvent and identify, which will get called after receiving a response from the server. This is useful if timing may cause an event to not be captured before the browser navigates away from a webpage. Putting the navigation in a callback to the logEvent method will guarantee the event is captured before the navigation occurs. Here is a logEvent example:
+You can pass a callback function to `logEvent` and identify, which gets called after receiving a response from the server. This is useful if timing may cause an event to not be captured before the browser navigates away from a webpage.
+ Putting the navigation in a callback to the logEvent method will guarantee the event is captured before the navigation occurs. Here is a logEvent example:
 
 ```js
 amplitude.getInstance().logEvent("EVENT_TYPE", null, callback_function);
@@ -742,7 +751,9 @@ var trackClickLinkA = function() {
 };
 ```
 
-In the case that optOut is true, then no event is logged but the callback will be called. In the case that batchEvents is true, if the batch requirements eventUploadThreshold and eventUploadPeriodMillis aren't met when logEvent is called, then no request is sent but the callback is still called. In these cases, the callback will be called with an input status of 0 and a response of 'No request sent'.
+In the case that `optOut` is `true`, then no event is logged but the callback is called.
+ In the case that `batchEvents` is `true`, if the batch requirements `eventUploadThreshold` and `eventUploadPeriodMillis` aren't met when `logEvent` is called, then no request is sent but the callback is still called.
+ In these cases, the callback is called with an input status of 0 and a response of 'No request sent'.
 
 ### Error Callbacks
 
