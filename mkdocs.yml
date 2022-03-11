@@ -131,7 +131,7 @@ nav:
     - analytics/apis/user-privacy-api.md
   - Amplitude SDKs:
     - analytics/sdks/android-sdk.md
-    - analytics/sdks/sdk-javascript-overview.md
+    - analytics/sdks/javascript-sdk.md
 - Experiment:
   - experiment/index.md
 - Data: 
