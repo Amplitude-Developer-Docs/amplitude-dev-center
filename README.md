@@ -1,19 +1,19 @@
 # README
 
-**THIS IS A WORK IN PROGRESS. PING CASEY SMITH FOR HELP 
+**THIS IS A WORK IN PROGRESS. PING CASEY SMITH FOR HELP
 **
 
-This is the Amplitude Developer Center site. 
+This is the Amplitude Developer Center site.
 
-To get started with contributing, first read PLACEHOLDER FOR DOCS ONCE I WRITE THEM.
+To get started with contributing, check out the [Developer Docs Confluence site](https://amplitude.atlassian.net/wiki/spaces/PT/pages/1751449830/Developer+Docs). There, you'll find more conceptual content, including style guides and markdown cheatsheets.
 
-## Install 
+## Install
   
-  Before you get started, you need pip. To install the link checker and Vale locally, you'll need brew and npm too. 
+  Before you get started, you need pip. To install the link checker and Vale locally, you need brew and npm too.
 
 ### 1. Install Material
 
-Most dependencies are installed with this command. 
+This command installs almost every dependency.
 
 `pip install mkdocs-material`
 
@@ -29,7 +29,7 @@ Most dependencies are installed with this command.
 
 ### 4. (Optional, but highly encouraged) Install Vale CLI
   
-  Vale is a style linter we use to help enforce consistency and accessibilty in our docs. Our style guide config is included in this repo as a git submodule. To use the linter, you need to install Vale. 
+  Vale is a style linter we use to help enforce consistency and accessibilty in our docs. Our style guide config is included in this repo. To use the linter, you need to install Vale.
   
   `brew install vale` 
   
@@ -39,7 +39,7 @@ Most dependencies are installed with this command.
   - [Vim](https://github.com/dense-analysis/ale)
   - [Sublime](https://github.com/errata-ai/SubVale)
 
-The changes Vale flags are mostly suggestions, but please make an effort to address problems. The closer we stick to the style guide, the better our docs will be. 
+The changes Vale flags are mostly suggestions, but please make an effort to address problems. The closer we stick to the style guide, the better our docs will be.
   
 ### 5. Clone this Repo
   
@@ -47,7 +47,7 @@ The changes Vale flags are mostly suggestions, but please make an effort to addr
   
   Preview changes locally using `mkdocs serve`
   
-  When you're ready, open a PR against [PLACEHOLDER FOR STAGING BRANCH], and tag your reviewer. Opening a PR against [PLACEHOLDER FOR STAGING BRANCH] creates a preview site where you can check your changes. 
+  When you're ready, open a PR against [PLACEHOLDER FOR STAGING BRANCH], and tag your reviewer. Opening a PR against [PLACEHOLDER FOR STAGING BRANCH] creates a preview site where you can check your changes.
 
 ### 7. Merge
   
@@ -68,7 +68,7 @@ After your PR is approved, merge it. Merging to main publishes to the website.
 
 ## Known issues and hacks I don't feel bad about
 
-- **Two mkdocs config files**. Because of the way Insiders and config inheritance works, I had to make a config file for people who don't have Insiders and one for the build bot (which does have Insiders). This was intentional. Site builds should always use `insiders.mkdocs.yml`. If you want to know more, read the dissertation I wrote in `insiders.mkdocs.yml`.
-- **Column CSS classes**. Markdown tables are easier to write than HTML tables. However, column width is set by the width of the contents in the first cell for each column. This can lead to too-narrow column widths in some data tables (especially param tables). Because you can add HTML to markdown, I created some CSS classes to manually set the width in cases where it makes sense. Just wrap the contents of the column's table heading with a `<div class="big-column">`. See `docs/stylesheets/extra.css` and search for "column width classes" for an explanation and the classes. 
+- **Two mkdocs config files**. Because of the way Insiders and config inheritance work, I had to make a config file for people who don't have Insiders and one for the build bot (which does have Insiders). This was intentional. Site builds should always use `insiders.mkdocs.yml`. If you want to know more, read the dissertation I wrote in `insiders.mkdocs.yml`.
+- **Column CSS classes**. Markdown tables are easier to write than HTML tables. However, column width is set by the width of the contents in the first cell for each column. This can lead to too-narrow column widths in some data tables (especially param tables). Because you can add HTML to markdown, I created some CSS classes to manually set the width in cases where it makes sense. Just wrap the contents of the column's table heading with a `<div class="big-column">` (180px) or <div class="med-column"> (100px) as needed. See `docs/stylesheets/extra.css` and search for "column width classes" for an explanation and the classes. 
 - **Unsupported language syntax highlighting**. The project uses Pygments for code syntax highlighting. As with all highlighters, some languages aren't explicitly supported. If you can't find your language supported in [this list](https://pygments.org/languages/), you can either write your own, or just use the closest thing you can. This is an edge case. For NodeJs, just use `js`. 
 
