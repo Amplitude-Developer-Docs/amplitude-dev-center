@@ -151,6 +151,11 @@ nav:
     - analytics/sdks/sdk-javascript-overview.md
 - Experiment:
   - experiment/index.md
+  - Getting Started: 
+    - experiment/create-deployment.md
+    - experiment/create-flag.md
+  - experiment/randomization.md
+  - experiment/performance-and-scaling.md
 - Data: 
   - data/index.md
   - Getting Started:
