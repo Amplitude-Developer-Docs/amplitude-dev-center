@@ -7,6 +7,7 @@ Amplitude’s app with Shopify is a smart analytics app that automates eCommerce
 
 ## Considerations
 
+- The Shopify integration is available for all Amplitude plans.
 - The Shopify App was built to solve the general use cases for most Shopify stores. We designed a generalized Out of the Box Taxonomy to include events and properties that most Shopify stores would be interested in tracking.
 - We recommend leveraging our Amplitude SDKs or APIs in addition to this app if your Shopify Store has a high degree of in-built functionality or if you require instrumenting a lot of custom events outside our taxonomy list. 
 - In addition, using [Govern](https://help.amplitude.com/hc/en-us/articles/360043750992-Govern-Manage-your-Amplitude-data-at-scale), you’ll be able to manage event types, properties, and user properties from a single interface.
