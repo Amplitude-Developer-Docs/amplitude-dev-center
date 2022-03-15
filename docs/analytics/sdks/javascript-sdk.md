@@ -588,7 +588,7 @@ Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the
 
 ### Dynamic Configuration
 
-Beginning with version 8.9.0, the JavaScript SDK allows users to configure their apps to use [dynamic configuration](https://developers.amplitude.com/docs/dynamic-configuration).
+Beginning with version 8.9.0, the JavaScript SDK allows users to configure their apps to use [dynamic configuration](analytics/dynamic-configuration).
  This feature finds the best server URL automatically based on app users' location.
 
  To use, set `useDynamicConfig` to `true`.
@@ -645,7 +645,7 @@ The cookie is used to keep track of metadata for the SDK:
 
 Amplitude cookies can be disabled altogether using the `disableCookies` option. When you disable cookies, the JavaScript SDK defaults to using `localStorage` to store its data.
  LocalStorage is a great alternative, but can't track cookies across domains.
- Beause access to `localStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+ Because access to `localStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
 
 #### SameSite
 

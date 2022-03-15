@@ -962,7 +962,7 @@ Second, add the following code in your root activity's onCreate life cycle.
 
 ### Dynamic Configuration
 
-Android SDK allows users to configure their apps to use [dynamic configuration](https://developers.amplitude.com/docs/dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
+Android SDK allows users to configure their apps to use [dynamic configuration](analytics/dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, leave dynamic configuration off.
 - If you have users in China Mainland, then we recommend using dynamic configuration.
