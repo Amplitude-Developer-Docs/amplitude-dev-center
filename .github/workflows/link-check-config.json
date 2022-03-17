@@ -31,8 +31,12 @@
 
 		{
 		"pattern": "https://developer.android.com"
-		}
+		},
 
+		{
+		"pattern": "https://badge.fury.io"
+
+		}
 
 	]
 	

@@ -168,6 +168,11 @@ nav:
       - experiment/sdks/experiment-sdk-configuration.md
       - experiment/sdks/experiment-variants.md
       - experiment/sdks/exposure-tracking.md
+      - experiment/sdks/server-side-rendering.md
+    - experiment/sdks/experiment-node-server-sdk.md
+    - experiment/sdks/experiment-javascript-sdk.md
+    - experiment/sdks/experiment-android-sdk.md
+    - experiment/sdks/experiment-ios-sdk.md
 - Data: 
   - data/index.md
   - Getting Started:
