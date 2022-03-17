@@ -173,7 +173,8 @@ nav:
     - experiment/sdks/experiment-javascript-sdk.md
     - experiment/sdks/experiment-android-sdk.md
     - experiment/sdks/experiment-ios-sdk.md
-    - experiment/sdks/experiment-react-native.md
+    - experiment/sdks/experiment-react-native-sdk.md
+    - experiment/sdks/experiment-beta-migration.md
 - Data: 
   - data/index.md
   - Getting Started:
