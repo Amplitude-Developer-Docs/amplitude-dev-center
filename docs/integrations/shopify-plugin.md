@@ -7,6 +7,7 @@ Amplitude’s app with Shopify is a smart analytics app that automates eCommerce
 
 ## Considerations
 
+- The Shopify integration is available for all Amplitude plans.
 - The Shopify App was built to solve the general use cases for most Shopify stores. We designed a generalized Out of the Box Taxonomy to include events and properties that most Shopify stores would be interested in tracking.
 - We recommend leveraging our Amplitude SDKs or APIs in addition to this app if your Shopify Store has a high degree of in-built functionality or if you require instrumenting a lot of custom events outside our taxonomy list. 
 - In addition, using [Govern](https://help.amplitude.com/hc/en-us/articles/360043750992-Govern-Manage-your-Amplitude-data-at-scale), you’ll be able to manage event types, properties, and user properties from a single interface.
@@ -62,28 +63,28 @@ To do this perform the following steps:
 !!!note
     Any configurations defined here are passed onto the underlying JS SDK used by Amplitude's Shopify app (as this also overrides the default options you see in `theme.liquid`).
 
-## Events Taxonomy
+## Events taxonomy
 
-This link has the entire tracking plan and event schema in google sheets. You can see which events and properties are automatically sent by default by installing the Shopify App onto your store.
+See the entire tracking plan and event schema in [Google Sheets](https://docs.google.com/spreadsheets/d/13EZKuXbcnFUIgj721791Nx1LfvIincGndDDt1v7lpUs/edit#gid=95612975). You can see which events and properties are automatically sent by default by installing the Shopify App onto your store.
 
-|<div class="big-column">Event</div>|	Description|
+|<div class="big-column">Event</div>| Description|
 |------|--------|
 |`[Shopify] Login`|When the user logs into their account|
-|`[Shopify] Logout`|	When the user logs out of their account|
-|`[Shopify] Page Viewed`|	When the user visits any page on the site|
-|`[Shopify] Account` |Created	When the user successfully creates their account|
-|`[Shopify] Product Details Viewed`|	When the user views a product detail page|
+|`[Shopify] Logout`| When the user logs out of their account|
+|`[Shopify] Page Viewed`| When the user visits any page on the site|
+|`[Shopify] Account` |When the user successfully creates their account|
+|`[Shopify] Product Details Viewed`| When the user views a product detail page|
 |`[Shopify] Product Clicked`| When the user has clicked on a product from the collection|
 |`[Shopify] Product Added`| When the user adds a product to their cart|
 |`[Shopify] Cart Viewed`| When the user views their cart|
 |`[Shopify] Checkout Started`| When the user starts the checkout flow|
-|`[Shopify] Checkout Completed`|	When the user completes the checkout|
+|`[Shopify] Checkout Completed`| When the user completes the checkout|
 |`[Shopify] Order Created` | When the user’s order is successfully processed and revenue incurred|
 |`[Shopify] Order Cancelled`| When the user’s order is canceled|
 |`[Shopify] Order Updated`|When the order is updated by the user|
 |`[Shopify] View Thank you Confirmation`|When the user receives a thank you confirmation|
 
-## User Identity
+## User identity
 
 To support a broader range of use cases, our app lets you choose which of the following fields you want to send as the `User_Id` for known customers.
 
@@ -94,19 +95,19 @@ To support a broader range of use cases, our app lets you choose which of the fo
 
 By default, the Shopify Plugin will automatically rely on Amplitude’s JavaScript SDK to pull UTM parameters from the referring URL and include them as user properties on all of the relevant events:
 
-- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If utilized, Google will append a unique parameter (for example, `?gclid=734fsdf3`) to URLs at runtime. By setting this to true, the SDK will capture initial_glid and gclid as user properties.
-- `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If utilized, Facebook will append a unique parameter (for example, `?fbclid=392foih3`) to URLs at runtime. By setting this to true, the SDK will capture initial_fblid and fbclid as user properties.
-- `includeUtm`: If true, the plugin will find the standard UTM parameters from either the URL or the browser cookie and set them as user properties. This will set `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
-- 
-UTM parameters are captured once per session by default and occur when the user loads your site and the Amplitude SDK for the first time. When the SDK detects that it should start a new session, it will pull the UTM parameters available at the time. Those UTM parameters will be set as user properties that will persist for all user events going forward. However, initial UTM parameters are captured only once for each user via a setOnce operation.
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example, `?gclid=734fsdf3`) to URLs at runtime. By setting this to `true`, the SDK capture `initial_glid` and gclid as user properties.
+- `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example, `?fbclid=392foih3`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
+- `includeUtm`: If `true`, the plugin finds the standard UTM parameters from either the URL or the browser cookie and set them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
+
+UTM parameters are captured once per session by default and occur when the user loads your site and the Amplitude SDK for the first time. When the SDK detects that it should start a new session, it will pull the UTM parameters available at the time.
+ Those UTM parameters will be set as user properties that will persist for all user events going forward. However, initial UTM parameters are captured only once for each user via a `setOnce` operation.
 
 ## Cross-Domain Tracking
 
-By default, the Shopify App will automatically track anonymous behavior across two different domains. Anonymous users are identified by their Device IDs which will need to be passed between the domains. For example:
+By default, the Shopify App automatically tracks anonymous behavior across two different domains. Anonymous users are identified by their Device IDs which must be passed between the domains. For example:
 
 Site 1: www.example.com
 
 Site 2: www.example.org
 
-Users who start on Site 1 and then navigate to Site 2 will have their Device ID generated from Site 1 passed as a parameter to Site 2. Site 2 will then initialize the SDK with that Device ID. The SDK can parse the URL parameter automatically if deviceIdFromUrlParam is enabled.
-
+Users who start on Site 1 and then navigate to Site 2 have their Device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then initializes the SDK with that Device ID. The SDK can parse the URL parameter automatically if deviceIdFromUrlParam is enabled.
