@@ -1,6 +1,6 @@
 ---
-title: Randomization
-description: 
+title: How Randomization Works
+description: This doc describes how randomization works in Experiment. 
 ---
 
 Randomization of variations is deterministic based on the Amplitude ID that Amplitude assigns based on the `device_id` and `user_id` fields of the context, as well as the `bucketing salt` of the flag.

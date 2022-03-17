@@ -156,6 +156,18 @@ nav:
     - experiment/create-flag.md
   - experiment/randomization.md
   - experiment/performance-and-scaling.md
+  - experiment/experiment-result-caching.md
+  - Local Evaluation:
+    - experiment/local-evaluation-getting-started.md
+    - experiment/local-evaluation.md
+    - experiment/node-server-sdk.md
+  - SDKs:
+    - Introduction and Concepts:
+      - experiment/sdks/index.md
+      - experiment/sdks/experiment-user.md
+      - experiment/sdks/experiment-sdk-configuration.md
+      - experiment/sdks/experiment-variants.md
+      - experiment/sdks/exposure-tracking.md
 - Data: 
   - data/index.md
   - Getting Started:

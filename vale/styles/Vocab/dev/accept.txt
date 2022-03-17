@@ -25,3 +25,5 @@ deduplication
 orgs
 onboarding
 Onboarding
+Fastly
+AWS

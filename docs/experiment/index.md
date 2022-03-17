@@ -1,6 +1,6 @@
 ---
 title: Experiment Overview
-description: 
+description: Get started using Amplitude Experiment to learn and adapt experiences for your key audiences. 
 ---
 
 Welcome to Amplitude Experiment! We are delighted to help you start using feature flags for progressive delivery and product experimentation. It only takes a few minutes to get started with Amplitude and implement your first feature flag.
