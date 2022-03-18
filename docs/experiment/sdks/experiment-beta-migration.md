@@ -3,13 +3,13 @@ title: Experiment Beta Migration Guide
 description: Guide for migrating from Amplitude Experiment's Beta SDKs to Release SDKs.
 ---
 
-With the general availability release of Amplitude Experiment, we have created all new SDKs which change the "Skylab" branding to "Experiment". This means all new SDKs with different packages, github repositories, and SDK APIs.
+With the general availability release of Amplitude Experiment, we have created all new SDKs which change the "Skylab" branding to "Experiment". This means all new SDKs with different packages, GitHub repositories, and SDK APIs.
 
 The beta "Skylab" SDKs vary quite a bit across platforms and languages. One of the goals with the new SDKs is to keep the core APIs and functionality similar across all SDKs. This guide will go over the primary changes made to all SDKs, but is by no means exhaustive. Please contact <experiment@amplitude.com> with any questions.
 
 ## New SDKs
 
-| Old SDK | New SDK | New Documentation |
+| <div class="big-column">Old SDK</div> | New SDK | New Documentation |
 | --- | --- | --- |
 | [skylab-js-server](https://github.com/amplitude/skylab-js-server) | [experiment-node-server](https://github.com/amplitude/experiment-node-server) | [Documentation](experiment-node-server-sdk.md) |
 | [skylab-js-client](https://github.com/amplitude/skylab-js-client) | [experiment-js-client](https://github.com/amplitude/experiment-js-client) | [Documentation](experiment-javascript-sdk.md) |
@@ -53,7 +53,7 @@ The new implementation simply sets the user within the client. Call `fetch` to
 
 The `ContextProvider` has been change to the more fully featured and extensible `ExperimentUserProvider`. The `ExperimentUserProvider` interface defines a single method, `getUser`, which returns an `ExperimentUser` object to provide to the client.
 
-The `AmplitiudeContextProvider`, used to hook directly into the amplitude analytics sdks, have been updated to `AmplitudeUserProvider`. The functionality remains the same.
+The `AmplitiudeContextProvider`, used to hook directly into the amplitude analytics SDKs, have been updated to `AmplitudeUserProvider`. The functionality remains the same.
 
 ## Configuration
 
