@@ -175,6 +175,9 @@ nav:
     - experiment/sdks/experiment-ios-sdk.md
     - experiment/sdks/experiment-react-native-sdk.md
     - experiment/sdks/experiment-beta-migration.md
+  - APIs:
+    - experiment/apis/experiment-rest-api.md
+    - experiment/apis/experiment-management-api.md
 - Data: 
   - data/index.md
   - Getting Started:
