@@ -66,23 +66,54 @@ The body parameter is required. It's the deletion request object listing the `us
 ### Example request
 
 === "cURL"
+
     ```bash
-    # You can also use wget
-    curl -X POST https://amplitude.com/api/2/deletions/users \
-      -H 'Content-Type: application/json' \
-      -H 'Accept: application/json'
+    curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \
+    --header 'Content-Type: application/json' \
+    --data-raw '{
+        "amplitude_ids": [
+            356896327775,
+            356896327755
+
+        ],
+        "user_ids": [
+            1000,
+            2999
+        ],
+        "ignore_invalid_id": "true",
+        "delete_from_org": "false",
+        "requester": "employee@yourcompany.com"
+    }'
     ```
 
 === "HTTP"
+
     ```bash
-    POST https://amplitude.com/api/2/deletions/users HTTP/1.1
+    POST /api/2/deletions/users HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic {{api-key}}:{{secret_key}}
+    Authorization: Basic {{api-key}}:{{secret-key}}
     Content-Type: application/json
-    Accept: application/json
+    Content-Length: 238
+
+    {
+        "amplitude_ids": [
+            356896327775,
+            356896327755
+
+        ],
+        "user_ids": [
+            1000,
+            2999
+        ],
+        "ignore_invalid_id": "true",
+        "delete_from_org": "false",
+        "requester": "employee@yourcompany.com"
+    }
     ```
 
 === "JavaScript"
+
     ```js
     var headers = {
       'Content-Type':'application/json',
@@ -102,6 +133,7 @@ The body parameter is required. It's the deletion request object listing the `us
     ```
 
 === "NodeJs"
+
     ```js
     const request = require('node-fetch');
     const inputBody = '{
@@ -137,6 +169,7 @@ The body parameter is required. It's the deletion request object listing the `us
     ```
 
 === "Ruby"
+
     ```ruby
     require 'rest-client'
     require 'json'
@@ -154,21 +187,38 @@ The body parameter is required. It's the deletion request object listing the `us
     ```
 
 === "Python"
+
     ```python
     import requests
+    import json
+
+    url = "https://amplitude.com/api/2/deletions/users"
+
+    payload = json.dumps({
+      "amplitude_ids": [
+        356896327775,
+        356896327755
+      ],
+      "user_ids": [
+        1000,
+        2999
+      ],
+      "ignore_invalid_id": "true",
+      "delete_from_org": "false",
+      "requester": "employee@yourcompany.com"
+    })
     headers = {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Authorization': 'Basic {{api-key}}:{{secret-key}}',
+      'Content-Type': 'application/json'
     }
 
-    r = requests.post('https://amplitude.com/api/2/deletions/users', params={
+    response = requests.request("POST", url, headers=headers, data=payload)
 
-    }, headers = headers)
-
-    print r.json()
+    print(response.text)
     ```
 
 === "Java"
+
     ```java
     URL obj = new URL("https://amplitude.com/api/2/deletions/users");
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -186,29 +236,61 @@ The body parameter is required. It's the deletion request object listing the `us
     ```
 
 === "Go"
+
     ```go
     package main
 
     import (
-          "bytes"
-          "net/http"
+      "fmt"
+      "strings"
+      "net/http"
+      "io/ioutil"
     )
 
     func main() {
 
-        headers := map[string][]string{
-            "Content-Type": []string{"application/json"},
-            "Accept": []string{"application/json"},
+      url := "https://amplitude.com/api/2/deletions/users"
+      method := "POST"
 
-        }
+      payload := strings.NewReader(`{
+        "amplitude_ids": [
+            356896327775,
+            356896327755
 
-        data := bytes.NewBuffer([]byte{jsonReq})
-        req, err := http.NewRequest("POST", "https://amplitude.com/api/2/deletions/users", data)
-        req.Header = headers
+        ],
+        "user_ids": [
+            1000,
+            2999
+        ],
+        "ignore_invalid_id": "true",
+        "delete_from_org": "false",
+        "requester": "employee@yourcompany.com"
+    }`)
 
-        client := &http.Client{}
-        resp, err := client.Do(req)
-        // ...
+      client := &http.Client {
+      }
+      req, err := http.NewRequest(method, url, payload)
+
+      if err != nil {
+        fmt.Println(err)
+        return
+      }
+      req.Header.Add("Authorization", "Basic {{api-key}}:{{secret-key}}")
+      req.Header.Add("Content-Type", "application/json")
+
+      res, err := client.Do(req)
+      if err != nil {
+        fmt.Println(err)
+        return
+      }
+      defer res.Body.Close()
+
+      body, err := ioutil.ReadAll(res.Body)
+      if err != nil {
+        fmt.Println(err)
+        return
+      }
+      fmt.Println(string(body))
     }
     ```
 
@@ -376,7 +458,7 @@ The success response for a `GET` request contains these fields:
 | `day` | The day the deletion job is scheduled to begin. |
 | `status` | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and can be modified. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. It can't be modified.  <br>  <br>**Done**: The job has finished running. It can't be modified. |
 | `amplitude_ids` | List of the Amplitude Ids of users to delete. |
-| `app` | Project/app id. Appears if the deletion is applies to more than one project. |
+| `app` | Project/app id. Appears if the deletion is applied to more than one project. |
 
 The `amplitude_ids` key contains these fields:
 
