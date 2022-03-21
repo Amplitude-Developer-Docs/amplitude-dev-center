@@ -145,7 +145,7 @@ amplitude.getInstance().init(euApiKey, null, {
 Events represent how users interact with your application. For example, “Button Clicked” may be an action you want to note.
 
 ```js
-var event = “Button Clicked”;
+const event = “Button Clicked”;
 amplitude.getInstance().logEvent(event);
 ```
 
@@ -154,7 +154,7 @@ amplitude.getInstance().logEvent(event);
 Events can also contain properties. They give context about the event taken. For example, “hover time” may be a relevant event property to “Button Clicked”.
 
 ```js
-var event = “Button Clicked”;
+var event = "Button Clicked";
 var eventProperties = {
     "hover time": "100ms"
 };
@@ -398,7 +398,7 @@ Events triggered within 30 minutes of each other are counted towards the current
 In the JavaScript SDK, you can use the helper method _sessionId to get the value of the current sessionId:
 
 ```js
-var sessionId = amplitude.getInstance()._sessionId;
+const sessionId = amplitude.getInstance().getSessionId();
 ```
 
 ### Configuring HTTP headers
@@ -612,7 +612,7 @@ amplitude.getInstance().init(euApiKey, null, {
 You can get a user's current Device ID with the following code:
 
 ```js
-var deviceId = amplitude.getInstance().options.deviceId; // existing device ID
+var deviceId = amplitude.getInstance().getDeviceId() // existing device ID
 ```
 
 ### Setting configuration options
