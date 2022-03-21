@@ -398,7 +398,7 @@ Events triggered within 30 minutes of each other are counted towards the current
 In the JavaScript SDK, you can use the helper method _sessionId to get the value of the current sessionId:
 
 ```js
-var sessionId = amplitude.getInstance()._sessionId;
+const sessionId = amplitude.getInstance().getSessionId();
 ```
 
 ### Configuring HTTP Headers
