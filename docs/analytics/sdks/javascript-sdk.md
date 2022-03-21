@@ -145,7 +145,7 @@ amplitude.getInstance().init(euApiKey, null, {
 Events represent how users interact with your application. For example, “Button Clicked” may be an action you want to note.
 
 ```js
-var event = “Button Clicked”;
+const event = “Button Clicked”;
 amplitude.getInstance().logEvent(event);
 ```
 
