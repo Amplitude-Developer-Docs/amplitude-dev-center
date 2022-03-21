@@ -610,7 +610,7 @@ amplitude.getInstance().init(euApiKey, null, {
 You can get a user's current Device ID with the following code:
 
 ```js
-var deviceId = amplitude.getInstance().options.deviceId; // existing device ID
+var deviceId = amplitude.getInstance().getDeviceId() // existing device ID
 ```
 
 ### Setting Configuration Options
