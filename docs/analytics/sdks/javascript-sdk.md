@@ -29,7 +29,7 @@ You can install the JavaScript SDK using a small snippet of code which you paste
 ;n.type="text/javascript"
 ;n.integrity="sha384-4rr7CTymHc64YjTTL6O3ktfsHYI1yJnQdmKv4zFoe+frjXb05MfzzuLLIAgJ/XHs"
 ;n.crossOrigin="anonymous";n.async=true
-;n.src="https://cdn.amplitude.com/libs/amplitude-8.11.0-min.gz.js"
+;n.src="https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
 ;n.onload=function(){if(!e.amplitude.runQueuedFunctions){
 console.log("[Amplitude] Error: could not load SDK")}}
 ;var s=t.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)
@@ -248,8 +248,8 @@ amplitude.getInstance().identify(identify);
 
 #### `prepend` and `append`
 
-- `append` will append a value or values to a user property array.
-- `prepend` will prepend a value or values to a user property.
+- `append` appends a value or values to a user property array.
+- `prepend` prepends a value or values to a user property.
 
 If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are added.
  If the user property has an existing value and it's not a list, it's converted into a list with the new value added.
@@ -361,7 +361,7 @@ By default, the JavaScript SDK tracks some properties automatically. You can ove
      If you have a project with existing data that you would like to stop collecting the default properties for, please contact the Support team at support.amplitude.com.
       Note that the existing data isn't deleted.
 
-### Setting Custom User ID
+### Setting custom user ID
 
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time:
 
@@ -387,13 +387,13 @@ amplitude.getInstance().setUserId(null); // not string 'null'
 amplitude.getInstance().regenerateDeviceId();
 ```
 
-### Session Tracking
+### Session tracking
 
 Events triggered within 30 minutes of each other are counted towards the current session.
  The time of the first event marks the start time of a session and the last event triggered marks the end time of a session.
   You can change the session timeout window via the SDK configuration option field `sessionTimeout`.
 
-#### Getting the Session ID
+#### Getting the session ID
 
 In the JavaScript SDK, you can use the helper method _sessionId to get the value of the current sessionId:
 
@@ -401,7 +401,7 @@ In the JavaScript SDK, you can use the helper method _sessionId to get the value
 var sessionId = amplitude.getInstance()._sessionId;
 ```
 
-### Configuring HTTP Headers
+### Configuring HTTP headers
 
 If you are using a [domain proxy](https://developers.amplitude.com/docs/domain-proxies) that requires custom HTTP request headers, configure them with `options.headers` during initialization.
 
@@ -414,7 +414,7 @@ amplitude.getInstance().init(APIKEY, null, {
 });
 ```
 
-### Logging Events to Multiple Projects
+### Logging events to multiple projects
 
 If you want to log events to multiple Amplitude projects, then must have separate instances for each Amplitude project.
  Each instance allows for independent `apiKeys`, `userIds`, `deviceIds`, and settings.
@@ -448,7 +448,7 @@ amplitude.getInstance().identify(identify);
 amplitude.getInstance().logEvent('Viewed Home Page');
 ```
 
-### Web Attribution
+### Web attribution
 
 While Amplitude’s JavaScript SDK doesn't collect web attribution data by default, setting it up is simple.
  The SDK can automatically collect this information if you enable attribution configuration options.
@@ -460,7 +460,7 @@ Amplitude supports automatically tracking the following through the SDK configur
 - Google Click Identifier from URL parameters through `includeGclid`.
 - Facebook Click Identifier from URL parameters through `includeFbclid`.  
 
-#### Track UTM Parameters
+#### Track UTM parameters
 
 UTM parameters stand for Urchin Traffic Monitor parameters and are useful for analyzing the effectiveness of different ad campaigns and referring sites.
  UTM parameters are case sensitive so they're considered different values if the capitalization varies.
@@ -489,7 +489,7 @@ UTM parameters are captured once per session by default and occurs when the user
   it pulls the UTM parameters that are available at the time. Those UTM parameters are set as user properties which persists for all the user's events going forward.
    However, initial UTM parameters are captured only once for each user via a `setOnce` operation.
 
-#### Track Referrers
+#### Track referrers
 
 If you want to track how users are getting to your website, then track the referrer (the referring site).
 
@@ -507,7 +507,7 @@ After you set the `includeReferrer` option to `true`, Amplitude captures the `re
 
 Initial referring information is captured only once for each user via a `setOnce` operation.
 
-#### First-Touch Attribution
+#### First-touch attribution
 
 Amplitude can capture the initial UTM parameters and referrer information for each user. The first-touch attribution values are set when a user's non-null UTM parameters are seen for the first time.
  These user properties are set once:
@@ -527,7 +527,7 @@ This is done by setting the JavaScript SDK configuration options `includeReferre
 !!!note
     Initial attribution information for users can change if they're merged with another user.
 
-#### Last-Touch Attribution
+#### Last-touch attribution
 
 In addition to first-touch attribution, Amplitude captures where a user came from for each of their sessions by setting these user properties:
 
@@ -544,7 +544,7 @@ In addition to first-touch attribution, Amplitude captures where a user came fro
 This is done by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, and `includeGclid` to `true`.
  By default, the SDK only saves values at the start of the session so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session, that second set isn't saved.
 
-#### Multi-Touch Attribution
+#### Multi-touch attribution
 
 If you set `saveParamsReferrerOncePerSession` to `false` in your JavaScript SDK configuration, the SDK always capture any new values from the user. This updates these user properties throughout a session if they change:
 
@@ -560,7 +560,9 @@ If you set `saveParamsReferrerOncePerSession` to `false` in your JavaScript SDK 
 
 Some customers also instrument these user properties as arrays to keep track of all the attribution parameters seen within the same session for a single user.
 
-#### Logging Captured Attribution Values via Amplitude (Advanced Use Case)
+#### Logging captured attribution values via Amplitude
+
+This is an advanced use case. 
 
 !!!important
 
@@ -586,7 +588,7 @@ If you set `logAttributionCapturedEvent` to `true` in your JavaScript SDK config
 
 Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the [demo app](https://github.com/amplitude/GTM-Web-Demo) on GitHub for instructions on how to set it up.
 
-### Dynamic Configuration
+### Dynamic configuration
 
 Beginning with version 8.9.0, the JavaScript SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration.md).
  This feature finds the best server URL automatically based on app users' location.
@@ -613,7 +615,7 @@ You can get a user's current Device ID with the following code:
 var deviceId = amplitude.getInstance().options.deviceId; // existing device ID
 ```
 
-### Setting Configuration Options
+### Setting configuration options
 
 You can configure Amplitude by passing an object as the third argument to the init:
 
@@ -626,9 +628,9 @@ amplitude.getInstance().init("API_KEY", null, {
 })
 ```
 
-### Cookie Management
+### Cookie management
 
-#### Cookies Created by the SDK
+#### Cookies created by the SDK
 
 On initialization, the SDK creates a cookie that begins with the prefix `amp_` and ends with this first six digits of your API key.
  For example, `amplitude.getInstance().init("a2dbce0e18dfe5f8e74493843ff5c053")` would create a cookie with the key `amp_a2dbce`.
@@ -641,7 +643,7 @@ The cookie is used to keep track of metadata for the SDK:
 - The last event time
 - Sequence IDs to put events and identify operations in the correct order
 
-#### Disabling Cookies
+#### Disabling cookies
 
 Amplitude cookies can be disabled altogether using the `disableCookies` option. When you disable cookies, the JavaScript SDK defaults to using `localStorage` to store its data.
  LocalStorage is a great alternative, but can't track cookies across domains.
@@ -652,11 +654,11 @@ Amplitude cookies can be disabled altogether using the `disableCookies` option
 The JavaScript SDK defaults to setting the SameSite option on its cookies to `None`. This can be overridden with the `sameSiteCookie` option.
  `Lax` is recommended unless there are instances where you have third party sites that `POST` forms to your site.
 
-#### HttpOnly Cookies
+#### HttpOnly cookies
 
 An HttpOnly option isn't technologically possible for Amplitude's SDK cookies. The cookie is set on the client side and is used as a client-side data store. An SDK cookie can't set the HttpOnly flag.
 
-#### Upgrading Legacy Cookies
+#### Upgrading legacy cookies
 
 Amplitude's legacy cookies were larger than the newer, more compact cookies.
  For users that have older cookies, the SDK only removes old cookies and starts using the new cookie format if the `cookieForceUpgrade` option is set to `true`.
@@ -705,7 +707,7 @@ You can also define the path in your RequireJS configuration like this:
 </script>
 ```
 
-### Cross Domain Tracking (JavaScript)
+### Cross domain tracking (JavaScript)
 
 You can track anonymous behavior across two different domains. Anonymous users are identified by their Device IDs which must be passed between the domains. For example:
 
@@ -719,7 +721,7 @@ Users who start on Site 1 and then navigate to Site 2 need to have the Device ID
 - Pass the Device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?amp_device_id=device_id_from_site_1`)
 - Initialize the Amplitude SDK on Site 2 with `amplitude.init('API_KEY', null, {deviceIdFromUrlParam: true})`.
 
-### Tracking UTM Parameters, Referrer, and gclid (JavaScript)
+### Tracking UTM parameters, referrer, and gclid (JavaScript)
 
 Amplitude supports automatically tracking:
 
@@ -789,7 +791,7 @@ In the case that `optOut` is `true`, then no event is logged but the callback is
  In the case that `batchEvents` is `true`, if the batch requirements `eventUploadThreshold` and `eventUploadPeriodMillis` aren't met when `logEvent` is called, then no request is sent but the callback is still called.
  In these cases, the callback is called with an input status of 0 and a response of 'No request sent'.
 
-### Error Callbacks
+### Error callbacks
 
 You can pass a second callback to `logEvent` and identify that are called if the network request for the event fails.
  This is useful to detect if a user is using an ad blocker, or if there's an error from the Amplitude server due to an issue with the event format.
@@ -807,7 +809,7 @@ var errorCallback = function() {
 amplitude.getInstance().logEvent('event', null, successCallback, errorCallback);
 ```
 
-### init Callbacks
+### `init` callbacks
 
 You can also pass a callback function to init, which is called after the SDK finishes its asynchronous loading. The instance is passed as an argument to the callback:
 
