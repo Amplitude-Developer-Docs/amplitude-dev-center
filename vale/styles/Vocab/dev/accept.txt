@@ -25,3 +25,6 @@ deduplication
 orgs
 onboarding
 Onboarding
+CocoaPods
+Podfile
+podfile
