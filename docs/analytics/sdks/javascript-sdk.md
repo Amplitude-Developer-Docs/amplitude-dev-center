@@ -154,7 +154,7 @@ amplitude.getInstance().logEvent(event);
 Events can also contain properties. They give context about the event taken. For example, “hover time” may be a relevant event property to “Button Clicked”.
 
 ```js
-var event = “Button Clicked”;
+var event = "Button Clicked";
 var eventProperties = {
     "hover time": "100ms"
 };
