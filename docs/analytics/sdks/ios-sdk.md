@@ -40,7 +40,7 @@ The Amplitude-iOS package appears as a dependency after it's added.
 Add the following line to your `Cartfile`.
   
 ```bash
-github "amplitude/Amplitude-iOS" ~> 8.5.0
+github "amplitude/Amplitude-iOS" ~> 8.8.0
 ```
 
 ## Usage and examples
