@@ -1,13 +1,12 @@
 ---
 title: Java SDK
-description: 
+description: The Amplitude Analytics Java SDK installation and quick start guide. 
 icon: fontawesome/brands/java
 ---
 
-The backend Java SDK (separate from Android)
+This is the documentation for the Amplitude Analytics Java SDK. Note that this is not the Android SDK. 
 
 ???info "SDK Resources"
-    - [Java SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/)
     - [Java SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Java)
     - [Java SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Java/releases)
 
