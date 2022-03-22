@@ -13,7 +13,7 @@ The backend Java SDK (separate from Android)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
-## SDK Installation
+## SDK installation
 
 ### Maven
 
@@ -30,7 +30,7 @@ dependencies {
 
 Download the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases) and add it to the project's buildpath. See instructions for your IDE.
 
-## EU Data Residency
+## EU data residency
 
 Sending data to Amplitude's EU servers, you need to configure the server URL during the initialization.
 
@@ -40,7 +40,7 @@ amplitude.init("API KEY");
 amplitude.setServerUrl("https://api.eu.amplitude.com/2/httpapi");
 ```
 
-## Usage & Examples
+## Usage and examples
 
 ### Importing
 
@@ -69,7 +69,7 @@ client.init("YOUR_API_KEY");
 
 ### Configure batching behavior
 
-To support high performance environments, our SDK send events in batch. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. There are two properties Amplitude can use to customize batching behavior.
+To support high performance environments, our SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUpdloadThreshfold` and `setEventUploadPeriodMillis`.
 
 ```java
 Amplitude client = Amplitude.getInstance();
@@ -82,13 +82,15 @@ client.setEventUploadThreshold(20);
 client.setEventUploadPeriodMillis(5000);
 ```
 
-Events can also be flushed on demand.
+You can also flush events on demand.
 
 ```java
 client.flushEvents();
 ```
 
-For customers who want to send large batches of data at a time, for example through scheduled jobs, rather than in a continuous realtime stream, we provide the batch mode. Both the regular mode and the batch mode use the same events upload threshold and flush time intervals, but the batch mode allows larger payload size(20MB) and has higher throttling limit. Due to the higher rate of data that's permitted by this mode, data sent by batch mode may be delayed based on load. You can see a usage example in [this project](https://github.com/amplitude/Amplitude-Java/blob/main/src/demo/java/com/demo/amplitude/LocalUploadDemo.java) on GitHub.
+For customers who want to send large batches of data at a time, for example through scheduled jobs, rather than in a continuous real-time stream, Amplitude provides the batch mode.
+ Both the regular mode and the batch mode use the same events upload threshold and flush time intervals, but the batch mode allows larger payload size(20MB) and has higher throttling limit.
+  Due to the higher rate of data that's permitted by this mode, data sent by batch mode may be delayed based on load. You can see a usage example in [this project](https://github.com/amplitude/Amplitude-Java/blob/main/src/demo/java/com/demo/amplitude/LocalUploadDemo.java) on GitHub.
 
 ```java
 // Enable batch mode
@@ -98,7 +100,7 @@ client.useBatchMode(true);
 client.useBatchMode(false);
 ```
 
-## Sending Events
+## Sending events
 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to track.
 
@@ -111,7 +113,7 @@ Amplitude client = Amplitude.getInstance();
 client.logEvent(new Event("Button Clicked", "test_user_id"));
 ```
 
-### Events with Properties
+### Events with properties
 
 Events can also contain properties. They provide context about the event taken. For example, "hover time" may be a relevant event property to "button click."
 
@@ -131,13 +133,13 @@ event.eventProperties = eventProps;
 client.logEvent(event);
 ```
 
-### Set User Properties
+### Set user properties
 
 !!!warning "Privacy and tracking'
 
     Please be sure to not track any user data that may be against your privacy terms. 
 
-Use `event.userProperties` as a shorthand to set multiple user properties at once.
+Use `event.userProperties` as a shorthand to set multiple user properties at one time.
 
 ```java
 Event event = new Event("Button Clicked", "test_user_id");
@@ -155,7 +157,7 @@ event.userProperties = userProps;
 client.logEvent(event);
 ```
 
-### Set Device Information
+### Set device information
 
 Unlike the Android SDK or iOS SDK, device information in Java SDK isn't collected via SDK. Device information like device id, device brand, device manufacturer, and device model can be set as properties in each event.
 
@@ -168,7 +170,7 @@ event.deviceModel = "device_model";
 client.logEvent(event);
 ```
 
-### Set Session Information
+### Set session information
 
 You can set `sessionId` in an event. This pattern also applies to other properties like `city` and `price`. You can see a full list of events properties in [Event.java](https://github.com/amplitude/Amplitude-Java/blob/main/src/main/java/com/amplitude/Event.java).
 
@@ -178,7 +180,7 @@ event.sessionId = 1;
 client.logEvent(event);
 ```
 
-### Amplitude Callbacks
+### Amplitude callbacks
 
 Support for AmplitudeCallBacks is available beginning with 1.4.0. You can trigger a callback when event is sent to server or failed after retries.
 
@@ -214,7 +216,8 @@ client.logEvent(event, eventCallbacks)
 
 ### Middleware
 
-Middleware allows you to extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and can be used to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
+Middleware allows you to extend Amplitude by running a sequence of custom code on every event.
+ This pattern is flexible and can be used to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
 
 Each middleware is a simple interface with a run method:
 
@@ -222,9 +225,10 @@ Each middleware is a simple interface with a run method:
 void run(MiddlewarePayload payload, MiddlewareNext next);
 ```
 
-The `payload` contains the `event` being sent as well as an optional `extra` that allows you to pass custom data to your own Middleware implementations.
+The `payload` contains the `event` being sent as well as an optional `extra` that allows you to pass custom data to your own middleware implementations.
 
-To invoke the next middleware in the queue, use the `next` function. You must call `next.run(payload)` to continue the middleware chain. If a middleware doesn't call `next`, then the event processing stop executing after the current middleware completes.
+To invoke the next middleware in the queue, use the `next` function. You must call `next.run(payload)` to continue the middleware chain.
+ If a middleware doesn't call `next`, then the event processing stop executing after the current middleware completes.
 
 Middleware is added to Amplitude via `client.addEventMiddleware`. You can add as many middleware as you like. Each middleware runs in the order in which it was added.
 
