@@ -560,7 +560,7 @@ Calling `logRevenueV2` generates up to 2 different event types in the platform:
 - '[Amplitude] Revenue': This event is logged for all revenue events, regardless of whether or not verification is turned on.
 - '[Amplitude] Revenue (Verified/Unverified)': These revenue events will contain the actual '$revenue' property.
 
-You can't change the default names given to these client-side revenue events in the raw data but you do have the option to change the [display name](https://amplitude.zendesk.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://amplitude.zendesk.com/hc/en-us/articles/115003116888).
+You can't change the default names given to these client-side revenue events in the raw data but you do have the option to change the [display name](https://help.amplitude.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://help.amplitude.com/hc/en-us/articles/115003116888).
 
 !!!note
 
