@@ -560,10 +560,10 @@ Calling `logRevenueV2` generates up to 2 different event types in the platform:
 - '[Amplitude] Revenue': This event is logged for all revenue events, regardless of whether or not verification is turned on.
 - '[Amplitude] Revenue (Verified/Unverified)': These revenue events will contain the actual '$revenue' property.
 
-You can't change the default names given to these client-side revenue events in the raw data but you do have the option to modify the [display name](https://amplitude.zendesk.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://amplitude.zendesk.com/hc/en-us/articles/115003116888).
+You can't change the default names given to these client-side revenue events in the raw data but you do have the option to change the [display name](https://amplitude.zendesk.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://amplitude.zendesk.com/hc/en-us/articles/115003116888).
 
 !!!note
-    
+
     Amplitude doesn't support currency conversion. All revenue data should be normalized to your currency of choice before being sent.
 
 Each revenue event has fields available, and each field has a corresponding set method (such as `price` and `setPrice`). See the [API docs for `AMPRevenue`](http://amplitude.github.io/Amplitude-iOS/Classes/AMPRevenue.html#//api/name/productId) for a full list of fields.
@@ -944,7 +944,7 @@ This SDK work with tvOS and watch OS apps. To begin, follow the same setup instr
 
 The SDK allows for tracking in iOS extensions. To set up tracking in iOS extensions, you should follow the same setup instructions but initialize the SDK in your extension's `viewDidLoad` method instead from `application:didFinishLaunchingWithOptions:`.
 
-Here are a couple of things to note:
+There are a couple of things to note:
 
 - The `viewDidLoad` method gets called every time your extension is opened. This means that the SDK's `initializeApiKey` method gets called every single time. However, this is okay because it safely ignores calls after the first one. You can protect the initialization with something like a `dispatch_once` block.
 - Amplitude's sessions are defined for an app use case. Depending on your expected extension use case, you might not want to enable `trackingSessionEvents`, or you may want to extend the `minTimeBetweenSessionsMillis` to be longer than five minutes. You should experiment with these two settings to get your desired session definition.
@@ -981,7 +981,7 @@ Save the Podfile and run `pod install`
 Push notification events shouldn't be sent client-side via the iOS SDK because a user must open the app to initialize the Amplitude SDK in order for the SDK to send the event.
  Therefore, if push notification events are tracked client-side then there can be data delays as the push notification event isn't sent to Amplitude's servers until the next time the user opens the app.
 
-You can use our [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or our [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
+You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
 
 ### Middleware
 
