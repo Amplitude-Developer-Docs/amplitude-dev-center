@@ -149,6 +149,7 @@ nav:
   - Amplitude SDKs:
     - analytics/sdks/android-sdk.md
     - analytics/sdks/sdk-javascript-overview.md
+    - analytics/sdks/java-sdk.md
 - Experiment:
   - experiment/index.md
 - Data: 
