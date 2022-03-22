@@ -7,3 +7,5 @@
 | `receipt`  | Optional. String. The type of revenue (e.g. tax, refund, income). Defaults to `null` |
 | `receiptSignature` | Optional, but required for revenue verification. The type of revenue (e.g. tax, refund, income). | null |
 | `eventProperties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to `null`. |
+
+<!--delete this once all the SDKs are done! It's a boilerplate table for rev properties-->

@@ -117,7 +117,7 @@ Set `userID` when initializing the client, or after initialization with the `set
 ### EU data residency
 
 Beginning with version 8.9.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
- The server zone config supports dynamic configuration as well.
+ The server zone configuration supports dynamic configuration as well.
 
 For earlier versions, you need to configure the `apiEndpoint` property after initializing the client.
 
@@ -161,9 +161,11 @@ var eventProperties = {
 amplitude.getInstance().logEvent(event, eventProperties);
 ```
 
+Valid data types for event properties are string, array, object, boolean, and number. Object keys have a 1000 character limit.
+
 #### Arrays in Event Properties
 
-Arrays can be used as event property values. Array event properties can be queried by any subset of the individual properties in the array.
+Arrays can be used as event property values. You can query array event properties by any subset of the individual properties in the array.
 
 ```js
 var event = “Button Clicked”;
@@ -194,9 +196,9 @@ var identify = new amplitude.Identify();
 amplitude.getInstance().identify(identify); // makes identify call to amplitude with the properties of the identify object
 ```
 
-#### set
+#### `set`
 
-`set`  sets the value of a user property. You can also chain together multiple set calls.
+`set`  sets the value of a user property. You can also chain together many set calls.
 
 ```js
 var identify1 = new amplitude.Identify().set('key1', 'value1');
@@ -205,23 +207,22 @@ amplitude.getInstance().identify(identify1);
 amplitude.getInstance().identify(identify2);
 ```
 
-#### setOnce
+#### `setOnce`
 
-`setOnce` sets the value of a user property only once. Later calls using `setOnce` are ignored.
+`setOnce` sets the value of a user property one time. Later calls using `setOnce` are ignored.
 
 ```js
 var identify = new amplitude.Identify().setOnce('key1', 'value1');
 amplitude.getInstance().identify(identify);
 ```
 
-#### add
+#### `add`
 
-`add`  increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to `0` before being incremented.
+`add`  increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to `0`.
 
 ```js
 var identify = new amplitude.Identify().add('value1', 10);
 amplitude.getInstance().identify(identify);
-
 ```
 
 #### Setting multiple user properties
@@ -268,7 +269,7 @@ If the user property doesn't have a value set yet, it's initialized to an empty 
     amplitude.getInstance().setGroup('orgId', '[10,16]');
     ```
 
-You can also use `logEventWithGroups` to set event-level groups, meaning the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly
+You can also use `logEventWithGroups` to set event-level groups, meaning the group designation applies only for the specific event being logged, and doesn't persist on the user unless you explicitly
  set it with `setGroup`.
 
 ```js
@@ -302,7 +303,7 @@ The preferred method of tracking revenue for a user is to use `logRevenueV2()` i
   You can also add event properties to revenue events via the eventProperties field. These Revenue instance objects are then passed into `logRevenueV2` to send as revenue events to Amplitude.
    This allows Amplitude to automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
-To track revenue from a user, call logRevenueV2() each time a user generates revenue. Here is an example:
+To track revenue from a user, call `logRevenueV2()` each time a user generates revenue. Here is an example:
 
 ```js
 var revenue = new amplitude.Revenue().setProductId('com.company.productId').setPrice(3.99).setQuantity(3);
@@ -317,9 +318,15 @@ You can't change the default names given to these client-side revenue events in 
  To learn more about tracking revenue, see the documentation [here](https://help.amplitude.com/hc/en-us/articles/115003116888).
 
 !!!note
-    Amplitude doesn't support currency conversion. All revenue data should be normalized to your currency of choice, before being sent to Amplitude.
+    Amplitude doesn't support currency conversion. Normalize all revenue data to your currency of choice before sending it to Amplitude.
 
---8<-- "includes/track-revenue-properties-table.md"
+| <div class="big-column">Name</div>  | Description  |
+| --- | --- |
+| `productId` | Optional. String. An identifier for the product. Amplitude recommends something like the "Google Play Store product ID". Defaults to `null`. |
+| `quantity`| Required. Integer. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1. |
+| `price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to `null`.|
+| `revenueType` | Optional, but required for revenue verification. String. The revenue type. For example, tax, refund, income. Defaults to `null`. |
+| `eventProperties`| Optional. Object. An object of event properties to include in the revenue event. Defaults to `null`. |
 
 ### Opt users out of tracking
 
@@ -357,7 +364,7 @@ By default, the JavaScript SDK tracks some properties automatically. You can ove
 |`version_name` | `true`|
 
 !!!warning
-    The `trackingOptions` configurations only prevent default properties from being tracked on new projects that have no existing data.
+    The `trackingOptions` configurations prevent default properties from being tracked on new projects that have no existing data, not existing data.
      If you have a project with existing data that you would like to stop collecting the default properties for, please contact the Support team at support.amplitude.com.
       Note that the existing data isn't deleted.
 
@@ -395,7 +402,7 @@ Events triggered within 30 minutes of each other are counted towards the current
 
 #### Getting the session ID
 
-In the JavaScript SDK, you can use the helper method _sessionId to get the value of the current sessionId:
+In the JavaScript SDK, you can use the helper method `getSessionId` to get the value of the current `sessionId`:
 
 ```js
 const sessionId = amplitude.getInstance().getSessionId();
@@ -481,13 +488,13 @@ Here is an example URL:
 
 In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK automatically pulls UTM parameters from the referring URL and include them as user properties on all relevant events:
 
-- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If utilized, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
-- `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If utilized, Facebook appends a unique parameter (for example: `"?fbclid=392foih3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_fblid` and `fbclid` as user properties.
-- `includeUtm`: If true, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
+- `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example: `"?fbclid=392foih3"`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
+- `includeUtm`: If `true`, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
 UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time.
  You can disable the once per session restriction through the `saveParamsReferrerOncePerSession` configuration option. When the SDK detects that it should start a new session,
   it pulls the UTM parameters that are available at the time. Those UTM parameters are set as user properties which persists for all the user's events going forward.
-   However, initial UTM parameters are captured only once for each user via a `setOnce` operation.
+   However, initial UTM parameters are captured once for each user via a `setOnce` operation.
 
 #### Track referrers
 
@@ -503,9 +510,9 @@ Amplitude supports tracking these fields automatically:
 After you set the `includeReferrer` option to `true`, Amplitude captures the `referrer` and `referring_domain` for each session and set them as user properties on relevant events:
 
 - `includeReferrer`: When `true`, captures the `referrer` and `referring_domain` for each session as user properties as well as the `initial_referrer` and `initial_referring_domain` user properties once for each user.
- The referrer is the entire URL while the `referring_domain` is only the domain name from where the user came from.
+ The referrer is the entire URL while the `referring_domain` is the domain name from where the user came from.
 
-Initial referring information is captured only once for each user via a `setOnce` operation.
+Initial referring information is captured one time for each user via a `setOnce` operation.
 
 #### First-touch attribution
 
@@ -542,7 +549,7 @@ In addition to first-touch attribution, Amplitude captures where a user came fro
 - `fbclid`
 
 This is done by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, and `includeGclid` to `true`.
- By default, the SDK only saves values at the start of the session so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session, that second set isn't saved.
+ By default, the SDK only saves values at the start of the session, so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session, the second set isn't saved.
 
 #### Multi-touch attribution
 

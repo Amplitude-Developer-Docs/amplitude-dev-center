@@ -43,7 +43,7 @@ stateDiagram-v2
 
 ## Usage
 
-Set the `useDynamicConfig` flag to `true`.
+Enable the `useDynamicConfig` flag.
 
 === "iOS"
 
