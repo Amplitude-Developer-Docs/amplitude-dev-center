@@ -116,7 +116,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ## EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](/docs/analytics/dynamic-configuration.md) as well.
+ The server zone configuration supports [dynamic configuration](/dynamic-configuration.md) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 
@@ -410,7 +410,7 @@ client.setOptOut(true); //No events will be tracked for this user
 
 ### Dynamic configuration
 
-Unity SDK allows users to configure their apps to use [dynamic configuration](../analytics/dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
+Unity SDK allows users to configure their apps to use [dynamic configuration](/dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.
@@ -420,6 +420,76 @@ Unity SDK allows users to configure their apps to use [dynamic configuration](.
 ```c#
 amplitude.setUseDynamicConfig(true);
 ```
+
+## iOS IDFA and GPS setup
+
+This section walks through the process to give Unity SDK users access to IDFA (advertiser ID) and GPS coordinate data in their logged events.
+
+### Considerations
+
+- This functionality wasn't included in the Unity SDK because the Apple App Store flags any app that uses IDFA code, even if the code is disabled or sourced from a third-party SDK developer like Amplitude.
+- Consider alternatives to IDFA. Do not assume users will enable IDFA tracking; opt-in systems engage less. Use device id, IDFV, or pass your own app's email login system as a custom user property.
+- You can edit the Objective-C iOS logic to fetch IDFA and GPS data. However, the current code was written to handle permissions, and accurately update the IDFA and GPS data within the SDK when the app user gives permissions.
+
+### Setup
+
+!!!note  "iOS App Store compliance"
+
+   If an app is subject to COPPA because it is aimed toward children, the app cannot contain any IDFA or GPS tracking code whatsoever. This is why the IDFA and GPS code is packaged separately and requires this setup.
+
+First, take the [two files](https://github.com/amplitude/unity-plugin/tree/main/IdfaIOS) `unity-plugin/IdfaIOS/CustomIdfa.m` and `unity-plugin/IdfaIOS/CustomGPS.m` and place them into `Assets/Scripts`.
+ You may place the file wherever, but check all the `#import` statements lead to correct paths.
+
+In the imports section (the top) of your `.cs` game script, add this import:
+
+```c#
+#if (UNITY_IPHONE || UNITY_TVOS)
+using System.Runtime.InteropServices;
+#endif
+```
+
+Inside the game class, add the following code inside your MonoBehaviour class, or any other class.
+
+```c#
+public class AmplitudeDemo : MonoBehaviour {
+
+#if (UNITY_IPHONE || UNITY_TVOS)
+    [DllImport ("__Internal")]
+    private static extern void setIdfaBlock(string instanceName);
+    [DllImport ("__Internal")]
+    private static extern void setLocationInfoBlock(string instanceName);
+#endif
+```
+
+Finally, in your game code, probably in `void Start()`, call these functions. `YOUR_INSTANCE_NAME` is a string associated with this [particular instance of Amplitude](https://developers.amplitude.com/docs/tracking-events#logging-events-to-multiple-projects). `YOUR_INSTANCE_NAME` may also be null or an empty string.
+
+```c#
+Amplitude amplitude = Amplitude.getInstance("YOUR_INSTANCE_NAME");
+amplitude.init("e7177d872ff62c0356c973848c7bffba"); //API key
+
+#if (UNITY_IPHONE || UNITY_TVOS)
+    setLocationInfoBlock("YOUR_INSTANCE_NAME");
+    setIdfaBlock("YOUR_INSTANCE_NAME");
+#endif
+```
+
+These functions prompt the iOS user to accept or reject permissions for GPS location tracking, as well as IDFA tracking.
+
+Furthermore, your Unity app needs two special configurations.\
+For location, please navigate to `Unity > Edit > Project Settings...`. The menu in the first image below will pop up. Select `Player`, then click the `iOS` tab. Click `Other Settings`, and scroll until the field `Location Usage Description`. Type a sentence that prompts the user for GPS tracking permissions into the textbox.
+
+![](../../assets/images/analytics-unity-player.png)
+![](../../assets/images/analytics-unity-player-2.png)
+
+!!!note "Xcode Simulator"
+
+   IDFA tracking permissions can generally only be tested reliably on real life phones.
+
+For IDFA, the file `Info.plist` has to be edited according to Apple's specifications. This can be done with a Unity script with [guidance from this Unity post](https://forum.unity.com/threads/how-can-you-add-items-to-the-xcode-project-targets-info-plist-using-the-xcodeapi.330574/).
+
+Also, when the app is compiled into iOS and launches into xcode, find the top-level file `Info.plist`. Click the plus symbol next to any key value pair. Use the xcode editor to find the key `Privacy - Tracking Usage Description`, ensure the Type is String, and type a prompt to ask for tracking permission in the Value field.
+
+![](../../assets/images/analytics-unity-value-field.png)
 
 ## Report issues
 
