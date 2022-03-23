@@ -188,8 +188,83 @@ Wrap the column header text in a div with this class to make the Markdown cooper
   min-width: 100px;
 }
 
+/* sets the feedback link font size */
+
 .feedback-link {
 
   font-size: small;
 
 }
+
+/* Overrides heading sizes and styles*/
+
+.md-typeset h1 {
+
+font-size: 3.125em;
+letter-spacing: -1px;
+}
+
+.md-typeset h2 {
+
+font-size: 2.5em;
+letter-spacing: -.5px;
+
+}
+
+.md-typeset h3 {
+
+font-size: 2.125em;
+letter-spacing: -.5px;
+
+}
+
+.md-typeset h4 {
+
+font-size: 1.75em;
+font-weight: 300;
+letter-spacing: -.25px;
+}
+
+.md-typeset h5 {
+
+font-size: 1.375em;
+text-transform: none;
+letter-spacing: -.25px;
+}
+
+/* End Heading overrides */
+
+/* Sets heading sizes and overrides on mobile */
+
+@media screen and (max-width:30em) {
+  .md-typeset h1 {
+
+    font-size: 2.25em;
+    }
+    
+  .md-typeset h2 {
+    
+    font-size: 1.75em;
+    
+    }
+    
+  .md-typeset h3 {
+    
+    font-size: 1.375em;
+    
+    }
+    
+  .md-typeset h4 {
+    
+    font-size: 1.25em;
+    font-weight: 300;
+    }
+    
+  .md-typeset h5 {
+    
+    font-size: 1.125em;
+    text-transform: none;
+    }
+}
+
+/* end heading sizes overrides on mobile */

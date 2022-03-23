@@ -134,9 +134,9 @@ client.logEvent(event);
 
 ### Set user properties
 
-!!!warning "Privacy and tracking'
+!!!warning "Privacy and tracking"
 
-    Please be sure to not track any user data that may be against your privacy terms. 
+    Don't track any user data that may be against your privacy terms. 
 
 Use `event.userProperties` as a shorthand to set multiple user properties at one time.
 
