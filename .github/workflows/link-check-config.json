@@ -31,6 +31,12 @@
 
 		{
 		"pattern": "https://developer.android.com"
+		},
+
+		{
+
+		"pattern": "https://forum.unity.com"
+		
 		}
 
 

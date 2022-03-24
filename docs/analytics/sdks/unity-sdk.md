@@ -41,7 +41,7 @@ Add this line in your Proguard rules file - proguard.pro.
 
 ### Carrier information (optional)
 
-Please refer to [this](https://developers.amplitude.com/docs/track-carrier-info).
+Please refer to [this](https://developers.amplitude.com/docs/ios#carrier-information).
 
 ### 4. [Android] Dependencies management
 
@@ -116,7 +116,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ## EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](/dynamic-configuration.md) as well.
+ The server zone configuration supports [dynamic configuration](../dynamic-configuration.md) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 
@@ -285,7 +285,7 @@ Calling `logRevenue` generates up to 2 different event types in the platform:
 - '[Amplitude] Revenue': This event is logged for all revenue events, regardless of whether verification is turned on.
 - '[Amplitude] Revenue (Verified/Unverified)': These revenue events will contain the actual '$revenue' property.
 
-You can't change the default names given to these client-side revenue events in the raw data but you do have the option to modify the [display name](https://amplitude.zendesk.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://amplitude.zendesk.com/hc/en-us/articles/115003116888).
+You can't change the default names given to these client-side revenue events in the raw data but you do have the option to modify the [display name](https://help.amplitude.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://help.amplitude.com/hc/en-us/articles/115003116888).
 
 | <div class="big-column">Name</div>  | Description  |
 | --- | --- |
@@ -361,7 +361,7 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
 
 #### iOS setup
 
-See setup instructions in [Unity iOS IDFA and GPS Setup](/unity-ios-idfa-gps-setup.md).
+See setup instructions in [Unity iOS IDFA and GPS Setup](#ios-idfa-and-gps-setup).
 
 #### Android setup
 
@@ -410,7 +410,7 @@ client.setOptOut(true); //No events will be tracked for this user
 
 ### Dynamic configuration
 
-Unity SDK allows users to configure their apps to use [dynamic configuration](/dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
+Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.
@@ -461,7 +461,7 @@ public class AmplitudeDemo : MonoBehaviour {
 #endif
 ```
 
-Finally, in your game code, probably in `void Start()`, call these functions. `YOUR_INSTANCE_NAME` is a string associated with this [particular instance of Amplitude](https://developers.amplitude.com/docs/tracking-events#logging-events-to-multiple-projects). `YOUR_INSTANCE_NAME` may also be null or an empty string.
+Finally, in your game code, probably in `void Start()`, call these functions. `YOUR_INSTANCE_NAME` is a string associated with this particular instance of Amplitude. `YOUR_INSTANCE_NAME` may also be null or an empty string.
 
 ```c#
 Amplitude amplitude = Amplitude.getInstance("YOUR_INSTANCE_NAME");
