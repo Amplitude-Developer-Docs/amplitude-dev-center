@@ -3,14 +3,15 @@ title: Dynamic Configuration
 description: Use dynamic configuration to find the best server URLs based on a user's location.
 ---
 
-Some Amplitude SDK versions (iOS 5.3.0+, Android 2.28.0+, and JavaScript 8.9.0+) let you set your apps to use dynamic configuration.
+
+Some Amplitude SDK versions (iOS 5.3.0+, Android 2.28.0+, and JavaScript 8.9.0+, Unity) let you set your apps to use dynamic configuration.
  Dynamic configuration finds the best Amplitude server URL based on app users' location.
 
 ## Considerations
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.
-- By default, this feature is off. You must explicitly set it to `true` to use it.
+- By default, this feature is off. You must explicitly enable it to use it.
 
 ## Use cases
 
@@ -63,4 +64,10 @@ Enable the `useDynamicConfig` flag.
     amplitude.getInstance().init(euApiKey, null, {
       useDynamicConfig: true,
     });
+    ```
+
+=== "Unity"
+
+    ```c#
+    amplitude.setUseDynamicConfig(true);
     ```
