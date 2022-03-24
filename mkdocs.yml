@@ -151,6 +151,8 @@ nav:
     - analytics/sdks/sdk-javascript-overview.md
     - analytics/sdks/java-sdk.md
     - analytics/sdks/unity-sdk.md
+  - Other Resources:
+    - analytics/dynamic-configuration.md
 - Experiment:
   - experiment/index.md
 - Data: 
