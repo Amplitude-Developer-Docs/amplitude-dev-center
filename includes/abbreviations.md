@@ -4,3 +4,6 @@
 *[COPPA]: Children's Online Privacy Protection Act
 *[UUID]: Universally unique identifier
 *[UUIDs]: Universally unique identifiers
+*[ADID]: Android Advertising ID
+*[IDFV]: Identifier for Vendors
+*[IDFA]: Identifier for Advertiser

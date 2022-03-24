@@ -1,2 +1,6 @@
 {% extends "base.html" %}
 
+{% block content %}
+{{ super() }}
+<a href="https://github.com/Amplitude-Developer-Docs/amplitude-doc-issues/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}" target=_blank" class="feedback-link">Report an issue with this page</a>
+{% endblock %}

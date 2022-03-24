@@ -57,6 +57,8 @@ Event categories are a way to organize your event types into broad groups.
 
 Create an event category in your project.
 
+`POST /api/2/taxonomy/category`
+
 #### Example request
 
 ```bash
@@ -64,7 +66,6 @@ POST /api/2/taxonomy/category HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}:{{secret-key}}}
 Content-Type: application/x-www-form-urlencoded
-Content-Length: 14
 category_name=Marketing
 ```
 
@@ -857,7 +858,7 @@ user_property=User%20Type&description=Describes%20whether%20the%20user%20is%20a%
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|Optional. String. Name of the user property type.|
+|`user_property`|Required. String. Name of the user property type.|
 |`description`|Optional. String. Details to add to the user property type.|
 |`type`|Optional. String. The user property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`.|
 |`regex`| Optional. String. Regular expression or custom regex used for pattern matching and more complex values. For example, 'zip code' property must have pattern `[0-9]{5}`.|
