@@ -615,6 +615,18 @@ amplitude.getInstance().init(euApiKey, null, {
 
 ## Advanced topics
 
+### COPPA Control
+
+COPPA control in Amplitude's other SDKs disables tracking for IDFA, IDFV, city, location data (`location_lat` and `location_lng`), and IP address.
+There's no interface for COPPA control in the JavaScript SDK because it doesn't track location, IDFA or IDFV. Instead, you can disable tracking for `city` and `ip_address` with `trackingOptions`.
+
+```js
+ var trackingOptions = {
+        city: false,
+        ip_address: false,
+      };
+```
+
 ### Getting the Device ID
 
 You can get a user's current Device ID with the following code:
