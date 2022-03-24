@@ -27,7 +27,7 @@ You can install the JavaScript SDK using a small snippet of code which you paste
 <script type="text/javascript">
 (function(e,t){var r=e.amplitude||{_q:[],_iq:{}};var n=t.createElement("script")
 ;n.type="text/javascript"
-;n.integrity="sha384-4rr7CTymHc64YjTTL6O3ktfsHYI1yJnQdmKv4zFoe+frjXb05MfzzuLLIAgJ/XHs"
+;n.integrity="sha384-+EO59vL/X7v6VE2s6/F4HxfHlK0nDUVWKVg8K9oUlvffAeeaShVBmbORTC2D3UF+"
 ;n.crossOrigin="anonymous";n.async=true
 ;n.src="https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
 ;n.onload=function(){if(!e.amplitude.runQueuedFunctions){
@@ -378,9 +378,10 @@ amplitude.getInstance().setUserId('USER_ID');
 
 You can also add the User ID as an argument to the init call.
 
-```js
-[[Amplitude] instance] initializeApiKey:@"API_KEY" userId:@"USER_ID"];
+```js 
+amplitude.getInstance().init('API_KEY', 'USER_ID');
 ```
+
 
 Don't assign users a user ID that could change as each unique user ID is interpreted as a unique user in Amplitude. For more information see
  [Track unique users in Amplitude](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude) in the Help Center.
