@@ -152,7 +152,9 @@ nav:
     - analytics/sdks/java-sdk.md
     - analytics/sdks/unity-sdk.md
   - Other Resources:
+    - analytics/amazon-s3-import.md
     - analytics/dynamic-configuration.md
+    - analytics/converter-configuration-reference.md
 - Experiment:
   - experiment/index.md
 - Data: 
