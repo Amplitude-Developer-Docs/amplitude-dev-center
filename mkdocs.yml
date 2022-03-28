@@ -148,6 +148,7 @@ nav:
     - analytics/apis/user-privacy-api.md
   - Amplitude SDKs:
     - analytics/sdks/android-sdk.md
+    - analytics/sdks/ios-sdk.md
     - analytics/sdks/javascript-sdk.md
     - analytics/sdks/java-sdk.md
     - analytics/sdks/unity-sdk.md
