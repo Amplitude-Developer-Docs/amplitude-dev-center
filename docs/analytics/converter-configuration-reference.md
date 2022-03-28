@@ -1,8 +1,9 @@
 ---
 title: Converter Configuration Reference
-description:
+description: This reference covers examples and operators for the Amazon S3 Import converter configuration. 
 ---
 
+This reference covers examples and operators for the Amazon S3 Import converter configuration. See the [guide](amazon-s3-import.md).
 
 ## convertToAmplitudeFunc
 
@@ -63,7 +64,7 @@ Values in the event come from the fields specified by `convertToAmplitudeFunc”
 
 ## Operators
 
-### List Operators
+### List operators
 
 **Using List Operators**
 
@@ -96,35 +97,35 @@ If the source description is a list, then the first item in the list must be a s
 | `typeof`             | Returns type of the source description as a string: 'string', 'list', 'dict', 'bool', 'number', 'null'                                                                                                                                                                                                                                                      | \["typeof", SOURCE_DESCRIPTION]                                                                      |
 
 
-### Boolean Operators
+### Boolean operators
 
 All of these operators return a JsonPrimitive of type Boolean, so they're valid to use with "cond" and "ifelse".
 
 | **Operator** | **Description**                                                                                                                           | **Source**                                                      |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| bool         | Evaluates as a static boolean value. Throws an exception during initialization if RAW_JSON is not a boolean value.                        | \["bool", any_json]                                             |
-| not          | Return whether both arguments are true. Null values are treated as false, string 'true' or 'false' is cast to a boolean.                  | \["not"\|"!", SOURCE_DESCRIPTION]                               |
-| and          | Return whether all arguments are true. Null values are treated as false, string 'true' or 'false' is cast to a boolean.                   | \["and"\|"&&", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...]    |
-| or           | Return whether at least one argument is true. Null values are treated as false, string 'true' or 'false' is cast to a boolean.            | \["or"\|"\|\|", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...]   |
-| equals       | Evaluates to true iff the two args are equal.                                                                                             | \["equals"\|"eq"\|"=", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]  |
-| contains     | True if the evaluated SourceDescription (second arg) contains the given raw string. If the SourceDescription is null, evaluates to false. | \["contains"\|"is_substring", "raw_string", SOURCE_DESCRIPTION] |
+| `bool`         | Evaluates as a static boolean value. Throws an exception during initialization if RAW_JSON is not a boolean value.                        | \["bool", any_json]                                             |
+| `not`          | Return whether both arguments are true. Null values are treated as false, string 'true' or 'false' is cast to a boolean.                  | \["not"\|"!", SOURCE_DESCRIPTION]                               |
+| `and`          | Return whether all arguments are true. Null values are treated as false, string 'true' or 'false' is cast to a boolean.                   | \["and"\|"&&", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...]    |
+| `or`           | Return whether at least one argument is true. Null values are treated as false, string 'true' or 'false' is cast to a boolean.            | \["or"\|"\|\|", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...]   |
+| `equals`       | Evaluates to `true` if and only if the two args are equal.                                                                                             | \["equals"\|"eq"\|"=", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]  |
+| `contains`     | True if the evaluated SourceDescription (second arg) contains the given raw string. If the SourceDescription is null, evaluates to false. | \["contains"\|"is_substring", "raw_string", SOURCE_DESCRIPTION] |
 
 
-### Integer & Float Operators
+### Integer and float operators
 
 The following Operators return a JsonPrimitive of type Integer, barring the “addf” Operator which returns JsonPrimitive of type Float.
 
 | **Operator** | **Description**                                                                                                                            | **Syntax**                                                        |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| int          | Evaluates as a static int value. Throws an exception during initialization if RAW_JSON is not an int value.                                | \["int", RAW_JSON]                                                |
-| round        | Round the argument to the nearest integer. Strings are attempted to be converted to integers, and null values are treated as zero.         | \["round", SOURCE_DESCRIPTION]                                    |
-| add          | Return the sum of the arguments as an integer. Strings are attempted to be converted to integers, and null values are treated as zero.     | \["add"\|"+", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...]       |
-| subtract     | Subtracts the second argument from the first one. Strings are attempted to be converted to integers, and null values are treated as zero.  | \["subtract"\|"-", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]        |
-| multiply     | Return the product of the arguments as an integer. Strings are attempted to be converted to integers, and null values are treated as zero. | \["multiply"\|"\*", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...] |
-| divide       | Divides the first argument by the second one. Strings are attempted to be converted to integers, and null values are treated as zero.      | \["divide"\|"/", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]          |
+| `int`          | Evaluates as a static int value. Throws an exception during initialization if RAW_JSON is not an int value.                                | \["int", RAW_JSON]                                                |
+| `round`        | Round the argument to the nearest integer. Strings are attempted to be converted to integers, and null values are treated as zero.         | \["round", SOURCE_DESCRIPTION]                                    |
+| `add`          | Return the sum of the arguments as an integer. Strings are attempted to be converted to integers, and null values are treated as zero.     | \["add"\|"+", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...]       |
+| `subtract`     | Subtracts the second argument from the first one. Strings are attempted to be converted to integers, and null values are treated as zero.  | \["subtract"\|"-", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]        |
+| `multiply`     | Return the product of the arguments as an integer. Strings are attempted to be converted to integers, and null values are treated as zero. | \["multiply"\|"\*", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...] |
+| `divide`       | Divides the first argument by the second one. Strings are attempted to be converted to integers, and null values are treated as zero.      | \["divide"\|"/", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]          |
 
 
-### JSON Operator
+### JSON operator
 
 | **Operator** | **Description**                                                    | **Syntax**                                                                                                                                                                                    |
 | ------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -133,4 +134,4 @@ The following Operators return a JsonPrimitive of type Integer, barring the “a
 
 ## Converter configuration examples
 
-See a collection of[example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md).
+See a collection of [example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md).

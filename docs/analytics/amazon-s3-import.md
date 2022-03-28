@@ -1,6 +1,6 @@
 ---
 title: Amazon S3 Import
-description: 
+description: Use Amplitude's Amazon S3 Import to import event, group properties, and user properties into Amplitude from an Amazon AWS S3 bucket.
 ---
 
 ## Overview
@@ -84,50 +84,50 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
 3. Attach the following policy (for example, `AmplitudeS3ReadOnlyAccess`) with the appropriate bucket to the Role created in Step 1.
 Note: update the yellow highlighted text to match your bucket and prefix information as appropriate (`data/` is a sample prefix ).
 
-    ```json hl_lines="16"
-    {   
-      "Version": "2012-10-17",
-      "Statement": [
-          {
-              "Sid": "AllowListingOfDataFolder",
-              "Action": [
-                  "s3:ListBucket"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                  "arn:aws:s3:::shareddatabucket"
-              ],
-              "Condition": {
-                  "StringLike": {
-                      "s3:prefix": [
-                          "data/*"
-                      ]
-                  }
-              }
-          },
-          {
-              "Sid": "AllowAllS3ReadActionsInDataFolder",
-              "Effect": "Allow",
-              "Action": [
-                  "s3:Get*",
-                  "s3:List*",
-                  "s3:Head*"
-              ],
-              "Resource": [
-                  "arn:aws:s3:::shareddatabucket/data/*"
-              ]
-          },
+    ```json hl_lines="16 30 41"
     {
-    "Sid": "AllowUpdateS3EventNotification",
-    "Effect": "Allow",
-    "Action": [
-        "s3:PutBucketNotification",
-        "s3:GetBucketNotification"
-    ],
-    "Resource": [
-        "arn:aws:s3:::shareddatabucket"
-    ]
-    }
+      "Version":"2012-10-17",
+      "Statement":[
+        {
+          "Sid":"AllowListingOfDataFolder",
+          "Action":[
+            "s3:ListBucket"
+          ],
+          "Effect":"Allow",
+          "Resource":[
+            "arn:aws:s3:::shareddatabucket"
+          ],
+          "Condition":{
+            "StringLike":{
+              "s3:prefix":[
+                "data/*"
+              ]
+            }
+          }
+        },
+        {
+          "Sid":"AllowAllS3ReadActionsInDataFolder",
+          "Effect":"Allow",
+          "Action":[
+            "s3:Get*",
+            "s3:List*",
+            "s3:Head*"
+          ],
+          "Resource":[
+            "arn:aws:s3:::shareddatabucket/data/*"
+          ]
+        },
+        {
+          "Sid":"AllowUpdateS3EventNotification",
+          "Effect":"Allow",
+          "Action":[
+            "s3:PutBucketNotification",
+            "s3:GetBucketNotification"
+          ],
+          "Resource":[
+            "arn:aws:s3:::shareddatabucket"
+          ]
+        }
       ]
     }
     ```
@@ -136,13 +136,13 @@ Note: update the yellow highlighted text to match your bucket and prefix informa
 
 In Amplitude, create the S3 Import source.
 
-!!!note
+!!!tip "Use a test project"
 
     We recommend first loading your data into an Amplitude test project, so you can make adjustments before loading data into your production project.
 
 To create the data source in Amplitude, gather information about your S3 bucket:
 
-- IAM role ARN: The IAM role that Amplitude uses to access your S3 bucket. This is the role created in \[LINK to HEADING].
+- IAM role ARN: The IAM role that Amplitude uses to access your S3 bucket. This is the role created in [Give Amplitude access to your S3 bucket](#give-amplitude-access-to-your-s3-bucket).
 - IAM role external id: The external id for the IAM role that Amplitude uses to access your S3 bucket.
 - S3 bucket name: The name of the S3 bucket where data is located
 - S3 bucket prefix: The S3 folder where data is located.
@@ -156,8 +156,8 @@ When you have your bucket details, create the Amazon S3 Import source.
 
 3. Complete the **Configure S3 location** section on the Set up S3 Bucket page:
 
-   1. **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-&lt;customername>.` This tells Amplitude where to look for your files.
-   2. **Prefix**: Location of files to be imported. This must end with “/”. For example, `dev/event-data/\`.
+   1. **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-<customername>.` This tells Amplitude where to look for your files.
+   2. **Prefix**: Location of files to be imported. This must end with “/”. For example, `dev/event-data/`.
    3. **AWS Role ARN**. Required.
    4. **AWS External ID**. Required.
 
@@ -185,9 +185,8 @@ Use this feature if you want to achieve near real-time import with Amplitude Ama
 
 To enable the feature, you can either enable it when you create the source, or manage the data source and toggle **S3 Event Notification**.
 
-![](https://lh5.googleusercontent.com/DZ7ks5RS60aLMu-KKgohv7JorIFgi05WjbTxg0J905oFaMtFBtE_PE-kWy60g8ajToXsqfCvji7hPIoBWgveM_K3ohg8VQpxvoEe4zN0E1m6ZqP4dkUCx9193U2-USw4ammOrCEv)
-
-​​![](https://lh6.googleusercontent.com/Kgzdj3oo7BwZeJlCQZzBWOT6yX0HPWopX_ZTmOVsdKub2sRYvxAlcphCIBviAfFJpbRbaWxJDLeSUcYo46BHvrrMWM0tdwaXyp5_dBZY42i-RtziLH-4TZSrVZG2EZagwLGS0LFD)
+![image of the manage source modal with the event notifications toggle enabled](assets/../../assets/images/amazon-s3-manage-notifications.png)
+![image of the S3 import source screen with the event notifications toggle](assets/../../assets/images/amazon-s3-connect-s3-screen.png)
 
 ## Create the Converter Configuration
 
