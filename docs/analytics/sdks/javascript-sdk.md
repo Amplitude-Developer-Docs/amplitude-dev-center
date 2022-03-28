@@ -665,7 +665,7 @@ The cookie is used to keep track of metadata for the SDK:
 
 #### Disabling cookies
 
-Amplitude cookies can be disabled altogether using the `disableCookies` option. When you disable cookies, the JavaScript SDK defaults to using `localStorage` to store its data.
+Cookies created by the SDK can be disabled altogether using the `disableCookies` option. When you disable cookies, the JavaScript SDK defaults to using `localStorage` to store its data.
  LocalStorage is a great alternative, but can't track cookies across domains.
  Because access to `localStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
 
@@ -676,11 +676,11 @@ The JavaScript SDK defaults to setting the SameSite option on its cookies to `N
 
 #### HttpOnly cookies
 
-An HttpOnly option isn't technologically possible for Amplitude's SDK cookies. The cookie is set on the client side and is used as a client-side data store. An SDK cookie can't set the HttpOnly flag.
+An HttpOnly option isn't technologically possible for cookies created by the SDK. The cookie is set on the client side and is used as a client-side data store. An SDK cookie can't set the HttpOnly flag.
 
 #### Upgrading legacy cookies
 
-Amplitude's legacy cookies were larger than the newer, more compact cookies.
+Legacy cookies created by the SDK were larger than the newer, more compact cookies.
  For users that have older cookies, the SDK only removes old cookies and starts using the new cookie format if the `cookieForceUpgrade` option is set to `true`.
  If you use the SDK in multiple products, and track anonymous users across those products, you be sure to set this option on all those products.
 
