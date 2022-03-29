@@ -6,27 +6,27 @@ description: Use Amplitude's Amazon S3 Import to import event, group properties,
 ## Overview
 
 With Amplitude’s Amazon S3 Import, you can import event, group properties, or user properties into your Amplitude projects from an AWS S3 bucket.
- Use Amazon S3 Import to backfill large amounts of existing data, connect existing data pipelines to Amplitude, ingesting large volumes of data where you need high throughput and latency is less sensitive.
+ Use Amazon S3 Import to backfill large amounts of existing data, connect existing data pipelines to Amplitude, and ingest large volumes of data where you need high throughput and latency is less sensitive.
 
-During setup, you configure conversion rules to control how events are instrumented. After Amazon S3 Import is set up and enabled, Amplitude's ingestion service continuously discovers data files in S3 buckets and then converts and ingest events.
+During setup, you configure conversion rules to control how events are instrumented.
+ After Amazon S3 Import is set up and enabled, Amplitude's ingestion service continuously discovers data files in S3 buckets and then converts and ingest events.
 
-Amazon S3 Import setup is broken into five main phases:
+Amazon S3 Import setup is broken into four main phases:
 
 1. Examine your existing dataset.
 2. Add a new Amazon S3 Import source in Amplitude.
 3. Set up converter configuration.
-4. Test your setup.
-5. Maintain.
+4. Test.
 
 ## Getting started
 
 ### Prerequisites
 
-Before you start, make sure you’ve taken care of a few prerequisites.
+Before you start, make sure you’ve taken care of some prerequisites.
 
 - Make sure you have admin permissions for your Amplitude org.
 - Make sure that a project exists to receive the data. If not, create a new project.
-- Ensure your S3 bucket contains data files ready to be ingested. They must conform to the mappings that you outline in your converter file.
+- Make sure your S3 bucket has data files ready to be ingested. They must conform to the mappings that you outline in your converter file.
 
 Before you can ingest data, review your dataset and consider best practices. Make sure your dataset contains the data you want to ingest, and any required fields.
 
@@ -38,7 +38,7 @@ The files you want to send to Amplitude must follow some basic requirements.
 - Files are uploaded approximately in the events’ chronological order.
 - Filenames are unique.
 - The file hasn’t been ingested by the S3 import already. After a file has been ingested, an S3 import source won’t process the same file again, even if it’s updated.
-- Files are compressed or uncompressed JSON, CSV, or parquet files. See example file formats in[Github](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples#ingestion-file-examples).
+- Files are compressed or uncompressed JSON, CSV, or parquet files. See example file formats in[GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples#ingestion-file-examples).
 - Files are between 10MB and 1GB uncompressed
 
 ### Limits
@@ -56,9 +56,8 @@ When your dataset is ready to be ingested, you can set up Amazon S3 Import in Am
 
 Follow these steps to give Amplitude read access to your AWS S3 bucket.
 
-1. Create a new IAM role, e.g. “AmplitudeReadRole”.
-2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy, using something similar to the example below.  
-   **NOTE**: Update **only** the highlighted text as needed, and be sure to share the changes with your Amplitude contact.
+1. Create a new IAM role, for example: “AmplitudeReadRole”.
+2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy, using the following example. Update **only** the highlighted text as needed.
 
     ```json hl_lines="7 8 13"
     {
@@ -144,8 +143,8 @@ To create the data source in Amplitude, gather information about your S3 bucket:
 
 - IAM role ARN: The IAM role that Amplitude uses to access your S3 bucket. This is the role created in [Give Amplitude access to your S3 bucket](#give-amplitude-access-to-your-s3-bucket).
 - IAM role external id: The external id for the IAM role that Amplitude uses to access your S3 bucket.
-- S3 bucket name: The name of the S3 bucket where data is located
-- S3 bucket prefix: The S3 folder where data is located.
+- S3 bucket name: The name of the S3 bucket with your data.
+- S3 bucket prefix: The S3 folder with your data.
 - S3 bucket region: The region where S3 bucket was created.
 
 When you have your bucket details, create the Amazon S3 Import source.
@@ -169,26 +168,27 @@ When you have your bucket details, create the Amazon S3 Import source.
 
 A banner confirms you’ve created and enabled your source. Click **Finish** to go back to the list of data sources. Next, you must create your converter configuration.
 
-Amplitude continuously scans buckets to discover new files as they are added. Data is generally available in charts within 30 seconds of ingestion.
+Amplitude continuously scans buckets to discover new files as they're added. Data is available in charts within 30 seconds of ingestion.
 
-### Optional: Manage Event Notifications
+### Optional: Manage event notifications
 
-Event Notification lets the Amplitude ingestion service quickly discover data in your S3 bucket. Compared to the current approach of scanning buckets, it discovers new data based on notifications published by S3. This feature significantly reduces the time it takes to find new data.
+Event Notification lets the Amplitude ingestion service discover data in your S3 bucket faster.
+ Compared to the current approach of scanning buckets, it discovers new data based on notifications published by S3. This feature reduces the time it takes to find new data.
 
-Use this feature if you want to achieve near real-time import with Amplitude Amazon S3 import. Normally, new data files are discovered within 30 seconds.
+Use this feature if you want to achieve near real-time import with Amplitude Amazon S3 import. Usually, new data files are discovered within 30 seconds.
 
 #### Considerations
 
 - The IAM role used must have required permission to configure S3 bucket event notifications.
 - The bucket can’t already have existing event notifications This is a limitation on the Amazon S3 side.
-- The notifications only apply to files uploaded after event notifications have been enabled.
+- The notifications only apply to files uploaded after you enable event notifications.
 
 To enable the feature, you can either enable it when you create the source, or manage the data source and toggle **S3 Event Notification**.
 
 ![image of the manage source modal with the event notifications toggle enabled](assets/../../assets/images/amazon-s3-manage-notifications.png)
 ![image of the S3 import source screen with the event notifications toggle](assets/../../assets/images/amazon-s3-connect-s3-screen.png)
 
-## Create the Converter Configuration
+## Create the converter configuration
 
 Your converter configuration gives the S3 vacuum this information:
 
@@ -197,7 +197,8 @@ Your converter configuration gives the S3 vacuum this information:
 - The file’s format. For example: CSV (with a particular delimiter), or lines of JSON objects.
 - How to map each row from the file to an Amplitude event.
 
-The converter file tells Amplitude how to process the ingested files and is created in two steps: first, configure the compression type, file name, and escape characters for your files. Then use JSON to describe the rules your converter will follow.
+The converter file tells Amplitude how to process the ingested files. Create it in two steps: first, configure the compression type, file name, and escape characters for your files.
+ Then use JSON to describe the rules your converter follows.
 
 The converter language describes extraction of a value given a JSON element. This is specified by a SOURCE_DESCRIPTION, which includes:
 
