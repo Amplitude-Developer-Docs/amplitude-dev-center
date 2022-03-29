@@ -4,7 +4,7 @@ description: Documentation for Amplitude Analytic's Node.js SDK installation and
 icon: fontawesome/brands/node-js
 ---
 
-[![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg)![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg "Click to close...")](https://badge.fury.io/js/%40amplitude%2Fnode)
+![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg)
 
 ???info "SDK Resources"
     - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
@@ -18,7 +18,7 @@ While the client-side SDKs are optimized to track session and attribution for a 
 - Retry handling mechanisms to handle when a network request fails, or a payload is throttled or invalid.
 - Useful utilities and typing help debug instrumentation issues.
 
-By default, the Node SDK uses and works best with the [HTTP API V2](/docs/analytics/apis/http-v2-api.md).
+By default, the Node SDK uses the [HTTP API V2](/analytics/apis/http-v2-api/).
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
