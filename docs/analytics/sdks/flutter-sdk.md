@@ -6,25 +6,35 @@ icon: flutter
 
 ![pub package](https://img.shields.io/pub/v/amplitude_flutter.svg)
 
+This is the official documentation for the Amplitude Analytics Flutter SDK. 
+
+???info "SDK Resources"
+    - [Android SDK Reference :material-book:](https://pub.dev/documentation/amplitude_flutter/latest/)
+    - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Flutter)
+    - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Flutter/releases)
+
+--8<-- "includes/ampli-vs-amplitude.md"
+
 ## Installation
 
 ### Add dependencies
 
-- Go to the `pubspec.yaml` file and add Amplitude SDK as a dependency.
+1. Go to the `pubspec.yaml` file and add Amplitude SDK as a dependency.
 
-```yml
-dependencies:
-  amplitude_flutter: ^3.7.0
-```
+    ```yml
+    dependencies:
+      amplitude_flutter: ^3.7.0
+    ```
 
-- Run flutter pub get in the terminal to install the SDK.
+2. Run flutter pub get in the terminal to install the SDK.
 
 ## iOS Installation
 
-- Add `platform :ios, '10.0'` to your Podfile.
-- If you want to enable Bitcode, please follow the Flutter's [documentation](https://github.com/flutter/flutter/wiki/Creating-an-iOS-Bitcode-enabled-app).
+Add `platform :ios, '10.0'` to your Podfile.
 
-## Usage and eamples
+To enable Bitcode, follow Flutter's [documentation](https://github.com/flutter/flutter/wiki/Creating-an-iOS-Bitcode-enabled-app).
+
+## Usage and examples
 
 ### Initialization
 
