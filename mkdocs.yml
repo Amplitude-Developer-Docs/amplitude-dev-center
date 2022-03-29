@@ -73,6 +73,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -150,6 +153,7 @@ nav:
     - analytics/sdks/index.md
     - analytics/sdks/android-sdk.md
     - analytics/sdks/ios-sdk.md
+    - analytics/sdks/flutter-sdk.md
     - analytics/sdks/javascript-sdk.md
     - analytics/sdks/java-sdk.md
     - analytics/sdks/unity-sdk.md

@@ -509,7 +509,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. However, these updates only affect events going forward.
+Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentifyWithGroupType` method accepts a group type string parameter and group name object parameter, as well as an Identify object that's applied to the group.
 

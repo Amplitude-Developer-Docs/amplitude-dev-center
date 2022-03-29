@@ -58,6 +58,12 @@ Enable the `useDynamicConfig` flag.
     AmplitudeClient.getInstance().setUseDynamicConfig(true);
     ```
 
+=== "Flutter"
+
+    ```dart
+    Amplitude.getInstance().setUseDynamicConfig(true);
+    ```
+
 === "JavaScript"
 
     ```js
@@ -71,3 +77,4 @@ Enable the `useDynamicConfig` flag.
     ```c#
     amplitude.setUseDynamicConfig(true);
     ```
+
