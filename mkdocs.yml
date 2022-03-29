@@ -152,7 +152,9 @@ nav:
     - analytics/sdks/ios-sdk.md
     - analytics/sdks/javascript-sdk.md
     - analytics/sdks/java-sdk.md
+    - analytics/sdks/node-sdk.md
     - analytics/sdks/unity-sdk.md
+    
   - Other Resources:
     - analytics/dynamic-configuration.md
 - Experiment:
