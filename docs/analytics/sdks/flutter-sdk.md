@@ -331,8 +331,10 @@ Amplitude.getInstance().disableCoppaControl();
 Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
  [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original
  source (for example, and ad campaign or app store search).
+
  Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA isn't available.
-See [iOS Advertising Id](https://developers.amplitude.com/docs/ios#advertising-id) or the [Android Advertising Id](https://developers.amplitude.com/docs/android#advertising-id) for more information.
+
+See [iOS Advertising ID](../ios-sdk#advertising-id) or the [Android Advertising ID](../android-sdk#advertising-id) for more information.
 
 ### Opt out of tracking
 
