@@ -52,11 +52,11 @@ Conversion rules in `convertToAmplitudeFunc` determine how the ingestion service
       },
       "user_properties": {
         "utm_channel_category": "discovery",
-        "utm_channel_source": "network",
+        "utm_channel_source": "network"
       },
       "time": "1645066434189",
       "session_id": "1",
-      "app_version": "1",
+      "app_version": "1"
 }
 ```
 
