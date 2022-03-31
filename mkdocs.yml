@@ -203,6 +203,8 @@ nav:
     - integrations/index.md
     - integrations/shopify-plugin.md
     - integrations/sending-cohorts.md
+    - analytics/amazon-s3-import.md
+    - analytics/converter-configuration-reference.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
