@@ -37,8 +37,11 @@
 
 		"pattern": "https://forum.unity.com"
 		
-		}
+		},
 
+		{
+		"pattern": "/analytics/apis/http-v2-api/"
+		}
 
 	]
 	
