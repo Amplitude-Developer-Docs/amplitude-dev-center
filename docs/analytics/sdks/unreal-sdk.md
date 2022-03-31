@@ -1,12 +1,16 @@
 ---
-title: Unreal Engine SDK
-description:
+title: Unreal Engine SDK (BETA)
+description: The offical documentation for the Amplitude Analytics Unreal Engine SDK. 
 icon: material/unreal
 ---
 
-!!!info "Beta"
+!!!note "This SDK is in Beta"
 
     The Amplitude Analytics Unreal Engine SDK is in beta and currently supports projects targeting iOS, MacOS, or tvOS.
+
+???info "SDK Resources"
+    - [Unreal Engine SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Unreal)
+    - [Unreal Engine SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0)
 
 ## SDK installation
 
