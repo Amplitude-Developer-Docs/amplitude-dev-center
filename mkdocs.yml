@@ -152,9 +152,7 @@ nav:
     - analytics/sdks/java-sdk.md
     - analytics/sdks/unity-sdk.md
   - Other Resources:
-    - analytics/amazon-s3-import.md
     - analytics/dynamic-configuration.md
-    - analytics/converter-configuration-reference.md
 - Experiment:
   - experiment/index.md
 - Data: 
@@ -203,6 +201,8 @@ nav:
     - integrations/index.md
     - integrations/shopify-plugin.md
     - integrations/sending-cohorts.md
+    - analytics/amazon-s3-import.md
+    - analytics/converter-configuration-reference.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md

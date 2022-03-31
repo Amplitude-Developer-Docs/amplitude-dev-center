@@ -132,6 +132,6 @@ The following Operators return a JsonPrimitive of type Integer, barring the “a
 | N/A          | As syntactic sugar, we convert an object to a "dict" LIST_OPERATOR | **Note**: the following two descriptions are equivalent:   {"key1": SOURCE_DESCRIPTION,"key2", SOURCE_DESCRIPTION,…}   \["dict","key1", SOURCE_DESCRIPTION,"key2", SOURCE_DESCRIPTION,...]    |
 
 
-## Converter configuration examples
+<!-- ## Converter configuration examples
 
-See a collection of [example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md).
+See a collection of [example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md). -->

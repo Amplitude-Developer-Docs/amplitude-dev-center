@@ -38,8 +38,7 @@ The files you want to send to Amplitude must follow some basic requirements.
 - Files are uploaded approximately in the events’ chronological order.
 - Filenames are unique.
 - The file hasn’t been ingested by the S3 import already. After a file has been ingested, an S3 import source won’t process the same file again, even if it’s updated.
-- Files are compressed or uncompressed JSON, CSV, or parquet files. See example file formats in[GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples#ingestion-file-examples).
-- Files are between 10MB and 1GB uncompressed
+- Files are compressed or uncompressed JSON, CSV, or parquet files.
 
 ### Limits
 
@@ -208,9 +207,10 @@ The converter language describes extraction of a value given a JSON element. Thi
 
 !!!example "Example converters"
 
-See a collection of[example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md) to get inspired.
+    See the [Converter Configuration reference](../converter-configuration-reference/) for more help.
 
-See the [Converter Configuration reference](Link) for more help.
+<!--See a collection of[example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md) to get inspired. -->
+
 
 ### Configure converter in Amplitude
 
