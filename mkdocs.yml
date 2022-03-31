@@ -132,8 +132,9 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
-  - Getting Started: 
+  - Analytics Basics: 
     - analytics/analytics-domain-proxy.md
+    - analytics/dynamic-configuration.md
   - Amplitude API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md
@@ -158,9 +159,9 @@ nav:
     - analytics/sdks/java-sdk.md
     - analytics/sdks/node-sdk.md
     - analytics/sdks/unity-sdk.md
-    
   - Other Resources:
-    - analytics/dynamic-configuration.md
+    - analytics/google-tag-manager.md
+    - analytics/adobe.md
 - Experiment:
   - experiment/index.md
 - Data: 
