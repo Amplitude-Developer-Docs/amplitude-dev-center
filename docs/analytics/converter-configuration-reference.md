@@ -26,11 +26,11 @@ Conversion rules in `convertToAmplitudeFunc` determine how the ingestion service
           },
           "user_properties": {
               "utm_channel_category": "utm_channel_c",
-              "utm_channel_source": "utm_channel_s",
+              "utm_channel_source": "utm_channel_s"
           },
           "time": "epoch",
           "session_id": "session_id",
-          "app_version": "app_version",
+          "app_version": "app_version"
         }
     },
 
