@@ -33,7 +33,7 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
 ```http
 GET /api/3/cohorts HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api_key}}:{{secret:key}}
+Authorization: Basic {{api-key}}:{{secret-key}}
 ```
 
 ### Get all cohorts response
@@ -78,7 +78,7 @@ This is step one in the download a cohort operation. Use the `request_id` return
 ```http
 GET /api/5/cohorts/request/id HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api_key}}:{{secret:key}}
+Authorization: Basic {{api-key}}:{{secret-key}}
 ```
 
 ### Get one cohort path parameters
@@ -114,7 +114,7 @@ Poll the request status using the `request_id` retrieved for the cohort. This is
 ```bash
 GET /api/5/cohorts/request-status/:request_id HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api_key}}:{{secret:key}}
+Authorization: Basic {{api-key}}:{{secret-key}}
 ```
 
 ### Get request status path parameters
@@ -152,7 +152,7 @@ When the job has finished running, download the cohort.
 ```bash
 GET /api/5/cohorts/request/requestId/file HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api_key}}:{{secret:key}}
+Authorization: Basic {{api-key}}:{{secret-key}}
 ```
 
 ### Download cohort path parameters
@@ -173,7 +173,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
 ```bash
 POST /api/3/cohorts/upload HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api_key}}:{{secret:key}}
+Authorization: Basic {{api-key}}:{{secret-key}}
 Content-Type: application/json
 Content-Length: 280
 
@@ -221,7 +221,7 @@ Add and remove IDs to incrementally update existing cohort membership.
 POST /api/3/cohorts/membership HTTP/1.1
 Host: amplitude.com
 Content-Type: application/json
-Authorization: Basic {{api_key}}:{{secret:key}}
+Authorization: Basic {{api-key}}:{{secret-key}}
 Content-Length: 362
 
 {

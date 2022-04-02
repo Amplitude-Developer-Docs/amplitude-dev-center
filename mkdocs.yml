@@ -73,6 +73,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
@@ -96,7 +99,7 @@ extra:
   community: https://community.amplitude.com
   help_site: https://help.amplitude.com
   training_site: https://academy.amplitude.com/
-  postman_workspace: wwww.postman.com
+  postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-doc-issues/issues
   more_resources: all-resources
   analytics:
@@ -129,8 +132,9 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
-  - Getting Started: 
+  - Analytics Basics: 
     - analytics/analytics-domain-proxy.md
+    - analytics/dynamic-configuration.md
   - Amplitude API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md
@@ -147,8 +151,17 @@ nav:
     - analytics/apis/taxonomy-api.md
     - analytics/apis/user-privacy-api.md
   - Amplitude SDKs:
+    - analytics/sdks/index.md
     - analytics/sdks/android-sdk.md
-    - analytics/sdks/sdk-javascript-overview.md
+    - analytics/sdks/ios-sdk.md
+    - analytics/sdks/flutter-sdk.md
+    - analytics/sdks/javascript-sdk.md
+    - analytics/sdks/java-sdk.md
+    - analytics/sdks/node-sdk.md
+    - analytics/sdks/unity-sdk.md
+  - Other Resources:
+    - analytics/google-tag-manager.md
+    - analytics/adobe.md
 - Experiment:
   - experiment/index.md
   - Getting Started: 
@@ -220,10 +233,12 @@ nav:
     - data/import.md
     - data/integrations.md
     - data/migration-guide.md
-- Integrations:
-    - integrations/index.md
-    - integrations/shopify-plugin.md
-    - integrations/sending-cohorts.md
+  - Integrations:
+      - integrations/index.md
+      - integrations/shopify-plugin.md
+      - integrations/sending-cohorts.md
+      - analytics/amazon-s3-import.md
+      - analytics/converter-configuration-reference.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md

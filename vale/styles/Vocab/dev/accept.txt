@@ -8,7 +8,7 @@ xcodeproj
 middleware
 boolean
 npm
-NPM 
+NPM
 Objective-C
 js
 Boolean
@@ -21,9 +21,12 @@ aggregate
 md
 Okta
 NGINX
-deduplication 
+deduplication
 orgs
 onboarding
 Onboarding
 Fastly
 AWS
+CocoaPods
+Podfile
+podfile

@@ -473,12 +473,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. Keep these considerations in mind:
-
-- Updates affect only future events, and don't update historical events.
-- You can track up to 5 unique group types and 10 total groups.
-
-The `groupIdentify` method accepts a group type string parameter and group name object parameter, and an Identify object that's applied to the group.
+--8<-- "includes/group-identify-considerations.md"
 
 === "Java"
 
@@ -773,15 +768,7 @@ You can set the log level by calling the following on Android:
 
 ## Logged out and anonymous users
 
-Amplitude [merges user data](https://help.amplitude.com/hc/en-us/articles/115003135607#h_c323d7e5-4662-4a36-b0a1-5110a341e80c), so any events associated with a known `userId` or `deviceId` are linked the existing user.
- If a user logs out, Amplitude can merge that user's logged-out events to the user's record. You can change this behavior and log those events to an anonymous user instead.
-
-To log events to an anonymous user:
-
-1. Set the `userId` to null.
-2. Generate a new `deviceId`.
-
-Events coming from the current user or device appear as a new user in Amplitude. Note: If you do this, you can't see that the two users were using the same device.
+--8<-- "includes/logged-out-and-anonymous-users.md"
 
 === "Java"
 
@@ -983,12 +970,13 @@ Second, add the following code in your root activity's onCreate life cycle.
 
 ### Dynamic Configuration
 
-Android SDK allows users to configure their apps to use [dynamic configuration](https://developers.amplitude.com/docs/dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
+Android SDK allows users to configure their apps to use [dynamic configuration](analytics/dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
 
-- If you have your own proxy server and use `setServerUrl` API, please leave this OFF.
-- If you have users in China Mainland, we suggest you turn this on.
-- By default, this feature is OFF. You must explicitly set it to ON to use it.
-- By default, this feature returns server URL for Amplitude's US servers, if you need to send data to Amplitude's EU servers, please use `setServerZone` to set it to EU zone.
+- If you have your own proxy server and use `setServerUrl` API, leave dynamic configuration off.
+- If you have users in China Mainland, then we recommend using dynamic configuration.
+- By default, this feature returns server URL of Amplitude's US servers, if you need to send data to Amplitude's EU servers, use `setServerZone` to set it to EU zone.
+
+ To use, set `setUseDynamicConfig` to `true`.
 
 === "Java"
 
