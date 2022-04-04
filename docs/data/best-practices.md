@@ -1,6 +1,6 @@
 ---
-title: Iteratively Best Practices
-description: Use Iteratively best practices to get the most out of your analytics tools. 
+title: Amplitude Data Best Practices
+description: Use Amplitude Data best practices to get the most out of your analytics tools. 
 ---
 
 In order to get the most out of your analytics tools it's important to spend the time ensuring that you have a good foundation in place. We recommend the following as best practices for analytics:
@@ -28,7 +28,7 @@ Properties are the place to articulate all the details associated with an event 
 
 ### 6. Separate development and production environments
 
-Don't dirty your production data by sending events from your development environments. Make sure that you use separate access tokens which can be configured in [Destinations](creating-your-tracking-plan.md#step-2-add-your-destinations) in Iteratively.
+Don't dirty your production data by sending events from your development environments. Make sure that you use separate access tokens which can be configured in [Destinations](creating-your-tracking-plan.md#step-2-add-your-destinations) in Amplitude Data.
 
 ### 7. QA analytics in CI/CD
 
@@ -36,4 +36,4 @@ Run [`ampli status`](using-the-ampli-cli.md#step-5-verify-the-instrumentation) t
 
 ### 8. Assign an owner
 
-Lastly assign someone on your team to take ownership over the Tracking Plan. With Iteratively they have a process in place to review any changes and insure that analytics quality stays high.
+Lastly assign someone on your team to take ownership over the Tracking Plan. With Amplitude Data they have a process in place to review any changes and insure that analytics quality stays high.

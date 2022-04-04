@@ -9,7 +9,7 @@ icon: material/language-javascript
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-browser-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](browser.md)**.
 
 
-Iteratively supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
+Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -28,11 +28,9 @@ The tracking library exposes a function for every event in your team’s trackin
     1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
     2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
 
-
-
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Iteratively workspace.
+These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
 
 ### Install the Ampli CLI
 
@@ -108,7 +106,7 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 
 
 
-| Option          | Type                              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| <div class ="big column">Option</div>          | Type                              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --------------- | --------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `disabled`      | Boolean                           | optional | Specifies whether the Ampli SDK does any work. When `true`, all calls to the Ampli SDK will be no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
 | `environment`   | String                            | optional | Specifies the environment the Ampli SDK is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
@@ -184,11 +182,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
     ampli.setGroup('groupType', 'groupName');
     ```
 
-Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group.
-
-For example, you want to group your users based on what organization they're in by using an 'orgId'. Joe is in 'orgId' '10', and Sue is in 'orgId' '15'. Sue and Joe both perform a certain event. You can query their organizations in the Event Segmentation Chart.
-
-When setting groups, define a `groupType` and `groupName`. In the previous example, 'orgId' is the `groupType` and '10' and '15' are the values for `groupName`. Another example of a `groupType` could be 'sport' with `groupName` values like 'tennis' and 'baseball'.
+--8<-- "includes/groups-intro-paragraph.md"
 
  Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
 
@@ -259,8 +253,6 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
     });
     ```
 
-
-
 Ampli also generates a class for each event.
 
 === "TypeScript"
@@ -280,7 +272,6 @@ Ampli also generates a class for each event.
       songFavorited: true, // boolean
     });
     ```
-
 
 Track Event objects using Ampli `track`:
 
@@ -324,9 +315,10 @@ The output displays status and indicates what events are missing.
  ✘ Song Stopped Called when a user stops playing a song.
 Events Tracked: 2 missed, 3 total
 ```
+
 Learn more about [`ampli status`](using-the-ampli-cli.md#ampli-status).
 
-## Migrating from an Itly Browser runtime
+## Migrating from an Itly runtime
 
 Migrate from an Itly Browser runtime to Ampli by following these steps.
 

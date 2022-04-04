@@ -4,24 +4,24 @@ description: Learn how to install and use the Ampli SDK for the Android Java and
 icon: material/android
 ---
 
+!!!note
+    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
 
-!!! note
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](android.md)**.
-
-Iteratively supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
+Amplitude Data supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 
 In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!! tip
+!!!tip
+
     See example apps that use the Android Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/android).
 
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Iteratively workspace.
+These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](using-the-ampli-cli.md).
+If you haven't installed the Ampli CLI, [install it now](using-the-ampli-cli).
 
 ### Install dependencies
 
@@ -41,9 +41,9 @@ If you haven't already, install the core Amplitude SDK dependencies.
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
-!!! note
+!!!note
+  
     If you're not already requesting the [INTERNET permission](https://developer.android.com/reference/android/Manifest.permission#INTERNET), add `<uses-permission android:name="android.permission.INTERNET" />` to your AndroidManifest.xml.
-
 
 ### Pull the SDK into your project
 
@@ -113,9 +113,9 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
     ));
     ```
 
-| Arg | Description |
+| <div class ="big-column">Arg</div> | Description |
 |-|-|
-| `appContext`| An object with a set of properties to add to every event sent by the Ampli SDK.<br/><br/> This option is available when there is at least one source template associated with your team's tracking plan.|
+| `appContext`| An object with a set of properties to add to every event sent by the Ampli SDK.<br /><br /> This option is available when there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your team's tracking plan.|
 | `LoadOptions` | Optional. Specifies configuration options for the Ampli SDK.|
 |`disabled`|Optional. Specifies whether the Ampli SDK does any work. When true, all calls to the Ampli SDK are no-ops. Useful in local or development environments.|
 |`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli SDK runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it logs an error but stills let the event through. In development, the SDK throws an exception to alert you that something is wrong.|
@@ -151,6 +151,7 @@ For example your tracking plan contains a user property called `userProp`. The p
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
 
+
 === "Java"
 
     ```java
@@ -177,8 +178,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
 ### Group
 
-!!! note
-    This feature is available for Growth customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532).
+--8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
 Call `setGroup()` to associate a user with their group (for example, their department or company). The `setGroup()` function accepts a required `groupType`, and `groupName`.
 
@@ -194,11 +194,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
     ampli.setGroup("groupType", "groupName");
     ```
 
-Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group.
-
-For example, you want to group your users based on what organization they're in by using an 'orgId'. Joe is in 'orgId' '10', and Sue is in 'orgId' '15'. Sue and Joe both perform a certain event. You can query their organizations in the Event Segmentation Chart.
-
-When setting groups, define a `groupType` and `groupName`. In the previous example, 'orgId' is the `groupType` and '10' and '15' are the values for `groupName`. Another example of a `groupType` could be 'sport' with `groupName` values like 'tennis' and 'baseball'.
+--8<-- "includes/groups-intro-paragraph.md"
 
  Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
 
@@ -236,7 +232,8 @@ The `options` argument allows you to pass to pass [Amplitude fields](https://dev
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
- The event has one MiddlewareExtra defined: `extra`. Learn more about [middleware](middleware-overview.md).
+ The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](#middleware).
+
 
 === "Java"
 
@@ -297,7 +294,7 @@ Send event objects using the generic track method.
     );
     ```
 
-## Verify implementation status
+##  Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
@@ -319,7 +316,9 @@ The output displays status and indicates what events are missing.
  ✘ Song Stopped Called when a user stops playing a song.
 Events Tracked: 2 missed, 3 total
 ```
-Learn more about [`ampli status`](using-the-ampli-cli.md#ampli-status).
+
+Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
+
 
 ## Migrating from an Itly Android runtime
 
@@ -352,24 +351,23 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
     ```
 
 4. Check your Ampli SDK path.
+    `ampli pull` prints the location of where the new SDK was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-    
 5. Find and replace:
 
-      **Kotlin and Java:**
-      - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
-      - `itly.` => `ampli.`
-      - `itly.group(groupId)` => `ampli.setGroup(groupType, groupValue)`
+    **Kotlin and Java:**
+    - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
+    - `itly.` => `ampli.`
+    - `itly.group(groupId)` => `ampli.setGroup(groupType, groupValue)`
 
-      **Kotlin only:**
+    **Kotlin only:**
 
-      - `Itly.load()` => `ampli.load()`
-      - `Itly.` => `ampli.`
+    - `Itly.load()` => `ampli.load()`
+    - `Itly.` => `ampli.`
 
-      **Java only:**
+    **Java only:**
 
-      - `Itly.getInstance().load()` => `Ampli.getInstance().load()`
-      - `Itly.` => `Ampli.`
+    - `Itly.getInstance().load()` => `Ampli.getInstance().load()`
+    - `Itly.` => `Ampli.`
 
 6. See updated Event tracking details on your Implementation page in the web app.

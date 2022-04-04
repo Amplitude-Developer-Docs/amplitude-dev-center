@@ -10,7 +10,7 @@ icon: material/language-javascript
     Upgrade to the [Browser (Ampli)](browser-ampli.md) runtime. The Browser (Itly) runtime is deprecated. These docs aren't maintained.
 
 
-Iteratively supports tracking analytics events from browser apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as an ES module.
+Amplitude Data supports tracking analytics events from browser apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as an ES module.
 
 In TypeScript, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -127,13 +127,13 @@ Load the Itly SDK once when your application starts. The `load()` function accep
 !!!note 
     By default, the Itly SDK will automatically load and initialize your analytics providers' libraries using each library's official installation instructions.
 
-    However, if the Itly SDK detects that your analytics provider's library has already been loaded (typically by checking whether it's available on `window`), it will skip loading and initializing it and will simply reuse it. This means your can easily and safely add Iteratively to your existing codebase without any other changes; Iteratively will run side-by-side with your existing instrumentation.
+    However, if the Itly SDK detects that your analytics provider's library has already been loaded (typically by checking whether it's available on `window`), it will skip loading and initializing it and will simply reuse it. This means your can easily and safely add Amplitude Data to your existing codebase without any other changes; Amplitude Data will run side-by-side with your existing instrumentation.
 
 ### Identify
 
 Call `identify()` to identify a user in your application and associate all future events with their identity, or to set their traits.
 
-Just as Iteratively creates types for events and their properties (and validates them at runtime), Iteratively creates types for user traits (and validates them at runtime).
+Just as Amplitude Data creates types for events and their properties (and validates them at runtime), Amplitude Data creates types for user traits (and validates them at runtime).
 
 The `identify()` function accepts an optional `userId`, optional `traits`, and optional `options`.
 
@@ -202,7 +202,7 @@ The `options` argument allows you to pass additional metadata about this call, s
 
 Call `group()` to associate a user with their group (for example, their department or company), or to set the group's traits.
 
-Just as Iteratively creates types for events and their properties (and validates them at runtime), Iteratively creates types for group traits (and validates them at runtime).
+Just as Amplitude Data creates types for events and their properties (and validates them at runtime), Amplitude Data creates types for group traits (and validates them at runtime).
 
 The `group()` function accepts a required `groupId`, optional `traits`, and optional `options`.
 
@@ -211,13 +211,13 @@ For example, in the code snippet below, our tracking plan contains a group trait
 === "TypeScript"
 
     ```js
-    itly.group('group-id', { name: 'Iteratively, Inc.' });
+    itly.group('group-id', { name: 'Amplitude Data, Inc.' });
     ```
 
 === "JavaScript"
 
     ```js
-    itly.group('group-id', { name: 'Iteratively, Inc.' });
+    itly.group('group-id', { name: 'Amplitude Data, Inc.' });
     ```
 
 The `options` argument allows you to pass additional metadata about this call, such as a callback function or custom configuration, to the SDK's destinations. For example, to specify that Segment should invoke a callback function when it's done calling `group()`:
@@ -226,7 +226,7 @@ The `options` argument allows you to pass additional metadata about this call, s
 === "TypeScript"
 
     ```js
-    itly.group('group-id', { name: 'Iteratively, Inc.' }, {
+    itly.group('group-id', { name: 'Amplitude Data, Inc.' }, {
       segment: {
         callback: () => console.log('Segment is done!'),
       }
@@ -236,7 +236,7 @@ The `options` argument allows you to pass additional metadata about this call, s
 === "JavaScript"
 
     ```js
-    itly.group('group-id', { name: 'Iteratively, Inc.' }, {
+    itly.group('group-id', { name: 'Amplitude Data, Inc.' }, {
       segment: {
         callback: () => console.log('Segment is done!'),
       }
@@ -303,7 +303,7 @@ The `options` argument allows you to pass additional metadata about this call, s
 ## Custom Destination
 
 !!!note "Advanced Content"
-    If you're using Iteratively with Amplitude or Segment you can skip this section!
+    If you're using Amplitude Data with Amplitude or Segment you can skip this section!
 
 To send clean, valid events to custom analytics destinations, or those not yet supported by the Itly SDK natively, the SDK is extensible via plugins. Writing a plugin is easy! Extend the `Plugin` class, call the base constructors with your plugin's ID, override `track()`, and include your new plugin in the `plugins` array when calling `itly.load()`.
 
@@ -374,7 +374,7 @@ track(userId: string | undefined, event: Event, options: TrackOptions | undefine
 | Argument | Type || Description |
 |-|-|-|-|
 | `userId` | String | optional | Always undefined in the Browser SDK. |
-| `event` | Object<br />`Event` | required | The event that was tracked by the Itly SDK. The event object contains the following properties:<br /><br />`name`<br />The event's name.<br /><br />`properties`<br />The event's properties.<br /><br />`id`<br />The event's unique ID in Iteratively.<br /><br />`version`<br />The event's version, e.g. 2.0.1.<br /><br /> |
+| `event` | Object<br />`Event` | required | The event that was tracked by the Itly SDK. The event object contains the following properties:<br /><br />`name`<br />The event's name.<br /><br />`properties`<br />The event's properties.<br /><br />`id`<br />The event's unique ID in Amplitude Data.<br /><br />`version`<br />The event's version, e.g. 2.0.1.<br /><br /> |
 | `options` | TrackOptions | optional | See [Call Options](#call-options). |
 <br />
 
@@ -497,7 +497,6 @@ The new Browser SDK introduces several new features to help developers implement
 ### CLI & Code Changes
 
 - Make sure you have downloaded the [Ampli CLI](/using-the-ampli-cli)
-
 - Pull down the new SDK inside your project's folder (the one with the .itlyrc file):
 
 ```bash
@@ -513,7 +512,8 @@ ampli pull
       validation: Validation.Disabled,
     });
     ```
- - The SDK's plugins no longer initialize analytics provider libraries if they're detected on `window`. In version 1.0, if the SDK's plugin detected that a library has already loaded, it would skip loading it, but would still initialize it using the access key provided in the tracking plan. In the 2.0 version of the SDK, this is no longer the case, and Iteratively simply reuses the instance from `window` as is.
+
+ - The SDK's plugins no longer initialize analytics provider libraries if they're detected on `window`. In version 1.0, if the SDK's plugin detected that a library has already loaded, it would skip loading it, but would still initialize it using the access key provided in the tracking plan. In the 2.0 version of the SDK, this is no longer the case, and Amplitude Data simply reuses the instance from `window` as is.
 
 ### Custom Destination
 

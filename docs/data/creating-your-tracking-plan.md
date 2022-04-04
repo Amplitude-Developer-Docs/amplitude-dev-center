@@ -1,5 +1,5 @@
 ---
-id: creating-your-tracking-plan
+
 title: Creating Your Tracking Plan
 ---
 
@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Now that we know what a [Tracking Plan](/what-is-a-tracking-plan) is and how it can benefit your company, let's get started.
 
-The Iteratively web app allows all stakeholders to collaborate on a single source of truth for analytics definitions. It keeps everyone in sync on what data to track, when, and why, and maintains a consistent schema across engineering, product management, data science, and other consumers of analytics data.
+The Amplitude Data web app allows all stakeholders to collaborate on a single source of truth for analytics definitions. It keeps everyone in sync on what data to track, when, and why, and maintains a consistent schema across engineering, product management, data science, and other consumers of analytics data.
 
 ### Step 1: Add your Sources
 
@@ -23,7 +23,7 @@ Every Source has a name, runtime, and a set of destinations associated with it.
 <!-- ![Source Modal](/img/source.png#400) -->
 <p><img alt="Source Modal" src={useBaseUrl('/img/source.png#400')} /></p>
 
-A Source's runtime defines the [platform-language combination](/using-the-tracking-library) used by that part of your application (e.g. iOS — Swift). Iteratively uses this information to generate the correct tracking library for engineers implementing your tracking plan.
+A Source's runtime defines the [platform-language combination](/using-the-tracking-library) used by that part of your application (e.g. iOS — Swift). Amplitude Data uses this information to generate the correct tracking library for engineers implementing your tracking plan.
 
 A Source's set of destinations defines the analytics providers that will receive events from this particular Source.
 
@@ -46,7 +46,7 @@ Every Destination has a vendor, access token, and a set of sources associated wi
 <!-- ![Destination Modal](/img/destination.png#400) -->
 <p><img alt="Destination Modal" src={useBaseUrl('/img/destination.png#400')} /></p>
 
-A Destination's vendor identifies a particular analytics provider you're working with. Iteratively uses this information when generating a tracking library for your engineering team to make sure it sends events to all the right places. For Amplitude specifically, you can choose your respective projects directly from a dropdown menu.
+A Destination's vendor identifies a particular analytics provider you're working with. Amplitude Data uses this information when generating a tracking library for your engineering team to make sure it sends events to all the right places. For Amplitude specifically, you can choose your respective projects directly from a dropdown menu.
 
 A Destination's set of sources defines the parts of your applications that will send events to this particular Destination.
 
@@ -64,7 +64,7 @@ From Events select `Add Event` to create your first event.
 <p><img alt="Events Page" src={useBaseUrl('/img/events.png')} /></p>
 
 :::note Tip
-Iteratively recommends the Object-Action Framework as a best practice for governing the structure of your events. Each event is associated with an Object in your application (e.g. Song, File, or User) and an Action (e.g. Played, Uploaded, or Logged In).
+Amplitude Data recommends the Object-Action Framework as a best practice for governing the structure of your events. Each event is associated with an Object in your application (e.g. Song, File, or User) and an Action (e.g. Played, Uploaded, or Logged In).
 :::
 
 Every event has a name, description, sources it applies to (e.g. iOS, Android), and a set of properties.
@@ -96,7 +96,7 @@ This will open up a review panel that lists all of the changes to your tracking 
 
 ### Step 6: Solicit your Team's Feedback
 
-Collaborating with your team on your tracking plan helps ensure everyone is aligned and you can gather feedback from your colleagues before instrumenting new events. We've made collaboration easy in Iteratively with the ability to comment on events, properties, property groups and more. Using the rich text editor you can even add code snippets and images for more detailed explanations.
+Collaborating with your team on your tracking plan helps ensure everyone is aligned and you can gather feedback from your colleagues before instrumenting new events. We've made collaboration easy in Amplitude Data with the ability to comment on events, properties, property groups and more. Using the rich text editor you can even add code snippets and images for more detailed explanations.
 
 ![Add a Comment](/img/comment.png)
 
@@ -104,6 +104,6 @@ You can @mention your colleagues and they'll receive an email notification, lett
 
 ### Step 7: Instrument your Product
 
-A Tracking Plan is consumed by developers in the form of type-safe auto-generated code. Iteratively can generate a tracking library for all popular platforms and programming languages. The auto-generated library is a lightweight wrapper over your analytics provider's SDK that provides type-safety, supports linting, and enables additional features like input validation. The code exactly replicates the spec in the tracking plan and enforces all its rules and requirements.
+A Tracking Plan is consumed by developers in the form of type-safe auto-generated code. Amplitude Data can generate a tracking library for all popular platforms and programming languages. The auto-generated library is a lightweight wrapper over your analytics provider's SDK that provides type-safety, supports linting, and enables additional features like input validation. The code exactly replicates the spec in the tracking plan and enforces all its rules and requirements.
 
 The next step is to have your developers instrument your product [using the Ampli CLI](/using-the-ampli-cli).
