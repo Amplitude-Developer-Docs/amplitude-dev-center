@@ -1,11 +1,10 @@
 ---
-id: dotnet
 title: .NET (Itly)
+icon: material/dot-net
+description: Amplitude Data supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).
 ---
 
-
-
-Iteratively supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).
+Amplitude Data supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).
 
 In C#, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -17,9 +16,9 @@ If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-c
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./Itly/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `csharp`).
-:::
+!!!tip
+
+    `{source}` is the name of the source you created in your tracking plan (e.g. `csharp`).
 
 ### Install dependencies
 
@@ -42,21 +41,11 @@ If you've configured Itly with Segment, the steps above will also install the ve
 
 To use the library, you'll need to import it first:
 
-<Tabs
-  groupId="dotnet-source"
-  defaultValue="csharp"
-  values={[
-    { label: 'C#', value: 'csharp', },
-  ]
-}>
-<TabItem value="csharp">
+=== "C#"
 
-```java
-using Iteratively;
-```
-
-</TabItem>
-</Tabs>
+    ```c#
+    using Iteratively;
+    ```
 
 ## API
 
@@ -64,7 +53,7 @@ using Iteratively;
 
 Load the Itly SDK once when your application starts. The `Load()` method accepts an options object that lets you configure how the Itly SDK works:
 
-| Options | Description |
+| <div class="big-column">Options</div> | Description |
 |-|-|
 | `context`| CAn object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
 | `disabled`| Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.|
@@ -75,42 +64,32 @@ Load the Itly SDK once when your application starts. The `Load()` method accepts
 
 For example:
 
-<Tabs
-  groupId="dotnet-source"
-  defaultValue="csharp"
-  values={[
-    { label: 'C#', value: 'csharp', },
-  ]
-}>
-<TabItem value="csharp">
+=== "C#"
 
-```java
-# With no context properties or custom destinations
-Itly.Load(new Options())
+    ```c#
+    # With no context properties or custom destinations
+    Itly.Load(new Options())
 
-# With context properties (e.g. a string property called version)
-Itly.Load(new Options(
-    new Context(version: "1.0")
-));
+    # With context properties (e.g. a string property called version)
+    Itly.Load(new Options(
+        new Context(version: "1.0")
+    ));
 
-# With all options
-Itly.Load(new Options(
-    new Context(version: "1.0"),
-    new DestinationsOptions(
-        new CustomOptions(new CustomDestination())
-    ),
-    disabled: false,
-    environment: Iteratively.Environment.Development,
-    logger: null,
-    validation: new ValidationOptions(
+    # With all options
+    Itly.Load(new Options(
+        new Context(version: "1.0"),
+        new DestinationsOptions(
+            new CustomOptions(new CustomDestination())
+        ),
         disabled: false,
-        failOnError: true
-    )
-));
-```
-
-</TabItem>
-</Tabs>
+        environment: Iteratively.Environment.Development,
+        logger: null,
+        validation: new ValidationOptions(
+            disabled: false,
+            failOnError: true
+        )
+    ));
+    ```
 
 ### Track
 
@@ -118,23 +97,14 @@ To track an event, call the event’s corresponding function. Every event in you
 
 For example, in the code snippet below, our tracking plan contains an event called `Process Started`. The event was defined with one required property called `userId` and one optional property called `availableProcessors`. The `userId` property's type is a string. The `availableProcessors` property's type an integer.
 
-<Tabs
-  groupId="dotnet-source"
-  defaultValue="csharp"
-  values={[
-    { label: 'C#', value: 'csharp', },
-  ]
-}>
-<TabItem value="csharp">
+=== "C#"
 
-```java
-Itly.ProcessStarted("some-user-id",
-    availableProcessors: System.Environment.ProcessorCount
-);
-```
+    ```c#
+    Itly.ProcessStarted("some-user-id",
+        availableProcessors: System.Environment.ProcessorCount
+    );
+    ```
 
-</TabItem>
-</Tabs>
 
 <!-- Itly includes code docs in the auto-generated library so your IDE can display relevant documentation for every function and property as you type.
 

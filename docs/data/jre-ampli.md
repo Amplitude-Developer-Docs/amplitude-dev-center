@@ -1,27 +1,24 @@
 ---
-id: jre-ampli
 title: JRE
+description: Documentation for Amplitude Data's JRE Ampli SDK. 
 ---
 
 
+!!!note
+    This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
 
-
-:::note
-This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
-:::
-
-
-Iteratively supports tracking analytics events from JRE programs written in Java (6 and above).
+Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 
 In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-:::tip
-See example apps that use the JRE Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/jre).
-:::
+!!!tip
+
+    See example apps that use the JRE Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/jre).
+
 
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Iteratively workspace.
+These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
 
 ### Install the Ampli CLI
 
