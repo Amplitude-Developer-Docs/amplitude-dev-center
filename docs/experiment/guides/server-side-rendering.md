@@ -3,6 +3,7 @@ title: Server-side Rendering
 description: Use the Amplitude Experiment JavaScript Server SDK and JavaScript Client SDK together to create a seamless server-side rendered experience.
 ---
 
+TODO Rewrite and update
 
 Use the JavaScript Server SDK and JavaScript Client SDK together to create a seamless server-side rendered experience.
 

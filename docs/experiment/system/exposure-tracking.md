@@ -1,8 +1,9 @@
 ---
 title: Exposure Tracking
-description: Automatically track exposure to a variant using an analytics provider.
+description: An introduction to the exposure event, and why exposure tracking is so important to accurate and reliable experiment results.
 ---
 
+TODO Rewrite and move SDK specific stuff to SDKs, segment stuff to segment integration docs
 
 Automatically track exposure to a variant using an analytics provider.
 
@@ -133,7 +134,6 @@ Once your `ExposureTrackingProvider` has been defined, initialize you client w
     ```
 
 !!!success
-    
     Your experiment client is now set-up to automatically track exposures whenever `variant()` is called to access a variant to serve to a user.
 
 ## Exposure Event Definition

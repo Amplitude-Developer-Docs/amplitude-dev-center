@@ -11,6 +11,13 @@ At its core, Amplitude Experiment SDKs `fetch` assigned variants (evaluated by
 
 Before integrating an Experiment SDK into your application/server, it may be useful to understand some core concepts:
 
+- [Client vs Server SDKs](https://developers.experiment.amplitude.com/docs/client-side-vs-server-side)
+- [Experiment User](https://developers.experiment.amplitude.com/docs/experiment-user)
+- [Configuration](https://developers.experiment.amplitude.com/docs/configuration)
+- [Variants](https://developers.experiment.amplitude.com/docs/variants)
+- [User Providers](https://developers.experiment.amplitude.com/docs/user-providers)
+- [Server-side Rendering](https://developers.experiment.amplitude.com/docs/server-side-rendering)
+
 ### Client-side versus Server-side SDKs
 
 Client-side SDKs are meant to be run in the end user application deployment. Client-side SDKs:
@@ -21,16 +28,9 @@ Client-side SDKs are meant to be run in the end user application deployment. Cli
 
 Server-side SDKs are meant to be run in a server deployment. Server-side SDKs:
 
-- Assume a multi user deployment 
+- Assume a multi user deployment
 - Use Server Keys, which should be kept private
 - Fetch variants on each request
-
-- [Client vs Server SDKs](https://developers.experiment.amplitude.com/docs/client-side-vs-server-side)
-- [Experiment User](https://developers.experiment.amplitude.com/docs/experiment-user)
-- [Configuration](https://developers.experiment.amplitude.com/docs/configuration)
-- [Variants](https://developers.experiment.amplitude.com/docs/variants)
-- [User Providers](https://developers.experiment.amplitude.com/docs/user-providers)
-- [Server-side Rendering](https://developers.experiment.amplitude.com/docs/server-side-rendering)
 
 ## Implementations
 

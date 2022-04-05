@@ -164,24 +164,25 @@ nav:
     - analytics/adobe.md
 - Experiment:
   - experiment/index.md
-  - Getting Started: 
-    - experiment/create-deployment.md
-    - experiment/create-flag.md
-  - experiment/randomization.md
-  - experiment/performance-and-scaling.md
-  - experiment/experiment-result-caching.md
-  - Local Evaluation:
-    - experiment/local-evaluation-getting-started.md
-    - experiment/local-evaluation.md
-    - experiment/node-server-sdk.md
+  - System:
+    - experiment/system/performance-and-caching.md
+    - experiment/system/data-model.md
+    - experiment/system/evaluation.md
+    - experiment/system/exposure-tracking.md
+  - Guides:
+    - experiment/guides/getting-started.md
+    - experiment/guides/choose-the-right-architecture.md
+    - experiment/guides/server-side-rendering.md
   - SDKs:
     - Introduction and Concepts:
       - experiment/sdks/index.md
       - experiment/sdks/experiment-user.md
       - experiment/sdks/experiment-sdk-configuration.md
       - experiment/sdks/experiment-variants.md
-      - experiment/sdks/exposure-tracking.md
-      - experiment/sdks/server-side-rendering.md
+    - Local Evaluation:
+      - experiment/local-evaluation/local-evaluation-getting-started.md
+      - experiment/local-evaluation/local-evaluation.md
+      - experiment/local-evaluation/node-server-sdk.md
     - experiment/sdks/experiment-node-server-sdk.md
     - experiment/sdks/experiment-javascript-sdk.md
     - experiment/sdks/experiment-android-sdk.md
