@@ -6,8 +6,9 @@ icon: material/language-javascript
 
 
 
-!!! info "The Browser (Itly) runtime is deprecated" 
-    Upgrade to the [Browser (Ampli)](browser-ampli.md) runtime. The Browser (Itly) runtime is deprecated. These docs aren't maintained.
+!!!warning "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Browser SDK (Ampli)](../sdks/browser-ampli.md).
+
 
 
 Amplitude Data supports tracking analytics events from browser apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as an ES module.
