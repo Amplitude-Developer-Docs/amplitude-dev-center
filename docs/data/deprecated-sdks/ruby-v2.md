@@ -5,14 +5,13 @@ title: Ruby
 
 
 
-:::note Previous Version
-Still using the **Ruby (Legacy)** runtime? Docs for the previous version are available [here](ruby).
-:::
-:::note Migrating
-Migrating from **Ruby (Legacy)** to the new **Ruby** runtime? A migration guide is available [here](#migrating-from-previous-version).
-:::
+!!!note "Previous Version"
+    Still using the **Ruby (Legacy)** runtime? Docs for the previous version are available [here](ruby).
 
-Iteratively Ruby SDK supports Ruby >= 2.6.0
+!!!note Migrating
+    Migrating from **Ruby (Legacy)** to the new **Ruby** runtime? A migration guide is available [here](#migrating-from-previous-version).
+
+Amplitude Data Ruby SDK supports Ruby >= 2.6.0
 
 The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -108,7 +107,7 @@ Itly.user_signed_in('some-user-id',
 
 To see the full usage of the Itly Ruby SDK see this example application.
 
-[Iteratively Ruby Sample Application](https://bitbucket.org/seasyd/examples/src/master/ruby-v2/README.md)
+[Amplitude Data Ruby Sample Application](https://bitbucket.org/seasyd/examples/src/master/ruby-v2/README.md)
 
 
 ## Migrating from Previous Version
@@ -140,37 +139,37 @@ The main changes have been:
 
 2. [Required dependencies](#install-dependencies)
 
-Replace references to old gems:
-```ruby
-# Schema Validator (legacy)
-# gem 'json_schemer'
-# Replace with:
-gem 'itly-schema-validator'
+    Replace references to old gems:
+    ```ruby
+    # Schema Validator (legacy)
+    # gem 'json_schemer'
+    # Replace with:
+    gem 'itly-schema-validator'
 
-# Amplitude (legacy)
-# gem 'amplitude-api'
-# Replace with:
-gem 'itly-plugin-amplitude'
+    # Amplitude (legacy)
+    # gem 'amplitude-api'
+    # Replace with:
+    gem 'itly-plugin-amplitude'
 
-# Segment (legacy)
-# gem 'simple_segment'
-# Replace with:
-gem 'itly-plugin-segment'
-```
+    # Segment (legacy)
+    # gem 'simple_segment'
+    # Replace with:
+    gem 'itly-plugin-segment'
+    ```
 
 3. [Import path of the Itly SDK](#import-into-your-app)
 
-The Itly SDK is now imported via `require_relative`:
-```ruby
-# Ruby (Legacy)
-# require 'itly'
-# Replace with:
-require_relative 'itly/itly'
-```
+    The Itly SDK is now imported via `require_relative`:
+    ```ruby
+    # Ruby (Legacy)
+    # require 'itly'
+    # Replace with:
+    require_relative 'itly/itly'
+    ```
 
 For full usage of the new Itly Ruby SDK see this detailed example application.
 
-[Iteratively Ruby Sample Application](https://bitbucket.org/seasyd/examples/src/master/ruby-v2/README.md)
+[Amplitude Data Ruby Sample Application](https://bitbucket.org/seasyd/examples/src/master/ruby-v2/README.md)
 
 <!-- Itly includes code docs in the auto-generated library so your IDE can display relevant documentation for every function and property as you type.
 

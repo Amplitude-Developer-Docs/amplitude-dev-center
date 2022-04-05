@@ -28,3 +28,4 @@ Onboarding
 CocoaPods
 Podfile
 podfile
+untyped

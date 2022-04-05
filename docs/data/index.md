@@ -1,5 +1,6 @@
 ---
-title: Data Home
+title: Getting Started
+description: Get started with Amplitude Data. 
+template: data-home.html
 ---
-
-We need intro text for Iteratively/Data stuff. 
+ <!-- overridden by data-home.html>

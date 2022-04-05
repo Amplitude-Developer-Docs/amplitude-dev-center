@@ -1,11 +1,8 @@
 ---
-id: jre-v3
 title: JRE (v3)
 ---
 
-
-
-Iteratively supports tracking analytics events from JRE programs written in Java (6 and above).
+Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 
 In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -17,9 +14,8 @@ If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-c
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./src/main/java/ly/iterative/itly/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `java`).
-:::
+!!!tip
+    `{source}` is the name of the source you created in your tracking plan (e.g. `java`).
 
 ### Install dependencies
 
@@ -65,21 +61,11 @@ If you've configured Itly with Segment, you'll also need to add Segment's SDK as
 
 To use the library, you'll need to import it first:
 
-<Tabs
-  groupId="jre-v3-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
 ```java
 import io.itly.*;
 ```
-
-</TabItem>
-</Tabs>
 
 ## API
 
@@ -97,33 +83,22 @@ Load the Itly SDK once when your application starts. The `load()` method accepts
 
 For example:
 
-<Tabs
-  groupId="jre-v3-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Itly.getInstance().load(Options.builder()
-    .destinations(Destinations.builder()
-        .custom(new CustomOptions(new CustomAdapter()))
-        .segment(new SegmentOptions())
-        .build())
-    .context(Context.builder()
-        .version("1.0")
-        .build())
-    .logger(new Logger())
-    .disabled(false)
-    .environment(Options.Environment.DEVELOPMENT)
-    .build());
-```
-
-</TabItem>
-</Tabs>
-
+    ```java
+    Itly.getInstance().load(Options.builder()
+        .destinations(Destinations.builder()
+            .custom(new CustomOptions(new CustomAdapter()))
+            .segment(new SegmentOptions())
+            .build())
+        .context(Context.builder()
+            .version("1.0")
+            .build())
+        .logger(new Logger())
+        .disabled(false)
+        .environment(Options.Environment.DEVELOPMENT)
+        .build());
+    ```
 
 ### Track
 
@@ -131,24 +106,15 @@ To track an event, call the event’s corresponding function. Every event in you
 
 For example, in the code snippet below, our tracking plan contains an event called `Process Started`. The event was defined with one required property called `userId` and one optional property called `availableProcessors`. The `userId` property's type is a string. The `availableProcessors` property's type an integer.
 
-<Tabs
-  groupId="jre-v3-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Itly.getInstance().trackProcessStarted("some-user-id", ProcessStarted.builder()
-    .availableProcessors(Runtime.getRuntime().availableProcessors())
-    .build()
-);
-```
+    ```java
+    Itly.getInstance().trackProcessStarted("some-user-id", ProcessStarted.builder()
+        .availableProcessors(Runtime.getRuntime().availableProcessors())
+        .build()
+    );
+    ```
 
-</TabItem>
-</Tabs>
 
 <!-- Itly includes code docs in the auto-generated library so your IDE can display relevant documentation for every function and property as you type.
 

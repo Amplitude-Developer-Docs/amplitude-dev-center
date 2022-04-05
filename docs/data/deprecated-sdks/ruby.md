@@ -1,11 +1,12 @@
 ---
-id: ruby
 title: Ruby (Itly)
+description: Documentation for the deprecated Amplitude Data Ruby SDK (Itly)
 ---
 
+!!!warning "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained.
 
-
-Iteratively supports tracking analytics events from Ruby apps.
+Amplitude Data supports tracking analytics events from Ruby apps.
 
 In Ruby, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -17,9 +18,10 @@ If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-c
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./itly/lib/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `ruby`).
-:::
+!!!tip
+
+    `{source}` is the name of the source you created in your tracking plan (e.g. `ruby`).
+
 
 ### Install dependencies
 
@@ -48,7 +50,7 @@ require 'itly'
 
 Load the Itly SDK once when your application starts. The `load` method accepts an options object that lets you configure how the Itly SDK works:
 
-| Options | Description |
+| <div class="big-column">Options</div> | Description |
 |-|-|
 | `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
 | `disabled`| Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.|
@@ -94,19 +96,3 @@ Itly.process_started('some-user-id',
   available_processors: Etc.nprocessors
 )
 ```
-
-<!-- Itly includes code docs in the auto-generated library so your IDE can display relevant documentation for every function and property as you type.
-
-![Code documentation](/img/ruby.png) -->
-
-<!-- ### Alias
-
-
-
-### Plugins & Custom Destinations
-
-
-
-### Logging -->
-
-

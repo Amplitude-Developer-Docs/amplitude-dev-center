@@ -1,18 +1,14 @@
 ---
-id: ios
 title: iOS (Itly)
+description: Documentation for the deprecated Amplitude Data iOS SDK (Itly).
+icon: material/apple-ios
 ---
 
+!!!warning "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [iOS SDK (Ampli)](ios-ampli.md).
 
 
-:::note Previous Version
-Still using the **iOS (Legacy)** runtime? Docs for the previous version are available [here](ios-legacy).
-:::
-:::note Migrating
-Migrating from **iOS (Legacy)** to the new **iOS** runtime? A migration guide is available [here](#migrating-from-previous-version).
-:::
-
-Iteratively supports tracking analytics events from iOS apps written in Swift and Objective-C.
+Amplitude Data supports tracking analytics events from iOS apps written in Swift and Objective-C.
 
 In Swift and Objective-C, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -24,9 +20,9 @@ If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-c
 
 To generate the Itly SDK, run `ampli pull {source}` in the folder with your Info.plist file. By default, the SDK will be generated in `./Itly/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `ios`).
-:::
+!!!tip
+
+    `{source}` is the name of the source you created in your tracking plan (e.g. `ios`).
 
 After calling `ampli pull` for the first time, add the generated tracking library to your project:
 
@@ -56,6 +52,7 @@ target '{Project-Name}' do
   pod 'ItlySchemaValidatorPlugin', '~> 1.0'
 end
 ```
+
 - Run `pod install`
 - Open Xcode but don't open the `.xcodeproj` file, instead open the `.xcodeworkspace` file
 
@@ -75,6 +72,7 @@ To install these dependencies with Carthage:
 ```bash
 github "iterativelyhq/itly-sdk-ios"
 ```
+
 - Run `carthage update --platform iOS`
 - Run `carthage build --platform iOS` to build nested dependencies
 - Open Xcode
@@ -83,38 +81,25 @@ github "iterativelyhq/itly-sdk-ios"
 - Select the General tab
 - Drag and drop ItlySdk.framework, ItlySchemaValidatorPlugin.framework, and DSJSONSchemaValidation.framework from the `Carthage/Build` folder to the Frameworks, Libraries, and Embedded Content section
 - Select the Build Phases tab
-    - Click the Plus icon in the top left corner of that tab, click New Run Script Phase
-    - Create a new run script:
-        - Shell: `/bin/sh`
-        - Script: `/usr/local/bin/carthage copy-frameworks`
+  - Click the Plus icon in the top left corner of that tab, click New Run Script Phase
+  - Create a new run script:
+    - Shell: `/bin/sh`
+    - Script: `/usr/local/bin/carthage copy-frameworks`
 
 If you've configured Itly with Amplitude or Segment, you'll drag and drop each configured provider's SDK:
- - ItlyAmplitudePlugin.framework and Amplitude.framework for Amplitude
- - ItlySegmentPlugin.framework and Analytics.framework for Segment
+
+- ItlyAmplitudePlugin.framework and Amplitude.framework for Amplitude
+- ItlySegmentPlugin.framework and Analytics.framework for Segment
 
 ### Import into your app
 
 If you are using Swift, no import is needed to use the library. If you are using Objective-C, you'll need to import it first:
 
-<Tabs
-  groupId="ios-source"
-  defaultValue="obj-c"
-  values={[
-    { label: 'Swift', value: 'swift', },
-    { label: 'Objective-C', value: 'obj-c', },
-  ]
-}>
-<TabItem value="swift">
-N/A
-</TabItem>
-<TabItem value="obj-c">
+=== "Objective C"
 
-```c
+```objc
 #import "Itly/Itly.h"
 ```
-
-</TabItem>
-</Tabs>
 
 ## API
 
@@ -122,55 +107,43 @@ N/A
 
 Initialize the Itly SDK once when your application starts. The `load` method accepts an options object that lets you configure how the Itly SDK works:
 
-| Options | Description |
+| <div class="big-column">Options</div> | Description |
 |-|-|
 | `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
-| `destinations` | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.<br /><br />Note: only the Iteratively destination is currently supported.<br /><br />Optional.|
+| `destinations` | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.<br /><br />Note: only the Amplitude Data destination is currently supported.<br /><br />Optional.|
 | `options` | Specifies additional configuration options for the Itly SDK. Optional.<br /><br />`disabled`<br />Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.<br /><br />`environment`<br />Specifies the environment the Itly SDK is running in: either `ItlySdk.Environment.production` (`ITLEnvironmentProduction` in Obj-C) or `ItlySdk.Environment.development` (`ITLEnvironmentDevelopment` in Obj-C). Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it will log an error but still let the event through. In development, the SDK will terminate the application to alert you that something is wrong.<br /><br />Optional. Defaults to `development`.<br /><br />`plugins`<br />An array of additional plugins to load into the Itly SDK. Plugins allow you to extend the Itly SDK's event validation and event tracking functionality with your own. For example, a plugin can be used to implement a custom destination or a custom event validator.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/ios-swift-v2/ItlySwiftCarthageExample/CustomPlugin.swift) to see a sample custom destination plugin written in Swift.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/ios-objc-v2/ItlyObjCCarthageExample/CustomPlugin.m) to see a sample custom destination plugin written in Objective-C.<br /><br />Optional.<br /><br />`logger`<br />To log Itly's logs to a custom logger, extend the `Logger` class (`ITLLogger` in Objective-C) and set `logger` to an instance of your class. The Itly SDK will call into your class with all debug, info, warn, and error-level messages.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/ios-swift-v2/ItlySwiftCarthageExample/CustomLogger.swift) to see a a sample custom logger written in Swift.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/ios-objc-v2/ItlyObjCCarthageExample/CustomLogger.m) to see a a sample custom logger written in Objective-C.<br /><br />Optional. |
 
 For example:
 
-<Tabs
-  groupId="ios-source"
-  defaultValue="swift"
-  values={[
-    { label: 'Swift', value: 'swift', },
-    { label: 'Objective-C', value: 'obj-c', },
-  ]
-}>
-<TabItem value="swift">
+=== "Swift"
 
-```c
-// Load Itly with no custom plugins or logger
-Itly.instance.load()
+    ```c
+    // Load Itly with no custom plugins or logger
+    Itly.instance.load()
 
-// Or, load Itly with a custom plugin and logger
-Itly.instance.load(
-    options: Options(
-        environment: Environment.development,
-        plugins: [CustomPlugin()],
-        logger: CustomLogger()
+    // Or, load Itly with a custom plugin and logger
+    Itly.instance.load(
+        options: Options(
+            environment: Environment.development,
+            plugins: [CustomPlugin()],
+            logger: CustomLogger()
+        )
     )
-)
-```
+    ```
 
-</TabItem>
-<TabItem value="obj-c">
+=== "Objective-C"
 
-```c
-// Load Itly with no custom plugins or logger
-// [Itly.instance load];
+    ```objc
+    // Load Itly with no custom plugins or logger
+    // [Itly.instance load];
 
-// Or, load Itly with a custom plugin and logger
-[Itly.instance load:nil options:[ITLItlyOptions builderBlock:^(ITLItlyOptionsBuilder *b) {
-    b.environment = ITLEnvironmentDevelopment;
-    b.plugins = @[[CustomPlugin new]];
-    b.logger = [CustomLogger new];
-}]];
-```
-
-</TabItem>
-</Tabs>
+    // Or, load Itly with a custom plugin and logger
+    [Itly.instance load:nil options:[ITLItlyOptions builderBlock:^(ITLItlyOptionsBuilder *b) {
+        b.environment = ITLEnvironmentDevelopment;
+        b.plugins = @[[CustomPlugin new]];
+        b.logger = [CustomLogger new];
+    }]];
+    ```
 
 ### Track
 
@@ -178,41 +151,30 @@ To track an event, call the event’s corresponding function. Every event in you
 
 For example, in the code snippet below, our tracking plan contains an event called `View Loaded`. The event was defined with one required property called `name` and one optional property called `description`. The `name` property's type is an enum. The `description` property's type is a string.
 
-<Tabs
-  groupId="ios-source"
-  defaultValue="swift"
-  values={[
-    { label: 'Swift', value: 'swift', },
-    { label: 'Objective-C', value: 'obj-c', },
-  ]
-}>
-<TabItem value="swift">
+=== "Swift"
 
-```c
-Itly.instance.viewLoaded(name: ViewLoaded.Name.firstView)
-```
+    ```c
+    Itly.instance.viewLoaded(name: ViewLoaded.Name.firstView)
+    ```
 
-</TabItem>
-<TabItem value="obj-c">
+=== "Objective-C"
 
-```c
-// Track a View Loaded event with a required enum property called name
-[Itly.instance viewLoadedWithName:ViewLoadedNameFirstView];
-```
-> In Objective-C, the builder pattern is used to set optional properties.
+    ```objc
+    // Track a View Loaded event with a required enum property called name
+    [Itly.instance viewLoadedWithName:ViewLoadedNameFirstView];
+    ```
 
-</TabItem>
-</Tabs>
+In Objective-C, the builder pattern is used to set optional properties.
 
 ## Migrating from Previous Version
 
 ### Introduction
 
-The new Iteratively Swift & Objective-C SDK enjoys a simpler deployment model and introduces several new features to help developers implement product analytics:
+The new Amplitude Data Swift & Objective-C SDK enjoys a simpler deployment model and introduces several new features to help developers implement product analytics:
 
 - Previously, the entire SDK was codegen'd into your source tree. In the new version, the SDK is split into two, allowing developers to call `ampli pull` freely without worrying about pulling down changes that may affect their application's behavior:
-    - The static, core SDK — open source, hosted on GitHub, and usable standalone, the static SDK contains all the logic needed to validate, track, and test analytics events. It is now semantically versioned and published to popular package repos, incl. Carthage and CocoaPods.
-    - The dynamic, codegen'd API — generated by `ampli pull` and placed into your source tree, the codegen'd API contains event classes and a corresponding strongly-typed API only. It delegates all work to the core SDK and contains no logic.
+  - The static, core SDK — open source, hosted on GitHub, and usable standalone, the static SDK contains all the logic needed to validate, track, and test analytics events. It is now semantically versioned and published to popular package repos, incl. Carthage and CocoaPods.
+  - The dynamic, codegen'd API — generated by `ampli pull` and placed into your source tree, the codegen'd API contains event classes and a corresponding strongly-typed API only. It delegates all work to the core SDK and contains no logic.
 - The core SDK is now extensible via plugins. 5 plugins are currently available out of the box: a JSON Schema validation plugin, and 4 destination plugins: Segment, Amplitude, and Iteratively.
 - When environment is set to `development`, the SDK will stream events to Amplitude's [User Lookup](https://help.amplitude.com/hc/en-us/articles/229313067-User-Look-Up) dashboard. The live debugger allows developers to watch tracked events, inspect their payloads, and detect validation problems.
 
@@ -270,8 +232,8 @@ ampli pull
 ```
 
 - Custom destination adapters are now passed in as plugins rather than as part of `ItlyDestinations`. If you are using a custom destination:
-    - Remove e.g. `custom: ItlyCustomOptions(adapter: CustomDestination())` from `destinations`
-    - Add `plugins: [CustomPlugin()]` to `Options`:
+  - Remove e.g. `custom: ItlyCustomOptions(adapter: CustomDestination())` from `destinations`
+  - Add `plugins: [CustomPlugin()]` to `Options`:
 
     ```java
     Itly.instance.load(
@@ -283,7 +245,7 @@ ampli pull
     )
     ```
 
-    - Or in Objective-C:
+  - Or in Objective-C:
 
     ```objectivec
     [Itly.instance load:nil options:[ITLItlyOptions builderBlock:^(ITLItlyOptionsBuilder *b) {

@@ -20,7 +20,7 @@ These instructions are also available from the **Implementation** page of your I
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](using-the-ampli-cli.md).
+If you haven't installed the Ampli CLI, [install it now](../using-the-ampli-cli.md).
 
 ### Install dependencies
 

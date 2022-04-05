@@ -4,14 +4,8 @@ description: This SDK is deprecated. Learn how to install and use the Ampli SDK 
 icon: material/android
 ---
 
-!!!note "Previous Version"
-
-    Still using the **Android (Legacy)** runtime? Docs for the previous version are available [here](android-legacy).
-
-!!! note "Migrating"
-
-    Migrating from **Android (Legacy)** to the new **Android** runtime? A migration guide is available [here](#migrating-from-previous-version).
-
+!!!warning "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Android SDK (Ampli)](android-ampli.md).
 
 Amplitude Data supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 

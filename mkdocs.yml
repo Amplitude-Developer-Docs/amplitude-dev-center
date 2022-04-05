@@ -166,11 +166,11 @@ nav:
   - experiment/index.md
 - Data: 
   - data/index.md
-  - Getting Started:
-    - data/getting-started.md
-    - data/identifying-users-and-groups.md
-    - data/granular-event-destinations.md
+  - Data Basics:
     - data/middleware-overview.md
+    - data/track-page-views.md
+    - data/integrations.md
+    - data/migration-guide.md
   - Instrumentation:
     - data/ampli-sdk-overview.md
     - data/using-the-ampli-cli.md
@@ -179,24 +179,21 @@ nav:
     - data/unit-testing.md
     - data/user-lookup.md
     - data/iglu-api.md
-  - Sources:
-    - data/browser-ampli.md
-    - data/nodejs-ampli.md
-    - data/ios-ampli.md
-    - data/android-ampli.md
-    - data/jre-ampli.md
-  - Sources (Legacy):
-    - data/browser.md
-    - data/nodejs.md
-    - data/ios.md 
-    - data/android.md
-    - data/jre.md
-    - data/python.md
-    - data/ruby.md 
-    - data/dotnet.md
-  - Resources:
-    - data/integrations.md
-    - data/migration-guide.md
+  - SDKs:
+    - data/sdks/browser-ampli.md
+    - data/sdks/nodejs-ampli.md
+    - data/sdks/ios-ampli.md
+    - data/sdks/android-ampli.md
+    - data/sdks/jre-ampli.md
+  - SDKs (Deprecated):
+    - data/deprecated-sdks/browser.md
+    - data/deprecated-sdks/nodejs.md
+    - data/deprecated-sdks/ios.md 
+    - data/deprecated-sdks/android.md
+    - data/deprecated-sdks/jre.md
+    - data/deprecated-sdks/python.md
+    - data/deprecated-sdks/ruby.md 
+    - data/deprecated-sdks/dotnet.md
   - Integrations:
       - integrations/index.md
       - integrations/shopify-plugin.md

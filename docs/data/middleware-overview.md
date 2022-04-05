@@ -1,26 +1,26 @@
 ---
-id: middleware
 title: Using Middleware
+description: Use middleware to extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
+
 ---
-
-
-
 
 ## Overview
 
-Middleware allows you to extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
+Middleware lets you extend Amplitude by running a sequence of custom code on every event.
+ This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
 
-Each Middleware is a simple function with this signature:
+Each middleware is a simple function with this signature:
 
 ```js
 function (payload: MiddlewarePayload: next: MiddlewareNext): void;
 ```
 
-The `payload` contains the `event` to send and an optional `extra` that lets you pass custom data to your own Middleware implementations.
+The `payload` contains the `event` to send and an optional `extra` that lets you pass custom data to your own middleware implementations.
 
-To invoke the next Middleware in the queue, use the `next` function. You must call `next(payload)` to continue the Middleware chain. If a Middleware doesn't call `next`, then the event processing stop executing after the current Middleware completes.
+To invoke the next middleware in the queue, use the `next` function.
+ You must call `next(payload)` to continue the middleware chain. If a middleware doesn't call `next`, then the event processing stops executing after the current middleware completes.
 
-Add middleware to Ampli via `ampli.client.addEventMiddleware()`. You can add as many Middleware as you like. Each Middleware runs in the order in which it's added.
+Add middleware to Ampli via `ampli.client.addEventMiddleware()`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
 
 ```js
 const loggingMiddleware: Middleware = (payload, next) => {
@@ -42,9 +42,10 @@ const filteringMiddleware: Middleware = (payload, next) => {
 ampli.client.addEventMiddleware(loggingMiddleware)
 ampli.client.addEventMiddleware(filteringMiddleware)
 ```
+
 ## Middleware examples
 
-**Modifying events**
+### Modifying events
 
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
@@ -55,7 +56,8 @@ ampli.client.addEventMiddleware((payload, next) => {
   next(payload);
 });
 ```
-**Enriching events**
+
+### Enriching events
 
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
@@ -66,7 +68,8 @@ ampli.client.addEventMiddleware((payload, next) => {
   next(payload)
 });
 ```
-**Basic filtering** 
+
+### Basic filtering
 
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
@@ -77,7 +80,7 @@ ampli.client.addEventMiddleware((payload, next) => {
 });
 ```
 
-**Forwarding data to other services, but not Amplitude**
+### Forwarding data to other services, but not Amplitude
 
 ```js
 import amplitude from 'amplitude/sdk'
@@ -94,7 +97,8 @@ ampli.client.addEventMiddleware((payload, next) => {
   // next();
 });
 ```
-**Using client-side validation**
+
+### Using client-side validation
 
 ```js
 ampli.client.addEventMiddleware((payload, next) => {

@@ -1,9 +1,11 @@
 ---
-id: jre
 title: JRE (Itly)
+description: This is the documentation for the deprecated Amplitude Data JRE SDK (Itly)
+icon: fontawesome/brands/java
 ---
 
-
+!!!warning "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [JRE SDK (Ampli)](jre-ampli.md).
 
 Iteratively supports tracking analytics events from JRE programs written in Java (6 and above).
 
@@ -17,9 +19,8 @@ If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-c
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./src/main/java/io/itly/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `java`).
-:::
+!!!tip
+    `{source}` is the name of the source you created in your tracking plan (e.g. `java`).
 
 ### Install dependencies
 
@@ -65,21 +66,11 @@ If you've configured Itly with Segment, you'll also need to add Segment's SDK as
 
 To use the library, you'll need to import it first:
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-import io.itly.*;
-```
-
-</TabItem>
-</Tabs>
+    ```java
+    import io.itly.*;
+    ```
 
 ## API
 
@@ -87,7 +78,7 @@ import io.itly.*;
 
 Load the Itly SDK once when your application starts. The `init()` method accepts an options object that lets you configure how the Itly SDK works:
 
-| Options | Description |
+| <div class="big-column">Options</div> | Description |
 |-|-|
 | `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
 | `disabled`| Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.|
@@ -97,32 +88,22 @@ Load the Itly SDK once when your application starts. The `init()` method accepts
 
 For example:
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Itly.getInstance().init(ItlyOptions.builder()
-    .destinations(ItlyDestinations.builder()
-        .custom(new ItlyCustomOptions(new CustomAdapter()))
-        .segment(new ItlySegmentOptions())
-        .build())
-    .context(Context.builder()
-        .version("1.0")
-        .build())
-    .logger(new Logger())
-    .disabled(false)
-    .environment(ItlyOptions.Environment.DEVELOPMENT)
-    .build());
-```
-
-</TabItem>
-</Tabs>
+    ```java
+    Itly.getInstance().init(ItlyOptions.builder()
+        .destinations(ItlyDestinations.builder()
+            .custom(new ItlyCustomOptions(new CustomAdapter()))
+            .segment(new ItlySegmentOptions())
+            .build())
+        .context(Context.builder()
+            .version("1.0")
+            .build())
+        .logger(new Logger())
+        .disabled(false)
+        .environment(ItlyOptions.Environment.DEVELOPMENT)
+        .build());
+    ```
 
 ### Track
 
@@ -130,14 +111,7 @@ To track an event, call the event’s corresponding function. Every event in you
 
 For example, in the code snippet below, our tracking plan contains an event called `Process Started`. The event was defined with one required property called `userId` and one optional property called `availableProcessors`. The `userId` property's type is a string. The `availableProcessors` property's type an integer.
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
 ```java
 Itly.getInstance().trackProcessStarted("some-user-id", ProcessStarted.builder()
@@ -145,22 +119,3 @@ Itly.getInstance().trackProcessStarted("some-user-id", ProcessStarted.builder()
     .build()
 );
 ```
-
-</TabItem>
-</Tabs>
-
-<!-- Itly includes code docs in the auto-generated library so your IDE can display relevant documentation for every function and property as you type.
-
-![Code documentation](/img/jre-java.png) -->
-
-<!-- ### Alias
-
-
-
-### Plugins & Custom Destinations
-
-
-
-### Logging -->
-
-
