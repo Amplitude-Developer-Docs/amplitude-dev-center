@@ -4,6 +4,9 @@ icon: material/dot-net
 description: Amplitude Data supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).
 ---
 
+!!!warning "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained.
+
 Amplitude Data supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).
 
 In C#, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.

@@ -1,6 +1,7 @@
 ---
 title: Ruby (Itly)
 description: Documentation for the deprecated Amplitude Data Ruby SDK (Itly)
+icon: material/language-ruby
 ---
 
 !!!warning "Deprecated SDK"

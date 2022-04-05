@@ -1,27 +1,25 @@
 ---
-id: python
 title: Python (Itly)
+description: The documentation for the deprecated Amplitude Data Python SDK (Itly).
+icon: material/language-python
 ---
 
+!!!warning "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained.
 
-
-:::note Previous Version
-Still using the **Python (Legacy)** runtime? Docs for the previous version are available [here](python-legacy).
-:::
-
-Iteratively supports tracking analytics events from Python 3 applications.
+Amplitude Data supports tracking analytics events from Python 3 applications.
 
 ## Installation
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](../data/using-the-ampli-cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./itly/`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `python`).
-:::
+!!!tip
+
+        `{source}` is the name of the source you created in your tracking plan (e.g. `python`).
 
 ### Install dependencies
 
@@ -62,18 +60,20 @@ itly.load(
 ```
 
 To initialize the Itly SDK, call its `load()` function. In our example above, we defined a tracking plan in the Itly web application to:
- - Include a property called *version* on every event
- - Send events to a custom destination
+
+- Include a property called *version* on every event
+- Send events to a custom destination
 
 As a result, our SDK will be initialized to:
- - Set the required *version* property to 1.0
- - Send events to a custom destination implemented in the `CustomDestination` class
+
+- Set the required *version* property to 1.0
+- Send events to a custom destination implemented in the `CustomDestination` class
 
 Note: if your tracking plan doesn't take advantage of [source templates](/working-with-templates#adding-a-template-to-a-source) and you haven't configured a [custom destination](#custom-destination), you can simply call `itly.load()`.
 
 <br/>
 
-| Options | Description |
+| <div class="big-column">Options</div> | Description |
 |-|-|
 | `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
 | `destinations` | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.<br /><br />Optional.|
@@ -82,6 +82,7 @@ Note: if your tracking plan doesn't take advantage of [source templates](/workin
 ### Track
 
 And finally, to track an event:
+
 ```python
 itly.process_started("some-user-id",
     available_processors=multiprocessing.cpu_count()
@@ -96,7 +97,7 @@ Note: if your Python application or service isn't intended to run forever, you'l
 
 ## Example
 
-Browse over to https://bitbucket.org/seasyd/examples/src/master/python-v2/ to see an example of an instrumented Python app, along with a sample implementation of the `CustomDestination` adapter and `SampleLogger` logger.
+Browse over to <https://bitbucket.org/seasyd/examples/src/master/python-v2/> to see an example of an instrumented Python app, along with a sample implementation of the `CustomDestination` adapter and `SampleLogger` logger.
 
 <!-- Itly includes code docs in the auto-generated library so your IDE can display relevant documentation for every function and property as you type.
 
@@ -104,12 +105,6 @@ Browse over to https://bitbucket.org/seasyd/examples/src/master/python-v2/ to se
 
 <!-- ### Alias
 
-
-
 ### Plugins & Custom Destinations
 
-
-
 ### Logging -->
-
-

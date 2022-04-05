@@ -1,9 +1,6 @@
 ---
-id: ruby-v2
 title: Ruby
 ---
-
-
 
 !!!note "Previous Version"
     Still using the **Ruby (Legacy)** runtime? Docs for the previous version are available [here](ruby).
@@ -23,9 +20,10 @@ If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-c
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./itly`.
 
-:::note Tip
-`{source}` is the name of the source you created in your tracking plan (e.g. `ruby`).
-:::
+!!!tip
+
+    `{source}` is the name of the source you created in your tracking plan (e.g. `ruby`).
+
 
 ### Install dependencies
 
