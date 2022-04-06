@@ -7,7 +7,7 @@ icon: material/language-javascript
 
 
 !!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Browser SDK (Ampli)](../sdks/browser-ampli.md).
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Browser SDK (Ampli)](data/sdks/browser-ampli).
 
 
 
@@ -21,7 +21,7 @@ Since JavaScript is not a type-safe language, the library won't expose type-safe
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](using-the-ampli-cli.md).
+If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
 
 To generate the Itly SDK, run `ampli pull {source}` in the folder with your package.json file. By default, the SDK will be generated in `./src/itly/`.
 

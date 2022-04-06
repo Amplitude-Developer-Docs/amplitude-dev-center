@@ -5,7 +5,7 @@ icon: fontawesome/brands/java
 ---
 
 !!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [JRE SDK (Ampli)](jre-ampli.md).
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [JRE SDK (Ampli)](/data/sdks/jre-ampli).
 
 Iteratively supports tracking analytics events from JRE programs written in Java (6 and above).
 
@@ -15,7 +15,7 @@ In Java, the tracking library exposes a type-safe function for every event in yo
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./src/main/java/io/itly/`.
 

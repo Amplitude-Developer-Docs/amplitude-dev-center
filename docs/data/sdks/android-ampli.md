@@ -1,6 +1,6 @@
 ---
 title: Android
-description: Learn how to install and use the Ampli SDK for the Android Java and Kotlin runtimes. 
+description: Learn how to install and use the Amplitude Data Ampli SDK for the Android Java and Kotlin runtimes. 
 icon: material/android
 ---
 
@@ -21,7 +21,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
 
 ### Install dependencies
 

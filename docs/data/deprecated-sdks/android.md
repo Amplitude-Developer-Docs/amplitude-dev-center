@@ -5,7 +5,7 @@ icon: material/android
 ---
 
 !!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Android SDK (Ampli)](android-ampli.md).
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Android SDK (Ampli)](/data/sdks/android-ampli).
 
 Amplitude Data supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 
@@ -15,7 +15,7 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./app/src/main/java/ly/iterative/itly/`.
 

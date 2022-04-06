@@ -15,7 +15,7 @@ In C#, the tracking library exposes a type-safe function for every event in your
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./Itly/`.
 
