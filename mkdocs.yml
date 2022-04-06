@@ -170,7 +170,11 @@ nav:
     - experiment/general/evaluation.md
     - experiment/general/exposure-tracking.md
   - Guides:
-    - experiment/guides/getting-started.md
+    - Getting Started:
+      - experiment/guides/getting-started/create-a-deployment.md
+      - experiment/guides/getting-started/create-a-flag.md
+      - experiment/guides/getting-started/fetch-variants.md
+      - experiment/guides/getting-started/track-exposure.md
     - experiment/guides/choose-the-right-architecture.md
     - experiment/guides/server-side-rendering.md
   - SDKs:
