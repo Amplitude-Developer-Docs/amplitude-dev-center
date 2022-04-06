@@ -5,7 +5,7 @@ description: Learn about Amplitude's experimentation and feature-flagging platfo
 
 Welcome to Amplitude Experiment! This page acts as a quick reference as well as a high level system overview of Experiment's end-to-end feature-flagging and experimentation platform.
 
-## Getting Started Guide
+## Getting Started
 
 Guide to getting started developing for Amplitude Experiment.
 
@@ -61,9 +61,10 @@ Guide to getting started developing for Amplitude Experiment.
 </div>
 
 ## APIs
-
-* [Evaluation API]()
-* [Management API]()
+| API | Description |
+| --- | --- |
+| [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
+| [Management API (Beta)](apis/management-api.md) | Manage or list flags and experiments within your organization. |
 
 ## System Overview
 
@@ -73,18 +74,61 @@ That said, we can generally segment experimentation and feature-flagging systems
 
 ### Client-side
 
-* Great for experimenting on client-side applications.
-* Easiest way to get started experimenting quickly.
+
+!!!done "Easiest way to get started delivering flag and experimenting on your client side application."
 
 Client-side experimentation and feature-flagging involves the client making a request to fetch flags and experiments from Amplitude's [remote evaluation]() servers when the application is initialized.
 
-TODO: Image of client-side architecture
+```mermaid
+flowchart LR
+  sdk -->|"1. Fetch Variants"| experiment
+  sdk -->|"3. Track Exposure"| analytics
+  subgraph client [Client Application]
+    sdk[SDK]
+    sdk -->|"2. Store Variants"| sdk
+  end
+  subgraph amplitude [Amplitude]
+  direction TB
+    experiment[Experiment]
+    analytics[Analytics]
+  end
+```
 
 1. Client-side application fetches variants for the user from Amplitude Experiment's remote evaluation servers.
 2. Variants are stored client-side for quick session agnostic access.
-3. Application accesses a variant for a flag/experiment and displays the variable experience to the user.
-4. When the user views the variable experience, an Exposure event is tracked to Amplitude analytics.
+3. Application accesses a variant for a flag/experiment which triggers tracking an Exposure event to Amplitude analytics..
 
 ### Server-side
 
-TODO
+!!!info "Simple and flexible APIs & SDKs made to fit into any system."
+
+#### Remote Evaluation
+
+Server-side [remote evaluation]() involves making a request from your server to Amplitude Experiment's evaluation servers to fetch variants for a user. The resulting variants may be used directly on the server or passed back for use on the client (or any other part of your system).
+
+```mermaid
+flowchart LR
+  sdkapi[SDK or REST API] -->|"Fetch Variants"| experiment
+  subgraph server [Customer Server]
+    sdkapi[SDK or REST API]
+  end
+  subgraph amplitude [Amplitude]
+    experiment[Experiment]
+  end
+```
+
+#### Local Evaluation (Alpha)
+
+Server-side [local evaluation]() runs the evaluation logic on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation]() is perfect for latency-minded systems which need to be performant at scale. However, since evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics is not possible.
+
+```mermaid
+flowchart LR
+  sdk -->|"Poll Flag Configs"| experiment
+  subgraph server [Customer Server]
+    sdk[SDK]
+    sdk -->|"Evaluate Variants for User"| sdk
+  end
+  subgraph amplitude [Amplitude]
+    experiment[Experiment]
+  end
+```

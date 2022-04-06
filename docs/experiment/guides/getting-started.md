@@ -39,7 +39,8 @@ Once you've created the flag, you'll need to add a deployment. To add a deployme
 
 After you have created your flag, you are ready to define its variants. A flag will contain an initial variant, "on", by default. If you are rolling out more than one variant of a feature, add variants using the **Create Variant** button. Make sure to add descriptions to your variants so that your team members can follow along.
 
-!!!info "Your flag must have at least one variant."
+!!!info ""
+    Your flag must have at least one variant.
 
 ### Configure Targeting Rules
 
