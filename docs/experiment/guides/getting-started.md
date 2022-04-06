@@ -66,7 +66,7 @@ You should see the following JSON in the response body:
 {"getting-started":{"key":"on"}}
 ```
 
-## Track an Exposure
+## Track Exposure
 
 [Exposure tracking]() plays a key role in tracking when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags don't require any analysis; however, it is essential when running experiment, since accurate exposure tracking is crucial for reliable results.
 

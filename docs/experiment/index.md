@@ -12,7 +12,7 @@ Guide to getting started developing for Amplitude Experiment.
 1. [Create a deployment]()
 2. [Create and configure an experiment]()
 3. [Fetch variants for a user]()
-4. [Send an exposure event]()
+4. [Track an exposure event]()
 
 ## SDKs
 
