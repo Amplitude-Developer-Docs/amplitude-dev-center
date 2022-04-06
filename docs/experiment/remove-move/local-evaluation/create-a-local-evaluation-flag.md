@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Local Evaluation
+title: Create a Local Evaluation Flag
 description: Create a local evaluation mode flag or migrate an existing remote evaluation flag to local.
 ---
 

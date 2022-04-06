@@ -1,5 +1,5 @@
 ---
-title: Experiment REST API
+title: Evaluation API
 description: Retrieve variation assignment data for users with the Amplitude Experiment REST API. 
 ---
 

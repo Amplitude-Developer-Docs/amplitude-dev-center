@@ -1,15 +1,14 @@
---- 
-title: Experiment React Native SDK
+---
+title: React Native SDK
 description: Official documentation for Amplitude Experiment's client-side React Native SDK.
 icon: material/react
---- 
+---
 
 ![npm version](https://badge.fury.io/js/%40amplitude%2Fexperiment-react-native-client.svg)
 
 This is the official documentation for Amplitude Experiment's client-side React Native SDK.
 
-???info "SDK Resources"
-
+!!!info "SDK Resources"
     - [iOS SDK Reference :material-book:](https://amplitude.github.io/experiment-react-native-client/)
     - [iOS SDK Repository :material-github:](https://github.com/amplitude/experiment-react-native-client)
     - [iOS SDK Releases :material-code-tags-check:](https://github.com/amplitude/experiment-react-native-client/releases)

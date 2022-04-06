@@ -1,6 +1,6 @@
 ---
-title: Experiment Android SDK
-description: Official documentation for implementing and using Amplitude Experiment's Android SDK. 
+title: Android SDK
+description: Official documentation for implementing and using Amplitude Experiment's Android SDK.
 icon: material/android
 ---
 
@@ -8,7 +8,7 @@ icon: material/android
 
 Implement Amplitude Experiment's client-side Android SDK.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
 
     - [Android SDK Reference :material-book:](https://amplitude.github.io/experiment-android-client/)
     - [Android SDK Repository :material-github:](https://github.com/amplitude/experiment-android-client)

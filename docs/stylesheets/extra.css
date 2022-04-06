@@ -91,7 +91,7 @@
        url('../assets/fonts/ibm-plex-mono-v11-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
        url('../assets/fonts/ibm-plex-mono-v11-latin-700.svg#IBMPlexMono') format('svg'); /* Legacy iOS */
 }
- 
+
 :root {
 
   /* General Colors */
@@ -110,11 +110,11 @@
 
 
   /* Code color shades */
-  
-  --md-code-fg-color:                hsla(0, 0%, 96%, 1); 
+
+  --md-code-fg-color:                hsla(0, 0%, 96%, 1);
   --md-code-bg-color:                hsla(200, 18%, 26%, 1);
 
-  /* Set the fonts */ 
+  /* Set the fonts */
 
   --md-default-fg-color:               #13294B;
   --md-default-fg-color--light:        #282828;
@@ -126,12 +126,10 @@
   --md-default-bg-color--lightest:     hsla(0, 0%, 100%, 0.12);
   --md-text-font: "IBM Plex Sans", Arial, sans-serif;
   --md-text-code: "IBM Plex Mono", monospace;
-
-
   }
 
-.md-typeset h1 {                    /* overrides the weird H1 css inherited from the theme */
-    color: var(--md-default-fg-color);
+.md-typeset h1 { /* overrides the weird H1 css inherited from the theme */
+  color: var(--md-default-fg-color);
 }
 
 .md-footer-meta {
@@ -150,7 +148,7 @@
 
 /* Sets nav items to bold */
 
-.md-tabs__item { 
+.md-tabs__item {
   font-weight: bold;
   color: var(--md-accent-bg-color);
 }
@@ -162,10 +160,8 @@
 
 .md-tabs__link--active { /* overrides the weird opacity settings that caused low contrast issues */
   color: var(--md-accent-bg-color);
-  
-
 }
-/* button overrides */ 
+/* button overrides */
 
 .md-button:focus,
 .md-button:hover {
@@ -174,103 +170,22 @@
     border-color: var(--md-accent-fg-color)
 }
 
-/* COLUMN WIDTH CLASSES 
-These classes makes tables make sense. Because MD table column width is based on the width of the first cell's content, this sets the width to a minimum of 180px.
-You can't wrap markdown in HTML, but you can use HTML in Markdown. 
+/* COLUMN WIDTH CLASSES
+These classes makes tables make sense. Because MD table column width is based on
+the width of the first cell's content, this sets the width to a minimum of 180px.
+You can't wrap markdown in HTML, but you can use HTML in Markdown.
 Wrap the column header text in a div with this class to make the Markdown cooperate */
 
 .big-column {
-
   min-width: 180px;
 }
 
 .med-column {
-
   min-width: 100px;
 }
 
 /* sets the feedback link font size */
 
 .feedback-link {
-
   font-size: small;
-
 }
-
-/* Overrides heading sizes and styles*/
-
-.md-typeset h1 {
-
-font-size: 3.125em;
-letter-spacing: -1px;
-margin: 1em auto 1em;
-}
-
-.md-typeset h2 {
-
-font-size: 2.5em;
-letter-spacing: -.5px;
-margin: 1em auto 1em;
-
-}
-
-.md-typeset h3 {
-
-font-size: 2.15em;
-letter-spacing: -.5px;
-margin: 1em auto 1em;
-
-}
-
-.md-typeset h4 {
-
-font-size: 1.75em;
-font-weight: 300;
-letter-spacing: -.25px;
-margin: 1em auto 1em;
-}
-
-.md-typeset h5 {
-
-font-size: 1.375em;
-text-transform: none;
-letter-spacing: -.25px;
-margin: 1em auto 1em;
-}
-
-/* End Heading overrides */
-
-/* Sets heading sizes and overrides on mobile */
-
-@media screen and (max-width:30em) {
-  .md-typeset h1 {
-
-    font-size: 2.25em;
-    }
-    
-  .md-typeset h2 {
-    
-    font-size: 1.75em;
-    
-    }
-    
-  .md-typeset h3 {
-    
-    font-size: 1.375em;
-    
-    }
-    
-  .md-typeset h4 {
-    
-    font-size: 1.25em;
-    font-weight: 300;
-    }
-    
-  .md-typeset h5 {
-    
-    font-size: 1.125em;
-    text-transform: none;
-    }
-}
-
-/* end heading sizes overrides on mobile */

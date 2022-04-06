@@ -1,5 +1,5 @@
 ---
-title: Experiment iOS SDK
+title: iOS SDK
 description: Official implemenation and usage guide for Amplitude Experiment's client-side iOS SDK.
 icon: material/apple-ios
 ---
@@ -8,7 +8,7 @@ icon: material/apple-ios
 
 Client-side iOS Experiment SDK implementation reference.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
 
     - [iOS SDK Reference :material-book:](https://amplitude.github.io/experiment-node-server/)
     - [iOS SDK Repository :material-github:](https://github.com/amplitude/experiment-node-server)

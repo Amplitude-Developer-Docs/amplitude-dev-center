@@ -1,5 +1,5 @@
 ---
-title: Experiment Node Server SDK
+title: Node.js SDK
 description: Amplitude Experiment's server-side Node.js SDK implementation reference.
 icon: fontawesome/brands/node-js
 ---
@@ -8,7 +8,7 @@ icon: fontawesome/brands/node-js
 
 This is the official documentation for the Amplitude Experiment server-side Node.js SDK implementation reference.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
 
     - [Node Server SDK Reference :material-book:](https://amplitude.github.io/experiment-node-server/)
     - [Node Server SDK Repository :material-github:](https://github.com/amplitude/experiment-node-server)

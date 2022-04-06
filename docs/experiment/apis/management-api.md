@@ -1,7 +1,7 @@
 ---
-title: Experiment Management API (BETA)
-description: 
---- 
+title: Management API (Beta)
+description: REST API for managing feature flags and experiment configurations.
+---
 
 The Experiment management API can be used to programmatically create and control flags and experiments.
 

@@ -1,5 +1,5 @@
 ---
-title: Server-side Local Evaluation SDK (Node Server)
+title: Local Evaluation Node.js SDK
 description:
 ---
 

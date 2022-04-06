@@ -30,7 +30,10 @@ Deployments live within Amplitude Analytics projects. A project can have multipl
 
 ### Add a Deployment
 
+Once you've created the flag, you'll need to add a deployment. To add a deployment, click the selection drop down in the upper right corner of the screen and select the deployment you created previously.
 
+!!!tip "Multiple Deployments"
+    You may select multiple deployments in the dropdown if you want to target multiple deployments. E.g. if you are running an experiment on both your iOS and Android apps, you should create separate deployments for each and select both in the multi-deployment experiment.
 
 ### Define Variants
 

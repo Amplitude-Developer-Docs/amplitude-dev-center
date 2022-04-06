@@ -1,5 +1,5 @@
---- 
-title: Experiment JavaScript Client SDK
+---
+title: JavaScript SDK
 description: Official documentation for Amplitude Experiment's Client-side JavaScript SDK implementation.
 icon: material/language-javascript
 ---
@@ -8,7 +8,7 @@ icon: material/language-javascript
 
 Official documentation for Amplitude Experiment's Client-side JavaScript SDK implementation.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [JavaScript Client SDK Reference :material-book:](https://amplitude.github.io/experiment-js-client/)
     - [JavaScript Client Repository :material-github:](https://github.com/amplitude/experiment-js-client)
     - [JavaScript Client Releases :material-code-tags-check:](https://github.com/amplitude/experiment-js-client/releases)

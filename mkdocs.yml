@@ -27,7 +27,7 @@ theme:
     # - header.autohide
     #- navigation.expand
     - navigation.indexes
-    #- navigation.sections
+    - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
@@ -164,35 +164,36 @@ nav:
     - analytics/adobe.md
 - Experiment:
   - experiment/index.md
-  - System:
-    - experiment/system/performance-and-caching.md
-    - experiment/system/data-model.md
-    - experiment/system/evaluation.md
-    - experiment/system/exposure-tracking.md
+  - General:
+    - experiment/general/performance-and-caching.md
+    - experiment/general/data-model.md
+    - experiment/general/evaluation.md
+    - experiment/general/exposure-tracking.md
   - Guides:
     - experiment/guides/getting-started.md
     - experiment/guides/choose-the-right-architecture.md
     - experiment/guides/server-side-rendering.md
   - SDKs:
-    - Introduction and Concepts:
-      - experiment/sdks/index.md
-      - experiment/sdks/experiment-user.md
-      - experiment/sdks/experiment-sdk-configuration.md
-      - experiment/sdks/experiment-variants.md
-    - Local Evaluation:
-      - experiment/local-evaluation/local-evaluation-getting-started.md
-      - experiment/local-evaluation/local-evaluation.md
-      - experiment/local-evaluation/node-server-sdk.md
-    - experiment/sdks/experiment-node-server-sdk.md
-    - experiment/sdks/experiment-javascript-sdk.md
-    - experiment/sdks/experiment-android-sdk.md
-    - experiment/sdks/experiment-ios-sdk.md
-    - experiment/sdks/experiment-react-native-sdk.md
-    - experiment/sdks/experiment-beta-migration.md
+    - experiment/sdks/nodejs-sdk.md
+    - experiment/sdks/javascript-sdk.md
+    - experiment/sdks/android-sdk.md
+    - experiment/sdks/ios-sdk.md
+    - experiment/sdks/react-native-sdk.md
   - APIs:
-    - experiment/apis/experiment-rest-api.md
-    - experiment/apis/experiment-management-api.md
-- Data: 
+    - experiment/apis/evaluation-api.md
+    - experiment/apis/management-api.md
+  # - Remove / Move:
+  #   - experiment/sdks/beta-migration.md
+  #   - Concepts:
+  #     - experiment/remove-move/concepts/index.md
+  #     - experiment/remove-move/concepts/experiment-user.md
+  #     - experiment/remove-move/concepts/experiment-sdk-configuration.md
+  #     - experiment/remove-move/concepts/experiment-variants.md
+  #   - Local Evaluation (Alpha):
+  #     - experiment/remove-move/local-evaluation/local-evaluation-overview.md
+  #     - experiment/remove-move/local-evaluation/create-a-local-evaluation-flag.md
+  #     - experiment/remove-move/local-evaluation/nodejs-sdk.md
+- Data:
   - data/index.md
   - Getting Started:
     - data/getting-started.md
