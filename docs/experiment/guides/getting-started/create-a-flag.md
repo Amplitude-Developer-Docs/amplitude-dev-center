@@ -23,13 +23,16 @@ Once you've created the flag, you'll need to add a deployment. To add a deployme
 
 After you have created your flag, you are ready to define its variants. A flag will contain an initial variant, "on", by default. If you are rolling out more than one variant of a feature, add variants using the **Create Variant** button. Make sure to add descriptions to your variants so that your team members can follow along.
 
-!!!info ""
-    Your flag must have at least one variant.
+!!!info "Your flag must have at least one variant."
 
 ### Configure Targeting Rules
 
-Your flag will not target any users by default. To target users, navigate to the "Targeting" tab and set the **Percentage Rollout** to 100%. Now all users who fetch variants using the
+Your flag will not target any users by default. To target users, navigate to the "Targeting" tab and set the **Percentage Rollout** to 100%. Now all evaluated users will be assigned the "on" variant for this feature flag.
+
+TODO: Add Image
 
 ### Activate the Flag
 
 Once you're done configuring your flag, activate the flag using the toggle in the upper right corner and follow the instructions in the activation modal.
+
+TODO: Add Image

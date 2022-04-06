@@ -10,7 +10,7 @@ Welcome to Amplitude Experiment! This page acts as a quick reference as well as 
 Guide to getting started developing for Amplitude Experiment.
 
 1. [Create a deployment](guides/getting-started/create-a-deployment.md)
-2. [Create and configure an experiment](guides/getting-started/create-a-flag.md)
+2. [Create and configure a feature flag](guides/getting-started/create-a-flag.md)
 3. [Fetch variants for a user](guides/getting-started/fetch-variants.md)
 4. [Track an exposure event](guides/getting-started/track-exposure.md)
 
