@@ -6,7 +6,7 @@ icon: fontawesome/brands/java
 
 !!!note
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../data/deprecated-sdks/jre.md)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../deprecated-sdks/jre.md)**.
 
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 

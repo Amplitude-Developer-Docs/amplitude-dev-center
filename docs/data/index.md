@@ -76,7 +76,7 @@ For developers, Amplitude Data provides a toolkit that simplifies and accelerate
  It automatically generates a type-safe tracking library according to the latest spec, lints code to make sure analytics events are tracked correctly,
   and exposes a unified API that removes the need to understand the ins and outs of each analytics provider.
 
-Amplitude Data works with popular [analytics providers](/using-the-tracking-library#destinations) (e.g. Segment, Amplitude, Custom Destinations), and popular [developer platforms](/using-the-tracking-library#sources), and requires no infrastructure changes to your analytics pipeline.
+Amplitude Data works with popular [analytics providers](using-the-tracking-library.md#destinations) (e.g. Segment, Amplitude, Custom Destinations), and popular [developer platforms](using-the-tracking-library.md#sources), and requires no infrastructure changes to your analytics pipeline.
 
 ## More resources
 
