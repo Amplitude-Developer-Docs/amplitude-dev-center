@@ -28,3 +28,5 @@ If the request succeeded, you should see a user in the Exposures chart in Experi
 ## SDKs
 
 As with fetching variants, exposure tracking can be simplified by using a [client-side Experiment SDK]() in your application. Client-side Experiment SDKs come equipped with the ability to [automatically track exposures]() through your installed analytics SDK whenever a variant is accessed from the variant store.
+
+TODO
