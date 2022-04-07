@@ -3,8 +3,6 @@ title: Create a Flag
 description: How to create a feature flag, add a deployment, configure targeting rules, and activate the feature flag.
 ---
 
-## Create a Flag
-
 1. From the Flags screen in Experiment, select your target project from the dropdowns.
 2. Click **Create Flag**.
 3. Enter a **Name** for the flag (e.g. `Getting Started`).
