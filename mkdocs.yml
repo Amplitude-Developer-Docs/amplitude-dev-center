@@ -168,7 +168,6 @@ nav:
   - data/index.md
   - Data Basics:
     - data/middleware-overview.md
-    - data/track-page-views.md
     - data/integrations.md
     - data/migration-guide.md
   - Instrumentation:
