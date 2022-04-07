@@ -16,42 +16,6 @@ Guide to getting started developing for Amplitude Experiment.
 
 ## SDKs
 
-<!-- Custom CSS and HTML for grid -->
-
-<!-- Sets the CSS for the analytics SDKs landing page template. It's included in the template because it's hard to conditionally specify  -->
-<style>
-
-.grid-container {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* add and remove values as needed to balance your items */
-  padding: 10px;
-  background-color: var(--boxes-background);
-  border: 1px solid var(--md-primary-fg-color);
-  align-items: baseline;
-}
-
-.grid-item {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
-  text-align: center;
-}
-
-.sdk-icons {
-  fill:var(--md-primary-fg-color);
-  -webkit-flex:none;
-  -ms-flex:none;
-  flex:none;
-
-}
-
-.sdk-icons:hover {
-  fill:var(--md-accent-fg-color);
-}
-
-</style>
-
 <div class="grid-container">
   <!--android--><div class="grid-item"><a href="/experiment/sdks/android-sdk" class="sdk-icons"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-10h0l-48.54,84.07a301.25,301.25,0,0,0-246.56,0L116.18,64.45a10,10,0,1,0-17.27,10h0l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/></svg>Android</a></div> 
   <!--ios--><div class="grid-item"><a href="/experiment/sdks/ios-sdk" class="sdk-icons"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.09 16.8h1.66V9.76H2.09m.83-.92a.9.9 0 0 0 .92-.9c0-.5-.4-.9-.92-.9a.9.9 0 0 0-.92.9c0 .5.4.9.92.9m6.33-1.78C6.46 7.06 4.7 8.96 4.7 12c0 3.06 1.76 4.96 4.55 4.96s4.55-1.9 4.55-4.96c0-3.04-1.76-4.94-4.55-4.94m0 1.44c1.71 0 2.8 1.37 2.8 3.5 0 2.15-1.09 3.5-2.8 3.5-1.71 0-2.79-1.35-2.79-3.5 0-2.13 1.08-3.5 2.79-3.5m5.25 5.61c.07 1.76 1.5 2.85 3.72 2.85 2.32 0 3.78-1.14 3.78-2.96 0-1.43-.82-2.23-2.77-2.68l-1.1-.25c-1.18-.28-1.66-.65-1.66-1.29 0-.78.73-1.33 1.81-1.33 1.1 0 1.85.55 1.93 1.44h1.63c-.04-1.69-1.43-2.83-3.55-2.83-2.08 0-3.56 1.15-3.56 2.85 0 1.37.83 2.22 2.6 2.62l1.24.29c1.21.29 1.7.68 1.7 1.38 0 .8-.8 1.37-1.96 1.37s-2.05-.57-2.15-1.46H14.5Z"/></svg>iOS</a></div>

@@ -189,3 +189,36 @@ Wrap the column header text in a div with this class to make the Markdown cooper
 .feedback-link {
   font-size: small;
 }
+
+/* SDK SVG Grid Styles */
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* add and remove values as needed to balance your items */
+  padding: 10px;
+  background-color: var(--boxes-background);
+  border: 1px solid var(--md-primary-fg-color);
+  align-items: baseline;
+}
+
+.grid-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+
+.sdk-icons {
+  fill:var(--md-primary-fg-color);
+  -webkit-flex:none;
+  -ms-flex:none;
+  flex:none;
+
+}
+
+.sdk-icons:hover {
+  fill:var(--md-accent-fg-color);
+}
+
+/* End SVG grid styles */
