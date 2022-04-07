@@ -3,9 +3,9 @@ title: Track Exposure
 description: How to track an exposure event for the variant which a user has been exposed to.
 ---
 
-## Analytics REST API
+[Exposure tracking]() plays a key role in tracking if and when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags don't require any analysis; however, it is essential when running experiment, since accurate exposure tracking is crucial for reliable results.
 
-[Exposure tracking]() plays a key role in tracking when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags don't require any analysis; however, it is essential when running experiment, since accurate exposure tracking is crucial for reliable results.
+## Analytics REST API
 
 As with fetching variants, exposure tracking can be simplified by using a [client-side Experiment SDK]() in your application. Client-side Experiment SDKs come equipped with the ability to [automatically track exposures]() through your installed analytics SDK whenever a variant is accessed from the variant store.
 
