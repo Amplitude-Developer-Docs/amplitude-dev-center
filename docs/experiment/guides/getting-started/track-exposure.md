@@ -7,8 +7,6 @@ description: How to track an exposure event for the variant which a user has bee
 
 ## Analytics REST API
 
-As with fetching variants, exposure tracking can be simplified by using a [client-side Experiment SDK]() in your application. Client-side Experiment SDKs come equipped with the ability to [automatically track exposures]() through your installed analytics SDK whenever a variant is accessed from the variant store.
-
 To keep things simple, we're going to track an [exposure event]() on the [Analytics REST API 2.0]() using `curl`.
 
 ```
@@ -29,4 +27,4 @@ If the request succeeded, you should see a user in the Exposures chart in Experi
 
 ## SDKs
 
-TODO
+As with fetching variants, exposure tracking can be simplified by using a [client-side Experiment SDK]() in your application. Client-side Experiment SDKs come equipped with the ability to [automatically track exposures]() through your installed analytics SDK whenever a variant is accessed from the variant store.
