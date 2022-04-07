@@ -1,13 +1,13 @@
 ---
-id: iglu-api
 title: Iglu API
+description: Use Iglu schema service APIs with Amplitude Data. 
 ---
 
-Iteratively fully supports the Iglu schema service APIs as defined in [Iglu server](https://github.com/snowplow/iglu/wiki/Iglu-server#1-the-schema-service-apischemas). This means that an Iglu client can retrieve schemas referenced by all incoming self-describing JSON objects and use them to validate and shred incoming events.
+Amplitude Data fully supports the Iglu schema service APIs as defined in [Iglu server](https://github.com/snowplow/iglu/wiki/Iglu-server#1-the-schema-service-apischemas). This means that an Iglu client can retrieve schemas referenced by all incoming self-describing JSON objects and use them to validate and shred incoming events.
 
 To get started:
 
-1. Generate an API Token in your Iteratively account. This is the `apikey` that the Iglu client will use to authenticate itself to the Iteratively Iglu-compatible schema repository
+1. Generate an API Token in your Amplitude Data account. This is the `apikey` that the Iglu client will use to authenticate itself to the Amplitude Data Iglu-compatible schema repository.
     1. Browse to [Settings](https://data.amplitude.com/settings), select the API Tokens page, and create a new token
 2. Add another repository to your Iglu configuration file:
 

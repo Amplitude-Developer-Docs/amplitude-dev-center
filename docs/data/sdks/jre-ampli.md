@@ -1,20 +1,21 @@
 ---
 title: JRE
 description: Documentation for Amplitude Data's JRE Ampli SDK. 
+icon: fontawesome/brands/java
 ---
 
-
 !!!note
-    This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
+    This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../data/deprecated-sdks/jre.md)**.
 
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 
-In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan.
+ The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
 !!!tip
 
     See example apps that use the JRE Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/jre).
-
 
 ## Installation
 
@@ -28,44 +29,29 @@ If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-c
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-- Inside `<dependencies>`, add:
+    - Inside `<dependencies>`, add:
 
-```xml
-<dependency>
-    <groupId>com.amplitude</groupId>
-    <artifactId>java-sdk</artifactId>
-    <version>1.6.0</version>
-</dependency>
-<dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20201115</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>com.amplitude</groupId>
+        <artifactId>java-sdk</artifactId>
+        <version>1.6.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20201115</version>
+    </dependency>
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```bash
-implementation 'com.amplitude:java-sdk:1.6.0'
-implementation 'org.json:json:20201115'
-```
-
-</TabItem>
-</Tabs>
-
-
-
+    ```bash
+    implementation 'com.amplitude:java-sdk:1.6.0'
+    implementation 'org.json:json:20201115'
+    ```
 
 ### Pull the SDK into your project
 
@@ -77,50 +63,37 @@ ampli pull
 
 This prompts you to log in to your workspace and select a source.
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```bash
-➜ ampli pull sourcename
-Ampli project is not initialized. No existing `ampli.json` configuration found.
-? Create a new Ampli project here? Yes
-Organization: Amplitude
-Workspace: My Workspace
-Source: sourcename
-Runtime: JRE - Java
-Branch: main
-Pulling latest version (1.0.0)...
-Tracking library generated successfully.
-Path: ./src/itly
-```
+    ```bash
+    ➜ ampli pull sourcename
+    Ampli project is not initialized. No existing `ampli.json` configuration found.
+    ? Create a new Ampli project here? Yes
+    Organization: Amplitude
+    Workspace: My Workspace
+    Source: sourcename
+    Runtime: JRE - Java
+    Branch: main
+    Pulling latest version (1.0.0)...
+    Tracking library generated successfully.
+    Path: ./src/itly
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```bash
-➜ ampli pull sourcename
-Ampli project is not initialized. No existing `ampli.json` configuration found.
-? Create a new Ampli project here? Yes
-Organization: Amplitude
-Workspace: My Workspace
-Source: sourcename
-Runtime: JRE - Kotlin
-Branch: main
-Pulling latest version (1.0.0)...
-Tracking library generated successfully.
-Path: ./src/itly
-```
-
-</TabItem>
-</Tabs>
-
+    ```bash
+    ➜ ampli pull sourcename
+    Ampli project is not initialized. No existing `ampli.json` configuration found.
+    ? Create a new Ampli project here? Yes
+    Organization: Amplitude
+    Workspace: My Workspace
+    Source: sourcename
+    Runtime: JRE - Kotlin
+    Branch: main
+    Pulling latest version (1.0.0)...
+    Tracking library generated successfully.
+    Path: ./src/itly
+    ```
 
 ## API
 
@@ -128,40 +101,27 @@ Path: ./src/itly
 
 Initialize Ampli in your code. The `load()` method accepts configuration option arguments:
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-import com.amplitude.ampli.*;
+    ```java
+    import com.amplitude.ampli.*;
 
-Ampli.getInstance().load(new LoadOptions()
-  .setEnvironment(Ampli.Environment.PRODUCTION)
-);
-```
+    Ampli.getInstance().load(new LoadOptions()
+      .setEnvironment(Ampli.Environment.PRODUCTION)
+    );
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```java
-import com.amplitude.ampli.*
+    ```java
+    import com.amplitude.ampli.*
 
-ampli.load(LoadOptions(
-   environment = Ampli.Environment.PRODUCTION
-));
-```
+    ampli.load(LoadOptions(
+      environment = Ampli.Environment.PRODUCTION
+    ));
+    ```
 
-</TabItem>
-</Tabs>
-
-
-| Arg | Description |
+| <div class="big-column">Arg</div> | Description |
 |-|-|
 | `LoadOptions` | Optional. Defaults to `false`. Specifies configuration options for the Ampli SDK.|
 |`disabled`|Optional. Specifies whether the Ampli SDK does any work. When true, all calls to the Ampli SDK are no-ops. Useful in local or development environments.|
@@ -179,283 +139,177 @@ The `identify()` function accepts an optional `userId`, optional user properties
 
 For example your tracking plan contains a user property called `userProp`. The property's type is a string.
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Ampli.getInstance().identify("user-id", Identify.builder()
-  .userProp("A user property")
-  .build()
-);
-```
+    ```java
+    Ampli.getInstance().identify("user-id", Identify.builder()
+      .userProp("A user property")
+      .build()
+    );
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```kotlin
-ampli.identify("user-id", Identify(
-    userProp = "A trait associated with this user"
-))
-```
-
-</TabItem>
-</Tabs>
-
-<br />
+    ```kotlin
+    ampli.identify("user-id", Identify(
+        userProp = "A trait associated with this user"
+    ))
+    ```
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
 
+=== "Java"
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+    ```java
+    Ampli.getInstance().identify(
+      userId,
+      Identify.builder().userProp("A trait associated with this user"),.build(),
+      new EventOptions().setDeviceId(deviceId).setUserId("some-user"),
+    );
+    ```
 
+=== "Kotlin"
 
-```java
-Ampli.getInstance().identify(
-  userId,
-  Identify.builder().userProp("A trait associated with this user"),.build(),
-  new EventOptions().setDeviceId(deviceId).setUserId("some-user"),
-);
-```
-
-</TabItem>
-<TabItem value="kotlin">
-
-```kotlin
-ampli.identify(userId, Identify(
-    userProp = "A trait associated with this user",
-  )
-  EventOptions(deviceId = "device-id"),
-)
-```
-
-</TabItem>
-</Tabs>
+    ```java
+    ampli.identify(userId, Identify(
+        userProp = "A trait associated with this user",
+      )
+      EventOptions(deviceId = "device-id"),
+    )
+    ```
 
 ### Group
 
-:::note
-This feature is available for Growth customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532).
-:::
+--8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
 Call `setGroup()` to associate a user with their group (for example, their department or company). The `setGroup()` function accepts a required `groupType`, and `groupName`.
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Ampli.getInstance().setGroup("user-id", "GroupType", "GroupName");
-```
+    ```java
+    Ampli.getInstance().setGroup("user-id", "GroupType", "GroupName");
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```kotlin
-ampli.setGroup("user-id", "GroupType", "GroupName");
-```
+    ```kotlin
+    ampli.setGroup("user-id", "GroupType", "GroupName");
+    ```
 
-</TabItem>
-</Tabs>
+--8<-- "includes/groups-intro-paragraph.md"
 
-Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group.
-
-For example, you want to group your users based on what organization they're in by using an 'orgId'. Joe is in 'orgId' '10', and Sue is in 'orgId' '15'. Sue and Joe both perform a certain event. You can query their organizations in the Event Segmentation Chart.
-
-When setting groups, define a `groupType` and `groupName`. In the previous example, 'orgId' is the `groupType` and '10' and '15' are the values for `groupName`. Another example of a `groupType` could be 'sport' with `groupName` values like 'tennis' and 'baseball'.
-
- Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+ For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
 
  Your code might look like this:
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Ampli.getInstance().setGroup("user-id", "orgID", ["10", "20"]);
-```
+    ```java
+    Ampli.getInstance().setGroup("user-id", "orgID", ["10", "20"]);
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```kotlin
-ampli.setGroup("user-id", "orgId", ["10", "20"]);
-```
-
-</TabItem>
-</Tabs>
-
-
+    ```kotlin
+    ampli.setGroup("user-id", "orgId", ["10", "20"]);
+    ```
 
 ### Track
 
 To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli SDK. The call is structured like this:
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Ampli.getInstance().track(String userId, Event event, EventOptions options, MiddlewareExtra extra)
-```
+    ```java
+    Ampli.getInstance().track(String userId, Event event, EventOptions options, MiddlewareExtra extra)
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```kotlin
-ampli.track(userId: String, event: Event, options: EventOptions, extra: MiddlewareExtra)
-```
+    ```kotlin
+    ampli.track(userId: String, event: Event, options: EventOptions, extra: MiddlewareExtra)
+    ```
 
-</TabItem>
-</Tabs>
+The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1),
+ like `price`, `quantity` and `revenue`. The `extra` argument lets you pass data to middleware.
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`. The `extra` argument lets you pass data to middleware.
+For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.`
+ The property type for `songId` is string, and `songFavorited` is a boolean.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
+The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields
+ [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](#middleware).
 
-The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](#middleware).
+=== "Java"
 
+    ```java
+    MiddlewareExtra extra = new MiddlewareExtra();
+    extra.put("extra-key", "extra-value");
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+    Ampli.getInstance().songPlayed("user-id",
+      SongPlayed.builder()
+        .songId('songId') // String
+        .songFavorited(true) // Boolean
+        .build(),
+      new EventOptions().setDeviceId(deviceId),
+      extra
+    );
+    ```
 
-```java
-MiddlewareExtra extra = new MiddlewareExtra();
-extra.put("extra-key", "extra-value");
+=== "Kotlin"
 
-Ampli.getInstance().songPlayed("user-id",
-  SongPlayed.builder()
-    .songId('songId') // String
-    .songFavorited(true) // Boolean
-    .build(),
-  new EventOptions().setDeviceId(deviceId),
-  extra
-);
-```
-
-</TabItem>
-<TabItem value="kotlin">
-
-```kotlin
-ampli.songPlayed("user-id",
-  SongPlayed(
-    songId = 'songId', // String,
-    songFavorited = true, // Boolean
-  ),
-  options = EventOptions(deviceId = "device-id"),
-  extra = MiddlewareExtra(mapOf("extra-key" to "extra-value")
-);
-```
-
-</TabItem>
-</Tabs>
+    ```java
+    ampli.songPlayed("user-id",
+      SongPlayed(
+        songId = 'songId', // String,
+        songFavorited = true, // Boolean
+      ),
+      options = EventOptions(deviceId = "device-id"),
+      extra = MiddlewareExtra(mapOf("extra-key" to "extra-value")
+    );
+    ```
 
 Ampli also generates a class for each event.
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-SongPlayed event = SongPlayed.builder()
-  .songId('songId') // String
-  .songFavorited(true) // Boolean
-  .build()
-```
+    ```java
+    SongPlayed event = SongPlayed.builder()
+      .songId('songId') // String
+      .songFavorited(true) // Boolean
+      .build()
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```kotlin
-val myEventObject = SongPlayed(
-  songId = 'songId', // String,
-  songFavorited = true, // Boolean
-);
-```
-
-</TabItem>
-</Tabs>
+    ```kotlin
+    val myEventObject = SongPlayed(
+      songId = 'songId', // String,
+      songFavorited = true, // Boolean
+    );
+    ```
 
 Send Event objects using the generic track method.
 
-<Tabs
-  groupId="jre-source"
-  defaultValue="java"
-  values={[
-    { label: 'Java', value: 'java', },
-    { label: 'Kotlin', value: 'kotlin', },
-  ]
-}>
-<TabItem value="java">
+=== "Java"
 
-```java
-Ampli.getInstance().track("user-id", SongPlayed.builder()
-  .songId('songId') // String
-  .songFavorited(true) // Boolean
-  .build()
-);
-```
+    ```java
+    Ampli.getInstance().track("user-id", SongPlayed.builder()
+      .songId('songId') // String
+      .songFavorited(true) // Boolean
+      .build()
+    );
+    ```
 
-</TabItem>
-<TabItem value="kotlin">
+=== "Kotlin"
 
-```kotlin
-ampli.track("user-id", SongPlayed(
-  songId = 'songId', // String,
-  songFavorited = true, // Boolean
-);
-```
+    ```kotlin
+    ampli.track("user-id", SongPlayed(
+      songId = 'songId', // String,
+      songFavorited = true, // Boolean
+    );
+    ```
 
-</TabItem>
-</Tabs>
-
-##  Verify implementation status
+## Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
@@ -468,6 +322,7 @@ To update the implementation status in your tracking plan use the `--update` fla
 ```bash
 ampli status -u
 ```
+
 The output displays status and indicates what events are missing.
 
 ```bash
@@ -477,8 +332,8 @@ The output displays status and indicates what events are missing.
  ✘ Song Stopped Called when a user stops playing a song.
 Events Tracked: 2 missed, 3 total
 ```
-Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
 
+Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
 
 ## Migrating from an Itly JRE Runtime
 
@@ -486,43 +341,47 @@ Migrate from an Itly JRE runtime to Ampli by following these steps.
 
 1. Remove legacy Itly dependencies from your project. This includes anything with a `ly.iterative.itly`.
 
-```bash
-implementation "ly.iterative.itly:sdk-jvm:$itlySdkVersion"
-implementation "ly.iterative.itly:plugin-iteratively:$itlySdkVersion"
-implementation "ly.iterative.itly:plugin-schema-validator:$itlySdkVersion"
-implementation "ly.iterative.itly:plugin-segment-jvm:$itlySdkVersion"
-```
+    ```bash
+    implementation "ly.iterative.itly:sdk-jvm:$itlySdkVersion"
+    implementation "ly.iterative.itly:plugin-iteratively:$itlySdkVersion"
+    implementation "ly.iterative.itly:plugin-schema-validator:$itlySdkVersion"
+    implementation "ly.iterative.itly:plugin-segment-jvm:$itlySdkVersion"
+    ```
+
 2. Add Amplitude dependencies.
 
-```bash
-implementation 'com.amplitude:java-sdk:1.6.0'
-implementation 'org.json:json:20201115'
-```
+    ```bash
+    implementation 'com.amplitude:java-sdk:1.6.0'
+    implementation 'org.json:json:20201115'
+    ```
+
 3. Pull the latest Ampli SDK.
 
-```bash
-ampli pull
-```
+    ```bash
+    ampli pull
+    ```
 
 4. Check your Ampli SDK path.
 
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-    
+    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path`
+     parameter: `ampli pull -p ./path/to/ampli`.
+
 5. Find and replace:
 
-  **Kotlin and Java:**
-  - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
-  - `itly.` => `ampli.`
-  - `itly.group(groupId)` => `ampli.setGroup(groupType, groupValue)`
+      **Kotlin and Java:**
 
-  **Kotlin only:**
+    - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
+    - `itly.` => `ampli.`
+    - `itly.group(groupId)` => `ampli.setGroup(groupType, groupValue)`
 
-  - `Itly.load()` => `ampli.load()`
-  - `Itly.` => `ampli.`
+      **Kotlin only:**
 
-  **Java only:**
+    - `Itly.load()` => `ampli.load()`
+    - `Itly.` => `ampli.`
 
-  - `Itly.getInstance().load()` => `Ampli.getInstance().load()`
-  - `Itly.` => `Ampli.`
+      **Java only:**
 
-5. See updated Event tracking details on your Implementation page in the web app.
+    - `Itly.getInstance().load()` => `Ampli.getInstance().load()`
+    - `Itly.` => `Ampli.`
+
+6. See updated Event tracking details on your Implementation page in the web app.
