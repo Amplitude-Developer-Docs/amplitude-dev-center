@@ -274,3 +274,36 @@ margin: 1em auto 1em;
 }
 
 /* end heading sizes overrides on mobile */
+
+/* SDK SVG Grid Styles */
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* add and remove values as needed to balance your items */
+  padding: 10px;
+  background-color: var(--boxes-background);
+  border: 1px solid var(--md-primary-fg-color);
+  align-items: baseline;
+}
+
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
+
+.sdk-icons {
+  height:.5em;
+  width: .5em;
+  fill:var(--md-primary-fg-color);
+  -webkit-flex:none;
+  -ms-flex:none;
+  flex:none;
+
+}
+
+.sdk-icons:hover {
+
+  fill:var(--md-accent-fg-color);
+}
+
+/* End SVG grid styles */

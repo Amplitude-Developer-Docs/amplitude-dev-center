@@ -25,9 +25,9 @@ theme:
     - content.code.annotate
     - content.tabs.link
     # - header.autohide
-    #- navigation.expand
+    - navigation.expand
     - navigation.indexes
-    #- navigation.sections
+    - navigation.sections
     - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.top
@@ -132,8 +132,19 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
-  - Getting Started: 
+  - Analytics Basics: 
     - analytics/analytics-domain-proxy.md
+    - analytics/dynamic-configuration.md
+  - Amplitude SDKs:
+    - analytics/sdks/index.md
+    - analytics/sdks/android-sdk.md
+    - analytics/sdks/ios-sdk.md
+    - analytics/sdks/flutter-sdk.md
+    - analytics/sdks/javascript-sdk.md
+    - analytics/sdks/java-sdk.md
+    - analytics/sdks/node-sdk.md
+    - analytics/sdks/unity-sdk.md
+    - analytics/sdks/unreal-sdk.md
   - Amplitude API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md
@@ -149,19 +160,9 @@ nav:
     - analytics/apis/scim-api.md
     - analytics/apis/taxonomy-api.md
     - analytics/apis/user-privacy-api.md
-  - Amplitude SDKs:
-    - analytics/sdks/index.md
-    - analytics/sdks/android-sdk.md
-    - analytics/sdks/ios-sdk.md
-    - analytics/sdks/flutter-sdk.md
-    - analytics/sdks/javascript-sdk.md
-    - analytics/sdks/java-sdk.md
-    - analytics/sdks/node-sdk.md
-    - analytics/sdks/unity-sdk.md
-    - analytics/sdks/unreal-sdk.md
-    
   - Other Resources:
-    - analytics/dynamic-configuration.md
+    - analytics/google-tag-manager.md
+    - analytics/adobe.md
 - Experiment:
   - experiment/index.md
 - Data: 
