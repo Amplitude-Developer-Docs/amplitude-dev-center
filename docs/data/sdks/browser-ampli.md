@@ -30,6 +30,17 @@ The tracking library exposes a function for every event in your team’s trackin
     1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
     2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
 
+???tip "Linting with Prettier"
+
+    To prevent linting errors for eslint and tslint, the SDK-generated files have the following to diasable the linters: 
+
+    `/* tslint:disable */`
+
+    `/* eslint-disable */`
+    
+
+    There's no corresponding “in-code” functionality with Prettier. Instead, add the generated `path/to/ampli` to your `.prettierignore` file. You can get the path with `ampli pull`.
+
 ## Installation
 
 These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
