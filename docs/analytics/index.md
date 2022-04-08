@@ -1,8 +1,6 @@
 ---
 title: Amplitude Analytics Overview
 description: Amplitude Analytics is the leading product analytics tool. It helps you gather and democratize data about how users engage with your apps.
-tags:
-  - analytics
 hide:
   - tags
   - feedback

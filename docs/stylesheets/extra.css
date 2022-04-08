@@ -190,6 +190,71 @@ Wrap the column header text in a div with this class to make the Markdown cooper
   font-size: small;
 }
 
+/* Overrides heading sizes and styles*/
+
+/*.md-typeset h1 {
+
+font-size: 3.125em;
+letter-spacing: -1px;
+margin: 1em auto 1em;
+}*/
+
+.md-typeset h2 {
+
+font-size: 1.75em;
+
+}
+
+.md-typeset h3 {
+
+font-size: 1.5em;
+
+}
+
+.md-typeset h4 {
+
+font-size: 1.2em;
+/*font-weight: 300;*/
+
+}
+
+.md-typeset h5 {
+
+font-size: 1em;
+text-transform: none;
+
+}
+
+/* End Heading overrides */
+
+/* Sets heading sizes and overrides on mobile */
+
+@media screen and (max-width:30em) {
+  .md-typeset h1 {
+    font-size: 2.25em;
+  }
+
+  .md-typeset h2 {
+    font-size: 1.75em;
+    }
+
+  .md-typeset h3 {
+    font-size: 1.375em;
+  }
+
+  .md-typeset h4 {
+    font-size: 1.25em;
+    font-weight: 300;
+  }
+
+  .md-typeset h5 {
+    font-size: 1.125em;
+    text-transform: none;
+  }
+}
+
+/* end heading sizes overrides on mobile */
+
 /* SDK SVG Grid Styles */
 
 .grid-container {
@@ -214,7 +279,6 @@ Wrap the column header text in a div with this class to make the Markdown cooper
   -webkit-flex:none;
   -ms-flex:none;
   flex:none;
-
 }
 
 .sdk-icons:hover {
@@ -222,3 +286,12 @@ Wrap the column header text in a div with this class to make the Markdown cooper
 }
 
 /* End SVG grid styles */
+
+/* Announcement Block Styles*/
+.announce a { /*sets the color of links inside the announcement */
+  color: var(--md-primary-fg-color--light);
+}
+
+.announce a:hover { /* sets the hover color of links inside the announcement */
+  color: var(--md-accent-bg-color--light);
+}

@@ -34,6 +34,12 @@
 		"pattern": "https://forum.unity.com"
 		},
 		{
+
+		"pattern": "https://badge.fury.io"
+
+		},
+
+		{
 		"pattern": "/analytics/apis/http-v2-api/"
 		}
 	]
