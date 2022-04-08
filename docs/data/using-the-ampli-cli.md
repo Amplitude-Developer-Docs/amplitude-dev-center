@@ -61,9 +61,8 @@ As your project progresses, you and your team will inevitably make changes to yo
 
 ### Step 4: Instrument your product
 
-Once you have pulled down the latest tracking plan, learn how to [instrument your product](/using-the-tracking-library).
+Once you have pulled down the latest tracking plan, learn how to [instrument your product](using-the-tracking-library.md).
 
-<Platforms/>
 
 ### Step 5: Verify the instrumentation
 
@@ -75,9 +74,9 @@ ampli status --update
 
 The verify command will scan your source code for tracking calls and compare the results to what's expected per your team's tracking plan. Include `--update` to update your company's tracking plan online and share the latest analytics implementation status with your team. If the command reports all green, you're all good!
 
-You can configure your [CI pipeline](/integrating-with-ci) to automatically run the `ampli status` command at check-in so you never miss another analytics bug again.
+You can configure your [CI pipeline](integrating-with-ci.md) to automatically run the `ampli status` command at check-in so you never miss another analytics bug again.
 
-Utilize the User Lookup page to view real time events sent from your source application. See [User Lookup](/user-lookup.md) resource guide.
+Utilize the User Lookup page to view real time events sent from your source application. See [User Lookup](user-lookup.md) resource guide.
 
 ## Ampli CLI Commands
 
