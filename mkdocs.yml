@@ -136,7 +136,6 @@ nav:
     - analytics/analytics-domain-proxy.md
     - analytics/dynamic-configuration.md
   - Amplitude SDKs:
-    - analytics/sdks/index.md
     - analytics/sdks/android-sdk.md
     - analytics/sdks/ios-sdk.md
     - analytics/sdks/flutter-sdk.md
