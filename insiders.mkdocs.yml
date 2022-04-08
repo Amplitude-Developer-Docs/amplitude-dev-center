@@ -5,8 +5,13 @@ extra_css:
 
 plugins:
   - search
-  - tags # Insiders
+  - tags #insiders
   - git-revision-date
+  - social: #insiders
+      cards_color:
+        fill: "#1E61F0"
+        text: "#FFFFFF"
+      cards_font: IBM Plex Sans
 
 
 # Long explanation for this extra doc. 
