@@ -4,3 +4,4 @@ docs/assets/.DS_Store
 docs/assets/images/.DS_Store
 site/
 .vscode/
+.cache
