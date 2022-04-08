@@ -137,7 +137,6 @@ nav:
     - analytics/analytics-domain-proxy.md
     - analytics/dynamic-configuration.md
   - Amplitude SDKs:
-    - analytics/sdks/index.md
     - analytics/sdks/android-sdk.md
     - analytics/sdks/ios-sdk.md
     - analytics/sdks/flutter-sdk.md
@@ -145,6 +144,7 @@ nav:
     - analytics/sdks/java-sdk.md
     - analytics/sdks/node-sdk.md
     - analytics/sdks/unity-sdk.md
+    - analytics/sdks/unreal-sdk.md
   - Amplitude API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md

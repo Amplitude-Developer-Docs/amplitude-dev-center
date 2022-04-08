@@ -460,38 +460,74 @@ We recommend that you implement retry logic and send an `insert_id` (used for de
 
 ### 400 Response InvalidRequestError
 
-[400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1). A 400 indicates invalid upload request.
+[400 Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1). A 400 indicates invalid upload request. Check the response for more information.
 
 Possible reasons for an invalid request:
 
 - The request body isn't valid JSON. The `error` returned is "Invalid JSON request body".
 - The request body is missing required fields. The `error` returned is "Request missing required field", and indicates which fields are missing.  
 - The events object has invalid fields. `events_with_invalid_fields` maps field names to an array of indexes indicating the events with invalid values.
+- Some devices have been silenced.
 
-```json
-{
-  "code": 400,
-  "error": "Request missing required field",
-  "missing_field": "api_key",
-  "events_with_invalid_fields": {
-    "time": [
-      3,
-      4,
-      7
-    ]
-  },
-  "events_with_missing_fields": {
-    "event_type": [
-      3,
-      4,
-      7
-    ]
-  }
-}
+=== "Invalid fields example"
 
-```
+      ```json
+      {
+        "code": 400,
+        "error": "Request missing required field",
+        "missing_field": "api_key",
+        "events_with_invalid_fields": {
+          "time": [
+            3,
+            4,
+            7
+          ]
+        },
+        "events_with_missing_fields": {
+          "event_type": [
+            3,
+            4,
+            7
+          ]
+        }
+      }
 
-#### Properties
+      ```
+
+=== "Silenced devices example"
+
+    ```json
+    {
+        "code": 400,
+        "eps_threshold": 100,
+        "error": "Events silenced for device_id",
+        "exceeded_daily_quota_devices":
+        {},
+        "silenced_devices":
+        [
+            "silenced_device_id_1",
+            "silenced_device_id_2"
+        ],
+        "silenced_events":
+        [
+            5,
+            6
+        ],
+        "throttled_devices":
+        {
+            "throttled_device_id_1": 0,
+            "throttled_device_id_2": 100
+        },
+        "throttled_events":
+        [
+            3,
+            4
+        ]
+    }
+    ```
+
+
+#### Properties (invalid or missing JSON)
 
 | <div class="big-column">Name</div>   | Description |
 | --- | ---  |
@@ -500,6 +536,19 @@ Possible reasons for an invalid request:
 | `missing_field`  |String. Indicates which request-level required field is missing. |
 | `events_with_invalid_fields`  | Object. A map from field names to an array of indexes into the events array indicating which events have invalid values for those fields |
 | `events_with_missing_fields`  |  Object. A map from field names to an array of indexes into the events array indicating which events are missing those required fields |
+
+##### Properties (SilencedDeviceId)
+
+| <div class="big-column">Name</div>  | Description |
+| --- |--- |
+| `code`  | Integer. 400 error code |
+| `error` | String. Error description. |
+| `eps_threshold` |Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
+| `exceeded_daily_quota_devices` | Object. A map from device_id to its current number of daily events, for all devices that exceed the app's daily event quota. |
+| `silenced_devices` | [string]. Array of `device_id`s that have been silenced by Amplitude. |
+| `silenced_events` | [integer]. Array of indexes in the events array indicating events whose device_id got silenced. |
+| `throttled_devices` | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
+| `throttled_events` | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
 
 ### 413 Response PayloadTooLargeError
 

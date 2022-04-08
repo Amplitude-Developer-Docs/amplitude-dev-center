@@ -42,20 +42,24 @@ This command installs almost every dependency.
 The changes Vale flags are mostly suggestions, but please make an effort to address problems. The closer we stick to the style guide, the better our docs will be.
   
 ### 5. Clone this Repo
+
+`git clone https://github.com/Amplitude-Developer-Docs/amplitude-dev-center.git`
   
 ### 6. Create a branch and make your changes
   
   Preview changes locally using `mkdocs serve`
   
-  When you're ready, open a PR against [PLACEHOLDER FOR STAGING BRANCH], and tag your reviewer. Opening a PR against [PLACEHOLDER FOR STAGING BRANCH] creates a preview site where you can check your changes.
+  When you're ready, open a PR against your staging branch* and tag your reviewer. Opening a PR creates a preview site where you can check your changes. A link to the preview site appears on the PR. 
+  
+  *If you have questions about which staging branch to use, ask in #dev-doc-requests. 
 
 ### 7. Merge
   
-After your PR is approved, merge it. Merging to main publishes to the website. 
+After your PR is approved, merge it. Merging to `main` publishes to the website. 
 
 
 ## Notes
-- The files in the repo make use of [Insiders](https://squidfunk.github.io/mkdocs-material/insiders/) features. If you don't have Insiders, you can still build, but some [features](https://squidfunk.github.io/mkdocs-material/insiders/#available-features) won't render in your build. 
+- The files in the repo make use of [Insiders](https://squidfunk.github.io/mkdocs-material/insiders/) features. If you don't have Insiders, you can still build, but some [features](https://squidfunk.github.io/mkdocs-material/insiders/#available-features) won't render in your build. However, you can see them on the preview site when you open a PR. 
 - If you're using VS Code, install the [markdownlint extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint). This extension flags problems with your markdown. The project includes a config file to cut down on noisier errors. 
 
 ## Resources
