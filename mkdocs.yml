@@ -144,6 +144,7 @@ nav:
     - analytics/sdks/java-sdk.md
     - analytics/sdks/node-sdk.md
     - analytics/sdks/unity-sdk.md
+    - analytics/sdks/unreal-sdk.md
   - Amplitude API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md
