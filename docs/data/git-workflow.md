@@ -342,7 +342,7 @@ way to integrate is to use our [Ampli CLI Docker containers](https://hub.docker.
 configured to run the Ampli CLI commands.
 
 We will be adding specific instructions for additional CI systems in the future, however following equivalent steps to the
-[Github Actions](/git-workflow#github-actions) instructions above should work for most platforms.
+[Github Actions](#github-actions) instructions above should work for most platforms.
 
 High-level setup:
 
