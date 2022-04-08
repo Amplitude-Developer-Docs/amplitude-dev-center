@@ -200,29 +200,21 @@ margin: 1em auto 1em;
 }*/
 
 .md-typeset h2 {
-
-font-size: 1.75em;
-
+  font-size: 1.75em;
 }
 
 .md-typeset h3 {
-
-font-size: 1.5em;
-
+  font-size: 1.5em;
 }
 
 .md-typeset h4 {
-
-font-size: 1.2em;
-/*font-weight: 300;*/
-
+  font-size: 1.1em;
+  font-weight: 700;
 }
 
 .md-typeset h5 {
-
-font-size: 1em;
-text-transform: none;
-
+  font-size: 1em;
+  text-transform: none;
 }
 
 /* End Heading overrides */

@@ -34,7 +34,7 @@ TODO: Redo diagram
 
 ### Performance
 
-Local evaluation performance happens without any network required, and depends mostly on the hardware and SDK used.
+Local evaluation does not require a network request per user evaluation, and therefore performance depends mostly on the hardware and SDK (language) used.
 
 The following results were collected over 10 executions of 10,000 iterations of evaluation with randomized user inputs evaluated for 1 of 3 flag configurations selected at random.
 
@@ -67,38 +67,20 @@ The CDN caches the exact request received, including user information. In short,
 
 To make sure you don't get stale results when your underlying flags have changed, we invalidate (delete) cached results for an entire deployment whenever a flag or experiment associated with that deployment is updated. I other words, as our SDKs retrieve results for all experiments and feature flags for a given deployment for a user, we invalidate all results for a given deployment every time there's a change in even a single flag associated with a deployment. We also invalidate all requests cached for a deployment every time the deployment is added to a flag or removed from a flag.
 
-### Advanced Targeting Cache Considerations
+### Dynamic Targeting Cache Considerations
 
-We allow customers to target users based on the data received by Amplitude Analytics. Experiment allows leveraging two types of Analytics data for targeting: user properties and behavioral cohorts.
+Amplitude Experiment allows you to target feature-flags and experiments based on dynamic properties (user properties and behavioral cohorts) synced from Amplitude Analytics. Since these properties are not included in the fetch request, you may be receiving cached experiment results for up to an hour (the TTL) until the cache misses and the user is re-evaluated with the most recent dynamic properties.
 
 #### Amplitude User Properties
 
 Amplitude Experiment's remote evaluation servers allow for targeting based on user properties previously identified with the user. Since the CDN caches responses based only on user properties passed explicitly in the request, the caller may still receive stale results for up to 1 hour, even if the user properties in Amplitude Analytics are updated and would cause the user to be evaluated into a different variant.
 
-
-
 !!!info "Best Practice"
     User properties used in time-sensitive targeting rules should be explicitly passed to the variant fetch request in order to receive the most up-to-date variants for a user.
 
---------
-
 #### Behavioral Cohorts
 
-If you want to target an experiment to users that exhibit a certain behavior, you can use our powerful Behavioral Cohorts to do that. When you add a Cohort as a targeting rule to the Experiment, we immediately compute all users that belong to the Cohort and any request for the users in the Cohort will resolve to the right variant immediately and there's no delay here. Dynamic Cohorts are recomputed every hour, so it's possible that  user's updated evaluation results are delayed by a max of 60 minutes since the user exhibited a cohort behavior.
+You may want to use behavior cohorts defined in Amplitude Analytics in your flag and experiment targeting. Since experiment cohorts are computed hourly, and the CDN cache TTL is also hourly, a user may be delayed from being targeted to a variant for up-to 2 hours in the worst case.
 
-!!!note
-    we also have a 60-minute caching on the CDN which doesn't get invalidated when a user enters or leaves a cohort. So, in the worst-case scenario, it's possible that there is a max delay of 120 minutes when using Behavioral Cohorts.
-
-
-
-### Cache FAQs
-
-#### Are there any delays while accessing un-cached data?
-
-When an Experiment is being deployed for the very first time for a user and no responses have been saved on the CDN, that response will be uncached - that means that there will be a delay before the flag is delivered to the application. This delay can take up to ~250ms on average, whereas cached responses take <1ms on average.
-
-TODO: Update ^above^ latency numbers
-
-#### If I change the flag configuration do I have to wait for updated results?
-
-No. Every time there's a flag configuration update, we invalidate the CDN cache for all associated deployments and you will get fresh results for all users.
+!!!info "Best Practice"
+    We recommend only using dynamic cohort targeting for flags and experiments where the inclusion in a variant of a flag is not time-sensitive.

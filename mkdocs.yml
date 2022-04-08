@@ -25,7 +25,7 @@ theme:
     - content.code.annotate
     - content.tabs.link
     # - header.autohide
-    - navigation.expand
+    # - navigation.expand
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
@@ -167,7 +167,10 @@ nav:
   - General:
     - experiment/general/performance-and-caching.md
     - experiment/general/data-model.md
-    - experiment/general/evaluation.md
+    - Evaluation:
+      - 'Implementation': experiment/general/evaluation/implementation.md
+      - experiment/general/evaluation/remote-evaluation.md
+      - experiment/general/evaluation/local-evaluation.md
     - experiment/general/exposure-tracking.md
   - Guides:
     - Getting Started:
