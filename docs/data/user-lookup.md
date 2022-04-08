@@ -9,10 +9,10 @@ The User Lookup page can be used as a debugger for your analytics. It helps buil
 
 User Lookup is on by default for all projects.
 
-Before using User Lookup, make sure you have: 
+Before using User Lookup, make sure you have:
 
-- Installed the Ampli SDK into your application (see [Using the Ampli CLI](using-the-ampli-cli))
-- Loaded the Ampli SDK in your application (see [Using the Tracking Library](using-the-tracking-library))
+- Installed the Ampli SDK into your application (see [Using the Ampli CLI](using-the-ampli-cli.md))
+- Loaded the Ampli SDK in your application (see [Using the Tracking Library](using-the-tracking-library.md))
 
 ## Further Reading
 For more information on how to use the User Lookup page, please refer to the [Amplitude User & Account Look-Up documentation](https://help.amplitude.com/hc/en-us/articles/229313067-User-Look-Up).

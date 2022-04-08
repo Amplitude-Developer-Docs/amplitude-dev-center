@@ -38,4 +38,4 @@ No more typos, forgotten properties, and boilerplate code. Amplitude Data is lik
 ## Destinations
 
 The Ampli SDK sends events to Amplitude out of the box. If you would like to send data to other analytics destinations,
- you can create a custom [middleware](/middleware).
+ you can create a custom [middleware](middleware-overview.md).
