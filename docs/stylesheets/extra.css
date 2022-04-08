@@ -175,7 +175,8 @@
 }
 
 /* COLUMN WIDTH CLASSES 
-These classes makes tables make sense. Because MD table column width is based on the width of the first cell's content, this sets the width to a minimum of 180px.
+These classes makes tables make sense. Because MD table column width is based on the width of the first cell's content,
+ this sets the width to a minimum of 180px.
 You can't wrap markdown in HTML, but you can use HTML in Markdown. 
 Wrap the column header text in a div with this class to make the Markdown cooperate */
 
@@ -295,9 +296,22 @@ text-transform: none;
 
 }
 
-.sdk-icons:hover {
+.sdk-icons:hover { /*sets the fill color of the svgs in the sdk grids*/
 
   fill:var(--md-accent-fg-color);
 }
 
 /* End SVG grid styles */
+
+/* Announcement Block Styles*/
+.announce a { /*sets the color of links inside the announcement */
+
+  color: var(--md-primary-fg-color--light);
+
+}
+
+.announce a:hover { /* sets the hover color of links inside the announcement */
+
+  color: var(--md-accent-bg-color--light);
+
+}
