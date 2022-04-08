@@ -34,7 +34,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](/../data/using-the-ampli-cli).
 
 ### Install dependencies
 
@@ -142,7 +142,7 @@ For example, your tracking plan contains a user property called `role`. The prop
     });
     ```
 
-The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
+The options argument allows you to pass [Amplitude fields](/../analytics/apis/http-v2-api#keys-for-the-event-argument) for this call, such as `deviceId`.
 
 === "TypeScript"
 
@@ -333,7 +333,7 @@ The output displays status and indicates what events are missing.
 Events Tracked: 2 missed, 3 total
 ```
 
-Learn more about [`ampli status`](data/using-the-ampli-cli/#ampli-status).
+Learn more about [`ampli status`](/../data/using-the-ampli-cli#ampli-status).
 
 ## Migrating from an Itly runtime
 
