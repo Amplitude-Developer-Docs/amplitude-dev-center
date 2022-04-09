@@ -23,7 +23,7 @@ TODO: Update numbers -- is it really correct to say that a cache hit resolves in
 
 TODO: Redo diagram
 
-![Experiment Evaluation Architecture]( /../assets/images/experiment-architecture.png)
+![Experiment Evaluation Architecture]( /../../assets/images/experiment-architecture.png)
 
 --8<-- "includes/abbreviations.md"
 
