@@ -8,7 +8,7 @@ icon: material/apple-ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [iOS SDK Reference :material-book:](http://amplitude.github.io/Amplitude-iOS/)
     - [iOS SDK Repository :material-github:](https://github.com/amplitude/Amplitude-iOS)
     - [iOS SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-iOS/releases)

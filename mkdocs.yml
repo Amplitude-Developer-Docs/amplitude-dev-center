@@ -1,6 +1,6 @@
 # Project information
 site_name: Amplitude Developer Center
-site_url: https://docs.developers.amplitude.com
+site_url: https://pr-21.d21uvqgwazvjg2.amplifyapp.com/
 site_author: Amplitude
 site_description: >- 
     Developer resources for Amplitude's digital optimization products.
@@ -78,6 +78,7 @@ markdown_extensions:
           - overrides/.icons
   - pymdownx.highlight:
       anchor_linenums: true
+      use_pygments: true
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
@@ -132,9 +133,6 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
-  - Analytics Basics: 
-    - analytics/analytics-domain-proxy.md
-    - analytics/dynamic-configuration.md
   - Amplitude SDKs:
     - analytics/sdks/android-sdk.md
     - analytics/sdks/ios-sdk.md
@@ -142,6 +140,7 @@ nav:
     - analytics/sdks/javascript-sdk.md
     - analytics/sdks/java-sdk.md
     - analytics/sdks/node-sdk.md
+    - analytics/sdks/react-native-sdk.md
     - analytics/sdks/unity-sdk.md
     - analytics/sdks/unreal-sdk.md
   - Amplitude API References:
@@ -159,6 +158,9 @@ nav:
     - analytics/apis/scim-api.md
     - analytics/apis/taxonomy-api.md
     - analytics/apis/user-privacy-api.md
+  - Advanced Topics: 
+    - analytics/analytics-domain-proxy.md
+    - analytics/dynamic-configuration.md
   - Other Resources:
     - analytics/google-tag-manager.md
     - analytics/adobe.md
@@ -166,75 +168,41 @@ nav:
   - experiment/index.md
 - Data: 
   - data/index.md
-  - Getting Started:
-    - data/getting-started.md
-    - data/what-is-a-tracking-plan.md
-    - data/creating-your-tracking-plan.md
-    - data/working-with-templates.md
-    - data/identifying-users-and-groups.md
-    - data/best-practices.md
-    - data/working-with-branches.md
-    - data/typical-workflow.md
-    - data/observe.md
-    - data/granular-event-destinations.md
-    - data/middleware-overview.md
-  - Instrumentation:
+  - Data Instrumentation:
     - data/ampli-sdk-overview.md
     - data/using-the-ampli-cli.md
     - data/using-the-tracking-library.md
     - data/integrating-with-ci.md
-    - data/unit-testing.md
     - data/user-lookup.md
-    - data/iglu-api.md
-  - Sources:
-    - data/browser-ampli.md
-    - data/nodejs-ampli.md
-    - data/ios-ampli.md
-    - data/android-ampli.md
-    - data/jre-ampli.md
-  - Sources (Legacy):
-    - data/browser.md
-    - data/nodejs.md
-    - data/ios.md 
-    - data/android.md
-    - data/jre.md
-    - data/python.md
-    - data/ruby.md 
-    - data/dotnet.md
-  - Resources:
-    - data/managing-your-account.md
-    - data/import.md
-    - data/integrations.md
-    - data/migration-guide.md
+    - data/git-workflow.md
+    - data/middleware-overview.md
+    - data/migrate-to-data.md
+  - Data SDKs:
+    - data/sdks/browser-ampli.md
+    - data/sdks/nodejs-ampli.md
+    - data/sdks/ios-ampli.md
+    - data/sdks/android-ampli.md
+    - data/sdks/jre-ampli.md 
+
   - Integrations:
-      - integrations/index.md
       - integrations/shopify-plugin.md
       - integrations/sending-cohorts.md
-      - analytics/amazon-s3-import.md
-      - analytics/converter-configuration-reference.md
+      - integrations/amazon-s3-import.md
+      - integrations/converter-configuration-reference.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
 
-
-            
-
-            
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-    
-
-    
-
-
+# Files Intentionally left out of nav: 
+  #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav        
+      #- data/deprecated-sdks/browser.md 
+      #- data/deprecated-sdks/nodejs.md
+      #- data/deprecated-sdks/ios.md 
+      #- data/deprecated-sdks/android.md
+      #- data/deprecated-sdks/jre.md
+      #- data/deprecated-sdks/python.md
+      #- data/deprecated-sdks/ruby.md 
+      #- data/deprecated-sdks/dotnet.md
+      #- data/deprecated-sdks/jre-v3.md
+      #- data/deprecated-sdks/ruby-v2.md
+      #- data/iglu-api.md

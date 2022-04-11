@@ -8,7 +8,7 @@ description: This is the official documentation for the Amplitude JavaScript SDK
 
 This is the official documentation for the Amplitude JavaScript SDK.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [JavaScript SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
     - [JavaScript SDK Repository :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
     - [JavaScript SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)

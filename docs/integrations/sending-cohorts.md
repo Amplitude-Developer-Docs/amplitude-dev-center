@@ -1,5 +1,5 @@
 ---
-title: Send Amplitude Behavioral Cohorts to Other Platforms
+title: Receiving Amplitude Behavioral Cohorts from Amplitude
 description: Amplitude can sync behavioral cohorts to other partner platforms through a series of REST API calls. 
 ---
 
