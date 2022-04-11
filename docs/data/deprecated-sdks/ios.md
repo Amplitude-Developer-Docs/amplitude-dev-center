@@ -2,6 +2,8 @@
 title: iOS (Itly)
 description: Documentation for the deprecated Amplitude Data iOS SDK (Itly).
 icon: material/apple-ios
+search:
+  exclude: true
 ---
 
 !!!warning "Deprecated SDK"

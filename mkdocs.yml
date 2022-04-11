@@ -133,9 +133,6 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
-  - Analytics Basics: 
-    - analytics/analytics-domain-proxy.md
-    - analytics/dynamic-configuration.md
   - Amplitude SDKs:
     - analytics/sdks/android-sdk.md
     - analytics/sdks/ios-sdk.md
@@ -143,6 +140,7 @@ nav:
     - analytics/sdks/javascript-sdk.md
     - analytics/sdks/java-sdk.md
     - analytics/sdks/node-sdk.md
+    - analytics/sdks/react-native-sdk.md
     - analytics/sdks/unity-sdk.md
     - analytics/sdks/unreal-sdk.md
   - Amplitude API References:
@@ -160,6 +158,9 @@ nav:
     - analytics/apis/scim-api.md
     - analytics/apis/taxonomy-api.md
     - analytics/apis/user-privacy-api.md
+  - Advanced Topics: 
+    - analytics/analytics-domain-proxy.md
+    - analytics/dynamic-configuration.md
   - Other Resources:
     - analytics/google-tag-manager.md
     - analytics/adobe.md
@@ -167,32 +168,22 @@ nav:
   - experiment/index.md
 - Data: 
   - data/index.md
-  - Amplitude Data Basics:
-    - data/middleware-overview.md
-    - data/migrate-to-data.md
   - Data Instrumentation:
     - data/ampli-sdk-overview.md
     - data/using-the-ampli-cli.md
     - data/using-the-tracking-library.md
     - data/integrating-with-ci.md
     - data/user-lookup.md
-    - data/iglu-api.md
     - data/git-workflow.md
+    - data/middleware-overview.md
+    - data/migrate-to-data.md
   - Data SDKs:
     - data/sdks/browser-ampli.md
     - data/sdks/nodejs-ampli.md
     - data/sdks/ios-ampli.md
     - data/sdks/android-ampli.md
-    - data/sdks/jre-ampli.md
-  - Data SDKs (Deprecated):
-    - data/deprecated-sdks/browser.md
-    - data/deprecated-sdks/nodejs.md
-    - data/deprecated-sdks/ios.md 
-    - data/deprecated-sdks/android.md
-    - data/deprecated-sdks/jre.md
-    - data/deprecated-sdks/python.md
-    - data/deprecated-sdks/ruby.md 
-    - data/deprecated-sdks/dotnet.md
+    - data/sdks/jre-ampli.md 
+
   - Integrations:
       - integrations/shopify-plugin.md
       - integrations/sending-cohorts.md
@@ -202,25 +193,16 @@ nav:
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
 
-
-            
-
-            
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-    
-
-    
-
-
+# Files Intentionally left out of nav: 
+  #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav        
+      #- data/deprecated-sdks/browser.md 
+      #- data/deprecated-sdks/nodejs.md
+      #- data/deprecated-sdks/ios.md 
+      #- data/deprecated-sdks/android.md
+      #- data/deprecated-sdks/jre.md
+      #- data/deprecated-sdks/python.md
+      #- data/deprecated-sdks/ruby.md 
+      #- data/deprecated-sdks/dotnet.md
+      #- data/deprecated-sdks/jre-v3.md
+      #- data/deprecated-sdks/ruby-v2.md
+      #- data/iglu-api.md

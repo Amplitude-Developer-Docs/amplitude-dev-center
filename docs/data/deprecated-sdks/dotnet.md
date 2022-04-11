@@ -2,6 +2,8 @@
 title: .NET (Itly)
 icon: material/dot-net
 description: Amplitude Data supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).
+search:
+  exclude: true
 ---
 
 !!!warning "Deprecated SDK"

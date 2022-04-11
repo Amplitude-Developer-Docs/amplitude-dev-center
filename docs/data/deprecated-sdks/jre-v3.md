@@ -1,5 +1,7 @@
 ---
 title: JRE (v3)
+search:
+  exclude: true
 ---
 
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).

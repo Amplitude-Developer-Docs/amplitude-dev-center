@@ -2,6 +2,8 @@
 title: Python (Itly)
 description: The documentation for the deprecated Amplitude Data Python SDK (Itly).
 icon: material/language-python
+search:
+  exclude: true
 ---
 
 !!!warning "Deprecated SDK"

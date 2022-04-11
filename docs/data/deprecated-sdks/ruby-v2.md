@@ -1,5 +1,7 @@
 ---
 title: Ruby
+search:
+  exclude: true
 ---
 
 !!!note "Previous Version"

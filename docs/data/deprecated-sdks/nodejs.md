@@ -1,7 +1,9 @@
 ---
 title: Node.js (Itly)
-description: Documentation for the deprecated 
+description: Documentation for the deprecated Node.js SDK. 
 icon: material/nodejs
+search:
+  exclude: true
 ---
 
 !!!warning "Deprecated SDK"

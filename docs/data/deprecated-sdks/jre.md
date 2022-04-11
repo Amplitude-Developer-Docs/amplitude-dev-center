@@ -2,6 +2,8 @@
 title: JRE (Itly)
 description: This is the documentation for the deprecated Amplitude Data JRE SDK (Itly)
 icon: fontawesome/brands/java
+search:
+  exclude: true
 ---
 
 !!!warning "Deprecated SDK"

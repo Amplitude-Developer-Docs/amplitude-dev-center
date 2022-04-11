@@ -18,7 +18,7 @@ analytics.track('Song Uploaded',{
 After you import your tracking plan into Amplitude Data, this event becomes:
 
 ```ts
-itly.songUploaded({
+ampli.songUploaded({
   device: 'iOS'
 });
 ```

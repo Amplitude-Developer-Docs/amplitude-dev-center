@@ -6,7 +6,7 @@ icon: fontawesome/brands/node-js
 
 ![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg)
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
     - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
 

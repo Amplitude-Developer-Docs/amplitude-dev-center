@@ -8,7 +8,7 @@ description: This is the official documentation for the Amplitude Android SDK.
 
 This is the official documentation for the Amplitude Android SDK.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/)
     - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Android)
     - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Android/releases)
