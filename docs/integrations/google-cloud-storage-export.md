@@ -11,7 +11,7 @@ Amplitude users can now export Amplitude event data and merged user data to thei
 
 If you haven't already, please [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This will allow Amplitude to export your data to your Google Cloud project.
 
-Once you create a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
+After you create a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
 Add this service account as a member to the bucket you'd like to export data to and give this member the **storage admin** role to ensure Amplitude has the necessary permissions to export the data to your bucket.
 
@@ -33,30 +33,20 @@ To set up a recurring export of your Amplitude data to GCS, follow these steps:
 
     You need admin privileges in Amplitude, as well as a role that allows you to enable resources in GCS. 
 
-1. Navigate to *Sources and Destinations → Destinations*.
-2. Select the *+ Add Destination* button and select the *GCS* panel.
-
-    ![image1.png](https://help.amplitude.com/hc/article_attachments/360096348951/image1.png)
-
-3. The *Export Data to GCS* page will open to the *Getting Started* tab.
-4. Under *Export Data to Google Cloud*, select the data you'd like to export. You can export event data, merged Amplitude IDs, or both.
+1. In Amplitude, navigate to **Data Destinations**.
+2. Select **GCS - Raw Events**.
+3. On the **Getting Started** tab, select the data you'd like to export. You can *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both. 
 
     !!!note
 
         You can export these two different data types to separate buckets, if you prefer. You'll just need to complete the setup flow twice: once for each data type.
 
-5. Review the Event table and Merge IDs table schemas and click *Next >*. The *Set Up Export* tab will open.
+4. Review the Event table and Merge IDs table schemas and click **Next**. 
+5. In the *Google Cloud Credentials For Amplitude* section, upload the Service Account Key file. This file must be in JSON format.
+6. After the account service key isuploaded, fill out the Google Cloud bucket details in the *Google Cloud Bucket Details* section.
+7. Click **Next**. Amplitude attempts a test upload to ensure the entered credentials work. If the upload is successful, click **Finish** to complete the GCS destination configuration and activation.
 
-    ![image2.png](https://help.amplitude.com/hc/article_attachments/360096349491/image2.png)
-
-6. In the *Google Cloud Credentials For Amplitude* section, upload the service account key file. This file must be in JSON format.
-
-    ![image3.png](https://help.amplitude.com/hc/article_attachments/360096372252/image3.png)
-
-7. Once the account service key has been uploaded, please fill out the Google Cloud bucket details in the *Google Cloud Bucket Details* section.
-8. When you're finished, click *Next >*. Amplitude will attempt a test upload to ensure the entered credentials work. If the upload is successful, click *Finish* to complete the GCS destination configuration and activation.
-
-All future events/merged users will automatically be sent to GCS. Amplitude will export files to your GCS account every hour.
+All future events/merged users will automatically be sent to GCS. Amplitude exports files to your GCS account every hour.
 
 ## Exported data format
 
