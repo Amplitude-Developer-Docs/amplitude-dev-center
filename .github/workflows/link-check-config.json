@@ -55,6 +55,10 @@
 
 		{
 		"pattern": "#keys-for-the-event-argument"
+		},
+
+		{
+		"pattern": "/analytics/dynamic-configuration"
 		}
 
 	]
