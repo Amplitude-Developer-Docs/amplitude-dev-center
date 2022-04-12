@@ -3,7 +3,7 @@ title: Redshift Export (Beta)
 description: Upload your Amplitude event data to your Redshift account with recurring exports. 
 ---
 
-Upload your Amplitude event data into their Redshift account. You can set up recurring syncs through the Amplitude UI, as well as manually initiate a sync of your historical data.
+Upload your Amplitude event data into your Redshift account. You can set up recurring syncs through the Amplitude UI, as well as manually initiate a sync of your historical data.
 
 ## Set up a recurring data export to Redshift
 
