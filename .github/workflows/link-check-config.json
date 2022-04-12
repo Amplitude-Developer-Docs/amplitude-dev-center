@@ -50,7 +50,7 @@
 		},
 
 		{
-		"pattern": "/../data/using-the-ampli-cli"
+		"pattern": "/using-the-ampli-cli"
 		},
 
 		{
@@ -59,6 +59,10 @@
 
 		{
 		"pattern": "/analytics/dynamic-configuration"
+		},
+
+		{
+		"pattern": "/data/deprecated-sdks/ios"
 		}
 
 	]
