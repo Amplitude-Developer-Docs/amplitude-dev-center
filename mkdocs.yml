@@ -185,10 +185,23 @@ nav:
     - data/sdks/jre-ampli.md 
 
   - Integrations:
+      - Amazon S3:
+        - integrations/amazon-s3-import.md
+        - integrations/amazon-s3-export.md
+      - BigQuery:
+        - integrations/bigquery-import.md
+        - integrations/bigquery-export.md
+      - Google Cloud Storage (GCS):
+        - integrations/google-cloud-storage-import.md
+        - integrations/google-cloud-storage-export.md
+      - Redshift:
+        - integrations/redshift-export.md
+      - Snowflake:
+        - integrations/snowflake-import.md
+        - integrations/snowflake-export.md
+      - integrations/converter-configuration-reference.md
       - integrations/shopify-plugin.md
       - integrations/sending-cohorts.md
-      - integrations/amazon-s3-import.md
-      - integrations/converter-configuration-reference.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
