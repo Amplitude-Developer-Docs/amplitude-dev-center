@@ -1,5 +1,5 @@
 ---
-title: Redshift Export 
+title: Redshift Export (Beta)
 description: Upload your Amplitude event data to your Redshift account with recurring exports. 
 ---
 
@@ -16,9 +16,9 @@ To set up a recurring export of your Amplitude data to Redshift, follow these st
     You will need admin privileges in Amplitude, as well as a role that allows you to enable resources in Redshift.
 
 1. Navigate to the *Data Destinations* page from the bottom of the left side panel.
-2. Under *Add More Destinations ...*, click the Redshift panel. The *Export Data to Redshift* page will open to the *Getting Started* tab.
-3. Under *Export Data to Redshift*, select the data you'd like to export. You can export event data, merged Amplitude IDs, or both.
-4. Review the Event table and Merge IDs table schemas and click *Next >*. The *Set Up Export* tab will open.
+2. CLick **View all Destinations**, click the Redshift panel.
+3. Under *Export Data to Redshift*, select the data you'd like to export. You can choose *Export events ingested today and moving forward*, *Export all merged Amplitude ID*, or both.
+4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Redshift Credentials For Amplitude* section, enter the following information:
 
      - **User**: The Redshift user account that Amplitude will use to connect to your Redshift instance.
@@ -31,8 +31,8 @@ To set up a recurring export of your Amplitude data to Redshift, follow these st
 
         These credentials are case-sensitive, so keep that in mind.
 
-6. Next to the credentials section, Amplitude will dynamically create the query it will use to create Redshift objects. To copy it to the clipboard, click *Copy*. You can now paste it into the Redshift CLI.
-7. Click *Next >*. Amplitude will try to upload test data using the credentials you entered. If the upload is successful, click *Finish*.
+6. Next to the credentials section, Amplitude dynamically creates the query it will use to create Redshift objects. To copy it to the clipboard, click **Copy**. You can now paste it into the Redshift CLI.
+7. Click **Next**. Amplitude will try to upload test data using the credentials you entered. If the upload is successful, click **Finish**.
 
 All future events are automatically sent to Redshift.
 
