@@ -188,9 +188,9 @@ nav:
       - Amazon S3:
         - integrations/amazon-s3-import.md
         - integrations/amazon-s3-export.md
-      - BigQuery:
-        - integrations/bigquery-import.md
-        - integrations/bigquery-export.md
+      #- BigQuery:
+      #  - integrations/bigquery-import.md
+      #  - integrations/bigquery-export.md
       - Google Cloud Storage (GCS):
         - integrations/google-cloud-storage-import.md
         - integrations/google-cloud-storage-export.md
