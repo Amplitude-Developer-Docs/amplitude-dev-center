@@ -1,7 +1,6 @@
 ---
 title: Todo SDK
 description: Official documentation for Amplitude Experiment's Client-side Todo SDK.
-icon: material/TODO
 ---
 
 [TODO: Badge](#TODO)
@@ -46,9 +45,9 @@ The SDK client should be initialized in your application on startup. The [deploy
 | Parameter | Requirement | Description |
 | --- | --- | --- |
 | `apiKey` | required | The [deployment](../general/data-model.md#deployments) key which authorizes fetch requests and determines which flags should be evaluated for the user. |
-| `config` | optional | The client [configuration] used to customize SDK client behavior. |
+| `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
-The initializer returns a singleton instance, so subsequent initializations (for the same instance name [configuration](#configuration) will always return the initial instance regardless of input. To create multiple instances, use the `instanceName` [configuration](#configuration).
+The initializer returns a singleton instance, so subsequent initializations for the same instance name will always return the initial instance. To create multiple instances, use the `instanceName` [configuration](#configuration).
 
 ### Integrations
 
@@ -95,7 +94,7 @@ The SDK client can be configured once on initialization.
 
 ## Fetch
 
-Fetch variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
+Fetches variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 === "TODO"
 
@@ -105,9 +104,9 @@ Fetch variants for a [user](../general/data-model.md#users) and store the result
 
 | Parameter  | Requirement | Description |
 | --- | --- | --- |
-| `user` | optional | Explicit [user](../general/data-model.md#users) information to pass with the request to evaluate the user. This user information is merged with user information provided from [integrations](#integrations) via the [user provider](#user-provider), preferring properties passed explicitly to `fetch()` over provided properties. |
+| `user` | optional | Explicit [user](../general/data-model.md#users) information to pass with the request to evaluate. This user information is merged with user information provided from [integrations](#integrations) via the [user provider](#user-provider), preferring properties passed explicitly to `fetch()` over provided properties. |
 
-We recommend calling `fetch()` during application start up so that the user gets the most up-to-date variants for the application session. If you want the most up-to-date variants for this session you should wait for the request to return a result before rendering the user experience in order to avoid the interface "flickering".
+We recommend calling `fetch()` during application start up so that the user gets the most up-to-date variants for the application session. Furthermore, you'll need to wait for the fetch request to return a result before rendering the user experience in order to avoid the interface "flickering".
 
 === "TODO"
 
@@ -129,7 +128,7 @@ We recommend calling `fetch()` during application start up so that the user gets
 Access a [variant](../general/data-model.md#variants) for a [flag or experiment](../general/data-model.md#flags-and-experiments) from the SDK client's local store.
 
 !!!info "Automatic Exposure Tracking"
-    When an [integration](#integrations) is used or a custom [exposure tracking provider](#exposure-tracking-provider) is set, `variant()` will automatically track an exposure event through the tracking provider. To disable this functionality, [configure](#configuration) `automaticExposureTracking` to be `false`.
+    When an [integration](#integrations) is used or a custom [exposure tracking provider](#exposure-tracking-provider) is set, `variant()` will automatically track an exposure event through the tracking provider. To disable this functionality, [configure](#configuration) `automaticExposureTracking` to be `false`, and track exposures manually using [`exposure()`](#exposure).
 
 === "TODO"
 
@@ -150,7 +149,7 @@ When determining which variant a user has been bucketed into, you'll want to com
     TODO Example Usage
     ```
 
-A variant may also be configured with a dynamic payload of arbitrary data. Access the `payload` field from the variant object after checking the variant value.
+A variant may also be configured with a dynamic payload of arbitrary data. Access the `payload` field from the variant object after checking the variant's `value`.
 
 === "TODO"
 
@@ -188,7 +187,7 @@ Manually track an exposure event for the current variant of the given flag key t
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
-| `flagKey` | required | Explicit [user](../general/data-model.md#users) information to pass with the request to evaluate the user. This user information is merged with user information provided from [integrations](#integrations) via the [user provider](#user-provider), preferring properties passed explicitly to `fetch()` over provided properties. |
+| `flagKey` | required | The flag key to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an exposure event for. |
 
 `exposure()` is generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
 
@@ -207,13 +206,19 @@ Provider implementations enable a more streamlined developer experience by makin
 
 ### User Provider
 
-The user provider is used by the SDK client to access the most up-to-date user information only when it's needed (i.e. when [`fetch()`](#fetch) is called. This provider is optional, but helps if you have a user information store already set up in your application. This way, you don't need to manage two separate user info stores in parallel, which may result in a divergent user state if the application user store is updated and experiment is not (or via versa).
+The user provider is used by the SDK client to access the most up-to-date user information only when it's needed (i.e. when [`fetch()`](#fetch) is called). This provider is optional, but helps if you have a user information store already set up in your application. This way, you don't need to manage two separate user info stores in parallel, which may result in a divergent user state if the application user store is updated and experiment is not (or via versa).
 
 ```todo title="ExperimentUserProvider"
 TODO Interface Definition
 ```
 
-To use your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation.
+To utilize your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
+
+=== "TODO"
+
+    ```todo
+    TODO Example Initialization
+    ```
 
 ### Exposure Tracking Provider
 
@@ -224,3 +229,11 @@ TODO Interface Definition
 ```
 
 The implementation of `track()` should track an event of type `$exposure` (a.k.a name) with two event properties, `flag_key` and `variant`, corresponding to the two fields on the `Exposure` object argument. Finally, the event tracked must eventually end up in Amplitude Analytics for the same project that the [deployment] used to [initialize](#initialize) the SDK client lives within, and for the same user that variants were [fetched](#fetch) for.
+
+To utilize your custom user provider, set the `exposureTrackingProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
+
+=== "TODO"
+
+    ```todo
+    TODO Example Initialization
+    ```
