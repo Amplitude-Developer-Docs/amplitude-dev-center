@@ -204,7 +204,7 @@ Manually track an exposure event for the current variant of the given flag key t
 
 Provider implementations enable a more streamlined developer experience by making it easier to manage user identity and track exposures events.
 
-### User Provider
+### User provider
 
 The user provider is used by the SDK client to access the most up-to-date user information only when it's needed (i.e. when [`fetch()`](#fetch) is called). This provider is optional, but helps if you have a user information store already set up in your application. This way, you don't need to manage two separate user info stores in parallel, which may result in a divergent user state if the application user store is updated and experiment is not (or via versa).
 
@@ -220,7 +220,7 @@ To utilize your custom user provider, set the `userProvider` [configuration](#co
     TODO Example Initialization
     ```
 
-### Exposure Tracking Provider
+### Exposure tracking provider
 
 Implementing an exposure tracking provider is highly recommended. [Exposure tracking](../general/exposure-tracking.md) increases the accuracy and reliability of experiment results and improves visibility into which flags and experiments a user is exposed to.
 

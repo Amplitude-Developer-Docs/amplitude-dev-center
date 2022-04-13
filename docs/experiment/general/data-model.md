@@ -5,7 +5,10 @@ description: An overview of the data model used in Amplitude Experiment.
 
 At the top level in Amplitude is your **organization**. Within an organization, Amplitude Experiment follows the **project** structure defined by Amplitude Analytics. In short, all Experiment data must be associated with an Amplitude Analytics project.
 
-TODO Diagram
+[Flags](#flags-and-experiments), [experiments](#flags-and-experiments), and [deployments](#deployments) all live within an Amplitude project.
+<br />
+
+![Data model diagram](../../assets/images/experiment/data-model.drawio.png)
 
 ## Deployments
 
@@ -16,7 +19,7 @@ In Amplitude Experiment, a deployment serves a group of flags or experiments for
 
 Deployments live within Amplitude Analytics projects; a project may have multiple deployments. Deployments are [added to Flags and Experiments](../guides/getting-started/create-a-flag.md#add-a-deployment) which exist within the same project. When a request to fetch variants for a user is received by Experiment's evaluation servers, the deployment key is used to look up all associated flags and experiments for evaluation.
 
-## Flags and Experiments
+## Flags and experiments
 
 Feature flag and experiments are used to serve a variable experience to a user. They're identified by the **flag key**, associated with `0-n` [deployments](#deployments), and contains `1-n` [variants](#variants). Additionally, the **evaluation mode** (local or remote) determines whether or not the flag or experiment can be [locally evaluated](evaluation/local-evaluation.md) and may limit the targeting capabilities for the flag if set to local (local evaluation mode flags cannot utilize advanced targeting features like behavioral cohorts).
 
