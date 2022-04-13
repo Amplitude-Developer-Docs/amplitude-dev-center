@@ -5,7 +5,7 @@ description: Learn about Amplitude's experimentation and feature-flagging platfo
 
 Welcome to Amplitude Experiment! This page acts as a quick reference as well as a high level system overview of Experiment's end-to-end feature-flagging and experimentation platform.
 
-## Getting Started
+## Getting started
 
 Guide to getting started developing for Amplitude Experiment.
 
@@ -30,7 +30,7 @@ Guide to getting started developing for Amplitude Experiment.
 | [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
 | [Management API (Beta)](apis/management-api.md) | Manage or list flags and experiments within your organization. |
 
-## System Overview
+## System overview
 
 When it comes to feature flag delivery and experimentation, one size does _not_ fit all. Amplitude Experiment is built for flexibility in order to fit in with any architecture and a variety of needs. Visit our [flag delivery architecture decision guide]() to help choose the right flag delivery architecture for you.
 
@@ -66,7 +66,7 @@ flowchart LR
 
 !!!info "Simple and flexible APIs & SDKs made to fit into any system."
 
-#### Remote Evaluation
+#### Remote evaluation
 
 Server-side [remote evaluation]() involves making a request from your server to Amplitude Experiment's evaluation servers to fetch variants for a user. The resulting variants may be used directly on the server or passed back for use on the client (or any other part of your system).
 
@@ -81,7 +81,7 @@ flowchart LR
   end
 ```
 
-#### Local Evaluation (Alpha)
+#### Local evaluation (alpha)
 
 Server-side [local evaluation]() runs the evaluation logic on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation]() is perfect for latency-minded systems which need to be performant at scale. However, since evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics is not possible.
 
