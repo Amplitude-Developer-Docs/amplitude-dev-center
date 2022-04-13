@@ -28,7 +28,7 @@ TODO: Redo diagram
 --8<-- "includes/abbreviations.md"
 
 !!!info "Best Practice"
-    For the rare occurrence that our systems go down, we support and strongly recommend using local defaults for all your experiments.
+    On the rare occurrence that our systems go down, we recommend using local defaults for all your experiments.
 
 ## Local Evaluation
 

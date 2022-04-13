@@ -73,7 +73,7 @@ To use the `ExposureTrackingProvider` interface, [upgrade your experiment SDK
     ```java
     class SegmentExposureTrackingProvider implements ExposureTrackingProvider {
       private Analytics analytics;
-        public SegmentExposureTrackingProvider(Analytics analytics) {  
+        public SegmentExposureTrackingProvider(Analytics analytics) {
         this.analytics = analytics;
       }
       @Override
