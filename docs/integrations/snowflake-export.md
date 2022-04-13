@@ -33,10 +33,8 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
     !!!warning
 
         These credentials are case-sensitive, so keep that in mind.
-
-6. Next to the credentials section, Amplitude dynamically creates the query it uses to create Snowflake objects. 
-Copy the query and paste it your Snowflake client to give Amplitude the correct access.
-7. Click **Next**. Amplitude attempts to upload test data using the credentials you entered. If the upload is successful, click **Finish**.
+        
+6. Click **Next**. Amplitude attempts to upload test data using the credentials you entered. If the upload is successful, click **Finish**.
 
 All future events are automatically be sent to Snowflake.
 
