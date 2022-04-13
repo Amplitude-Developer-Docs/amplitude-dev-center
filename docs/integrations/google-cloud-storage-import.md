@@ -5,6 +5,8 @@ description: Import event or user properties into your Amplitude projects from a
 
 Amplitude's GCS Import feature lets you import event or user properties into your Amplitude projects from an GCS bucket. This article helps you quickly configure this data source within Amplitude.
 
+--8<-- "includes/editions-all-paid-editions.md"
+
 ## Getting started
 
 ### Prerequisites
