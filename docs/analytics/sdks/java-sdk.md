@@ -1,5 +1,5 @@
 ---
-title: Java SDK
+title: Analytics Java SDK
 description: The Amplitude Analytics Java SDK installation and quick start guide. 
 icon: fontawesome/brands/java
 ---

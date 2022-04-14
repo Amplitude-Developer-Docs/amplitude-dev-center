@@ -1,5 +1,5 @@
 ---
-title: Flutter SDK
+title: Analytics Flutter SDK
 description: Docs for Amplitude Analytic's Flutter SDK installationa and quickstart.
 icon: flutter
 ---

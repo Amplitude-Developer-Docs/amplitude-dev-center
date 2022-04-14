@@ -1,5 +1,5 @@
 ---
-title: Unreal Engine SDK (BETA)
+title: Analytics Unreal Engine SDK (BETA)
 description: The offical documentation for the Amplitude Analytics Unreal Engine SDK. 
 icon: material/unreal
 ---
