@@ -182,9 +182,8 @@ nav:
     - experiment/guides/choose-the-right-architecture.md
     - experiment/guides/server-side-rendering.md
   - SDKs:
-    - experiment/sdks/todo.md
     - Node.js SDK: experiment/sdks/nodejs-sdk.md
-    - JavaScript SDK: experiment/sdks/javascript-sdk-v2.md
+    - JavaScript SDK: experiment/sdks/javascript-sdk.md
     - Android SDK: experiment/sdks/android-sdk.md
     - iOS SDK: experiment/sdks/ios-sdk.md
     - React Native SDK: experiment/sdks/react-native-sdk.md

@@ -1,6 +1,6 @@
 ---
 title: Local Evaluation Node.js SDK
-description:
+description: Local evaluation in the nodejs alpha sdk.
 ---
 
 The current SDK for local evaluation supports the Node.js server environment. Future SDKs are in the works.

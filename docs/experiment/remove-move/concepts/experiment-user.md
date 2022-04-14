@@ -1,7 +1,7 @@
 ---
 title: Experiment User
 description: Description of the Experiment User object used throughout Experiment SDKs
---- 
+---
 
 
 When assigning variants, the evaluation engine applies the targeting rules to a user object. The user object represents the user's identity and contains additional context regarding the application and user deployment.

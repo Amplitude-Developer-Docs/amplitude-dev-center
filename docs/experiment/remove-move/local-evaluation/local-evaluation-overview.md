@@ -1,6 +1,6 @@
 ---
 title: Local Evaluation Overview
-description:
+description: Documentation on Amplitude Experiment local evaluation architecture, performance, and best-practices.
 ---
 
 An overview of the experiment local evaluation alpha.

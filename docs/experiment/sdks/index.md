@@ -1,6 +1,6 @@
 ---
-title: Experiment SDKS Overview
-description:
+title: Experiment SDKs Overview
+description: Overview of Experiment SDKs
 ---
 
 Welcome to the Amplitude Experiment SDK introduction. This section Introduces SDK fundamentals and describes core concepts encompassing Experiment SDK usage across all platforms.
