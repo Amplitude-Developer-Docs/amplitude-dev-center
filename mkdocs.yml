@@ -183,7 +183,7 @@ nav:
   - SDKs:
     - experiment/sdks/todo.md
     - experiment/sdks/nodejs-sdk.md
-    - experiment/sdks/javascript-sdk.md
+    - 'JavaScript SDK': experiment/sdks/javascript-sdk-v2.md
     - experiment/sdks/android-sdk.md
     - experiment/sdks/ios-sdk.md
     - experiment/sdks/react-native-sdk.md
