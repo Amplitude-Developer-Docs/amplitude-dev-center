@@ -84,11 +84,17 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
 ???amplitude "Amplitude Integration"
 
-    === "TODO"
+    #### Supported Versions
 
-        ```todo
-        TODO
-        ```
+    | Analytics SDK Version | Experiment SDK Version |
+    | --- | --- |
+    | `8.18.1+` | `1.4.1+` |
+
+    #### Initialization
+
+    ```todo
+    TODO
+    ```
 
 
 ???segment "Segment Integration"
