@@ -102,15 +102,29 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
 ???segment "Segment Integration"
 
-    === "TODO"
+    Experiment's integration with Segment Analytics is still a manual implementation at this point. You'll need to copy the provider implementations into your code base and initialize the Experiment SDK with the provider instances in the configuration.
 
-        ```todo
-        TODO
-        ```
+    ```js title="segment.ts"
+    class SegmentUserProvider implements ExperimentUserProvider {
+        // TODO
+    }
 
-        ```todo
-        TODO
-        ```
+    class SegmentExposureTrackingProvider implements ExposureTrackingProvider {
+        private analytics: Analytics;
+        constructor(analytics: Analytics) {
+            this.analytics = analytics;
+        }
+        track(exposure: Exposure) {
+            this.analytics.track('$exposure', exposure);
+        }
+    }
+    ```
+
+    The Experiment SDK must be initialized after the segment SDK has loaded in and initialized.
+
+    ```js
+    // TODO
+    ```
 
 ### Configuration
 
