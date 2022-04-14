@@ -169,7 +169,7 @@ nav:
     - experiment/general/performance-and-caching.md
     - experiment/general/data-model.md
     - Evaluation:
-      - 'Implementation': experiment/general/evaluation/implementation.md
+      - Implementation: experiment/general/evaluation/implementation.md
       - experiment/general/evaluation/remote-evaluation.md
       - experiment/general/evaluation/local-evaluation.md
     - experiment/general/exposure-tracking.md
@@ -183,11 +183,11 @@ nav:
     - experiment/guides/server-side-rendering.md
   - SDKs:
     - experiment/sdks/todo.md
-    - experiment/sdks/nodejs-sdk.md
-    - 'JavaScript SDK': experiment/sdks/javascript-sdk-v2.md
-    - experiment/sdks/android-sdk.md
-    - experiment/sdks/ios-sdk.md
-    - experiment/sdks/react-native-sdk.md
+    - Node.js SDK: experiment/sdks/nodejs-sdk.md
+    - JavaScript SDK: experiment/sdks/javascript-sdk-v2.md
+    - Android SDK: experiment/sdks/android-sdk.md
+    - iOS SDK: experiment/sdks/ios-sdk.md
+    - React Native SDK: experiment/sdks/react-native-sdk.md
   - APIs:
     - experiment/apis/evaluation-api.md
     - experiment/apis/management-api.md

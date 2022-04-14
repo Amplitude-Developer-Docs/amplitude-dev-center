@@ -42,7 +42,7 @@ Install the Experiment JavaScript Client SDK.
     // (2) Fetch variants for a user
     const user = {
         user_id: 'user@company.com',
-        device_id: 'abcezas123',
+        device_id: 'abcdefg',
         user_properties: {
             'premium': true,
         },
@@ -50,9 +50,9 @@ Install the Experiment JavaScript Client SDK.
     await experiment.fetch(user);
 
     // (3) Lookup a flag's variant
-    const variant = experiment.variant('YOUR-FLAG-KEY');
+    const variant = experiment.variant('<FLAG_KEY>');
     if (variant.value === 'on') {
-    // Flag is on
+        // Flag is on
     } else {
         // Flag is off
     }
@@ -135,11 +135,22 @@ fetch(user?: ExperimentUser): Promise<Client>
 
 We recommend calling `fetch()` during application start up so that the user gets the most up-to-date variants for the application session. Furthermore, you'll need to wait for the fetch request to return a result before rendering the user experience in order to avoid the interface "flickering".
 
-=== "TODO"
+```js
+const user = {
+    user_id: 'user@company.com',
+    device_id: 'abcdefg',
+    user_properties: {
+        'premium': true,
+    },
+};
+await experiment.fetch(user);
+```
 
-    ```todo
-    TODO Example Usage
-    ```
+If you're using an [integration](#integrations) or a custom [user provider](#user-provider) then you can fetch without inputting the user.
+
+```js
+await experiment.fetch();
+```
 
 ???tip "Fetch When User Identity Changes"
     If you want the most up-to-date variants for the user, it is recommended that you call `fetch()` whenever the user state changes in a meaningful way. For example, if the user logs in and receives a user ID, or has a user property set which may effect flag or experiment targeting rules.
@@ -168,27 +179,34 @@ variant(key: string, fallback?: string | Variant): Variant
 
 When determining which variant a user has been bucketed into, you'll want to compare the variant `value` to a well-known string.
 
-=== "TODO"
+```js
+const variant = experiment.variant('<FLAG_KEY>');
+if (variant.value === 'on') {
+    // Flag is on
+} else {
+    // Flag is off
+}
+```
 
-    ```todo
-    TODO Example Usage
-    ```
+A variant may also be configured with a dynamic [payload](../general/data-model.md#variants) of arbitrary data. Access the `payload` field from the variant object after checking the variant's `value`.
 
-A variant may also be configured with a dynamic payload of arbitrary data. Access the `payload` field from the variant object after checking the variant's `value`.
-
-=== "TODO"
-
-    ```todo
-    TODO Example Usage
-    ```
+```js
+const variant = experiment.variant('<FLAG_KEY>');
+if (variant.value === 'on') {
+    const payload = variant.payload;
+}
+```
 
 A `null` variant `value` means that the user has not been bucketed into a variant. You may use the built in fallback parameter to provide a variant to return if the store does not contain a variant for the given flag key.
 
-=== "TODO"
-
-    ```todo
-    TODO Example Usage
-    ```
+```js
+const variant = experiment.variant('<FLAG_KEY>', { value: 'control' });
+if (variant === 'control') {
+    // Control
+} else (variant === 'treatment') {
+    // Treatment
+}
+```
 
 ## All
 
@@ -210,11 +228,18 @@ exposure(key: string): void
 | --- | --- | --- |
 | `flagKey` | required | The flag key to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an exposure event for. |
 
-=== "TODO"
+```js
+const variant = experiment.variant('<FLAG_KEY>');
 
-    ```todo
-    TODO Example Usage
-    ```
+// Do other things...
+
+experiment.exposure('<FLAG_KEY>');
+if (variant === 'control') {
+    // Control
+} else if (variant === 'treatment') {
+    // Treatment
+}
+```
 
 ## Providers
 
@@ -227,32 +252,36 @@ Provider implementations enable a more streamlined developer experience by makin
 
 The user provider is used by the SDK client to access the most up-to-date user information only when it's needed (i.e. when [`fetch()`](#fetch) is called). This provider is optional, but helps if you have a user information store already set up in your application. This way, you don't need to manage two separate user info stores in parallel, which may result in a divergent user state if the application user store is updated and experiment is not (or via versa).
 
-```todo title="ExperimentUserProvider"
-TODO Interface Definition
+```js title="ExperimentUserProvider"
+interface ExperimentUserProvider {
+  getUser(): ExperimentUser;
+}
 ```
 
 To utilize your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
 
-=== "TODO"
-
-    ```todo
-    TODO Example Initialization
-    ```
+```js
+const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
+    userProvider: new CustomUserProvider(),
+});
+```
 
 ### Exposure tracking provider
 
 Implementing an exposure tracking provider is highly recommended. [Exposure tracking](../general/exposure-tracking.md) increases the accuracy and reliability of experiment results and improves visibility into which flags and experiments a user is exposed to.
 
-```todo title="ExposureTrackingProvider"
-TODO Interface Definition
+```js title="ExposureTrackingProvider"
+export interface ExposureTrackingProvider {
+  track(exposure: Exposure): void;
+}
 ```
 
 The implementation of `track()` should track an event of type `$exposure` (a.k.a name) with two event properties, `flag_key` and `variant`, corresponding to the two fields on the `Exposure` object argument. Finally, the event tracked must eventually end up in Amplitude Analytics for the same project that the [deployment] used to [initialize](#initialize) the SDK client lives within, and for the same user that variants were [fetched](#fetch) for.
 
 To utilize your custom user provider, set the `exposureTrackingProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
 
-=== "TODO"
-
-    ```todo
-    TODO Example Initialization
-    ```
+```js
+const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
+    userProvider: new CustomExposureTrackingProvider(),
+});
+```
