@@ -200,7 +200,7 @@ nav:
       - integrations/snowflake-export.md
     - integrations/converter-configuration-reference.md
   - Event Streaming Integrations:
-    - integrations/braze-event-streaming.md
+    - Braze (Beta): integrations/braze-event-streaming.md
     - integrations/google-pub-sub-event-streaming.md
     - Intercom (Beta): integrations/intercom-event-streaming.md
     - integrations/iterable-event-streaming.md

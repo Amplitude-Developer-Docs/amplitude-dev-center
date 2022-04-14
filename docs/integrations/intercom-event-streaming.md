@@ -3,7 +3,7 @@ title: Intercom Event Streaming (Beta)
 description: The Intercom integration lets you stream your Amplitude event data to Intercom with just a few clicks.
 ---
 
---8<-- "includes/beta.md"
+--8<-- "includes/closed-beta.md"
 
 Amplitude Data's Intercom integration lets you stream your Amplitude event data straight to Intercom with just a few clicks.
 
@@ -16,7 +16,7 @@ Keep these considerations in mind when streaming events to Intercom.
 - Intercom has a limit of 120 Event Types and 20 metadata (which are event properties) per Event Types. Be sure to select the events you want to forward to Intercom using the Event Filter while creating or editing the Event Streaming connection in Amplitude.
 - "[Intercom] event.created" is triggered whenever an event is created in Intercom, including through Amplitude's Event Streaming integration. If you don't want these to be stored in Amplitude, use [Block & Drop filters](https://help.amplitude.com/hc/en-us/articles/5078869299099-Filter-events-with-block-filters-and-drop-filters) to remove this event data from Amplitude.
 
-## Authentication & Configuration Instructions
+## Setup
 
 This integration requires configuration in Intercom and Amplitude.
 
