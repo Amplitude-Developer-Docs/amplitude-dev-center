@@ -1,5 +1,5 @@
 ---
-title: "JavaScript SDK"
+title: Analytics JavaScript SDK
 icon: material/language-javascript
 description: This is the official documentation for the Amplitude JavaScript SDK.
 ---

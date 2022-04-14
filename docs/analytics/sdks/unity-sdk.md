@@ -1,5 +1,5 @@
 ---
-title: Unity SDK
+title: Analtytics Unity SDK
 description: Amplitude Analytics Unity Plugin installation and quick start guide.
 icon: material/unity
 ---
