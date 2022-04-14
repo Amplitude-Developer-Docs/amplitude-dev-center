@@ -76,7 +76,7 @@ Make note of the role ARN, stream region, and stream name. You need these to set
 
 ### Amplitude setup
 
-Create a new Kinesis destination in Amplitude
+Create a Kinesis destination in Amplitude.
 
 1. In Amplitude, navigate to **Data Destinations** then find **Kinesis Data Stream - Event Stream**.
 2. Enter a sync name, then click **Create Sync**.

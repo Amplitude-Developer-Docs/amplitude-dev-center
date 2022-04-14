@@ -14,7 +14,7 @@ Keep these considerations in mind when streaming events to Intercom.
 - Amplitude sends the `user_id`, `created_at`, and `event_name` to Intercom.
 - A user must exist in Intercom in order to send events for them. Amplitude sends the event data with the `user_id`, which Intercom uses to associate the event with an existing user within Intercom. Make sure that the Intercom `user_id` and the Amplitude `user_id` match.
 - Intercom has a limit of 120 Event Types and 20 metadata (which are event properties) per Event Types. Be sure to select the events you want to forward to Intercom using the Event Filter while creating or editing the Event Streaming connection in Amplitude.
-- "[Intercom] event.created" is triggered whenever an event is created in Intercom, including through Amplitude's Event Streaming integration. If you don't want these to be stored in Amplitude, use [Block & Drop filters](https://help.amplitude.com/hc/en-us/articles/5078869299099-Filter-events-with-block-filters-and-drop-filters) to remove this event data from Amplitude.
+- If you have Intercom configured as a Data Source in Amplitude, "[Intercom] event.created" is triggered whenever an event is created in Intercom, including through Amplitude's Event Streaming integration. If you don't want these to be stored in Amplitude, use [Block & Drop filters](https://help.amplitude.com/hc/en-us/articles/5078869299099-Filter-events-with-block-filters-and-drop-filters) to remove this event data from Amplitude.
 
 ## Setup
 

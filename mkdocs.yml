@@ -204,7 +204,7 @@ nav:
     - integrations/google-pub-sub-event-streaming.md
     - Intercom (Beta): integrations/intercom-event-streaming.md
     - integrations/iterable-event-streaming.md
-    - integrations/kinesis-data-stream-event-streaming.md
+    - Kinesis Data Stream (Beta): integrations/kinesis-data-stream-event-streaming.md
     - integrations/kinesis-firehose-event-streaming.md
   - Other Integrations: 
     - integrations/shopify-plugin.md
