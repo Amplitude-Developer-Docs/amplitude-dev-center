@@ -1,5 +1,5 @@
 ---
-title: "Android SDK"
+title: "Analytics Android SDK"
 icon: material/android
 description: This is the official documentation for the Amplitude Android SDK. 
 ---
