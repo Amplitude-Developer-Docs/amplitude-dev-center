@@ -1,15 +1,19 @@
-name: Build site 
+name: Build Site
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches:
+      - main
 jobs:
-  upload:
+  build:
+    name: Deploy docs to GitHub Pages
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code to workspace
-      uses: actions/checkout@v2
-
-    - name: Build MkDocs code
-      uses: moonpathbg/mkdocs_builder@latest
-
+      - name: Checkout 
+        uses: actions/checkout@v2
+      - name: Build
+        uses: Tiryoh/actions-mkdocs@v0
+        with:
+          mkdocs_version: 'latest' # option
+          #mkdocs_version: '1.1' # option
+          requirements: 'requirements.txt' # option
+          configfile: 'mkdocs.yml' # option
