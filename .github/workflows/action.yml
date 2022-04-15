@@ -13,3 +13,17 @@ jobs:
         check-modified-files-only: 'yes'
         base-branch: 'main'
         config-file: '.github/workflows/link-check-config.json'
+name: Test Build
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code to workspace
+      uses: actions/checkout@v2
+
+    - name: Build MkDocs code
+      uses: ./.github/actions/material-build-main/
