@@ -1,7 +1,7 @@
 ---
 title: "Analytics Android SDK"
 icon: material/android
-description: This is the official documentation for the Amplitude Android SDK. 
+description: This is the official documentation for the Amplitude Android SDK.
 ---
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.amplitude%22%20AND%20a:%22android-sdk%22)
