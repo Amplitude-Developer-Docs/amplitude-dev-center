@@ -11,6 +11,8 @@ The Attribution API is for sending attribution campaign events (identified by `
 
 ## Endpoints
 
+
+
 | Region | Endpoint |
 | --- | --- |
 | Standard Server | <https://api2.amplitude.com/attribution> |
