@@ -133,17 +133,17 @@ extra:
 nav:
 - Analytics:
   - analytics/index.md
-  - Amplitude SDKs:
-    - analytics/sdks/android-sdk.md
-    - analytics/sdks/ios-sdk.md
-    - analytics/sdks/flutter-sdk.md
-    - analytics/sdks/javascript-sdk.md
-    - analytics/sdks/java-sdk.md
-    - analytics/sdks/node-sdk.md
-    - analytics/sdks/react-native-sdk.md
-    - analytics/sdks/unity-sdk.md
-    - analytics/sdks/unreal-sdk.md
-  - Amplitude API References:
+  - Analytics SDKs:
+    - Android SDK: analytics/sdks/android-sdk.md
+    - iOS SDK: analytics/sdks/ios-sdk.md
+    - Flutter SDK: analytics/sdks/flutter-sdk.md
+    - JavaScript SDK: analytics/sdks/javascript-sdk.md
+    - Java SDK: analytics/sdks/java-sdk.md
+    - Node.js SDK: analytics/sdks/node-sdk.md
+    - React Native SDK: analytics/sdks/react-native-sdk.md
+    - Unity SDK: analytics/sdks/unity-sdk.md
+    - Unreal SDK: analytics/sdks/unreal-sdk.md
+  - Analytics API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md
     - analytics/apis/behavioral-cohorts-api.md
@@ -208,8 +208,9 @@ nav:
     - integrations/kinesis-firehose-event-streaming.md
   - Other Integrations: 
     - integrations/shopify-plugin.md
-    - integrations/sending-cohorts.md
-
+    - integrations/sending-cohorts.md  
+- Resources:
+  - all-resources.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
