@@ -86,7 +86,7 @@ These integrations help you get data in and out of Amplitude Data.
 |Integration|Description|
 |---|----------|
 | [Shopify Plugin](../integrations/shopify-plugin.md)| |
-|[Sending Cohorts](../integrations/sending-cohorts.md)| |
+|[Recieving Cohorts from Amplitude](../integrations/sending-cohorts.md)| |
 
 ## Understanding Amplitude Data
 

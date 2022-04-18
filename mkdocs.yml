@@ -198,8 +198,8 @@ nav:
     - Redshift:
       - Redshift Export: integrations/redshift-export.md
     - Snowflake:
-      - Snowflake: integrations/snowflake-import.md
-      - Snowflake: integrations/snowflake-export.md
+      - Snowflake Import: integrations/snowflake-import.md
+      - Snowflake Export: integrations/snowflake-export.md
     - integrations/converter-configuration-reference.md
   - Event Streaming Integrations:
     - Braze (Beta): integrations/braze-event-streaming.md
