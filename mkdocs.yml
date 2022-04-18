@@ -185,23 +185,23 @@ nav:
     - data/sdks/jre-ampli.md 
   - Reverse ETL and Cloud Integrations:
     - Amazon S3:
-      - integrations/amazon-s3-import.md
-      - integrations/amazon-s3-export.md
+      - S3 Import: integrations/amazon-s3-import.md
+      - S3 Export: integrations/amazon-s3-export.md
       #- BigQuery:
       #  - integrations/bigquery-import.md
       #  - integrations/bigquery-export.md
     - Google Cloud Storage (GCS):
-      - integrations/google-cloud-storage-import.md
-      - integrations/google-cloud-storage-export.md
+      - GCS Import: integrations/google-cloud-storage-import.md
+      - GCS Export: integrations/google-cloud-storage-export.md
     - Redshift:
-      - integrations/redshift-export.md
+      - Redshift Export: integrations/redshift-export.md
     - Snowflake:
-      - integrations/snowflake-import.md
-      - integrations/snowflake-export.md
+      - Snowflake: integrations/snowflake-import.md
+      - Snowflake: integrations/snowflake-export.md
     - integrations/converter-configuration-reference.md
   - Event Streaming Integrations:
     - Braze (Beta): integrations/braze-event-streaming.md
-    - integrations/google-pub-sub-event-streaming.md
+    - Pub/Sub (Beta): integrations/google-pub-sub-event-streaming.md
     - Intercom (Beta): integrations/intercom-event-streaming.md
     - integrations/iterable-event-streaming.md
     - Kinesis Data Stream (Beta): integrations/kinesis-data-stream-event-streaming.md
