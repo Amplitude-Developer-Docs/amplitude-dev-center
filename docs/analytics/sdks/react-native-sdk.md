@@ -1,5 +1,5 @@
 ---
-title: React Native SDK
+title: Analytics React Native SDK
 description: Official documentation for the Amplitude Analytics React Native SDK.
 icon: fontawesome/brands/react
 ---

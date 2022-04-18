@@ -1,5 +1,5 @@
 ---
-title: Node.js SDK
+title: Analytics Node.js SDK
 description: Documentation for Amplitude Analytic's Node.js SDK installation and quick start guide. 
 icon: fontawesome/brands/node-js
 ---
