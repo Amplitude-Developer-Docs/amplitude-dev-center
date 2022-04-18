@@ -7,21 +7,21 @@ description: Set up a recurring or one-time export of Amplitude event data to Bi
 
 You can set up recurring syncs of your Amplitude event data to BigQuery through the Amplitude UI,  or manually initiate a sync of your historical data. This article outlines the process for connecting your Amplitude and BigQuery accounts, and then syncing your data.
 
-## Getting started
+## Prerequisites
 
-If you haven't already, [set up your BigQuery project and enable the BigQuery Transfer service](https://cloud.google.com/bigquery-transfer/docs/enable-transfer-service). Also, [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This will allow Amplitude to export your data to your Google Cloud project. Your service account should have the following roles enabled on it:
+To get started with exporting to BigQuery, you need the following: 
 
-- BigQuery User
-- BigQuery Data Editor
-- A [custom role](https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role) that has the following permissions enabled:
-  - `bigquery.transfers.get`
-  - `bigquery.transfers.update`
+- A [BigQuery project with the BigQuery Transfer service enabled](https://cloud.google.com/bigquery-transfer/docs/enable-transfer-service).
+- A [service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude. This lets Amplitude to export your data to your Google Cloud project. Your service account needs these roles enabled:
+   - BigQuery User
+   - BigQuery Data Editor
+   - A [custom role](https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role) that has the following permissions enabled:
+     - `bigquery.transfers.get`
+     - `bigquery.transfers.update`
 
-Once you've created a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
+After you've created a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
-Finally, you need admin privileges in Amplitude, as well as a role that allows you to enable resources in BigQuery.
-
-Set up a recurring data export to BigQuery
+## Set up a recurring data export to BigQuery
 
 Creating a recurring data export is a simple, three-step process. Each sync completes within ten minutes, and all jobs will be visible to you.
 
