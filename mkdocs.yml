@@ -207,7 +207,7 @@ nav:
     - Intercom (Beta): integrations/intercom-event-streaming.md
     - Iterable (Beta): integrations/iterable-event-streaming.md
     - Kinesis Data Stream (Beta): integrations/kinesis-data-stream-event-streaming.md
-    - integrations/kinesis-firehose-event-streaming.md
+    - Kinesis Firehose (Beta): integrations/kinesis-firehose-event-streaming.md
   - Other Integrations: 
     - integrations/shopify-plugin.md
     - integrations/sending-cohorts.md  
