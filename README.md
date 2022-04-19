@@ -21,7 +21,9 @@ This command installs almost every dependency.
 
 `pip install mkdocs-git-revision-date-plugin`
   
-### 3. (Optional) Install Local Link Checker
+### 3. (Optional) Install Local Link Checker 
+
+NOTE: This currently isn't working. Check back later. Waiting on the author to make fixes. 
    
 `npm install -g markdown-link-check`
   
@@ -31,7 +33,7 @@ This command installs almost every dependency.
   
   Vale is a style linter we use to help enforce consistency and accessibilty in our docs. Our style guide config is included in this repo. To use the linter, you need to install Vale.
   
-  `brew install vale` 
+  `brew install vale`
   
   After it's installed, you can run Vale in the terminal. See [Vale docs](https://docs.errata.ai/vale/cli). You can also install the plugin for your editor:
   - [Atom](https://github.com/errata-ai/vale-atom)
