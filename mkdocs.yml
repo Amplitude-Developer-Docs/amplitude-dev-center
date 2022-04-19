@@ -5,6 +5,10 @@ site_author: Amplitude
 site_description: >- 
     Developer resources for Amplitude's digital optimization products.
 
+# Repository
+repo_name: amplitude-dev-center
+repo_url: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center
+edit_uri: edit/main/docs/
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
 
@@ -12,6 +16,8 @@ copyright: Copyright &copy; 2022 Amplitude
 theme:
   name: material
   custom_dir: overrides
+  icon:
+    repo: fontawesome/brands/github
 
 
   # Don't include MkDocs' JavaScript
