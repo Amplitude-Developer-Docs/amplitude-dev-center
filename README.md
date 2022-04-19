@@ -79,7 +79,7 @@ After your PR is approved, we'll merge it. Merging to `main` publishes to the we
 
 [Vale Docs](https://docs.errata.ai/)
 
-## Known issues and hacks I don't feel bad about 
+## Known issues and hacks I don't feel bad about
 
 - **Two mkdocs config files**. Because of the way Insiders and config inheritance work, I had to make a config file for people who don't have Insiders and one for the build bot (which does have Insiders). This was intentional. Site builds should always use `insiders.mkdocs.yml`. If you want to know more, read the dissertation I wrote in `insiders.mkdocs.yml`.
 - **Column CSS classes**. Markdown tables are easier to write than HTML tables. However, column width is set by the width of the contents in the first cell for each column. This can lead to too-narrow column widths in some data tables (especially param tables). Because you can add HTML to markdown, I created some CSS classes to manually set the width in cases where it makes sense. Just wrap the contents of the column's table heading with a `<div class="big-column">` (180px) or <div class="med-column"> (100px) as needed. See `docs/stylesheets/extra.css` and search for "column width classes" for an explanation and the classes. 
