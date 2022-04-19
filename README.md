@@ -1,8 +1,5 @@
 # README
 
-**THIS IS A WORK IN PROGRESS. PING CASEY SMITH FOR HELP
-**
-
 This is the Amplitude Developer Center site.
 
 To get started with contributing, check out the [Developer Docs Confluence site](https://amplitude.atlassian.net/wiki/spaces/PT/pages/1751449830/Developer+Docs). There, you'll find more conceptual content, including style guides and markdown cheatsheets.
@@ -21,7 +18,7 @@ This command installs almost every dependency.
 
 `pip install mkdocs-git-revision-date-plugin`
   
-### 3. (Optional) Install Local Link Checker 
+### 3. (Optional) Install Local Link Checker
 
 NOTE: This currently isn't working. Check back later. Waiting on the author to make fixes. 
    
