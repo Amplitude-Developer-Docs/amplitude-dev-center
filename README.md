@@ -17,7 +17,7 @@ Anyone can suggest changes to our docs. Just open a PR with your changes!
 
 ### 1. Install Material
 
-This command installs almost every dependency. 
+This command installs almost every dependency.
 
 `pip install mkdocs-material`
 
