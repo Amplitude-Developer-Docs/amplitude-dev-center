@@ -8,7 +8,7 @@ icon: flutter
 
 This is the official documentation for the Amplitude Analytics Flutter SDK.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [Android SDK Reference :material-book:](https://pub.dev/documentation/amplitude_flutter/latest/)
     - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Flutter)
     - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Flutter/releases)

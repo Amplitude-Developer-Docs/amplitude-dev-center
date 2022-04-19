@@ -1,84 +1,68 @@
 ---
-id: using-the-ampli-cli
 title: Using the Ampli CLI
-description: Ampli is Iteratively’s command line app. It works hand-in-hand with the Iteratively web app and enables developers to quickly and correctly instrument tracking code in their apps.
+description: Ampli is Amplitude Data's command line app. It works hand-in-hand with the Amplitude Data web app and enables developers to quickly and correctly instrument tracking code in their apps.
 ---
 
-import Platforms from '../src/components/platforms'
+Ampli is Amplitude Data's command line app. It works hand-in-hand with the Amplitude Data web app and enables developers to quickly and correctly instrument tracking code in their apps.
 
-## Setting Up Ampli
-
-Ampli is Iteratively’s command line app. It works hand-in-hand with the Iteratively web app and enables developers to quickly and correctly instrument tracking code in their apps.
+## Set Up Ampli
 
 ### Step 1: Install Ampli
 
 You can install Ampli from Homebrew or NPM.
 
+=== "brew"
 
+    Add the `amplitude/ampli` tap and then install `ampli`. You only need to add the tap once.
 
-<Tabs
-  defaultValue="brew"
-  values={[
-    { label: 'Brew', value: 'brew', },
-    { label: 'NPM', value: 'npm', },
-  ]
-}>
-<TabItem value="brew">
+    ```
+    brew tap amplitude/ampli
+    brew install ampli
+    ```
 
-Add the `amplitude/ampli` tap and then install `ampli`. You only need to add the tap once.
+    To upgrade, run:
 
-```
-brew tap amplitude/ampli
-brew install ampli
-```
-To upgrade, run:
+    ```
+    brew upgrade ampli
+    ```
 
-```
-brew upgrade ampli
-```
+=== "npm"
 
-</TabItem>
-<TabItem value="npm">
+    ```
+    npm install -g @amplitude/ampli
+    ```
 
-```
-npm install -g @amplitude/ampli
-```
+    !!!note "Install Node & NPM"
+        We recommend installing Node via [Homebrew](https://brew.sh/) by running `brew install node`. Ampli requires v8.2.0+.
 
-:::note Install Node & NPM
-We recommend installing Node via [Homebrew](https://brew.sh/) by running `brew install node`. Ampli requires v8.2.0+.
-:::
-
-</TabItem>
-</Tabs>
-
-### Step 2: Initialize and connect Ampli and Iteratively
+### Step 2: Initialize and connect Ampli and Amplitude Data
 
 Now that you have Ampli installed, `cd` into your project's root folder and initialize it with:
 
 ```shell
 ampli pull
 ```
+
 A browser window will open and automatically log you in or prompt you for your credentials. Ampli will store your project-specific settings in `ampli.json` and your user-specific settings (such as your credentials) in `~/ampli.json`. Depending on your Amplitude organization settings, the CLI might prompt you to choose your Organization and/or Workspace.
 
 ### Step 3: Generate your analytics SDK
 
-Now that you're done setting Ampli up, you’re ready to generate your analytics SDK. The `ampli pull` command looks at the events and properties you've defined in your Iteratively account (this is also commonly referred to as a tracking plan) and auto-generates a matching type-safe analytics library for you to use.
+Now that you're done setting Ampli up, you’re ready to generate your analytics SDK. The `ampli pull` command looks at the events and properties you've defined in your Amplitude Data account (this is also commonly referred to as a tracking plan) and auto-generates a matching type-safe analytics library for you to use.
 
 ```shell
 ampli pull {source-name}
 ```
 
-The pull command takes one argument: the name of a source created in your Iteratively account. For example, a source might be `ios`, `android`, `web`, or `backend`. Events associated with a particular source will appear in the auto-generated SDK. Those that aren't will not. This makes sure your events are tracked consistently on all the sources you'd like to track them on.
+The pull command takes one argument: the name of a source created in your Amplitude Data account. For example, a source might be `ios`, `android`, `web`, or `backend`. Events associated with a particular source will appear in the auto-generated SDK. Those that aren't will not. This makes sure your events are tracked consistently on all the sources you'd like to track them on.
 
 The pull command will also tell you what, if anything, has changed since the last time you pulled your team's analytics spec. You can use this as a guide for getting your analytics instrumentation up-to-date.
 
-As your project progresses, you and your team will inevitably make changes to your tracking plan. Iteratively will notify you when those changes are made and when you’re ready, you can pull down the changes and incorporate them into your project.
+As your project progresses, you and your team will inevitably make changes to your tracking plan. Amplitude Data will notify you when those changes are made and when you’re ready, you can pull down the changes and incorporate them into your project.
 
 ### Step 4: Instrument your product
 
-Once you have pulled down the latest tracking plan, learn how to [instrument your product](/using-the-tracking-library).
+Once you have pulled down the latest tracking plan, learn how to [instrument your product](using-the-tracking-library.md).
 
-<Platforms/>
 
 ### Step 5: Verify the instrumentation
 
@@ -90,13 +74,14 @@ ampli status --update
 
 The verify command will scan your source code for tracking calls and compare the results to what's expected per your team's tracking plan. Include `--update` to update your company's tracking plan online and share the latest analytics implementation status with your team. If the command reports all green, you're all good!
 
-You can configure your [CI pipeline](/integrating-with-ci) to automatically run the `ampli status` command at check-in so you never miss another analytics bug again.
+You can configure your [CI pipeline](integrating-with-ci.md) to automatically run the `ampli status` command at check-in so you never miss another analytics bug again.
 
-Utilize the User Lookup page to view real time events sent from your source application. See [User Lookup](/user-lookup.md) resource guide.
+Utilize the User Lookup page to view real time events sent from your source application. See [User Lookup](user-lookup.md) resource guide.
 
 ## Ampli CLI Commands
 
 ### `ampli pull`
+
 Pull down the latest tracking plan and generate a tracking library.
 
 ```shell
@@ -143,6 +128,7 @@ the last published version will be used. If you'd like to generate a tracking li
 `-v {version}` and specify the tracking plan's version.
 
 ### `ampli status`
+
 Check the status of your instrumentation by linting (verifying) your source code for analytics.
 
 ```shell
@@ -167,13 +153,13 @@ scan your source files, locate all calls to the Itly tracking library, and
 let you know which events are being tracked, and which have yet to be
 instrumented.
 
-Include `-u` to update your company's tracking plan in Iteratively and share the latest analytics implementation status with your team. Your teammates will be able to tell when events were first implemented, the last time they've
+Include `-u` to update your company's tracking plan in Amplitude Data and share the latest analytics implementation status with your team. Your teammates will be able to tell when events were first implemented, the last time they've
 been detected in the source code, and where exactly in the source code they
 are tracked.
 
 If you're integrating Ampli into CI, there are typically two pipelines you'll want to run `ampli status` in:
 
-1. Your production branch pipeline that runs when pull/merge requests get merged into your main/default branch (typically main). To make sure the code being checked there is correct and from Iteratively's **main** branch, run `ampli status -u -b main`. If the Iteratively branch instrumented in your source code isn't **main**, the command will fail; otherwise, it will update the **main** branch's tracking plan.
+1. Your production branch pipeline that runs when pull/merge requests get merged into your main/default branch (typically main). To make sure the code being checked there is correct and from Amplitude Data's **main** branch, run `ampli status -u -b main`. If the Amplitude Data branch instrumented in your source code isn't **main**, the command will fail; otherwise, it will update the **main** branch's tracking plan.
 2. Your pull/merge request pipeline that runs when a pull/merge request is created for a branch. To verify instrumentation in this generic case, run `ampli status -u --skip-update-on-default-branch`. The command will verify against the current branch but will only update the tracking plan instrumentation status for branches other than **main**. This safely keeps status of events in development out of the main tracking plan.
 
 `ampli status` passes and returns an exit code of 0 if all events are tracked as expected, or fails and returns the number of events that aren't.
@@ -222,6 +208,7 @@ online tracking plan will be updated to match.
 For more details, visit [Importing & Exporting](/import-export-the-schema). -->
 
 ### `ampli init`
+
 Initialize your workspace.
 
 ```shell
@@ -239,6 +226,7 @@ EXAMPLES
 ```
 
 ### `ampli help`
+
 Display help for Ampli.
 
 ```shell
@@ -247,6 +235,7 @@ USAGE
 ```
 
 ### `ampli whoami`
+
 Display information about the user.
 
 ```shell
@@ -258,4 +247,5 @@ The `whoami` command displays information about the currently logged in
 user.
 
 ### All `ampli` Commands
+
 Find all `ampli` commands available [here](https://www.npmjs.com/package/@amplitude/ampli)

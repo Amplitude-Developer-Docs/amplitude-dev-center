@@ -47,6 +47,18 @@
 
 		{
 		"pattern": "/analytics/apis/http-v2-api/"
+		},
+
+		{
+		"pattern": "/../data/using-the-ampli-cli"
+		},
+
+		{
+		"pattern": "#keys-for-the-event-argument"
+		},
+
+		{
+		"pattern": "/analytics/dynamic-configuration"
 		}
 
 	]
