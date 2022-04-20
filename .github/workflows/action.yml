@@ -11,6 +11,6 @@ jobs:
       with:
         use-quiet-mode: 'yes'
         use-verbose-mode: 'yes'
-        config-file: 'lincheck-config.json'
+        config-file: 'linkcheck-config.json'
         folder-path: 'docs/'
         max-depth: 2
