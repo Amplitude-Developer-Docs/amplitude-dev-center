@@ -74,7 +74,7 @@ These integrations help you get data in and out of Amplitude Data.
 |Integration|Description|
 |----|----|
 |[Amazon Kinesis Data Stream](../integrations/kinesis-data-stream-event-streaming.md)|Stream your Amplitude event data straight to a Kinesis Data Stream.|
-|[Amazon Kinesis Firehose]()||
+|[Amazon Kinesis Firehose](../integrations/kinesis-firehose-event-streaming.md)|Stream your Amplitude event data straight to a Kinesis Firehose stream.|
 |[Braze](../integrations/braze-event-streaming.md)|Stream your Amplitude event data straight to Braze with just a few clicks.|
 |[Google Pub/Sub](../integrations/google-pub-sub-event-streaming.md)|Stream your Amplitude event data straight to Pub/Sub.|
 |[Intercom](../integrations/intercom-event-streaming.md)|Stream your Amplitude event data to Intercom with just a few clicks.|
@@ -85,8 +85,8 @@ These integrations help you get data in and out of Amplitude Data.
 
 |Integration|Description|
 |---|----------|
-| [Shopify Plugin](../integrations/shopify-plugin.md)| |
-|[Recieving Cohorts from Amplitude](../integrations/sending-cohorts.md)| |
+| [Shopify Plugin](../integrations/shopify-plugin.md)| Amplitude’s app with Shopify is a smart analytics app that automates eCommerce tracking. |
+|[Receiving Cohorts from Amplitude](../integrations/sending-cohorts.md)|Sync behavioral cohorts to other partner platforms through a series of REST API calls. |
 
 ## Understanding Amplitude Data
 
