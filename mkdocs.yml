@@ -9,6 +9,7 @@ site_description: >-
 repo_name: amplitude-dev-center
 repo_url: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center
 edit_uri: edit/main/docs/
+
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
 
@@ -111,7 +112,7 @@ extra:
   more_resources: all-resources
   analytics:
     provider: google
-    property: G-RS2BMQ4G0G
+    property: G-32PQ1PFKXZ
     feedback:
       title: Was this page helpful?
       ratings:
