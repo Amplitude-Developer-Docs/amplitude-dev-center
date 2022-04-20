@@ -9,7 +9,7 @@ Amplitude Data's Kinesis Data Stream integration lets you stream your Amplitude 
 
 ## Considerations
 
-David -- is ther anything people need to know
+- Amplitude sends the `user_id`, `event_name`, and `created_at`  along with all user, group, and event properties to Kinesis streams. 
 
 ## Setup
 

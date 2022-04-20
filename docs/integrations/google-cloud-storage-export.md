@@ -9,7 +9,7 @@ Amplitude users can now export Amplitude event data and merged user data to thei
 
 ## Create a GCS service account and set permissions
 
-If you haven't already, please [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This will allow Amplitude to export your data to your Google Cloud project.
+If you haven't already, please [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This allows Amplitude to export your data to your Google Cloud project.
 
 After you create a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
@@ -43,10 +43,10 @@ To set up a recurring export of your Amplitude data to GCS, follow these steps:
 
 4. Review the Event table and Merge IDs table schemas and click **Next**. 
 5. In the *Google Cloud Credentials For Amplitude* section, upload the Service Account Key file. This file must be in JSON format.
-6. After the account service key isuploaded, fill out the Google Cloud bucket details in the *Google Cloud Bucket Details* section.
+6. After the account service key is uploaded, fill out the Google Cloud bucket details in the *Google Cloud Bucket Details* section.
 7. Click **Next**. Amplitude attempts a test upload to ensure the entered credentials work. If the upload is successful, click **Finish** to complete the GCS destination configuration and activation.
 
-All future events/merged users will automatically be sent to GCS. Amplitude exports files to your GCS account every hour.
+All future events/merged users are automatically be sent to GCS. Amplitude exports files to your GCS account every hour.
 
 ## Exported data format
 
@@ -54,11 +54,11 @@ All future events/merged users will automatically be sent to GCS. Amplitude expo
 
 Data is exported hourly as zipped archive JSON files, and partitioned by the hour with one or multiple files per hour. Each file contains one event JSON object per line.
 
-File names will have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (ie. server_upload_time):
+File names have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (for example, `server_upload_time`):
 
 `projectID_yyyy-MM-dd_H#partitionInteger.json.gz`
 
-For example, the first partition of data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, will be found in the file:
+For example, the first partition of data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, is found in the file:
 
 `187520_2020-01-25_17#1.json.gz`
 
@@ -122,11 +122,11 @@ Here is the exported data JSON object schema:
 
 Data is exported hourly as zipped archive JSON files. Each file contains one merged Amplitude ID JSON object per line.
 
-File names will have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (ie. `server_upload_time`):
+File names have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (for example `server_upload_time`):
 
 `-OrgID_yyyy-MM-dd_H.json.gz`
 
-For example, data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, will be found in the file:
+For example, data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, is found in the file:
 
 `-189524_2020-01-25_17.json.gz`
 

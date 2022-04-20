@@ -9,7 +9,7 @@ Amplitude Data's Google Pub/Sub integration lets you stream your Amplitude event
 
 ## Considerations
 
-David is there anything folks need to know?
+- Amplitude sends the `user_id`, `event_name`, and `created_at`  along with all user, group, and event properties to Pub/Sub.
 
 ## Setup
 

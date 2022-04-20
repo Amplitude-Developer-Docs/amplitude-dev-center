@@ -3,9 +3,12 @@ title: BigQuery Export
 description: Set up a recurring or one-time export of Amplitude event data to BigQuery.
 ---
 
+
+--8<-- "includes/alpha-release.md"
+
 --8<-- "includes/editions-all-paid-editions.md"
 
-You can set up recurring syncs of your Amplitude event data to BigQuery through the Amplitude UI,  or manually initiate a sync of your historical data. This article outlines the process for connecting your Amplitude and BigQuery accounts, and then syncing your data.
+You can set up recurring syncs of your Amplitude event data to BigQuery through the Amplitude UI,  or manually start a sync of your historical data. This article outlines the process for connecting your Amplitude and BigQuery accounts, and then syncing your data.
 
 ## Prerequisites
 
@@ -27,22 +30,11 @@ Creating a recurring data export is a simple, three-step process. Each sync comp
 
 To set up a recurring export of your Amplitude data to BigQuery, follow these steps:
 
-1. Navigate to *Data Destinations*.
-2. Under *Add More Destinations ...*, click the BigQuery panel.
+1. In Amplitude, navigate to **Data Destinations**, then click **View more destinations**.
+2. Click **Big Query - Raw Events**.
+3. On the **Getting Started** tab, select the data you'd like to export. You can *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both.
+4. Review the schemas for the *Event* table and the *Merge IDs* table and click **Next**.
+5. Specify the BigQuery dataset to receive your Amplitude data, and upload the service account key file. This file must be in JSON format.
+6. Click **Next**. Amplitude attempts a test upload to ensure the entered credentials work. If the upload is successful, click **Finish** to complete the BigQuery destination configuration and activation.
 
-![image3.png](https://help.amplitude.com/hc/article_attachments/4416451511579/image3.png)
-
-The *Export Data to BigQuery* page will open to the *Getting Started* tab.
-
-1. Under *Export Data to BigQuery*, select the data you'd like to export.
-
-![image2.png](https://help.amplitude.com/hc/article_attachments/4416443987995/image2.png)
-
-1. Review the schemas for the *Event* table and the *Merge IDs* table and click *Next >*. The *Set Up Export* tab will open.
-2. In the *Google Cloud Credentials For Amplitude* section, specify the BigQuery dataset to receive your Amplitude data, and upload the service account key file. This file must be in JSON format.
-
-![image1.png](https://help.amplitude.com/hc/article_attachments/4416436180379/image1.png)
-
-1. When you're finished, click *Next >*. Amplitude will attempt a test upload to ensure the entered credentials work. If the upload is successful, click *Finish* to complete the BigQuery destination configuration and activation.
-
-All future events/merged users will automatically be sent to BigQuery. Amplitude will export files to your BigQuery account every hour. Additionally, you can set up backfills to export data that was sent to Amplitude before BigQuery export was set up.
+All future events/merged users are automatically sent to BigQuery. Amplitude exports files to your BigQuery account every hour. Additionally, you can set up backfills to export data that was sent to Amplitude before BigQuery export was set up.

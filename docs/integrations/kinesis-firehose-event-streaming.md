@@ -10,6 +10,7 @@ Amplitude Data's Kinesis Data Firehose integration lets you stream your Amplitud
 ## Considerations
 
 - You need an AWS account.
+- Amplitude sends the `user_id`, `event_name`, and `created_at`  along with all user, group, and event properties to Firehouse streams.
 
 ## Setup
 
