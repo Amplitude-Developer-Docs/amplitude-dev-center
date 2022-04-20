@@ -184,8 +184,13 @@ Use this feature if you want to achieve near real-time import with Amplitude Ama
 
 To enable the feature, you can either enable it when you create the source, or manage the data source and toggle **S3 Event Notification**.
 
+<<<<<<< HEAD
 ![image of the manage source modal with the event notifications toggle enabled](assets/../../assets/images/integrations-amazon-s3-manage-notifications.png)
 ![image of the S3 import source screen with the event notifications toggle](assets/../../assets/images/integrations-amazon-s3-connect-s3-screen.png)
+=======
+![image of the manage source modal with the event notifications toggle enabled](assets/../../assets/images/amazon-s3-manage-notifications.png)
+![image of the S3 import source screen with the event notifications toggle](assets/../../assets/images/amazon-s3-connect-s3-screen.png)
+>>>>>>> main
 
 ## Create the converter configuration
 

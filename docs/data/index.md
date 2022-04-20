@@ -106,4 +106,7 @@ Amplitude Data works with popular [analytics providers](using-the-tracking-libra
 ## More resources
 
 - *Help Center*: [Amplitude Data](https://help.amplitude.com/hc/en-us/categories/5078631395227-Amplitude-Data-Beta-)
+<<<<<<< HEAD
 - *Amplitude Academy*: [Getting Started with Amplitude Data (Course)](https://academy.amplitude.com/getting-started-with-amplitude-data)
+=======
+>>>>>>> main

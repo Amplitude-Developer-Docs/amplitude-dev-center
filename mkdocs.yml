@@ -5,6 +5,11 @@ site_author: Amplitude
 site_description: >- 
     Developer resources for Amplitude's digital optimization products.
 
+# Repository
+repo_name: amplitude-dev-center
+repo_url: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center
+edit_uri: edit/main/docs/
+
 # Copyright
 copyright: Copyright &copy; 2022 Amplitude
 
@@ -12,6 +17,8 @@ copyright: Copyright &copy; 2022 Amplitude
 theme:
   name: material
   custom_dir: overrides
+  icon:
+    repo: fontawesome/brands/github
 
 
   # Don't include MkDocs' JavaScript
@@ -107,7 +114,7 @@ extra:
   more_resources: all-resources
   analytics:
     provider: google
-    property: G-RS2BMQ4G0G
+    property: G-32PQ1PFKXZ
     feedback:
       title: Was this page helpful?
       ratings:
@@ -145,6 +152,9 @@ nav:
     - React Native SDK: analytics/sdks/react-native-sdk.md
     - Unity SDK: analytics/sdks/unity-sdk.md
     - Unreal SDK: analytics/sdks/unreal-sdk.md
+    - analytics/sdks/android-kotlin-sdk.md
+    - analytics/sdks/python-sdk.md
+    - analytics/sdks/typescript-browser-sdk.md
   - Analytics API References:
     - analytics/apis/attribution-api.md
     - analytics/apis/batch-event-upload-api.md

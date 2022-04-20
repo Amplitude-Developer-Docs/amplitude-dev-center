@@ -9,6 +9,7 @@ second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
 exceptions:
   - API
   - ASP
+  - CDN
   - CLI
   - CPU
   - CSS
@@ -70,4 +71,6 @@ exceptions:
   - UTC
   - CCPA
   - GDPR
+  - UTM
+  - UUID
 
