@@ -3,7 +3,7 @@ title: Converter Configuration Reference
 description: This reference covers examples and operators for the Amazon S3 Import converter configuration. 
 ---
 
-This reference covers examples and operators for the Amazon S3 Import converter configuration. See the [guide](amazon-s3-import.md).
+This reference covers examples and operators for the Amazon S3 Import and GCS converter configuration. See the [S3 guide](amazon-s3-import.md) or the [GCS guide](google-cloud-storage-import.md) for more information.
 
 ## convertToAmplitudeFunc
 

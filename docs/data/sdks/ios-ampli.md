@@ -5,7 +5,7 @@ description: Learn how to install and use the Ampli SDK for the iOS Swift and Ob
 ---
 
 !!! note
-    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/ios)**.
+    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/ios)**.
 
 Iteratively supports tracking analytics events from iOS apps written in Swift and Objective-C.
 

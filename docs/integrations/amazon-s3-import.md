@@ -3,10 +3,10 @@ title: Amazon S3 Import
 description: Use Amplitude's Amazon S3 Import to import event, group properties, and user properties into Amplitude from an Amazon AWS S3 bucket.
 ---
 
-## Overview
-
 With Amplitude’s Amazon S3 Import, you can import event, group properties, or user properties into your Amplitude projects from an AWS S3 bucket.
  Use Amazon S3 Import to backfill large amounts of existing data, connect existing data pipelines to Amplitude, and ingest large volumes of data where you need high throughput and latency is less sensitive.
+
+--8<-- "includes/editions-all-paid-editions.md"
 
 During setup, you configure conversion rules to control how events are instrumented.
  After Amazon S3 Import is set up and enabled, Amplitude's ingestion service continuously discovers data files in S3 buckets and then converts and ingest events.
@@ -184,8 +184,13 @@ Use this feature if you want to achieve near real-time import with Amplitude Ama
 
 To enable the feature, you can either enable it when you create the source, or manage the data source and toggle **S3 Event Notification**.
 
+<<<<<<< HEAD
+![image of the manage source modal with the event notifications toggle enabled](assets/../../assets/images/integrations-amazon-s3-manage-notifications.png)
+![image of the S3 import source screen with the event notifications toggle](assets/../../assets/images/integrations-amazon-s3-connect-s3-screen.png)
+=======
 ![image of the manage source modal with the event notifications toggle enabled](assets/../../assets/images/amazon-s3-manage-notifications.png)
 ![image of the S3 import source screen with the event notifications toggle](assets/../../assets/images/amazon-s3-connect-s3-screen.png)
+>>>>>>> main
 
 ## Create the converter configuration
 

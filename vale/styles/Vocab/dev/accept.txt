@@ -28,4 +28,5 @@ Onboarding
 CocoaPods
 Podfile
 podfile
-Beta
+untyped
+ampli

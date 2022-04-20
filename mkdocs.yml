@@ -32,7 +32,7 @@ theme:
     - content.code.annotate
     - content.tabs.link
     # - header.autohide
-    - navigation.expand
+    #- navigation.expand
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
@@ -50,6 +50,8 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - /javascripts/accessibe.js # Script for Accessibe. Don't remove without speaking to Legal
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - /javascripts/tablesort.js
 
 
 
@@ -193,14 +195,35 @@ nav:
     - data/sdks/ios-ampli.md
     - data/sdks/android-ampli.md
     - data/sdks/jre-ampli.md 
-
-  - Integrations:
-      - integrations/shopify-plugin.md
-      - integrations/sending-cohorts.md
-      - analytics/amazon-s3-import.md
-      - analytics/converter-configuration-reference.md
+  - Reverse ETL and Cloud Integrations:
+    - Amazon S3:
+      - S3 Import: integrations/amazon-s3-import.md
+      - S3 Export: integrations/amazon-s3-export.md
+    - BigQuery:
+      - BigQuery Import: integrations/bigquery-import.md
+      - BigQuery Export: integrations/bigquery-export.md
+    - Google Cloud Storage (GCS):
+      - GCS Import: integrations/google-cloud-storage-import.md
+      - GCS Export: integrations/google-cloud-storage-export.md
+    - Redshift:
+      - Redshift Export: integrations/redshift-export.md
+    - Snowflake:
+      - Snowflake Import: integrations/snowflake-import.md
+      - Snowflake Export: integrations/snowflake-export.md
+    - integrations/converter-configuration-reference.md
+  - Event Streaming Integrations:
+    - Braze (Beta): integrations/braze-event-streaming.md
+    - Pub/Sub (Beta): integrations/google-pub-sub-event-streaming.md
+    - Intercom (Beta): integrations/intercom-event-streaming.md
+    - Iterable (Beta): integrations/iterable-event-streaming.md
+    - Kinesis Data Stream (Beta): integrations/kinesis-data-stream-event-streaming.md
+    - Kinesis Firehose (Beta): integrations/kinesis-firehose-event-streaming.md
+  - Other Integrations: 
+    - integrations/shopify-plugin.md
+    - integrations/sending-cohorts.md  
 - Resources:
   - all-resources.md
+
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
 
