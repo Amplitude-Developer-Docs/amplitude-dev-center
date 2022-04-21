@@ -30,3 +30,4 @@ Podfile
 podfile
 untyped
 ampli
+allowlist
