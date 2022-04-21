@@ -27,7 +27,7 @@ Install the Experiment JavaScript Client SDK.
     yarn add @amplitude/experiment-js-client
     ```
 
-???tip "Quick Start"
+!!!tip "Quick Start"
 
     1. [Initialize the experiment client](#initialize)
     2. [Fetch variants for the user](#fetch)
@@ -58,10 +58,14 @@ Install the Experiment JavaScript Client SDK.
     }
     ```
 
-## Initialize
+## Core functions
 
-The SDK client should be initialized in your application on startup. The [deployment](../general/data-model.md#deployments) key argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
+The following functions make up the core of the Experiment client-side SDK.
 
+---
+### Initialize
+
+The SDK client should be initialized in your application on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```js
 initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
@@ -69,7 +73,7 @@ initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
-| `apiKey` | required | The [deployment](../general/data-model.md#deployments) key which authorizes fetch requests and determines which flags should be evaluated for the user. |
+| `apiKey` | required | The [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags should be evaluated for the user. |
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 The initializer returns a singleton instance, so subsequent initializations for the same instance name will always return the initial instance. To create multiple instances, use the `instanceName` [configuration](#configuration).
@@ -78,7 +82,7 @@ The initializer returns a singleton instance, so subsequent initializations for 
 const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 ```
 
-### Integrations
+#### Integrations
 
 If you use either Amplitude or Segment Analytics SDKs to track events into Amplitude, you'll want to set up an integration on initialization. Integrations automatically implement [provider](#providers) interfaces to enable a more streamlined developer experience by making it easier to **manage user identity** and **track exposures events**.
 
@@ -126,25 +130,26 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
     // TODO
     ```
 
-### Configuration
+#### Configuration
 
 The SDK client can be configured once on initialization.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
-    | `debug` | Enable additional debug logging within the SDK and add an option to all fetch requests for viewing in the UI request debugger. Must be disabled in production builds. | `false` |
-    | `fallbackVariant` | The default variant to fall back if the a variant for the provided key does not exist. | `{}` |
+    | `debug` | Enable additional debug logging within the SDK. Should be set to false in production builds. | `false` |
+    | `fallbackVariant` | The default variant to fall back if a variant for the provided key does not exist. | `{}` |
     | `initialVariants` | An initial set of variants to access. This field is valuable for bootstrapping the client SDK with values rendered by the server using server-side rendering (SSR). | `{}` |
     | `serverUrl` | The host to fetch variants from. | `https://api.lab.amplitude.com` |
     | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. | `10000` |
     | `retryFetchOnFailure` | Whether or not to retry variant fetches in the background if the request does not succeed. | `true` |
-    | `automaticExposureTracking` | If true, calling `variant()` will track an exposure event through the configured `exposureTrackingProvider`. If no exposure tracking provider is set, this configuration option does nothing. See [Exposure Tracking](https://developers.experiment.amplitude.com/docs/exposure-tracking) for more information about tracking exposure events. | `true` |
-    | `automaticFetchOnAmplitudeIdentityChange` | Only matters if you use the `initializeWithAmplitudeAnalytics` initialization function to seamlessly integrate with the Amplitude Analytics SDK.   If `true` any change to the user ID, device ID or user properties from analytics will trigger the experiment SDK to fetch variants and update it's cache. | `false` |
+    | `automaticExposureTracking` | If true, calling [`variant()`](#variant) will track an exposure event through the configured `exposureTrackingProvider`. If no exposure tracking provider is set, this configuration option does nothing.  | `true` |
+    | `automaticFetchOnAmplitudeIdentityChange` | Only matters if you use the `initializeWithAmplitudeAnalytics` initialization function to seamlessly integrate with the Amplitude Analytics SDK. If `true` any change to the user ID, device ID or user properties from analytics will trigger the experiment SDK to fetch variants and update it's cache. | `false` |
     | `userProvider` | An interface used to provide the user object to `fetch()` when called. See [Experiment User](https://developers.experiment.amplitude.com/docs/experiment-user#user-providers) for more information. | `null` |
     | `exposureTrackingProvider` | Implement and configure this interface to track exposure events through the experiment SDK, either automatically or explicitly. | `null` |
 
-## Fetch
+---
+### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
@@ -184,7 +189,8 @@ await experiment.fetch();
 !!!info "Timeout & Retries"
     If `fetch()` times out (default 10 seconds) or fails for any reason, the SDK client will return and retry in the background with back-off. You may configure the timeout or disable retries in the [configuration options](#configuration) when the SDK client is initialized.
 
-## Variant
+---
+### Variant
 
 Access a [variant](../general/data-model.md#variants) for a [flag or experiment](../general/data-model.md#flags-and-experiments) from the SDK client's local store.
 
@@ -197,7 +203,7 @@ variant(key: string, fallback?: string | Variant): Variant
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
-| `flagKey` | required | The flag key to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) to access the variant for. |
+| `key` | required | The **flag key** to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) to access the variant for. |
 | `fallback` | optional | The value to return if no variant was found for the given `flagKey`. |
 
 When determining which variant a user has been bucketed into, you'll want to compare the variant `value` to a well-known string.
@@ -231,7 +237,8 @@ if (variant === 'control') {
 }
 ```
 
-## All
+---
+### All
 
 Access all [variants](../general/data-model.md#variants) stored by the SDK client.
 
@@ -239,7 +246,8 @@ Access all [variants](../general/data-model.md#variants) stored by the SDK clien
 all(): Variants
 ```
 
-## Exposure
+---
+### Exposure
 
 Manually track an exposure event for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
 
@@ -249,7 +257,7 @@ exposure(key: string): void
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
-| `flagKey` | required | The flag key to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an exposure event for. |
+| `key` | required | The **flag key** to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an exposure event for. |
 
 ```js
 const variant = experiment.variant('<FLAG_KEY>');
@@ -264,6 +272,7 @@ if (variant === 'control') {
 }
 ```
 
+---
 ## Providers
 
 !!!tip "Integrations"
@@ -305,6 +314,19 @@ To utilize your custom user provider, set the `exposureTrackingProvider` [config
 
 ```js
 const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
-    userProvider: new CustomExposureTrackingProvider(),
+    exposureTrackingProvider: new CustomExposureTrackingProvider(),
+});
+```
+
+## Bootstrapping
+
+You may want to bootstrap the experiment client with an initial set of flags and variants when variants are obtained from an external source (i.e. not from calling `fetch()` on the SDK client). Use cases include [local evaluation](../general/evaluation/local-evaluation.md), [server-side rendering](../guides/server-side-rendering.md), or integration testing on specific variants.
+
+To bootstrap the client, set the flags and variants in the `initialVariants` [configuration](#configuration) object, then set the `source` to `Source.InitialVariants` so that the SDK client prefers the bootstrapped variants over any previously fetched & stored variants for the same flags.
+
+```js
+const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
+    initialVariants: { /* Flags and variants */ },
+    source: Source.InitialVariants,
 });
 ```

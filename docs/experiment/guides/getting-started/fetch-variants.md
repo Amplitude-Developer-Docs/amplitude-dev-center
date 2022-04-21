@@ -5,7 +5,7 @@ description: How to fetch flag and experiment variants for a user using various 
 
 You can fetch variants for a user using either the [Evaluation API]() or one of our [SDKs]().
 
-## Evaluation API
+## Evaluation REST API
 
 To evaluate a user for you flag you'll need to **fetch** variants. You can either set up an [SDK]() in your application or simply use the curl a request to our [Evaluation REST API]() to get started quickly. Use the following `curl` replacing `<USER_ID>` and `<EXPERIMENT_DEPLOYMENT_KEY>`, with the User ID and Deployment key respectively.
 

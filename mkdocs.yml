@@ -187,7 +187,7 @@ nav:
     - Android SDK: experiment/sdks/android-sdk.md
     - iOS SDK: experiment/sdks/ios-sdk.md
     - React Native SDK: experiment/sdks/react-native-sdk.md
-  - APIs:
+  - REST APIs:
     - experiment/apis/evaluation-api.md
     - experiment/apis/management-api.md
   # - Remove / Move:
