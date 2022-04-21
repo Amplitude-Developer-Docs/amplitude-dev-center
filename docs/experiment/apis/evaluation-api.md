@@ -1,9 +1,9 @@
 ---
 title: Evaluation API
-description: Retrieve variation assignment data for users with the Amplitude Experiment REST API. 
+description: Retrieve variation assignment data for users with the Amplitude Experiment REST API.
 ---
 
-The Amplitude Experiment REST API lets you retrieve variation assignment data for users. 
+The Amplitude Experiment REST API lets you retrieve variation assignment data for users.
 
 ## Authorization
 

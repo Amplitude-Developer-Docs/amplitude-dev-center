@@ -9,7 +9,7 @@ Evaluation refers to the act of determining which variant, if any, a user is buc
 
 ## Pre-targeting
 
-The pre-targeting steps may determine the evaluated variant prior to the targeting based on constant factors.
+The pre-targeting steps may determine the evaluated variant prior to targeting segments.
 
 ### Activation
 
@@ -38,7 +38,7 @@ A [flag or experiment](../data-model.md#flags-and-experiments) may have `0-n` ta
 
 ## All users segment
 
-The all users segment captures all users who do not match a targeting segment (if any are added). Users are bucketed into a variant (or no variant) via [consistent bucketing](#consistent-bucketing) based on the configured allocation percentage and variant distribution weights.
+The all users segment captures all users who do not match a [targeting segment](#targeting-segments) (if any are added). Users are bucketed into a variant (or no variant) via [consistent bucketing](#consistent-bucketing) based on the configured allocation percentage and variant distribution weights.
 
 ## Consistent bucketing
 

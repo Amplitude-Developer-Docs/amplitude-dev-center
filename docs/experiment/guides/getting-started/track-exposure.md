@@ -12,10 +12,10 @@ To keep things simple, we're going to track an [exposure event]() on the [Analyt
 ```
 curl --request POST \
      --url https://api2.amplitude.com/2/httpapi \
-     --data '{"api_key": "<ANALYTICS_API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
+     --data '{"api_key": "<API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
 ```
 
-* `<ANALYTICS_API_KEY>`: The analytics api key from project which you created your flag and deployment in.
+* `<API_KEY>`: The analytics api key from project which you created your flag and deployment in.
 * `<USER_ID>`: the user ID used to fetch variants.
 * `<FLAG_KEY>`: The flag key; `getting-started` if you're using the naming from this guide.
 * `<VARIANT>`: The variant key, `on` if you're using the default flag variant.
