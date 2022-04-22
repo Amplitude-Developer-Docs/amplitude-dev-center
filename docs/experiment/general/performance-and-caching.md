@@ -5,40 +5,36 @@ description: Information on Experiment's evaluation performance and experiment r
 
 Amplitude Experiment [evaluation](./evaluation/implementation.md) supports two modes, [local](./evaluation/local-evaluation.md) and [remote](./evaluation/remote-evaluation.md), each with different performance metrics and tradeoffs.
 
-## Remove evaluation
+## Performance
+
+### Remove evaluation
 
 [Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance. In short, remote evaluation performance relies on optimizing hits on the CDN.
-
-### Performance
 
 | Cache | Average | P95 | % of Requests |
 | --- | --- | --- | --- |
 | HIT | 0.15ms | <1ms | 60% |
 | MISS | 220ms | 370ms | 40% |
 
-TODO: Update numbers -- is it really correct to say that a cache hit resolves in < ms? network latency from the caller would be much higher than that.
-
-## Local evaluation
+### Local evaluation
 
 [Local evaluation](./evaluation/local-evaluation.md) pre-fetches flag configurations used as input to evaluation for all users.
 Since a network request is not required per user evaluation, and performance depends mostly on the hardware and SDK (language) used.
 
-### Performance
-
-The following results were collected over 10 executions of 10,000 iterations of evaluation with randomized user inputs evaluated for 1 of 3 flag configurations selected at random.
+The following results were collected over 10 executions of 10,000 iterations of evaluation with randomized user inputs evaluated for 1 flag configuration, selected at random out of 3 possible flag configurations.
 
 | SDK | Average | Median | Cold Start |
 | --- | --- | --- | --- |
-| Node.js | 0.40ms | 0.38ms | 15ms |
-
-TODO: Update numbers and add languages -- rerun benchmarks for updated optimized package and benchmark Java & Go
+| [:material-nodejs: Node.js](../sdks/nodejs-sdk.md) | 0.025ms | 0.018ms | 3ms |
 
 ## CDN caching
 
+!!!info "Content Delivery Network"
+    * A CDN (Content Delivery Network) refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
+    * CDN caching policy is only relevant to [remote evaluation](./evaluation/remote-evaluation.md) performance.
+
 After a response for a request has been computed and retrieved, it's cached so it can be reused to make future requests faster. Experiment uses a CDN to cache the experiments and feature flags for a user for low latency access on subsequent requests.
 
-!!!info "Content Delivery Network"
-    A CDN (Content Delivery Network) refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
 
 ### Cache time-to-live (TTL)
 

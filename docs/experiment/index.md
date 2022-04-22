@@ -43,56 +43,27 @@ That said, we can generally segment experimentation and feature-flagging systems
 
 Client-side experimentation and feature-flagging involves the client making a request to fetch flags and experiments from Amplitude's [remote evaluation]() servers when the application is initialized.
 
-```mermaid
-flowchart LR
-  sdk -->|"1. Fetch Variants"| experiment
-  sdk -->|"3. Track Exposure"| analytics
-  subgraph client [Client Application]
-    sdk[SDK]
-    sdk -->|"2. Store Variants"| sdk
-  end
-  subgraph amplitude [Amplitude]
-  direction TB
-    experiment[Experiment]
-    analytics[Analytics]
-  end
-```
-
-1. Client-side application fetches variants for the user from Amplitude Experiment's remote evaluation servers.
-2. Variants are stored client-side for quick session agnostic access.
-3. Application accesses a variant for a flag/experiment which triggers tracking an Exposure event to Amplitude analytics..
+![Client-side experimentation diagram.](../assets/images/experiment/client-side-overview.drawio.svg)
 
 ### Server-side
 
-!!!info "Simple and flexible APIs & SDKs made to fit into any system."
-
 #### Remote evaluation
+
+!!!info "Simple and flexible API & SDKs made to fit into any system."
+
+<!-- !!!caution "May have trouble scaling in high volume systems." -->
 
 Server-side [remote evaluation]() involves making a request from your server to Amplitude Experiment's evaluation servers to fetch variants for a user. The resulting variants may be used directly on the server or passed back for use on the client (or any other part of your system).
 
-```mermaid
-flowchart LR
-  sdkapi[SDK or REST API] -->|"Fetch Variants"| experiment
-  subgraph server [Customer Server]
-    sdkapi[SDK or REST API]
-  end
-  subgraph amplitude [Amplitude]
-    experiment[Experiment]
-  end
-```
+![Server-side remote evaluation experimentation diagram.](../assets/images/experiment/server-side-remote-overview.drawio.svg)
 
 #### Local evaluation (alpha)
 
+!!!tip "Fast evaluation for performance minded systems."
+
+<!-- !!!caution "Unable to utilized advanced targeting powered by historical analytics data." -->
+
 Server-side [local evaluation]() runs the evaluation logic on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation]() is perfect for latency-minded systems which need to be performant at scale. However, since evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics is not possible.
 
-```mermaid
-flowchart LR
-  sdk -->|"Poll Flag Configs"| experiment
-  subgraph server [Customer Server]
-    sdk[SDK]
-    sdk -->|"Evaluate Variants for User"| sdk
-  end
-  subgraph amplitude [Amplitude]
-    experiment[Experiment]
-  end
-```
+![Client-side local evaluation experimentation diagram.](../assets/images/experiment/server-side-local-overview.drawio.svg)
+
