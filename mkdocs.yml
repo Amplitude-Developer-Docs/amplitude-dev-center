@@ -32,11 +32,7 @@ theme:
     - content.code.annotate
     - content.tabs.link
     # - header.autohide
-<<<<<<< HEAD
     # - navigation.expand
-=======
-    #- navigation.expand
->>>>>>> main
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
