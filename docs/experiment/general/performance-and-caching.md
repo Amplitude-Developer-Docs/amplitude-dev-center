@@ -3,9 +3,11 @@ title: Performance & Caching
 description: Information on Experiment's evaluation performance and experiment results caching infrastructure.
 ---
 
-Amplitude Experiment [evaluation]() supports two modes, [local]() and [remote](), each with different performance metrics and tradeoffs.
+Amplitude Experiment [evaluation](./evaluation/implementation.md) supports two modes, [local](./evaluation/local-evaluation.md) and [remote](./evaluation/remote-evaluation.md), each with different performance metrics and tradeoffs.
 
 ## Remove evaluation
+
+[Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance. In short, remote evaluation performance relies on optimizing hits on the CDN.
 
 ### Performance
 
@@ -16,25 +18,12 @@ Amplitude Experiment [evaluation]() supports two modes, [local]() and [remote]()
 
 TODO: Update numbers -- is it really correct to say that a cache hit resolves in < ms? network latency from the caller would be much higher than that.
 
-### Architecture
-
-- CDN: All requests to our servers are routed through our CDN provider, [Fastly](fastly.com).
-- Reliable AWS services: We use Application Load Balancer, Relational Databases, and DynamoDB which guarantee high availability.
-
-TODO: Redo diagram
-
-![Experiment Evaluation Architecture]( /../../assets/images/experiment-architecture.png)
-
---8<-- "includes/abbreviations.md"
-
-!!!info "Best Practice"
-    On the rare occurrence that our systems go down, we recommend using local defaults for all your experiments.
-
 ## Local evaluation
 
-### Performance
+[Local evaluation](./evaluation/local-evaluation.md) pre-fetches flag configurations used as input to evaluation for all users.
+Since a network request is not required per user evaluation, and performance depends mostly on the hardware and SDK (language) used.
 
-Local evaluation does not require a network request per user evaluation, and therefore performance depends mostly on the hardware and SDK (language) used.
+### Performance
 
 The following results were collected over 10 executions of 10,000 iterations of evaluation with randomized user inputs evaluated for 1 of 3 flag configurations selected at random.
 
@@ -43,10 +32,6 @@ The following results were collected over 10 executions of 10,000 iterations of 
 | Node.js | 0.40ms | 0.38ms | 15ms |
 
 TODO: Update numbers and add languages -- rerun benchmarks for updated optimized package and benchmark Java & Go
-
-### Architecture
-
-TODO
 
 ## CDN caching
 

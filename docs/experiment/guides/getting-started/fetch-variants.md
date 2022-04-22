@@ -1,6 +1,7 @@
 ---
 title: Fetch Variants
 description: How to fetch flag and experiment variants for a user using various methods.
+template: guide.html
 ---
 
 You can fetch variants for a user using either the [Evaluation API]() or one of our [SDKs]().

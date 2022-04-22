@@ -1,6 +1,7 @@
 ---
 title: Track Exposure
 description: How to track an exposure event for the variant which a user has been exposed to.
+template: guide.html
 ---
 
 [Exposure tracking]() plays a key role in tracking if and when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags don't require any analysis; however, it is essential when running experiment, since accurate exposure tracking is crucial for reliable results.
@@ -15,7 +16,7 @@ curl --request POST \
      --data '{"api_key": "<API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
 ```
 
-* `<API_KEY>`: The analytics api key from project which you created your flag and deployment in.
+* `<API_KEY>`: The analytics API key from project which you created your flag and deployment in.
 * `<USER_ID>`: the user ID used to fetch variants.
 * `<FLAG_KEY>`: The flag key; `getting-started` if you're using the naming from this guide.
 * `<VARIANT>`: The variant key, `on` if you're using the default flag variant.
