@@ -7,7 +7,9 @@ Amplitude Experiment [evaluation](./evaluation/implementation.md) supports two m
 
 ## Performance
 
-### Remove evaluation
+Evaluation performance depends on what type of evaluation is used.
+
+### Remote evaluation
 
 [Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance. In short, remote evaluation performance relies on optimizing hits on the CDN.
 
@@ -18,8 +20,7 @@ Amplitude Experiment [evaluation](./evaluation/implementation.md) supports two m
 
 ### Local evaluation
 
-[Local evaluation](./evaluation/local-evaluation.md) pre-fetches flag configurations used as input to evaluation for all users.
-Since a network request is not required per user evaluation, and performance depends mostly on the hardware and SDK (language) used.
+[Local evaluation](./evaluation/local-evaluation.md) pre-fetches flag configurations which are then used to evaluate all users, saving a network request and speeding up evaluation compared to remote evaluation.
 
 The following results were collected over 10 executions of 10,000 iterations of evaluation with randomized user inputs evaluated for 1 flag configuration, selected at random out of 3 possible flag configurations.
 

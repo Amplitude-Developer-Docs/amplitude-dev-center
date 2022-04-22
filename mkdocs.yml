@@ -179,12 +179,12 @@ nav:
 - Experiment:
   - experiment/index.md
   - General:
-    - experiment/general/performance-and-caching.md
     - experiment/general/data-model.md
     - Evaluation:
       - Implementation: experiment/general/evaluation/implementation.md
       - experiment/general/evaluation/remote-evaluation.md
       - experiment/general/evaluation/local-evaluation.md
+    - experiment/general/performance-and-caching.md
     - experiment/general/exposure-tracking.md
   - Guides:
     - Getting Started:
