@@ -30,3 +30,8 @@ AWS
 CocoaPods
 Podfile
 podfile
+<<<<<<< HEAD
+=======
+untyped
+ampli
+>>>>>>> main

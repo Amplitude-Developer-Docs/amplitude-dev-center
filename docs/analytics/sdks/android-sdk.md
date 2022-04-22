@@ -1,14 +1,14 @@
 ---
 title: "Analytics Android SDK"
 icon: material/android
-description: This is the official documentation for the Amplitude Android SDK. 
+description: This is the official documentation for the Amplitude Android SDK.
 ---
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.amplitude%22%20AND%20a:%22android-sdk%22)
 
 This is the official documentation for the Amplitude Android SDK.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/)
     - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Android)
     - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Android/releases)
@@ -970,7 +970,7 @@ Second, add the following code in your root activity's onCreate life cycle.
 
 ### Dynamic Configuration
 
-Android SDK allows users to configure their apps to use [dynamic configuration](analytics/dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
+Android SDK allows users to configure their apps to use [dynamic configuration](/analytics/dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, leave dynamic configuration off.
 - If you have users in China Mainland, then we recommend using dynamic configuration.

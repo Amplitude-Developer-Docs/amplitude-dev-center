@@ -9,7 +9,7 @@ icon: fontawesome/brands/react
 
 This is the official documentation for the Amplitude Analytics React Native SDK.
 
-???info "SDK Resources"
+!!!info "SDK Resources"
     - [React SDK Reference :material-book:](https://amplitude.github.io/Amplitude-ReactNative/)
     - [React SDK Repository :material-github:](https://github.com/amplitude/Amplitude-ReactNative)
     - [React SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-ReactNative/releases)

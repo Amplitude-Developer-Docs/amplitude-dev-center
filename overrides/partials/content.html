@@ -27,11 +27,22 @@ as the main headline.
 {{ page.content }}
 
 <!-- Was this page helpful? -->
+<<<<<<< HEAD
+=======
+<!--{% include "partials/feedback.html" %} -->
+>>>>>>> main
 
 <!-- Source file information -->
+
 {% if page and page.meta and (
 page.meta.git_revision_date_localized or
 page.meta.revision_date
 ) %}
+<<<<<<< HEAD
 <!-- {% include "partials/source-file.html" %} -->
 {% endif %}
+=======
+{% include "partials/source-file.html" %}
+{% endif %}
+<a href="https://github.com/Amplitude-Developer-Docs/amplitude-doc-issues/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}" target=_blank" class="feedback-link">Report an issue with this page</a>
+>>>>>>> main

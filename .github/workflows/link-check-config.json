@@ -41,6 +41,22 @@
 
 		{
 		"pattern": "/analytics/apis/http-v2-api/"
+		},
+
+		{
+		"pattern": "/using-the-ampli-cli"
+		},
+
+		{
+		"pattern": "#keys-for-the-event-argument"
+		},
+
+		{
+		"pattern": "/analytics/dynamic-configuration"
+		},
+
+		{
+		"pattern": "/data/deprecated-sdks/ios"
 		}
 	]
 }
