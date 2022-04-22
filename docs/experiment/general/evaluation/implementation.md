@@ -47,7 +47,7 @@ Amplitude Experiment's bucketing is consistent based on the user, bucketing key,
 | <div class='med-big-column'> Input </div> | Description |
 | --- | --- |
 | Bucketing Key | The key which determines which user property value to use as the bucketing value. The bucketing value is what is actually used as input to the [hashing](#hashing) function. |
-| Bucketing Salt | A string which is concatenated to the bucketing value before [hashing](#hashing). The bucketing salt is randomly generated once when the flag or experiment is created and used indefinitely unless you explicitly update the salt. |
+| Bucketing Salt | A string which is concatenated to the bucketing value before [hashing](#hashing). The bucketing salt is randomly generated when the flag or experiment is created and used indefinitely unless explicitly updated. |
 | Allocation | The percentage of all users included in the segment who should receive a variant. Used in the [allocation bucketing](#allocation-bucketing) step. |
 | Variant Weights | A weight given for each variant. Applied only to the percentage included by the allocation percentage. Used in the [variant bucketing](#variant-bucketing) step. |
 

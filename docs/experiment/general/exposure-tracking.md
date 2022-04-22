@@ -8,7 +8,7 @@ An exposure event is an analytics event sent to Amplitude in order to inform Amp
 When an [exposure event](#exposure-event) is ingested by Amplitude, the flag key and variant are used to **set or unset user properties** on the user associated with the event. Setting user properties is essential for experiment analysis queries on primary and secondary success metrics.
 
 !!!info "Event Volume"
-    Amplitude defined [exposure events](#exposure-event) **do not count** toward your organization's event volume.
+    Amplitude defined [exposure events](#exposure-event) **do not count** toward your organization's event volume billing.
 
 ## Automatic exposure tracking
 
@@ -43,12 +43,12 @@ The exposure event has been designed to be simple and ergonomic enough to be sen
     ```bash
     curl --request POST \
         --url https://api2.amplitude.com/2/httpapi \
-        --data '{"api_key": "<API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
+        --data '{"api_key": "<ANALYTICS_API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
     ```
 
-| <div class='med-column'>Variable</div> | Description |
+| <div class='big-column'>Variable</div> | Description |
 | --- | --- |
-| `<API_KEY>` | The analytics api key from project which you created your flag and deployment in. |
+| `<ANALYTICS_API_KEY>` | The analytics api key from project which you created your flag and deployment in. |
 | `<USER_ID>`| The user ID used to identify the user. This should be the same user whose variants were previously fetched. |
 | `<FLAG_KEY>` | The key used to identify which [flag or experiment](./data-model.md#flags-and-experiments) the user is being exposed to. |
 | `<VARIANT>` | The [variant](#variant) value that the user is exposed to for the flag or experiment. |

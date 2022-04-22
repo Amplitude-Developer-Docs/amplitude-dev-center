@@ -11,7 +11,7 @@ Evaluation performance depends on what type of evaluation is used.
 
 ### Remote evaluation
 
-[Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance. In short, remote evaluation performance relies on optimizing hits on the CDN.
+[Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance.
 
 | Cache | Average | P95 | % of Requests |
 | --- | --- | --- | --- |
@@ -47,7 +47,7 @@ The CDN caches the exact request received, including user information. In short,
 
 ### Cache invalidation
 
-To make sure you don't get stale results when your underlying flags have changed, we invalidate (delete) cached results for an entire deployment whenever a flag or experiment associated with that deployment is updated. I other words, as our SDKs retrieve results for all experiments and feature flags for a given deployment for a user, we invalidate all results for a given deployment every time there's a change in even a single flag associated with a deployment. We also invalidate all requests cached for a deployment every time the deployment is added to a flag or removed from a flag.
+To make sure you don't get stale results when your underlying flags have changed, we invalidate (delete) cached results for an entire deployment whenever a flag or experiment associated with that deployment is updated. In other words, as our SDKs retrieve results for all experiments and feature flags for a given deployment for a user, we invalidate all results for a given deployment every time there's a change in even a single flag associated with a deployment. We also invalidate all requests cached for a deployment every time the deployment is added to a flag or removed from a flag.
 
 ### Dynamic targeting cache considerations
 
@@ -62,7 +62,7 @@ Amplitude Experiment's remote evaluation servers allow for targeting based on us
 
 #### Behavioral cohorts
 
-You may want to use behavior cohorts defined in Amplitude Analytics in your flag and experiment targeting. Since experiment cohorts are computed hourly, and the CDN cache TTL is also hourly, a user may be delayed from being targeted to a variant for up-to 2 hours in the worst case.
+You may want to use behavioral cohorts defined in Amplitude Analytics in your flag and experiment targeting. Since experiment cohorts are computed hourly, and the CDN cache TTL is also hourly, a user may be delayed from being targeted to a variant for up-to 2 hours in the worst case.
 
 !!!info "Best Practice"
     We recommend only using dynamic cohort targeting for flags and experiments where the inclusion in a variant of a flag is not time-sensitive.

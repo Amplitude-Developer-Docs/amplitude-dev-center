@@ -4,6 +4,8 @@ description: How to create a feature flag, add a deployment, configure targeting
 template: guide.html
 ---
 
+To create a [flag](../../general/data-model.md#flags-and-experiments), first navigate to the "Flags" screen in the left navigation bar.
+
 1. From the Flags screen in Experiment, select your target project from the dropdowns.
 2. Click **Create Flag**.
 3. Enter a **Name** for the flag (e.g. `Getting Started`).
@@ -13,14 +15,14 @@ template: guide.html
 
 ### Add a deployment
 
-Once you've created the flag, you'll need to add a deployment. To add a deployment, click the selection drop down in the upper right corner of the screen and select the deployment you created previously.
+Once you've created the flag, you'll need to add a [deployment](../../general/data-model.md#deployments). To add a deployment, click the selection drop down in the upper right corner of the screen and select the deployment you created previously.
 
 !!!tip "Multiple Deployments"
     You may select multiple deployments in the dropdown if you want to target multiple deployments. E.g. if you are running an experiment on both your iOS and Android apps, you should create separate deployments for each and select both in the multi-deployment experiment.
 
 ### Define variants
 
-After you have created your flag, you are ready to define its variants. A flag will contain an initial variant, "on", by default. If you are rolling out more than one variant of a feature, add variants using the **Create Variant** button. Make sure to add descriptions to your variants so that your team members can follow along.
+After you have created your flag, you are ready to define its [variants](../../general/data-model.md#variants). A flag will contain an initial variant, "on", by default. If you are rolling out more than one variant of a feature, add variants using the **Create Variant** button. Make sure to add descriptions to your variants so that your team members can follow along.
 
 !!!info "Your flag must have at least one variant."
 

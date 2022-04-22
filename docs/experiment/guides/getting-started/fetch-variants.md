@@ -4,11 +4,11 @@ description: How to fetch flag and experiment variants for a user using various 
 template: guide.html
 ---
 
-You can fetch variants for a user using either the [Evaluation API]() or one of our [SDKs]().
+You can fetch variants for a user using either the [Evaluation REST API](../../apis/evaluation-api.md) or one of our [SDKs](../../index.md#sdks).
 
 ## Evaluation REST API
 
-To evaluate a user for you flag you'll need to **fetch** variants. You can either set up an [SDK]() in your application or simply use the curl a request to our [Evaluation REST API]() to get started quickly. Use the following `curl` replacing `<USER_ID>` and `<EXPERIMENT_DEPLOYMENT_KEY>`, with the User ID and Deployment key respectively.
+To evaluate a user for you flag you'll want to **fetch** variants from our [remote evaluation](../../general/evaluation/remote-evaluation.md) servers. Use the following `curl` replacing `<USER_ID>` and `<EXPERIMENT_DEPLOYMENT_KEY>`, with the User ID and Deployment key respectively.
 
 ```
 curl --request GET \
@@ -22,6 +22,6 @@ You should see the following JSON in the response body:
 {"getting-started":{"key":"on"}}
 ```
 
-## SDK
+## SDKs
 
-TODO
+[Experiment SDKs](../../index.md#sdks) make it even easier to fetch variants for a user. Client-side SDKs are especially useful for storing pre-fetched variants on the client-side for zero latency variant access.
