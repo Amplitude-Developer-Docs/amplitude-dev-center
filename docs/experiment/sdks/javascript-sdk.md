@@ -34,8 +34,6 @@ Install the Experiment JavaScript Client SDK.
     3. [Access a flag's variant](#variant)
 
     ```js
-    import { Experiment } from '@amplitude/experiment-js-client';
-
     // (1) Initialize the experiment client
     const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 
@@ -108,11 +106,7 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
     Experiment's integration with Segment Analytics is still a manual implementation at this point. Copy the exposure tracking provider implementation into your app code base and initialize the Experiment SDK with the provider instances in the configuration.
 
-    ```js title="segment.ts"
-    class SegmentUserProvider implements ExperimentUserProvider {
-        // TODO
-    }
-
+    ```js title="SegmentExposureTrackingProvider"
     class SegmentExposureTrackingProvider implements ExposureTrackingProvider {
         private analytics: Analytics;
         constructor(analytics: Analytics) {
@@ -265,7 +259,7 @@ all(): Variants
 ---
 ### Exposure
 
-Manually track an exposure event for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
+Manually track an [exposure event](../general/exposure-tracking.md#exposure-event) for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
 
 ```js
 exposure(key: string): void
@@ -273,7 +267,7 @@ exposure(key: string): void
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
-| `key` | required | The **flag key** to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an exposure event for. |
+| `key` | required | The **flag key** to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an [exposure event](../general/exposure-tracking.md#exposure-event) for. |
 
 ```js
 const variant = experiment.variant('<FLAG_KEY>');

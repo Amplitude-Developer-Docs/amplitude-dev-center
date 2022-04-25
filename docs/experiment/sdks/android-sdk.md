@@ -4,7 +4,7 @@ description: Official documentation for Amplitude Experiment's Client-side Andro
 icon: material/android
 ---
 
-Official documentation for Amplitude Experiment's Client-side JavaScript SDK implementation.
+Official documentation for Amplitude Experiment's Client-side Android SDK implementation.
 
 !!!info "SDK Resources"
     [:material-github: Github](https://github.com/amplitude/experiment-android-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-android-client/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-android-client/)
@@ -52,7 +52,7 @@ dependencies {
                     e.printStackTrace();
                 }
 
-                // (4) Lookup a flag's variant
+                // (3) Lookup a flag's variant
                 Variant variant = client.variant("<FLAG_KEY>");
                 if (variant.is("on")) {
                     // Flag is on
@@ -87,7 +87,7 @@ dependencies {
                     e.printStackTrace()
                 }
 
-                // (4) Lookup a flag's variant
+                // (3) Lookup a flag's variant
                 val variant = client.variant("<FLAG_KEY>")
                 if (variant.value == "on") {
                     // Flag is on
@@ -185,8 +185,8 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
                 analytics.track(
                         "$exposure",
                         new Properties()
-                        .putValue("flag_key", exposureEvent.flagKey)
-                        .putValue("variant", exposureEvent.variant));
+                            .putValue("flag_key", exposure.flagKey)
+                            .putValue("variant", exposure.variant));
             }
         }
         ```
@@ -455,14 +455,14 @@ A `null` variant `value` means that the user has not been bucketed into a varian
 
 Access all [variants](../general/data-model.md#variants) stored by the SDK client.
 
-```js
+```kotlin
 fun all(): Map<String, Variant>
 ```
 
 ---
 ### Exposure
 
-Manually track an exposure event for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
+Manually track an [exposure event](../general/exposure-tracking.md#exposure-event) for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
 
 ```kotlin
 fun exposure(key: String)
@@ -470,7 +470,7 @@ fun exposure(key: String)
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
-| `key` | required | The **flag key** to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an exposure event for. |
+| `key` | required | The **flag key** to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an [exposure event](../general/exposure-tracking.md#exposure-event) for. |
 
 === "Java"
 
