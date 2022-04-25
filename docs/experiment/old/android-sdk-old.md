@@ -4,6 +4,7 @@ description: Official documentation for implementing and using Amplitude Experim
 icon: material/android
 ---
 
+![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-android-client.svg?label=Maven%20Central)
 
 Implement Amplitude Experiment's client-side Android SDK.
 
@@ -14,8 +15,6 @@ Implement Amplitude Experiment's client-side Android SDK.
     - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/experiment-android-client/releases)
 
 ## Installation
-
-![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-android-client.svg?label=Maven%20Central)
 
 Add to the dependencies in your Android project's `build.gradle` file.
 
