@@ -178,7 +178,7 @@ nav:
     - analytics/adobe.md
 - Experiment:
   - experiment/index.md
-- Data: 
+- Data (Beta): 
   - data/index.md
   - Data Instrumentation:
     - data/ampli-sdk-overview.md
