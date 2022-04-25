@@ -9,7 +9,7 @@ Anyone can suggest changes to our docs. Just open a PR with your changes!
 ### Notes for Amplitude contributors
 
 - To get started with contributing, check out the [Developer Docs Confluence site](https://amplitude.atlassian.net/wiki/spaces/PT/pages/1751449830/Developer+Docs). There, you'll find more conceptual content, including style guides and markdown cheatsheets.
-- If you're working on a feature that hasn't been announced yet, do your work in the **amp-internal-dev repo**. When you're ready to ship, open a PR against main.
+- If you're working on a feature that hasn't been announced yet, do your work in the **amp-internal-dev repo**. When you're ready to ship, open a PR against main. Learn more in [Confluence](https://amplitude.atlassian.net/wiki/spaces/PT/pages/1778384912/Working+on+Docs+Secretly).
 
 ## Installation
   
