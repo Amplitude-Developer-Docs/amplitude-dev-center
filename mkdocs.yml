@@ -110,7 +110,7 @@ extra:
   help_site: https://help.amplitude.com
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
-  report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-doc-issues/issues
+  report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues
   more_resources: all-resources
   analytics:
     provider: google

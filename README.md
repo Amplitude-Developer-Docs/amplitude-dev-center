@@ -1,6 +1,6 @@
 # README
 
-This is the Amplitude Developer Center site.
+This is the Amplitude Developer Center site. This site is currently in beta and the workflows may change.
 
 ## Contributing
 
