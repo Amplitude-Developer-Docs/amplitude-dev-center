@@ -53,7 +53,7 @@ The changes Vale flags are mostly suggestions, but please make an effort to addr
 
 `git clone https://github.com/Amplitude-Developer-Docs/amplitude-dev-center.git`
 
-**Note for Ampliteers**: If you're working on a secret feature, use the amp-internal-dev repo instead. Contact Casey Smith for access. 
+**Note for Ampliteers**: If you're working on a secret feature, use the amp-internal-dev repo instead. Contact Casey Smith for access and instructions.
   
 ### 2. Create a branch and make your changes
   
