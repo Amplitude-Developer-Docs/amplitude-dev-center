@@ -18,7 +18,7 @@ A flag may be active or inactive. Inactive flags will never return a variant as 
 !!!info "Best Practice"
     For simple on/off flags, we recommend using the [all users segment](#all-users-segment) allocation set to either 100% or 0% rather than using the activation toggle to control traffic. The activation toggle should be used to sunset a feature that has been been fully rolled out or rolled back after the flag's instrumentation has been removed.
 
-### Inclusions
+### Individual inclusions
 
 Inclusions allow you to force bucket specific users (identified by either their user ID or device ID) into a variant. This feature is primarily used for development purposes; for example if I am the developer on a new multi-variate feature and I want to test each variant in my application, I can add my user or device ID to the inclusions and refresh the application.
 

@@ -4,14 +4,14 @@ description: Official documentation for Amplitude Experiment's Client-side JavaS
 icon: material/language-javascript
 ---
 
-![npm version](https://badge.fury.io/js/%40amplitude%2Fexperiment-js-client.svg)
-
 Official documentation for Amplitude Experiment's Client-side JavaScript SDK implementation.
 
 !!!info "SDK Resources"
     [:material-github: Github](https://github.com/amplitude/experiment-js-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-js-client/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-js-client/)
 
 ## Install
+
+![npm version](https://badge.fury.io/js/%40amplitude%2Fexperiment-js-client.svg)
 
 Install the Experiment JavaScript Client SDK.
 
@@ -106,7 +106,7 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
 ???segment "Segment Integration"
 
-    Experiment's integration with Segment Analytics is still a manual implementation at this point. You'll need to copy the provider implementations into your code base and initialize the Experiment SDK with the provider instances in the configuration.
+    Experiment's integration with Segment Analytics is still a manual implementation at this point. Copy the exposure tracking provider implementation into your app code base and initialize the Experiment SDK with the provider instances in the configuration.
 
     ```js title="segment.ts"
     class SegmentUserProvider implements ExperimentUserProvider {
@@ -124,10 +124,25 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
     }
     ```
 
-    The Experiment SDK must be initialized after the segment SDK has loaded in and initialized.
+    The Experiment SDK must then be configured on initialization with an instance of the the exposure tracking provider. Make sure this happens _after_ the analytics SDK has been loaded an initialized.
 
     ```js
-    // TODO
+    analytics.ready(() => {
+        const experiment =  Experiment.initialize('<DEPLOYMENT_KEY>', {
+            exposureTrackingProvider: new SegmentExposureTrackingProvider(analytics),
+        });
+    });
+    ```
+
+    When [fetching variants](#fetch), pass the segment anonymous ID and user ID for the device ID and user ID, respectively.
+
+    ```js
+    const userId = analytics.user().id()
+    const deviceId = analytics.user().analyticsId()
+    await experiment.fetch({
+        user_id: userId,
+        device_id: deviceId,
+    });
     ```
 
 #### Configuration
@@ -217,22 +232,23 @@ if (variant.value === 'on') {
 }
 ```
 
-A variant may also be configured with a dynamic [payload](../general/data-model.md#variants) of arbitrary data. Access the `payload` field from the variant object after checking the variant's `value`.
+???info "Accessing the variant's payload"
+    A variant may also be configured with a dynamic [payload](../general/data-model.md#variants) of arbitrary data. Access the `payload` field from the variant object after checking the variant's `value`.
 
-```js
-const variant = experiment.variant('<FLAG_KEY>');
-if (variant.value === 'on') {
-    const payload = variant.payload;
-}
-```
+    ```js
+    const variant = experiment.variant('<FLAG_KEY>');
+    if (variant.value === 'on') {
+        const payload = variant.payload;
+    }
+    ```
 
-A `null` variant `value` means that the user has not been bucketed into a variant. You may use the built in fallback parameter to provide a variant to return if the store does not contain a variant for the given flag key.
+A `null` variant `value` means that the user has not been bucketed into a variant. You may use the built in **fallback** parameter to provide a variant to return if the store does not contain a variant for the given flag key.
 
 ```js
 const variant = experiment.variant('<FLAG_KEY>', { value: 'control' });
 if (variant === 'control') {
     // Control
-} else (variant === 'treatment') {
+} else if (variant === 'treatment') {
     // Treatment
 }
 ```
