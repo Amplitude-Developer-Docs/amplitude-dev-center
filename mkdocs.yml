@@ -32,7 +32,7 @@ theme:
     - content.code.annotate
     - content.tabs.link
     # - header.autohide
-    #- navigation.expand
+    # - navigation.expand
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
@@ -178,7 +178,44 @@ nav:
     - analytics/adobe.md
 - Experiment:
   - experiment/index.md
-- Data: 
+  - Overview: experiment/index.md
+  - General:
+    - experiment/general/data-model.md
+    - Evaluation:
+      - Implementation: experiment/general/evaluation/implementation.md
+      - experiment/general/evaluation/remote-evaluation.md
+      - Local Evaluation: experiment/general/evaluation/local-evaluation.md
+    - experiment/general/performance-and-caching.md
+    - experiment/general/exposure-tracking.md
+  - Guides:
+    - Getting Started:
+      - experiment/guides/getting-started/create-a-deployment.md
+      - experiment/guides/getting-started/create-a-flag.md
+      - experiment/guides/getting-started/fetch-variants.md
+      - experiment/guides/getting-started/track-exposure.md
+    - experiment/guides/server-side-rendering.md
+    - experiment/guides/create-local-evaluation-flag.md
+  - SDKs:
+    - Node.js SDK: experiment/sdks/nodejs-sdk.md
+    - JavaScript SDK: experiment/sdks/javascript-sdk.md
+    - Android SDK: experiment/sdks/android-sdk.md
+    - iOS SDK: experiment/sdks/ios-sdk.md
+    - React Native SDK: experiment/sdks/react-native-sdk.md
+  - REST APIs:
+    - Evaluation API: "https://developers.experiment.amplitude.com/reference/get_v1-vardata"
+    - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
+  # - Remove / Move:
+  #   - experiment/sdks/beta-migration.md
+  #   - Concepts:
+  #     - experiment/remove-move/concepts/index.md
+  #     - experiment/remove-move/concepts/experiment-user.md
+  #     - experiment/remove-move/concepts/experiment-sdk-configuration.md
+  #     - experiment/remove-move/concepts/experiment-variants.md
+  #   - Local Evaluation (Alpha):
+  #     - experiment/remove-move/local-evaluation/local-evaluation-overview.md
+  #     - experiment/remove-move/local-evaluation/create-a-local-evaluation-flag.md
+  #     - experiment/remove-move/local-evaluation/nodejs-sdk.md
+- Data:
   - data/index.md
   - Data Instrumentation:
     - data/ampli-sdk-overview.md

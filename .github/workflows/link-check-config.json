@@ -12,33 +12,27 @@
 	  {
 		"pattern": "^https://api.eu"
 	  },
-
 	  {
 		"pattern": "^https://amplitude.com/api"
 	  },
-
 	  {
 		"pattern": "^https://analytics.eu.amplitude.com/api"
 	  },
-
 	  {
 		"pattern": "assets/images/"
 	  },
-
 	  {
 		"pattern": "https://core.amplitude.com/scim/1/"
 	  },
-
 		{
 		"pattern": "https://developer.android.com"
 		},
-
 		{
-
-		"pattern": "https://forum.unity.com"
-		
+		"pattern": "https://badge.fury.io"
 		},
-
+		{
+		"pattern": "https://forum.unity.com"
+		},
 		{
 
 		"pattern": "https://badge.fury.io"
@@ -64,7 +58,5 @@
 		{
 		"pattern": "/data/deprecated-sdks/ios"
 		}
-
 	]
-	
-  }
+}
