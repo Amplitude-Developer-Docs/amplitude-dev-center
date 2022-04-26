@@ -3,7 +3,7 @@ title: Remote Evaluation
 description: Detailed information about Amplitude Experiment's remote evaluation architecture, limitations, and tradeoffs.
 ---
 
-Remote evaluation involves making a request to Amplitude Experiment's evaluation servers to fetch variants for a user. Remote evaluation is the default way to evaluate users on client-side apps, but may also be used from a server-side environment.
+Remote evaluation involves making a request to Amplitude Experiment's evaluation servers to fetch variants for a [user](../data-model.md#users). Remote evaluation is the default way to evaluate users on client-side apps, but may also be used from a server-side environment.
 
 **Client-side**
 
@@ -15,7 +15,7 @@ Remote evaluation involves making a request to Amplitude Experiment's evaluation
 
 ## Targeting Capabilities
 
-Remote evaluation targeting and identity resolution is powered by Amplitude Analytics' historical user data. Remote evaluation enables advanced features like Amplitude ID resolution, targeting behavioral cohorts, and utilizing historical user properties.
+Remote evaluation targeting and identity resolution is powered by Amplitude Analytics' historical user data. Remote evaluation enables advanced features such as [Amplitude ID resolution](#amplitude-id-resolution), [IP geolocation](#geolocation), [property canonicalization](#canonicalization), [targeting behavioral cohorts](#cohort-membership), and historical [user properties](#user-properties).
 
 | <div class='big-column'>Feature</div> | [Remote Evaluation](./remote-evaluation.md) | [Local Evaluation](./local-evaluation.md) |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ Remote evaluation targeting and identity resolution is powered by Amplitude Anal
 
 ## Implementation
 
-Remote evaluation appends additional information to the user before passing the user object to the [evaluation implementation](./implementation.md).
+Remote evaluation resolves the user within amplitude and appends additional information to the user before passing the user object to the [evaluation implementation](./implementation.md).
 
 ![Diagram of remote evaluation, specifically amplitude ID resolution and user enrichment](../../../assets/images/experiment/remote-evaluation.drawio.svg)
 
@@ -100,3 +100,7 @@ Remote evaluation is supported by all SDKs, client-side and server-side.
 </div>
 
 ## APIs
+
+<div class="grid cards" markdown>
+-   [:material-api:{ .lg .middle } __Evaluation API__](https://developers.experiment.amplitude.com/reference/get_v1-vardata)
+</div>
