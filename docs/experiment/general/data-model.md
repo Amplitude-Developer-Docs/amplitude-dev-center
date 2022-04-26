@@ -20,10 +20,10 @@ Experiment uses the same projects which are required for Amplitude Analytics. Ge
 
 ## Deployments
 
-In Amplitude Experiment, a deployment serves a group of flags or experiments for use in an application. Deployments have an associated randomly generated **deployment key** (a.k.a API key) which is used to uniquely identify the deployment and authorize requests to Amplitude Experiment's evaluation servers.
+In Amplitude Experiment, a deployment serves a group of flags or experiments for use in an application. Deployments have an associated randomly generated **deployment key** (a.k.a API key) which is used to uniquely identify the deployment and authorize requests to Amplitude Experiment's evaluation servers. 
 
-!!!info "SDK Usage"
-    The deployment key is what is used to initialize Amplitude Experiment SDKs.
+!!!info "Client vs Server Deployments"
+    Deployments are either client or server deployments. Only server deployments can utilize access flag configs for [local evaluation](./evaluation/local-evaluation.md), and should not be shared to made public in any way.
 
 Deployments live within Amplitude Analytics projects; a project may have multiple deployments. Deployments are [added to Flags and Experiments](../guides/getting-started/create-a-flag.md#add-a-deployment) which exist within the same project. When a request to fetch variants for a user is received by Experiment's evaluation servers, the deployment key is used to look up all associated flags and experiments for evaluation.
 

@@ -1,15 +1,18 @@
 ---
 title: Experiment Node.js SDK
-description: Amplitude Experiment's server-side Node.js SDK implementation reference.
+description: Official documentation for Amplitude Experiment's server-side Node.js SDK implementation.
 icon: fontawesome/brands/node-js
 ---
 
-![npm version](https://badge.fury.io/js/%40amplitude%2Fexperiment-node-server.svg)
-
-This is the official documentation for the Amplitude Experiment server-side Node.js SDK implementation reference.
+Official documentation for Amplitude Experiment's server-side Node.js SDK implementation.
 
 !!!info "SDK Resources"
     [:material-github: Github](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
+
+This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
+
+* [Remote evaluation](#remote-evaluation)
+* [Local evaluation (alpha)](#local-evaluation-alpha)
 
 ## Remote evaluation
 
@@ -39,7 +42,7 @@ Install the Node.js Server SDK with npm or yarn.
 
     1. [Initialize the experiment client](#initialize)
     2. [Fetch variants for the user](#fetch)
-    3. [Access a flag's variant](#variant)
+    3. [Access a flag's variant](#fetch)
 
     ```js
     // (1) Initialize the experiment client
@@ -151,11 +154,11 @@ if (variant?.value === 'on') {
 Implements evaluating variants for a user via [local evaluation](../general/evaluation/local-evaluation.md). If you plan on using local evaluation, you should [understand the tradeoffs](../general/evaluation/local-evaluation.md#targeting-capabilities).
 
 !!!warning "Local Evaluation Mode"
-    The local evaluation client can only evaluation flags which are set to [local evaluation mode](../general/data-model.md#flags-and-experiments).
+    The local evaluation client can only evaluation flags which are [set to local evaluation mode](../guides/create-local-evaluation-flag.md).
 
 ### Install
 
-Install the `experiment-node-server` SDK from the `alpha` tag.
+Install the Node.js Server SDK from the `alpha` tag with `npm` or `yarn`.
 
 === "npm"
 
@@ -166,7 +169,7 @@ Install the `experiment-node-server` SDK from the `alpha` tag.
 === "yarn"
 
     ```yarn
-    $ yarn add @amplitude/experiment-node-server@alpha
+ $ yarn add @amplitude/experiment-node-server@alpha
     ```
 
 !!!tip "Quick Start"
@@ -177,7 +180,6 @@ Install the `experiment-node-server` SDK from the `alpha` tag.
 
     ```js
     // (1) Initialize the local evaluation client with a server deployment key.
-    const apiKey = 'YOUR-API-KEY';
     const experiment = Experiment.initializeLocal('<DEPLOYMENT_KEY>');
 
     // (2) Start the local evaluation client.
@@ -192,31 +194,43 @@ Install the `experiment-node-server` SDK from the `alpha` tag.
 
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
+!!!warning "Server Deployment Key"
+    You must [initialize](#initialize-local) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+
 ```js
 initializeLocal(apiKey: string, config?: LocalEvaluationConfig): LocalEvaluationClient
 ```
+
+| Parameter | Requirement | Description |
+| --- | --- | --- |
+| `apiKey` | required | The server [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags should be evaluated for the user. |
+| `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
+
+!!!tip "Flag Polling Interval"
+    Use the `flagConfigPollingIntervalMillis` [configuration](#configuration-1) to determine the time flag configs take to update once modified (default 30s).
 
 #### Configuration
 
 The SDK client can be configured on initialization.
 
-| <div class="big-column">Name</div> | Description | Default Value |
-| --- | --- | --- |
-| `debug` | Set to `true` to enable debug logging. | `false` |
-| `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
-| `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
-| `flagConfigPollingIntervalMillis` | The interval (in milliseconds) to poll for updated flag configs after calling `start()` | `30000` |
+???config "Configuration Options"
+
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `debug` | Set to `true` to enable debug logging. | `false` |
+    | `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
+    | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
+    | `flagConfigPollingIntervalMillis` | The interval (in milliseconds) to poll for updated flag configs after calling `start()` | `30000` |
 
 ### Start
 
-Start the local evaluation client, fetching local local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
+Start the local evaluation client, pre-fetching local local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
 
 ```js
 start(): Promise<void>
 ```
 
-Should be called to pre-fetch the initial set of flag configurations and start the poller at the configured interval.
-
+You should await the result of `start()` to ensure that flag configs are ready to be used before calling [`evaluate()`](#evaluate)
 
 ```js
 await experiment.start();

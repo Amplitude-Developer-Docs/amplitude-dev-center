@@ -8,7 +8,7 @@ Server-side local evaluation runs [evaluation logic](./general/evaluation/implem
 ![Client-side local evaluation experimentation diagram.](../../../assets/images/experiment/server-side-local-overview.drawio.svg)
 
 !!!warning "Exposure Tracking"
-    **Local evaluation does not automatically set experiment user properties**. If you use local evaluation and you want to run experiments where success metrics are analyzed, you will need to implement [exposure tracking](../exposure-tracking.md) (generally done on the client-side). 
+    **Local evaluation does not automatically set experiment user properties**. If you use local evaluation and you want to run experiments where success metrics are analyzed, you will need to implement [exposure tracking](../exposure-tracking.md) (generally done on the client-side).
 
     To more easily track exposures on the client-side, [bootstrap](../../sdks/javascript-sdk.md#bootstrapping) the client-side SDK with the variants evaluated server-side and utilize [automatic exposure tracking](../exposure-tracking.md#automatic-exposure-tracking) using one of the [analytics SDK integrations](../../sdks/javascript-sdk.md#integrations).
 
@@ -32,6 +32,9 @@ Local evaluation is just [evaluation](./implementation.md)--a function which tak
 ![Diagram of a local evaluation SDK.](../../../assets/images/experiment/local-evaluation.drawio.svg)
 
 The only non-local part of local evaluation is getting flag configurations from Amplitude Experiment, but this can happen at an interval, and flags can be cached in-memory on the server-side for zero latency access.
+
+!!!tip "Edge Evaluation"
+    The local evaluation Node.js SDK can be run in edge worker/functions which support javascript and a distributed store. Contact your representative or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to learn more.
 
 ## SDKs
 
