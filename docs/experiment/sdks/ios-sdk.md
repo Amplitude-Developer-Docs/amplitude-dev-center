@@ -11,13 +11,13 @@ Official documentation for Amplitude Experiment's Client-side iOS SDK implementa
 
 ## Install
 
-![CocoaPods](https://img.shields.io/cocoapods/v/AmplitudeExperiment)
-
 !!!bug "Import Statement"
     CocoaPods and Swift Package Manager/Carthage have different import statements.
 
     * CocoaPods: `import AmplitudeExperiment`
     * SPM/Carthage: `import Experiment`
+
+![CocoaPods](https://img.shields.io/cocoapods/v/AmplitudeExperiment)
 
 **CocoaPods**
 

@@ -4,7 +4,7 @@ description: How to track an exposure event for the variant which a user has bee
 template: guide-last.html
 ---
 
-[Exposure tracking](../../general/exposure-tracking.md) plays a key role in tracking if and when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags don't require any analysis; however, it is essential when running experiment, since accurate exposure tracking is crucial for reliable results.
+[Exposure tracking](../../general/exposure-tracking.md) plays a key role in tracking if and when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags which don't require analysis; however, it is essential when running experiment. Accurate exposure tracking is crucial for reliable results.
 
 ## Analytics REST API
 
@@ -16,10 +16,12 @@ curl --request POST \
      --data '{"api_key": "<ANALYTICS_API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
 ```
 
+Replace the following variables with your own values:
+
 | <div class='big-column'>Variable</div> | Description |
 | --- | --- |
-|   `<ANALYTICS_API_KEY>` | The analytics API key from project which you created your flag and deployment in. |
-| `<USER_ID>` | The user ID used to fetch variants. |
+|   `<ANALYTICS_API_KEY>` | The analytics API key from [project](../../general/data-model.md#projects) which you created your [flag](../../general/data-model.md#flags-and-experiments) and [deployment](../../general/data-model.md#deployments) in. |
+| `<USER_ID>` | The user ID used to fetch variants. This should be the same [user](../../general/data-model.md#users) you [fetched variants](./fetch-variants.md) for. |
 | `<FLAG_KEY>` | The flag key; `getting-started` if you're using the naming from this guide. |
 | `<VARIANT>` | The variant key, `on` if you're using the default flag variant. |
 

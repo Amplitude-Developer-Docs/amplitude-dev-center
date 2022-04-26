@@ -3,7 +3,7 @@ title: Exposure Tracking
 description: An overview of exposure tracking, the exposure event, and how to best track exposures within your system.
 ---
 
-An exposure event is an analytics event sent to Amplitude in order to inform Amplitude Experiment that a user has been exposed to a certain variant of an [experiment or feature flag](./data-model.md#flags-and-experiments). Exposure events contain the **flag key** and the **variant** of the flag or experiment that the user has been exposed to in the event's event properties.
+An exposure event is a [strictly defined](#exposure-event) analytics event sent to Amplitude in order to inform Amplitude Experiment that a user has been exposed to a certain variant of an [experiment or feature flag](./data-model.md#flags-and-experiments). Exposure events contain the **flag key** and the **variant** of the flag or experiment that the user has been exposed to in the event's event properties.
 
 When an [exposure event](#exposure-event) is ingested by Amplitude, the flag key and variant are used to **set or unset user properties** on the user associated with the event. Setting user properties is essential for experiment analysis queries on primary and secondary success metrics.
 
@@ -48,7 +48,7 @@ The exposure event has been designed to be simple and ergonomic enough to be sen
 
 | <div class='big-column'>Variable</div> | Description |
 | --- | --- |
-| `<ANALYTICS_API_KEY>` | The analytics api key from project which you created your flag and deployment in. |
-| `<USER_ID>`| The user ID used to identify the user. This should be the same user whose variants were previously fetched. |
+| `<ANALYTICS_API_KEY>` | The analytics api key from [project](./data-model.md#projects) which you created your [flag](./data-model.md#flags-and-experiments) and [deployment](./data-model.md#deployments) in. |
+| `<USER_ID>`| The user ID used to identify the [user](./data-model.md#users). This should be the same user whose variants were previously fetched. |
 | `<FLAG_KEY>` | The key used to identify which [flag or experiment](./data-model.md#flags-and-experiments) the user is being exposed to. |
 | `<VARIANT>` | The [variant](#variant) value that the user is exposed to for the flag or experiment. |

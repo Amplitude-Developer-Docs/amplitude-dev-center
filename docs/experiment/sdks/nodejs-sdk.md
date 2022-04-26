@@ -1,5 +1,5 @@
 ---
-title: Node.js SDK
+title: Experiment Node.js SDK
 description: Amplitude Experiment's server-side Node.js SDK implementation reference.
 icon: fontawesome/brands/node-js
 ---
@@ -9,14 +9,11 @@ icon: fontawesome/brands/node-js
 This is the official documentation for the Amplitude Experiment server-side Node.js SDK implementation reference.
 
 !!!info "SDK Resources"
-
-    - [Node Server SDK Reference :material-book:](https://amplitude.github.io/experiment-node-server/)
-    - [Node Server SDK Repository :material-github:](https://github.com/amplitude/experiment-node-server)
-    - [Node Server SDK Releases :material-code-tags-check:](https://github.com/amplitude/experiment-node-server/releases)
+    [:material-github: Github](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
 
 ## Installation
 
-Install the JavaScript Server SDK with npm or yarn.
+Install the Node.js Server SDK with npm or yarn.
 
 === "npm"
 
@@ -40,7 +37,6 @@ Install the JavaScript Server SDK with npm or yarn.
 2. [Initialize the experiment client](#initialization)
 3. [Fetch variants for a user](#fetch-variants-for-a-user)
 4. [Lookup a flag's variant](#look-up-a-variant)
-
 
 ```js
 import { Experiment } from '@amplitude/experiment-node-server';

@@ -16,6 +16,13 @@ curl --request GET \
      --header 'Authorization: Api-Key <EXPERIMENT_DEPLOYMENT_KEY>'
 ```
 
+Replace the following variables with your own values:
+
+| <div class='big-column'>Variable</div> | Description |
+| --- | --- |
+|   `<EXPERIMENT_DEPLOYMENT_KEY>` | The [deployment](../../general/data-model.md#deployments) key you [created](./create-a-deployment.md). |
+| `<USER_ID>` | The user ID used to fetch variants. This should be the same [user](../../general/data-model.md#users) you [track exposure](./track-exposure.md) for. |
+
 You should see the following JSON in the response body:
 
 ```

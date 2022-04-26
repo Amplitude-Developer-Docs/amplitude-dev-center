@@ -13,16 +13,18 @@ Evaluation performance depends on what type of evaluation is used.
 
 [Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance.
 
+<!-- TODO: tabs with different tables and values per region -->
+
 | Cache | Average | P95 | % of Requests |
 | --- | --- | --- | --- |
-| HIT | 0.15ms | <1ms | 60% |
-| MISS | 220ms | 370ms | 40% |
+| HIT | 0.15ms | <1ms | 47.17% |
+| MISS | 166.43ms | 201.00ms | 52.83% |
 
 ### Local evaluation
 
 [Local evaluation](./evaluation/local-evaluation.md) pre-fetches flag configurations which are then used to evaluate all users, saving a network request and speeding up evaluation compared to remote evaluation.
 
-The following results were collected over 10 executions of 10,000 iterations of evaluation with randomized user inputs evaluated for 1 flag configuration, selected at random out of 3 possible flag configurations.
+The following results are for **a single flag evaluation**, and were collected over 10 executions of 10,000 iterations of evaluation with randomized user inputs evaluated for 1 flag configuration, selected at random out of 3 possible flag configurations.
 
 | SDK | Average | Median | Cold Start |
 | --- | --- | --- | --- |
