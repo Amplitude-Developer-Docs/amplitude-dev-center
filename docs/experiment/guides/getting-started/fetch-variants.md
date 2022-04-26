@@ -6,7 +6,7 @@ template: guide.html
 
 You can fetch variants for a user using either the [Evaluation REST API](../../apis/evaluation-api.md) or one of our [SDKs](../../index.md#sdks).
 
-## Evaluation REST API
+### Evaluation REST API
 
 To evaluate a user for you flag you'll want to **fetch** variants from our [remote evaluation](../../general/evaluation/remote-evaluation.md) servers. Use the following `curl` replacing `<USER_ID>` and `<EXPERIMENT_DEPLOYMENT_KEY>`, with the User ID and Deployment key respectively.
 
@@ -29,6 +29,6 @@ You should see the following JSON in the response body:
 {"getting-started":{"key":"on"}}
 ```
 
-## SDKs
+### SDKs
 
 [Experiment SDKs](../../index.md#sdks) make it even easier to fetch variants for a user. Client-side SDKs are especially useful for storing pre-fetched variants on the client-side for zero latency variant access.

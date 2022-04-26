@@ -13,7 +13,7 @@ To create a [flag](../../general/data-model.md#flags-and-experiments), first nav
 4. (Optional) Enter a **Flag Description** (e.g. `Getting started with Amplitude Experiment`) to better describe the flag.
 5. Save the experiment configuration. You can edit most fields from the flag's settings.
 
-## Add a deployment
+### Add a deployment
 
 Once you've created the flag, you'll need to add a [deployment](../../general/data-model.md#deployments). To add a deployment, click the selection drop down in the upper right corner of the screen and select the deployment you created previously.
 
@@ -22,19 +22,19 @@ TODO: Add image of adding a deployment
 !!!tip "Multiple Deployments"
     You may select multiple deployments in the dropdown if you want to target multiple deployments. E.g. if you are running an experiment on both your iOS and Android apps, you should create separate deployments for each and select both in the multi-deployment experiment.
 
-## Define variants
+### Define variants
 
 After you have created your flag, you are ready to define its [variants](../../general/data-model.md#variants). A flag will contain an initial variant, "on", by default. If you are rolling out more than one variant of a feature, add variants using the **Create Variant** button. Make sure to add descriptions to your variants so that your team members can follow along.
 
 !!!info "Your flag must have at least one variant."
 
-## Configure targeting rules
+### Configure targeting rules
 
 Your flag will not target any users by default. To target users, navigate to the "Targeting" tab and set the **Percentage Rollout** to 100%. Now all evaluated users will be assigned the "on" variant for this feature flag.
 
 TODO: Add Image
 
-## Activate the flag
+### Activate the flag
 
 Once you're done configuring your flag, activate the flag using the toggle in the upper right corner and follow the instructions in the activation modal.
 
