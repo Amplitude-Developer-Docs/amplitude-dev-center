@@ -3,7 +3,7 @@ title: Local Evaluation (Alpha)
 description: Detailed information about Amplitude Experiment's local evaluation architecture, limitations, and tradeoffs.
 ---
 
-Server-side local evaluation runs [evaluation logic](./general/evaluation/implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](../performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale.
+Server-side local evaluation runs [evaluation logic](.../implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](../performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale.
 
 ![Client-side local evaluation experimentation diagram.](../../../assets/images/experiment/server-side-local-overview.drawio.svg)
 
