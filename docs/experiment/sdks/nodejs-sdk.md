@@ -11,7 +11,15 @@ This is the official documentation for the Amplitude Experiment server-side Node
 !!!info "SDK Resources"
     [:material-github: Github](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
 
-## Installation
+## Remote evaluation
+
+Implements fetching variants for a user via [remote evaluation](../general/evaluation/remote-evaluation.md).
+
+### Install
+
+!!!info "Node version compatibility"
+
+    The Node Server SDK works with Node 10+.
 
 Install the Node.js Server SDK with npm or yarn.
 
@@ -27,123 +35,214 @@ Install the Node.js Server SDK with npm or yarn.
     yarn add @amplitude/experiment-node-server
     ```
 
-!!!info "Node version compatibility"
+!!!tip "Quick Start"
 
-    The Node Server SDK works with Node 10+.
+    1. [Initialize the experiment client](#initialize)
+    2. [Fetch variants for the user](#fetch)
+    3. [Access a flag's variant](#variant)
 
-## Quick Start
+    ```js
+    // (1) Initialize the experiment client
+    const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
+        fetchTimeoutMillis: 500,
+        fetchRetries: 1,
+        fetchRetryBackoffMinMillis: 0,
+        fetchRetryTimeoutMillis: 500,
+    });
 
-1. [Get your deployment's API key](../create-deployment.md)
-2. [Initialize the experiment client](#initialization)
-3. [Fetch variants for a user](#fetch-variants-for-a-user)
-4. [Lookup a flag's variant](#look-up-a-variant)
+    // (2) Fetch variants for a user
+    const user = {
+        user_id: 'user@company.com',
+        device_id: 'abcdefg',
+        user_properties: {
+            'premium': true,
+        },
+    };
+    const variants = await experiment.fetch(user);
+
+    // (3) Access a flag's variant
+    const variant = variants['YOUR-FLAG-KEY'];
+    if (variant?.value === 'on') {
+        // Flag is on
+    } else {
+        // Flag is off
+    }
+    ```
+
+### Initialize
+
+The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```js
-import { Experiment } from '@amplitude/experiment-node-server';
+initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
+```
 
-// (1) Get your deployment's API key
-const apiKey = 'YOUR-API-KEY';
+| Parameter | Requirement | Description |
+| --- | --- | --- |
+| `apiKey` | required | The [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags should be evaluated for the user. |
+| `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
-// (2) Initialize the experiment client
-const experiment = Experiment.initialize(apiKey);
+!!!warning "Timeout & Retry Configuration"
+    **The default timeout and retry configuration options are too high for most server environments**. Please configure the timeout and retry options to best fit your performance requirements. If [remote evaluation performance](../general/performance-and-caching.md#remote-evaluation) is too slow, consider using [local evaluation](#local-evaluation-alpha).
 
-// (3) Fetch variants for a user
+```js
+const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
+    fetchTimeoutMillis: 500,
+    fetchRetries: 1,
+    fetchRetryBackoffMinMillis: 0,
+    fetchRetryTimeoutMillis: 500,
+});
+```
+
+#### Configuration
+
+The SDK client can be configured on initialization.
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `debug` | Enable additional debug logging. | `false` |
+    | `serverUrl` | The host to fetch variants from. | `https://api.lab.amplitude.com` |
+    | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. This timeout only applies to the initial request, not subsequent retries | `10000` |
+    | `fetchRetries` | The number of retries to attempt if a request to fetch variants fails. | `8` |
+    | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay is scaled by the `fetchRetryBackoffScalar` | `500` |
+    | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10000` |
+    | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1.5` |
+    | `fetchRetryTimeoutMillis` | The request timeout for retrying variant fetches. | `10000` |
+
+
+
+### Fetch
+
+Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
+
+```js
+fetch(user: ExperimentUser): Promise<Variants>
+```
+
+| Parameter  | Requirement | Description |
+| --- | --- | --- |
+| `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
+
+```js
 const user = {
-  user_id: 'user@company.com',
-  device_id: 'abcezas123',
-  user_properties: {
-    'premium': true,
-  },
+    user_id: 'user@company.com',
+    device_id: 'abcdefg',
+    user_properties: {
+        'premium': true,
+    },
 };
 const variants = await experiment.fetch(user);
+```
 
-// (4) Lookup a flag's variant
+After fetching variants for a user, you may to access the variant for a specific flag.
+
+```js
 const variant = variants['YOUR-FLAG-KEY'];
 if (variant?.value === 'on') {
-  // Flag is on
+    // Flag is on
 } else {
     // Flag is off
 }
 ```
 
-## Initialization
+## Local evaluation (alpha)
 
-Initialize an `ExperimentClient` in your server startup. You will need the API Key for your [Project deployment](https://developers.experiment.amplitude.com/docs/deployments).
+Implements evaluating variants for a user via [local evaluation](../general/evaluation/local-evaluation.md). If you plan on using local evaluation, you should [understand the tradeoffs](../general/evaluation/local-evaluation.md#targeting-capabilities).
 
-You can find the API Key in the Deployments section of your Experiment instance.
+!!!warning "Local Evaluation Mode"
+    The local evaluation client can only evaluation flags which are set to [local evaluation mode](../general/data-model.md#flags-and-experiments).
 
-```js title="index.js"
-import { Experiment } from '@amplitude/experiment-node-server';
+### Install
 
-const experiment = Experiment.initialize('api-key');
-```
+Install the `experiment-node-server` SDK from the `alpha` tag.
 
-!!!info "Singleton Instance"
+=== "npm"
 
-    `Experiment.initialize` returns a default singleton instance. It is recommended that you either (a) inject the initialized instance throughout your system or (b) wrap the initialized `ExperimentClient` in your own API. Ultimately, subsequent calls to `initialize` will return the initial instance regardless of input.
+    ```npm
+    $ npm install --save @amplitude/experiment-node-server@alpha
+    ```
 
-## Configuration
+=== "yarn"
 
-The `ExperimentClient` can be configured on initialization. Once initialized, the client's configuration cannot be changed. Initialize an empty object for the default configuration, or use the `ExperimentConfig.Builder` to build a [custom configuration](https://developers.experiment.amplitude.com/docs/configuration#server-side).
+    ```yarn
+    $ yarn add @amplitude/experiment-node-server@alpha
+    ```
 
-```js
-const defaultConfig = {};
-const customConfig = {
-  debug: true,
-  fetchTimeoutMillis: 500,
-  fetchRetries: 4,
-};
-```
+!!!tip "Quick Start"
 
-## Fetch Variants for a User
+    1. [Initialize the local evaluation client.](#initialize-local)
+    2. [Start the local evaluation client.](#start)
+    3. [Evaluate a user.](#evaluate)
 
-After initializing an `ExperimentClient`, you will need to fetch variants for your user. First, create your `ExperimentUser` then call your client's `fetch` method with the user. This will make a request for all variants that the user is assigned, and return a promise that resolves when the request completes. The result is a dictionary from `key` to assigned `Variant`. Variants contain a `value` field containing the value of the variant assigned to the user.
+    ```js
+    // (1) Initialize the local evaluation client with a server deployment key.
+    const apiKey = 'YOUR-API-KEY';
+    const experiment = Experiment.initializeLocal('<DEPLOYMENT_KEY>');
 
+    // (2) Start the local evaluation client.
+    await experiment.start();
 
-```js title="feature.js"
-// Create an experiment user
-const user = {
-  user_id: 'user@company.com',
-  device_id: 'abcezas123',
-  user_properties: {
-    'premium': true,
-  },
-};
+    // (2) Evaluate a user.
+    const user = { device_id: 'abcdefg' };
+    const variants = experiment.evaluate(user);
+    ```
 
-// Fetch variants assigned to the user
-const variants = await experiment.fetch(user);
-```
+### Initialize Local
 
-## Look up a Variant
-
-The client's `fetch` returns a map of flag key to variant. Simply use the desired flag's key to look up the assigned variant in the map returned by `fetch`.
+Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 ```js
-// `variants` map is the result of `fetch`
-const variant = variants[key];
-// Change the experience based on the variant
-if (variant?.value === "on") { // "on" is a variant value
-  return true;
-} else {
-  return false;
-}
+initializeLocal(apiKey: string, config?: LocalEvaluationConfig): LocalEvaluationClient
 ```
 
-## Connecting to Amplitude Analytics
+#### Configuration
 
-In order to connect with Amplitude Analytics, you will need to configure the user object provided in `fetch()` with Device ID and/or User ID information.
+The SDK client can be configured on initialization.
+
+| <div class="big-column">Name</div> | Description | Default Value |
+| --- | --- | --- |
+| `debug` | Set to `true` to enable debug logging. | `false` |
+| `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
+| `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
+| `flagConfigPollingIntervalMillis` | The interval (in milliseconds) to poll for updated flag configs after calling `start()` | `30000` |
+
+### Start
+
+Start the local evaluation client, fetching local local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
 
 ```js
-const user = {
-  'user_id': 'user_id',
-  'device_id': 'device_id',
-}
-const allVariants = await experimentClient.fetch(user);
+start(): Promise<void>
 ```
 
-This should be the same Device ID and/or User ID that you send to Amplitude for a user. This will ensure that Amplitude will track users properly. Read more about [identity resolution in Amplitude](https://help.amplitude.com/hc/en-us/articles/115003135607).
+Should be called to pre-fetch the initial set of flag configurations and start the poller at the configured interval.
 
-The SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client has not yet generated a Device ID. An example for parsing and generating Amplitude cookies is provided below:
+
+```js
+await experiment.start();
+```
+
+### Evaluate
+
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+
+```js
+// The user to evaluate
+const user = { device_id: 'abdc1234' };
+
+// Evaluate all flag variants
+const allVariants = localClient.evaluate(user);
+
+// Evaluate a specific subset of flag variants
+const specificVariants = localClient.evaluate(user, [
+  'my-local-flag-1',
+  'my-local-flag-2',
+]);
+```
+
+## Accessing Amplitude cookies
+
+If you're using the Amplitude Analytics SDK on the client-side, the Node.js server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client has not yet generated a Device ID.
 
 ```js
 import { AmplitudeCookie } from '@amplitude/experiment-node-server';

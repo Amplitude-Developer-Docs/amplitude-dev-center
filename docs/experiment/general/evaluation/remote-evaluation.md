@@ -15,9 +15,9 @@ Remote evaluation involves making a request to Amplitude Experiment's evaluation
 
 ## Targeting Capabilities
 
-Remote evaluation targeting and identity resolution is powered by Amplitude Analytics' historical user data. This enables advanced features like Amplitude ID resolution, targeting behavioral cohorts, and utilizing historical user properties.
+Remote evaluation targeting and identity resolution is powered by Amplitude Analytics' historical user data. Remote evaluation enables advanced features like Amplitude ID resolution, targeting behavioral cohorts, and utilizing historical user properties.
 
-| <div class='big-column'>Feature</div> | Remote Evaluation | Local Evaluation |
+| <div class='big-column'>Feature</div> | [Remote Evaluation](./remote-evaluation.md) | [Local Evaluation](./local-evaluation.md) |
 | --- | --- | --- |
 | [Consistent bucketing](./implementation.md#consistent-bucketing) | :material-check-bold:{ .green } | :material-check-bold:{ .green } |
 | [Individual inclusions](./implementation.md#individual-inclusions) | :material-check-bold:{ .green } | :material-check-bold:{ .green } |
@@ -28,13 +28,15 @@ Remote evaluation targeting and identity resolution is powered by Amplitude Anal
 
 ## Implementation
 
-Remote evaluation appends additional information to the user before passing the user object to the evaluation implementation.
+Remote evaluation appends additional information to the user before passing the user object to the [evaluation implementation](./implementation.md).
 
 ![Diagram of remote evaluation, specifically amplitude ID resolution and user enrichment](../../../assets/images/experiment/remote-evaluation.drawio.svg)
 
 ### Amplitude ID resolution
 
-Amplitude ID resolution happens before additional user enrichment, and is required if bucketing by Amplitude ID.
+Amplitude ID resolution happens before additional [user enrichment](#user-enrichment), and is required if [bucketing](implementation.md#consistent-bucketing) by Amplitude ID.
+
+!!!info "[Learn more about Amplitude's advanced identity resolution.](https://help.amplitude.com/hc/en-us/articles/115003135607)"
 
 ### User enrichment
 

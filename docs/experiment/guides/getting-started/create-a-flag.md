@@ -17,7 +17,7 @@ To create a [flag](../../general/data-model.md#flags-and-experiments), first nav
 
 Once you've created the flag, you'll need to add a [deployment](../../general/data-model.md#deployments). To add a deployment, click the selection drop down in the upper right corner of the screen and select the deployment you created previously.
 
-TODO: Add image of adding a deployment
+<!-- TODO: Add image of adding a deployment -->
 
 !!!tip "Multiple Deployments"
     You may select multiple deployments in the dropdown if you want to target multiple deployments. E.g. if you are running an experiment on both your iOS and Android apps, you should create separate deployments for each and select both in the multi-deployment experiment.
@@ -32,10 +32,10 @@ After you have created your flag, you are ready to define its [variants](../../g
 
 Your flag will not target any users by default. To target users, navigate to the "Targeting" tab and set the **Percentage Rollout** to 100%. Now all evaluated users will be assigned the "on" variant for this feature flag.
 
-TODO: Add Image
+<!-- TODO: Add Image -->
 
 ### Activate the flag
 
 Once you're done configuring your flag, activate the flag using the toggle in the upper right corner and follow the instructions in the activation modal.
 
-TODO: Add Image
+<!-- TODO: Add Image -->

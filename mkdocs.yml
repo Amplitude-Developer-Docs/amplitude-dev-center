@@ -193,6 +193,7 @@ nav:
       - experiment/guides/getting-started/fetch-variants.md
       - experiment/guides/getting-started/track-exposure.md
     - experiment/guides/server-side-rendering.md
+    - experiment/guides/create-local-evaluation-flag.md
   - SDKs:
     - Node.js SDK: experiment/sdks/nodejs-sdk.md
     - JavaScript SDK: experiment/sdks/javascript-sdk.md
@@ -200,8 +201,8 @@ nav:
     - iOS SDK: experiment/sdks/ios-sdk.md
     - React Native SDK: experiment/sdks/react-native-sdk.md
   - REST APIs:
-    - experiment/apis/evaluation-api.md
-    - experiment/apis/management-api.md
+    - Evaluation API: "https://developers.experiment.amplitude.com/reference/get_v1-vardata"
+    - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
   # - Remove / Move:
   #   - experiment/sdks/beta-migration.md
   #   - Concepts:
