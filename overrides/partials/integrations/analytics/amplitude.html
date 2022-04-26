@@ -27,8 +27,7 @@
     !Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])}
     return n._iq[e]};e.amplitude=n})(window,document);
 
-    // TODO: API KEY
-    amplitude.getInstance().init("");
+    amplitude.getInstance().init("c1817405c2f578878637c55704d4a153");
 
     const url = new URL(window.location.href);
     let paths = [];
@@ -48,5 +47,8 @@
     if (url.hash) {
         properties.anchor = url.hash;
     }
-    amplitude.getInstance().logEvent("page viewed", properties);
+    // HACK: figure out better environment switching
+    if (url.hostname === 'docs.developers.amplitude.com') {
+        amplitude.getInstance().logEvent("page viewed", properties);
+    }
 </script>
