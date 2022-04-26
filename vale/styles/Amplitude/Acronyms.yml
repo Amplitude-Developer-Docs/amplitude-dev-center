@@ -19,6 +19,7 @@ exceptions:
   - DPI
   - FAQ
   - GCC
+  - GCS
   - GDB
   - GET
   - GPU

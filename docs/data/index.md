@@ -1,9 +1,11 @@
 ---
-title: Amplitude Data Overview
+title: Amplitude Data Overview (Beta)
 description: Get started with Amplitude Data. 
 ---
 
 Welcome to Amplitude Data's documentation. These docs give you everything you need to start instrumenting your app.
+
+--8<-- "includes/beta.md"
 
 <div class="grid cards" markdown>
 

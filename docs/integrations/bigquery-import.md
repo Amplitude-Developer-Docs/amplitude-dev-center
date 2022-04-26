@@ -18,7 +18,7 @@ To get started with importing from BigQuery, you need to take care of a few prer
 - Create a Service Account with permissions granted for the bucket and tables you want to ingest, then get the service account key. The Service Account must have the following roles granted to it:
     - **BigQuery**:
         - BigQuery Job User at the project level.
-        - BigQuery Data Viewer at the resource level necessary to access your data to be ingested. If your data is in a single talbe, just grant the service account BigQuery Data Viewer for that table resource. If the query requires multiple tables or datasets, grant BigQuery Data Viewer on all tables or datasets in the query.
+        - BigQuery Data Viewer at the resource level necessary to access your data to be ingested. If your data is in a single table, just grant the service account BigQuery Data Viewer for that table resource. If the query requires multiple tables or datasets, grant BigQuery Data Viewer on all tables or datasets in the query.
     - **Cloud Storage**:
         - Storage Admin on the GCS bucket you're using for ingestion.
 - Depending on your company's network policy, you may need to add the following IP addresses to your allowlist to allow Amplitude's servers to access your BigQuery instance:
@@ -44,14 +44,37 @@ To add BigQuery as a data source in your Amplitude project, follow these steps.
 6. After you've set your configuration options, click **Test SQL** to see how the data is coming through from your BigQuery instance. If there are any errors, they'll appear under the Test SQL button.
 7. If there are no errors, click **Finish**. You'll see a notification indicating you've successfully enabled the new BigQuery source. You'll also be redirected to the Sources listing page, where you'll see the newly created BigQuery source.
 
-If you have any issues or questions while following this flow, please contact the Amplitude team.
+If you have any issues or questions while following this flow, contact the Amplitude team.
 
-## Mandatory data fields
+## Mandatory Data fields
 
-### BigQuery SQL Helper
+You must include the mandatory fields for the data type when creating the SQL query. These tables outline the mandatory and optional fields for each data type. You can include other columns beyond those listed here.
+
+### Events
+
+| Column name (must be lowercase) | Mandatory | Column data type |
+|---|---|---|
+| `user_id` | Yes, unless `device_id` is used | VARCHAR |
+| `device_id` | Yes, unless `user_id` is used | VARCHAR |
+| `event_type` | Yes | VARCHAR |
+| `time` | Yes | Milliseconds since epoch (Timestamp) |
+| `event_properties` | Yes | VARIANT (JSON Object) |
+| `user_properties` | No | VARIANT (JSON Object) |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
+
+### User properties
+
+| Column name (must be lowercase) | Mandatory | Column data type |
+|---|---|---|
+| `user_id` | Yes | VARCHAR |
+| `user_properties` | Yes | VARIANT (JSON Object) |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
 
 
-#### Properties fields
+## BigQuery SQL Helper
+
+
+### Properties fields
 
 Many Amplitude features are powered by "properties" fields, which are composed of property keys and property values. The most common of these properties fields are event_properties and user_properties.
 
@@ -62,42 +85,42 @@ The properties fields must be sourced from columns with a [STRUCT](https://cloud
 If your source table doesn't have the event or user properties organized in a struct type column, you can create it in your select SQL. For example, if your event properties are all flattened into their own columns, you can compose your event_properties into a struct like so:
 
 ```sql
-1SELECT STRUCT(
+SELECT STRUCT(
 
-2    event_property_column_1 AS event_property_name_1,
+    event_property_column_1 AS event_property_name_1,
 
-3    event_property_column_2 AS event_property_name_2
+    event_property_column_2 AS event_property_name_2
 
-1) as event_properties
+) as event_properties
 
-5FROM your_table;
+FROM your_table;
 ```
 
 !!!warning
 
     You can't have spaces in struct field names even if they are enclosed in back ticks or single quotes.
 
-#### Properties from a JSON String field
+### Properties from a JSON string field
 
 If you have your event or user properties formatted as JSON as a string field, you still must reconstruct the properties field in the select SQL as a STRUCT. BigQuery exports String fields as String even if the contents are JSON. These are rejected by Amplitude's event validation.
 
 You can extract values from your JSON String field, though, to use in your properties STRUCT. Use the [JSON_EXTRACT_SCALAR](https://cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#json_extract_scalar) function to access the values in your string as follows. If your EVENT_PROPERTIES column in the table contains a JSON String like:
 
-`1"{\"record count\":\"50\",\"region\":\"eu-central-1\"}"` which is displayed in BigQuery UI like `{"record count":"50","region":"eu-central-1"})`, then you can extract the values from the JSON String like this:
+`"{\"record count\":\"50\",\"region\":\"eu-central-1\"}"` which is displayed in BigQuery UI like `{"record count":"50","region":"eu-central-1"})`, then you can extract the values from the JSON String like this:
 
 ```sql
-1SELECT STRUCT(
+SELECT STRUCT(
 
-2    JSON_EXTRACT_SCALAR(EVENT_PROPERTIES, "$.record count") AS record_count,
+    JSON_EXTRACT_SCALAR(EVENT_PROPERTIES, "$.record count") AS record_count,
 
-3    JSON_EXTRACT_SCALAR(EVENT_PROPERTIES, "$.region") AS region
+   JSON_EXTRACT_SCALAR(EVENT_PROPERTIES, "$.region") AS region
 
-1) as event_properties
+) as event_properties
 
-5FROM your_table;
+FROM your_table;
 ```
 
-### String Literals
+### String literals
 
 Be aware that, unlike other data warehouse products, BigQuery treats "double-quoted strings" as string literals. 
 This means that you can't use them to quote identifiers like column names or table names, or the SQL fails to execute in BigQuery.

@@ -215,7 +215,7 @@ nav:
   #     - experiment/remove-move/local-evaluation/local-evaluation-overview.md
   #     - experiment/remove-move/local-evaluation/create-a-local-evaluation-flag.md
   #     - experiment/remove-move/local-evaluation/nodejs-sdk.md
-- Data:
+- Data (Beta):
   - data/index.md
   - Data Instrumentation:
     - data/ampli-sdk-overview.md
