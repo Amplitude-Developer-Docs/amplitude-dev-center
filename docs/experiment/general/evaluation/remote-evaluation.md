@@ -28,7 +28,7 @@ Remote evaluation targeting and identity resolution is powered by Amplitude Anal
 
 ## Implementation
 
-Remote evaluation resolves the user within amplitude and appends additional information to the user before passing the user object to the [evaluation implementation](./implementation.md).
+Remote evaluation resolves the user within amplitude and appends additional information to the user before passing the enriched user to the [evaluation implementation](./implementation.md).
 
 ![Diagram of remote evaluation, specifically amplitude ID resolution and user enrichment](../../../assets/images/experiment/remote-evaluation.drawio.svg)
 

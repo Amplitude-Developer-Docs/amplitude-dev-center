@@ -27,6 +27,12 @@ Install the Experiment JavaScript Client SDK.
     yarn add @amplitude/experiment-js-client
     ```
 
+=== "Script Tag"
+
+    ```html
+    <script src="https://unpkg.com/@amplitude/experiment-js-client@<VERSION>/dist/experiment.umd.js"></script>
+    ```
+
 !!!tip "Quick Start"
 
     1. [Initialize the experiment client](#initialize)
