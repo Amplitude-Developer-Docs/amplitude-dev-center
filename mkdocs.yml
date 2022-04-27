@@ -243,6 +243,7 @@ nav:
     - Kinesis Firehose (Beta): integrations/kinesis-firehose-event-streaming.md
   - Cohort Integrations:
     - Iterable: Iterable-cohort.md
+    - Hubspot: Hubspot Integration.md
   - Other Integrations:
     - integrations/shopify-plugin.md
     - integrations/sending-cohorts.md
