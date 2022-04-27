@@ -2,7 +2,7 @@
 site_name: Amplitude Developer Center
 site_url: https://docs.developers.amplitude.com
 site_author: Amplitude
-site_description: >- 
+site_description: >-
     Developer resources for Amplitude's digital optimization products.
 
 # Repository
@@ -24,7 +24,7 @@ theme:
   # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
-  
+
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
@@ -42,8 +42,8 @@ theme:
     - search.highlight
     - search.share
     - search.suggest
-    # - toc.integrate #this is a really noisy feature, IMO. 
-  font: false # Prevents autoloading of google fonts, for privacy reasons. 
+    # - toc.integrate #this is a really noisy feature, IMO.
+  font: false # Prevents autoloading of google fonts, for privacy reasons.
   favicon: assets/favicon.ico
   logo: assets/logo.png
 extra_css:
@@ -56,7 +56,7 @@ extra_javascript:
 
 
 # Plugins
-# When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too. 
+# When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too.
 plugins:
   - search
   - git-revision-date
@@ -104,8 +104,8 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-extra:  
-  support_contact: https://amplitude.com 
+extra:
+  support_contact: https://amplitude.com
   community: https://community.amplitude.com
   help_site: https://help.amplitude.com
   training_site: https://academy.amplitude.com/
@@ -113,28 +113,14 @@ extra:
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues
   more_resources: all-resources
   analytics:
-    provider: google
-    property: G-32PQ1PFKXZ
-    feedback:
-      title: Was this page helpful?
-      ratings:
-        - icon: material/emoticon-happy-outline
-          name: This page was helpful
-          data: 1
-          note: >-
-            Thanks for your feedback!
-        - icon: material/emoticon-sad-outline
-          name: This page could be improved
-          data: 0
-          note: >- 
-            Thanks for your feedback! Help us improve this page by opening a <a href="https://github.com/Amplitude-Developer-Docs/issues/issues/new/?title=[Feedback]+{title}+-+{url}" target=_blank>GitHub issue</a>.
+    provider: amplitude
   consent:
-      title: Cookie consent
-      description: >- 
-        We use cookies to recognize your repeated visits and preferences, as well
-        as to measure the effectiveness of our documentation and whether users
-        find what they're searching for. With your consent, you're helping us to
-        make our documentation better.
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
 
   generator: false #hides the generated with text in the footer
 
@@ -170,7 +156,7 @@ nav:
     - analytics/apis/scim-api.md
     - analytics/apis/taxonomy-api.md
     - analytics/apis/user-privacy-api.md
-  - Advanced Topics: 
+  - Advanced Topics:
     - analytics/analytics-domain-proxy.md
     - analytics/dynamic-configuration.md
   - Other Resources:
@@ -231,7 +217,7 @@ nav:
     - data/sdks/nodejs-ampli.md
     - data/sdks/ios-ampli.md
     - data/sdks/android-ampli.md
-    - data/sdks/jre-ampli.md 
+    - data/sdks/jre-ampli.md
   - Reverse ETL and Cloud Integrations:
     - Amazon S3:
       - S3 Import: integrations/amazon-s3-import.md
@@ -255,26 +241,25 @@ nav:
     - Iterable (Beta): integrations/iterable-event-streaming.md
     - Kinesis Data Stream (Beta): integrations/kinesis-data-stream-event-streaming.md
     - Kinesis Firehose (Beta): integrations/kinesis-firehose-event-streaming.md
-  - Other Integrations: 
+  - Other Integrations:
     - integrations/shopify-plugin.md
-    - integrations/sending-cohorts.md  
+    - integrations/sending-cohorts.md
 - Resources:
   - all-resources.md
 
 #- Partner Hub: # Hidden until we have content
   #- partners/index.md
 
-# Files Intentionally left out of nav: 
-  #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav        
-      #- data/deprecated-sdks/browser.md 
+# Files Intentionally left out of nav:
+  #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav
+      #- data/deprecated-sdks/browser.md
       #- data/deprecated-sdks/nodejs.md
-      #- data/deprecated-sdks/ios.md 
+      #- data/deprecated-sdks/ios.md
       #- data/deprecated-sdks/android.md
       #- data/deprecated-sdks/jre.md
       #- data/deprecated-sdks/python.md
-      #- data/deprecated-sdks/ruby.md 
+      #- data/deprecated-sdks/ruby.md
       #- data/deprecated-sdks/dotnet.md
       #- data/deprecated-sdks/jre-v3.md
       #- data/deprecated-sdks/ruby-v2.md
       #- data/iglu-api.md
-      
