@@ -48,7 +48,7 @@
         properties.anchor = url.hash;
     }
     // HACK: figure out better environment switching
-    if (url.hostname === 'docs.developers.amplitude.com') {
+    if (url.hostname === 'docs.developers.amplitude.com' || url.hostname === 'www.docs.developers.amplitude.com') {
         amplitude.getInstance().logEvent("page viewed", properties);
     }
 </script>
