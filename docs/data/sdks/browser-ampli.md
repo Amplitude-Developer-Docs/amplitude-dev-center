@@ -39,11 +39,7 @@ The tracking library exposes a function for every event in your team’s trackin
     `/* eslint-disable */`
     
 
-<<<<<<< HEAD
     There's no corresponding “in-code” functionality with Prettier. Instead, add the generated `path/to/ampli` to your `.prettierignore` file. You can get the path with `ampli pull`. See the [Prettier documentation](https://prettier.io/docs/en/ignore.html) for more information. 
-=======
-    There's no corresponding “in-code” functionality with Prettier. Instead, add the generated `path/to/ampli` to your `.prettierignore` file. You can get the path with `ampli pull`.
->>>>>>> main
 
 ## Installation
 
