@@ -20,10 +20,6 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-  # Static files
-  static_templates:
-    - overrides/404.html
-
   # Don't include MkDocs' JavaScript
   include_search_page: false
   search_index_only: true
