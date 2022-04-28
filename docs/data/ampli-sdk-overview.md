@@ -68,4 +68,4 @@ class Ampli {
 }
 ```
 
-You can override the default client configuration with `client.config`.
+You can override the default client configuration with `client.options`.
