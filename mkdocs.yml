@@ -185,11 +185,12 @@ nav:
     - experiment/guides/server-side-rendering.md
     - experiment/guides/create-local-evaluation-flag.md
   - SDKs:
-    - Node.js SDK: experiment/sdks/nodejs-sdk.md
     - JavaScript SDK: experiment/sdks/javascript-sdk.md
     - Android SDK: experiment/sdks/android-sdk.md
     - iOS SDK: experiment/sdks/ios-sdk.md
     - React Native SDK: experiment/sdks/react-native-sdk.md
+    - Node.js SDK: experiment/sdks/nodejs-sdk.md
+    - Go SDK (Beta): experiment/sdks/go-sdk.md
   - REST APIs:
     - Evaluation API: "https://developers.experiment.amplitude.com/reference/get_v1-vardata"
     - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
