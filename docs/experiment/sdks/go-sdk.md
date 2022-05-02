@@ -231,6 +231,11 @@ if err != nil {
 
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
 
+| Parameter | Requirement | Description |
+| --- | --- | --- |
+| `user` | required | The [user](../general/data-model.md#users) to evaluate. |
+| `flagKeys` | optional | Specific flags or experiments to evaluate. If nil, or empty, all flags and experiments are evaluated. |
+
 ```go
 // The user to evaluate
 user := &experiment.User{DeviceId: "abcdefg"}
