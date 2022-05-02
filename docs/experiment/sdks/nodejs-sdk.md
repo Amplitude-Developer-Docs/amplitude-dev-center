@@ -169,7 +169,7 @@ Install the Node.js Server SDK from the `alpha` tag with `npm` or `yarn`.
 === "yarn"
 
     ```yarn
- $ yarn add @amplitude/experiment-node-server@alpha
+    $ yarn add @amplitude/experiment-node-server@alpha
     ```
 
 !!!tip "Quick Start"
