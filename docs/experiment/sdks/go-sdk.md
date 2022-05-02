@@ -51,10 +51,10 @@ go get github.com/amplitude/experiment-go-server
 
     // (3) Access a flag's variant
     variant := variants["<FLAG_KEY>"]
-    if variant == nil {
-        // Flag is off
-    } else if variant.Value == "on" {
+    if variant.Value == "on" {
         // Flag is on
+    } else {
+        // Flag is off
     }
     ```
 
@@ -121,10 +121,10 @@ After fetching variants for a user, you may to access the variant for a specific
 
 ```go
 variant := variants["<FLAG_KEY>"]
-if variant == nil {
-    // Flag is off
-} else if variant.Value == "on" {
+if variant.Value == "on" {
     // Flag is on
+} else {
+    // Flag is off
 }
 ```
 
@@ -254,9 +254,9 @@ specificVariants, err := client.Evaluate(user, []string{
 
 // Access a variant
 variant := allVariants["<FLAG_KEY>"]
-if variant == nil {
-    // Flag is off
-} else if variant.Value == "on" {
+if variant.Value == "on" {
     // Flag is on
+} else {
+    // Flag is off
 }
 ```
