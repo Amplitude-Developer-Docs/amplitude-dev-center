@@ -6,6 +6,8 @@ icon: fontawesome/brands/golang
 
 Official documentation for Amplitude Experiment's server-side Go SDK implementation.
 
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/amplitude/experiment-go-server?sort=semver)
+
 !!!info "SDK Resources"
     [:material-github: Github](https://github.com/amplitude/experiment-go-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-go-server/releases)
 
