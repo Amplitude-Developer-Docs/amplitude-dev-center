@@ -169,7 +169,7 @@ Install the Node.js Server SDK from the `alpha` tag with `npm` or `yarn`.
 === "yarn"
 
     ```yarn
- $ yarn add @amplitude/experiment-node-server@alpha
+    $ yarn add @amplitude/experiment-node-server@alpha
     ```
 
 !!!tip "Quick Start"
@@ -187,7 +187,7 @@ Install the Node.js Server SDK from the `alpha` tag with `npm` or `yarn`.
 
     // (2) Evaluate a user.
     const user = { device_id: 'abcdefg' };
-    const variants = experiment.evaluate(user);
+    const variants = await experiment.evaluate(user);
     ```
 
 ### Initialize Local
@@ -241,14 +241,23 @@ await experiment.start();
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
 
 ```js
+evaluate(user: ExperimentUser, flagKeys?: string[]): Promise<Variants>
+```
+
+| Parameter | Requirement | Description |
+| --- | --- | --- |
+| `user` | required | The [user](../general/data-model.md#users) to evaluate. |
+| `flagKeys` | optional | Specific flags or experiments to evaluate. If undefined, null, or empty, all flags and experiments are evaluated. |
+
+```js
 // The user to evaluate
-const user = { device_id: 'abdc1234' };
+const user = { device_id: 'abcdefg' };
 
 // Evaluate all flag variants
-const allVariants = localClient.evaluate(user);
+const allVariants = await experiment.evaluate(user);
 
 // Evaluate a specific subset of flag variants
-const specificVariants = localClient.evaluate(user, [
+const specificVariants = await experiment.evaluate(user, [
   'my-local-flag-1',
   'my-local-flag-2',
 ]);
