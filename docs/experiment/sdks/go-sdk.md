@@ -33,43 +33,37 @@ go get github.com/amplitude/experiment-go-server
     3. [Access a flag's variant](#fetch)
 
     ```go
-    TODO
+    // (1) Initialize the local evaluation client with a server deployment key.
+    client := remote.Initialize("<DEPLOYMENT_KEY>", nil)
+
+    // (2) Fetch variants for a user
+	user := &experiment.User{
+		UserId:   "user@company.com",
+		DeviceId: "abcdefg",
+		UserProperties: map[string]interface{}{
+			"premium": true,
+		},
+	}
+	variants, err := client.Fetch(user)
+	if err != nil {
+		// Handle error
+	}
+
+    // (3) Access a flag's variant
+    variant := variants["<FLAG_KEY>"]
+    if variant == nil {
+        // Flag is off
+    } else if variant.Value == "on" {
+        // Flag is on
+    }
     ```
-
-<!-- ```js
-// (1) Initialize the experiment client
-const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
-    fetchTimeoutMillis: 500,
-    fetchRetries: 1,
-    fetchRetryBackoffMinMillis: 0,
-    fetchRetryTimeoutMillis: 500,
-});
-
-// (2) Fetch variants for a user
-const user = {
-    user_id: 'user@company.com',
-    device_id: 'abcdefg',
-    user_properties: {
-        'premium': true,
-    },
-};
-const variants = await experiment.fetch(user);
-
-// (3) Access a flag's variant
-const variant = variants['YOUR-FLAG-KEY'];
-if (variant?.value === 'on') {
-    // Flag is on
-} else {
-    // Flag is off
-}
-``` -->
 
 ### Initialize
 
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```go
-TODO
+func Initialize(apiKey string, config *Config) *Client
 ```
 
 | Parameter | Requirement | Description |
@@ -77,17 +71,8 @@ TODO
 | `apiKey` | required | The [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags should be evaluated for the user. |
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
-<!-- ```js
-const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
-    fetchTimeoutMillis: 500,
-    fetchRetries: 1,
-    fetchRetryBackoffMinMillis: 0,
-    fetchRetryTimeoutMillis: 500,
-});
-``` -->
-
 ```go
-TODO
+client := remote.Initialize("<DEPLOYMENT_KEY>", nil)
 ```
 
 #### Configuration
@@ -95,60 +80,52 @@ TODO
 The SDK client can be configured on initialization.
 
 ???config "Configuration Options"
-    <!-- TODO update for golang -->
-    | <div class="big-column">Name</div>  | Description | Default Value |
+    | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
-    | `debug` | Enable additional debug logging. | `false` |
-    | `serverUrl` | The host to fetch variants from. | `https://api.lab.amplitude.com` |
-    | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. This timeout only applies to the initial request, not subsequent retries | `10000` |
-    | `fetchRetries` | The number of retries to attempt if a request to fetch variants fails. | `8` |
-    | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay is scaled by the `fetchRetryBackoffScalar` | `500` |
-    | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10000` |
-    | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1.5` |
-    | `fetchRetryTimeoutMillis` | The request timeout for retrying variant fetches. | `10000` |
-
-
+    | `Debug` | Set to `true` to enable debug logging. | `false` |
+    | `ServerUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
+    | `FlagConfigPollingInterval` |  The timeout for fetching variants in milliseconds. This timeout only applies to the initial request, not subsequent retries | `500 * time.Millisecond` |
+    | `RetryBackoff.FetchRetries` | The number of retries to attempt if a request to fetch variants fails. | `1` |
+    | `RetryBackoff.FetchRetryBackoffMin` | The minimum (initial) backoff after a request to fetch variants fails. This delay is scaled by the `RetryBackoff.FetchRetryBackoffScalar` | `0` |
+    | `RetryBackoff.FetchRetryBackoffMax` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10 * time.Second` |
+    | `RetryBackoff.FetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1` |
+    | `RetryBackoff.FetchRetryTimeout` | The request timeout for retrying variant fetches. | `500 * time.Millisecond` |
 
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 ```go
-TODO
+func (c *Client) Fetch(user *experiment.User) (map[string]*experiment.Variant, error)
 ```
 
 | Parameter  | Requirement | Description |
 | --- | --- | --- |
 | `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
 
-<!-- ```js
-const user = {
-    user_id: 'user@company.com',
-    device_id: 'abcdefg',
-    user_properties: {
-        'premium': true,
-    },
-};
-const variants = await experiment.fetch(user);
-``` -->
-
 ```go
-TODO
+user := &experiment.User{
+    UserId:   "user@company.com",
+    DeviceId: "abcdefg",
+    UserProperties: map[string]interface{}{
+        "premium": true,
+    },
+}
+variants, err := client.Fetch(user)
+if err != nil {
+    // Handle error
+}
 ```
 
 After fetching variants for a user, you may to access the variant for a specific flag.
 
-<!-- ```js
-const variant = variants['YOUR-FLAG-KEY'];
-if (variant?.value === 'on') {
-    // Flag is on
-} else {
-    // Flag is off
-}
-``` -->
-
 ```go
-TODO
+variant := variants["<FLAG_KEY>"]
+if variant == nil {
+    // Flag is off
+} else if variant.Value == "on" {
+    // Flag is on
+}
 ```
 
 ## Local evaluation (alpha)
@@ -194,7 +171,7 @@ go get github.com/amplitude/experiment-go-server
 		panic(err)
 	}
 
-    // (2) Evaluate a user.
+    // (3) Evaluate a user.
 	user := &experiment.User{DeviceId: "abcdefg"}
 	variants, err := client.Evaluate(user, nil)
 	if err != nil {
@@ -219,21 +196,19 @@ func Initialize(apiKey string, config *Config) *Client
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!tip "Flag Polling Interval"
-    <!-- TODO update config -->
-    Use the `flagConfigPollingIntervalMillis` [configuration](#configuration-1) to determine the time flag configs take to update once modified (default 30s).
+    Use the `FlagConfigPollingInterval` [configuration](#configuration-1) to determine the time flag configs take to update once modified (default 30s).
 
 #### Configuration
 
 The SDK client can be configured on initialization.
 
 ???config "Configuration Options"
-    <!-- TODO update config -->
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
-    | `debug` | Set to `true` to enable debug logging. | `false` |
-    | `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
-    | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
-    | `flagConfigPollingIntervalMillis` | The interval (in milliseconds) to poll for updated flag configs after calling `start()` | `30000` |
+    | `Debug` | Set to `true` to enable debug logging. | `false` |
+    | `ServerUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
+    | `FlagConfigPollingInterval` | The interval to poll for updated flag configs after calling [`Start()`](#start) | `30 * time.Second` |
+    | `FlagConfigPollerRequestTimeout` | The timeout for the request made by the flag config poller | `10 * time.Second` |
 
 ### Start
 
@@ -245,32 +220,38 @@ func (c *Client) Start() error
 
 You should await the result of `start()` to ensure that flag configs are ready to be used before calling [`evaluate()`](#evaluate)
 
-<!-- ```js
-await experiment.start();
-``` -->
-
 ```go
-TODO
+err := client.Start()
+if err != nil {
+    panic(err)
+}
 ```
 
 ### Evaluate
 
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
 
-<!-- ```js
+```go
 // The user to evaluate
-const user = { device_id: 'abdc1234' };
+user := &experiment.User{DeviceId: "abcdefg"}
 
 // Evaluate all flag variants
-const allVariants = localClient.evaluate(user);
+allVariants, err := client.Evaluate(user, nil)
+if err != nil {
+    // Handle Error
+}
 
 // Evaluate a specific subset of flag variants
-const specificVariants = localClient.evaluate(user, [
-  'my-local-flag-1',
-  'my-local-flag-2',
-]);
-``` -->
+specificVariants, err := client.Evaluate(user, []string{
+    "<FLAG_KEY_1>",
+    "<FLAG_KEY_2>",
+})
 
-```go
-TODO
+// Access a variant
+variant := allVariants["<FLAG_KEY>"]
+if variant == nil {
+    // Flag is off
+} else if variant.Value == "on" {
+    // Flag is on
+}
 ```
