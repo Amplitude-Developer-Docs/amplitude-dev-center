@@ -20,10 +20,10 @@ Implements fetching variants for a user via [remote evaluation](../general/evalu
 
 ### Install
 
-Install the Go Server SDK using `go mod`.
+Install the Go Server SDK using `go get`.
 
 ```bash
-TODO
+go get github.com/amplitude/experiment-go-server
 ```
 
 !!!tip "Quick Start"
@@ -36,33 +36,33 @@ TODO
     TODO
     ```
 
-    <!-- ```js
-    // (1) Initialize the experiment client
-    const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
-        fetchTimeoutMillis: 500,
-        fetchRetries: 1,
-        fetchRetryBackoffMinMillis: 0,
-        fetchRetryTimeoutMillis: 500,
-    });
+<!-- ```js
+// (1) Initialize the experiment client
+const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
+    fetchTimeoutMillis: 500,
+    fetchRetries: 1,
+    fetchRetryBackoffMinMillis: 0,
+    fetchRetryTimeoutMillis: 500,
+});
 
-    // (2) Fetch variants for a user
-    const user = {
-        user_id: 'user@company.com',
-        device_id: 'abcdefg',
-        user_properties: {
-            'premium': true,
-        },
-    };
-    const variants = await experiment.fetch(user);
+// (2) Fetch variants for a user
+const user = {
+    user_id: 'user@company.com',
+    device_id: 'abcdefg',
+    user_properties: {
+        'premium': true,
+    },
+};
+const variants = await experiment.fetch(user);
 
-    // (3) Access a flag's variant
-    const variant = variants['YOUR-FLAG-KEY'];
-    if (variant?.value === 'on') {
-        // Flag is on
-    } else {
-        // Flag is off
-    }
-    ``` -->
+// (3) Access a flag's variant
+const variant = variants['YOUR-FLAG-KEY'];
+if (variant?.value === 'on') {
+    // Flag is on
+} else {
+    // Flag is off
+}
+``` -->
 
 ### Initialize
 
@@ -160,9 +160,9 @@ Implements evaluating variants for a user via [local evaluation](../general/eval
 
 ### Install
 
-Install the Go Server SDK's local evaluation package using `go mod`.
+Install the Go Server SDK's local evaluation package using `go get`.
 
-!!!warning CGO, OS, and architecture support
+!!!warning "CGO, OS, and architecture support"
     Local evaluation requires `CGO` be enabled (`CGO_ENABLED=1`). Additionally, the local evaluation package currently only supports the following OS' and architectures (`GOOS/GOARCH`):
 
     * darwin/amd64
@@ -170,43 +170,47 @@ Install the Go Server SDK's local evaluation package using `go mod`.
     * linux/amd64
     * linux/arm64
 
-    If you need another OS/Arch supported, please submit an issue on github or email: experiment@amplitude.com.
+    If you need another OS/Arch supported, please [submit an issue on github](https://github.com/amplitude/experiment-go-server/issues/new) or email [experiment@amplitude.com](mailto:experiment@amplitude.com).
+
+Install the Go Server SDK using `go get`.
 
 ```bash
-TODO
+go get github.com/amplitude/experiment-go-server
 ```
 
 !!!tip "Quick Start"
 
-    1. [Initialize the local evaluation client.](#initialize-local)
+    1. [Initialize the local evaluation client.](#initialize-1)
     2. [Start the local evaluation client.](#start)
     3. [Evaluate a user.](#evaluate)
 
-    <!-- ```js
+    ```go
     // (1) Initialize the local evaluation client with a server deployment key.
-    const experiment = Experiment.initializeLocal('<DEPLOYMENT_KEY>');
+    client := local.Initialize("<DEPLOYMENT_KEY>", nil)
 
     // (2) Start the local evaluation client.
-    await experiment.start();
+	err := client.Start()
+	if err != nil {
+		panic(err)
+	}
 
     // (2) Evaluate a user.
-    const user = { device_id: 'abcdefg' };
-    const variants = experiment.evaluate(user);
-    ``` -->
-
-    ```go
-    TODO
+	user := &experiment.User{DeviceId: "abcdefg"}
+	variants, err := client.Evaluate(user, nil)
+	if err != nil {
+		panic(err)
+	}
     ```
 
-### Initialize Local
+### Initialize
 
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 !!!warning "Server Deployment Key"
-    You must [initialize](#initialize-local) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+    You must [initialize](#initialize-1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
 
 ```go
-
+func Initialize(apiKey string, config *Config) *Client
 ```
 
 | Parameter | Requirement | Description |
@@ -236,7 +240,7 @@ The SDK client can be configured on initialization.
 Start the local evaluation client, pre-fetching local local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
 
 ```go
-TODO
+func (c *Client) Start() error
 ```
 
 You should await the result of `start()` to ensure that flag configs are ready to be used before calling [`evaluate()`](#evaluate)
