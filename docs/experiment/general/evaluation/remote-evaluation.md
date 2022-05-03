@@ -96,7 +96,8 @@ Remote evaluation is supported by all SDKs, client-side and server-side.
 ### Server-side
 
 <div class="grid cards" markdown>
--   [:material-nodejs:{ .lg .middle } __Node.js__](../../sdks/javascript-sdk.md)
+-   [:material-nodejs:{ .lg .middle } __Node.js__](../../sdks/nodejs-sdk.md)
+-   [:material-language-ruby:{ .lg .middle } __Ruby__](../../sdks/ruby-sdk.md)
 </div>
 
 ## APIs
