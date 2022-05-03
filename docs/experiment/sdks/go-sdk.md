@@ -98,7 +98,7 @@ The SDK client can be configured on initialization.
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 ```go
-func (c *Client) Fetch(user *experiment.User) (map[string]*experiment.Variant, error)
+func (c *Client) Fetch(user *experiment.User) (map[string]experiment.Variant, error)
 ```
 
 | Parameter  | Requirement | Description |
@@ -232,6 +232,10 @@ if err != nil {
 ### Evaluate
 
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+
+```go
+func (c *Client) Evaluate(user *experiment.User, flagKeys []string) (map[string]experiment.Variant, error)
+```
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
