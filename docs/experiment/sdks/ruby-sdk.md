@@ -11,7 +11,7 @@ Official documentation for Amplitude Experiment's server-side Ruby SDK implement
 !!!info "SDK Resources"
      [:material-github: Github](https://github.com/amplitude/experiment-ruby-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ruby-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ruby-server/)
 
-Ruby SDK supprts [remote](../general/evaluation/remote-evaluation.md) evaluation now.
+Ruby SDK supports [remote evaluation](../general/evaluation/remote-evaluation.md) now.
 
 ## Remote evaluation
 
@@ -80,7 +80,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```ruby
-init(api_key, config = nil) ⇒ Client
+init(apiKey, config = nil) : Client
 ```
 
 | Parameter | Requirement | Description |
@@ -89,16 +89,7 @@ init(api_key, config = nil) ⇒ Client
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!info "Timeout & Retry Configuration"
-**The default timeout is too high for most server environments, and default retry configuration is 0**. Please configure the timeout and retry options to best fit your performance requirements.
-
-```ruby
-experiment = Experiment.init(api_key, Experiment::Config.new(
-    fetch_timeout_millis: 500,
-    fetch_retries: 1,
-    fetch_retry_backoff_min_millis: 0,
-    fetch_retry_timeout_millis: 500
-))
-```
+     Please configure the timeout and retry options to best fit your performance requirements.
 
 #### Configuration
 
@@ -123,7 +114,7 @@ The SDK client can be configured on initialization.
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 ```ruby
-fetch(user: Experiment::User) -> Variants
+fetch(user: Experiment::User) : Variants
 ```
 
 | Parameter  | Requirement | Description |
@@ -154,7 +145,9 @@ unless variant.nil?
 end
 ```
 
-The fetch method is asynchronous. To fetch asynchronously, you can use fetch_async method
+### Fetch Async
+
+The fetch method is synchronous. To fetch asynchronously, you can use `fetch_async` method
 ```ruby
 fetch_async(user: Experiment::User, &callback)
 ```
