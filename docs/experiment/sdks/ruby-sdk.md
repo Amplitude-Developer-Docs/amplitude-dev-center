@@ -47,12 +47,7 @@ Install the Ruby Server SDK with bundler or gem directly.
     require 'amplitude-experiment'
 
     # (1) Initialize the experiment client
-    experiment = Experiment.init('<DEPLOYMENT_KEY>', Experiment::Config.new(
-      fetch_timeout_millis: 500,
-      fetch_retries: 1,
-      fetch_retry_backoff_min_millis: 0,
-      fetch_retry_timeout_millis: 500
-    ))
+    experiment = Experiment.init('<DEPLOYMENT_KEY>', Experiment::Config.new)
 
     # (2) Fetch variants for a user
     user = Experiment::User.new(
@@ -90,6 +85,9 @@ init(apiKey, config = nil) : Client
 
 !!!info "Timeout & Retry Configuration"
      Please configure the timeout and retry options to best fit your performance requirements.
+    ```ruby
+    experiment = Experiment.init('<DEPLOYMENT_KEY>', Experiment::Config.new)
+    ```
 
 #### Configuration
 
