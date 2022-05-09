@@ -191,6 +191,7 @@ nav:
     - React Native SDK: experiment/sdks/react-native-sdk.md
     - Node.js SDK: experiment/sdks/nodejs-sdk.md
     - Go SDK (Beta): experiment/sdks/go-sdk.md
+    - Ruby SDK (Beta): experiment/sdks/ruby-sdk.md
   - REST APIs:
     - Evaluation API: "https://developers.experiment.amplitude.com/reference/get_v1-vardata"
     - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
