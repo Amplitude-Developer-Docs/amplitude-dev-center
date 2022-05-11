@@ -7,7 +7,7 @@ description: Learn how to use branches in Ampli with source control systems like
     This new workflow is in Beta and must be enabled on your account before usage. Please contact support to request the
     access to the improved branching workflow.
 
-    This workflow requires Ampli CLI 1.6.0+
+    This workflow requires Ampli CLI 1.9.0+
 
 Larger organizations with multiple teams will likely need to make changes to their tracking plan and analytics implementations in parallel.
 
@@ -368,4 +368,4 @@ Yes, that is expected! The Ampli CLI uses this information to verify that the Am
 
 ### Do I need to run ampli pull -b main before merging my Git branch?
 
-Not anymore! If you were using an earlier version of Ampli make sure to update to Ampli CLI 1.4.4+ and pull the latest version of your Ampli SDK. After that you'll never need to run ampli pull -b main again.
+Not anymore! If you were using an earlier version of Ampli make sure to update to Ampli CLI 1.9.0+ and pull the latest version of your Ampli SDK. After that you'll never need to run ampli pull -b main again.
