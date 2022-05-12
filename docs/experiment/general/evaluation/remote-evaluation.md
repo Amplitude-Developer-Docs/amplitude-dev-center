@@ -98,6 +98,7 @@ Remote evaluation is supported by all SDKs, client-side and server-side.
 <div class="grid cards" markdown>
 -   [:material-nodejs:{ .lg .middle } __Node.js__](../../sdks/nodejs-sdk.md)
 -   [:material-language-ruby:{ .lg .middle } __Ruby__](../../sdks/ruby-sdk.md)
+-   [:fontawesome-brands-golang:{ .lg .middle } __Go__](../../sdks/go-sdk.md)
 </div>
 
 ## APIs

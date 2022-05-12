@@ -43,6 +43,10 @@ Local evaluation is only supported by server-side SDKs which have local evaluati
 | SDK | Remote Evaluation | Local Evaluation | Version |
 | --- | --- | --- | --- |
 | [:material-nodejs: Node.js](../../sdks/nodejs-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } | `1.1.0-alpha.8` |
+| [:fontawesome-brands-golang: Go (Beta)](../../sdks/go-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } | ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/amplitude/experiment-go-server?sort=semver)
+ |
+| [:material-language-ruby: Ruby (Beta)](../../sdks/ruby-sdk.md) |  :material-check-bold:{ .green } | :material-close-thick:{ .red } | - |
+
 
 ### Performance
 
