@@ -163,7 +163,8 @@ nav:
     - analytics/analytics-domain-proxy.md
     - analytics/dynamic-configuration.md
   - Other Resources:
-    - analytics/google-tag-manager.md
+    - Google Tag Manager (client-side): analytics/google-tag-manager.md
+    - Google Tag Manager (server-side): analytics/google-tag-manager-server-side.md
     - analytics/adobe.md
 - Experiment:
   - experiment/index.md

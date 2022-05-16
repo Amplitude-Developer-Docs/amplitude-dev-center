@@ -1,5 +1,5 @@
 ---
-title: Google Tag Manager
+title: Google Tag Manager (Client-side)
 description: Official Google Tag Manager template for Amplitude Analytics. The tag uses the Amplitude JavaScript SDK for data collection.
 ---
 
