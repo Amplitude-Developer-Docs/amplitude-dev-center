@@ -412,9 +412,9 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | `idfv` | Optional. String. (iOS) Identifier for Vendor. |
 | `adid` | Optional. String. (Android) Google Play Services advertising ID |
 | `android_id` | Optional. String. (Android) Android ID (not the advertising ID) |
-| `event_id` | Optional. Integer. (Optional) An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultanenously. |
-| `session_id` | Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A session_id of –1 is the same as no session_id specified. |
-| `insert_id` | Optional. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with an `insert_id` already used within the past 7 days. We recommend generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time. |
+| `event_id` | Optional. Integer. (Optional) An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultaneously. |
+| `session_id` | Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A `session_id` of –1 is the same as no session_id specified. |
+| `insert_id` | Optional. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with the same `device_id` and `insert_id` within the past 7 days. We recommend generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time. |
 | `plan` | Optional. Object. Tracking plan properties. Only branch, source, version properties are accepted. |
 | `plan.branch` | Optional. String. The tracking plan branch name. For example: "main". |
 | `plan.source` | Optional. String. The tracking plan source. For example: "web". |
