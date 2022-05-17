@@ -1,5 +1,5 @@
 ---
-title: iOS
+title: iOS Ampli SDK
 icon: material/apple-ios
 description: Learn how to install and use the Ampli SDK for the iOS Swift and Objective-C runtimes. 
 ---

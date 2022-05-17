@@ -1,5 +1,5 @@
 ---
-title: JRE
+title: JRE Ampli SDK
 description: Documentation for Amplitude Data's JRE Ampli SDK. 
 icon: fontawesome/brands/java
 ---

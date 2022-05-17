@@ -1,5 +1,5 @@
 ---
-title: Browser
+title: Browser Ampli SDK
 description: Learn how to install and use the Amplitude Data Ampli SDK for the browser JavaScript and Typescript runtimes.
 icon: material/language-javascript
 ---
