@@ -1,5 +1,5 @@
 ---
-title: Node.js
+title: Node.js Ampli SDK
 description: Learn how to install and use the Amplitude Data Ampli SDK for the Node.js JavaScript and Typescript runtimes.
 icon: material/nodejs
 ---
