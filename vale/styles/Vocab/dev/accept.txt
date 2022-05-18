@@ -33,3 +33,9 @@ podfile
 untyped
 ampli
 allowlist
+prepends
+Gclid
+Gclid
+Fbclid
+amplitude
+Amplitude

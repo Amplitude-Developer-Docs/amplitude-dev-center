@@ -4,82 +4,96 @@ icon: material/language-javascript
 description: This is the official documentation for the Amplitude JavaScript SDK.
 ---
 
-[![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js)
-
 This is the official documentation for the Amplitude JavaScript SDK.
 
 !!!info "SDK Resources"
-    - [JavaScript SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
-    - [JavaScript SDK Repository :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
-    - [JavaScript SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)
+    [:material-book: API Reference](https://amplitude.github.io/Amplitude-JavaScript/) · [:material-github: GitHub](https://github.com/amplitude/Amplitude-JavaScript) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Javascript/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
-## SDK installation
+## Install
 
-### Installing via the Snippet
+[![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js)
 
-You can install the JavaScript SDK using a small snippet of code which you paste on your site to asynchronously load the SDK.
- On every page that you want to install Amplitude analytics, paste the code snippet just before the `</head>` tag, replacing API_KEY with your project's API key.
-  You can find your project's API Key in your project's [Settings page](https://help.amplitude.com/hc/en-us/articles/360058073772).
+Install the Amplitude Analytics JavaScript SDK in your project.
 
-```js
-<script type="text/javascript">
-(function(e,t){var r=e.amplitude||{_q:[],_iq:{}};var n=t.createElement("script")
-;n.type="text/javascript"
-;n.integrity="sha384-+EO59vL/X7v6VE2s6/F4HxfHlK0nDUVWKVg8K9oUlvffAeeaShVBmbORTC2D3UF+"
-;n.crossOrigin="anonymous";n.async=true
-;n.src="https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
-;n.onload=function(){if(!e.amplitude.runQueuedFunctions){
-console.log("[Amplitude] Error: could not load SDK")}}
-;var s=t.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)
-;function i(e,t){e.prototype[t]=function(){
-this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-var o=function(){this._q=[];return this}
-;var a=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove"]
-;for(var c=0;c<a.length;c++){i(o,a[c])}r.Identify=o;var u=function(){this._q=[]
-;return this}
-;var p=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
-;for(var l=0;l<p.length;l++){i(u,p[l])}r.Revenue=u
-;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId","setLibrary","setTransport"]
-;function v(e){function t(t){e[t]=function(){
-e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
-for(var r=0;r<d.length;r++){t(d[r])}}v(r);r.getInstance=function(e){
-e=(!e||e.length===0?"$default_instance":e).toLowerCase()
-;if(!Object.prototype.hasOwnProperty.call(r._iq,e)){r._iq[e]={_q:[]};v(r._iq[e])
-}return r._iq[e]};e.amplitude=r})(window,document);
+=== "Snippet"
 
-amplitude.getInstance().init("API_KEY");
-</script>
-```
+    You can install the JavaScript SDK using a small snippet of code which you paste on your site to asynchronously load the SDK.
+    On every page that you want to install Amplitude analytics, paste the code snippet just before the `</head>` tag, replacing API_KEY with your project's API key.
+    You can find your project's API Key in your project's [Settings page](https://help.amplitude.com/hc/en-us/articles/360058073772).
 
-### Installing with npm or yarn
+    ```html
+    <script type="text/javascript">
+    (function(e,t){var r=e.amplitude||{_q:[],_iq:{}};var n=t.createElement("script")
+    ;n.type="text/javascript"
+    ;n.integrity="sha384-+EO59vL/X7v6VE2s6/F4HxfHlK0nDUVWKVg8K9oUlvffAeeaShVBmbORTC2D3UF+"
+    ;n.crossOrigin="anonymous";n.async=true
+    ;n.src="https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
+    ;n.onload=function(){if(!e.amplitude.runQueuedFunctions){
+    console.log("[Amplitude] Error: could not load SDK")}}
+    ;var s=t.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)
+    ;function i(e,t){e.prototype[t]=function(){
+    this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+    var o=function(){this._q=[];return this}
+    ;var a=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove"]
+    ;for(var c=0;c<a.length;c++){i(o,a[c])}r.Identify=o;var u=function(){this._q=[]
+    ;return this}
+    ;var p=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+    ;for(var l=0;l<p.length;l++){i(u,p[l])}r.Revenue=u
+    ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","enableTracking","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId","setLibrary","setTransport"]
+    ;function v(e){function t(t){e[t]=function(){
+    e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+    for(var r=0;r<d.length;r++){t(d[r])}}v(r);r.getInstance=function(e){
+    e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+    ;if(!Object.prototype.hasOwnProperty.call(r._iq,e)){r._iq[e]={_q:[]};v(r._iq[e])
+    }return r._iq[e]};e.amplitude=r})(window,document);
 
-You can also install the [npm module](https://www.npmjs.com/package/amplitude-js) and embed the SDK directly into your product.
+    amplitude.getInstance().init("API_KEY");
+    </script>
+    ```
 
-If you are using npm, use the following command:
+=== "npm"
 
-```bash
-npm install amplitude-js
-```
+    ```bash
+    npm install amplitude-js
+    ```
+    You can also install the [npm module](https://www.npmjs.com/package/amplitude-js) and embed the SDK directly into your product.
 
-If you are using yarn, use the following command:
+=== "yarn"
 
-```bash
-yarn add amplitude-js
-```
+    ```bash
+    yarn add amplitude-js
+    ```
 
-Now, import `amplitude` into your project:
+After you've installed the SDK, import `amplitude` into your project:
 
 ```js
 import amplitude from 'amplitude-js';
 ```
 
-## Usage & Examples
+!!!tip "Quickstart"
+    1. [Initialize](#initialize)
+    2. [Send an event](#send-events)
 
-### Initialization
+    ```js 
+    // initialize the client
+    var instance1 = amplitude.getInstance().init("API_KEY");
+    ```
+    ```js
+    // send an event
+    const event = “Button Clicked”;
+    amplitude.getInstance().logEvent(event);
+    ```
+## Core functions
 
-Before you can instrument, you must initialize the SDK using the API key for your Amplitude project.
+The following functions make up the core of the Amplitude Analytics JavaScript SDK.
+
+---
+
+### Initialize
+
+Before you can instrument, initialize the SDK using the API key for your Amplitude project.
  Initialization creates a default instance, but you can create more instances using `getInstance` with a string name.
 
 ```js
@@ -96,7 +110,7 @@ var options = {};
 var instance = amplitude.getInstance("instance").init("API_KEY", null, options); // initializes with the given options
 ```
 
-### Set `userID`
+#### Set `userID`
 
 Set `userID` when initializing the client, or after initialization with the `setUserId` method.
 
@@ -114,7 +128,7 @@ Set `userID` when initializing the client, or after initialization with the `set
     amplitude.getInstance().setUserId(userId);
     ```
 
-### EU data residency
+#### EU data residency
 
 Beginning with version 8.9.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
  The server zone configuration supports dynamic configuration as well.
@@ -138,7 +152,7 @@ amplitude.getInstance().init(euApiKey, null, {
 });
 ```
 
-### Sending events
+### Send events
 
 #### Basic events
 
@@ -149,7 +163,7 @@ const event = “Button Clicked”;
 amplitude.getInstance().logEvent(event);
 ```
 
-#### Events with properties
+#### Event properties
 
 Events can also contain properties. They give context about the event taken. For example, “hover time” may be a relevant event property to “Button Clicked”.
 
@@ -163,7 +177,7 @@ amplitude.getInstance().logEvent(event, eventProperties);
 
 Valid data types for event properties are string, array, object, boolean, and number. Object keys have a 1000 character limit.
 
-#### Arrays in Event Properties
+#### Arrays in event properties
 
 Arrays can be used as event property values. You can query array event properties by any subset of the individual properties in the array.
 
@@ -184,10 +198,10 @@ amplitude.getInstance().logEvent(event, eventProperties2);
 
 User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
 
-#### Setting a user property
+#### Set a user property
 
 The Amplitude Identify object provides controls over setting user properties.
- First, an  Identify object must be instantiated, then you can call Identify methods on it, and finally the client makes a call with the Identify object.
+ First, an Identify object must be instantiated, then you can call Identify methods on it, and then the client makes a call with the Identify object.
 
 ```js
 new amplitude.Identify(); // does nothing, must call one of the following methods and pass to client
@@ -196,9 +210,9 @@ var identify = new amplitude.Identify();
 amplitude.getInstance().identify(identify); // makes identify call to amplitude with the properties of the identify object
 ```
 
-#### `set`
+##### `set`
 
-`set`  sets the value of a user property. You can also chain together many set calls.
+Set the value of a user property. You can also chain together several `set` calls.
 
 ```js
 var identify1 = new amplitude.Identify().set('key1', 'value1');
@@ -207,7 +221,7 @@ amplitude.getInstance().identify(identify1);
 amplitude.getInstance().identify(identify2);
 ```
 
-#### `setOnce`
+##### `setOnce`
 
 `setOnce` sets the value of a user property one time. Later calls using `setOnce` are ignored.
 
@@ -216,7 +230,7 @@ var identify = new amplitude.Identify().setOnce('key1', 'value1');
 amplitude.getInstance().identify(identify);
 ```
 
-#### `add`
+##### `add`
 
 `add`  increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to `0`.
 
@@ -225,7 +239,7 @@ var identify = new amplitude.Identify().add('value1', 10);
 amplitude.getInstance().identify(identify);
 ```
 
-#### Setting multiple user properties
+#### Set multiple user properties
 
 You can use `setUserProperties` as a shorthand to set multiple user properties at one time. This method is a wrapper around `Identify.set` and `identify`.
  For example, set a user's city with this code:
@@ -239,7 +253,7 @@ amplitude.getInstance().setUserProperties(userProperties);
 
 #### Arrays in user properties
 
-Arrays can be used as user properties. You can directly set arrays or use `append` to generate an array.
+User properties can be arrays. You can directly set arrays or use `append` to generate an array.
 
 ```js
 var values = ['value1', 'value2'];
@@ -247,10 +261,10 @@ var identify = new amplitude.Identify().set('key1', values);
 amplitude.getInstance().identify(identify);
 ```
 
-#### `prepend` and `append`
+##### `prepend` and `append`
 
 - `append` appends a value or values to a user property array.
-- `prepend` prepends a value or values to a user property.
+- `prepend` prepends a value or values to a user property array.
 
 If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are added.
  If the user property has an existing value and it's not a list, it's converted into a list with the new value added.
@@ -269,7 +283,7 @@ If the user property doesn't have a value set yet, it's initialized to an empty 
     amplitude.getInstance().setGroup('orgId', '[10,16]');
     ```
 
-You can also use `logEventWithGroups` to set event-level groups, meaning the group designation applies only for the specific event being logged, and doesn't persist on the user unless you explicitly
+You can also use `logEventWithGroups` to set event-level groups, meaning the group designation applies only to the specific event being logged, and doesn't persist on the user unless you explicitly
  set it with `setGroup`.
 
 ```js
@@ -296,12 +310,12 @@ amplitude.getInstance().groupIdentify(groupType, groupName, identify);
 
 An optional callback function can be supplied as a fourth argument to `groupIdentify`.
 
-### Track Revenue
+### Track revenue
 
 The preferred method of tracking revenue for a user is to use `logRevenueV2()` in conjunction with the provided Revenue interface.
- Revenue instances store each revenue transaction and let you define several special revenue properties that are used in Amplitude's Event Segmentation and Revenue LTV charts, such as `revenueType` and `productIdentifier`.
-  You can also add event properties to revenue events via the eventProperties field. These Revenue instance objects are then passed into `logRevenueV2` to send as revenue events to Amplitude.
-   This allows Amplitude to automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
+ Revenue instances store each revenue transaction and let you define several special revenue properties used in Amplitude's Event Segmentation and Revenue LTV charts, such as `revenueType` and `productIdentifier`.
+  You can also add event properties to revenue events via the `eventProperties` field. These Revenue instance objects are then passed into `logRevenueV2` to send as revenue events to Amplitude.
+   This lets Amplitude to automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
 To track revenue from a user, call `logRevenueV2()` each time a user generates revenue. Here is an example:
 
@@ -328,21 +342,21 @@ You can't change the default names given to these client-side revenue events in 
 | `revenueType` | Optional, but required for revenue verification. String. The revenue type. For example, tax, refund, income. Defaults to `null`. |
 | `eventProperties`| Optional. Object. An object of event properties to include in the revenue event. Defaults to `null`. |
 
-### Opt users out of tracking
+## Opt users out of tracking
 
-You can turn off logging for a given user by calling `setOptOut`:
+Call `setOptOut` to turn off logging for a given user:
 
 ```js
 amplitude.getInstance().setOptOut(true);
 ```
 
-No events are saved or sent to the server while `setOptOut` is enabled. The opt out setting persists across page loads. You can re-enable logging by calling:
+While `setOptOut` is enabled, no events are saved or sent to the server. The opt out setting persists across page loads. You can re-enable logging by calling:
 
 ```js
 amplitude.getInstance().setOptOut(false);
 ```
 
-### Disable tracking
+## Disable tracking specific fields
 
 By default, the JavaScript SDK tracks some properties automatically. You can override this behavior by passing an object called `trackingOptions` when initializing the SDK,
  setting the appropriate options to `false`.
@@ -365,10 +379,10 @@ By default, the JavaScript SDK tracks some properties automatically. You can ove
 
 !!!warning
     The `trackingOptions` configurations prevent default properties from being tracked on new projects that have no existing data, not existing data.
-     If you have a project with existing data that you would like to stop collecting the default properties for, please contact the Support team at support.amplitude.com.
+     If you have a project with existing data that you would like to stop collecting the default properties for, contact the Support team at support.amplitude.com.
       Note that the existing data isn't deleted.
 
-### Setting custom user ID
+## Set custom user ID
 
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time:
 
@@ -382,11 +396,10 @@ You can also add the User ID as an argument to the init call.
 amplitude.getInstance().init('API_KEY', 'USER_ID');
 ```
 
-
 Don't assign users a user ID that could change as each unique user ID is interpreted as a unique user in Amplitude. For more information see
  [Track unique users in Amplitude](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude) in the Help Center.
 
-### Logged out and anonymous users
+## Logged out and anonymous users
 
 --8<-- "includes/logged-out-and-anonymous-users.md"
 
@@ -395,13 +408,13 @@ amplitude.getInstance().setUserId(null); // not string 'null'
 amplitude.getInstance().regenerateDeviceId();
 ```
 
-### Session tracking
+## Session tracking
 
 Events triggered within 30 minutes of each other are counted towards the current session.
  The time of the first event marks the start time of a session and the last event triggered marks the end time of a session.
   You can change the session timeout window via the SDK configuration option field `sessionTimeout`.
 
-#### Getting the session ID
+#### Get the session ID
 
 In the JavaScript SDK, you can use the helper method `getSessionId` to get the value of the current `sessionId`:
 
@@ -409,7 +422,7 @@ In the JavaScript SDK, you can use the helper method `getSessionId` to get the v
 const sessionId = amplitude.getInstance().getSessionId();
 ```
 
-### Configuring HTTP headers
+## Configure HTTP headers
 
 If you are using a [domain proxy](https://developers.amplitude.com/docs/domain-proxies) that requires custom HTTP request headers, configure them with `options.headers` during initialization.
 
@@ -422,7 +435,7 @@ amplitude.getInstance().init(APIKEY, null, {
 });
 ```
 
-### Logging events to multiple projects
+## Log events to multiple projects
 
 If you want to log events to multiple Amplitude projects, then must have separate instances for each Amplitude project.
  Each instance allows for independent `apiKeys`, `userIds`, `deviceIds`, and settings.
@@ -430,8 +443,8 @@ If you want to log events to multiple Amplitude projects, then must have separat
 You must assign a name to each Amplitude project and instance and use that name consistently when fetching that instance to call functions.
 
 !!!important
-    After you have chosen a name for that instance you can't change it.
-    Choose your instance names carefully. Every instance's data and settings are tied to its name, and you must use that instance name for all future versions of your project to maintain data continuity.
+    After you have chosen a name for that instance you can't change it. 
+    Each instance's data and settings are tied to its name, and you must use that instance name for all future versions of your project to maintain data continuity.
     Instance names don't need be the names of your projects in the Amplitude platform, but they need to remain consistent throughout your code. Each instance must also be initialized with the correct `apiKey`.
 
 Instance names must be non-null and non-empty strings. Names are case insensitive, and you can fetch each instance name by calling.
@@ -456,7 +469,7 @@ amplitude.getInstance().identify(identify);
 amplitude.getInstance().logEvent('Viewed Home Page');
 ```
 
-### Web attribution
+## Web attribution
 
 While Amplitude’s JavaScript SDK doesn't collect web attribution data by default, setting it up is simple.
  The SDK can automatically collect this information if you enable attribution configuration options.
@@ -468,7 +481,7 @@ Amplitude supports automatically tracking the following through the SDK configur
 - Google Click Identifier from URL parameters through `includeGclid`.
 - Facebook Click Identifier from URL parameters through `includeFbclid`.  
 
-#### Track UTM parameters
+### Track UTM parameters
 
 UTM parameters stand for Urchin Traffic Monitor parameters and are useful for analyzing the effectiveness of different ad campaigns and referring sites.
  UTM parameters are case sensitive so they're considered different values if the capitalization varies.
@@ -485,7 +498,7 @@ Here is an example URL:
 
 `https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=bannerlink`
 
-##### Enabling via SDK
+#### Enable via SDK
 
 In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK automatically pulls UTM parameters from the referring URL and include them as user properties on all relevant events:
 
@@ -495,9 +508,9 @@ In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK 
 UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time.
  You can disable the once per session restriction through the `saveParamsReferrerOncePerSession` configuration option. When the SDK detects that it should start a new session,
   it pulls the UTM parameters that are available at the time. Those UTM parameters are set as user properties which persists for all the user's events going forward.
-   However, initial UTM parameters are captured once for each user via a `setOnce` operation.
+   However, initial UTM parameters are captured one time for each user via a `setOnce` operation.
 
-#### Track referrers
+### Track referrers
 
 If you want to track how users are getting to your website, then track the referrer (the referring site).
 
@@ -506,16 +519,16 @@ Amplitude supports tracking these fields automatically:
 - `referrer`: The last page the user was on (for example, `<https://amplitude.com/behavioral-analytics-platform?ref=nav>`).
 - `referring_domain`: The domain that the user was last on (for example, `amplitude.com`).
 
-##### Enabling via SDK
+#### Enable via SDK
 
 After you set the `includeReferrer` option to `true`, Amplitude captures the `referrer` and `referring_domain` for each session and set them as user properties on relevant events:
 
-- `includeReferrer`: When `true`, captures the `referrer` and `referring_domain` for each session as user properties as well as the `initial_referrer` and `initial_referring_domain` user properties once for each user.
+- `includeReferrer`: When `true`, captures the `referrer` and `referring_domain` for each session as user properties as well as the `initial_referrer` and `initial_referring_domain` user properties one time for each user.
  The referrer is the entire URL while the `referring_domain` is the domain name from where the user came from.
 
 Initial referring information is captured one time for each user via a `setOnce` operation.
 
-#### First-touch attribution
+### First-touch attribution
 
 Amplitude can capture the initial UTM parameters and referrer information for each user. The first-touch attribution values are set when a user's non-null UTM parameters are seen for the first time.
  These user properties are set once:
@@ -535,7 +548,7 @@ This is done by setting the JavaScript SDK configuration options `includeReferre
 !!!note
     Initial attribution information for users can change if they're merged with another user.
 
-#### Last-touch attribution
+### Last-touch attribution
 
 In addition to first-touch attribution, Amplitude captures where a user came from for each of their sessions by setting these user properties:
 
@@ -550,9 +563,10 @@ In addition to first-touch attribution, Amplitude captures where a user came fro
 - `fbclid`
 
 This is done by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, and `includeGclid` to `true`.
- By default, the SDK only saves values at the start of the session, so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session, the second set isn't saved.
+ By default, the SDK only saves values at the start of the session, so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session,
+  the second set isn't saved.
 
-#### Multi-touch attribution
+### Multi-touch attribution
 
 If you set `saveParamsReferrerOncePerSession` to `false` in your JavaScript SDK configuration, the SDK always capture any new values from the user. This updates these user properties throughout a session if they change:
 
@@ -568,7 +582,7 @@ If you set `saveParamsReferrerOncePerSession` to `false` in your JavaScript SDK 
 
 Some customers also instrument these user properties as arrays to keep track of all the attribution parameters seen within the same session for a single user.
 
-#### Logging captured attribution values via Amplitude
+### Log captured attribution values via Amplitude
 
 This is an advanced use case. 
 
@@ -592,9 +606,12 @@ If you set `logAttributionCapturedEvent` to `true` in your JavaScript SDK config
 - `gclid`
 - `fbclid`
 
-### Google Tag Manager
+## Google Tag Manager
 
 Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the [demo app](https://github.com/amplitude/GTM-Web-Demo) on GitHub for instructions on how to set it up.
+
+
+## Advanced topics
 
 ### Dynamic configuration
 
@@ -613,8 +630,6 @@ amplitude.getInstance().init(euApiKey, null, {
 });
 ```
 
-## Advanced topics
-
 ### COPPA Control
 
 COPPA control in Amplitude's other SDKs disables tracking for IDFA, IDFV, city, location data (`location_lat` and `location_lng`), and IP address.
@@ -627,7 +642,7 @@ COPPA control in Amplitude's other SDKs disables tracking for IDFA, IDFV, city, 
       };
 ```
 
-### Getting the Device ID
+### Get the Device ID
 
 You can get a user's current Device ID with the following code:
 
@@ -635,7 +650,7 @@ You can get a user's current Device ID with the following code:
 var deviceId = amplitude.getInstance().getDeviceId() // existing device ID
 ```
 
-### Setting configuration options
+### Set configuration options
 
 You can configure Amplitude by passing an object as the third argument to the init:
 
@@ -663,7 +678,7 @@ The cookie is used to keep track of metadata for the SDK:
 - The last event time
 - Sequence IDs to put events and identify operations in the correct order
 
-#### Disabling cookies
+#### Disable cookies
 
 Cookies created by the SDK can be disabled altogether using the `disableCookies` option. When you disable cookies, the JavaScript SDK defaults to using `localStorage` to store its data.
  LocalStorage is a great alternative, but can't track cookies across domains.
@@ -678,7 +693,7 @@ The JavaScript SDK defaults to setting the SameSite option on its cookies to `N
 
 An HttpOnly option isn't technologically possible for cookies created by the SDK. The cookie is set on the client side and is used as a client-side data store. An SDK cookie can't set the HttpOnly flag.
 
-#### Upgrading legacy cookies
+#### Upgrade legacy cookies
 
 Legacy cookies created by the SDK were larger than the newer, more compact cookies.
  For users that have older cookies, the SDK only removes old cookies and starts using the new cookie format if the `cookieForceUpgrade` option is set to `true`.
@@ -839,7 +854,7 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
 });
 ```
 
-### Using sendBeacon
+### Use sendBeacon
 
 In SDK version 8.5.0 and above, the SDK can send events using the browser's built-in navigator.sendBeacon API.
  Unlike standard network requests, events sent by sendBeacon are sent in the background, and are completed even if the user closes the browser or leaves the page.
@@ -865,7 +880,7 @@ amplitude.getInstance().logEvent('send event with http');
 
 ```
 
-#### Using sendBeacon only when exiting page
+#### Use sendBeacon only when exiting page
 
 Configuring sendBeacon to send data only when the user exits a page can be complicated, so the JavaScript SDK provides a convenient callback function that's called only when the user exits the page,
  and automatically switches the transport to 'beacon' for any logs sent in the callback. This callback is called `onExitPage` and is passed into the SDK on initialization, like so:
