@@ -7,7 +7,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 !!!note "Some features require Amplitude Recommend"
 
-    To get cohort IDs or Recommendation IDs, you must have a plan with Recommend. 
+    To get cohort IDs or recommendation IDs, you must have a plan with Recommend. 
 
 --8<-- "includes/postman.md"
 
@@ -25,8 +25,8 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 - If you don't serve your default user experience for users with `is_control=true`, Amplitude can't measure performance.
 - Serve a default experience in case there is an error. There are two common error responses from the API:
-  - When the user just signed up ( less than 5 min ago), you might get this response:`{"error":"User id and device id not seen before"}`
-  - If a user is more than 2 hours old or has been inactive longer than 90 days, there is an API response, but it returns `"recommendations": null`.
+    - When the user just signed up ( less than 5 min ago), you might get this response:`{"error":"User id and device id not seen before"}`
+    - If a user is less than 2 hours old or has been inactive longer than 90 days, there is an API response, but it returns `"recommendations": null`.
 - If Amplitude is unavailable and returns a 500 response, you can retry or serve the default experience.
 
 ### Authentication errors
@@ -107,7 +107,7 @@ Authorization: Api-Key INSERT SECRET KEY
 | Response Parameter | Description |
 | --- | --- |
 | `rec_id` | The requested recommendation ID. |
-| `child_rec_id` | A more detailed recommendation ID that Amplitude may use on the backend as part of an internal experiment to improve model performance. In most cases is the same as `rec_id`. |
+| `child_rec_id` | A more detailed recommendation ID that Amplitude may use as part of an internal experiment to improve model performance. This usually the same as `rec_id`. |
 | `items` | List of recommendations for this user. |
 | `is_control` | true if this user is part of the control group. |
 | `recommendation_source` | Name of the model used to generate this recommendation. |
@@ -311,7 +311,7 @@ When you create a prediction in Amplitude Recommend, you can sync the prediction
 
 To fetch a user's prediction propensity, send a request that includes a `prediction_id` and `propensity_type`. The propensity type can be either the raw score or a percentile.
 
-Percentile is useful to understand users in comparison to each other. For example, is this user in the 80% of users likely do an action?
+Percentile is useful to understand users in comparison to each other. For example, is this user in the 80% of users likely to do an action?
 
 Score is the raw propensity score.
 
