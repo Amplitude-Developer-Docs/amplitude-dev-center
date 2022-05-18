@@ -225,6 +225,7 @@ nav:
     - data/sdks/ios-ampli.md
     - data/sdks/android-ampli.md
     - data/sdks/jre-ampli.md
+    - data/sdks/react-native-ampli.md
   - Reverse ETL and Cloud Integrations:
     - Amazon S3:
       - S3 Import: integrations/amazon-s3-import.md
