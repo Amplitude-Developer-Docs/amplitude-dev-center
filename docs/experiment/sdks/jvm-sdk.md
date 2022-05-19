@@ -121,6 +121,7 @@ The SDK client should be initialized in your server on startup. The [deployment 
         @Nonnull String apiKey,
         @Nonnull RemoteEvaluationConfig config
     );
+    ```
 
 | Parameter | Requirement | Description |
 | --- | --- | --- |
