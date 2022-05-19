@@ -37,6 +37,8 @@ MD007:
   # Spaces for first level indent (when start_indented is set)
   start_indent: 2
 
+MD009: false
+
 # MD010/no-hard-tabs - Hard tabs
 MD010:
   # Include code blocks
