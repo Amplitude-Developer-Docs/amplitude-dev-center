@@ -55,7 +55,7 @@ Install the JVM Server SDK using gradle.
             .userProperty("premium", true)
             .build()
         val variants = try {
-            experiment.fetch(user)
+            experiment.fetch(user).get()
         } catch (e: Exception) {
             e.printStackTrace()
             return
@@ -85,7 +85,7 @@ Install the JVM Server SDK using gradle.
                 .build();
         Map<String, Variant> variants;
         try {
-            variants = experiment.fetch(user);
+            variants = experiment.fetch(user).get();
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -161,15 +161,14 @@ Fetches variants for a [user](../general/data-model.md#users) and returns the re
 === "Kotlin"
 
     ```kotlin
-    @Throws(Exception::class)
-    fun fetch(user: ExperimentUser): Map<String, Variant>
+    fun fetch(user: ExperimentUser): CompletableFuture<Map<String, Variant>>
     ```
 
 === "Java"
 
     ```java
     @Nonnull
-    public Map<String, Variant> fetch(@Nonnull ExperimentUser user);
+    public CompletableFuture<Map<String, Variant>> fetch(@Nonnull ExperimentUser user);
     ```
 
 | Parameter  | Requirement | Description |
@@ -185,7 +184,7 @@ Fetches variants for a [user](../general/data-model.md#users) and returns the re
         .userProperty("premium", true)
         .build()
     val variants = try {
-        experiment.fetch(user)
+        experiment.fetch(user).get()
     } catch (e: Exception) {
         e.printStackTrace()
         return
@@ -202,7 +201,7 @@ Fetches variants for a [user](../general/data-model.md#users) and returns the re
         .build();
     Map<String, Variant> variants;
     try {
-        variants = experiment.fetch(user);
+        variants = experiment.fetch(user).get();
     } catch (Exception e) {
         e.printStackTrace();
         return;
@@ -232,27 +231,6 @@ After fetching variants for a user, you may to access the variant for a specific
         // Flag is off
     }
     ```
-
-### Fetch async
-
-Fetches variants for a [user](../general/data-model.md#users) and returns a `CompletableFuture` for the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
-
-=== "Kotlin"
-
-    ```kotlin
-    fun fetchAsync(user: ExperimentUser): CompletableFuture<Map<String, Variant>>
-    ```
-
-=== "Java"
-
-    ```java
-    @Nonnull
-    public CompletableFuture<Map<String, Variant>> fetchAsync(@Nonnull ExperimentUser user);
-    ```
-
-| Parameter  | Requirement | Description |
-| --- | --- | --- |
-| `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
 
 ## Local evaluation (alpha)
 
