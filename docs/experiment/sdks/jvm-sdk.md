@@ -1,7 +1,7 @@
 ---
 title: Experiment JVM SDK (Beta)
 description: Official documentation for Amplitude Experiment's server-side JVM SDK implementation.
-icon: material/java
+icon: material/language-java
 ---
 
 Official documentation for Amplitude Experiment's server-side JVM SDK implementation. This SDK may be used in **either Java or Kotlin** server-side implementations.
@@ -38,7 +38,7 @@ Install the JVM Server SDK using gradle.
 
 !!!tip "Quick Start"
 
-    1. [Initialize the experiment client](#initialize)
+    1. [Initialize the experiment client](#initialize-remote)
     2. [Fetch variants for the user](#fetch)
     3. [Access a flag's variant](#fetch)
 
@@ -259,7 +259,7 @@ Install the JVM Server SDK using gradle.
 
 !!!tip "Quick Start"
 
-    1. [Initialize the local evaluation client.](#initialize-1)
+    1. [Initialize the local evaluation client.](#initialize-local)
     2. [Start the local evaluation client.](#start)
     3. [Evaluate a user.](#evaluate)
 
@@ -304,7 +304,7 @@ Install the JVM Server SDK using gradle.
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 !!!warning "Server Deployment Key"
-    You must [initialize](#initialize-1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+    You must [initialize](#initialize-local) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
 
 === "Kotlin"
 
