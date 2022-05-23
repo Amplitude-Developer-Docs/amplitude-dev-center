@@ -1,5 +1,5 @@
 extends: existence
-message: "'%s' is too wordy."
+message: "'%s' is too wordy. Use a simpler word."
 ignorecase: true
 level: warning
 tokens:
@@ -96,7 +96,6 @@ tokens:
   - formulate
   - have a tendency to
   - honest truth
-  - however
   - if and when
   - impacted
   - implement
