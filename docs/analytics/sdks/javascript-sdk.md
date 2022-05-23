@@ -247,7 +247,7 @@ amplitude.getInstance().identify(identify);
 
 #### Set multiple user properties
 
-You can use `setUserProperties` as a shorthand to set many user properties at one time. 
+You can use `setUserProperties` as a shorthand to set multiple user properties at one time. 
  For example, set a user's city with this code:
 
 ```js
@@ -352,7 +352,7 @@ You can't change the default names given to these client-side revenue events in 
 | `revenueType` | Optional, but required for revenue verification. String. The revenue type. For example, tax, refund, income. Defaults to `null`. |
 | `eventProperties`| Optional. Object. An object of event properties to include in the revenue event. Defaults to `null`. |
 
-## Opt users out of tracking
+## Opt users out of tracking 
 
 Call `setOptOut` to turn off logging for a given user:
 
@@ -360,13 +360,13 @@ Call `setOptOut` to turn off logging for a given user:
 amplitude.getInstance().setOptOut(true);
 ```
 
-While `setOptOut` is enabled, no events are saved or sent to the server. The opt out setting persists across page loads. You can re-enable logging by calling:
+While `setOptOut` is enabled, events aren't saved or sent to the server. The opt out setting persists across page loads. You can re-enable logging by calling:
 
 ```js
 amplitude.getInstance().setOptOut(false);
 ```
 
-## Disable tracking specific fields
+## Disable tracking specific fields  
 
 By default, the JavaScript SDK tracks some properties automatically. You can override this behavior by passing an object called `trackingOptions` when initializing the SDK,
  setting the appropriate options to `false`.
@@ -406,7 +406,7 @@ You can also add the User ID as an argument to the init call.
 amplitude.getInstance().init('API_KEY', 'USER_ID');
 ```
 
-Don't assign users a user ID that could change as each unique user ID is interpreted as a unique user in Amplitude. For more information see
+Don't assign users a user ID that could change, because each unique user ID represents a unique user in Amplitude. For more information see
  [Track unique users in Amplitude](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude) in the Help Center.
 
 ## Logged out and anonymous users
@@ -454,7 +454,7 @@ You must assign a name to each Amplitude project and instance and use that name 
 
 !!!important
     After you have chosen a name for that instance you can't change it. 
-    Each instance's data and settings are tied to its name, and you must use that instance name for all future versions of your project to maintain data continuity.
+    An instance's data and settings are associated with its name, and you must use that instance name for all future versions of your project to maintain data continuity.
     Instance names don't need be the names of your projects in the Amplitude platform, but they need to remain consistent throughout your code. Each instance must also be initialized with the correct `apiKey`.
 
 Instance names must be non-null and non-empty strings. Names are case insensitive, and you can fetch each instance name by calling.
@@ -553,7 +553,7 @@ Amplitude can capture the initial UTM parameters and referrer information for ea
 - `initial_gclid`
 - `initial_fbclid`
 
-Cature these parameters by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFclid`, and `includeGclid` to `true`.
+Capture these parameters by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFclid`, and `includeGclid` to `true`.
 
 !!!note
     Initial attribution information for users can change if they're merged with another user.
@@ -572,7 +572,7 @@ Amplitude captures where a user came from for each of their sessions by setting 
 - `gclid`
 - `fbclid`
 
-This is done by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFclid`, and `includeGclid` to `true`.
+TO use this, set the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFclid`, and `includeGclid` to `true`.
  By default, the SDK saves values only at the start of the session, so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session,
   the second set isn't saved.
 
@@ -630,7 +630,7 @@ Beginning with version 8.9.0, you can configure your apps to use [dynamic confi
  To use, set `useDynamicConfig` to `true`.
 
 - If you have your own proxy server and use `apiEndPoint` API, leave dynamic configuration off.
-- If you have users in China Mainland, then we recommend using dynamic configuration.
+- If you have users in China Mainland, then Amplitude recommends using dynamic configuration.
 - By default, this feature returns server URL of Amplitude's US servers, if you need to send data to Amplitude's EU servers, use `setServerZone` to set it to EU zone.
 
 ```js
@@ -787,7 +787,7 @@ If tracking is enabled, then the SDK sets the values as user properties (for exa
      if a users session expires, the SDK maps the user's Referrer and UTM Parameters to existing values.
     To reset those values to null upon instantiating a new session, set `unsetParamsReferrerOnNewSession` to `true`.
 
-### Callbacks for logEvent, Identify, and Redirect
+### Callbacks for logEvent, identify, and redirect
 
 You can pass a callback function to `logEvent` and identify, which gets called after receiving a response from the server.
 This is useful if timing may cause an event to not be captured before the browser navigates away from a webpage.
@@ -916,7 +916,7 @@ amplitude.getInstance().setDeviceId('DEVICE_ID');
 You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId().` This method can return `null` if a `deviceId` hasn't been generated yet.
 
 !!!note
-    We don't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
+    Amplitude doesn't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
      It's best practice to use something like a UUID.
 
     [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
