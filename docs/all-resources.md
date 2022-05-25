@@ -7,6 +7,8 @@ hide:
 #template: resources.html
 ---
 
+<!-- markdownlint-disable MD030 -->
+
 <div class="grid cards" markdown>
 
 - :fontawesome-solid-user-graduate:{ .lg .middle } __Amplitude Academy__
