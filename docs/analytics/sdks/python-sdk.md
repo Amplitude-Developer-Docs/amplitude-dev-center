@@ -165,7 +165,6 @@ Identify is for setting the user properties of a particular user without sending
 !!!info "Important Note"
     If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user’s profile area, but it will not appear in chart result until another event is sent after the Identify call. So the identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
-
 #### Setting a User Property
 
 The Identify object provides controls over setting user properties. An Identify object must first be instantiated, then Identify methods can be called on it, and finally the client will make a call with the Identify object.
@@ -336,15 +335,15 @@ client.revenue(revenue_obj, EventOptions(user_id="USER_ID"))
 
 #### Revenue Interface
 
-Name |	Type |	Description	| Default
+Name |  Type  |Description | Default
 -----|-------|--------------|--------
-product_id (optional) | string	 | An identifier for the product. We recommend something like the Google Play Store product ID. | null
-quantity *(required)* | int	| The quantity of products purchased. Note: revenue = quantity * price | 1
-price *(required)* | Double	| The price of the products purchased, and this can be negative. Note: revenue = quantity * price | null
-revenue_type (optional, *required for revenue verification*) | String	| The type of revenue (e.g. tax, refund, income). | null
-receipt (optional) | String	| The receipt identifier of the revenue. | null
-receipt_sig (optional, *required for revenue verification*) | String	| The receipt signature of the revenue. | null
-properties (optional) | JSONObject	| An object of event properties to include in the revenue event.	| null
+product_id (optional) | string | An identifier for the product. We recommend something like the Google Play Store product ID. | null
+quantity *(required)* | int| The quantity of products purchased. Note: revenue = quantity * price | 1
+price *(required)* | Double | The price of the products purchased, and this can be negative. Note: revenue = quantity * price | null
+revenue_type (optional, *required for revenue verification*) | String| The type of revenue (e.g. tax, refund, income). | null
+receipt (optional) | String| The receipt identifier of the revenue. | null
+receipt_sig (optional, *required for revenue verification*) | String| The receipt signature of the revenue. | null
+properties (optional) | JSONObject| An object of event properties to include in the revenue event.| null
 
 ### `flush`
 
@@ -402,9 +401,9 @@ from amplitude import Amplitude, EventPlugin, PluginType
 
 
 class AddEventIdPlugin(EventPlugin):
-  	
+    
     def __init__(self, start=0):
-      	super().__init__(PluginType.ENRICHMENT)
+        super().__init__(PluginType.ENRICHMENT)
         self.current_id = start
         self.configuration = None
         self.lock = Lock()
@@ -430,10 +429,10 @@ import requests
 
 
 class MyDestinationPlugin(DestinationPlugin):
-  	
+
     def __init__(self):
-      	super().__init__()
-      	# other init operations
+        super().__init__()
+        # other init operations
         self.url = "api endpoint url"
         self.configuration = None
         
@@ -444,8 +443,8 @@ class MyDestinationPlugin(DestinationPlugin):
         self.configuration = client.configuration
       
     def execute(self, event):
-      	# process event using plugins in this destination plugin instance
-      	event = self.timeline.process(event) 
+        # process event using plugins in this destination plugin instance
+        event = self.timeline.process(event) 
         # send event to customized destination
         payload = '{"key":"secret", "event": ' + str(event) + '}'
         requests.post(self.url, data=payload)

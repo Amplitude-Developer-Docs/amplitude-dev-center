@@ -314,6 +314,7 @@ Returns a JSON object with this schema:
     }
 }
 ```
+
 ## Get average sessions per user
 
 `GET https://amplitude.com/api/2/sessions/peruser`

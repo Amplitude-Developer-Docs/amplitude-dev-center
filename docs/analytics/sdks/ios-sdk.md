@@ -622,7 +622,6 @@ You can also log events as out-of-session. Out-of-session events have a `session
     Amplitude.instance().logEvent("Push Notification", withEventProperties: nil, outOfSession: true)
     ```
 
-
 You can also log identify events as out-of-session, which is useful if you are updating user properties in the background and don't want to start a new session. You can do this by setting the input parameter outOfSession to true when calling `identify`.
 
 === "Objective-C"
@@ -654,9 +653,7 @@ You can use the helper method getSessionId to get the value of the current sessi
     Amplitude.instance().getSessionId()
     ```
 
-
 ## Set custom user ID
-
 
 If your app has its own login system that you want to track users with, you can call setUserId at any time.
 
@@ -819,7 +816,6 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
     Amplitude.instance().enableCoppaControl()
     ```
 
-
 ### Advertising ID
 
 Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
@@ -844,7 +840,6 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
     ```
 
 Note that you need to also add `AdSupport.framework` to your project
-
 
 ### Set IDFA as device Id
 

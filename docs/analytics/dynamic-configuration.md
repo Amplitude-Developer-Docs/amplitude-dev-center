@@ -84,4 +84,3 @@ Enable the `useDynamicConfig` flag.
     ```c#
     amplitude.setUseDynamicConfig(true);
     ```
-

@@ -58,7 +58,6 @@ Send a POST request to https://api2.amplitude.com/attribution with two arguments
         Host: api2.amplitude.com
         ```
 
-
 #### Event Argument Keys
 
 These keys are available for the Event argument.
@@ -79,6 +78,5 @@ These keys are available for the Event argument.
 |------|-----------------------------------------------------------------------------------------------------------------------------|
 | 200  | Success                                                                                                                     |
 | 400  | The expected JSON is formatted incorrectly.  |
-
 
 --8<-- "includes/abbreviations.md"

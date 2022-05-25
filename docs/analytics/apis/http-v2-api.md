@@ -526,7 +526,6 @@ Possible reasons for an invalid request:
     }
     ```
 
-
 #### Properties (invalid or missing JSON)
 
 | <div class="big-column">Name</div>   | Description |
