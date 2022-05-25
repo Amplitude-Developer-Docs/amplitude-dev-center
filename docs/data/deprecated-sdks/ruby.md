@@ -6,6 +6,8 @@ search:
   exclude: true
 ---
 
+<!-- markdownlint-disable -->
+
 !!!warning "Deprecated SDK"
     This SDK is deprecated and these docs are no longer maintained.
 

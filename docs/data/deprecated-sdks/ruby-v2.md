@@ -4,6 +4,8 @@ search:
   exclude: true
 ---
 
+<!-- markdownlint-disable -->
+
 !!!note "Previous Version"
     Still using the **Ruby (Legacy)** runtime? Docs for the previous version are available [here](ruby).
 
