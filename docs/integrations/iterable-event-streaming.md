@@ -11,14 +11,13 @@ Amplitude Data's Iterable integration lets you stream your Amplitude event data 
 
 - You must have an Iterable account.
 - The user must exist within Iterable to send events. The Amplitude `user_id` must match an existing user in Iterable
--  Amplitude sends `user_id`, `event_name`, and `created_at`.
+- Amplitude sends `user_id`, `event_name`, and `created_at`.
 
 ## Setup
 
 ### Prerequisites
 
 To configure an Event Streaming integration from Amplitude to Iterable, you need an Iterable API key with server-side access. Learn more in [Iterable's documentation](https://support.iterable.com/hc/en-us/articles/360043464871-API-Keys-#creating-api-keys).
-
 
 ### Amplitude setup 
 

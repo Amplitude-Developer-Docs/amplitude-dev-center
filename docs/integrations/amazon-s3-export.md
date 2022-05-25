@@ -58,4 +58,3 @@ After setup is complete, check the status of your exports from the integration.
 To disable automatic exports, open the integration and click **Manage**. You can toggle exports from the *Manage Export Settings* modal.
 
 ![Screenshot of the manage export settings modal](../assets/images/integrations-amazon-s3-export-manage-modal.png)
-

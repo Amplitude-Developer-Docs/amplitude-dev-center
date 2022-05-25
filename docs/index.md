@@ -8,4 +8,4 @@ title: Amplitude Developer Center
 
 ---
 
-#overridden by overrides/home.html
+<!-- overridden by overrides/home.html -->

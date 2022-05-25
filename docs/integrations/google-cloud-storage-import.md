@@ -83,7 +83,6 @@ The converter language describes extraction of a value given a JSON element. Thi
 
     If you add new fields or change the source data format, you need to update your converter configuration. Note that the updated converter only applies to files `discovered_after_converter` updates are saved.
 
-
 ## Storage organization requirements
 
 After the initial ingestion, your data organization must conform to this standard for subsequent imports:
