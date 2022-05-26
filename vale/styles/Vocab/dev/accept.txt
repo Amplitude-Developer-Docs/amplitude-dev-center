@@ -9,6 +9,7 @@ AWS
 Boolean
 Boolean
 CocoaPods
+deduplicates
 deduplicated
 deduplication
 Fastly

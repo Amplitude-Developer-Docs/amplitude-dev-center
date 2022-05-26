@@ -3,9 +3,9 @@ title: HTTP V2 API
 description: Use the HTTP API V2 to send data directly from your server to the HTTP V2 endpoint.
 ---
 
-Use the HTTP API V2 to send data directly from your server to the HTTP V2 endpoint.
+Use the HTTP V2 API to send data directly from your server to the HTTP V2 endpoint.
 
-**The HTTP API V2 replaces the** [**deprecated HTTP API**](https://developers.amplitude.com/docs/http-api-deprecated)
+The HTTP V2 API replaces the deprecated HTTP API.
 
 --8<-- "includes/postman.md"
 
@@ -20,7 +20,7 @@ Use the HTTP API V2 to send data directly from your server to the HTTP V2 endpoi
 
 ## Considerations
 
-### Upload Limit
+### Upload limit
 
 **For Starter plan customers:**
 
@@ -30,32 +30,32 @@ Limit your upload to 100 batches per second and 1000 events per second. You can 
 
 Contact Support if you need to send more than 1000 events per second. There is no hard limit on the Enterprise plan, but devices that exceed 30 events per second are throttled.
 
-Request sizes should under 1 MB and contain fewer than 2000 events per request. When you exceed these size limits, you get a 413 error.
+Keep request sizes under 1 MB with fewer than 2000 events per request. When you exceed these size limits, you get a 413 error.
 
-For high-volume customers concerned with scale, partition your work based on `device_id` or `user_id`.
+If you have high volume and concerned with scale, partition your work based on `device_id` or `user_id`.
  This ensures that throttling on a particular `device_id` (or `user_id`) doesn't impact all senders in your system.
-  If you are using a proxy service to send events to Amplitude, make sure that throttling is forwarded to your clients, instead of letting spammy clients slow down a partition of work in your system.
+ If you are using a proxy service to send events to Amplitude, make sure that throttling is forwarded to your clients, instead of letting spammy clients slow down a partition of work in your system.
 
-### All-zero device IDs: Limited Ad Tracking enabled
+### All-zero device IDs: Limit Ad Tracking enabled
 
 As of iOS 10, Apple replaces the Identifier for Advertiser (IDFA) with all zeros if the user enables Limit Ad Tracking. 
 Because all events require a device ID, Amplitude drops device IDs of all zeros and returns an error on the request.
 
 If you are passing the IDFA as the device ID, first run a check on the IDFA value. If it's all zeros, pass a different value for the device ID (such as the Identifier for Vendor (IDFV).
 
-### Windows Operating System
+### Windows OS
 
 If you are using a Windows operating system, then you may have to replace all single quotes with escaped double quotes.
 
 ### String character limit
 
-All string values have a character limit of 1024 characters (for example, `user_id`, event or user property values).
+All string values, like `user_id`, event, or user property values, have a character limit of 1024 characters.
 
-### Setting date values
+### Set date values
 
 Amplitude compares dates as strings, so it's best to use the ISO 8601 format (`YYYY-MM-DDTHH:mm:ss`). This format lets you perform date comparisons, (for example: `'2016-01-31' > '2016-01-01'`). Comparison also works for datetime values in this format (for example: `'2017-08-07T10:09:08' > '2017-08-07T01:07:00'`).
 
-### Setting time values
+### Set time values
 
 The `time` parameter in each event must be sent as millisecond since epoch. Any other format (such as ISO format) results in a 400 Bad Request response.
 
@@ -86,23 +86,6 @@ Device IDs and User IDs must be strings with a length of 5 characters or more. T
     * "lmy47d"
     * "0"
     * "-1"
-
-### HTTP API V2 Improvements
-
-This HTTP API V2 endpoint is an improvement and a replacement of the [deprecated HTTP API](https://developers.amplitude.com/docs/http-api-deprecated)
-
-The main improvements are:
-
-- The HTTP API V2 request and response format is the same with the [Batch Event Upload API](https://developers.amplitude.com/#Batch-Event-Upload).
-- Because sending requests and parsing responses are done the same way, all that's required to switch between the HTTP API V2 and the Batch API is to change the endpoint URL.
-- The benefit of this is if you are being throttled on the HTTP API V2 then you can easily change to the batch endpoint by simply changing the endpoint URL.
-- The HTTP API V2 uses JSON response and provides better error reporting around 400 responses and throttling compared to the [deprecated HTTP API](https://developers.amplitude.com/?objc--ios#http-api). For example, a 400 response gives more details about the invalid event index and event field and a 429 response gives more details on current EPS (events per second) and which device is being throttled.
-- Better validations to reject incorrectly instrumented events  
-- Validation on `Content-type` header. It must be `application/json`.
-- Validation on proper JSON request body.
-- Validation on `event_type` name. These can't be event names that are reserved for Amplitude use.
-- Validation on `device_id` and `user_id` length. ID must be 5 or more characters unless overridden with `min_id_length`.
-- Validation on `time` field in event payload. It must be number of milliseconds since the start of epoch time.
 
 ## Upload request
 
@@ -149,7 +132,7 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
       "api_key": "my_amplitude_api_key",
       "events": [
         {
-          "user_id": "datamonster@gmail.com",
+          "user_id": "203201202",
           "device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
           "event_type": "watch_tutorial",
           "time": 1396381378123,
@@ -171,10 +154,10 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
             ]
           },
           "groups": {
-            "company_id": "1",
-            "company_name": [
-              "Amplitude",
-              "DataMonster"
+            "company_id": "123",
+            "department_id": [
+              "abc",
+              "xyz"
             ]
           },
           "app_version": "2.1.3",
@@ -304,8 +287,8 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
 | Name | Description |
 | --- | --- |
 | `api_key` | Required. String. Amplitude project API key. |
-| `events` | Required. []. Array of [Events](https://developers.amplitude.com/docs/http-api-v2#definition-Event) to upload. |
-| `options` | Optional. [].Object |
+| [`events`](#keys-for-the-event-argument) | Required. []. Array of [Events](https://developers.amplitude.com/docs/http-api-v2#definition-Event) to upload. |
+| [`options`](#options) | Optional. []. Object. |
 
 ??? example "Example upload request body"
     ```json
@@ -313,7 +296,7 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
       "api_key": "my_amplitude_api_key",
       "events": [
         {
-          "user_id": "datamonster@gmail.com",
+          "user_id": "203201202",
           "device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
           "event_type": "watch_tutorial",
           "time": 1396381378123,
@@ -335,10 +318,10 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
             ]
           },
           "groups": {
-            "team_id": "1",
-            "company_name": [
-              "Amplitude",
-              "DataMonster"
+            "company_id": "123",
+            "department_id": [
+              "abc",
+              "xyz"
             ]
           },
           "app_version": "2.1.3",
@@ -374,9 +357,9 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
     }
     ```
 
-### Keys for the Event Argument
+### Keys for the event argument
 
-The following keys can be sent within the JSON event object. Note that one of `user_id` or `device_id` is required, as well as the `event_type`.
+You can send these keys in the JSON event object. Note that one of `user_id` or `device_id` is required, as well as the `event_type`.
 
 | <div class="big-column">Name</div>| Description |
 | --- | --- |
@@ -387,6 +370,7 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | `event_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data to be sent along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `user_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data tied to the user. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `groups` | Optional. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/1150017655322). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. You can track up to 5 unique group types and 10 total group values. Any groups past that threshold aren't tracked.|
+|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties are not synced. Defaults to `false`.| 
 | `app_version` | Optional. String. The current version of your application. |
 | `platform` | Optional. String. Platform of the device. |
 | `os_name` | Optional. String. The name of the mobile operating system or browser that the user is using. |
@@ -402,26 +386,26 @@ The following keys can be sent within the JSON event object. Note that one of `u
 | `language` | Optional. String. The language set by the user. |
 | `price` | Optional. Float. The price of the item purchased. Required for revenue data if the revenue field isn't sent. You can use negative values to indicate refunds. |
 | `quantity` | Optional. Integer. The quantity of the item purchased. Defaults to 1 if not specified. |
-| `revenue` | Optional. Float. revenue = price * quantity. If you send all 3 fields of price, quantity, and revenue, then (price * quantity) will be used as the revenue value. You can use negative values to indicate refunds. |
+| `revenue` | Optional. Float. revenue = price * quantity. If you send all 3 fields of price, quantity, and revenue, then the revenue value is (price * quantity). Use negative values to indicate refunds. |
 | `productId` | Optional. String. An identifier for the item purchased. You must send a price and quantity or revenue with this field. |
 | `revenueType` | Optional. String. The type of revenue for the item purchased. You must send a price and quantity or revenue with this field. |
 | `location_lat` | Optional. Float. The current Latitude of the user. |
 | `location_lng` | Optional. Float. The current Longitude of the user. |
-| `ip` | Optional. String. The IP address of the user. Use "$remote" to use the IP address on the upload request. We will use the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude has the ability to drop the location and IP address from events once it reaches our servers. Contact the Support team to configure this. |
+| `ip` | Optional. String. The IP address of the user. Use `$remote` to use the IP address on the upload request. Amplitude uses the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude can drop the location and IP address from events after they reach our servers. Contact the Support team to configure this. |
 | `idfa` | Optional. String. (iOS) Identifier for Advertiser. |
 | `idfv` | Optional. String. (iOS) Identifier for Vendor. |
 | `adid` | Optional. String. (Android) Google Play Services advertising ID |
 | `android_id` | Optional. String. (Android) Android ID (not the advertising ID) |
 | `event_id` | Optional. Integer. (Optional) An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultaneously. |
-| `session_id` | Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A `session_id` of –1 is the same as no session_id specified. |
+| `session_id` | Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A `session_id` of –1 is the same as no `session_id` specified. |
 | `insert_id` | Optional. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with the same `device_id` and `insert_id` within the past 7 days. We recommend generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time. |
-| `plan` | Optional. Object. Tracking plan properties. Only branch, source, version properties are accepted. |
+| `plan` | Optional. Object. Tracking plan properties. Amplitude supports only branch, source, version properties. |
 | `plan.branch` | Optional. String. The tracking plan branch name. For example: "main". |
 | `plan.source` | Optional. String. The tracking plan source. For example: "web". |
 | `plan.version` | Optional. String. The tracking plan version. For example: "1", "15". |
 
 [^1]:
-    `[Amplitude] Country`, `[Amplitude] City`, `[Amplitude] Region`, and `[Amplitude] DMA` are user properties pulled using GeoIP. We use MaxMind's database, which is widely accepted as the most reliable digital mapping source, to lookup location information from the user's IP address.
+    `[Amplitude] Country`, `[Amplitude] City`, `[Amplitude] Region`, and `[Amplitude] DMA` are user properties pulled using GeoIP. We use MaxMind's database, which is widely accepted as the most reliable digital mapping source, to look up location information from the user's IP address.
      For any HTTP API events, if GeoIP information is unavailable, then Amplitude pulls the information from the `location_lat` and `location_lng` keys if those keys are populated. If the location properties are manually set, then Amplitude doesn't change that property.
 
 ### Options
@@ -609,7 +593,7 @@ Possible reasons for an invalid request:
 ### Server Error 500, 502, 504
 
 500, 502, and 504  [Server Error](https://tools.ietf.org/html/rfc2616#section-10.5.1). Amplitude encountered an error while handling the request.
- A request with this response may not have been accepted by Amplitude, so the events could be duplicated if you retry the request. To avoid this risk, send an `insert_id` in your requests.
+ A request with this response may not have been accepted by Amplitude. If you retry the request, the events could be duplicated. To avoid duplication, send an `insert_id` in your requests.
 
 ### 503 Service Unavailable
 
