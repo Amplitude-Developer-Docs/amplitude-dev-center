@@ -6,7 +6,10 @@ Ampli
 Amplitude
 amplitude
 AWS
-Boolean
+backfill
+Backfill
+backfilling
+boolean
 Boolean
 CocoaPods
 deduplicates
