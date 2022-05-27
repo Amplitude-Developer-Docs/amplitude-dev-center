@@ -210,7 +210,6 @@ The converter language describes extraction of a value given a JSON element. Thi
 
 <!--See a collection of[example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md) to get inspired. -->
 
-
 ### Configure converter in Amplitude
 
 1. Click **Edit Import Config** to configure the compression type, file name, and escape characters for your files. The boilerplate of your converter file pre-populates based on the selections made during this step. You can also test whether the configuration works by clicking **Pull File**.

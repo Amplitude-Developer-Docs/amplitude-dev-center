@@ -10,7 +10,7 @@
 		"pattern": "^https://api2.amplitude"
 	  },
 	  {
-		"pattern": "^https://api.eu"
+		"pattern": "^https://api."
 	  },
 	  {
 		"pattern": "^https://amplitude.com/api"

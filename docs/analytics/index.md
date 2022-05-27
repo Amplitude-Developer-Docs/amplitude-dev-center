@@ -69,7 +69,6 @@ Amplitude Analytics has several APIs that let you easily extend Amplitude.
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/20044411-a8a06899-34c5-4d6d-908f-9f70ba5bbdf9?action=collection%2Ffork&collection-url=entityId%3D20044411-a8a06899-34c5-4d6d-908f-9f70ba5bbdf9%26entityType%3Dcollection%26workspaceId%3D2ffc735a-10a6-4f54-818e-16c87aeebcd7#?env%5BAmplitude%20API%20Environment%5D=W3sia2V5IjoiYXBpX2tleSIsInZhbHVlIjoiSU5TRVJUIEFQSSBLRVkiLCJ0eXBlIjoic2VjcmV0IiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJzZWNyZXRfa2V5IiwidmFsdWUiOiJJTlNFUlQgU0VDUkVUIEtFWSIsInR5cGUiOiJzZWNyZXQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6IlNDSU1fdG9rZW4iLCJ2YWx1ZSI6IklOU0VSVCBTQ0lNIFRPS0VOIiwidHlwZSI6InNlY3JldCIsImVuYWJsZWQiOnRydWV9LHsia2V5Ijoib3JnX2FwaV9rZXkiLCJ2YWx1ZSI6IklOU0VSVCBPUkcgQVBJIEtFWSIsInR5cGUiOiJzZWNyZXQiLCJlbmFibGVkIjp0cnVlfSx7ImtleSI6Im9yZ19zZWNyZXRfa2V5IiwidmFsdWUiOiJJTlNFUlQgT1JHIFNFQ1JFVCBLRVkiLCJ0eXBlIjoic2VjcmV0IiwiZW5hYmxlZCI6dHJ1ZX1d)
 
-
 |API|This API lets you:|
 |---|-----------|
 |[Attribution](apis/attribution-api.md)| Send attribution campaign events (identified by `idfa`, `idfv`, or `adid`) that contain attribution information. |

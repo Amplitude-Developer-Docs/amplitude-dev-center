@@ -150,7 +150,7 @@ import { Identify } from '@amplitude/react-native';
     const identify2 = new Identify();
     identify2.setOnce("sign_up_date", "2015-08-24");
     Amplitude.getInstance().identify(identify2);// is ignored
-```
+    ```
 
 #### `add`
 
@@ -165,7 +165,6 @@ import { Identify } from '@amplitude/react-native';
     ```
 
 ### Setting multiple user properties
-
 
 You can use `setUserProperties` as a shorthand to set multiple user properties at once. This method is simply a wrapper around `Identify.set` and `identify`.
 
@@ -211,7 +210,7 @@ If the user property does not have a value set yet, it will be initialized to an
 
 #### Removing user properties
 
-#####  Clearing all user properties
+##### Clearing all user properties
 
 `clearUserProperties` will wipe all of the current user's user properties.
 
@@ -382,7 +381,6 @@ React Native SDK allows users to configure their apps to use [dynamic configura
 ## Migration Guide
 
 The JavaScript SDK no longer has support for React Native. If you already have installed the `amplitude-js` or the old version of `@amplitude/react-native`, please follow the [Migration Guide](https://github.com/amplitude/Amplitude-ReactNative/blob/main/MIGRATION_GUIDE.md) to implement `@amplitude/react-native` v2.
-
 
 ## Troubleshooting
 

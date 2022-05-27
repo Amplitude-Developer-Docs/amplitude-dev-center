@@ -35,193 +35,193 @@ If you have used the HTTP API before, note that there are two minor but importan
 - The key for the `events` payload is `events` plural, not `event` singular.
 
 === "cURL"
-	```curl
-	# You can also use wget
-	curl -X POST https://api2.amplitude.com/batch \
-  	-H 'Content-Type: application/json' \
-  	-H 'Accept: */*'
-  	```
+    ```curl
+    # You can also use wget
+    curl -X POST https://api2.amplitude.com/batch \
+     -H 'Content-Type: application/json' \
+      -H 'Accept: */*'
+    ```
 
 === "HTTP"
-	```bash
-	POST https//api2.amplitude.com/batch HTTP/1.1
-	Host: api2.amplitude.com
-	Content-Type: application/json
-	Accept: */*
-	```
+    ```bash
+    POST https//api2.amplitude.com/batch HTTP/1.1
+    Host: api2.amplitude.com
+    Content-Type: application/json
+    Accept: */*
+    ```
 
 === "JavaScript"
-	```js
-	var headers = {
-  	  'Content-Type':'application/json',
-      'Accept':'*/*'
+    ```js
+    var headers = {
+        'Content-Type':'application/json',
+        'Accept':'*/*'
 
-	};
+    };
 
-	$.ajax({
-	  url: 'https://api2.amplitude.com/batch',
-	  method: 'post',
-	```
+    $.ajax({
+      url: 'https://api2.amplitude.com/batch',
+      method: 'post',
+    ```
 
 === "Node"
-	```js
-	const request = require('node-fetch');
-	const inputBody = '{
-	"api_key": "my_amplitude_api_key",
-	"events": [
-		{
-		"user_id": "datamonster@gmail.com",
-		"device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
-		"event_type": "watch_tutorial",
-		"time": 1396381378123,
-		"event_properties": {
-			"load_time": 0.8371,
-			"source": "notification",
-			"dates": [
-			"monday",
-			"tuesday"
-			]
-		},
-		"user_properties": {
-			"age": 25,
-			"gender": "female",
-			"interests": [
-			"chess",
-			"football",
-			"music"
-			]
-		},
-		"groups": {
-			"company_id": "1",
-			"company_name": [
-			"Amplitude",
-			"DataMonster"
-			]
-		},
-		"app_version": "2.1.3",
-		"platform": "iOS",
-		"os_name": "Android",
-		"os_version": "4.2.2",
-		"device_brand": "Verizon",
-		"device_manufacturer": "Apple",
-		"device_model": "iPhone 9,1",
-		"carrier": "Verizon",
-		"country": "United States",
-		"region": "California",
-		"city": "San Francisco",
-		"dma": "San Francisco-Oakland-San Jose, CA",
-		"language": "English",
-		"price": 4.99,
-		"quantity": 3,
-		"revenue": -1.99,
-		"productId": "Google Pay Store Product Id",
-		"revenueType": "Refund",
-		"location_lat": 37.77,
-		"location_lng": -122.39,
-		"ip": "127.0.0.1",
-		"idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
-		"idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
-		"adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
-		"android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
-		"event_id": 23,
-		"session_id": 1396381378123,
-		"insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
-		}
-	]
-	}';
-	const headers = {
-	'Content-Type':'application/json',
-	'Accept':'*/*'
+    ```js
+    const request = require('node-fetch');
+    const inputBody = '{
+    "api_key": "my_amplitude_api_key",
+    "events": [
+      {
+      "user_id": "datamonster@gmail.com",
+      "device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
+      "event_type": "watch_tutorial",
+      "time": 1396381378123,
+      "event_properties": {
+        "load_time": 0.8371,
+        "source": "notification",
+        "dates": [
+        "monday",
+        "tuesday"
+        ]
+      },
+      "user_properties": {
+        "age": 25,
+        "gender": "female",
+        "interests": [
+        "chess",
+        "football",
+        "music"
+        ]
+      },
+      "groups": {
+        "company_id": "1",
+        "company_name": [
+        "Amplitude",
+        "DataMonster"
+        ]
+      },
+      "app_version": "2.1.3",
+      "platform": "iOS",
+      "os_name": "Android",
+      "os_version": "4.2.2",
+      "device_brand": "Verizon",
+      "device_manufacturer": "Apple",
+      "device_model": "iPhone 9,1",
+      "carrier": "Verizon",
+      "country": "United States",
+      "region": "California",
+      "city": "San Francisco",
+      "dma": "San Francisco-Oakland-San Jose, CA",
+      "language": "English",
+      "price": 4.99,
+      "quantity": 3,
+      "revenue": -1.99,
+      "productId": "Google Pay Store Product Id",
+      "revenueType": "Refund",
+      "location_lat": 37.77,
+      "location_lng": -122.39,
+      "ip": "127.0.0.1",
+      "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+      "idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+      "adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+      "android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+      "event_id": 23,
+      "session_id": 1396381378123,
+      "insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
+      }
+    ]
+    }';
+    const headers = {
+    'Content-Type':'application/json',
+    'Accept':'*/*'
 
-	};
+    };
 
-	fetch('https://api2.amplitude.com/batch',
-	{
-	method: 'POST',
-	body: inputBody,
-	headers: headers
-	})
-	.then(function(res) {
-		return res.json();
-	}).then(function(body) {
-		console.log(body);
-	});	
-	```
+    fetch('https://api2.amplitude.com/batch',
+    {
+    method: 'POST',
+    body: inputBody,
+    headers: headers
+    })
+    .then(function(res) {
+      return res.json();
+    }).then(function(body) {
+      console.log(body);
+    });
+    ```
 
 === "Ruby"
-	```ruby
-	require 'rest-client'
-	require 'json'
+    ```ruby
+    require 'rest-client'
+    require 'json'
 
-	headers = {
-	'Content-Type' => 'application/json',
-	'Accept' => '*/*'
-	}
+    headers = {
+    'Content-Type' => 'application/json',
+    'Accept' => '*/*'
+    }
 
-	result = RestClient.post 'https://api2.amplitude.com/batch',
-	params: {
-	}, headers: headers
+    result = RestClient.post 'https://api2.amplitude.com/batch',
+    params: {
+    }, headers: headers
 
-	p JSON.parse(result)
-	```
+    p JSON.parse(result)
+    ```
 
 === "Python" 
-	```python
-	import requests
-	headers = {
-	'Content-Type': 'application/json',
-	'Accept': '*/*'
-	}
+    ```python
+    import requests
+    headers = {
+    'Content-Type': 'application/json',
+    'Accept': '*/*'
+    }
 
-	r = requests.post('https://api2.amplitude.com/batch', params={
+    r = requests.post('https://api2.amplitude.com/batch', params={
 
-	}, headers = headers)
+    }, headers = headers)
 
-	print r.json()
-	```
+    print r.json()
+    ```
 
 === "Java"
-	```java
-	URL obj = new URL("https://api2.amplitude.com/batch");
-	HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-	con.setRequestMethod("POST");
-	int responseCode = con.getResponseCode();
-	BufferedReader in = new BufferedReader(
-		new InputStreamReader(con.getInputStream()));
-	String inputLine;
-	StringBuffer response = new StringBuffer();
-	while ((inputLine = in.readLine()) != null) {
-		response.append(inputLine);
-	}
-	in.close();
-	System.out.println(response.toString());
+    ```java
+    URL obj = new URL("https://api2.amplitude.com/batch");
+    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+    con.setRequestMethod("POST");
+    int responseCode = con.getResponseCode();
+    BufferedReader in = new BufferedReader(
+      new InputStreamReader(con.getInputStream()));
+    String inputLine;
+    StringBuffer response = new StringBuffer();
+    while ((inputLine = in.readLine()) != null) {
+      response.append(inputLine);
+    }
+    in.close();
+    System.out.println(response.toString());
     ```
 
 === "Go"
-	```go
-	package main
+    ```go
+    package main
 
-	import (
-		"bytes"
-		"net/http"
-	)
+    import (
+      "bytes"
+      "net/http"
+    )
 
-	func main() {
+    func main() {
 
-		headers := map[string][]string{
-			"Content-Type": []string{"application/json"},
-			"Accept": []string{"*/*"},
+      headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"*/*"},
 
-		}
+      }
 
-		data := bytes.NewBuffer([]byte{jsonReq})
-		req.Header = headers
+      data := bytes.NewBuffer([]byte{jsonReq})
+      req.Header = headers
 
-		client := &http.Client{}
-		resp, err := client.Do(req)
-		// ...
-	}
-	```
+      client := &http.Client{}
+      resp, err := client.Do(req)
+      // ...
+    }
+    ```
 
 ### Parameters
 
@@ -314,7 +314,6 @@ These properties belong to the request's body.
 
 These properties belong to the `events` object.
 
-
 |<div class='big-column'>    Name   </div>|                                                                                                                                                                                         Description                                                                                                                                                                                                    |
 |:-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       `user_id`       |                                                                                                                                        Required. String. A readable ID specified by you. Must have a minimum length of 5 characters. <br>Required unless device_id is present.                                                                                                                                        |
@@ -375,9 +374,7 @@ These properties belong to the `options` object.
 | 413 | [Payload Too Large](https://tools.ietf.org/html/rfc7231#section-6.5.11) | Payload size is too big (request size exceeds 20MB). Split your events array payload in half and try again. |
 | 429 | [Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4) | Too many requests for a user or device. Amplitude throttles requests for users and devices that exceed 1000 events per second or 500,000 events per day. |
 
-
 ### SuccessSummary
-
 
 ```json
 {
@@ -389,7 +386,7 @@ These properties belong to the `options` object.
 
 ```
 
-**Success Summary Properties**
+#### Success Summary Properties
 
 | Name |  Description |
 | --- |--- |
@@ -399,7 +396,6 @@ These properties belong to the `options` object.
 | server_upload_time | Integer. The time in milliseconds since epoch (Unix Timestamp) that our event servers accepted the upload request. |
 
 ### InvalidRequestError
-
 
 ```json
 {
@@ -424,8 +420,7 @@ These properties belong to the `options` object.
 
 ```
 
-**IvalidRequestError Properties**
-
+#### IvalidRequestError Properties
 
 | Name |  Description |
 | --- | --- |
@@ -436,7 +431,6 @@ These properties belong to the `options` object.
 | events_with_missing_fields | Object. A map from field names to an array of indexes into the events array indicating which events are missing those required fields |
 
 ### SilencedDeviceID
-
 
 ```json
 {
@@ -469,8 +463,7 @@ These properties belong to the `options` object.
 
 ```
 
-**SilencedDeviceID properties**
-
+#### SilencedDeviceID properties
 
 | Name | Description |
 | ---| --- |
@@ -485,7 +478,6 @@ These properties belong to the `options` object.
 
 ### PayloadTooLargeError
 
-
 ```json
 {
   "code": 413,
@@ -494,8 +486,7 @@ These properties belong to the `options` object.
 
 ```
 
-**PayloadTooLargeError properties**
-
+#### PayloadTooLargeError properties
 
 | Name | Description |
 | --- | --- |
@@ -530,17 +521,16 @@ These properties belong to the `options` object.
 
 ```
 
-**TooManyRequestsForDeviceError properties**
-
+#### TooManyRequestsForDeviceError properties
 
 | Name |  Description |
 | --- |-- |
-| code | Integer. 429 error code |
-| error | String. Error description. |
-| eps_threshold | Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
-| throttled_devices | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
-| throttled_users | Object. A map from user_id to their current events per second rate, for all users that exceed the app's current threshold |
-| throttled_events | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
+| `code` | Integer. 429 error code |
+| `error` | String. Error description. |
+| `eps_threshold` | Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
+| `throttled_devices` | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
+| `throttled_users` | Object. A map from user_id to their current events per second rate, for all users that exceed the app's current threshold |
+| `throttled_events` | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
 
 #### Code 429 explained
 
@@ -548,7 +538,7 @@ When a request is rejected with a 429 status, it means that a device or user in 
 
 Because `device_id` and `user_id` are the attributes that determine throttling, partitioning work on one of these attributes will help isolate throttling to a specific partition of work. This way partitions which are not being throttled can still make progress while the throttled partitions are blocked by throttling.
 
-**EPDS and EPUS**
+##### EPDS and EPUS
 
 Amplitude measures the rate of events for each deviceid and each userid for a project, and refer to those rates as *events per device second* (**EPDS**) and *events per user second* (**EPUS**) respectively. These values are both averaged over a period of 30 seconds.
 
@@ -556,7 +546,7 @@ For example, to reach an EPDS limit of 1000 requires that a device sends 30,000 
 
 In general, your app shouldn't measure EPDS or EPUS itself. Send requests to Amplitude as fast as possible. When you receive a 429, wait for a short period (for example, 15 seconds) before trying to send that request again.
 
-**Daily limit**
+##### Daily limit
 
 In addition to the per-second limit, there is daily limit to prevent against spam and abuse. This limit is rarely exceeded. Events starts counting toward the daily limit after Amplitude determines that a user/device is spamming the system. After the threshold is reached, a daily limit of 500,000 events uploaded per rolling 24 hours is enforced. The 24 hour rolling period applies in one-hour intervals. The daily limit applies for each deviceid and each user_id for a project.
 

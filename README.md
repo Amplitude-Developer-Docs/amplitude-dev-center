@@ -25,15 +25,7 @@ This command installs almost every dependency.
 
 `pip install mkdocs-git-revision-date-plugin`
   
-### ~3. (Optional) Install Local Link Checker~
-
-NOTE: This currently isn't working. Check back later. Waiting on the author to make fixes. 
-   
-`npm install -g markdown-link-check`
-  
-  ~We use a GitHub Action that runs a link checker for PRs, but it's annoying to only find out links are broken after you open your PR. If you install the link checker, run the linter locally with this command: `markdown-link-check -c .github/workflows/link-check-config.json path/to/your/file.md`. It's not perfect, so if you find that the job repeatedly fails on a valid link, then add the pattern to ignore to the `.github/workflows/link-check-config.json` file.~
-
-### 4. (Optional, but highly encouraged) Install Vale CLI
+### 3. (Optional, but highly encouraged) Install Vale CLI
   
   Vale is a style linter we use to help enforce consistency and accessibilty in our docs. Our style guide config is included in this repo. To use the linter, you need to install Vale. 
   

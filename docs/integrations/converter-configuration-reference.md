@@ -44,11 +44,11 @@ Conversion rules in `convertToAmplitudeFunc` determine how the ingestion service
 
 ```json 
 {
-	"event_type": "watch tv",
-	"user_id": "john",
-	"device_id": "host1",
-	"event_properties": {
-		"business_id_encid": "123"
+  "event_type": "watch tv",
+  "user_id": "john",
+  "device_id": "host1",
+  "event_properties": {
+    "business_id_encid": "123"
       },
       "user_properties": {
         "utm_channel_category": "discovery",
@@ -66,7 +66,7 @@ Values in the event come from the fields specified by `convertToAmplitudeFunc”
 
 ### List operators
 
-**Using List Operators**
+#### Using List Operators
 
 If the source description is a list, then the first item in the list must be a string specifying the function, the rest of the list are the parameters to the function. The "|" character separates non-repeating and repeating arguments. Any arguments after "|" are repeatable arguments and can be specified any number of times. However, the entire list of arguments**must**be present in any multiple argument operator (meaning, you can't specify just one of three arguments, you must include all three).
 
@@ -96,7 +96,6 @@ If the source description is a list, then the first item in the list must be a s
 | `lowercase`          | Returns the lowercase string                                                                                                                                                                                                                                                                                                                                | \["lowercase"\|"lower", SOURCE_DESCRIPTION]                                                          |
 | `typeof`             | Returns type of the source description as a string: 'string', 'list', 'dict', 'bool', 'number', 'null'                                                                                                                                                                                                                                                      | \["typeof", SOURCE_DESCRIPTION]                                                                      |
 
-
 ### Boolean operators
 
 All of these operators return a JsonPrimitive of type Boolean, so they're valid to use with "cond" and "ifelse".
@@ -109,7 +108,6 @@ All of these operators return a JsonPrimitive of type Boolean, so they're valid 
 | `or`           | Return whether at least one argument is true. Null values are treated as false, string 'true' or 'false' is cast to a boolean.            | \["or"\|"\|\|", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...]   |
 | `equals`       | Evaluates to `true` if and only if the two args are equal.                                                                                             | \["equals"\|"eq"\|"=", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]  |
 | `contains`     | True if the evaluated SourceDescription (second arg) contains the given raw string. If the SourceDescription is null, evaluates to false. | \["contains"\|"is_substring", "raw_string", SOURCE_DESCRIPTION] |
-
 
 ### Integer and float operators
 
@@ -124,13 +122,11 @@ The following Operators return a JsonPrimitive of type Integer, barring the “a
 | `multiply`     | Return the product of the arguments as an integer. Strings are attempted to be converted to integers, and null values are treated as zero. | \["multiply"\|"\*", SOURCE_DESCRIPTION, \| SOURCE_DESCRIPTION...] |
 | `divide`       | Divides the first argument by the second one. Strings are attempted to be converted to integers, and null values are treated as zero.      | \["divide"\|"/", SOURCE_DESCRIPTION, SOURCE_DESCRIPTION]          |
 
-
 ### JSON operator
 
 | **Operator** | **Description**                                                    | **Syntax**                                                                                                                                                                                    |
 | ------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | N/A          | As syntactic sugar, we convert an object to a "dict" LIST_OPERATOR | **Note**: the following two descriptions are equivalent:   {"key1": SOURCE_DESCRIPTION,"key2", SOURCE_DESCRIPTION,…}   \["dict","key1", SOURCE_DESCRIPTION,"key2", SOURCE_DESCRIPTION,...]    |
-
 
 <!-- ## Converter configuration examples
 
