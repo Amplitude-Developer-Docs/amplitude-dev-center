@@ -161,6 +161,7 @@ nav:
     - analytics/apis/user-privacy-api.md
     - analytics/apis/user-profile-api.md
   - Advanced Topics:
+    - analytics/data-backfill-guide.md
     - analytics/analytics-domain-proxy.md
     - analytics/dynamic-configuration.md
   - Other Resources:
