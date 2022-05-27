@@ -50,8 +50,8 @@ If you send data that has a timestamp of 30 days or older, then it can take up 
 
 ### Resources
 
-- Sample scripts for data import: <https://gist.github.com/djih/2a7e7fb2c1d45c8277f7aef64b682ed6>
-- Sample data: <https://d24n15hnbwhuhn.cloudfront.net/sample_data.zip>[
+- Example scripts for data import: <https://gist.github.com/djih/2a7e7fb2c1d45c8277f7aef64b682ed6>
+- Example data: <https://d24n15hnbwhuhn.cloudfront.net/sample_data.zip>[
 ](https://d24n15hnbwhuhn.cloudfront.net/sample_data.zip)
 
 ## Data ingestion system
