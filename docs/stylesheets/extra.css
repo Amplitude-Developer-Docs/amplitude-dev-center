@@ -108,7 +108,7 @@
   --heading-color: #3d3d3d;
   --boxes-background: #f3f3f3;
 
-
+  /* Code Colors */
 
   --md-code-fg-color:                hsla(200, 18%, 26%, 1);
   --md-code-bg-color:                hsla(0, 0%, 96%, 1);
@@ -126,6 +126,8 @@
   --md-code-hl-comment-color:        var(--md-default-fg-color--light);
   --md-code-hl-generic-color:        var(--md-default-fg-color--light);
   --md-code-hl-variable-color:       var(--md-default-fg-color--light);
+
+  /* Code Font */
 
   --md-text-font: "IBM Plex Sans", Arial, sans-serif;
   --md-text-code: "IBM Plex Mono", monospace;
