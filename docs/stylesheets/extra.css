@@ -104,9 +104,19 @@
   --md-accent-bg-color--light:  #f5d9e1;
   --md-footer-bg-color: #2f1761;
   --md-footer-fg-color--lighter: #c9c2f5;
-  --md-default-fg-color: #13294B; /*this is the default text color */
   --heading-color: #3d3d3d;
   --boxes-background: #f3f3f3;
+
+  /* Default Colors */
+
+  --md-default-fg-color:               #13294B;
+  --md-default-fg-color--light:        #282828;
+  --md-default-fg-color--lighter:      hsla(0, 0%, 0%, 0.32);
+  --md-default-fg-color--lightest:     hsla(0, 0%, 0%, 0.07);
+  --md-default-bg-color:               hsla(0, 0%, 100%, 1);
+  --md-default-bg-color--light:        hsla(0, 0%, 100%, 0.7);
+  --md-default-bg-color--lighter:      hsla(0, 0%, 100%, 0.3);
+  --md-default-bg-color--lightest:     hsla(0, 0%, 100%, 0.12);
 
   /* Code Colors */
 
@@ -127,7 +137,7 @@
   --md-code-hl-generic-color:        var(--md-default-fg-color--light);
   --md-code-hl-variable-color:       var(--md-default-fg-color--light);
 
-  /* Code Font */
+  /* Fonts */
 
   --md-text-font: "IBM Plex Sans", Arial, sans-serif;
   --md-text-code: "IBM Plex Mono", monospace;
