@@ -27,9 +27,9 @@ Install the Amplitude Analytics JavaScript SDK in your project.
     <script type="text/javascript">
     (function(e,t){var r=e.amplitude||{_q:[],_iq:{}};var n=t.createElement("script")
     ;n.type="text/javascript"
-    ;n.integrity="sha384-+EO59vL/X7v6VE2s6/F4HxfHlK0nDUVWKVg8K9oUlvffAeeaShVBmbORTC2D3UF+"
+    ;n.integrity="sha384-6T8z7Vvm13muXGhlR32onvIziA0TswSKafDQHgmkf6zD2ALZZeFokLI4rPVlAFyK"
     ;n.crossOrigin="anonymous";n.async=true
-    ;n.src="https://cdn.amplitude.com/libs/amplitude-8.17.0-min.gz.js"
+    ;n.src="https://cdn.amplitude.com/libs/amplitude-8.18.4-min.gz.js"
     ;n.onload=function(){if(!e.amplitude.runQueuedFunctions){
     console.log("[Amplitude] Error: could not load SDK")}}
     ;var s=t.getElementsByTagName("script")[0];s.parentNode.insertBefore(n,s)
