@@ -418,7 +418,7 @@ amplitude.getInstance().setUserId(null); // not string 'null'
 amplitude.getInstance().regenerateDeviceId();
 ```
 
-## Session tracking
+## Track sessions
 
 Events triggered within 30 minutes of each other are counted towards the current session.
  The time of the first event marks the start time of a session and the last event triggered marks the end time of a session.
@@ -447,21 +447,7 @@ amplitude.getInstance().init(APIKEY, null, {
 
 ## Log events to multiple projects
 
-If you want to log events to multiple Amplitude projects, then must have separate instances for each Amplitude project.
- Each instance allows for independent `apiKeys`, `userIds`, `deviceIds`, and settings.
-
-You must assign a name to each Amplitude project and instance and use that name consistently when fetching that instance to call functions.
-
-!!!important
-    After you have chosen a name for that instance you can't change it. 
-    An instance's data and settings are associated with its name, and you must use that instance name for all future versions of your project to maintain data continuity.
-    Instance names don't need be the names of your projects in the Amplitude platform, but they need to remain consistent throughout your code. Each instance must also be initialized with the correct `apiKey`.
-
-Instance names must be non-null and non-empty strings. Names are case insensitive, and you can fetch each instance name by calling.
-
-Each new instance has its own `apiKey`, `userId`, `deviceId`, and settings.
-
-The following is an example of how to set up and log events to two separate projects:
+--8<-- "includes/log-events-to-multiple-projects.md"
 
 ```js
 // existing project, existing settings, and existing API key
@@ -470,7 +456,7 @@ amplitude.getInstance().init('12345', null, {batchEvents: true});
 amplitude.getInstance('new_project').init('67890', null, {includeReferrer: true});
 
 // need to reconfigure new project
-amplitude.getInstance('new_project').setUserId('joe@gmail.com');
+amplitude.getInstance('new_project').setUserId('123456');
 amplitude.getInstance('new_project').setUserProperties({'gender':'male'});
 amplitude.getInstance('new_project').logEvent('Clicked');
 
@@ -881,13 +867,13 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', {transport: 'beacon'});
 // set transport to 'beacon' after initialization
 amplitude.getInstance().setTransport('beacon');
 
-// this event will be sent using navigator.sendBeacon
+// this event is sent using navigator.sendBeacon
 amplitude.getInstance().logEvent('send event with beacon');
 
 // set transport back to the default 'http' value
 amplitude.getInstance().setTransport('http');
 
-// this event will be sent using the standard xhr mechanism
+// this event is sent using the standard xhr mechanism
 amplitude.getInstance().logEvent('send event with http');
 
 ```

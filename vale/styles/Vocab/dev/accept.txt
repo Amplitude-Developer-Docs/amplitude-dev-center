@@ -28,6 +28,7 @@ JavaScript
 js
 Kotlin
 md
+Middleware
 middleware
 NGINX
 NPM
@@ -40,6 +41,7 @@ orgs
 podfile
 Podfile
 prepends
+preprocessor
 runtimes
 untyped
 Xcode
