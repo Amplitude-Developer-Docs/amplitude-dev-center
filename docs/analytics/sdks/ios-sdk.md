@@ -188,7 +188,7 @@ Events represent how users interact with your application. For example, "Button 
 
 #### Events with properties
 
-Events can also contain properties. They provide context about the event taken. For example, "hover time" may be a relevant event property to "button click".
+Events can also contain properties. They give context about the event. For example, "hover time" may be a relevant event property to "button click".
 
 === "Objective C"
 
@@ -206,7 +206,8 @@ Events can also contain properties. They provide context about the event taken. 
 
 ### User properties
 
-User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
+User properties help you understand your users at the time they performed some action within your app. For example, you can learn about their device details, their preferences, or language.
+
  Amplitude-iOS's `AMPIdentity` class manages these features.
 
 !!!warning "User privacy warning"
@@ -283,8 +284,7 @@ User properties help you understand your users at the time they performed some a
 
 ##### `preInsert`
 
-This pre-inserts a value or values to a user property, if it doesn't exist in the user property yet.
-Preinsert means inserting the value(s) at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre inserted.
+This preinserts a value or values to a user property at the beginning of the array, if it doesn't exist in the user property yet. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are preinserted.
  If the user property has an existing value, nothing is inserted.
 
 === "Objective-C"
@@ -300,7 +300,7 @@ Preinsert means inserting the value(s) at the beginning of a given list. If the 
 
 ##### `postInsert`
 
-This inserts a value or values to a user property, if it doesn't exist in the user property yet. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted.
+This inserts a value or values at the end of a user property array, if it doesn't exist in the user property yet. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted.
  If the user property has an existing value, nothing is inserted.
 
 === "Objective-C"
@@ -316,7 +316,7 @@ This inserts a value or values to a user property, if it doesn't exist in the us
 
 ##### `remove`
 
-Remove a value or values to a user property, if it does exist in the user property. Remove means remove the existing value(s) from the given list. If the item doesn't exist in the user property, nothing is removed.
+Remove a value or values from a user property. If the item doesn't exist in the user property, nothing is removed.
 
 === "Objective-C"
 
@@ -331,7 +331,7 @@ Remove a value or values to a user property, if it does exist in the user proper
 
 ##### Set multiple user properties
 
-You can use `setUserProperties` as a shorthand to set multiple user properties at once. This method is simply a wrapper around `Identify.set` and `identify`.
+You can use `setUserProperties` as a shorthand to set multiple user properties at once. This method is a wrapper around `Identify.set` and `identify`.
 
 === "Objective-C"
 
@@ -917,7 +917,7 @@ AMPLITUDE_SSL_PINNING=1
 
 ### Opt users out of tracking
 
-Users may wish to opt out of tracking entirely, which means no events and no records of their browsing history. `setOptOut` provides a way to fulfill certain users' requests for privacy.
+Users may wish to opt out of tracking entirely, which means no events and no records of their browsing history. `setOptOut` provides a way to fulfill a user's requests for privacy.
 
 === "Objective-C"
 
@@ -956,10 +956,8 @@ There are a couple of things to note:
 
 - The `viewDidLoad` method gets called every time your extension is opened. This means that the SDK's `initializeApiKey` method gets called every single time. However, this is okay because it safely ignores calls after the first one. You can protect the initialization with something like a `dispatch_once` block.
 - Amplitude's sessions are defined for an app use case. Depending on your expected extension use case, you might not want to enable `trackingSessionEvents`, or you may want to extend the `minTimeBetweenSessionsMillis` to be longer than five minutes. You should experiment with these two settings to get your desired session definition.
-- In addition, you may want to decrease `eventUploadPeriodSeconds` to something shorter than 30 seconds to upload events at shorter intervals if you don't expect users to keep your extension open that long. You can also manually call `[[Amplitude instance] uploadEvents];` to manually force an upload.
-    Here is a simple demo application showing how to instrument the iOS SDK in an extension.
-
-Here is a simple [demo application](https://github.com/amplitude/iOS-Extension-Demo) showing how to instrument the iOS SDK in an extension.
+- You may want to decrease `eventUploadPeriodSeconds` to something shorter than 30 seconds to upload events at shorter intervals if you don't expect users to keep your extension open that long. You can also manually call `[[Amplitude instance] uploadEvents];` to manually force an upload.
+    Here is a simple [demo application](https://github.com/amplitude/iOS-Extension-Demo) showing how to instrument the iOS SDK in an extension.
 
 ### App Clips
 
