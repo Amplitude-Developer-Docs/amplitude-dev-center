@@ -282,37 +282,9 @@ User properties help you understand your users at the time they performed some a
     Amplitude.instance().identify(identify)
     ```
 
-##### `preInsert`
+##### `preInsert` and `postInsert`
 
-This preinserts a value or values to a user property at the beginning of the array, if it doesn't exist in the user property yet. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are preinserted.
- If the user property has an existing value, nothing is inserted.
-
-=== "Objective-C"
-
-    ```obj-c
-    NSMutableArray *array = [NSMutableArray array];
-    [array addObject:@"some_string"];
-    [array addObject:[NSNumber numberWithInt:56]];
-    AMPIdentify *identify = [[[AMPIdentify identify] preInsert:@"ab-tests" value:@"new-user-test"]
-        preInsert:@"some_list" value:array];
-    [[Amplitude instance] identify:identify];
-    ```
-
-##### `postInsert`
-
-This inserts a value or values at the end of a user property array, if it doesn't exist in the user property yet. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted.
- If the user property has an existing value, nothing is inserted.
-
-=== "Objective-C"
-
-    ```obj-c
-    NSMutableArray *array = [NSMutableArray array];
-    [array addObject:@"some_string"];
-    [array addObject:[NSNumber numberWithInt:56]];
-    AMPIdentify *identify = [[[AMPIdentify identify] postInsert:@"ab-tests" value:@"new-user-test"]
-        postInsert:@"some_list" value:array];
-    [[Amplitude instance] identify:identify];
-    ```
+See the [arrays in user properties](#arrays-in-user-properties) section for information.
 
 ##### `remove`
 
