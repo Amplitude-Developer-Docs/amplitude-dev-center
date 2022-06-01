@@ -45,7 +45,7 @@ then Amplitude deduplicates data that has the same `insert_id` sent within 7 day
 
 ### Skip user properties sync
 
-When Amplitude captures an event, it includes the current values for each user property, which can change over time. When Amplitude recieves an event with user properties, it updates the existing user properties, but also adds any new user properties. You can change this behavior by adding `"$skip_user_properties_sync": true` to the event payload. 
+When Amplitude captures an event, it includes the current values for each user property, which can change over time. When Amplitude receives an event with user properties, it updates the existing user properties, but also adds any new user properties. You can change this behavior by adding `"$skip_user_properties_sync": true` to the event payload. 
 
 When `"$skip_user_properties_sync": true` is included, Amplitude ignores the user properties table completely. The event has only the user properties sent with the event, does not update the user properties table, and doesn't display any pre-existing user properties.
 
@@ -55,10 +55,11 @@ When `"$skip_user_properties_sync": true` is included, Amplitude ignores the use
 
     ```json
     {
-        "api_key": "2d586e0285a55af6e550c25018b5cdfb",
+        "api_key": "API_KEY",
           "events": [
         {
-          "user_id": "123456",
+          "user_id": "b4ee5d78-e1b6-11ec-8fea-0242ac120002",
+          "insert_id": "97b74bc6-a8c8-48f3-bbc7-de9f95aea636",
           "device_id": "",
           "event_type": "Button Clicked",
           "user_properties":{
@@ -74,7 +75,8 @@ When `"$skip_user_properties_sync": true` is included, Amplitude ignores the use
     ```json
           "events": [
         {
-          "user_id": "123456",
+          "user_id": "b4ee5d78-e1b6-11ec-8fea-0242ac120002",
+          "insert_id": "97b74bc6-a8c8-48f3-bbc7-de9f95aea636",
           "device_id": "",
           "event_type": "Button Clicked",
           "user_properties":{
@@ -90,7 +92,8 @@ When `"$skip_user_properties_sync": true` is included, Amplitude ignores the use
     ```json
           "events": [
         {
-          "user_id": "123456",
+          "user_id": "b4ee5d78-e1b6-11ec-8fea-0242ac120002",
+          "insert_id": "97b74bc6-a8c8-48f3-bbc7-de9f95aea636",
           "device_id": "",
           "event_type": "Button Clicked",
           "$skip_user_properties_sync": true,
@@ -106,10 +109,11 @@ When `"$skip_user_properties_sync": true` is included, Amplitude ignores the use
 
     ```json
     {
-        "api_key": "2d586e0285a55af6e550c25018b5cdfb",
+        "api_key": "API_KEY",
           "events": [
         {
-          "user_id": "123456",
+          "user_id": "b4ee5d78-e1b6-11ec-8fea-0242ac120002",
+          "insert_id": "97b74bc6-a8c8-48f3-bbc7-de9f95aea636",
           "device_id": "",
           "event_type": "Button Clicked",
           "$skip_user_properties_sync": true,
@@ -126,7 +130,8 @@ When `"$skip_user_properties_sync": true` is included, Amplitude ignores the use
     ```json
           "events": [
         {
-          "user_id": "123456",
+          "user_id": "b4ee5d78-e1b6-11ec-8fea-0242ac120002",
+          "insert_id": "97b74bc6-a8c8-48f3-bbc7-de9f95aea636",
           "device_id": "",
           "event_type": "Button Clicked",
           "user_properties":{
