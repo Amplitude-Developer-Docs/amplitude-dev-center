@@ -59,29 +59,21 @@ Our SDKs let you easily instrument Amplitude Data in your apps.
 
 These integrations help you get data in and out of Amplitude Data.
 
-### Reverse ETL and cloud integrations
+### Sources
 
-|Integration| Description|
-|----|---|
-|[Amazon S3 Import](../integrations/amazon-s3-import.md)| Import event, group properties, and user properties into Amplitude from an Amazon AWS S3 bucket.|
-|[Amazon S3 Export](../integrations/bigquery-export.md)|Export your Amplitude data to an Amazon S3 bucket, enabling you to analyze your Amplitude data sets side-by-side with data sourced elsewhere.|
-|[Google Cloud Storage Import](../integrations/google-cloud-storage-import.md)|Import event or user properties into your Amplitude projects from a Google Cloud Storage (GCS) bucket.|
-|[Google Cloud Storage Export](../integrations/google-cloud-storage-export.md)|Export Amplitude event data and merged user data to your Google Cloud Storage (GCS) account.|
-|[Redshift Export](../integrations/redshift-export.md)| Export your Amplitude event data to your Redshift account with recurring exports. |
-|[Snowflake Import](../integrations/snowflake-import.md)| Import Snowflake data directly into your Amplitude project.|
-|[Snowflake Export](../integrations/snowflake-export.md)|Upload your Amplitude event data to your Snowflake account with recurring exports.|
+#### Data warehouse sources 
 
-### Event streaming destinations
+--8<-- "includes/integration-catalog-warehouse-sources.md"
 
-|Integration|Description|
-|----|----|
-|[Amazon Kinesis Data Stream](../integrations/kinesis-data-stream-event-streaming.md)|Stream your Amplitude event data straight to a Kinesis Data Stream.|
-|[Amazon Kinesis Firehose](../integrations/kinesis-firehose-event-streaming.md)|Stream your Amplitude event data straight to a Kinesis Firehose stream.|
-|[Braze](../integrations/braze-event-streaming.md)|Stream your Amplitude event data straight to Braze with just a few clicks.|
-|[Google Pub/Sub](../integrations/google-pub-sub-event-streaming.md)|Stream your Amplitude event data straight to Pub/Sub.|
-|[Intercom](../integrations/intercom-event-streaming.md)|Stream your Amplitude event data to Intercom with just a few clicks.|
-|[Iterable](../integrations/iterable-event-streaming.md)|Stream your Amplitude event data to Iterable with just a few clicks.|
+### Destinations
 
+#### Data warehouse destinations 
+
+--8<-- "includes/integration-catalog-warehouse-destinations.md"
+
+#### Event streaming destinations
+
+--8<-- "includes/integration-catalog-event-streaming-destinations.md"
 
 ### Other integrations
 
