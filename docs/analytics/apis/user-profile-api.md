@@ -39,10 +39,10 @@ The User Profile API serves Amplitude user profiles, which include user properti
 - If an insecure HTTP request is sent, it's redirected to the HTTPs endpoint (HTTPS 301) with an HTML body - the Location header contains the proper protocol and URL.
 
 ### Throttling errors
-- Each org is limited to 100,000 recommendation requests per minute. If you go above this limit, the API will return the following error response:
+- Each org is limited to 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
     - `{"error":"Number of requests per minute exceeds system limit. Please contact support if you need this limit raised"}` 
-- For batch recommendation use cases, consider rate limiting your requests so as to not go above this limit.
-- If you need this limit increased for your org, please contact support.
+- For batch recommendation use cases, consider rate limiting your requests so you don't go above this limit.
+- If you need this limit increased for your org, contact Support.
 
 ## Parameters
 
