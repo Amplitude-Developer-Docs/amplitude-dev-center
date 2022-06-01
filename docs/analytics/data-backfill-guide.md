@@ -43,6 +43,101 @@ This is Amplitude's recommendation for backfilling large amounts of data:
 To optimize this process further, add aggressive retry logic with high timeouts. Continue to retry until you receive a 200 response. If you send an `insert_id`, 
 then Amplitude deduplicates data that has the same `insert_id` sent within 7 days of each other. 
 
+### Skip user properties sync
+
+When Amplitude captures an event, it includes the current values for each user property, which can change over time. When Amplitude recieves an event with user properties, it updates the existing user properties, but also adds any new user properties. You can change this behavior by adding `"$skip_user_properties_sync": true` to the event payload. 
+
+When `"$skip_user_properties_sync": true` is included, Amplitude ignores the user properties table completely. The event has only the user properties sent with the event, does not update the user properties table, and doesn't display any pre-existing user properties.
+
+!!!example
+
+    For example, you send the following event to Amplitue. The user property table already has the user property `"city": "New York"`
+
+    ```json
+    {
+        "api_key": "2d586e0285a55af6e550c25018b5cdfb",
+          "events": [
+        {
+          "user_id": "123456",
+          "device_id": "",
+          "event_type": "Button Clicked",
+          "user_properties":{
+              "subscriptionStatus":"active"
+          }
+        }
+      ]
+    }
+    ```
+
+    The event appears in Amplitude as:
+
+    ```json
+          "events": [
+        {
+          "user_id": "123456",
+          "device_id": "",
+          "event_type": "Button Clicked",
+          "user_properties":{
+              "city":"New York"
+              "subscriptionStatus":"active"
+          }
+        }
+      ]
+    ```
+
+    You include `"$skip_user_properties_sync": true` and send the same event. The event appears in Amplitude like this: 
+
+    ```json
+          "events": [
+        {
+          "user_id": "123456",
+          "device_id": "",
+          "event_type": "Button Clicked",
+          "$skip_user_properties_sync": true,
+          "user_properties":{
+              "subscriptionStatus":"active"
+          }
+        }
+      ]
+    ```
+    Notice that it doesn't include the city property.
+
+    Next, you include `"$skip_user_properties_sync": true` and send this event:
+
+    ```json
+    {
+        "api_key": "2d586e0285a55af6e550c25018b5cdfb",
+          "events": [
+        {
+          "user_id": "123456",
+          "device_id": "",
+          "event_type": "Button Clicked",
+          "$skip_user_properties_sync": true,
+          "user_properties":{
+              "city":"San Francisco"
+          }
+        }
+      ]
+    }
+    ```
+
+    Amplitude doesn't update the user properties table, and the event appears in Amplitude like this:  
+
+    ```json
+          "events": [
+        {
+          "user_id": "123456",
+          "device_id": "",
+          "event_type": "Button Clicked",
+          "user_properties":{
+              "city":"San Francisco"
+          }
+        }
+      ]
+    ```
+    Any new event still has `"city":"New York"`, but this event displays `"city":"San Francisco"`.
+
+
 ### Timing
 
 If you send data that has a timestamp of 30 days or older, then it can take up to 48 hours to appear in some parts of Amplitude system. Use the [User Activity tab](https://amplitude.zendesk.com/hc/en-us/articles/229313067#real-time-activity)
@@ -87,5 +182,5 @@ Because each user's events are processed by the same worker, if that user sends 
 
 If you have preexisting users, then you should backfill them users to accurately mark when they were new users. Amplitude marks users new based on the timestamp of their earliest event.
 
-To backfill your preexisting users, use the[Batch API](https://developers.amplitude.com/docs/batch-event-upload-api) to send a "dummy event" or a signup event where the event timestamp is
+To backfill your preexisting users, use the [Batch API](https://developers.amplitude.com/docs/batch-event-upload-api) to send a "dummy event" or a signup event where the event timestamp is
  the actual time the user was originally created. For instance, if a user signed up on Aug 1st, 2013, the timestamp of the event you send should be Aug 1st, 2013.

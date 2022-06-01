@@ -370,7 +370,7 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 | `event_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data to be sent along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `user_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data tied to the user. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `groups` | Optional. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/1150017655322). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. You can track up to 5 unique group types and 10 total group values. Any groups past that threshold aren't tracked.|
-|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties are not synced. Defaults to `false`.| 
+|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties are not synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.| 
 | `app_version` | Optional. String. The current version of your application. |
 | `platform` | Optional. String. Platform of the device. |
 | `os_name` | Optional. String. The name of the mobile operating system or browser that the user is using. |
