@@ -24,9 +24,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 ### Default experiences
 
 - If you don't serve your default user experience for users with `is_control=true`, Amplitude can't measure performance.
-- Serve a default experience in case there is an error. There are two common error responses from the API:
-    - When the user just signed up ( less than 5 min ago), you might get this response:`{"error":"User id and device id not seen before"}`
-    - If a user is less than 2 hours old or has been inactive longer than 90 days, there is an API response, but it returns `"recommendations": null`.
+- Serve a default experience in case there is an error.
 - If Amplitude is unavailable and returns a 500 response, you can retry or serve the default experience.
 
 ### Authentication errors
@@ -39,6 +37,12 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 - If the endpoint or path are wrong, you get an empty error (HTTP 404) response.
 - If an insecure HTTP request is sent, it's redirected to the HTTPs endpoint (HTTPS 301) with an HTML body - the Location header contains the proper protocol and URL.
+
+### Throttling errors
+- Each org is limited to 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
+    - `{"error":"Number of requests per minute exceeds system limit. Please contact support if you need this limit raised"}` 
+- For batch recommendation use cases, consider rate limiting your requests so you don't go above this limit.
+- If you need this limit increased for your org, contact Support.
 
 ## Parameters
 
