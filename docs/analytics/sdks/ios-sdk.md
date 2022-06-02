@@ -151,6 +151,7 @@ For earlier versions, you need to configure the `serverURL` property after initi
     ```obj-c
     // For versions starting from 8.5.0
     // No need to call setServerUrl for sending data to Amplitude's EU servers
+
     [[Amplitude instance] setServerZone:AMPServerZone.EU];
 
     // For earlier versions
@@ -162,9 +163,11 @@ For earlier versions, you need to configure the `serverURL` property after initi
     ```swift
     // For versions starting from 8.5.0
     // No need to call setServerUrl for sending data to Amplitude's EU servers
+
     Amplitude.instance().setServerZone(AMPServerZone.EU)
 
     // For earlier versions
+
     Amplitude.instance().setServerUrl("https://api.eu.amplitude.com")
     ```
 
@@ -428,7 +431,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
 
 !!!warning
 
-The result is irreversible! Amplitude can't sync the user's user property values from before the wipe to any future events.
+    This action is irreversible. Amplitude can't sync the user's user property values from before the wipe to any future events.
 
 === "Objective-C"
 
@@ -565,8 +568,8 @@ To track revenue from a user, call `logRevenueV2` each time a user generates r
 
 Calling `logRevenueV2` generates up to 2 different event types in the platform:
 
-- '[Amplitude] Revenue': This event is logged for all revenue events, regardless of whether verification is turned on.
-- '[Amplitude] Revenue (Verified/Unverified)': These revenue events contain the actual `$revenue` property.
+- `[Amplitude] Revenue`: This event is logged for all revenue events, regardless of whether verification is turned on.
+- `[Amplitude] Revenue (Verified/Unverified)`: These revenue events contain the actual `$revenue` property.
 
 You can't change the default names given to these client-side revenue events in the raw data, but you can change the [display name](https://help.amplitude.com/hc/en-us/articles/235649848#events). Learn more about tracking revenue in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003116888).
 
@@ -593,7 +596,6 @@ Like `logEvent`, event properties can also be attached for each call to `logRe
     Price can be negative, which may be useful for tracking revenue lost (such as refunds or costs)
 
 ## Advanced topics
-
 
 ### User sessions
 
@@ -789,7 +791,7 @@ Tracking for each field can be individually disabled, and has a corresponding me
 
 ### COPPA control
 
-COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking can all be enabled or disabled at one time. Remember that apps asking for information from children under 13 years of age must comply with COPPA.
+COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking can all be enabled or disabled at one time. Apps that ask for information from children under 13 years of age must comply with COPPA.
 
 === "Objective-C"
 
@@ -830,7 +832,7 @@ Note that you need to also add `AdSupport.framework` to your project
 
 ### Set IDFA as device Id
 
-After you set up the logic to fetch IDFA, you can also call this [useAdvertisingIdForDeviceId](http://amplitude.github.io/Amplitude-iOS/Classes/Amplitude.html#//api/name/useAdvertisingIdForDeviceId) API to set the IDFA as your `deviceId`.
+Amplitude uses the IDFV as the device ID by default, but you can change this behavior. After you set up the logic to fetch IDFA, you can also call this [useAdvertisingIdForDeviceId](http://amplitude.github.io/Amplitude-iOS/Classes/Amplitude.html#//api/name/useAdvertisingIdForDeviceId) API to set the IDFA as your `deviceId`. 
 
 ### Location tracking
 
@@ -889,7 +891,7 @@ AMPLITUDE_SSL_PINNING=1
 
 ### Opt users out of tracking
 
-Users may wish to opt out of tracking entirely, which means no events and no records of their browsing history. `setOptOut` provides a way to fulfill a user's requests for privacy.
+Users may wish to opt out of tracking entirely, which means Amplitude won't track any of their events or browsing history. `setOptOut` provides a way to fulfill a user's requests for privacy.
 
 === "Objective-C"
 
@@ -907,7 +909,7 @@ Users may wish to opt out of tracking entirely, which means no events and no rec
 
 ### tvOS and watchOS
 
-This SDK work with tvOS and watch OS apps. To begin, follow the same setup instructions for iOS apps.
+This SDK works with tvOS and watch OS apps. To begin, follow the same setup instructions for iOS apps.
 
 !!!note
      tvOS apps don't have persistent storage (they only have temporary storage), so for tvOS the SDK is configured to upload events as soon as they're logged.
@@ -922,13 +924,13 @@ This SDK work with tvOS and watch OS apps. To begin, follow the same setup instr
 
 ### iOS extensions
 
-The SDK allows for tracking in iOS extensions. To set up tracking in iOS extensions, you should follow the same setup instructions but initialize the SDK in your extension's `viewDidLoad` method instead from `application:didFinishLaunchingWithOptions:`.
+The SDK allows for tracking in iOS extensions. To set up tracking in iOS extensions, follow the same setup instructions but initialize the SDK in your extension's `viewDidLoad` method instead from `application:didFinishLaunchingWithOptions:`.
 
-There are a couple of things to note:
+There are a few things to note:
 
 - The `viewDidLoad` method gets called every time your extension is opened. This means that the SDK's `initializeApiKey` method gets called every single time. However, this is okay because it safely ignores calls after the first one. You can protect the initialization with something like a `dispatch_once` block.
 - Amplitude's sessions are defined for an app use case. Depending on your expected extension use case, you might not want to enable `trackingSessionEvents`, or you may want to extend the `minTimeBetweenSessionsMillis` to be longer than five minutes. You should experiment with these two settings to get your desired session definition.
-- You may want to decrease `eventUploadPeriodSeconds` to something shorter than 30 seconds to upload events at shorter intervals if you don't expect users to keep your extension open that long. You can also manually call `[[Amplitude instance] uploadEvents];` to manually force an upload.
+- If you don't expect users to keep your extension open long, you can decrease `eventUploadPeriodSeconds` to something shorter than 30 seconds to upload events at shorter intervals. You can also manually call `[[Amplitude instance] uploadEvents];` to manually force an upload.
     Here is a simple [demo application](https://github.com/amplitude/iOS-Extension-Demo) showing how to instrument the iOS SDK in an extension.
 
 ### App Clips
@@ -978,6 +980,7 @@ Add middleware to Amplitude via `client.addEventMiddleware`. You can add as man
 
 You can find examples for [Objective-C](https://github.com/amplitude/ampli-examples/blob/main/ios/objective-c/AmpliObjectiveCSampleApp/AmpliObjectiveCSampleApp/AppDelegate.m#L65) and [Swift](https://github.com/amplitude/ampli-examples/blob/main/ios/swift/AmpliSwiftSampleApp/Shared/AmpliSwiftSampleAppApp.swift#L48).
 
+Learn more about [middleware](../../data/middleware-overview.md).
 ### More resources
 
 If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-iOS/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
