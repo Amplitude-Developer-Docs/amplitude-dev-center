@@ -48,10 +48,10 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
 Guide to getting started with Amplitude Data.
 
-1. [Configure sources]()
-2. [Instrument analytics]()
+1. [Configure sources](/data/sources)
+2. [Instrument analytics](/data/sources#sdks)
 3. [Validate your data]()
-4. [Configure destinations]()
+4. [Configure destinations](/data/destinations)
 
 ## More resources
 

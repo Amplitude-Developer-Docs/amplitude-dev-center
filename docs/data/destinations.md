@@ -3,8 +3,6 @@ title: Destinations Overview
 description: Destinations let you send your Amplitude data to third-party platforms.
 ---
 
-## What is a destination?
-
 Destinations let you send your Amplitude data to third-party platforms.
 
 ## Add a destination

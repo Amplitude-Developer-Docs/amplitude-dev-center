@@ -3,8 +3,6 @@ title: Sources Overview
 description: Sources let you import data from third-party platforms into Amplitude. 
 ---
 
-## What is a source?
-
 Sources let you import data from third-party platforms into Amplitude. 
 
 ## Add a source
@@ -18,8 +16,8 @@ You can add a new source in just a few clicks.
 
 For detailed instructions, see the documentation for the source you want to add. 
 
-<!-- ### SDKs
-TBD -->
+### SDKs
+
 
 <!-- #### Work with Ampli 
 
