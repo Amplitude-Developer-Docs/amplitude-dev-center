@@ -1,13 +1,22 @@
 ---
 title: Destinations Overview
-description: This is a required description. 
+description: Destinations let you send your Amplitude data to third-party platforms.
 ---
 
 ## What is a destination?
-TBD
 
-## Adding a destination
-TBD
+Destinations let you send your Amplitude data to third-party platforms.
+
+## Add a destination
+
+You can add a new destination in just a few clicks. 
+
+1. From Data, click **Destinations** in the Connections section. 
+2. Click **Add Destination**.
+3. Browse or search for the destination you want to add. 
+4. Follow the on-screen prompts. 
+
+For detailed instructions, see the documentation for the destination you want to add. 
 
 ### Warehouse 
 

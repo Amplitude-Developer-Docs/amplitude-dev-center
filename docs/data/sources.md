@@ -1,19 +1,29 @@
 ---
 title: Sources Overview
-description: This is a required description. 
+description: Sources let you import data from third-party platforms into Amplitude. 
 ---
 
 ## What is a source?
-TBD
 
-## Adding a source
-TBD
+Sources let you import data from third-party platforms into Amplitude. 
 
-### SDKs
-TBD
+## Add a source
 
-#### Working with Ampli
-TBD
+You can add a new source in just a few clicks. 
+
+1. From Data, click **Sources** in the Connections section. 
+2. Click **Add Source**.
+3. Browse or search for the source you want to add. 
+4. Follow the on-screen prompts. 
+
+For detailed instructions, see the documentation for the source you want to add. 
+
+<!-- ### SDKs
+TBD -->
+
+<!-- #### Work with Ampli 
+
+TBD -->
 
 <!-- Consider breaking out SDKs by Web, Mobile, Server -->
 
@@ -28,14 +38,12 @@ TBD
 
 --8<-- "includes/data-sources-warehouse.md"
 
-### HTTP
-TBD
+<!-- ### HTTP
+TBD -->
 
-### Cloud apps
-TBD
+<!-- ### Cloud apps
+TBD -->
 
-### Third party
+<!-- ### Third party -->
 
 <!-- Shopify, GTM, Adobe, Segment, mParticle, Rudderstack -->
-
-TBD
