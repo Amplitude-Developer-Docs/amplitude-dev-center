@@ -10,7 +10,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
 <div class="grid cards" markdown>
 
-- :material-book-open-variant:{ .lg .middle } __Configure sources__
+- :material-import:{ .lg .middle } __Configure sources__
 
     ---
 
@@ -18,7 +18,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     [:octicons-arrow-right-24: See the sources](/data/sources/)
 
-- :material-code-braces:{ .lg .middle } __Configure destinations__
+- :material-export:{ .lg .middle } __Configure destinations__
 
     ---
 
@@ -26,13 +26,13 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     [:octicons-arrow-right-24: See the destinations](/data/destinations/)
   
-- :material-cogs:{ .lg .middle } __Validate your data__
+- :material-bug-check:{ .lg .middle } __Validate your data__
 
     ---
 
     Detect issues and improve data quality.
 
-    [:octicons-arrow-right-24: validate your data](/data/user-lookup)
+    [:octicons-arrow-right-24: Validate your data](/data/user-lookup)
 
 - :material-help:{ .lg .middle } __Get more resources__
 
@@ -46,11 +46,11 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
 ## Getting started
 
-Guide to getting started with Amplitude Data.
+Get started with Amplitude Data in a few steps.
 
 1. [Configure sources](/data/sources)
 2. [Instrument analytics](/data/sources#sdks)
-3. [Validate your data]()
+3. [Validate your data](/data/user-lookup)
 4. [Configure destinations](/data/destinations)
 
 ## More resources
