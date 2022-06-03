@@ -265,8 +265,7 @@ nav:
 - Partners:
   - partners/index.md
   - Overview: partners/index.md
-  - API References:
-    - partners/sending-cohorts.md
+  - partners/sending-cohorts.md
 - Resources:
   - all-resources.md
 
