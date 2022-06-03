@@ -3,7 +3,7 @@ title: Amplitude Data Overview
 description: Get started with Amplitude Data. 
 ---
 
-!!!warning "Amplitude Data is in Beta"
+!!!beta "Amplitude Data is in Beta"
      Amplitude Data must be enabled on your account. Contact Support to request access.
 
 Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, and Destinations receive data from Amplitude. The data that you send to Amplitude can be used for Analytics, Experiment, and Audiences. 
@@ -16,7 +16,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Capture customer data in Amplitude. 
 
-    [:octicons-arrow-right-24: Understand the basics](/data/sources/)
+    [:octicons-arrow-right-24: See the sources](/data/sources/)
 
 - :material-code-braces:{ .lg .middle } __Configure destinations__
 
@@ -24,7 +24,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Send your data to third-party tools.
 
-    [:octicons-arrow-right-24: See the SDKs](/data/destinations/)
+    [:octicons-arrow-right-24: See the destinations](/data/destinations/)
   
 - :material-cogs:{ .lg .middle } __Validate your data__
 
@@ -32,7 +32,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Detect issues and improve data quality.
 
-    [:octicons-arrow-right-24: See the integrations](#)
+    [:octicons-arrow-right-24: validate your data](/data/user-lookup)
 
 - :material-help:{ .lg .middle } __Get more resources__
 
