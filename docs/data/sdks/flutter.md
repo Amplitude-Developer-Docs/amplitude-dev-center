@@ -1,6 +1,6 @@
 ---
-title: Flutter
-description: The Amplitude Flutter SDK Installation & Quick Start guide. 
+title: Flutter SDK
+description: The Amplitude Flutter SDK installation and quick start guide. 
 icon: flutter
 ---
 

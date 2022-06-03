@@ -1,5 +1,5 @@
 ---
-title: Custom Domain Proxy
+title: Use Domain Proxy to Relay Events
 description: Get total control over the data that you send to Amplitude by using a domain proxy to relay requests. This guide explains the basics of setting up a self-owned proxy service and using it with Amplitude SDKs.
 ---
 

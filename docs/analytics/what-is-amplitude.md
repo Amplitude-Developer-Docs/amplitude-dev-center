@@ -1,6 +1,6 @@
 ---
 title: What is Amplitude?
-description: tbd
+description: Amplitude Analytics is the leading product analytics tool. It helps you gather and democratize data about how users engage with your apps.
 ---
 
 To understand how Amplitude works, let’s walk through a hypothetical example.

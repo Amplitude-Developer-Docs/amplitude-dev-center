@@ -1,6 +1,6 @@
 ---
-title: Python
-description: The Amplitude Python SDK Installation & Quick Start guide.
+title: Python SDK
+description: The Amplitude Python SDK installation and quick start guide.
 icon: fontawesome/brands/python
 ---
 

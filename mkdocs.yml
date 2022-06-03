@@ -153,7 +153,7 @@ nav:
     - User Profile: analytics/apis/user-profile-api.md
   - Advanced Topics:
     - analytics/data-backfill-guide.md
-    - analytics/domain-proxy.md
+    - Custom Domain Proxy: analytics/domain-proxy.md
 
 - Experiment:
   - experiment/index.md
@@ -213,7 +213,7 @@ nav:
       - data/ampli/cli.md
       - data/ampli/sdk.md
       - data/ampli/integrating-with-ci.md
-      - data/ampli/git-workflow.md
+      - Source Control: data/ampli/git-workflow.md
       - data/ampli/middleware.md
       - data/ampli/migration.md
     - SDKs:

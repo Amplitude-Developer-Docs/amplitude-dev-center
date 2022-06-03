@@ -1,5 +1,5 @@
 ---
-title: Java
+title: Java SDK
 description: The Amplitude Java SDK installation and quick start guide. 
 icon: fontawesome/brands/java
 ---

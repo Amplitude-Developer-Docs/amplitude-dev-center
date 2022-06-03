@@ -1,10 +1,10 @@
 ---
-title: Source Control
+title: Use Ampli with Source Control
 description: Learn how to use branches in Ampli with source control systems like Git. 
 ---
 
-!!!warning "Beta"
-    This new workflow is in Beta and must be enabled on your account before usage. Please contact support to request the
+!!!info "Beta Notice"
+    This new workflow is in Beta and must be enabled on your account. Contact Support to request
     access to the improved branching workflow.
 
     This workflow requires Ampli CLI 1.9.0+
@@ -18,14 +18,14 @@ In this document we'll cover how you can use branches in Ampli with source contr
 When updates need to be made to the tracking plan:
 
 1. Create a branch in Amplitude Data. Make tracking plan updates.
-2. Create a branch in Git.*
+2. Create a branch in Git.[^1]
 3. Pull the latest generated code for your Data branch into your Git branch with `ampli pull`.
 4. Implement the changes using the Ampli SDK in your code on your Git branch
 5. Verify implementation and Data branch merge status with `ampli status --is-merged`.
 6. Merge the Data branch.
 7. Merge the Git branch.
 
-*Using the same name for both the Git branch and Amplitude Data branch is recommended but not required.
+[^1]: Using the same name for both the Git branch and Amplitude Data branch is recommended but not required.
 
 ## Branches in Ampli
 

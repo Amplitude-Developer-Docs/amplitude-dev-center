@@ -1,6 +1,6 @@
 ---
-title: Android Kotlin
-description: The Amplitude Android Kotlin SDK Installation & Quick Start guide.
+title: Android Kotlin SDK
+description: The Amplitude Android Kotlin SDK installation and quick start guide.
 icon: material/language-kotlin
 ---
 

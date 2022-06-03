@@ -1,6 +1,6 @@
 --- 
-title: iOS
-description: The Amplitude iOS SDK Installation & Quick Start guide. 
+title: iOS SDK
+description: The Amplitude iOS SDK installation and quick start guide. 
 icon: material/apple-ios
 ---
 

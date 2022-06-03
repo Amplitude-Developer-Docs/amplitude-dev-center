@@ -1,6 +1,6 @@
 ---
-title: JavaScript
-description: The Amplitude JavaScript SDK Installation & Quick Start guide.
+title: JavaScript SDK
+description: The Amplitude JavaScript SDK installation and quick start guide.
 icon: material/language-javascript
 ---
 

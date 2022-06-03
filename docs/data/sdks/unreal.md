@@ -1,6 +1,6 @@
 ---
-title: Unreal Engine
-description: The Amplitude Unreal Engine SDK Installation & Quick Start guide.
+title: Unreal Engine SDK
+description: The Amplitude Unreal Engine SDK installation and quick start guide.
 icon: material/unreal
 ---
 

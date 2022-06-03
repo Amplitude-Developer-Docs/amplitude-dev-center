@@ -1,6 +1,6 @@
 ---
-title: Node.js
-description: The Amplitude Node.js SDK Installation & Quick Start guide.
+title: Node.js SDK
+description: The Amplitude Node.js SDK installation and quick start guide.
 icon: fontawesome/brands/node-js
 ---
 

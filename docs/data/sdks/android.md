@@ -1,6 +1,6 @@
 ---
-title: "Android"
-description: The Amplitude Android SDK Installation & Quick Start guide.
+title: Android SDK
+description: The Amplitude Android SDK installation and quick start guide.
 icon: material/android
 ---
 

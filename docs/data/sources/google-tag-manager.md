@@ -5,7 +5,7 @@ description: Official Google Tag Manager template for Amplitude Analytics for da
 
 Use the official Google Tag Manager template for Amplitude Analytics for data collection. 
 
-|Template||
+|Template|Description|
 |---|-----------|
 |[Client-side tag](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-gtm-template)| The tag uses the Amplitude JavaScript SDK for data collection. |
 |[Server-side tag](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-server-gtm-template)| The tag uses the Amplitude HTTP API for data collection. |
