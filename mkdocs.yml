@@ -36,6 +36,7 @@ theme:
     - content.tabs.link
     # - header.autohide
     # - navigation.expand
+    - navigation.instant
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
@@ -129,45 +130,31 @@ extra:
 
 # Navigation
 nav:
-- Analytics:
+- Analytics: 
   - analytics/index.md
-  - Analytics SDKs:
-    - Android SDK: analytics/sdks/android-sdk.md
-    - iOS SDK: analytics/sdks/ios-sdk.md
-    - Flutter SDK: analytics/sdks/flutter-sdk.md
-    - JavaScript SDK: analytics/sdks/javascript-sdk.md
-    - Java SDK: analytics/sdks/java-sdk.md
-    - Node.js SDK: analytics/sdks/node-sdk.md
-    - React Native SDK: analytics/sdks/react-native-sdk.md
-    - Unity SDK: analytics/sdks/unity-sdk.md
-    - Unreal SDK: analytics/sdks/unreal-sdk.md
-    - analytics/sdks/android-kotlin-sdk.md
-    - analytics/sdks/python-sdk.md
-    - analytics/sdks/typescript-browser-sdk.md
-  - Analytics API References:
-    - analytics/apis/attribution-api.md
-    - analytics/apis/batch-event-upload-api.md
-    - analytics/apis/behavioral-cohorts-api.md
-    - analytics/apis/chart-annotations-api.md
-    - analytics/apis/ccpa-dsar-api.md
-    - analytics/apis/dashboard-rest-api.md
-    - analytics/apis/export-api.md
-    - analytics/apis/group-identify-api.md
-    - analytics/apis/http-v2-api.md
-    - analytics/apis/identify-api.md
-    - analytics/apis/releases-api.md
-    - analytics/apis/scim-api.md
-    - analytics/apis/taxonomy-api.md
-    - analytics/apis/user-privacy-api.md
-    - analytics/apis/user-profile-api.md
+  - Overview: analytics/index.md
+  - What is Amplitude?: analytics/what-is-amplitude.md
+
+  - API References:
+    - Attribution: analytics/apis/attribution-api.md
+    - Batch Event Upload: analytics/apis/batch-event-upload-api.md
+    - Behavioral Cohorts: analytics/apis/behavioral-cohorts-api.md
+    - CCPA DSAR: analytics/apis/ccpa-dsar-api.md
+    - Chart Annotations: analytics/apis/chart-annotations-api.md
+    - Dashboard: analytics/apis/dashboard-rest-api.md
+    - Export: analytics/apis/export-api.md
+    - Group Identify: analytics/apis/group-identify-api.md
+    - HTTP V2: analytics/apis/http-v2-api.md
+    - Identify: analytics/apis/identify-api.md
+    - Releases: analytics/apis/releases-api.md
+    - SCIM: analytics/apis/scim-api.md
+    - Taxonomy: analytics/apis/taxonomy-api.md
+    - User Privacy: analytics/apis/user-privacy-api.md
+    - User Profile: analytics/apis/user-profile-api.md
   - Advanced Topics:
     - analytics/data-backfill-guide.md
-    - analytics/analytics-domain-proxy.md
-    - analytics/dynamic-configuration.md
-  - Other Resources:
-    - Google Tag Manager (client-side): analytics/google-tag-manager.md
-    - Google Tag Manager (server-side): analytics/google-tag-manager-server-side.md
-    - analytics/adobe.md
+    - Custom Domain Proxy: analytics/domain-proxy.md
+
 - Experiment:
   - experiment/index.md
   - Overview: experiment/index.md
@@ -210,55 +197,77 @@ nav:
   #     - experiment/remove-move/local-evaluation/local-evaluation-overview.md
   #     - experiment/remove-move/local-evaluation/create-a-local-evaluation-flag.md
   #     - experiment/remove-move/local-evaluation/nodejs-sdk.md
-- Data (Beta):
+
+- Data:
   - data/index.md
-  - Data Instrumentation:
-    - data/ampli-sdk-overview.md
-    - data/using-the-ampli-cli.md
-    - data/using-the-tracking-library.md
-    - data/integrating-with-ci.md
-    - data/user-lookup.md
-    - data/git-workflow.md
-    - data/middleware-overview.md
-    - data/migrate-to-data.md
-  - Data SDKs:
-    - data/sdks/browser-ampli.md
-    - data/sdks/nodejs-ampli.md
-    - data/sdks/ios-ampli.md
-    - data/sdks/android-ampli.md
-    - data/sdks/jre-ampli.md
-    - data/sdks/react-native-ampli.md
-  - Reverse ETL and Cloud Integrations:
-    - Amazon S3:
-      - S3 Import: integrations/amazon-s3-import.md
-      - S3 Export: integrations/amazon-s3-export.md
-    - BigQuery:
-      - BigQuery Import: integrations/bigquery-import.md
-      - BigQuery Export: integrations/bigquery-export.md
-    - Google Cloud Storage (GCS):
-      - GCS Import: integrations/google-cloud-storage-import.md
-      - GCS Export: integrations/google-cloud-storage-export.md
-    - Redshift:
-      - Redshift Export: integrations/redshift-export.md
-    - Snowflake:
-      - Snowflake Import: integrations/snowflake-import.md
-      - Snowflake Export: integrations/snowflake-export.md
-    - integrations/converter-configuration-reference.md
-  - Event Streaming Integrations:
-    - Braze (Beta): integrations/braze-event-streaming.md
-    - Pub/Sub (Beta): integrations/google-pub-sub-event-streaming.md
-    - Intercom (Beta): integrations/intercom-event-streaming.md
-    - Iterable (Beta): integrations/iterable-event-streaming.md
-    - Kinesis Data Stream (Beta): integrations/kinesis-data-stream-event-streaming.md
-    - Kinesis Firehose (Beta): integrations/kinesis-firehose-event-streaming.md
-  - Other Integrations:
-    - integrations/shopify-plugin.md
-    - integrations/sending-cohorts.md
+  - Overview: data/index.md
+  #- Create a Tracking Plan: "/"
+  #- Instrument Analytics: "/"
+  - Debug Analytics: "data/user-lookup.md"
+  #- Configure Destinations: "/"
+
+  - Sources:
+    - Overview: data/sources.md
+    - Ampli:
+      - data/ampli/index.md
+      - data/ampli/cli.md
+      - data/ampli/sdk.md
+      - data/ampli/integrating-with-ci.md
+      - Source Control: data/ampli/git-workflow.md
+      - data/ampli/middleware.md
+      - data/ampli/migration.md
+    - SDKs:
+      - Ampli Browser: data/sdks/browser-ampli.md
+      - Ampli Node.js: data/sdks/nodejs-ampli.md
+      - Ampli iOS: data/sdks/ios-ampli.md
+      - Ampli Android: data/sdks/android-ampli.md
+      - Ampli JRE: data/sdks/jre-ampli.md
+      - Ampli React: data/sdks/react-native-ampli.md
+      - Android: data/sdks/android.md
+      - Android Kotlin (Beta): data/sdks/android-kotlin.md
+      - iOS: data/sdks/ios.md
+      - Flutter: data/sdks/flutter.md
+      - JavaScript: data/sdks/javascript.md
+      - TypeScript (Beta): data/sdks/typescript-browser.md
+      - Java: data/sdks/java.md
+      - Node.js: data/sdks/node.md
+      - React Native: data/sdks/react-native.md
+      - Unity: data/sdks/unity.md
+      - Unreal: data/sdks/unreal.md
+      - Python (Beta): data/sdks/python.md
+      - Other:
+        - data/dynamic-configuration.md
+    - Warehouse:
+      - Amazon S3: data/sources/amazon-s3.md
+      - BigQuery: data/sources/bigquery.md
+      - Google Cloud Storage: data/sources/google-cloud-storage.md
+      - Snowflake: data/sources/snowflake.md
+      - Other:
+        - Converter Configuration: data/converter-configuration-reference.md
+    - data/sources/shopify.md
+    - data/sources/google-tag-manager.md
+    - data/sources/adobe.md
+  - Destinations: 
+    - Overview: data/destinations.md
+    - Warehouse:
+      - Amazon S3: data/destinations/amazon-s3.md
+      - Redshift: data/destinations/redshift.md
+      - Google Cloud Storage: data/destinations/google-cloud-storage.md
+      - BigQuery: data/destinations/bigquery.md
+      - Snowflake: data/destinations/snowflake.md
+    - Event Streaming:
+      - Braze: data/destinations/braze.md
+      - Pub/Sub: data/destinations/google-pub-sub.md
+      - Intercom: data/destinations/intercom.md
+      - Iterable: data/destinations/iterable.md
+      - Kinesis: data/destinations/kinesis-data-stream.md
+      - Kinesis Firehose: data/destinations/kinesis-firehose.md
+- Partners:
+  - partners/index.md
+  - Overview: partners/index.md
+  - partners/sending-cohorts.md
 - Resources:
   - all-resources.md
-
-#- Partner Hub: # Hidden until we have content
-  #- partners/index.md
 
 # Files Intentionally left out of nav:
   #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav
