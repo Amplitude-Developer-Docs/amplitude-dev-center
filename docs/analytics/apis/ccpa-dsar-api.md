@@ -1,5 +1,5 @@
 ---
-title: CCPA DSAR API
+title: Data Subject Access Request API
 description: The California Consumer Privacy Act (CCPA) requires our customers to provide all data about an end user on request. This Data Subject Access Request (DSAR) API makes it easy to retrieve all data about a user.
 ---
 
