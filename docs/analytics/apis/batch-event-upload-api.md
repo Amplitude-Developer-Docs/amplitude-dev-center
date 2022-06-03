@@ -1,5 +1,5 @@
 ---
-title: Batch Event Upload Event API
+title: Batch Event Upload API
 description: The Batch Event Upload API lets you upload large amounts of event data.
 ---
 

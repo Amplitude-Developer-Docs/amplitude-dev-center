@@ -1,5 +1,5 @@
 ---
-title: More Resources
+title: Resources
 description: This page describes all of the Amplitude resources available to you.
 hide:
   - toc
@@ -33,15 +33,15 @@ hide:
 
     The Help Center covers the web app and general Amplitude concepts in more detail.
 
-    [:octicons-arrow-right-24: Help Center](https://help.amplitude.com)
+    [:octicons-arrow-right-24: Amplitude Help Center](https://help.amplitude.com)
 
 - :material-rocket:{ .lg .middle } __Postman Workspace__
 
     ---
 
-    Visit the Amplitude Developer Docs Postman workspace for collections of API calls and examples.
+    Visit the Amplitude Postman workspace for collections of API calls and examples.
 
-    [:octicons-arrow-right-24: Postman](https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview)
+    [:octicons-arrow-right-24: Postman Workspace](https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview)
 
 - :material-newspaper-variant-multiple:{ .lg .middle } __Amplitude Blog__
 
@@ -57,6 +57,6 @@ hide:
 
     Check out Amplitude's on-demand webinars. 
 
-    [:octicons-arrow-right-24: Webinars](https://amplitude.com/view-now)
+    [:octicons-arrow-right-24: On-demand Webinars](https://amplitude.com/view-now)
 
 </div>
