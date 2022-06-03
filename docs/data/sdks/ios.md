@@ -3,51 +3,46 @@ title: iOS SDK
 description: The Amplitude iOS SDK installation and quick start guide. 
 icon: material/apple-ios
 ---
-
-![CocoaPods](https://img.shields.io/cocoapods/v/Amplitude)
-
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
 !!!info "SDK Resources"
-    - [iOS SDK Reference :material-book:](http://amplitude.github.io/Amplitude-iOS/)
-    - [iOS SDK Repository :material-github:](https://github.com/amplitude/Amplitude-iOS)
-    - [iOS SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-iOS/releases)
+    [iOS SDK Reference :material-book:](http://amplitude.github.io/Amplitude-iOS/) · [iOS SDK Repository :material-github:](https://github.com/amplitude/Amplitude-iOS) · [iOS SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-iOS/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
-## SDK installation
+## Install 
 
-### CocoaPods
+![CocoaPods](https://img.shields.io/cocoapods/v/Amplitude)
 
-1. Add dependency to `Podfile`.
+Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
 
+=== "CocoaPods"
+
+    1. Add dependency to `Podfile`.
+
+        ```bash
+        pod 'Amplitude', '~> 8.8.0'
+        ```
+
+    2. Run `pod install` in the project directory to download dependency.
+
+=== "Swift Package Manager"
+
+    1. Navigate to `File` > `Swift Package Manager` > `Add Package Dependency`.
+    2. Enter `https://github.com/amplitude/Amplitude-iOS` into the search bar.
+    3. It automatically resolves to the latest version.
+
+    The Amplitude-iOS package appears as a dependency after it's added.
+
+=== "Carthage"
+
+    Add the following line to your `Cartfile`.
+      
     ```bash
-    pod 'Amplitude', '~> 8.8.0'
+    github "amplitude/Amplitude-iOS" ~> 8.8.0
     ```
 
-2. Run `pod install` in the project directory to download dependency.
-
-### Swift Package Manager
-
-1. Navigate to `File` > `Swift Package Manager` > `Add Package Dependency`.
-2. Enter `https://github.com/amplitude/Amplitude-iOS` into the search bar.
-3. It automatically resolves to the latest version.
-
-The Amplitude-iOS package appears as a dependency after it's added.
-
-### Carthage
-
-Add the following line to your `Cartfile`.
-  
-```bash
-github "amplitude/Amplitude-iOS" ~> 8.8.0
-```
-
-## Usage and examples
-
-### Importing
-
-Import Amplitude into any file that uses it.
+After you've installed the SDK, import Amplitude into any file that uses it.
 
 === "Objective-C"
 
@@ -61,10 +56,51 @@ Import Amplitude into any file that uses it.
     import Amplitude
     ```
 
-### Initialization
+!!!tip "Quickstart"
+    1. [Initialize](#initialize)
+    2. [Send an event](#send-events)
 
-Initialization is necessary before you do any instrumentation. The API key for your Amplitude project is required.
- Usually, you can initialize the SDK in the `application:didFinishLaunchingWithOptions:` method of your `YourAppAppDelegate.m` file.
+    === "Objective-C"
+        ```obj-c
+          (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+          // Enable sending automatic session events
+          [Amplitude instance].trackingSessionEvents = YES;
+          // Initialize SDK
+          [[Amplitude instance] initializeApiKey:@"API_KEY"];
+          // Set userId
+          [[Amplitude instance] setUserId:@"userId"];
+          // Send an event
+          [[Amplitude instance] logEvent:@"app_start"];
+
+          return YES;
+        }
+        ```
+
+    === "Swift"
+        ```swift
+          func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+          // Enable sending automatic session events
+          Amplitude.instance().trackingSessionEvents = true
+          // Initialize SDK
+          Amplitude.instance().initializeApiKey("API_KEY")
+          // Set userId
+        Amplitude.instance().setUserId("userId")
+          // Send an event
+          Amplitude.instance().logEvent("app_start")
+          
+          return true
+        }
+        ```
+
+## Core functions
+
+The following functions make up the core of the Amplitude Analytics iOS SDK.
+
+---
+
+### Initialize
+
+You must initialize the SDK before you can instrument. The API key for your Amplitude project is required. Usually, you can initialize the SDK in the `application:didFinishLaunchingWithOptions:` method of your `YourAppAppDelegate.m` file.
 
 === "Objective-C"
 
@@ -100,7 +136,7 @@ Initialization is necessary before you do any instrumentation. The API key for y
     }
     ```
 
-## EU data residency
+#### EU data residency
 
 Beginning with version 8.5.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
  The server zone configuration supports dynamic configuration as well.
@@ -115,6 +151,7 @@ For earlier versions, you need to configure the `serverURL` property after initi
     ```obj-c
     // For versions starting from 8.5.0
     // No need to call setServerUrl for sending data to Amplitude's EU servers
+
     [[Amplitude instance] setServerZone:AMPServerZone.EU];
 
     // For earlier versions
@@ -126,15 +163,17 @@ For earlier versions, you need to configure the `serverURL` property after initi
     ```swift
     // For versions starting from 8.5.0
     // No need to call setServerUrl for sending data to Amplitude's EU servers
+
     Amplitude.instance().setServerZone(AMPServerZone.EU)
 
     // For earlier versions
+
     Amplitude.instance().setServerUrl("https://api.eu.amplitude.com")
     ```
 
-## Sending events
+### Send events
 
-### Basic events
+#### Basic events
 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
@@ -150,9 +189,9 @@ Events represent how users interact with your application. For example, "Button 
     Amplitude.instance().logEvent("Button Click")
     ```
 
-### Events with properties
+#### Events with properties
 
-Events can also contain properties. They provide context about the event taken. For example, "hover time" may be a relevant event property to "button click".
+Events can also contain properties. They give context about the event. For example, "hover time" may be a relevant event property to "button click".
 
 === "Objective C"
 
@@ -168,18 +207,19 @@ Events can also contain properties. They provide context about the event taken. 
     Amplitude.instance().logEvent("Button Clicked", withEventProperties: ["Hover Time": "100ms"] )
     ```
 
-## User properties
+### User properties
 
-User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
+User properties help you understand your users at the time they performed some action within your app. For example, you can learn about their device details, their preferences, or language.
+
  Amplitude-iOS's `AMPIdentity` class manages these features.
 
 !!!warning "User privacy warning"
 
     Don't track any user data that may be against your privacy terms.
 
-### Setting a user property
+#### Set a user property
 
-#### `set`
+##### `set`
 
 `set` sets the value of a user property. You can also chain together multiple identify calls.
 
@@ -200,7 +240,7 @@ User properties help you understand your users at the time they performed some a
     Amplitude.instance().identify(identify)
     ```
 
-#### `setOnce`
+##### `setOnce`
 
 `setOnce` sets the value of a user property only once. Subsequent calls using `setOnce`are ignored.
 
@@ -224,7 +264,7 @@ User properties help you understand your users at the time they performed some a
     Amplitude.instance().identify(identify2) // Is ignored
     ```
 
-#### `add`
+##### `add`
 
 `add` increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to `0` before being incremented.
 
@@ -245,42 +285,13 @@ User properties help you understand your users at the time they performed some a
     Amplitude.instance().identify(identify)
     ```
 
-#### `preInsert`
+##### `preInsert` and `postInsert`
 
-This pre-inserts a value or values to a user property, if it doesn't exist in the user property yet.
-Preinsert means inserting the value(s) at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre inserted.
- If the user property has an existing value, nothing is inserted.
+See the [arrays in user properties](#arrays-in-user-properties) section for information.
 
-=== "Objective-C"
+##### `remove`
 
-    ```obj-c
-    NSMutableArray *array = [NSMutableArray array];
-    [array addObject:@"some_string"];
-    [array addObject:[NSNumber numberWithInt:56]];
-    AMPIdentify *identify = [[[AMPIdentify identify] preInsert:@"ab-tests" value:@"new-user-test"]
-        preInsert:@"some_list" value:array];
-    [[Amplitude instance] identify:identify];
-    ```
-
-#### `postInsert`
-
-This inserts a value or values to a user property, if it doesn't exist in the user property yet. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted.
- If the user property has an existing value, nothing is inserted.
-
-=== "Objective-C"
-
-    ```obj-c
-    NSMutableArray *array = [NSMutableArray array];
-    [array addObject:@"some_string"];
-    [array addObject:[NSNumber numberWithInt:56]];
-    AMPIdentify *identify = [[[AMPIdentify identify] postInsert:@"ab-tests" value:@"new-user-test"]
-        postInsert:@"some_list" value:array];
-    [[Amplitude instance] identify:identify];
-    ```
-
-#### `remove`
-
-Remove a value or values to a user property, if it does exist in the user property. Remove means remove the existing value(s) from the given list. If the item doesn't exist in the user property, nothing is removed.
+Remove a value or values from a user property. If the item doesn't exist in the user property, nothing is removed.
 
 === "Objective-C"
 
@@ -293,9 +304,9 @@ Remove a value or values to a user property, if it does exist in the user proper
     [[Amplitude instance] identify:identify];
     ```
 
-#### Setting multiple user properties
+##### Set multiple user properties
 
-You can use `setUserProperties` as a shorthand to set multiple user properties at once. This method is simply a wrapper around `Identify.set` and `identify`.
+You can use `setUserProperties` as a shorthand to set multiple user properties at once. This method is a wrapper around `Identify.set` and `identify`.
 
 === "Objective-C"
 
@@ -315,7 +326,7 @@ You can use `setUserProperties` as a shorthand to set multiple user properties
     Amplitude.instance().userProperties = userProperties
     ```
 
-### Arrays in user properties
+#### Arrays in user properties
 
 Arrays can be used as user properties. You can directly set arrays or use `append` to generate an array.
 
@@ -348,7 +359,7 @@ Arrays can be used as user properties. You can directly set arrays or use `appe
     Amplitude.instance().identify(identify)
     ```
 
-#### `prepend` and `append`
+##### `prepend` and `append`
 
 - `append` appends a value or values to a user property array.
 - `prepend` prepends a value or values to a user property.
@@ -382,7 +393,7 @@ If the user property doesn't have a value set yet, it's initialized to an empty 
     Amplitude.instance().identify(identify)
     ```
 
-#### `preInsert` and `postInsert`
+##### `preInsert` and `postInsert`
 
 - `preInsert` inserts a value or values to the front of a user property array if it doesn't exist in the array yet.
 - `postInsert` inserts a value or values to the end of a user property array if it doesn't exist in the array yet.
@@ -412,15 +423,15 @@ If the user property doesn't exist, it's initialized to an empty list before the
     Amplitude.instance().identify(identify)
     ```
 
-### Removing user properties
+#### Remove user properties
 
-#### Clearing all user properties
+##### Clear all user properties
 
 `clearUserProperties` removes all the current user's user properties.
 
 !!!warning
 
-The result is irreversible! Amplitude can't sync the user's user property values from before the wipe to any future events.
+    This action is irreversible. Amplitude can't sync the user's user property values from before the wipe to any future events.
 
 === "Objective-C"
 
@@ -434,7 +445,7 @@ The result is irreversible! Amplitude can't sync the user's user property values
     Amplitude.instance().clearUserProperties()
     ```
 
-#### `remove`
+##### `remove`
 
 `remove` removes an existing value or values from a user property. If the item doesn't exist in the user property, nothing is removed.
 
@@ -461,7 +472,7 @@ The result is irreversible! Amplitude can't sync the user's user property values
     Amplitude.instance().identify(identify)
     ```
 
-## Setting user groups
+### Set user groups
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
@@ -505,7 +516,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
     Amplitude.instance().logEvent("initialize_game", withEventProperties: eventProperties, withGroups: groups)
     ```
 
-## Group identify
+### Group identify
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
@@ -532,7 +543,7 @@ The `groupIdentifyWithGroupType` method accepts a group type string parameter 
 
 An optional `outOfSession` boolean input can be supplied as fourth argument to `groupIdentifyWithGroupType`
 
-## Tracking revenue
+### Track revenue
 
 Instances of `AMPRevenue` stores revenue transactions and defines special revenue properties (such as `revenueType`) used in Amplitude's Event Segmentation and Revenue LTV charts. Each instance is passed to `Amplitude.logRevenueV2`.
  This allows us to automatically display data relevant to revenue in Amplitude.
@@ -557,14 +568,14 @@ To track revenue from a user, call `logRevenueV2` each time a user generates r
 
 Calling `logRevenueV2` generates up to 2 different event types in the platform:
 
-- '[Amplitude] Revenue': This event is logged for all revenue events, regardless of whether or not verification is turned on.
-- '[Amplitude] Revenue (Verified/Unverified)': These revenue events will contain the actual '$revenue' property.
+- `[Amplitude] Revenue`: This event is logged for all revenue events, regardless of whether verification is turned on.
+- `[Amplitude] Revenue (Verified/Unverified)`: These revenue events contain the actual `$revenue` property.
 
-You can't change the default names given to these client-side revenue events in the raw data but you do have the option to change the [display name](https://help.amplitude.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://help.amplitude.com/hc/en-us/articles/115003116888).
+You can't change the default names given to these client-side revenue events in the raw data, but you can change the [display name](https://help.amplitude.com/hc/en-us/articles/235649848#events). Learn more about tracking revenue in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003116888).
 
 !!!note
 
-    Amplitude doesn't support currency conversion. All revenue data should be normalized to your currency of choice before being sent.
+    Amplitude doesn't support currency conversion. Normalize all revenue data to your currency of choice before being sent.
 
 Each revenue event has fields available, and each field has a corresponding set method (such as `price` and `setPrice`). See the [API docs for `AMPRevenue`](http://amplitude.github.io/Amplitude-iOS/Classes/AMPRevenue.html#//api/name/productId) for a full list of fields.
 
@@ -575,7 +586,7 @@ Like `logEvent`, event properties can also be attached for each call to `logRe
 | `productId` | Optional. NSString. An identifier for the product. Amplitude recommends something like the "Google Play Store product ID". Defaults to `null`. |
 | `quantity`| Required. NSInteger. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1. |
 | `price` | Required. NSNumber. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to `null`.|
-| `revenueType` | Optional, but required for revenue verification. NSString. The type of revenue. For example tax, refund, income. Defaults to `null`. |
+| `revenueType` | Optional, but required for revenue verification. NSString. The revenue type. For example tax, refund, income. Defaults to `null`. |
 | `receipt`  | Optional, but required for revenue verification. NSData. Defaults to `null` |
 | `receiptSignature` | Optional, but required for revenue verification. Defaults to `null`. |
 | `eventProperties`| Optional. NSDictionary. An object of event properties to include in the revenue event. Defaults to `null`. |
@@ -584,13 +595,15 @@ Like `logEvent`, event properties can also be attached for each call to `logRe
 
     Price can be negative, which may be useful for tracking revenue lost (such as refunds or costs)
 
-## User sessions
+## Advanced topics
 
-A session is a period of time that a user has the app in the foreground. Events that are logged within the same session will have the same session_id. Sessions are handled automatically so you don't have to manually call an API like `startSession()` or `endSession()`.
+### User sessions
+
+A session is a period of time that a user has the app in the foreground. Events that are logged within the same session has the same `session_id`. Sessions are handled automatically so you don't have to manually call an API like `startSession()` or `endSession()`.
 
 You can adjust the time window for which sessions are extended by changing the variable `minTimeBetweenSessionsMillis`.
 
-Amplitude groups events together by session. A session represents a single period of user activity, with a start and end time. Different SDKs will track sessions differently, depending on the requirements of the platform. The minimum duration of a session can be configured within the SDK.
+Amplitude groups events together by session. A session represents a single period of user activity, with a start and end time. Different SDKs track sessions differently, depending on the requirements of the platform. The minimum duration of a session can be configured within the SDK.
 
 === "Objective-C"
 
@@ -622,7 +635,7 @@ You can also log events as out-of-session. Out-of-session events have a `session
     Amplitude.instance().logEvent("Push Notification", withEventProperties: nil, outOfSession: true)
     ```
 
-You can also log identify events as out-of-session, which is useful if you are updating user properties in the background and don't want to start a new session. You can do this by setting the input parameter outOfSession to true when calling `identify`.
+You can also log identify events as out-of-session, which is useful if you are updating user properties in the background and don't want to start a new session. Do this by setting the input parameter `outOfSession` to `true` when calling `identify`.
 
 === "Objective-C"
 
@@ -653,7 +666,7 @@ You can use the helper method getSessionId to get the value of the current sessi
     Amplitude.instance().getSessionId()
     ```
 
-## Set custom user ID
+### Set custom user ID
 
 If your app has its own login system that you want to track users with, you can call setUserId at any time.
 
@@ -685,23 +698,15 @@ You can also add the User ID as an argument to the init call.
 
 Don't assign users a user ID that could change, because each unique user ID as a unique user in Amplitude. Learn more about how Amplitude tracks unique users in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude).
 
-## Debug logging
+### Debug logging
 
 By default, only critical errors are logged to console. To enable debug logging in iOS, change `AMPLITUDE_DEBUG` from 0 to 1 at the top of the Objective-C file you wish to examine. Error messages are printed by default. To disable error logging, change `AMPLITUDE_LOG_ERRORS` from 1 to 0 in Amplitude.m.
 
-## Logged out and anonymous users
+### Logged out and anonymous users
 
 <!-- Casey replace this with the includes-->
 
-Amplitude [merges user data](https://help.amplitude.com/hc/en-us/articles/115003135607#h_c323d7e5-4662-4a36-b0a1-5110a341e80c), so any events associated with a known `userId` or `deviceId` are linked the existing user.
- If a user logs out, Amplitude can merge that user's logged-out events to the user's record. You can change this behavior and log those events to an anonymous user instead.
-
-To log events to an anonymous user:
-
-1. Set the `userId` to null.
-2. Generate a new `deviceId`.
-
-Events coming from the current user or device appear as a new user in Amplitude. Note: If you do this, you can't see that the two users were using the same device.
+--8<-- "includes/logged-out-and-anonymous-users.md"
 
 === "Objective-C"
 
@@ -717,25 +722,9 @@ Events coming from the current user or device appear as a new user in Amplitude.
     Amplitude.instance().regenerateDeviceId()
     ```
 
-## Advanced topics
+### Log events to multiple projects
 
-### Logging events to multiple projects
-
-If you want to log events to multiple Amplitude projects, then must have separate instances for each Amplitude project.
- Each instance allows for independent `apiKeys`, `userIds`, `deviceIds`, and settings.
-
-You must assign a name to each Amplitude project and instance and use that name consistently when fetching that instance to call functions.
-
-!!!important
-    After you have chosen a name for that instance you can't change it.
-    Choose your instance names carefully. Every instance's data and settings are tied to its name, and you must use that instance name for all future versions of your project to maintain data continuity.
-    Instance names don't need be the names of your projects in the Amplitude platform, but they need to remain consistent throughout your code. Each instance must also be initialized with the correct `apiKey`.
-
-Instance names must be non-null and non-empty strings. Names are case insensitive, and you can fetch each instance name by calling.
-
-Each new instance has its own `apiKey`, `userId`, `deviceId`, and settings.
-
-The following is an example of how to set up and log events to two separate projects:
+--8<-- "includes/log-events-to-multiple-projects.md"
 
 === "Objective-C"
 
@@ -744,7 +733,7 @@ The following is an example of how to set up and log events to two separate proj
     [[Amplitude instance] initializeApiKey:@"12345"];
     [[Amplitude instanceWithName:@"new_project"] initializeApiKey:@"67890"]; // new project, new API key
 
-    [[Amplitude instanceWithName:@"new_project"] setUserId:@"joe@gmail.com"]; // need to reconfigure new project
+    [[Amplitude instanceWithName:@"new_project"] setUserId:@"123456"]; // need to reconfigure new project
     [[Amplitude instanceWithName:@"new_project"] logEvent:@"Clicked"];
 
     AMPIdentify *identify = [[AMPIdentify identify] add:@"karma" value:[NSNumber numberWithInt:1]];
@@ -775,7 +764,7 @@ Before initializing the SDK with your `apiKey`, create a `AMPTrackingOptions` 
     [[Amplitude instance] setTrackingOptions:options];
     ```
 
-Each field can be individually disabled and has a corresponding disable method (for example, `disableCountry`, `disableLanguage`). This table describes the different methods:
+Tracking for each field can be individually disabled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
 
 | <div class="big-column">Method</div> | Description |
 | --- | --- |
@@ -798,11 +787,11 @@ Each field can be individually disabled and has a corresponding disable method (
 
 !!!note
 
-    The *AMPTrackingOptions* will only prevent default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project with existing data that you would like to stop collecting the default properties for, please get help in the [Amplitude Community](https://community.amplitude.com/). Note that the existing data will not be deleted.
+    AMPTrackingOptions only prevents default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project with existing data that you would like to stop collecting the default properties for, please get help in the [Amplitude Community](https://community.amplitude.com/). Note that the existing data **is not** deleted.
 
 ### COPPA control
 
-COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking can all be enabled or disabled at one time. Remember that apps asking for information from children under 13 years of age must comply with COPPA.
+COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking can all be enabled or disabled at one time. Apps that ask for information from children under 13 years of age must comply with COPPA.
 
 === "Objective-C"
 
@@ -843,7 +832,7 @@ Note that you need to also add `AdSupport.framework` to your project
 
 ### Set IDFA as device Id
 
-After you set up the logic to fetch IDFA, you can also call this [useAdvertisingIdForDeviceId](http://amplitude.github.io/Amplitude-iOS/Classes/Amplitude.html#//api/name/useAdvertisingIdForDeviceId) API to set the IDFA as your `deviceId`.
+Amplitude uses the IDFV as the device ID by default, but you can change this behavior. After you set up the logic to fetch IDFA, you can also call this [useAdvertisingIdForDeviceId](http://amplitude.github.io/Amplitude-iOS/Classes/Amplitude.html#//api/name/useAdvertisingIdForDeviceId) API to set the IDFA as your `deviceId`. 
 
 ### Location tracking
 
@@ -853,7 +842,7 @@ Amplitude converts the IP of a user event into a location (GeoIP lookup) by defa
 
 Amplitude-iOS can help report carrier information
 
-If you want to enable SDK to report this information from devices, please add `CoreTelephony.framework` as a dependency.
+If you want to enable SDK to report this information from devices, add `CoreTelephony.framework` as a dependency.
 
 ### Dynamic configuration
 
@@ -880,9 +869,7 @@ The iOS SDK lets users configure their apps to use [dynamic configuration](../dy
 
 ### SSL pinning
 
-SSL Pinning is a technique used in the client side to avoid man-in-the-middle attack by validating the server certificates again even after SSL handshaking.
-
-it's typically not needed unless you have a specific need. Please contact Amplitude support before you ship any products with SSL pinning enabled.
+SSL Pinning is a technique used in the client side to avoid man-in-the-middle attack by validating the server certificates again after SSL handshaking. SSL pinning should only be used if you have a specific need. Contact Amplitude support before you ship any products with SSL pinning enabled.
 
 If you installed the SDK using CocoaPods, you must enable the preprocessor macro via your Podfile by adding this post install hook:
 
@@ -902,9 +889,9 @@ If you installed the SDK directly from the source or Swift Package Manager, you 
 AMPLITUDE_SSL_PINNING=1
 ```
 
-### Opt out of tracking
+### Opt users out of tracking
 
-Users may wish to opt out of tracking entirely, which means no events and no records of their browsing history. `setOptOut` provides a way to fulfill certain users' requests for privacy.
+Users may wish to opt out of tracking entirely, which means Amplitude won't track any of their events or browsing history. `setOptOut` provides a way to fulfill a user's requests for privacy.
 
 === "Objective-C"
 
@@ -922,7 +909,7 @@ Users may wish to opt out of tracking entirely, which means no events and no rec
 
 ### tvOS and watchOS
 
-This SDK work with tvOS and watch OS apps. To begin, follow the same setup instructions for iOS apps.
+This SDK works with tvOS and watch OS apps. To begin, follow the same setup instructions for iOS apps.
 
 !!!note
      tvOS apps don't have persistent storage (they only have temporary storage), so for tvOS the SDK is configured to upload events as soon as they're logged.
@@ -937,16 +924,14 @@ This SDK work with tvOS and watch OS apps. To begin, follow the same setup instr
 
 ### iOS extensions
 
-The SDK allows for tracking in iOS extensions. To set up tracking in iOS extensions, you should follow the same setup instructions but initialize the SDK in your extension's `viewDidLoad` method instead from `application:didFinishLaunchingWithOptions:`.
+The SDK allows for tracking in iOS extensions. To set up tracking in iOS extensions, follow the same setup instructions but initialize the SDK in your extension's `viewDidLoad` method instead from `application:didFinishLaunchingWithOptions:`.
 
-There are a couple of things to note:
+There are a few things to note:
 
 - The `viewDidLoad` method gets called every time your extension is opened. This means that the SDK's `initializeApiKey` method gets called every single time. However, this is okay because it safely ignores calls after the first one. You can protect the initialization with something like a `dispatch_once` block.
 - Amplitude's sessions are defined for an app use case. Depending on your expected extension use case, you might not want to enable `trackingSessionEvents`, or you may want to extend the `minTimeBetweenSessionsMillis` to be longer than five minutes. You should experiment with these two settings to get your desired session definition.
-- In addition, you may want to decrease `eventUploadPeriodSeconds` to something shorter than 30 seconds to upload events at shorter intervals if you don't expect users to keep your extension open that long. You can also manually call `[[Amplitude instance] uploadEvents];` to manually force an upload.
-    Here is a simple demo application showing how to instrument the iOS SDK in an extension.
-
-Here is a simple [demo application](https://github.com/amplitude/iOS-Extension-Demo) showing how to instrument the iOS SDK in an extension.
+- If you don't expect users to keep your extension open long, you can decrease `eventUploadPeriodSeconds` to something shorter than 30 seconds to upload events at shorter intervals. You can also manually call `[[Amplitude instance] uploadEvents];` to manually force an upload.
+    Here is a simple [demo application](https://github.com/amplitude/iOS-Extension-Demo) showing how to instrument the iOS SDK in an extension.
 
 ### App Clips
 
@@ -973,8 +958,7 @@ Save the Podfile and run `pod install`
 
 ### Push notification events
 
-Push notification events shouldn't be sent client-side via the iOS SDK because a user must open the app to initialize the Amplitude SDK in order for the SDK to send the event.
- Therefore, if push notification events are tracked client-side then there can be data delays as the push notification event isn't sent to Amplitude's servers until the next time the user opens the app.
+Don't send push notification events client-side via the iOS SDK. Because a user must open the app to initialize the Amplitude SDK in order for the SDK to send the event, events aren't sent to the Amplitude servers until the next time the user opens the app. This can cause data delays.
 
 You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
 
@@ -992,10 +976,11 @@ The `payload` contains the `event` being sent and an optional `extra` that
 
 To invoke the next middleware in the queue, use the `next` function. You must call `next(payload)` to continue the middleware chain. If a middleware doesn't call `next`, then the event processing stop executing after the current middleware completes.
 
-Middleware is added to Amplitude via `client.addEventMiddleware`. You can add as many middleware as you like. Each middleware runs in the order in which it was added.
+Add middleware to Amplitude via `client.addEventMiddleware`. You can add as many middleware as you like. Each middleware runs in the order in which it was added.
 
 You can find examples for [Objective-C](https://github.com/amplitude/ampli-examples/blob/main/ios/objective-c/AmpliObjectiveCSampleApp/AmpliObjectiveCSampleApp/AppDelegate.m#L65) and [Swift](https://github.com/amplitude/ampli-examples/blob/main/ios/swift/AmpliSwiftSampleApp/Shared/AmpliSwiftSampleAppApp.swift#L48).
 
+Learn more about [middleware](../../data/middleware-overview.md).
 ### More resources
 
 If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-iOS/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
