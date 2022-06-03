@@ -6,7 +6,7 @@ icon: fontawesome/brands/python
 
 ![PyPI version](https://badge.fury.io/py/amplitude-analytics.svg)
 
-!!!warning "This SDK is in Beta"
+!!!beta "This SDK is in Beta"
 
 !!!info "SDK Resources"
     - [Python SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Python)

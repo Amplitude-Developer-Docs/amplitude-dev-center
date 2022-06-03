@@ -4,7 +4,7 @@ description: The Amplitude Unreal Engine SDK installation and quick start guide.
 icon: material/unreal
 ---
 
-!!!note "This SDK is in Beta"
+!!!beta "This SDK is in Beta"
 
     The Amplitude Analytics Unreal Engine SDK is in beta and currently supports projects targeting iOS, MacOS, or tvOS.
 

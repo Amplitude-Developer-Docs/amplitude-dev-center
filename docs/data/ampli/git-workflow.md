@@ -3,7 +3,7 @@ title: Use Ampli with Source Control
 description: Learn how to use branches in Ampli with source control systems like Git. 
 ---
 
-!!!info "Beta Notice"
+!!!beta "Beta Notice"
     This new workflow is in Beta and must be enabled on your account. Contact Support to request
     access to the improved branching workflow.
 

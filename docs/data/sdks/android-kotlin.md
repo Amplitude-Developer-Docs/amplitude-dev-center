@@ -6,7 +6,7 @@ icon: material/language-kotlin
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/analytics-android.svg?label=Maven%20Central)
 
-!!!warning "This SDK is in Beta"
+!!!beta "This SDK is in Beta"
 
 !!!info "SDK Resources"
     - [Android Kotlin SDK Reference :material-book:](https://amplitude.github.io/Amplitude-Kotlin/)
