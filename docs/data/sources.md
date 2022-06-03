@@ -17,11 +17,16 @@ TBD
 
 <!-- Consider breaking out SDKs by Web, Mobile, Server -->
 
---8<-- "includes/sources-sdks.md"
+<!-- This content is used in several places. Make changes to includes/data-sources-sdks.md -->
+
+
+--8<-- "includes/data-sources-sdks.md"
 
 ### Warehouse
 
---8<-- "includes/sources-warehouse.md"
+<!-- This content is used in several places. Make changes to includes/data-sources-warehouse.md -->
+
+--8<-- "includes/data-sources-warehouse.md"
 
 ### HTTP
 TBD

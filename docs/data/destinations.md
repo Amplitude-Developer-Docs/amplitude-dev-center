@@ -11,12 +11,12 @@ TBD
 
 ### Warehouse 
 
-<!-- This content is used in several places. Make changes to includes/integration-catalog-warehouse-destinations.md -->
+<!-- This content is used in several places. Make changes to includes/data-destinations-warehouse.md -->
 
---8<-- "includes/destinations-warehouse.md"
+--8<-- "includes/data-destinations-warehouse.md"
 
 ### Event streaming
 
-<!-- This content is used in several places. Make changes to includes/integration-catalog-event-streaming-destinations.md -->
+<!-- This content is used in several places. Make changes to includes/data-destinations-event-streaming.md -->
 
---8<-- "includes/destinations-event-streaming.md"
+--8<-- "includes/data-destinations-event-streaming.md"
