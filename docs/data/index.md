@@ -4,9 +4,9 @@ description: Get started with Amplitude Data.
 ---
 
 !!!warning "Amplitude Data is in Beta"
-     Amplitude Data must be enabled on your account. Please contact support to request access.
+     Amplitude Data must be enabled on your account. Contact Support to request access.
 
-Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, while Destinations receive data from Amplitude. The data that you send to Amplitude can be used for Analytics, Experiment, and Audiences. 
+Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, and Destinations receive data from Amplitude. The data that you send to Amplitude can be used for Analytics, Experiment, and Audiences. 
 
 <div class="grid cards" markdown>
 
@@ -16,7 +16,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Capture customer data in Amplitude. 
 
-    [:octicons-arrow-right-24: Understand the basics](data/sources/)
+    [:octicons-arrow-right-24: Understand the basics](/data/sources/)
 
 - :material-code-braces:{ .lg .middle } __Configure destinations__
 
