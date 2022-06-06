@@ -1,4 +1,7 @@
 <script type="text/javascript">
+var consent = __md_get("__consent")
+if (consent) {
+  /* The user accepted the cookie */
     (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
     ;r.type="text/javascript"
     ;r.integrity="sha384-VuGgAcmMrGHihvjXxxBVMIqoDFXc8/PO9q/08kCgq4Wn1iPnSmUbI3xhXaFozVFv"
@@ -51,4 +54,5 @@
     if (url.hostname === 'docs.developers.amplitude.com' || url.hostname === 'www.docs.developers.amplitude.com') {
         amplitude.getInstance().logEvent("page viewed", properties);
     }
+}
 </script>
