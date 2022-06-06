@@ -4,18 +4,17 @@ description: The Amplitude Android SDK installation and quick start guide.
 icon: material/android
 ---
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.amplitude%22%20AND%20a:%22android-sdk%22)
 
-This is the official documentation for the Amplitude Android SDK.
+This is the official documentation for the Amplitude Analytics Android SDK.
 
 !!!info "SDK Resources"
-    - [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/)
-    - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Android)
-    - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Android/releases)
+    [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/) · [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Android) · [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Android/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
-## SDK installation
+## Install
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.amplitude%22%20AND%20a:%22android-sdk%22)
 
 ### Add dependencies
 
@@ -33,20 +32,11 @@ This is the official documentation for the Amplitude Android SDK.
     ```
 
 2. Sync project with Gradle files.
+3. To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file:
+    `<uses-permission android:name="android.permission.INTERNET" />`
+4. For Android 6.0 (Marshmallow) and higher, explicitly add the `READ_PHONE_STATE` permission to fetch phone related information. `<uses-permission android:name="android.permission.READ_PHONE_STATE" />`
 
-### Add permissions
-
-To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file.
-
-`<uses-permission android:name="android.permission.INTERNET" />`
-
-For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone related information.
-
-`<uses-permission android:name="android.permission.READ_PHONE_STATE" />`
-
-## Importing
-
-Import Amplitude into any file that uses it.
+After you've installed the SDK and its dependencies, import Amplitude into any file that uses it.
 
 === "Java"
 
@@ -60,9 +50,62 @@ Import Amplitude into any file that uses it.
 
     ```
 
-## Initialization
+!!!tip "Quickstart"
+    1. [Initialize](#initialize)
+    2. [Send an event](#send-events)
 
-Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. We recommend adding this in `onCreate(...)` of your Activity class.
+    === "Java"
+
+        ```java
+        // initialize 
+
+        AmplitudeClient client = Amplitude.getInstance()
+          .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+          .enableForegroundTracking(getApplication());
+
+        // send an event 
+        
+        JSONObject eventProperties = new JSONObject();
+        try {
+          eventProperties.put("Hover Time", 10).put("prop_2", "value_2");
+        } catch (JSONException e) {
+          System.err.println("Invalid JSON");
+          e.printStackTrace();
+        }
+        client.logEvent("Button Clicked", eventProperties);
+        // Note: You will also need to add two JSONObject imports to the code.
+        // import org.json.JSONException;
+        // import org.json.JSONObject;
+        ```
+
+    === "Kotlin"
+
+        ```kotlin 
+        // initialize 
+
+        val client = Amplitude.getInstance()
+          .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+          .enableForegroundTracking(application)
+
+        // send event 
+
+        val eventProperties = JSONObject() 
+        try {
+          eventProperties.put("Hover Time", 10).put("prop_2", "value_2")
+        } catch (e: JSONException) {
+          System.err.println("Invalid JSON")
+          e.printStackTrace()
+        }
+        client.logEvent("Button Clicked", eventProperties)
+        ```
+
+## Core functions
+
+The following functions make up the core of the Amplitude Analytics Android SDK.
+
+### Initialize
+
+You must initialize the SDK before you can instrument. The API key for your Amplitude project is required. We recommend adding this in `onCreate(...)` of your Activity class.
 
 The Android SDK can be used anywhere after it's initialized anywhere in an Android application.
 
@@ -77,7 +120,8 @@ For accurate session tracking, `enableForegroundTracking(getApplication())` is
     ```
 
 === "Kotlin"
-    ```kotlin
+
+    ```kotlin 
     val client = Amplitude.getInstance()
       .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
       .enableForegroundTracking(application)
@@ -104,7 +148,7 @@ For accurate session tracking, `enableForegroundTracking(getApplication())` is
     val sameClient = Amplitude.getInstance("Andy_Client")
     ```
 
-## EU Data Residency
+#### EU Data Residency
 
 Beginning with version 2.34.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
  The server zone config supports dynamic configuration as well.
@@ -135,9 +179,9 @@ For previous versions, you need to configure the `serverURL` property after init
     client.setServerUrl("https://api.eu.amplitude.com")
     ```
 
-## Sending Events
+### Send events
 
-### Basic Events
+#### Basic events
 
 Events represent how users interact with your application. For example, the event "button click" may be an action you want to track.
 
@@ -148,7 +192,7 @@ Events represent how users interact with your application. For example, the even
 
     ```
 
-### Events with Properties
+#### Events with properties
 
 Events can contain properties. Properties provide context about the event taken. For example, "hover time" may be a relevant event property to "button click."
 
@@ -194,12 +238,12 @@ Events are typically stored in a buffer and flushed periodically. This behavior 
 
 To force the SDK to upload unsent events, the use the method `uploadEvents`.
 
-## Set User Properties
+### User properties
 
 !!!warning "Privacy and Tracking"
-    Don't track any user data that is against your privacy terms. If you need help with privacy concerns, contact the Support team.
+    Don't track any user data that's against your privacy terms.
 
-## Identify
+#### Set user properties
 
 Identify is for setting the user properties of a particular user without sending any event.
  The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties.
@@ -210,10 +254,8 @@ Identify is for setting the user properties of a particular user without sending
     If the Identify call is sent after the event, the results of operations is visible immediately in the dashboard user's profile area, but it doesn't appear in chart result until another event is sent after the Identify call. The identify call only affects events going forward.
      [Learn more in the Help Center](https://help.amplitude.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
-### Managing User Identity
-
 You can handle the identity of a user using the identify methods. Proper use of these methods can connect events to the correct user as they move across devices, browsers, and other platforms.
- Send an identify call containing those user property operations (please check the Identify section below) to Amplitude server to tie a user's events with specific user properties.
+ Send an identify call containing those user property operations to Amplitude server to tie a user's events with specific user properties.
 
 === "Java"
 
@@ -231,9 +273,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     client.identify(identify)
     ```
 
-#### set
-
-[](https://developers.amplitude.com/docs/android#set)
+##### set
 
 `set` sets the value of a user property. You can also chain together multiple identify calls.
 
@@ -250,7 +290,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     val identify = Identify().set("color", "green")
     ```
 
-#### setOnce
+##### setOnce
 
 `setOnce` sets the value of a user property one time. Later calls using `setOnce` are ignored.
 
@@ -266,7 +306,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     val identify = Identify().setOnce("color", "green")
     ```
 
-#### add
+##### add
 
 `add` increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to 0 before being incremented.
 
@@ -287,7 +327,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     identify.add("annual_revenue", 100) //100
     ```
 
-### Setting Multiple User Properties
+#### Setting multiple user properties
 
 `logEvent()` method allows you to set the user properties along with event logging. You can use `setUserProperties` as a shorthand to set multiple user properties at one time.
  This method is a wrapper around `Identify.set`.
@@ -320,7 +360,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     client.logEvent("event name")
     ```
 
-### Arrays in User Properties
+#### Arrays in User Properties
 
 Arrays can be used as user properties. You can directly set arrays or use `append` (see section below this one) to generate an array.
 
@@ -348,7 +388,7 @@ Arrays can be used as user properties. You can directly set arrays or use `appe
     identify["array value"] = value1
     ```
 
-#### prepend/append
+##### prepend/append
 
 - `append` appends a value or values to a user property array.
 - `prepend` prepends a value or values to a user property.
@@ -385,7 +425,7 @@ If the user property doesn't have a value set yet, it's initialized to an empty 
     identify.prepend("float value", 0.625f)
     ```
 
-#### preInsert/postInsert
+##### preInsert/postInsert
 
 - `preInsert` inserts a value or values to the front of a user property array if it doesn't exist in the array yet.
 - `postInsert` inserts a value or values to the end of a user property array if it doesn't exist in the array yet.
@@ -413,11 +453,11 @@ If the user property doesn't exist, it's initialized to an empty list before the
     identify.postInsert(property1, 3.0)
     ```
 
-#### Clearing User Properties
+#### Clear user properties
 
-`clearUserProperties` method is for clearing all user properties at one time. This wipes all the current user's user properties.
+The `clearUserProperties` method is for clearing all user properties at one time. This wipes all the current user's user properties.
 
-!!!warning "This action is permanent"
+!!!warning "This action is irreversible"
     Because this action clears all user properties, Amplitude can't sync the user's user property values from before the wipe to any of the user's future events.
 
 === "Java"
@@ -426,7 +466,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
     client.clearUserProperties();
     ```
 
-#### unset
+##### unset
 
 `unset` unsets and removes a user property.
 
@@ -443,7 +483,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
     identify.unset("favorite_food")
     ```
 
-## Setting User Groups
+### Set user groups
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
@@ -469,7 +509,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
     Amplitude.getInstance().logEvent("initialize_game", eventProperties, groups);
     ```
 
-## Group Identify
+### Group identify
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
@@ -487,7 +527,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
 
 An optional `outOfSession` boolean input can be supplied as fourth argument to `groupIdentify`
 
-## Track Revenue
+### Track Revenue
 
 Amplitude can track revenue generated by a user. Revenue is tracked through distinct revenue objects, which have special fields that are used in Amplitude's Event Segmentation and Revenue LTV charts.
  This lets Amplitude to automatically display data relevant to revenue in the platform.
@@ -513,9 +553,9 @@ Amplitude can track revenue generated by a user. Revenue is tracked through dist
 | `productId` | Optional. String. An identifier for the product. Amplitude recommends something like the "Google Play Store product ID". Defaults to `null`. |
 | `quantity`| Required. Integer. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1. |
 | `price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to `null`.|
-| `revenueType` | Optional, but required for revenue verification. String. The type of revenue (e.g. tax, refund, income). Defaults to `null`. |
-| `receipt`  | Optional. String. The type of revenue (e.g. tax, refund, income). Defaults to `null` |
-| `receiptSignature` | Optional, but required for revenue verification. The type of revenue (e.g. tax, refund, income). | null |
+| `revenueType` | Optional, but required for revenue verification. String. The type of revenue. For example: tax, refund, income. Defaults to `null`. |
+| `receipt`  | Optional. String. The type of revenue. For example: tax, refund, income. Defaults to `null` |
+| `receiptSignature` | Optional, but required for revenue verification. The type of revenue. For example: tax, refund, income). Defaults to `null`. |
 | `eventProperties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to `null`. |
 
 !!!note "Notes about tracking revenue"
@@ -524,7 +564,7 @@ Amplitude can track revenue generated by a user. Revenue is tracked through dist
     - Amplitude currently does not support currency conversion. All revenue data should be normalized to a currency of choice before being sent to Amplitude.
     - The logRevenue() API is deprecated, and the logRevenueV2() API should be used going forward.
 
-## Revenue Verification
+### Revenue Verification
 
 The `logRevenue` method also supports revenue validation.
 
@@ -532,7 +572,7 @@ By default, revenue events recorded on the Android SDK appear in Amplitude as [
  copy your Google Play License Public Key into the Sources & Destinations section of your project in Amplitude.
  You must put in a key for every single project in Amplitude where you want revenue to be verified.
 
-There are two main Android libraries for revenue verificaitons: AIDL and Google Play Billing. AIDL is older and deprecated. See [this Google guide](https://developer.android.com/google/play/billing/migrate) on how to migrate,
+There are two main Android libraries for revenue verifications: AIDL and Google Play Billing. AIDL is older and deprecated. See [this Google guide](https://developer.android.com/google/play/billing/migrate) on how to migrate,
  as well as the class specification for the [Purchase class](https://developer.android.com/reference/com/android/billingclient/api/Purchase).
 
 After a successful purchase transaction, add the purchase data and receipt signature to the Revenue object:
@@ -640,10 +680,10 @@ After a successful purchase transaction, add the purchase data and receipt signa
     }
     ```
 
-### Amazon Store Revenue Verification
+#### Amazon Store Revenue Verification
 
 For purchases on the Amazon store, you should copy your Amazon Developer Shared Secret into the Sources & Destinations section of your project in Amplitude.
- After a successful purchase transaction, you should send the purchase token (For Amazon IAP 2.0 use receipt id) as the 'receipt' and the User ID as the 'receiptSignature':
+ After a successful purchase transaction, you should send the purchase token (For Amazon IAP 2.0 use receipt ID) as the 'receipt' and the User ID as the 'receiptSignature':
 
 === "Java"
 
@@ -658,7 +698,9 @@ For purchases on the Amazon store, you should copy your Amazon Developer Shared 
     client.logRevenueV2(revenue);
     ```
 
-## User Sessions
+## Advanced Topics
+
+### User sessions
 
 A session on Android is a period of time that a user has the app in the foreground.
 
@@ -695,7 +737,7 @@ You can also log events as out-of-session. Out-of-session events have a `sessio
     client.logEvent("event type", eventProperties, true);
     ```
 
-You can also log identify events as out-of-session, which is useful if you are updating user properties in the background and do not want to start a new session. You can do this by setting the input parameter outOfSession to true when calling `identify()`.
+You can also log identify events as out-of-session, which is useful if you are updating user properties in the background and don't want to start a new session. You can do this by setting the input parameter outOfSession to true when calling `identify()`.
 
 === "Java"
 
@@ -729,7 +771,7 @@ You can use the helper method getSessionId to get the value of the current sessi
 
     For Android API level 13 and below, foreground tracking is not available so a new session is automatically started when an event is logged 30 minutes or more after the last logged event. If another event is logged within 30 minutes, it will extend the current session. Note that you can define your own session expiration time here as well by calling setSessionTimeoutMillis(timeout), where the timeout input is in milliseconds. Also note that enableForegroundTracking(getApplication) is still safe to call for Android API level 13 and below even though it's not available.
 
-## Setting Custom User ID
+### Set custom user ID
 
 If your app has its own login system that you want to track users with, you can call setUserId at any time.
 
@@ -749,7 +791,7 @@ You can also add the User ID as an argument to the init call.
 
 You shouldn't assign users a User ID that could change as each unique User ID is interpreted as a unique user in Amplitude.
 
-## Log Level
+### Log Level
 
 The log level allows you to set the level of logs printed to be printed in the developer console. The different levels are as follows:
 
@@ -766,7 +808,7 @@ You can set the log level by calling the following on Android:
     Amplitude.getInstance().setLogLevel(log.DEBUG)
     ```
 
-## Logged out and anonymous users
+### Logged out and anonymous users
 
 --8<-- "includes/logged-out-and-anonymous-users.md"
 
@@ -776,8 +818,6 @@ You can set the log level by calling the following on Android:
     client.setUserId(null);
     client.regenerateDeviceId();
     ```
-
-## Advanced Topics
 
 ### Disable Tracking
 
@@ -818,7 +858,7 @@ Each field can be individually disabled and has a corresponding disable method (
 | `disableOsName()` | Disable tracking of device's OS Name |
 | `disableOsVersion()` | Disable tracking of device's OS Version |
 | `disablePlatform()` | Disable tracking of device's platform |
-| `disableRegion()` | Disable tracking of user's couregiontry |
+| `disableRegion()` | Disable tracking of user's region. |
 | `disableVersionName()` | Disable tracking of your app's version name |
 
 !!!note
@@ -839,8 +879,8 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 ### Advertising ID
 
 Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
- [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (e.g. ad campaign, app store search).
- Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA is not available.
+ [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (for example: ad campaign, app store search).
+ Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device ID, or an email login system as alternatives when IDFA isn't available.
 
 Follow the three steps below to use Android Ad ID.
 
@@ -869,9 +909,9 @@ If you use Google Mobile Ads SDK version 17.0.0 above, you need to add `AD_MANAG
     </manifest>
     ```
 
-3. Add Proguard exception
+3. Add ProGuard exception
 
-Amplitude Android SDK uses Java Reflection to use classes in Google Play Services. For Amplitude SDKs to work in your Android application, please add these exceptions to `proguard.pro` for the classes from `play-services-ads`.
+Amplitude Android SDK uses Java Reflection to use classes in Google Play Services. For Amplitude SDKs to work in your Android application, add these exceptions to `proguard.pro` for the classes from `play-services-ads`.
 `-keep class com.google.android.gms.ads.** { *; }`
 
 #### Set Advertising ID as Device ID
@@ -920,8 +960,8 @@ Amplitude can access the Android location service (if possible) to add the speci
     client.disableLocationListening();
     ```
 
-!!!note "Proguard obfuscation"
-    If you use Proguard obfuscation, please also add the following exception to the file:
+!!!note "ProGuard obfuscation"
+    If you use ProGuard obfuscation, add the following exception to the file:
     `-keep class com.google.android.gms.common.** { *; }`
 
 ### Opt Out of Tracking
@@ -942,7 +982,7 @@ You can use our [mobile marketing automation partners](https://amplitude.com/in
 
 ### Event Explorer
 
-To use Event Explorer, you will need to know either `deviceId` or `userId` to look up live events. Android SDKs provide functionalities to view them while using a debug build.
+To use Event Explorer, you need either `deviceId` or `userId` to look up live events. Android SDKs provide functionalities to view them while using a debug build.
 
 First, add the following code into your `AndroidManifest.xml`.
 
@@ -986,7 +1026,7 @@ Android SDK allows users to configure their apps to use [dynamic configuration]
 
 ### SSL Pinning
 
-SSL Pinning is a technique on the client side to avoid man-in-the-middle attacks by validating the server certificates again even after SSL handshaking. Please let Amplitude Support know before you ship any products with SSL pinning enabled.
+SSL Pinning is a technique on the client side to avoid man-in-the-middle attacks by validating the server certificates again even after SSL handshaking. Let Amplitude Support know before you ship any products with SSL pinning enabled.
 
 To use SSL Pinning in the Android SDK, use the class `PinnedAmplitudeClient` instead of `AmplitudeClient` to turn it on.
 
@@ -1030,6 +1070,6 @@ Find middleware examples for [Java](https://github.com/amplitude/ampli-examples
 
 ## More help
 
-If you have any problems or issues over our SDK, feel free to [create a github issue](https://github.com/amplitude/Amplitude-Android/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
+If you have any problems or issues over our SDK, feel free to [create a GitHub issue](https://github.com/amplitude/Amplitude-Android/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
 
 --8<-- "includes/abbreviations.md"
