@@ -32,7 +32,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Detect issues and improve data quality.
 
-    [:octicons-arrow-right-24: Validate your data](/data/user-lookup)
+    [:octicons-arrow-right-24: Validate your data](/data/debugger)
 
 - :material-help:{ .lg .middle } __Get more resources__
 
@@ -49,8 +49,8 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 Get started with Amplitude Data in a few steps.
 
 1. [Configure sources](/data/sources)
-2. [Instrument analytics](/data/sources#sdks)
-3. [Validate your data](/data/user-lookup)
+2. [Instrument analytics](/data/ampli)
+3. [Validate your data](/data/debugger)
 4. [Configure destinations](/data/destinations)
 
 ## More resources

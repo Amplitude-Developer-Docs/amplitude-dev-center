@@ -205,10 +205,8 @@ nav:
 - Data:
   - data/index.md
   - Overview: data/index.md
-  #- Create a Tracking Plan: "/"
-  #- Instrument Analytics: "/"
-  - Debug Analytics: "data/user-lookup.md"
-  #- Configure Destinations: "/"
+  # - Getting Started: "data/getting-started.md"
+  - Debugging Analytics: "data/debugger.md"
 
   - Sources:
     - Overview: data/sources.md

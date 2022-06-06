@@ -18,15 +18,11 @@ For detailed instructions, see the documentation for the source you want to add.
 
 ### SDKs
 
-
-<!-- #### Work with Ampli 
-
-TBD -->
+<!-- #### Work with Ampli -->
 
 <!-- Consider breaking out SDKs by Web, Mobile, Server -->
 
 <!-- This content is used in several places. Make changes to includes/data-sources-sdks.md -->
-
 
 --8<-- "includes/data-sources-sdks.md"
 
@@ -36,11 +32,9 @@ TBD -->
 
 --8<-- "includes/data-sources-warehouse.md"
 
-<!-- ### HTTP
-TBD -->
+<!-- ### HTTT -->
 
-<!-- ### Cloud apps
-TBD -->
+<!-- ### Cloud apps -->
 
 <!-- ### Third party -->
 

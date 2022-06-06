@@ -76,7 +76,7 @@ The verify command will scan your source code for tracking calls and compare the
 
 You can configure your [CI pipeline](integrating-with-ci.md) to automatically run the `ampli status` command at check-in so you never miss another analytics bug again.
 
-Utilize the User Lookup page to view real time events sent from your source application. See [User Lookup](../user-lookup.md) resource guide.
+View real time events sent from your source application. See the [Debug Analytics](../debugger.md) resource guide.
 
 ## Ampli CLI Commands
 
