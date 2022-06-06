@@ -980,7 +980,8 @@ Add middleware to Amplitude via `client.addEventMiddleware`. You can add as man
 
 You can find examples for [Objective-C](https://github.com/amplitude/ampli-examples/blob/main/ios/objective-c/AmpliObjectiveCSampleApp/AmpliObjectiveCSampleApp/AppDelegate.m#L65) and [Swift](https://github.com/amplitude/ampli-examples/blob/main/ios/swift/AmpliSwiftSampleApp/Shared/AmpliSwiftSampleAppApp.swift#L48).
 
-Learn more about [middleware](../../data/middleware-overview.md).
+Learn more about [middleware](../../data/ampli/middleware.md)
+
 ### More resources
 
 If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-iOS/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
