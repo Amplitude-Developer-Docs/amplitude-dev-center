@@ -14,7 +14,7 @@ More information is coming soon!
 ### For users
 --------
 
-If you are making subtantial updates, read our [style guide](/style-guide.md) and [formatting cheatsheet](formatting-cheatsheet.md) before starting work. When you're ready, open a PR. 
+If you are making subtantial updates, read our [style guide](style-guide.md) and [formatting cheatsheet](formatting-cheatsheet.md) before starting work. When you're ready, open a PR. 
 
 ### For Ampliteers 
 -----

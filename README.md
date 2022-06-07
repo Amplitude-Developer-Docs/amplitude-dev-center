@@ -53,7 +53,7 @@ The changes Vale flags are mostly suggestions, but please make an effort to addr
   
 ### 2. Create a branch and make your changes
 
-  - See our [formatting cheatsheet](/formatting-cheatsheet.md) for help with our most frequently used formatting elements. 
+  - See our [formatting cheatsheet](formatting-cheatsheet.md) for help with our most frequently used formatting elements. 
 
 ### 3. Run a local server and preview your changes
 

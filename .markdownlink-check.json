@@ -4,7 +4,7 @@
 		"pattern": "^https://developer.android.com/reference/android/Manifest.permission"
 	  },
 	  {
-		"pattern": "https://help.amplitude.com/hc"
+		"pattern": "^https://help.amplitude.com"
 	  },
 	  {
 		"pattern": "^https://api2.amplitude"
@@ -15,6 +15,12 @@
 	  {
 		"pattern": "^https://amplitude.com/api"
 	  },
+    {
+    "pattern": "https://api2.amplitude.com/attribution"
+    },
+    {
+    "pattern": "https://api.eu.amplitude.com/attribution"
+    },
 	  {
 		"pattern": "^https://analytics.eu.amplitude.com/api"
 	  },
@@ -37,26 +43,6 @@
 
 		"pattern": "https://badge.fury.io"
 
-		},
-
-		{
-		"pattern": "/analytics/apis/http-v2-api/"
-		},
-
-		{
-		"pattern": "/using-the-ampli-cli"
-		},
-
-		{
-		"pattern": "#keys-for-the-event-argument"
-		},
-
-		{
-		"pattern": "/analytics/dynamic-configuration"
-		},
-
-		{
-		"pattern": "/data/deprecated-sdks/ios"
 		}
 	]
 }
