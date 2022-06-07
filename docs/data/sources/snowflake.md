@@ -17,6 +17,10 @@ With Amplitude's Snowflake integration, you can ingest Snowflake data directly i
 
 ## Add Snowflake as a source
 
+!!!note "Time-based Import"
+
+      When using the Time Based Import option, it's important that the dataset includes a separate column that indicates *when* the data was loaded into the table Amplitude points to when importing. This is often "server upload time", which would be separate from the "event time" (when the actual event occured).
+
 To add Snowflake as a data source in your Amplitude project, follow these steps:
 
 1. In Amplitude, navigate to **Data Sources**, and make sure you've selected the correct project from the project list dropdown.
@@ -34,7 +38,7 @@ To add Snowflake as a data source in your Amplitude project, follow these steps:
       - **Type of data**: This tells Amplitude whether you're ingesting event data or user property data.
       - **Type of import:**
         - **Full Sync**: Amplitude periodically ingests the entire dataset, regardless of whether that data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option is not supported for ingesting event data.
-        - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. In order for this to work, you must include the timestamp column in the output of your SQL statement.
+        - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. In order for this to work, you must include the timestamp of when the data was loaded into Snowflake.
       - **Frequency**: Choose from several scheduling options ranging from five minutes to one month (when this is selected, ingestion happens on the first of the month).
       - **SQL query**: This is the code for the query Amplitude uses to determine which data is ingested.
 
@@ -85,12 +89,21 @@ SELECT
 FROM DATABASE_NAME.SCHEMA_NAME.TABLE_OR_VIEW_NAME
 ```
 
-### User property example
+### User Property example
 
 ```sql
 SELECT
     USER_ID_COLUMN AS "user_id",
     USER_PROPERTIES_VARIANT_COLUMN AS "user_properties"
+FROM DATABASE_NAME.SCHEMA_NAME.TABLE_OR_VIEW_NAME
+```
+
+### Group Property example
+
+```sql
+SELECT
+    GROUPS_OBJ AS "groups",
+    GROUP_PROPS_OBJ AS "group_properties"
 FROM DATABASE_NAME.SCHEMA_NAME.TABLE_OR_VIEW_NAME
 ```
 
