@@ -24,6 +24,7 @@ If you are making subtantial updates, read our [style guide](/style-guide.md) an
 - **This is an open source project**! Before you push, make sure you haven't committed any sensitive information, including test account API keys or other credentials. It's hard to undo this kind of mistake, so if you accidentally push sensitive info, consider it compromised. Check the Developer Docs Confluence site for next steps.
 - If you have questions or need any help getting started, reach out in #dev-doc-requests. 
 
-## SLAs
+## How long will it take to get your PR merged?
 
-If you're a partner and have an upcoming release you're adding docs for, reach out to amplitude
+It depends. We have a small documenation team. Someone will acknowledge your PR within a week and can give you a better idea of how long it will take to get merged.
+
