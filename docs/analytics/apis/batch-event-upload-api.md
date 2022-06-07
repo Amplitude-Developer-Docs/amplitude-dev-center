@@ -2,10 +2,11 @@
 title: Batch Event Upload API
 description: The Batch Event Upload API lets you upload large amounts of event data.
 ---
+<!-- markdown-link-check-disable -->
 
 The Batch Event Upload API lets you upload large amounts of event data.
 
-The event JSON format follows our [HTTP API format](https://developers.amplitude.com/docs/http-api-v2), and has the same requirements (each event must have an event type, and so on).
+The event JSON format follows the [HTTP API format](../analytics/apis/http-v2-api.md), and has the same requirements (each event must have an event type, and so on).
 
 --8<-- "includes/postman.md"
 
