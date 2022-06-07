@@ -30,10 +30,12 @@ hide:
 - :material-help:{ .lg .middle } __Amplitude Help Center__
 
     ---
+<!-- markdown-link-check-disable -->
 
     The Help Center covers the web app and general Amplitude concepts in more detail.
 
     [:octicons-arrow-right-24: Amplitude Help Center](https://help.amplitude.com)
+<!-- markdown-link-check-enable -->
 
 - :material-rocket:{ .lg .middle } __Postman Workspace__
 

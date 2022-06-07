@@ -31,7 +31,7 @@ The Attribution API, on the other hand, is for sending attribution campaign even
 
 ## Send an Attribution Event
 
-Send a POST request to https://api2.amplitude.com/attribution with two arguments: `api_key` and `event`.
+Send a POST request with two arguments: `api_key` and `event`.
 
 ### Required Arguments
 
