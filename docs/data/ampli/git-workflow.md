@@ -13,17 +13,18 @@ In this document we'll cover how you can use branches in Ampli with source contr
 ## Workflow summary
 
 When updates need to be made to the tracking plan:
-
+<div class="annotate" markdown>
 1. Create a branch in Amplitude Data. Make tracking plan updates.
-2. Create a branch in Git.[^1]
+2. Create a branch in Git.(1)
 3. Pull the latest generated code for your Data branch into your Git branch with `ampli pull`.
 4. Implement the changes using the Ampli SDK in your code on your Git branch
 5. Check implementation status with `ampli status`.
 6. Merge the Data branch.
 7. Check merge status with `ampli status --is-merged`.
 8. Merge the Git branch.
+</div>
 
-[^1]: Using the same name for both the Git branch and Amplitude Data branch is recommended but not required.
+1. Using the same name for both the Git branch and Amplitude Data branch is recommended but not required.
 
 ## Branches in Ampli
 
