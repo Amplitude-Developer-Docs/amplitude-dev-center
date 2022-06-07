@@ -11,10 +11,12 @@ The Attribution API is for sending attribution campaign events (identified by `
 
 ## Endpoints
 
+<!-- markdown-link-check-disable -->
 | Region | Endpoint |
 | --- | --- |
 | Standard Server | <https://api2.amplitude.com/attribution> |
 | EU Residency Server | <https://api.eu.amplitude.com/attribution> |
+<!-- markdown-link-check-enable -->
 
 ## Considerations
 

@@ -4,7 +4,7 @@
 		"pattern": "^https://developer.android.com/reference/android/Manifest.permission"
 	  },
 	  {
-		"pattern": "^https://help.amplitude.com"
+		"pattern": "https://help.amplitude.com"
 	  },
 	  {
 		"pattern": "^https://api2.amplitude"
