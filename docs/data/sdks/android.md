@@ -801,10 +801,11 @@ Don't assign users a user ID that could change, because each unique user ID is a
 
 You can control the level of logs that print to the developer console.
 
-- 'INFO': This option shows error messages, warnings, and informative messages that may be useful for debugging.
-- 'WARN': This option shows error messages and warnings. This level logs issues that might be a problem and cause some oddities in the data. For example, this level would display a warning for properties with null values.
-- 'ERROR': This option shows error messages only.
-- 'DISABLE': This suppresses all log messages.
+- 'INFO': Shows informative messages about events. 
+- 'WARN': Shows error messages and warnings. This level logs issues that might be a problem and cause some oddities in the data. For example, this level would display a warning for properties with null values.
+- 'ERROR': Shows error messages only.
+- 'DISABLE': Suppresses all log messages.
+- 'DEBUG': Shows error messages, warnings, and informative messages that may be useful for debugging.
 
 Set the log level by calling `setLogLevel` with the level you want.
 
