@@ -19,7 +19,7 @@ With Amplitude's Snowflake integration, you can ingest Snowflake data directly i
 
 !!!note "Time-based Import"
 
-      When using the "Time Based Import" option, it's important the dataset includes a separate column that indicates *when* the data was loaded into the table Amplitude points to when importing. This is often "server upload time", which would be separate from the "event time" (when the actual event occured).
+      When using the Time Based Import option, it's important the dataset includes a separate column that indicates *when* the data was loaded into the table Amplitude points to when importing. This is often "server upload time", which would be separate from the "event time" (when the actual event occured).
 
 To add Snowflake as a data source in your Amplitude project, follow these steps:
 
