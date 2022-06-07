@@ -4,7 +4,7 @@ description: Set up a recurring or one-time export of Amplitude event data to Bi
 ---
 
 
---8<-- "includes/alpha-release.md"
+!!!beta "This feature is in beta"
 
 --8<-- "includes/editions-all-paid-editions.md"
 
