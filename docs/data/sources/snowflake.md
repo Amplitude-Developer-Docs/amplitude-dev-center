@@ -85,12 +85,21 @@ SELECT
 FROM DATABASE_NAME.SCHEMA_NAME.TABLE_OR_VIEW_NAME
 ```
 
-### User property example
+### User Property example
 
 ```sql
 SELECT
     USER_ID_COLUMN AS "user_id",
     USER_PROPERTIES_VARIANT_COLUMN AS "user_properties"
+FROM DATABASE_NAME.SCHEMA_NAME.TABLE_OR_VIEW_NAME
+```
+
+### Group Property example
+
+```sql
+SELECT
+    GROUPS_OBJ AS "groups",
+    GROUP_PROPS_OBJ AS "group_properties"
 FROM DATABASE_NAME.SCHEMA_NAME.TABLE_OR_VIEW_NAME
 ```
 
