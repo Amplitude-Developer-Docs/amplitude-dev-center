@@ -1,20 +1,22 @@
+<!-- markdownlint-disable-file -->
+
 # README
 
 This is the Amplitude Developer Center site. This site is currently in beta and the workflows may change.
 
-## Contributing
+## About
 
-Anyone can suggest changes to our docs. Just open a PR with your changes!
+We use [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) to create our docs. 
 
-### Notes for Amplitude contributors
+If you have any questions, comments, or concerns open an issue.
 
-- To get started with contributing, check out the [Developer Docs Confluence site](https://amplitude.atlassian.net/wiki/spaces/PT/pages/1751449830/Developer+Docs). There, you'll find more conceptual content, including style guides and markdown cheatsheets.
-- If you're working on a feature that hasn't been announced yet, do your work in the **amp-internal-dev repo**. When you're ready to ship, open a PR against main. Learn more in [Confluence](https://amplitude.atlassian.net/wiki/spaces/PT/pages/1778384912/Working+on+Docs+Secretly).
-- **This is an open source project**! Before you push, make sure you haven't committed any sensitive information, including test account API keys or other credentials. It's hard to undo this kind of mistake, so if you accidentally push sensitive info, consider it compromised. Check the Developer Docs Confluence site for next steps. 
+## Contribute
 
-## Installation
+Anyone can suggest changes to the docs. Just open a PR with your changes! See our [contribution guide](CONTRIBUTING.md) to get started. 
+
+## Install
   
-  Before you get started, you need pip. To install the link checker and Vale locally, you need brew and npm too.
+  Before you can install, you need pip. To install the link checker and Vale locally, you need brew and npm too.
 
 ### 1. Install Material
 
@@ -38,25 +40,30 @@ This command installs almost every dependency.
   - [Vim](https://github.com/dense-analysis/ale)
   - [Sublime](https://github.com/errata-ai/SubVale)
 
-The changes Vale flags are mostly suggestions, but please make an effort to address problems. The closer we stick to the style guide, the better our docs will be.
+The changes Vale flags are mostly suggestions, but please make an effort to address problems. The closer we stick to the style guide, the better the docs will be.
   
-## Writing and publishing
+## Write and publish
 
 ### 1. Get the repo 
 
-`git clone https://github.com/Amplitude-Developer-Docs/amplitude-dev-center.git`
+- Ampliteers, clone the repo: `git clone https://github.com/Amplitude-Developer-Docs/amplitude-dev-center.git`. If you aren't on the team, request access in #dev-doc-requests.
+- Everyone else: Fork the repo. 
 
 **Note for Ampliteers**: If you're working on a secret feature, use the amp-internal-dev repo instead. Contact Casey Smith for access and instructions.
   
 ### 2. Create a branch and make your changes
+
+  - See our [formatting cheatsheet](/formatting-cheatsheet.md) for help with our most frequently used formatting elements. 
+
+### 3. Run a local server and preview your changes
+
+Preview changes locally using `mkdocs serve`
   
-  Preview changes locally using `mkdocs serve`
-  
-  When you're ready, open a PR against the staging branch*. 
+When you're ready, open a PR against the staging branch*. Fill out the pull request template the best you can.
   
  **Note for Ampliteers**: *If you have questions about which staging branch to use, ask in #dev-doc-requests.
 
-### 3. Merge
+### 4. Merge
 
 After your PR is approved, we'll merge it. Merging to `main` publishes to the website.
 
@@ -65,6 +72,12 @@ After your PR is approved, we'll merge it. Merging to `main` publishes to the we
 - If you're using VS Code, install the [markdownlint extension](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint). This extension flags problems with your markdown. The project includes a config file to cut down on noisier errors. 
 
 ## Resources
+
+[Formatting Cheatsheet](formatting-cheatsheet.md)
+
+[Style Guide](style-guide.md)
+
+[Contribution Guide](CONTRIBUTING.md)
 
 [Material Docs](https://squidfunk.github.io/mkdocs-material/)
   
@@ -77,4 +90,3 @@ After your PR is approved, we'll merge it. Merging to `main` publishes to the we
 - **Two mkdocs config files**. Because of the way Insiders and config inheritance work, I had to make a config file for people who don't have Insiders and one for the build bot (which does have Insiders). This was intentional. Site builds should always use `insiders.mkdocs.yml`. If you want to know more, read the dissertation I wrote in `insiders.mkdocs.yml`.
 - **Column CSS classes**. Markdown tables are easier to write than HTML tables. However, column width is set by the width of the contents in the first cell for each column. This can lead to too-narrow column widths in some data tables (especially param tables). Because you can add HTML to markdown, I created some CSS classes to manually set the width in cases where it makes sense. Just wrap the contents of the column's table heading with a `<div class="big-column">` (180px) or <div class="med-column"> (100px) as needed. See `docs/stylesheets/extra.css` and search for "column width classes" for an explanation and the classes. 
 - **Unsupported language syntax highlighting**. The project uses Pygments for code syntax highlighting. As with all highlighters, some languages aren't explicitly supported. If you can't find your language supported in [this list](https://pygments.org/languages/), you can either write your own, or just use the closest thing you can. This is an edge case. For NodeJs, just use `js`. 
-
