@@ -25,5 +25,5 @@ When do these changes need to be live on the site?
 - [ ] I have performed a self-review of my own documentation.
 
 
-@ampltiude-dev-docs
+@amplitude-dev-docs
 @caseyamp
