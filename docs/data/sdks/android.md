@@ -103,6 +103,8 @@ After you've installed the SDK and its dependencies, import Amplitude into any f
 
 The following functions make up the core of the Amplitude Analytics Android SDK.
 
+----------------------------------------
+
 ### Initialize
 
 You must initialize the SDK before you can instrument. The API key for your Amplitude project is required. We recommend adding this in `onCreate(...)` of your Activity class.
