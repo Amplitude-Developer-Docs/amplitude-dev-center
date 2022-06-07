@@ -29,6 +29,7 @@ js
 Kotlin
 md
 middleware
+Middleware
 NGINX
 NPM
 npm

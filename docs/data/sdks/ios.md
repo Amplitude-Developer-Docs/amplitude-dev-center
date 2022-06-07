@@ -191,7 +191,7 @@ Events represent how users interact with your application. For example, "Button 
 
 #### Events with properties
 
-Events can also contain properties. They give context about the event. For example, "hover time" may be a relevant event property to "button click".
+Events can also contain properties, which give more context about the event. For example, "hover time" may be a relevant event property for "button click".
 
 === "Objective C"
 
@@ -429,9 +429,9 @@ If the user property doesn't exist, it's initialized to an empty list before the
 
 `clearUserProperties` removes all the current user's user properties.
 
-!!!warning
+!!!warning "This action is irreversible"
 
-    This action is irreversible. Amplitude can't sync the user's user property values from before the wipe to any future events.
+    If you clear user properties, Amplitude can't sync the user's user property values from before the wipe to any future events.
 
 === "Objective-C"
 
@@ -696,7 +696,7 @@ You can also add the User ID as an argument to the init call.
     Amplitude.instance().initializeApiKey("API_KEY", userId: "USER_ID")
     ```
 
-Don't assign users a user ID that could change, because each unique user ID as a unique user in Amplitude. Learn more about how Amplitude tracks unique users in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude).
+Don't assign users a user ID that could change, because each unique user ID is a unique user in Amplitude. Learn more about how Amplitude tracks unique users in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude).
 
 ### Debug logging
 
@@ -764,7 +764,7 @@ Before initializing the SDK with your `apiKey`, create a `AMPTrackingOptions` 
     [[Amplitude instance] setTrackingOptions:options];
     ```
 
-Tracking for each field can be individually disabled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
+Tracking for each field can be individually controlled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
 
 | <div class="big-column">Method</div> | Description |
 | --- | --- |
@@ -805,11 +805,11 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
     Amplitude.instance().enableCoppaControl()
     ```
 
-### Advertising ID
+### Advertiser ID
 
 Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
  [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (such as ad campaign, app store search).
- Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA isn't available.
+ Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device ID, or an email login system as alternatives when IDFA isn't available.
 
 === "Objective-C"
 
@@ -830,7 +830,7 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
 
 Note that you need to also add `AdSupport.framework` to your project
 
-### Set IDFA as device Id
+### Set IDFA as device ID
 
 Amplitude uses the IDFV as the device ID by default, but you can change this behavior. After you set up the logic to fetch IDFA, you can also call this [useAdvertisingIdForDeviceId](http://amplitude.github.io/Amplitude-iOS/Classes/Amplitude.html#//api/name/useAdvertisingIdForDeviceId) API to set the IDFA as your `deviceId`. 
 
@@ -846,7 +846,7 @@ If you want to enable SDK to report this information from devices, add `CoreTel
 
 ### Dynamic configuration
 
-The iOS SDK lets users configure their apps to use [dynamic configuration](../dynamic-configuration.md).
+The iOS SDK lets you configure your apps to use [dynamic configuration](../dynamic-configuration.md).
  This feature finds the best server URL automatically based on app users' location.
 
  To use, enable the `useDynamicConfig` flag.
@@ -869,7 +869,7 @@ The iOS SDK lets users configure their apps to use [dynamic configuration](../dy
 
 ### SSL pinning
 
-SSL Pinning is a technique used in the client side to avoid man-in-the-middle attack by validating the server certificates again after SSL handshaking. SSL pinning should only be used if you have a specific need. Contact Amplitude support before you ship any products with SSL pinning enabled.
+SSL Pinning is a technique used in the client side to avoid man-in-the-middle attack by validating the server certificates again after SSL handshaking. Only use SSL pinning if you have a specific reason to do so. Contact Support before you ship any products with SSL pinning enabled.
 
 If you installed the SDK using CocoaPods, you must enable the preprocessor macro via your Podfile by adding this post install hook:
 
@@ -981,6 +981,7 @@ Add middleware to Amplitude via `client.addEventMiddleware`. You can add as man
 You can find examples for [Objective-C](https://github.com/amplitude/ampli-examples/blob/main/ios/objective-c/AmpliObjectiveCSampleApp/AmpliObjectiveCSampleApp/AppDelegate.m#L65) and [Swift](https://github.com/amplitude/ampli-examples/blob/main/ios/swift/AmpliSwiftSampleApp/Shared/AmpliSwiftSampleAppApp.swift#L48).
 
 Learn more about [middleware](../../data/ampli/middleware.md)
+
 ### More resources
 
 If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-iOS/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).

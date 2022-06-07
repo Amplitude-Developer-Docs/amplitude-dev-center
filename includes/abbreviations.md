@@ -8,3 +8,4 @@
 *[ADID]: Android Advertising ID
 *[IDFV]: Identifier for Vendors
 *[IDFA]: Identifier for Advertiser
+*[DMA]: Designated Market Area
