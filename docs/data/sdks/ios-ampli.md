@@ -312,6 +312,7 @@ To update the implementation status in your tracking plan use the `--update` fla
 ```bash
 ampli status -u
 ```
+
 The output displays status and indicates which events are missing.
 
 ```bash
@@ -329,6 +330,7 @@ Learn more about [`ampli status`](/data/using-the-ampli-cli.md#ampli-status).
 Migrate from an Itly iOS runtime to Ampli by following these steps.
 
 1. Remove legacy Itly dependencies from your project. This includes anything with a `ly.iterative.itly`.
+
     ```bash
     pod "ItlySdk", '~> 1.X'
     pod "ItlyAmplitudePlugin", '~> 1.X'
@@ -337,7 +339,9 @@ Migrate from an Itly iOS runtime to Ampli by following these steps.
     pod "ItlyMixpanelPlugin", '~> 1.X'
     pod "ItlySegmentPlugin", '~> 1.X'
     ```
+
 2. Add Amplitude dependencies.
+
     ```bash
     platform :ios, '10.0'
 
@@ -347,11 +351,15 @@ Migrate from an Itly iOS runtime to Ampli by following these steps.
       pod 'Amplitude', "~> 8.6"
     end
     ```
+
 3. Install pods.
+
     ```bash
     pod install
     ```
+
 4. Pull the latest Ampli SDK.
+
     ```bash
     ampli pull
     ```

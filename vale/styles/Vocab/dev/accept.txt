@@ -29,6 +29,7 @@ js
 Kotlin
 md
 middleware
+Middleware
 monorepo
 monorepos
 NGINX
@@ -46,3 +47,4 @@ runtimes
 untyped
 Xcode
 xcodeproj
+ProGuard
