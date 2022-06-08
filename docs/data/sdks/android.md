@@ -229,12 +229,34 @@ Events can contain properties, which give more context about the event. For exam
 
 ### Flush events
 
-Events are typically stored in a buffer and flushed periodically. This behavior is configurable. On Android, this is enabled by default.
+Unset events are stored in a buffer and flushed (sent) on app close by default.Events are flushed based on which criteria is met first: `eventUploadPeriodMillis` or `eventUploadThreshold`. 
 
-=== "Java"
+You can disable flushing or configure the upload period of the event upload threshold. 
+
+=== "Disable flushing"
 
     ```java 
     client.setFlushEventsOnClose(false); //Don't flush events
+
+    ```
+
+=== "Change upload period"
+
+    The default upload period is 30 seconds. Input is in milliseconds
+    
+    ```shell
+
+    Amplitude.getInstance(instanceName).setEventUploadPeriodMillis(100000); // Changes event upload period to 100 seconds
+
+    ```
+
+=== "Change default event buffer"
+
+    The default event buffer is 30. Input is an int. 
+
+    ```shell
+
+    Amplitude.getInstance(instanceName).setEventUploadThreshold(4); // Changes event upload buffer to 4
 
     ```
 
