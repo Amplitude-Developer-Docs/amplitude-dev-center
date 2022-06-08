@@ -4,10 +4,7 @@ description: Learn how to use branches in Ampli with source control systems like
 ---
 
 !!!beta "Beta Notice"
-    This new workflow is in Beta and must be enabled on your account. Contact Support to request
-    access to the improved branching workflow.
-
-    This workflow requires Ampli CLI 1.9.0+
+    This new workflow is in Beta and requires Ampli CLI 1.9.0+
 
 Larger organizations with multiple teams will likely need to make changes to their tracking plan and analytics implementations in parallel.
 
@@ -16,16 +13,18 @@ In this document we'll cover how you can use branches in Ampli with source contr
 ## Workflow summary
 
 When updates need to be made to the tracking plan:
-
+<div class="annotate" markdown>
 1. Create a branch in Amplitude Data. Make tracking plan updates.
-2. Create a branch in Git.[^1]
+2. Create a branch in Git.(1)
 3. Pull the latest generated code for your Data branch into your Git branch with `ampli pull`.
 4. Implement the changes using the Ampli SDK in your code on your Git branch
-5. Verify implementation and Data branch merge status with `ampli status --is-merged`.
+5. Check implementation status with `ampli status`.
 6. Merge the Data branch.
-7. Merge the Git branch.
+7. Check merge status with `ampli status --is-merged`.
+8. Merge the Git branch.
+</div>
 
-[^1]: Using the same name for both the Git branch and Amplitude Data branch is recommended but not required.
+1. Using the same name for both the Git branch and Amplitude Data branch is recommended but not required.
 
 ## Branches in Ampli
 
@@ -46,7 +45,7 @@ Organization: Amplitude Website (Portfolio)
 Source: browser
 Runtime: Browser/TypeScript
 ? Select a branch: feature-branch-name
-✔ Pulling latest version (74.0.0)
+✔ Pulling version 74 (latest)
 ```
 
 If later you would like to change branches you have a couple of options.
@@ -75,7 +74,7 @@ ampli checkout feature-branch-name
 Source: browser
 Runtime: Browser/TypeScript
 Branch: feature-branch-name
-✔ Pulling latest version (74.0.0)
+✔ Pulling version 74 (latest)
 All events are up to date.
 ```
 
@@ -112,7 +111,7 @@ In addition to verifying implementation status of the tracking plan in your sour
 ```bash
 b1           1 -> 2 -> 3
             /            \
-main       1      ->      2    ->    3
+main       1      ->      2    ->   3
            \ \                     /
 b2          \ 1 -> 2 -> 3 -> 4 -> 5
              \
@@ -129,9 +128,9 @@ ampli status --is-merged
   ✔ Event A (1 location)
   ✔ Event B (1 location)
 ✔ All events tracked 2 found, 2 total
-⚠ WARNING The current branch branch-mapping version 74.0.0 has already been merged into main. Verified implementation against main version 75.0.0.
+⚠ WARNING The current branch branch-mapping version 74 has already been merged into main. Verified implementation against main version 75.
 We recommend running ampli pull to update to the latest tracking plan.
-✔ Branch branch-mapping version 74.0.0 is merged.
+✔ Branch branch-mapping version 74 is merged.
 ```
 
 The `--is-merged` flag checks the current Branch and Version in your `ampli.json`. If the exact Version of the Branch was merged into Ampli main it will succeed, otherwise it will exit with error code 1. It will always return success for the Ampli `main` branch.
@@ -166,16 +165,6 @@ The `--is-latest-if-not-on-default-branch` works the same as `is-latest` but wil
 
 For the branch structure above, `is-latest-if-not-on-default-branch` would return success for `b2@5` , `b3@4`, `main@3`, `main@2`, `main@1`.
 
-!!!note
-
-    Although it is usually not necessary, if you can "lock" a merged version to the associated version of main. This is
-    useful you want to keep the current version fixed regardless of new tracking plan changes. Once the branch is on
-    `main` any future calls to `--is-latest-if-not-on-default-branch` to pass.
-
-    If you run `ampli pull` on a merged version it will update the `ampli.json` and Ampli SDK to contain the associated
-    version main that was created by the merged branch. If you want to get the latest version of `main` you can run
-    `ampli pull` a second time.
-
 ### Combining checks
 
 When you combine multiple checks ampli status will return success only if all checks pass - i.e. an failure in any check results in an error exit code.
@@ -190,8 +179,8 @@ ampli status --is-merged --is-latest
   ✘ Event A
   ✘ Event B
 ✘ ERROR Event tracking incomplete 2 missed, 2 total
-✘ ERROR Branch feature-branch-name version 73.0.0 is not merged.
-✘ ERROR Branch feature-branch-name latest version is 74.0.0. You are on 73.0.0. Run ampli pull to update.
+✘ ERROR Branch feature-branch-name version 73 is not merged.
+✘ ERROR Branch feature-branch-name latest version is 74. You are on 73. Run ampli pull to update.
 ```
 
 Here are some common errors and solutions for the ampli status command.
@@ -212,7 +201,7 @@ get the latest updates.
 #### `is-latest` error
 
 * This means you are not on the latest version of your Data branch.
-* Run ampli pull to update your local project.
+* Run `ampli pull` to update your local project.
 
 ### Enforcing branch coordination
 
@@ -224,9 +213,9 @@ ampli status --is-merged --is-latest
   ✔ Event A (1 location)
   ✔ Event B (1 location)
 ✔ All events tracked 2 found, 2 total
-⚠ WARNING The current branch feature-branch-name version 74.0.0 has already been merged into main. Verified implementation against main version 75.0.0.
+⚠ WARNING The current branch feature-branch-name version 74 has already been merged into main. Verified implementation against main version 75.
 We recommend running ampli pull to update to the latest tracking plan.
-✔ Branch feature-branch-name version 74.0.0 is merged.
+✔ Branch feature-branch-name version 74 is merged.
 ✔ You are on the latest version of feature-branch-name
 ```
 
@@ -243,17 +232,36 @@ Before merging your Git branch with implementation changes you should verify tha
 
 Branch status checks can be added in CI to ensure the best practices are enforced.
 
-We recommend adding new status checks to all your PR workflows. In addition to `ampli status -u` you should add also add a call to `ampli status --is-merged --is-latest`.
+We recommend adding new status checks to all your PR workflows. In addition to `ampli status -u`* you should add also add a call to `ampli status --is-merged`.
 
 You can combine these into a single command, but for CI it can be useful to keep them separate to see if the implementation checks succeed independently from the branch checks.
 
-In PR workflows were recommend the use of `--is-latest-if-not-default-branch` and `--skip-update-on-default-branch` as shown in the examples below.
+* In PR workflows we recommend the use of `--skip-update-on-default-branch` when calling `--update` or `-u`.
+
+### Using `is-latest` in CI
+Using `is-latest` in CI workflows is not necessary but can be used for stricter enforcement.
+
+If `is-latest` is used in a multi-team environment or on a tracking plan with multiple Sources it can require additional steps to keep the merge checks in a passing state. Changes merged into to the `main` tracking plan by other teams or on other Sources will cause future runs of `is-latest` to fail in your project as it is no longer on the latest version.
+
+In this case you can explicitly "lock" the tracking plan to a specific version on the `main` branch and using `--is-latest-if-not-on-default-branch`.
+
+This means any time an "external" change happens to the tracking plan you will need to do the following.
+
+1. Run `ampli pull` to update the `ampli.json` to be on the `main` Branch.
+2. Commit changes to Git branch.
+
+
+Once the `ampli.json` is on the `main` branch future calls to `--is-latest-if-not-on-default-branch` will pass. This is useful you want to keep the current version fixed regardless of new tracking plan changes.
+
+!!!info
+
+    If you run `ampli pull` on a merged version it will update the `ampli.json` and Ampli SDK to contain the associated version main that was created by the merged branch. If you want to get the latest version of `main` you can run `ampli pull` a second time.
 
 ## Github Actions
 
 ### Initial Setup
 
-1. Add `ampli-implementation-check.yml` and `ampli-merge-check.yml` to your `.github/workflows directory`.
+1. Add `ampli-implementation-check.yml` and `ampli-merge-check.yml` to your `.github/workflows` directory.
 
 `ampli-implementation-check.yml`
 
@@ -278,7 +286,7 @@ jobs:
 `ampli-merge-check.yml`
 
 ```yaml
-name: Ampli Merge Check - PR - Stargate Client
+name: Ampli Merge Check
 on: pull_request
 
 jobs:
@@ -292,7 +300,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check the Data branch is merged before merging the Git branch
-        run: ampli status --is-merged --is-latest-if-not-default-branch -t ${{secrets.AMPLI_TOKEN}}
+        run: ampli status --is-merged -t ${{secrets.AMPLI_TOKEN}}
 ```
 
 2. If your Ampli project is in a subdirectory, you may need to set the correct working-directory in your Actions. See Github documentation [here](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).

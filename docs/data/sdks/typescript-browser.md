@@ -7,7 +7,7 @@ icon: material/language-typescript
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)
 
-!!!note "This SDK is in Beta"
+!!!beta "This SDK is in Beta"
 
 !!!info "SDK Resources"
     - [TypeScript Browser SDK Reference :material-book:](https://amplitude.github.io/Amplitude-TypeScript/)
