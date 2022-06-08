@@ -261,6 +261,7 @@ nav:
     - Event Streaming:
       - Braze: data/destinations/braze.md
       - Pub/Sub: data/destinations/google-pub-sub.md
+      - Google Analytics 4: data/destinations/google-analytics-4.md
       - Intercom: data/destinations/intercom.md
       - Iterable: data/destinations/iterable.md
       - Kinesis: data/destinations/kinesis-data-stream.md
