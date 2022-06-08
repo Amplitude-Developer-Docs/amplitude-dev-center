@@ -43,7 +43,7 @@ Now that you have Ampli installed, `cd` into your project's root folder and init
 ampli pull
 ```
 
-A browser window will open and automatically log you in or prompt you for your credentials. Ampli will store your project-specific settings in `ampli.json` and your user-specific settings (such as your credentials) in `~/ampli.json`. Depending on your Amplitude organization settings, the CLI might prompt you to choose your Organization and/or Workspace.
+A browser window opens and automatically logs you in or prompt you for your credentials. Ampli stores your project-specific settings in `ampli.json` and your user-specific settings (such as your credentials) in `~/ampli.json`. Depending on your Amplitude organization settings, the CLI might prompt you to choose your Organization and/or Workspace.
 
 ### Step 3: Generate your analytics SDK
 
@@ -55,14 +55,13 @@ ampli pull {source-name}
 
 The pull command takes one argument: the name of a source created in your Amplitude Data account. For example, a source might be `ios`, `android`, `web`, or `backend`. Events associated with a particular source will appear in the auto-generated SDK. Those that aren't will not. This makes sure your events are tracked consistently on all the sources you'd like to track them on.
 
-The pull command will also tell you what, if anything, has changed since the last time you pulled your team's analytics spec. You can use this as a guide for getting your analytics instrumentation up-to-date.
+The pull command also tells you what, if anything, has changed since the last time you pulled your team's analytics spec. You can use this as a guide for getting your analytics instrumentation up-to-date.
 
-As your project progresses, you and your team will inevitably make changes to your tracking plan. Amplitude Data will notify you when those changes are made and when you’re ready, you can pull down the changes and incorporate them into your project.
+As your project progresses, you and your team will inevitably make changes to your tracking plan. Amplitude Data notifies you when those changes are made and when you’re ready, you can pull down the changes and incorporate them into your project.
 
 ### Step 4: Instrument your product
 
-Once you have pulled down the latest tracking plan, learn how to [instrument your product](sdk.md).
-
+After you have pulled down the latest tracking plan, learn how to [instrument your product](sdk.md).
 
 ### Step 5: Verify the instrumentation
 
@@ -72,7 +71,7 @@ To make sure you’re tracking all the right events, and that you’re tracking 
 ampli status --update
 ```
 
-The verify command will scan your source code for tracking calls and compare the results to what's expected per your team's tracking plan. Include `--update` to update your company's tracking plan online and share the latest analytics implementation status with your team. If the command reports all green, you're all good!
+The verify command scans your source code for tracking calls and compare the results to what's expected per your team's tracking plan. Include `--update` to update your company's tracking plan online and share the latest analytics implementation status with your team. If the command reports all green, you're all good!
 
 You can configure your [CI pipeline](integrating-with-ci.md) to automatically run the `ampli status` command at check-in so you never miss another analytics bug again.
 
@@ -148,8 +147,8 @@ EXAMPLES
   $ ampli status -u --skip-update-on-default-branch
 ```
 
-Run this command in the root folder of your project. The command will
-scan your source files, locate all calls to the Itly tracking library, and
+Run this command in the root folder of your project. The command
+scans your source files, locate all calls to the Itly tracking library, and
 let you know which events are being tracked, and which have yet to be
 instrumented.
 
@@ -159,7 +158,7 @@ are tracked.
 
 If you're integrating Ampli into CI, there are typically two pipelines you'll want to run `ampli status` in:
 
-1. Your production branch pipeline that runs when pull/merge requests get merged into your main/default branch (typically main). To make sure the code being checked there is correct and from Amplitude Data's **main** branch, run `ampli status -u -b main`. If the Amplitude Data branch instrumented in your source code isn't **main**, the command will fail; otherwise, it will update the **main** branch's tracking plan.
+1. Your production branch pipeline that runs when pull/merge requests get merged into your main/default branch (typically main). To make sure the code being checked there is correct and from Amplitude Data's **main** branch, run `ampli status -u -b main`. If the Amplitude Data branch instrumented in your source code isn't **main**, the command fails; otherwise, it updates the **main** branch's tracking plan.
 2. Your pull/merge request pipeline that runs when a pull/merge request is created for a branch. To verify instrumentation in this generic case, run `ampli status -u --skip-update-on-default-branch`. The command will verify against the current branch but will only update the tracking plan instrumentation status for branches other than **main**. This safely keeps status of events in development out of the main tracking plan.
 
 `ampli status` passes and returns an exit code of 0 if all events are tracked as expected, or fails and returns the number of events that aren't.
@@ -249,3 +248,28 @@ user.
 ### All `ampli` Commands
 
 Find all `ampli` commands available [here](https://www.npmjs.com/package/@amplitude/ampli)
+
+## Use Ampli with a monorepo
+
+The Ampli CLI is designed to work with a single source per project (folder). For single source projects, we recommend running `ampli pull` from the root directory of the repo. 
+
+In monorepos with multiple sources, you must run `ampli pull` and `ampli status` from each source's folder.
+
+!!!example
+
+    You have two sources: `web` and `backend` that are used in the same repo. 
+
+    ```txt
+    monorepo/
+      web/
+        ampli.json (for Browser source)
+        package.json
+      backend/
+        ampli.json (for Node source)
+        package.json
+    ```
+    
+    You run `ampli pull` in `web/` for Browser and again in `backend/` for Node.
+
+    To verify instrumentation status run `cd ~/monorepo/web && ampli status` for Browser, and `cd ~/monorepo/backend && ampli status` for Node.
+

@@ -29,6 +29,8 @@ js
 Kotlin
 md
 middleware
+monorepo
+monorepos
 NGINX
 NPM
 npm
