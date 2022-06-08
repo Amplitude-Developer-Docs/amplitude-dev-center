@@ -5,6 +5,8 @@ description: Amplitude Data's Meta Pixel integration lets you stream your Amplit
 
 Amplitude Data's Meta Pixel integration lets you stream your Amplitude event data straight to Meta Pixel with just a few clicks.
 
+--8<-- "includes/closed-beta.md"
+
 ## Considerations
 
 Keep these things in mind when sending Amplitude data to Meta. 

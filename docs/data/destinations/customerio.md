@@ -5,16 +5,18 @@ description: Amplitude Data's Customer.io integration lets you stream your Ampli
 
 Amplitude Data's Customer.io integration lets you stream your Amplitude event data straight to Customer.io with just a few clicks.
 
+--8<-- "includes/closed-beta.md"
+
 ## Considerations
 
-Keep a few things in mind when sending events to [Customer.io:](http://customer.io/)
+Keep these things in mind when sending events to [Customer.io:](http://customer.io/)
 
 - Amplitude matches the `user_id`to the `id` within Customer.io to associated events. If user with that `id` does not exist within Customer.io, a new user will be created. Make sure that the Amplitude `user_id` field matches the Customer.io `id` field to avoid user duplication.
 - Relevant limits for Customer.io events are:
   - Maximum length of Customer ID: 150 bytes
   - Maximum number of Unique Identify attributes: 300
   - Maximum size of event data: 100K bytes
-- All events streaming through Amplitude are sent to Customer.io as an `event` event type, including mobile and webpage views. See the [Customer.io API reference](https://www.customer.io/docs/api/#tag/Track-Events) for more details.
+- Amplitude sends events to Customer.io as an `event` event type, including mobile and webpage views. See the [Customer.io API reference](https://www.customer.io/docs/api/#tag/Track-Events) for more details.
 - Amplitude sends all user, event, and group properties along with the event.
 
 ## Setup
