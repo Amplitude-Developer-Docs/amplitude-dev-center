@@ -8,5 +8,6 @@
 - :google-pub-sub: [Google Pub/Sub](../data/destinations/google-pub-sub.md)
 - :intercom: [Intercom](../data/destinations/intercom.md)
 - :iterable: [Iterable](../data/destinations/iterable.md)
+- :meta: [Meta Pixel](../data/destinations/meta-pixel.md)
 
 </div>

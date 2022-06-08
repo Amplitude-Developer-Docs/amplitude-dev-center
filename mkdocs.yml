@@ -246,9 +246,10 @@ nav:
       - Snowflake: data/sources/snowflake.md
       - Other:
         - Converter Configuration: data/converter-configuration-reference.md
-    - data/sources/shopify.md
-    - data/sources/google-tag-manager.md
-    - data/sources/adobe.md
+    - Other Sources:
+      - data/sources/shopify.md
+      - data/sources/google-tag-manager.md
+      - data/sources/adobe.md
   - Destinations: 
     - Overview: data/destinations.md
     - Warehouse:
@@ -264,6 +265,7 @@ nav:
       - Iterable: data/destinations/iterable.md
       - Kinesis: data/destinations/kinesis-data-stream.md
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
+      - Meta Pixel: data/destinations/meta-pixel.md
 - Partners:
   - partners/index.md
   - Overview: partners/index.md
