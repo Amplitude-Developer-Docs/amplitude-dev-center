@@ -45,7 +45,7 @@ Here is how Amplitude determines each variable in the formula:
 - Number of conditions: This is the number of segments plus the number of conditions within the segments applied to the chart you are looking at. Each group by counts as 4 segments.
 
 ???example "Simple query cost example"
-    This configuration generates a cost of 10 because in has one segment (by Any Users, cost of one), one condition (Language = English, cost of one), and two group bys (Country and Platform, cost of four each) applied. Filters on events don't count in this section.
+    This configuration generates a cost of 10 because in has one segment (by Any Users, cost of one), one condition (Language = English, cost of one), and two group by values (Country and Platform, cost of four each) applied. Filters on events don't count in this section.
     ![screenshot of an event with one segment, one condition, and two group by values](/../../assets/images/dashboard-api-query-cost-example.png)
 
 ???example "Funnel analysis cost example"
