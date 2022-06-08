@@ -247,9 +247,10 @@ nav:
       - Snowflake: data/sources/snowflake.md
       - Other:
         - Converter Configuration: data/converter-configuration-reference.md
-    - data/sources/shopify.md
-    - data/sources/google-tag-manager.md
-    - data/sources/adobe.md
+    - Other Sources:
+      - data/sources/shopify.md
+      - data/sources/google-tag-manager.md
+      - data/sources/adobe.md
   - Destinations: 
     - Overview: data/destinations.md
     - Warehouse:
@@ -259,12 +260,16 @@ nav:
       - BigQuery: data/destinations/bigquery.md
       - Snowflake: data/destinations/snowflake.md
     - Event Streaming:
+      - AppsFlyer: data/destinations/appsflyer.md
       - Braze: data/destinations/braze.md
+      - Customer.io: data/destinations/customerio.md
       - Pub/Sub: data/destinations/google-pub-sub.md
+      - Google Analytics 4: data/destinations/google-analytics-4.md
       - Intercom: data/destinations/intercom.md
       - Iterable: data/destinations/iterable.md
       - Kinesis: data/destinations/kinesis-data-stream.md
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
+      - Meta Pixel: data/destinations/meta-pixel.md
 - Partners:
   - partners/index.md
   - Overview: partners/index.md
