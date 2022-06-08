@@ -260,6 +260,7 @@ nav:
       - Snowflake: data/destinations/snowflake.md
     - Event Streaming:
       - Braze: data/destinations/braze.md
+      - Customer.io: data/destinations/customerio.md
       - Pub/Sub: data/destinations/google-pub-sub.md
       - Google Analytics 4: data/destinations/google-analytics-4.md
       - Intercom: data/destinations/intercom.md
