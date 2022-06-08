@@ -229,7 +229,7 @@ Events can contain properties, which give more context about the event. For exam
 
 ### Flush events
 
-Unset events are stored in a buffer and flushed (sent) on app close by default.Events are flushed based on which criteria is met first: `eventUploadPeriodMillis` or `eventUploadThreshold`. 
+Unset events are stored in a buffer and flushed (sent) on app close by default. Events are flushed based on which criteria is met first: `eventUploadPeriodMillis` or `eventUploadThreshold`. 
 
 You can disable flushing or configure the upload period of the event upload threshold. 
 
@@ -242,7 +242,7 @@ You can disable flushing or configure the upload period of the event upload thre
 
 === "Change upload period"
 
-    The default upload period is 30 seconds. Input is in milliseconds
+    The default upload period is 30 seconds. Input is in milliseconds.
     
     ```shell
 
