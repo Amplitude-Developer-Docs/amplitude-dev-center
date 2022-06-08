@@ -187,6 +187,7 @@ nav:
     - JVM SDK (Beta): experiment/sdks/jvm-sdk.md
     - Go SDK (Beta): experiment/sdks/go-sdk.md
     - Ruby SDK (Beta): experiment/sdks/ruby-sdk.md
+    - Python SDK (Beta): experiment/sdks/python-sdk.md
   - REST APIs:
     - Evaluation API: "https://developers.experiment.amplitude.com/reference/get_v1-vardata"
     - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
