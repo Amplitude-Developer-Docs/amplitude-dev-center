@@ -19,7 +19,7 @@ Once you have instrumented your events, the first step is to manually fire some 
 2. Ensure you're looking at user-level details, and not account-level details.
 3. Search by user ID, device ID, Amplitude ID, or user property values.
 
-![Amplitude User Lookup](../../assets/images/user-lookup.png)
+![Amplitude User Lookup](/../assets/images/user-lookup.png)
 
 ### Step 2: Analyze the event stream
 
@@ -30,7 +30,7 @@ Clicking on an event will give you detailed information about it, including the 
 Because the event stream is essentially updated in real-time (when you switch the Live event updates toggle to On), it can be used to assure new features are being logged correctly and to troubleshoot or debug instrumentation errors. For example, if you trigger an event only once but the event stream consistently displays two instances of the event, then there could be an instrumentation error.
 
 You can view additional information and the raw data of an event by clicking Raw.
-![Amplitude User Lookup Events](../../assets/images/user-lookup-events.png)
+![Amplitude User Lookup Events](/../assets/images/user-lookup-events.png)
 
 ## Instrumentation Explorer
 
@@ -40,28 +40,28 @@ The Amplitude Instrumentation Explorer is an extension in the Google Chrome Web 
 
 In the Instrumentation Explorer, the *Events* tab is where you'll find detailed insights into the parameters of each event **you** trigger on your website. This includes `user_id`, `device_id`, `event_properties`, and `user_properties`.
 
-![Amplitude Instrumentation Explorer](../../assets/images/instrumentation-explorer.png)
+![Amplitude Instrumentation Explorer](/../assets/images/instrumentation-explorer.png)
 
 To switch between the different Amplitude projects that are receiving your events, select it from the Project dropdown. Each Amplitude project is distinguished by an abbreviated API key:
 
-![Amplitude Instrumentation Explorer View Projects](../../assets/images/instrumentation-explorer-projects.png){: style="max-width:70%;display:block;margin:auto"}
+![Amplitude Instrumentation Explorer View Projects](/../assets/images/instrumentation-explorer-projects.png){: style="max-width:70%;display:block;margin:auto"}
 
 To clear all the events from your popup, click the "Forbidden" icon: 
 
-![Amplitude Instrumentation Explorer Clear Data](../../assets/images/instrumentation-explorer-clear.png){: style="max-width:70%;display:block;margin:auto"}
+![Amplitude Instrumentation Explorer Clear Data](/../assets/images/instrumentation-explorer-clear.png){: style="max-width:70%;display:block;margin:auto"}
 
 To copy your events' event and user property parameters, click the "Copy" icons:
 
-![Amplitude Instrumentation Explorer Copy Data](../../assets/images/instrumentation-explorer-copy.png){: style="max-width:70%;display:block;margin:auto"}
+![Amplitude Instrumentation Explorer Copy Data](/../assets/images/instrumentation-explorer-copy.png){: style="max-width:70%;display:block;margin:auto"}
 
 ### View your configuration options
 
 To view the configuration options you've set for each project's SDK, click the API Options tab:
 
-![Amplitude Instrumentation Explorer Configuration](../../assets/images/instrumentation-explorer-configuration.png){: style="max-width:70%;display:block;margin:auto"}
+![Amplitude Instrumentation Explorer Configuration](/../assets/images/instrumentation-explorer-configuration.png){: style="max-width:70%;display:block;margin:auto"}
 
 ### View your hidden events
 
 To see a list of your hidden events or to display events on the webpage as they are triggered, click the *Settings* tab.
 
-![Amplitude Instrumentation Explorer Settings](../../assets/images/instrumentation-explorer-settings.png){: style="max-width:70%;display:block;margin:auto"}
+![Amplitude Instrumentation Explorer Settings](/../assets/images/instrumentation-explorer-settings.png){: style="max-width:70%;display:block;margin:auto"}
