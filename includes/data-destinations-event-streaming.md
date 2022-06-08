@@ -2,6 +2,7 @@
 
 <div class="grid cards" markdown>
 
+- :appsflyer: [AppsFlyer](../data/destinations/appsflyer.md)
 - :amazon-kinesis: [Amazon Kinesis Data Stream](../data/destinations/kinesis-data-stream.md)
 - :amazon-kinesis: [Amazon Kinesis Firehose](../data/destinations/kinesis-firehose.md)
 - :braze: [Braze](../data/destinations/braze.md)

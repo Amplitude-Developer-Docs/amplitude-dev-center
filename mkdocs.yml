@@ -259,6 +259,7 @@ nav:
       - BigQuery: data/destinations/bigquery.md
       - Snowflake: data/destinations/snowflake.md
     - Event Streaming:
+      - AppsFlyer: data/destinations/appsflyer.md
       - Braze: data/destinations/braze.md
       - Customer.io: data/destinations/customerio.md
       - Pub/Sub: data/destinations/google-pub-sub.md
