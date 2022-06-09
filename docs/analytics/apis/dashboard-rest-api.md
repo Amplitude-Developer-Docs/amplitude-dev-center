@@ -3,7 +3,7 @@ title: Dashboard REST API
 description: The Dashboard REST API lets you get the data displayed on dashboard graphs in Amplitude. 
 ---
 
-You can get data that's displayed on the dashboard graphs in JSON format via the Dashboard REST API.
+You can get data that's displayed on the dashboard graphs in JSON format via the Dashboard REST API. Learn more about dashboards in the [Amplitude Help Center](https://help.amplitude.com/hc/en-us/articles/229505188).
 
 --8<-- "includes/postman.md"
 
@@ -24,11 +24,11 @@ You can get data that's displayed on the dashboard graphs in JSON format via the
 
 ### Rate limits
 
-For each endpoint, there is a concurrent limit and a rate limit. The concurrent limit restricts the amount of requests you can run at the same time. The rate limit restricts the total number of queries you can run per hour. Exceeding these limits returns a 429 error. These limits are per project, and the 429 error also includes information on how you are exceeding the limit.
+For each endpoint, there is a concurrent limit and a rate limit. The concurrent limit restricts the number of requests you can run at the same time. The rate limit restricts the total number of queries you can run per hour. Exceeding these limits returns a 429 error. These limits are per project, and the 429 error also includes information on how you are exceeding the limit.
 
-**Concurrent Limit**: You can run up to 5 concurrent requests across all Amplitude REST API endpoints,including cohort download.
+**Concurrent Limit**: You can run up to 5 concurrent requests across all Amplitude REST API endpoints, including cohort download.
 
-#### User Activity/User Search
+#### User activity/user search limits
 
 You can run up to 360 queries per hour for user activity and user search endpoints.
 The [User Activity](https://developers.amplitude.com/docs/dashboard-rest-api#user-activity) and [User Search](https://developers.amplitude.com/docs/dashboard-rest-api#user-search) endpoints have a different rate limit than all other request types.
@@ -41,7 +41,7 @@ All other endpoints use *cost per query* model. Amplitude calculates cost based 
 
 Here is how Amplitude determines each variable in the formula:
 
-- Number of days: This is the number of days your are querying.
+- Number of days: This is the number of days in the query.
 - Number of conditions: This is the number of segments plus the number of conditions within the segments applied to the chart you are looking at. Each group by counts as 4 segments.
 
 ???example "Simple query cost example"
@@ -78,13 +78,13 @@ These query parameters are shared across several Dashboard REST API endpoints.
 
 | Parameter | Description |
 | --- | --- |
-| `e` | A full event with optional property filters or group by. Events are represented as JSON objects as described below. |
-| `s` | Segment definitions. Include as many as needed. Segments are represented as JSON arrays, where each element is a JSON object corresponding to a filter condition as described below. |
+| `e` | A full event with optional property filters or group by. Events are represented as JSON objects as described in [event format](#event-format). |
+| `s` | Segment definitions. Include as many as needed. Segments are represented as JSON arrays, where each element is a JSON object corresponding to a filter condition as described [segment definition](#segment-definition). |
 | `g` | The property to group by, for example `platform`. Available only when there is a single segment. Limit: two. |
 
-### Event Format
+### Event format
 
-The event parameter contains the following keys
+The event parameter can include these keys:
 
 | <div class ="big-column">Name</div>| Description|
 |-----|------------|
@@ -151,6 +151,8 @@ Get JSON results from any saved chart via chart ID.
 
 ### Example request
 
+--8<-- "includes/postman.md"
+
 ```bash
 GET /api/3/chart/:chart_id/ HTTP/1.1
 Host: amplitude.com
@@ -174,6 +176,8 @@ Get the number of active or new users.
 `GET https://amplitude.com/api/2/users`
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/users?users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
@@ -222,6 +226,8 @@ Get the number of sessions for each pre-defined length ("bucket") period during 
 `GET https://amplitude.com/api/2/sessions/length`
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=minutes&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10 HTTP/1.1
@@ -277,6 +283,8 @@ Get the average session length (in seconds) for each day in the specified date r
 
 ### Example request
 
+--8<-- "includes/postman.md"
+
 ```bash
 GET /api/2/sessions/average?start=20210601&end=20210630 HTTP/1.1
 Host: amplitude.com
@@ -322,6 +330,8 @@ Returns a JSON object with this schema:
 Get the average number of sessions per user on each day in the specified date range.
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/sessions/average?start=20210601&end=20210630
@@ -369,6 +379,8 @@ Get the distribution of users across values of a user property in the specified 
 
 ### Example request
 
+--8<-- "includes/postman.md"
+
 ```bash
 GET /api/2/composition?start=20210601&end=20210630&p=platform HTTP/1.1
 Host: amplitude.com
@@ -379,8 +391,8 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 |Name|Description|
 |----|-----------|
-|`start`| First date included in data series, formatted YYYYMMDD. For example, "20221001".|
-|`end`|Last date included in data series, formatted YYYYMMDD.  For example, "20221001".|
+|`start`| Required. First date included in data series, formatted YYYYMMDD. For example, "20221001".|
+|`end`|Required. Last date included in data series, formatted YYYYMMDD.  For example, "20221001".|
 |`p`| Required. The property to get the composition of. For built-in Amplitude properties, valid values are `version`, `country`, `city`, `region`, `DMA`, `language`, `platform`, `os`, `device`, `start_version`, and `paying`. For custom-defined user properties, format the key as gp:name.|
 
 ### Response
@@ -412,6 +424,8 @@ Get the list of events with the current week's totals, uniques, and % DAU (daily
 `GET https://amplitude.com/api/2/events/list`
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/events/list HTTP/1.1
@@ -483,7 +497,7 @@ Remember that you may have to URL encode special characters in the names of even
 | `m` | Optional. Non-property metrics: `uniques`, `totals`, `pct_dau`, or `average`. Defaults to `uniques`. Property metrics: `histogram`, `sums`, or `value_avg`.  To use property metrics, you must include a valid group by value  in parameter `e`.  *For custom formulas: "formula" (Note: This metric only supports up to two events currently and the second event needs to have the parameter "e2").* |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
-| `i` | Set to -300000, -3600000, 1, 7, or 30 for real-time, hourly, daily, weekly, and monthly counts, respectively. Defaults to 1. Real-time segmentation is capped at 2 days, hourly segmentation is capped at 7 days, and daily at 365 days. |
+| `i` | Set to -300000, -3600000, 1, 7, or 30 for real-time, hourly, daily, weekly, and monthly counts, respectively. Defaults to 1. Real-time segmentation displays up to 2 days of data, hourly segmentation displays up to 7 days of data, and daily displays up to 365 days of data. |
 | `s`  | Optional. Segment definitions (default: none). [Full description](#shared-query-parameters). |
 | `g` | Optional. Include up to two. The property to group by. Defaults to none. [Full description](#event-format). |
 | `limit` | Optional. The number of Group By values returned (default: 100). The limit is 1000. |
@@ -540,14 +554,14 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 |Name|Description|
 |----|--------|
 |`e`| Required. A full event for each step in the funnel. [Full description](#shared-query-parameters)
-|`start`| Required. First date included in data series, formatted YYYYMMDD. For example, "20221001".|
-|`end`|Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001".|
-|`mode`|Optional. What mode to run the funnel in: "ordered" for events in the given order, "unordered" for events in any order, and "sequential" for events in the given order with no other events between. (default: "ordered").|
-|`n`| Optional. Either "new" or "active" to specify what set of users to consider in the funnel (default: "active").|
-|`s`| Optional. Segment definitions (default: none).|
-|`g`| Optional. The property to group by (default: none). [Full description](#shared-query-parameters).|
-|`cs`| Optional. The conversion window in seconds (default: 2,592,000 -- 30 days). Conversion windows are automatically rounded down to the nearest day in "unordered" mode.|
-|`limit`| Optional. The number of Group By values returned (default: 100). The maximum limit is 1000.|
+|`start`| Required. First date included in data series, formatted YYYYMMDD. For example, `20221001`.|
+|`end`|Required. Last date included in data series, formatted YYYYMMDD. For example, `20221001`.|
+|`mode`|Optional. What mode to run the funnel in: `ordered` for events in the given order, `unordered` for events in any order, and `sequential` for events in the given order with no other events between. Defaults to `ordered`.|
+|`n`| Optional. Either "new" or "active" to specify what set of users to consider in the funnel. Defaults to `active`.|
+|`s`| Optional. Segment definitions. Defaults to none. [Full description](#shared-query-parameters). |
+|`g`| Optional. The property to group by. Defaults to none. [Full description](#shared-query-parameters).|
+|`cs`| Optional. The conversion window in seconds. Defaults to 2,592,000 (30 days). Conversion windows are automatically rounded down to the nearest day in "unordered" mode.|
+|`limit`| Optional. The number of Group By values returned Defaults to 100. The maximum is 1000.|
 
 ### Response
 
@@ -627,22 +641,22 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 | Parameter | Description |
 | --- | --- |
-| `se` | Required. Full event for the start action. Supports two "event_type" values: "_new" for new users, and "_active" for all users. |
-| `re` | Required. Full event for the returning action. Supports one "event_type" value: "_all" for all events and "_active" for all active events. |
-| `rm` (optional) | Optional. The retention type: bracket, rolling, or n-day. Note that rolling implies unbounded retention. (Default: n-day, no need to call it explicitly). |
-| `rb`  | (optional, required if `rm` is set to bracket)The days within each bracket, formatted [0,4] (for example, if your bracket was Day 0 - Day 4, the parameter value would be [0,5]). |
+| `se` | Required. Full event for the start action. Supports two `event_type` values: `_new` for new users, and `_active` for all users. |
+| `re` | Required. Full event for the returning action. Supports one `event_type` value: `_all` for all events and `_active` for all active events. |
+| `rm` | Optional. The retention type: bracket, rolling, or n-day. Note that rolling implies unbounded retention. Defaults to n-day, no need to call it explicitly. |
+| `rb`  | Optional, but required if `rm` is set to bracket. The days within each bracket, formatted [0,4]. For example, if your bracket was Day 0 - Day 4, the parameter value would be [0,5]. |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
-| `i` (optional) | Optional. Either 1, 7, or 30 for daily, weekly, and monthly counts, respectively (default: 1). |
-| `s` (optional) | Optional. Segment definitions (default: none). [Full description](#segment-definition). |
-| `g` (optional) (up to 1) | Optional. Limit: one. The property to group by (default: none). [Full description](#event-format). |
+| `i` | Optional. Either 1, 7, or 30 for daily, weekly, and monthly counts, respectively. Defaults to 1. |
+| `s` | Optional. Segment definitions. Defaults to none. [Full description](#segment-definition). |
+| `g` | Optional. Limit: one. The property to group by. Defaults to none. [Full description](#event-format). |
 
 ### Response
 
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
 | `series` | A JSON object containing two keys.  <br>  <br>**dates** - An array of formatted string dates, one for each date in the specified range (in descending order).  <br>**values** - A JSON object with one key for each date, where each value is an array whose n-th element corresponds to the retention for n intervals (days, weeks, or months depending on i) out. This is by each interval. |
-| `count` | The number of users who were retained in that interval. |
+| `count` | The number of users retained in that interval. |
 | `outof` | The total number of users in the cohort (users who performed the starting action on the date), respectively. |
 | `incomplete` | Whether users in that date have had enough time to be retained. |
 | `combined` | A JSON object where each value is an array whose n-th element corresponds to the retention for n intervals (days, weeks, or months depending on i) out. This object is the deduplicated aggregate of all date cohorts from the values JSON object. |
@@ -685,6 +699,8 @@ Get a user summary and their most recent 1000 events, plus all events from their
 `GET https://amplitude.com/api/2/useractivity`
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/useractivity?user=247246881751 HTTP/1.1
@@ -749,11 +765,13 @@ The response is a JSON object with this schema:
 
 ## User search
 
-Search for a user with a specified Amplitude ID, Device ID, User ID, or User ID prefix. Exceeding the request limits results in 429 errors.
+Search for a user with a specified Amplitude ID, device ID, user ID, or user ID prefix. Exceeding the request limits results in 429 errors.
 
 `GET https://amplitude.com/api/2/usersearch`
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/usersearch?user=user_id HTTP/1.1
@@ -793,6 +811,8 @@ Get active user numbers with minute granularity for the last two days.
 `GET https://amplitude.com/api/2/realtime`
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/realtime?i=5 HTTP/1.1
@@ -836,6 +856,8 @@ Get the lifetime value of new users.
 `GET https://amplitude.com/api/2/revenue/ltv`
 
 ### Example request
+
+--8<-- "includes/postman.md"
 
 ```bash
 GET /api/2/revenue/ltv?start=20211201&end=20220301&i=30 HTTP/1.1
