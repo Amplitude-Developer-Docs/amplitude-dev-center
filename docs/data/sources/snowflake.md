@@ -55,27 +55,27 @@ You must include the mandatory fields for the data type when creating the SQL qu
 
 ### Events
 
-| Column name (must be lowercase) | Mandatory | Column data type |
-|---|---|---|
-| `user_id` | Yes, unless `device_id` is used | VARCHAR |
-| `device_id` | Yes, unless `user_id` is used | VARCHAR |
-| `event_type` | Yes | VARCHAR |
-| `time` | Yes | Milliseconds since epoch (Timestamp) |
-| `event_properties` | Yes | VARIANT (JSON Object) |
-| `user_properties` | No | VARIANT (JSON Object) |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
+|---|---|---|---|
+| `user_id` | Yes, unless `device_id` is used | VARCHAR | datamonster@gmail.com |
+| `device_id` | Yes, unless `user_id` is used | VARCHAR | C8F9E604-F01A-4BD9 |
+| `event_type` | Yes | VARCHAR | watch_tutorial | 
+| `time` | Yes | Milliseconds since epoch (Timestamp) | 1396381378123 |
+| `event_properties` | Yes | VARIANT (JSON Object) | {"source":"notification", "server":"host-us"} |
+| `user_properties` | No | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
 
 ### User properties
 
-| Column name (must be lowercase) | Mandatory | Column data type |
-|---|---|---|
-| `user_id` | Yes | VARCHAR |
-| `user_properties` | Yes | VARIANT (JSON Object) |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
+|---|---|---|---|
+| `user_id` | Yes | VARCHAR | datamonster@gmail.com |
+| `user_properties` | Yes | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
 
 ### Group properties
 
-| Column name (must be lowercase) | Mandatory | Column data type | Example
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
 |---|---|---|---|
 | `groups` | Yes | VARIANT (JSON Object) | {"company":"amplitude", "team":["marketing", "sales"]} |
 | `group_properties` | Yes | VARIANT (JSON Object) | {"location":"seattle", "active":"true"} |
