@@ -35,7 +35,7 @@ To add Snowflake as a data source in your Amplitude project, follow these steps:
 5. After running the query, click **Next** to test the connection.
 6. After the test is successful, click **Next** again to move on to the data selection stage.
 7. Choose your configuration options: 
-      - **Type of data**: This tells Amplitude whether you're ingesting event data or user/group property data.
+      - **Type of data**: This tells Amplitude whether you're ingesting event data, user property data, or group property data.
       - **Type of import:**
         - **Full Sync**: Amplitude periodically ingests the entire dataset, regardless of whether that data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option is not supported for ingesting event data.
         - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. In order for this to work, you must include the timestamp of when the data was loaded into Snowflake.
