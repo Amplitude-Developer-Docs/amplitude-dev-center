@@ -78,6 +78,6 @@ To integrate Optimizely with Amplitude, follow these steps:
     1. **User Property Prefix**: Optimizely sends a user property to Amplitude to identify users who have been bucketed into the Optimizely experiment. This prefix setting makes it easier to identify these properties in Amplitude.
     2. **Send Event [Optional]**: When enabled, sends an event every time an experiment is fired. Configure to either yes or no.
     3. **Event Name [Optional]**: If you've selected to send an event, use this setting to specify it. Example: "Viewed Experiment"
-    4. **Instance Name [Optional]**: See the [Amplitude JavaScript SDK](../data/sdks/javascript.md#initialize) docs for more information about instance names.
+    4. **Instance Name [Optional]**: See the [Amplitude JavaScript SDK](../sdks/javascript.md#initialize) docs for more information about instance names.
 6. Save your settings.
 7. When the Optimizely experiment is running and collecting data, the user properties for this experiment appear in Amplitude.
