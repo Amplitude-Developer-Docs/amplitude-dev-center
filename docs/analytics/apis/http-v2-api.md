@@ -520,7 +520,7 @@ Possible reasons for an invalid request:
 | `events_with_invalid_fields`  | Object. A map from field names to an array of indexes into the events array indicating which events have invalid values for those fields |
 | `events_with_missing_fields`  |  Object. A map from field names to an array of indexes into the events array indicating which events are missing those required fields |
 
-##### Properties (SilencedDeviceId)
+#### Properties (SilencedDeviceId)
 
 | <div class="big-column">Name</div>  | Description |
 | --- |--- |
