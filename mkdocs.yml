@@ -251,6 +251,7 @@ nav:
       - data/sources/shopify.md
       - data/sources/google-tag-manager.md
       - data/sources/adobe.md
+      - data/sources/optimizely.md
   - Destinations: 
     - Overview: data/destinations.md
     - Warehouse:

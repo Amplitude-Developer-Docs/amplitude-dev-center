@@ -39,3 +39,9 @@ For detailed instructions, see the documentation for the source you want to add.
 <!-- ### Third party -->
 
 <!-- Shopify, GTM, Adobe, Segment, mParticle, Rudderstack -->
+
+### Other sources
+
+<!-- This content is used in several places. Make changes to includes/data-sources-other.md -->
+
+--8<-- "includes/data-sources-other.md"
