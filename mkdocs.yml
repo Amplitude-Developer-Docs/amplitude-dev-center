@@ -114,6 +114,7 @@ extra:
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues
+  getting_started_guide: https://docs.developers.amplitude.com/getting-started
   more_resources: all-resources
   analytics:
     provider: amplitude
