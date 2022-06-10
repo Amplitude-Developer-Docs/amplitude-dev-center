@@ -13,7 +13,8 @@ In this article, you'll find technical best practices for getting up and running
 
 Before getting into the details, let's go over some recommended best practices for instrumenting Amplitude:
 
-- **Always test your instrumentation:** We highly recommend having a testing project for every production project in your organization. This gives you a reliable way to test your instrumentation before sending production data to Amplitude. **Amplitude can't retroactively modify historical data**, so if your instrumentation is wrong, the data you collect can't be cleaned up later on. See [this video](https://help.amplitude.com/hc/en-us/articles/115001574688-How-to-Validate-Your-Event-Data-in-Amplitude) on QA-ing your event data in Amplitude to learn more. 
+- **Always test your instrumentation:** We highly recommend having a testing project for every production project in your organization. This gives you a reliable way to test your instrumentation before sending production data to Amplitude
+- **Amplitude can't retroactively modify historical data**, so if your instrumentation is wrong, the data you collect can't be cleaned up later on. See [this video](https://help.amplitude.com/hc/en-us/articles/115001574688-How-to-Validate-Your-Event-Data-in-Amplitude) on QA-ing your event data in Amplitude to learn more. 
 - **Set up at least two Amplitude projects:** One for your development or staging environment, one for your production environment. This keeps testing data separate from production data. 
 - **Send the right keys:** If you are sending data server-side via the HTTP API, be sure to send a `session_id `and `insert_id `with each event. See [this article on ingesting data](https://help.amplitude.com/hc/en-us/articles/204771828#optional-keys) for more information on these important keys.
 
