@@ -114,6 +114,7 @@ extra:
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues
+  getting_started_guide: https://docs.developers.amplitude.com/getting-started
   more_resources: all-resources
   analytics:
     provider: amplitude
@@ -281,6 +282,7 @@ nav:
   - all-resources.md
 
 # Files Intentionally left out of nav:
+# getting-started.md 
   #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav
       #- data/deprecated-sdks/browser.md
       #- data/deprecated-sdks/nodejs.md
