@@ -16,6 +16,8 @@ SendGrid is a cloud-based customer communication platform that drives engagement
 
 Before you begin, you need your Amplitude project API key. 
 
+There are no other required setup steps in Amplitude. 
+
 ### SendGrid setup
 
 1. In SendGrid, find Settings, then click **Mail Settings**.
