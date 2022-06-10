@@ -45,6 +45,7 @@ podfile
 Podfile
 prepends
 runtimes
+SendGrid
 untyped
 Xcode
 xcodeproj

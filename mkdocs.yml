@@ -248,10 +248,12 @@ nav:
       - Other:
         - Converter Configuration: data/converter-configuration-reference.md
     - Other Sources:
-      - data/sources/shopify.md
-      - data/sources/google-tag-manager.md
       - data/sources/adobe.md
+      - data/sources/google-tag-manager.md
       - data/sources/optimizely.md
+      - data/sources/sendgrid.md
+      - data/sources/shopify.md
+
   - Destinations: 
     - Overview: data/destinations.md
     - Warehouse:

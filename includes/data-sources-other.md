@@ -5,6 +5,7 @@
 - :adobe-experience-cloud: [Adobe Launch](../data/sources/adobe.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
+- :sendgrid: [SendGrid](../data/sources/sendgrid.md)
 - :shopify: [Shopify](../data/sources/shopify.md)
 
 </div>
