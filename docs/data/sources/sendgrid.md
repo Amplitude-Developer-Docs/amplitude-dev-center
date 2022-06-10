@@ -1,10 +1,9 @@
 ---
 title: SendGrid
-description: Send your SendGrid data to Amplitude, letting you share user data in real time.
+description: Send your SendGrid message event data to Amplitude to help you attribute results stemming from your organization's marketing and communication efforts.
 ---
 
-
-SendGrid is a cloud-based customer communication platform that drives engagement and business growth through email delivery. Send your SendGrid message events into Amplitude to help you attribute results stemming from your organization's marketing and communication efforts.
+SendGrid is a cloud-based customer communication platform that drives engagement and business growth through email delivery. Send your SendGrid message event data to Amplitude to help you attribute results stemming from your organization's marketing and communication efforts.
 
 ## Considerations
 
