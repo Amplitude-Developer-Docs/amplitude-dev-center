@@ -7,6 +7,5 @@
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
 - :shopify: [Shopify](../data/sources/shopify.md)
-- 
 
 </div>
