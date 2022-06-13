@@ -1,6 +1,6 @@
 ---
-title: Kochava
-description: sfd
+title: Import Marketing Data from Kochava
+description: Integrate Amplitude with Kochava to understand where your users are coming from and which are your highest-performing sources.
 ---
 
 Integrating Kochava with Amplitude lets you share user data between platforms in real time, and helps non-technical product and marketing team members understand where your users are coming from, and which are your highest-performing sources.
