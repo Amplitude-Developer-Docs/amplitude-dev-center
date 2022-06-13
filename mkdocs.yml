@@ -250,6 +250,7 @@ nav:
         - Converter Configuration: data/converter-configuration-reference.md
     - Other Sources:
       - Adobe Tag Manager: data/sources/adobe.md
+      - AppsFlyer: data/sources/appsflyer.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - Kochava: data/sources/kochava.md
       - Optimizely: data/sources/optimizely.md
