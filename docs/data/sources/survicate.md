@@ -17,12 +17,12 @@ Survicate's integration sends your survey responses as events to Amplitude so yo
 
 Before you begin setup, copy your Amplitude project API key.
 
-1. In Survicate, navigate to [*Settings > Integrations*](https://panel.survicate.com/#/o/0/w/0/settings/integrations/), search for "Amplitude" or select it from the list of available integrations, and click it.
-2. Next, click **Connect**. In the window that opens, enter the project's API key in the text box and click **Authorize**.
+1. In Survicate, navigate to [**Settings > Integrations**](https://panel.survicate.com/#/o/0/w/0/settings/integrations/), search for "Amplitude" or select it from the list of available integrations, and click it.
+2. Next, click **Connect**. In the window that opens, enter your Amplitude project's API key in the text box and click **Authorize**.
 
 !!!note 
 
-    This integration works on a workspace level, which means it will send the information from all surveys you store in your workspace.
+    This integration works on a workspace level, which means it will send the information from all surveys you store in your Survicate workspace.
 
 ## Use Survicate's data in Amplitude
 
