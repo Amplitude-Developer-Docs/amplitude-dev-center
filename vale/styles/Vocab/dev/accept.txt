@@ -46,6 +46,7 @@ Podfile
 prepends
 runtimes
 SendGrid
+Taplytics
 untyped
 Xcode
 xcodeproj

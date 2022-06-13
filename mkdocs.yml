@@ -256,6 +256,7 @@ nav:
       - SendGrid: data/sources/sendgrid.md
       - Shopify: data/sources/shopify.md
       - Singular: data/sources/singular.md
+      - Taplytics: data/sources/taplytics.md
 
   - Destinations: 
     - Overview: data/destinations.md

@@ -9,5 +9,6 @@
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
 - :singular: [Singular](../data/sources/singular.md)
 - :shopify: [Shopify](../data/sources/shopify.md)
+- :taplytics: [Taplytics](../data/sources/taplytics.md)
 
 </div>
