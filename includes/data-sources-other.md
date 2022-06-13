@@ -6,6 +6,7 @@
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
+- :singular: [Singular](..data/sources/singular.md)
 - :shopify: [Shopify](../data/sources/shopify.md)
 
 </div>

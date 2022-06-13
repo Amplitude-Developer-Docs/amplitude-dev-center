@@ -249,11 +249,12 @@ nav:
       - Other:
         - Converter Configuration: data/converter-configuration-reference.md
     - Other Sources:
-      - data/sources/adobe.md
-      - data/sources/google-tag-manager.md
-      - data/sources/optimizely.md
-      - data/sources/sendgrid.md
-      - data/sources/shopify.md
+      - Adobe Tag Manager: data/sources/adobe.md
+      - Google Tag Manager: data/sources/google-tag-manager.md
+      - Optimizely: data/sources/optimizely.md
+      - SendGrid: data/sources/sendgrid.md
+      - Shopify: data/sources/shopify.md
+      - Singular: data/sources/singular.md
 
   - Destinations: 
     - Overview: data/destinations.md
