@@ -1,5 +1,5 @@
 ---
-title: SendGrid
+title: Import SendGrid Message Event Data
 description: Send your SendGrid message event data to Amplitude to help you attribute results stemming from your organization's marketing and communication efforts.
 ---
 

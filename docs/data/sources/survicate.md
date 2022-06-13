@@ -1,5 +1,5 @@
 ---
-title: Survicate
+title: Import Survicate Survey Data
 description: Survicate's integration sends your survey responses as events to Amplitude so you can capture qualitative user insights and connect them with your quantitative data in Amplitude.
 ---
 

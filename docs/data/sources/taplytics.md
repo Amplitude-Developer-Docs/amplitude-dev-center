@@ -1,5 +1,5 @@
 ---
-title: Import Taplytics Experiment Data into Amplitude
+title: Import Taplytics Experiment Data
 description: Integrate Amplitude with Taplytics's mobile A/B testing tools to let non-technical product and marketing team members to do full-circle tracking, analysis, and engagement across mobile apps
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Optimizely
-description: Optimizely 
+description: Import Optimizely Experiment Data
 ---
 
 Integrating Optimizely's experiment tools with Amplitude Analytics lets you share user data in real-time and helps non-technical product and marketing team members to do full-circle tracking, analysis, and engagement across web and mobile apps.
