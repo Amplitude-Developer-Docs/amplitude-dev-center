@@ -252,6 +252,7 @@ nav:
       - Adobe Tag Manager: data/sources/adobe.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - Optimizely: data/sources/optimizely.md
+      - Radar: data/sources/radar.md
       - SendGrid: data/sources/sendgrid.md
       - Shopify: data/sources/shopify.md
       - Singular: data/sources/singular.md
