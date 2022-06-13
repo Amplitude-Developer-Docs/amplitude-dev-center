@@ -24,6 +24,8 @@ Before you begin setup, copy your Amplitude project API key.
 
     This integration works on a workspace level, which means it will send the information from all surveys you store in your Survicate workspace.
 
+There are no other setup steps in Amplitude.
+
 ## Use Survicate's data in Amplitude
 
 After collecting new survey responses, you see the `survicate_survey_answered` event in Amplitude. You can then group your data by the following event properties:
