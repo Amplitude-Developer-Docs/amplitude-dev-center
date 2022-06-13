@@ -1,5 +1,5 @@
 ---
-title: Import Marketing Data from Kochava
+title: Import Kochava Marketing Data
 description: Integrate Amplitude with Kochava to understand where your users are coming from and which are your highest-performing sources.
 ---
 
