@@ -251,6 +251,18 @@ client.set_group(group_type="org_id", group_name=["15", "21"],
                  event_options=EventOptions(user_id="USER_ID")) 
 ```
 
+Event level groups are set by `groups` attribute of events
+
+```Python
+# set groups when initial a event instance
+event = BaseEvent("event_type", "user_id", groups={"org_id": ["15", "21"]})
+
+# set groups for an existing instance
+event["groups"] = {"sport": "soccer"}
+
+client.track(event)
+```
+
 ### Group Properties
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
