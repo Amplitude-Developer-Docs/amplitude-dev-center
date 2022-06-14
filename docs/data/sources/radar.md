@@ -1,5 +1,5 @@
 ---
-title: Import Location Data Radar
+title: Import Radar Location Data
 description: Integrate Amplitude with Radar to help understand location-based factors that affect how your users interact with your products. 
 ---
 
