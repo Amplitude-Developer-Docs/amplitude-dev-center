@@ -1,0 +1,35 @@
+name: Content Improvement
+description: Suggest an improvement to the docs.
+title: "[Improvement]: "
+labels: ["improvement", "triage"]
+assignees:
+  - amplitude-dev-docs
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve the docs!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we have questions?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: improvement-description
+    attributes:
+      label: What can we improve?
+      description: Please be as specific as possible. 
+      placeholder: Add your ideas here. 
+    validations:
+      required: true
+  - type: textarea
+    id: doc-page
+    attributes:
+      label: Which page needs an update?
+      description: Add the URL of the page. 
+      placeholder: https://example.com
+    validations:
+      required: true
