@@ -27,6 +27,7 @@ Itly
 JavaScript
 js
 Kotlin
+Kochava
 md
 middleware
 Middleware
@@ -43,9 +44,11 @@ Optimizely
 orgs
 podfile
 Podfile
+Qualtrics
 prepends
 runtimes
 SendGrid
+Statsig
 Taplytics
 untyped
 Xcode
