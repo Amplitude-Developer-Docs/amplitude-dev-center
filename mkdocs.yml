@@ -282,6 +282,10 @@ nav:
       - Kinesis: data/destinations/kinesis-data-stream.md
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
       - Meta Pixel: data/destinations/meta-pixel.md
+    - Cohorts:
+      - Statsig: data/destinations/statsig-cohort.md
+      - Qualtrics: data/destinations/qualtrics-cohort.md
+
 - Partners:
   - partners/index.md
   - Overview: partners/index.md

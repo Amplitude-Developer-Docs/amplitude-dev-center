@@ -27,3 +27,9 @@ For detailed instructions, see the documentation for the destination you want to
 <!-- This content is used in several places. Make changes to includes/data-destinations-event-streaming.md -->
 
 --8<-- "includes/data-destinations-event-streaming.md"
+
+### Cohort syncing
+
+<!-- This content is used in several places. Make changes to includes/data-destinations--cohorts.md -->
+
+--8<-- "includes/data-destinations-cohorts.md"
