@@ -11,6 +11,7 @@
 - :mparticle: [mParticle](../data/sources/mparticle.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :radar: [Radar](../data/sources/radar.md)
+- :salesforce: [Salesforce](../data/sources/salesforce-group.md)
 - :segment: [Segment](../data/sources/segment.md)
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
 - :singular: [Singular](../data/sources/singular.md)

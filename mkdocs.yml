@@ -258,6 +258,7 @@ nav:
       - mParticle: data/sources/mparticle.md
       - Optimizely: data/sources/optimizely.md
       - Radar: data/sources/radar.md
+      - Salesforce: data/sources/salesforce-group.md
       - Segment: data/sources/segment.md
       - SendGrid: data/sources/sendgrid.md
       - Shopify: data/sources/shopify.md
