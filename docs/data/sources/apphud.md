@@ -5,6 +5,7 @@ description: Apphud can send subscription events into Amplitude to help enrich y
 
 --8<-- "includes/open-beta.md"
 
+
 Apphud can send subscription events into Amplitude to help enrich your Amplitude user profiles with subscriptions revenue. This is useful for seeing all events and revenue that occur for your app even if it’s not active for a period of time. 
 
 ## About Apphud
