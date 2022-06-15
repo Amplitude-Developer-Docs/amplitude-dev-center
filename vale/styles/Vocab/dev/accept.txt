@@ -5,6 +5,7 @@ ampli
 Ampli
 Amplitude
 amplitude
+Apphud
 AWS
 backfill
 Backfill
