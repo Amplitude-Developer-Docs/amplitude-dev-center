@@ -252,6 +252,7 @@ nav:
       - Adjust: data/sources/adjust.md
       - Adobe Tag Manager: data/sources/adobe.md
       - AppsFlyer: data/sources/appsflyer.md
+      - Apphud: data/sources/apphud.md
       - Branch: data/sources/branch.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - Kochava: data/sources/kochava.md

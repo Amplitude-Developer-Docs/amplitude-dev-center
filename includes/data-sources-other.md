@@ -5,6 +5,7 @@
 - :adjust: [Adjust](../data/sources/adjust.md)
 - :adobe-experience-cloud: [Adobe Launch](../data/sources/adobe.md)
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
+- :apphud: [Apphud](../data/sources/apphud.md)
 - :branch: [Branch](../data/sources/branch.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :kochava: [Kochava](../data/sources/kochava.md)
