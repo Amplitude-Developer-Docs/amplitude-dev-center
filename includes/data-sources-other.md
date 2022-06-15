@@ -10,6 +10,7 @@
 - :kochava: [Kochava](../data/sources/kochava.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :radar: [Radar](../data/sources/radar.md)
+- :segment: [Segment](../data/sources/segment.md)
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
 - :singular: [Singular](../data/sources/singular.md)
 - :shopify: [Shopify](../data/sources/shopify.md)

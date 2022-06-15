@@ -257,6 +257,7 @@ nav:
       - Kochava: data/sources/kochava.md
       - Optimizely: data/sources/optimizely.md
       - Radar: data/sources/radar.md
+      - Segment: data/sources/segment.md
       - SendGrid: data/sources/sendgrid.md
       - Shopify: data/sources/shopify.md
       - Singular: data/sources/singular.md
