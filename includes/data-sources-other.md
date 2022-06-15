@@ -8,6 +8,7 @@
 - :branch: [Branch](../data/sources/branch.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :kochava: [Kochava](../data/sources/kochava.md)
+- :mparticle: [mParticle](../data/sources/mparticle.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :radar: [Radar](../data/sources/radar.md)
 - :segment: [Segment](../data/sources/segment.md)
