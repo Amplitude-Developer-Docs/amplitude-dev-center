@@ -12,7 +12,6 @@ plugins:
         fill: "#1E61F0"
         text: "#FFFFFF"
       cards_font: IBM Plex Sans
-  - redirects
 
 
 # Long explanation for this extra doc. 
