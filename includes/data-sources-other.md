@@ -19,6 +19,7 @@
 - :shopify: [Shopify](../data/sources/shopify.md)
 - :survicate: [Survicate](../data/sources/survicate.md)
 - :taplytics: [Taplytics](../data/sources/taplytics.md)
+- :tribe: [Tribe](../data/sources/tribe.md)
 - :userflow: [Userflow](../data/sources/userflow.md)
 
 </div>
