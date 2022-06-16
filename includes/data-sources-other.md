@@ -7,6 +7,7 @@
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
 - :apphud: [Apphud](../data/sources/apphud.md)
 - :branch: [Branch](../data/sources/branch.md)
+- :clevertap: [CleverTap](../data/sources/clevertap.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :kochava: [Kochava](../data/sources/kochava.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
