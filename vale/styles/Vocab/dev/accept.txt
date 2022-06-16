@@ -12,6 +12,7 @@ Backfill
 backfilling
 boolean
 Boolean
+CleverTap
 CocoaPods
 deduplicates
 deduplicated
