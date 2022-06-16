@@ -40,3 +40,4 @@ virtualenv-clone==0.5.7
 watchdog==2.1.6
 Werkzeug==2.0.2
 zipp==3.7.0
+mkdocs-redirects==1.0.4

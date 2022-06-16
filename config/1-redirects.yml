@@ -1,0 +1,54 @@
+INHERIT: 0-base.yml
+
+plugins:
+  - redirects:
+      redirect_maps:
+        # https://docs.google.com/spreadsheets/d/1Ps7ggRE5yYsuqN938e_sHxI9GxEnECGAWw_NtozwmRA/edit#gid=0
+        'analytics/sdks/android-sdk.md': 'data/sdks/android.md'
+        'analytics/sdks/ios-sdk.md': 'data/sdks/ios.md'
+        'analytics/sdks/flutter-sdk.md': 'data/sdks/flutter.md'
+        'analytics/sdks/javascript-sdk.md': 'data/sdks/javascript.md'
+        'analytics/sdks/java-sdk.md': 'data/sdks/java.md'
+        'analytics/sdks/node-sdk.md': 'data/sdks/node.md'
+        'analytics/sdks/react-native-sdk.md': 'data/sdks/react-native.md'
+        'analytics/sdks/unity-sdk.md': 'data/sdks/unity.md'
+        'analytics/sdks/unreal-sdk.md': 'data/sdks/unreal.md'
+        'analytics/sdks/android-kotlin-sdk.md': 'data/sdks/android-kotlin.md'
+        'analytics/sdks/python-sdk.md': 'data/sdks/python.md'
+        'analytics/sdks/typescript-browser-sdk.md': 'data/sdks/typescript-browser.md'
+
+        'analytics/analytics-domain-proxy.md': 'analytics/domain-proxy.md'
+
+        'data/ampli-sdk-overview.md': 'data/ampli/index.md'
+        'data/using-the-ampli-cli.md': 'data/ampli/cli.md'
+        'data/using-the-tracking-library.md': 'data/ampli/sdk.md'
+        'data/integrating-with-ci.md': 'data/ampli/integrating-with-ci.md'
+        'data/user-lookup.md': 'data/debugger.md'
+        'data/git-workflow.md': 'data/ampli/git-workflow.md'
+        'data/middleware-overview.md': 'data/ampli/middleware.md'
+        'data/migrate-to-data.md': 'data/ampli/migration.md'
+
+        'integrations/amazon-s3-import.md': 'data/sources/amazon-s3.md'
+        'integrations/amazon-s3-export.md': 'data/destinations/amazon-s3.md'
+        'integrations/bigquery-import.md': 'data/sources/bigquery.md'
+        'integrations/bigquery-export.md': 'data/destinations/bigquery.md'
+        'integrations/google-cloud-storage-import.md': 'data/sources/google-cloud-storage.md'
+        'integrations/google-cloud-storage-export.md': 'data/destinations/google-cloud-storage.md'
+        'integrations/redshift-export.md': 'data/destinations/redshift.md'
+        'integrations/snowflake-import.md': 'data/sources/snowflake.md'
+        'integrations/snowflake-export.md': 'data/destinations/snowflake.md'
+
+        'integrations/converter-configuration-reference.md': 'data/converter-configuration-reference.md'
+
+        'integrations/braze-event-streaming.md': 'data/destinations/braze.md'
+        'integrations/google-pub-sub-event-streaming.md': 'data/destinations/google-pub-sub.md'
+        'integrations/intercom-event-streaming.md': 'data/destinations/intercom.md'
+        'integrations/iterable-event-streaming.md': 'data/destinations/iterable.md'
+        'integrations/kinesis-data-stream-event-streaming.md': 'data/destinations/kinesis-data-stream.md'
+        'integrations/kinesis-firehose-event-streaming.md': 'data/destinations/kinesis-firehose.md'
+
+        'integrations/shopify-plugin.md': 'data/sources/shopify.md'
+        'integrations/sending-cohorts.md': 'partners/sending-cohorts.md'
+        'analytics/adobe.md': 'data/sources/adobe.md'
+        'analytics/google-tag-manager.md': 'data/sources/google-tag-manager.md'
+        'analytics/google-tag-manager-server-side.md': 'data/sources/google-tag-manager.md'

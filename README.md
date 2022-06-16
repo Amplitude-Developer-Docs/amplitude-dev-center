@@ -30,7 +30,7 @@ This command installs almost every dependency.
   
 ### 3. (Optional, but highly encouraged) Install Vale CLI
   
-  Vale is a style linter we use to help enforce consistency and accessibilty in our docs. Our style guide config is included in this repo. To use the linter, you need to install Vale. 
+  Vale is a style linter we use to help enforce consistency and accessibility in our docs. Our style guide config is included in this repo. To use the linter, you need to install Vale. 
   
   `brew install vale`
   
