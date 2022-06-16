@@ -7,7 +7,7 @@ description: Use the Tribe integration to capture community member properties an
 
     The Tribe integration is in beta, and is still in active development. To join their beta program, or if you have any feedback to help improve the Tribe Destination and its documentation, [contact the Tribe support team](mailto:success@tribe.so).
 
-Tribe is a community platform designed to empower your customer communities. It's popular for its customizability and  thriving app ecosystem to extend the functionality of the platform. Tribe helps businesses build stronger customer relationships, improve retention, and boost customer lifetime value.
+Tribe is a community platform designed to empower your customer communities. It's popular for its customizability and  thriving app ecosystem. Tribe helps businesses build stronger customer relationships, improve retention, and boost customer lifetime value.
 
 This integration combines Amplitude Analytics with Tribe to capture the member properties and activities at a granular level. Community admins can leverage the data collected by the integration to create different member segments, analyze conversion funnels, measure member retention and stickiness.
 
