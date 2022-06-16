@@ -1,10 +1,3 @@
-# Project information
-site_name: Amplitude Developer Center
-site_url: https://docs.developers.amplitude.com
-site_author: Amplitude
-site_description: >-
-    Developer resources for Amplitude's digital optimization products.
-
 # Repository
 repo_name: amplitude-dev-center
 repo_url: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center
@@ -113,7 +106,7 @@ extra:
   help_site: https://help.amplitude.com
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
-  report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues
+  report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
   getting_started_guide: https://docs.developers.amplitude.com/getting-started
   more_resources: all-resources
   analytics:
@@ -249,17 +242,24 @@ nav:
       - Other:
         - Converter Configuration: data/converter-configuration-reference.md
     - Other Sources:
+      - Adjust: data/sources/adjust.md
       - Adobe Tag Manager: data/sources/adobe.md
       - AppsFlyer: data/sources/appsflyer.md
+      - Apphud: data/sources/apphud.md
+      - Branch: data/sources/branch.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - Kochava: data/sources/kochava.md
+      - mParticle: data/sources/mparticle.md
       - Optimizely: data/sources/optimizely.md
       - Radar: data/sources/radar.md
+      - Salesforce: data/sources/salesforce-group.md
+      - Segment: data/sources/segment.md
       - SendGrid: data/sources/sendgrid.md
       - Shopify: data/sources/shopify.md
       - Singular: data/sources/singular.md
       - Survicate: data/sources/survicate.md
       - Taplytics: data/sources/taplytics.md
+      - Userflow: data/sources/userflow.md
 
   - Destinations: 
     - Overview: data/destinations.md
@@ -280,6 +280,10 @@ nav:
       - Kinesis: data/destinations/kinesis-data-stream.md
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
       - Meta Pixel: data/destinations/meta-pixel.md
+    - Cohorts:
+      - Statsig: data/destinations/statsig-cohort.md
+      - Qualtrics: data/destinations/qualtrics-cohort.md
+
 - Partners:
   - partners/index.md
   - Overview: partners/index.md

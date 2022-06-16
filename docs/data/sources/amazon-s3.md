@@ -148,7 +148,7 @@ To create the data source in Amplitude, gather information about your S3 bucket:
 
 When you have your bucket details, create the Amazon S3 Import source.
 
-1. In Amplitude, navigate to **Sources and Destinations**, then select **I want to import data into Amplitude** at the bottom of the list of sources.
+1. In Amplitude, navigate to **Data Sources**, then select **I want to import data into Amplitude**.
 
 2. Select **Amazon S3**, then click **Next**. If this source doesn’t appear in the list, contact your Amplitude Solutions Architect.
 

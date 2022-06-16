@@ -5,7 +5,6 @@ ignorecase: true
 tokens:
   - above
   - accessible
-  - actionable
   - below
   - against
   - alarm
