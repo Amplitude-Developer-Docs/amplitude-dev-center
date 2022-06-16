@@ -20,7 +20,7 @@ This integration streams Userflow-generated events (such as Flow Started and Che
 
 ### Amplitude setup
 
-Copy your Amplitude API key for the Amplitude project you want to connect.
+Copy the API key for the Amplitude project you want to connect.
 
 There are no other setup steps in Amplitude. 
 

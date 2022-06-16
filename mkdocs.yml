@@ -266,6 +266,7 @@ nav:
       - Singular: data/sources/singular.md
       - Survicate: data/sources/survicate.md
       - Taplytics: data/sources/taplytics.md
+      - Tribe: data/sources/tribe.md
       - Userflow: data/sources/userflow.md
 
   - Destinations: 
