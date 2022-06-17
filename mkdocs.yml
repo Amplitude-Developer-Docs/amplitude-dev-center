@@ -252,7 +252,9 @@ nav:
       - Adjust: data/sources/adjust.md
       - Adobe Tag Manager: data/sources/adobe.md
       - AppsFlyer: data/sources/appsflyer.md
+      - Apphud: data/sources/apphud.md
       - Branch: data/sources/branch.md
+      - CleverTap: data/sources/clevertap.md
       - Facebook Ads: data/sources/facebook-ads.md
       - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md
@@ -260,12 +262,15 @@ nav:
       - mParticle: data/sources/mparticle.md
       - Optimizely: data/sources/optimizely.md
       - Radar: data/sources/radar.md
+      - Salesforce: data/sources/salesforce-group.md
       - Segment: data/sources/segment.md
       - SendGrid: data/sources/sendgrid.md
       - Shopify: data/sources/shopify.md
       - Singular: data/sources/singular.md
       - Survicate: data/sources/survicate.md
       - Taplytics: data/sources/taplytics.md
+      - Tribe: data/sources/tribe.md
+      - Userflow: data/sources/userflow.md
 
   - Destinations: 
     - Overview: data/destinations.md
@@ -287,6 +292,7 @@ nav:
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
       - Meta Pixel: data/destinations/meta-pixel.md
     - Cohorts:
+      - AppsFlyer: data/destinations/appsflyer-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
 

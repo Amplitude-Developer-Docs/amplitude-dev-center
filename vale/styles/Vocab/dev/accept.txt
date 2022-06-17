@@ -5,12 +5,14 @@ ampli
 Ampli
 Amplitude
 amplitude
+Apphud
 AWS
 backfill
 Backfill
 backfilling
 boolean
 Boolean
+CleverTap
 CocoaPods
 deduplicates
 deduplicated
@@ -54,3 +56,4 @@ untyped
 Xcode
 xcodeproj
 ProGuard
+Userflow

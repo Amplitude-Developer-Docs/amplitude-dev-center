@@ -31,6 +31,7 @@ Admonition types we use:
 - **warning**: to warn about potential data loss or security issues. Example: warn users about irreversible actions.
 - **example**: for examples that need a lot of context. For example: providing a narrative-based example about a complicated process.
 - **tip**: a tip or trick that makes using the product easier. For example: quickstarts, helpful settings. 
+- **alpha**: Custom. Used for alpha notices.
 - **beta**: Custom. Used for beta notices.
 
 
