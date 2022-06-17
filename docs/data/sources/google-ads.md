@@ -25,7 +25,7 @@ To set up, you need the following:
 !!! note 
     This integration must be enabled on a per-project basis.
 
-2. Log into Google and grant Amplitude permission in the consent form.
+2. Log in to Google and grant Amplitude permission in the consent form.
 ![Google Login Image](../../assets/images/marketing-analytics/google-login.png)
 3. Enter the `Google Ads Customer ID` for the ad account you would like to sync the data from.
 ![Google Enter Account ID](../../assets/images/marketing-analytics/google-enter-info.png)
