@@ -290,6 +290,7 @@ nav:
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
       - Meta Pixel: data/destinations/meta-pixel.md
     - Cohorts:
+      - AppsFlyer: data/destinations/appsflyer-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
 
