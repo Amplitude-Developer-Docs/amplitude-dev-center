@@ -17,16 +17,16 @@ To set up this integration, you need the following:
 
 ### Amplitude setup 
 
-1. In Amplitude, navigate to **Data Sources**, then find **Facebook Ad** in the **I want to import data into Amplitude** tab.
+In Amplitude, navigate to **Data Sources**, then find **Facebook Ad** in the **I want to import data into Amplitude** tab.
 
 ![Facebook Add Source](../../assets/images/marketing-analytics/add-sources.png)
 
 !!! note 
     This integration must be enabled on a per-project basis.
 
-2. Log in to Facebook and grant Amplitude permission in the consent form.
+1. Log in to Facebook and grant Amplitude permission in the consent form.
 ![Facebook Login Image](../../assets/images/marketing-analytics/facebook-login.png)
-3. Enter the Facebook Ads Account ID for the ad account you want to import data from.
+2. Enter the Facebook Ads Account ID for the ad account you want to import data from.
 ![Facebook Enter Account ID](../../assets/images/marketing-analytics/facebook-enter-info.png)
-4. [Optional] Import past data for a given period.
+3. [Optional] Import past data for a given period.
 ![Facebook Historical Backfill](../../assets/images/marketing-analytics/facebook-past-data.png)

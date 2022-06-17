@@ -18,17 +18,17 @@ To set up, you need the following:
 
 ### Amplitude setup 
 
-1. In Amplitude, navigate to **Data Sources**, then find **Google Ad** in the **I want to import data into Amplitude** tab.
+In Amplitude, navigate to **Data Sources**, then find **Google Ad** in the **I want to import data into Amplitude** tab.
 
 ![Google Add Source](../../assets/images/marketing-analytics/add-sources.png)
 
 !!! note 
     This integration must be enabled on a per-project basis.
 
-2. Log into Google and grant Amplitude permission in the consent form.
+1. Log into Google and grant Amplitude permission in the consent form.
 ![Google Login Image](../../assets/images/marketing-analytics/google-login.png)
-3. Enter the `Google Ads Customer ID` for the ad account you would like to sync the data from.
+2. Enter the Google Ads Customer ID for the ad account you want to import data from.
 ![Google Enter Account ID](../../assets/images/marketing-analytics/google-enter-info.png)
-4. If you don't have direct access to the account, enter the `Manager ID` that you authorized access on which can view this ad account.  Otherwise, just leave the field as blank.
-5. [Optional] You also have the option to do a one time import on the historical data in the time period of your choice.
+3. If you don't have direct access to the account, enter the `Manager ID` that you authorized access on which can view this ad account.  Otherwise, just leave the field as blank.
+4. [Optional] Import past data for a given period.
 ![Google Historical Backfill](../../assets/images/marketing-analytics/google-past-data.png)
