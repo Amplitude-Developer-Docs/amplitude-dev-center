@@ -11,7 +11,7 @@ Amplitude Data's Facebook Ads integration lets you import your Facebook Ad spend
 
 ### Prerequisites
 
-To set up, you need the following: 
+To set up this integration, you need the following: 
 
 - `Facebook Ads Account ID` of the ad account you would like imported (https://www.facebook.com/business/help/1492627900875762)
 
