@@ -1,7 +1,7 @@
 <script type="text/javascript">
 var consent = __md_get("__consent")
 if (consent) {
-  /* The user accepted the cookie */
+    /* The user accepted the cookie */
     (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
     ;r.type="text/javascript"
     ;r.integrity="sha384-VuGgAcmMrGHihvjXxxBVMIqoDFXc8/PO9q/08kCgq4Wn1iPnSmUbI3xhXaFozVFv"
@@ -29,30 +29,34 @@ if (consent) {
     !e||e.length===0?"$default_instance":e).toLowerCase();if(
     !Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])}
     return n._iq[e]};e.amplitude=n})(window,document);
-
     amplitude.getInstance().init("c1817405c2f578878637c55704d4a153");
-
-    const url = new URL(window.location.href);
-    let paths = [];
-    for (const seg of url.pathname.split('/')) {
-        if (seg.length > 0) {
-            paths.push(seg);
-        }
-    }
-    let properties = {
-        url: window.location.href,
-        path: url.pathname,
-    };
-    if (paths.length > 0) {
-        properties.product = paths[0];
-        properties.page = paths[paths.length-1];
-    }
-    if (url.hash) {
-        properties.anchor = url.hash;
-    }
-    // HACK: figure out better environment switching
-    if (url.hostname === 'docs.developers.amplitude.com' || url.hostname === 'www.docs.developers.amplitude.com') {
-        amplitude.getInstance().logEvent("page viewed", properties);
-    }
+    /* Wait for page to load and application to mount */
+    document.addEventListener("DOMContentLoaded", function() {
+        // Subscribe to navigation changes
+        location$.subscribe(function(url) {
+            /* Track a page event */
+            let paths = [];
+            for (const seg of url.pathname.split('/')) {
+                if (seg.length > 0) {
+                    paths.push(seg);
+                }
+            }
+            let properties = {
+                url: window.location.href,
+                path: url.pathname,
+            };
+            if (paths.length > 0) {
+                properties.product = paths[0];
+                properties.page = paths[paths.length-1];
+            }
+            if (url.hash) {
+                properties.anchor = url.hash;
+            }
+            // HACK: figure out better environment switching
+            if (url.hostname === 'docs.developers.amplitude.com' || url.hostname === 'www.docs.developers.amplitude.com') {
+                amplitude.getInstance().logEvent("page viewed", properties);
+            }
+        });
+    });
 }
 </script>
