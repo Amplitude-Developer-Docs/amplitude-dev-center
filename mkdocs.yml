@@ -291,6 +291,7 @@ nav:
       - Meta Pixel: data/destinations/meta-pixel.md
     - Cohorts:
       - Statsig: data/destinations/statsig-cohort.md
+      - TikTok: data/destinations/tiktok-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
 
 - Partners:
