@@ -253,8 +253,8 @@ nav:
       - Adobe Tag Manager: data/sources/adobe.md
       - AppsFlyer: data/sources/appsflyer.md
       - Branch: data/sources/branch.md
-      - Facebook Ad: data/sources/facebook-ad.md
-      - Google Ad: data/sources/google-ad.md
+      - Facebook Ads: data/sources/facebook-ads.md
+      - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - Kochava: data/sources/kochava.md
       - mParticle: data/sources/mparticle.md

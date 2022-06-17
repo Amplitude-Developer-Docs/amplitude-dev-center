@@ -13,7 +13,7 @@ Amplitude Data's Google Ads integration lets you import your Google Ad spend, cl
 
 To set up, you need the following: 
 
-- `Google Ads customer ID` of the ad account you would like imported (https://support.google.com/google-ads/answer/1704344?hl=en)
+- `Google Ads Customer ID` of the ad account you would like imported (https://support.google.com/google-ads/answer/1704344?hl=en)
 
 ### Amplitude setup 
 
@@ -26,7 +26,7 @@ To set up, you need the following:
 
 2. Log into Google and grant Amplitude permission in the consent form.
 ![Google Login Image](../../assets/images/marketing-analytics/google-login.png)
-3. Enter the `Google Ads Account ID` for all the ad accounts you would like to sync the data.
+3. Enter the `Google Ads Customer ID` for all the ad accounts you would like to sync the data.
 ![Google Enter Account ID](../../assets/images/marketing-analytics/google-enter-info.png)
 4. [Optional] You also have the option to do a one time iimport on the historical data in the time period of your choice.
 ![Google Historical Backfill](../../assets/images/marketing-analytics/google-past-data.png)
