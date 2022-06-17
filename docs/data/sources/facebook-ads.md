@@ -24,7 +24,7 @@ To set up this integration, you need the following:
 !!! note 
     This integration must be enabled on a per-project basis.
 
-2. Log into Facebook and grant Amplitude permission in the consent form.
+2. Log in to Facebook and grant Amplitude permission in the consent form.
 ![Facebook Login Image](../../assets/images/marketing-analytics/facebook-login.png)
 3. Enter the `Facebook Ads Account ID` for the ad account you would like to sync the data from.
 ![Facebook Enter Account ID](../../assets/images/marketing-analytics/facebook-enter-info.png)
