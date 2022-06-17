@@ -3,7 +3,7 @@ title: Google Ads (Beta)
 description: Amplitude Data's Google Ads integration lets you import your Google Ad spend, click and impression data with just a few clicks.
 ---
 
-Amplitude Data's Google Ads integration lets you import your Google Ad spend, click and impression data with just a few clicks.
+Amplitude Data's Google Ads integration lets you import your Google Ad spend, click, and impression data in just a few steps.
 
 --8<-- "includes/closed-beta.md"
 
@@ -13,7 +13,7 @@ Amplitude Data's Google Ads integration lets you import your Google Ad spend, cl
 
 To set up, you need the following: 
 
-- `Google Ads Customer ID` of the ad account you would like imported (https://support.google.com/google-ads/answer/1704344?hl=en)
+- [Google Ads Customer ID](https://support.google.com/google-ads/answer/1704344?hl=en) of the ad account you want to connect to.
 - If you don't have direct access to the account, `Google Ads Manager ID` that you authorized access on which can view this ad account.
 
 ### Amplitude setup 
