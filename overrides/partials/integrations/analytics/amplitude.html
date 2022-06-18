@@ -29,7 +29,11 @@ if (consent) {
     !e||e.length===0?"$default_instance":e).toLowerCase();if(
     !Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])}
     return n._iq[e]};e.amplitude=n})(window,document);
-    amplitude.getInstance().init("c1817405c2f578878637c55704d4a153");
+    amplitude.getInstance().init("c1817405c2f578878637c55704d4a153", null, {
+        includeUtm: true,
+        includeReferrer: true,
+        includeGclid: true
+    });
     /* Wait for page to load and application to mount */
     document.addEventListener("DOMContentLoaded", function() {
         // Subscribe to navigation changes
