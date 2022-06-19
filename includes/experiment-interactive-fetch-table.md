@@ -1,5 +1,5 @@
 <pre>
-<code id="curl">curl --request GET \
+<code>curl --request GET \
      --url 'https://api.lab.amplitude.com/v1/vardata?user_id=<span id='curl_user_id'>user_id</span>' \
      --header 'Authorization: Api-Key <span id='curl_deployment_key'>deployment_key</span>'
 </code>
@@ -7,9 +7,9 @@
 
 | <div class='big-column'>Variable</div> | Description |
 | --- | --- |
-|   <textarea spellcheck="false" style="resize:none" id="deployment_key" rows="1" cols="40">deployment_key</textarea> | The [deployment](../../general/data-model.md#deployments) key you [created](./create-a-deployment.md). |
-| <textarea spellcheck="false" style="resize:none" id="user_id" rows="1" cols="40">user_id</textarea> | The user ID used to fetch variants. This should be the same [user](../../general/data-model.md#users) you [track exposure](./track-exposure.md) for. |
-| <a id="fetch_button" class="md-button" onclick="fetchVariants()">Fetch Variants</a> | |
+|   <textarea class="at-field" spellcheck="false" id="deployment_key">deployment_key</textarea> | The [deployment](../../general/data-model.md#deployments) key you [created](./create-a-deployment.md). |
+| <textarea class="at-field" spellcheck="false" id="user_id">user_id</textarea> | The user ID used to fetch variants. This should be the same [user](../../general/data-model.md#users) you [track exposure](./track-exposure.md) for. |
+| <a class="md-button" onclick="fetchVariants()">Fetch Variants</a> | |
 
 <script>
 // Set the deployment key from local storage in table
