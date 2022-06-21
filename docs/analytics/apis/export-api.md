@@ -1,9 +1,9 @@
 ---
 title: Export API
-description: Use the Export API to export your event data. 
+description: Use the Export API to export your event data.
 ---
 
-The Export API lets you export your projects's event data.
+The Export API lets you export your project's event data.
 
 --8<-- "includes/postman.md"
 
@@ -42,7 +42,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 ## Response
 
-The response is a zipped archive of JSON files. Depending on data volume, there can be several files per hour. The API returns a 404 response is there is no data for the time range you requested. 
+The response is a zipped archive of JSON files. Depending on data volume, there can be several files per hour. The API returns a 404 response is there is no data for the time range you requested.
 
 !!! note
     Events prior to November 12, 2014 are grouped by day, instead of by the hour.
@@ -64,7 +64,7 @@ The response includes one event JSON object per line in each file, with the foll
  "platform": string,
  "os_version": string,
  "amplitude_id": long,
- "processed_time": UTC ISO-8601 formatted timestamp, 
+ "processed_time": UTC ISO-8601 formatted timestamp,
  "user_creation_time": UTC ISO-8601 formatted timestamp,
  "version_name": string,
  "ip_address": string,
