@@ -4,6 +4,7 @@
 
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
+- :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
 - :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
 
 </div>
