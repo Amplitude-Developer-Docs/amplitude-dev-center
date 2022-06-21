@@ -22,7 +22,7 @@ Result:
 
 <script>
 document.getElementById('deployment_key').value =
-     localStorage.getItem('deployment_key') || 'deployment_key';
+     localStorage.getItem('deployment_key') || '';
 
 setupApiTable({
      'deployment_key': false,

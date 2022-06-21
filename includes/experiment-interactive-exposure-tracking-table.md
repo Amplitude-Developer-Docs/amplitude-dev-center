@@ -25,7 +25,7 @@ Result:
 
 <script>
 document.getElementById('api_key').value =
-     localStorage.getItem('api_key') || 'api_key';
+     localStorage.getItem('api_key') || '';
 
 setupApiTable({
      'api_key': false,
