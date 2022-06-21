@@ -296,7 +296,6 @@ nav:
     - Cohorts:
       - AppsFlyer: data/destinations/appsflyer-cohort.md
       - Enterpret: data/destinations/enterpret-cohort.md
-      - Netcore: data/destinations/netcore-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
