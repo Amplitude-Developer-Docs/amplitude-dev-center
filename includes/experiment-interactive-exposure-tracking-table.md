@@ -1,3 +1,6 @@
+!!!warning "Potential data changes"
+    This example makes real requests to the API and can potentially change the data in your Amplitude project. We recommend using a development project when testing APIs.
+
 <pre>
 <code>curl --request POST \
      --url https://api2.amplitude.com/2/httpapi \
@@ -14,7 +17,7 @@
 | <textarea class="at-field" spellcheck="false" placeholder="variant" id="variant"></textarea> | The variant key (e.g. `on`, `control`, `treatment`). |
 | <a class="md-button" id="at-action-button">Track Exposure</a> | |
 
-Result:
+Result: <span id="failure_tip"></span>
 <pre>
 <code id="result">
 </code>

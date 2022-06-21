@@ -22,6 +22,15 @@ function setupCurlVariable(id, query) {
     }, false);
 }
 
+function setFailureTip(message) {
+    const tip = document.getElementById('failure_tip');
+    if (tip && message && message.length > 0) {
+        tip.innerHTML = '<p>'+ message + '</p>';
+    } else {
+        tip.innerHTML = '';
+    }
+}
+
 /**
  * Setup an interactive api table.
  *
@@ -44,8 +53,12 @@ function setupApiTable(ids, action) {
         try {
             const result = await action(fields);
             document.getElementById("result").innerHTML = result;
+            setFailureTip();
         } catch (e) {
             document.getElementById("result").innerHTML = e;
+            if (e.message === 'Failed to fetch') {
+                setFailureTip('🚫 Request blocked. Disable your ad blocker and retry.');
+            }
         }
     });
 }

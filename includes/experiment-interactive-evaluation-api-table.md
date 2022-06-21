@@ -1,3 +1,6 @@
+!!!warning "Potential data changes"
+    This example makes real requests to the API and can potentially change the data in your Amplitude project. We recommend using a development project when testing APIs.
+
 <pre>
 <code>curl --request GET \
      --url 'https://api.lab.amplitude.com/v1/vardata?<span id='curl_user_id'></span><span id='curl_device_id'></span><span id='curl_flag_key'></span><span id='curl_context'></span>' \
@@ -14,7 +17,7 @@
 | <textarea class="at-field" spellcheck="false" placeholder="context" id="context"></textarea> | JSON string consisting of a full user context. Set user properties in the `user_properties` field (e.g. `{"user_properties":{"premium":true}}`). |
 | <a class="md-button" id="at-action-button">Send</a> | |
 
-Result:
+Result: <span id="failure_tip"></span>
 <pre>
 <code id="result">
 </code>

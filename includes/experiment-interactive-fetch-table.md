@@ -1,3 +1,6 @@
+!!!warning "Potential data changes"
+    This example makes real requests to the API and can potentially change the data in your Amplitude project. We recommend using a development project when testing APIs.
+
 <pre>
 <code>curl --request GET \
      --url 'https://api.lab.amplitude.com/v1/vardata?<span id='curl_user_id'></span>' \
@@ -11,7 +14,7 @@
 | <textarea class="at-field" spellcheck="false" placeholder="user_id" id="user_id"></textarea> | (Required) The user ID used to fetch variants. This should be the same [user](../../general/data-model.md#users) you [track exposure](./track-exposure.md) for. |
 | <a class="md-button" id="at-action-button">Fetch Variants</a> | |
 
-Result:
+Result: <span id="failure_tip"></span>
 <pre>
 <code id="result">
 </code>
