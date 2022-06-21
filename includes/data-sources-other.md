@@ -4,6 +4,7 @@
 
 - :adjust: [Adjust](../data/sources/adjust.md)
 - :adobe-experience-cloud: [Adobe Launch](../data/sources/adobe.md)
+- :airbridge: [Airbridge](../data/sources/airbridge.md)
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
 - :apphud: [Apphud](../data/sources/apphud.md)
 - :branch: [Branch](../data/sources/branch.md)
@@ -13,6 +14,7 @@
 - :mparticle: [mParticle](../data/sources/mparticle.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :radar: [Radar](../data/sources/radar.md)
+- :revenuecat: [RevenueCat](../data/sources/revenuecat.md)
 - :salesforce: [Salesforce](../data/sources/salesforce-group.md)
 - :segment: [Segment](../data/sources/segment.md)
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)

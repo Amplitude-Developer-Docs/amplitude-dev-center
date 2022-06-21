@@ -1,5 +1,6 @@
 ADID
 aggregate
+Airbridge
 allowlist
 ampli
 Ampli
@@ -17,6 +18,7 @@ CocoaPods
 deduplicates
 deduplicated
 deduplication
+Enterpret
 Fastly
 Fbclid
 gclid
@@ -35,6 +37,7 @@ middleware
 Middleware
 monorepo
 monorepos
+Netcore
 NGINX
 NPM
 npm
