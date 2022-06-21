@@ -251,6 +251,7 @@ nav:
     - Other Sources:
       - Adjust: data/sources/adjust.md
       - Adobe Tag Manager: data/sources/adobe.md
+      - Airbridge: data/sources/airbridge.md
       - AppsFlyer: data/sources/appsflyer.md
       - Apphud: data/sources/apphud.md
       - Branch: data/sources/branch.md
@@ -262,6 +263,7 @@ nav:
       - mParticle: data/sources/mparticle.md
       - Optimizely: data/sources/optimizely.md
       - Radar: data/sources/radar.md
+      - RevenueCat: data/sources/revenuecat.md
       - Salesforce: data/sources/salesforce-group.md
       - Segment: data/sources/segment.md
       - SendGrid: data/sources/sendgrid.md
@@ -293,6 +295,8 @@ nav:
       - Meta Pixel: data/destinations/meta-pixel.md
     - Cohorts:
       - AppsFlyer: data/destinations/appsflyer-cohort.md
+      - Enterpret: data/destinations/enterpret-cohort.md
+      - Netcore: data/destinations/netcore-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
