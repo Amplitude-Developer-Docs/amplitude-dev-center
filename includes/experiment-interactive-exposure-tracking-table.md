@@ -10,7 +10,7 @@
 
 | <div class='big-column'>Variable</div> | Description |
 | --- | --- |
-|  <textarea class="at-field" spellcheck="false" placeholder="analytics_api_key" id="api_key"></textarea> | The analytics API key from [project](../../general/data-model.md#projects) which you created your [flag](../../general/data-model.md#flags-and-experiments) and [deployment](../../general/data-model.md#deployments) in. |
+|  <textarea class="at-field" spellcheck="false" placeholder="analytics_api_key" id="api_key"></textarea> | The analytics API key from [project](./data-model.md#projects) which you created your [flag](./data-model.md#flags-and-experiments) and [deployment](./data-model.md#deployments) in. |
 | <textarea class="at-field" spellcheck="false" placeholder="user_id" id="user_id"></textarea> | The user's ID. |
 | <textarea class="at-field" spellcheck="false" placeholder="device_id" id="device_id"></textarea> | The user's device ID. |
 | <textarea class="at-field" spellcheck="false" placeholder="flag_key" id="flag_key"></textarea> | The flag key of the flag or experiment the user has been exposed to. |

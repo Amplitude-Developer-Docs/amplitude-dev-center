@@ -10,7 +10,7 @@
 
 | <div class='big-column'>Variable</div> | Description |
 | --- | --- |
-| <textarea class="at-field" spellcheck="false" placeholder="deployment_key" id="deployment_key"></textarea> |  (Required) The [deployment](../../general/data-model.md#deployments) key. |
+| <textarea class="at-field" spellcheck="false" placeholder="deployment_key" id="deployment_key"></textarea> |  (Required) The [deployment](../general/data-model.md#deployments) key. |
 | <textarea class="at-field" spellcheck="false" placeholder="user_id" id="user_id"></textarea> | The user's ID. |
 | <textarea class="at-field" spellcheck="false" placeholder="device_id" id="device_id"></textarea> | The user's device ID. |
 | <textarea class="at-field" spellcheck="false" placeholder="flag_key" id="flag_key"></textarea> | A specific flag key to get the variant of. If empty/missing, all flags & experiments associated with the deployment key are evaluated. |
