@@ -22,7 +22,7 @@ The TikTok Ads integration allows you to send audiences from Amplitude to TikTok
     - Phone Number[^1]
 - This integration must be enabled on a per-project basis.
 - TikTok Ads requires SHA256 encryption. If your amplitude key isn't encrypted, Amplitude applies SHA256 when syncing cohort data. 
-- You can't change the Tiktok Key after the integration setup is saved. If you need to use a different key, disconnect the integration in Amplitude and set it up again.
+- You can't change the Tiktok Key after you save the integration. If you need to use a different key, disconnect the integration in Amplitude and set it up again.
 
 [^1]: Currently in testing. See [TikTok's documentation](https://ads.tiktok.com/marketing_api/docs?id=1701890985340929) for more information.
 
