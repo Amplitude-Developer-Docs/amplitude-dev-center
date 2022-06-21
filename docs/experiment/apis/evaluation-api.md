@@ -1,45 +1,57 @@
 ---
-title: Evaluation API
+title: Evaluation REST API
 description: Retrieve variation assignment data for users with the Amplitude Experiment REST API.
 ---
 
-The Amplitude Experiment REST API lets you retrieve variation assignment data for users.
+The Amplitude Experiment Evaluation REST API lets you retrieve variant assignment data for users via [remote evaluation](../general/evaluation/remote-evaluation.md). User information is passed as query parameters on the request to allow for [caching the response on the CDN](../general/performance-and-caching.md#cdn-caching).
+
+!!!tip "[Try it out in your browser!](#example)"
 
 ## Authorization
 
-The REST API supports API Key authentication by setting an Authorization header. Use a Server API Key from your **Experiment Environments** page. Add the API key in the Authorization header with a prefix `Api-Key`, like this: `Authorization: Api-Key YourApiKeyHere`
+The REST API authenticates the request using your [deployment](../general/data-model.md#deployments) key set in the Authorization header with the prefix `Api-Key`. For example, `Authorization: Api-Key <deployment_key>`
 
-## Get assignment data for a user
-
-`GET https://api.lab.amplitude.com/v1/vardata`
-
-Fetches variation assignment data for a particular user. The `user_id` and `device_id` values passed to Experiment should be the same as the values passed to Amplitude.
-
-### Example request
-
-<!-- Brian: Can we please get an example request here? It would be best for it to look like a real request a customer might make and includes all parameters.  -->
-
-### Query parameters
+## Query parameters
 
 |<div class="big-column">Name</div>|Description|
 |---|----|
-|`user_id`| String. The user's ID.|
-|`device_id`| String. The user's device ID.|
-|`flag_key`| String. The flag's key. Found on the **Flags** page. If you don't include `flag_key`, then the request returns all available flags. |
-|`context`| String. JSON string consisting of the user context. Set user properties in the `user_properties` field.|
+|`user_id`| The user's ID.|
+|`device_id`| The user's device ID.|
+|`flag_key`| A specific flag key to get the variant of. If empty/missing, all flags & experiments associated with the deployment key are evaluated. |
+|`context`| JSON string consisting of a full user context. Set user properties in the `user_properties` field (e.g. `{"user_properties":{"premium":true}}`). |
 
-### Response
+## Responses
 
-#### 200 OK
+### 200 OK
 
-A successful request returns a `200` response and a map of flag key to variants. If `flag_key` isn't provided, it returns all available flags.
+A successful request returns a `200` response and a map of flag key to variants. If `flag_key` isn't provided, all flags associated with the deployment key in the authorization header are evaluated.
 
-<!-- Brian: we need an example response body-->
+**Response Body**
 
-#### 400 Bad Request
+The response body is a JSON object keyed by the flag key. The value for a given flag key is the variant which was assigned to the user. The variant contains its identification `key` (a.k.a value) and an optional payload containing a JSON element.
+
+```
+{
+    "<flag_key>": {
+        "key": "<variant_value>",
+        "payload": <variant_payload>
+    },
+    // ...
+}
+```
+
+Use the [example](#example) below to try the API from your browser or copy a curl.
+
+### 400 Bad Request
 
 If the request has invalid JSON in the context parameter, it returns a `400` status.
 
-#### 401 Unauthorized
+### 401 Unauthorized
 
 If the request doesn't include a valid API key, it returns a `401` response.
+
+## Example
+
+Set the fields in the table, and press send to send the request in browser, or copy the curl to send the request yourself.
+
+--8<-- "includes/experiment-interactive-evaluation-api-table.md"
