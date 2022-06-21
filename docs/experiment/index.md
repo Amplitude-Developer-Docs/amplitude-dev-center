@@ -68,7 +68,7 @@ Guide to getting started developing for Amplitude Experiment.
 | API | Description |
 | --- | --- |
 | [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
-| [Management API (Beta)](apis/management-api.md) | Manage or list flags and experiments within your organization. |
+| [Management API (Beta)](https://developers.experiment.amplitude.com/reference/management-api) | Manage or list flags and experiments within your organization. |
 
 
 ## System overview
