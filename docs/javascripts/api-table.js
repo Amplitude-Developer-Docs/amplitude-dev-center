@@ -31,6 +31,12 @@ function setFailureTip(message) {
     }
 }
 
+function trackAction() {
+    if (trackWithPageContext) {
+        trackWithPageContext("api table action", new URL(window.location.href));
+    }
+}
+
 /**
  * Setup an interactive api table.
  *
@@ -45,6 +51,7 @@ function setupApiTable(ids, action) {
     }
     const button = document.getElementById('at-action-button');
     button.addEventListener('click', async function() {
+        trackAction();
         let fields = {};
         for (const id of Object.keys(ids)) {
             let value = document.getElementById(id).value.trim();
