@@ -36,19 +36,6 @@ The exposure event has been designed to be simple and ergonomic enough to be sen
 | **`$exposure`** | `flag_key` | Required | The flag or experiment key which the user is being exposed to. |
 | | `variant` | Optional | The variant for the flag or experiment that the user has been exposed to. If `null` or missing, the user property for the flag/experiment is unset, meaning that the user no longer is considered to be a part of the experiment. |
 
-### Examples
+### Example
 
-=== "cURL"
-
-    ```bash
-    curl --request POST \
-        --url https://api2.amplitude.com/2/httpapi \
-        --data '{"api_key": "<ANALYTICS_API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
-    ```
-
-| <div class='big-column'>Variable</div> | Description |
-| --- | --- |
-| `<ANALYTICS_API_KEY>` | The analytics api key from [project](./data-model.md#projects) which you created your [flag](./data-model.md#flags-and-experiments) and [deployment](./data-model.md#deployments) in. |
-| `<USER_ID>`| The user ID used to identify the [user](./data-model.md#users). This should be the same user whose variants were previously fetched. |
-| `<FLAG_KEY>` | The key used to identify which [flag or experiment](./data-model.md#flags-and-experiments) the user is being exposed to. |
-| `<VARIANT>` | The [variant](#variant) value that the user is exposed to for the flag or experiment. |
+--8<-- "includes/experiment-interactive-exposure-tracking-table.md"

@@ -432,3 +432,11 @@ margin: 1em auto 1em;
   -webkit-mask-image: var(--md-admonition-icon--alpha);
           mask-image: var(--md-admonition-icon--alpha);
 }
+
+/* textarea style for interactive api tables */
+
+textarea.at-field {
+  width: 220px;
+  height: 30px;
+  resize: none;
+}

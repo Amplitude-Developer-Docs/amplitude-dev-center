@@ -10,20 +10,7 @@ template: guide-last.html
 
 To keep things simple, we're going to `curl` an [exposure event](../../general/exposure-tracking.md#exposure-event) to amplitude using the [Analytics REST API v2.0](../../../analytics/apis/http-v2-api.md).
 
-```
-curl --request POST \
-     --url https://api2.amplitude.com/2/httpapi \
-     --data '{"api_key": "<ANALYTICS_API_KEY>","events":[{"event_type":"$exposure","user_id":"<USER_ID>","event_properties":{"flag_key":"<FLAG_KEY>","variant":"<VARIANT>"}}]}'
-```
-
-Replace the following variables with your own values:
-
-| <div class='big-column'>Variable</div> | Description |
-| --- | --- |
-|   `<ANALYTICS_API_KEY>` | The analytics API key from [project](../../general/data-model.md#projects) which you created your [flag](../../general/data-model.md#flags-and-experiments) and [deployment](../../general/data-model.md#deployments) in. |
-| `<USER_ID>` | The user ID used to fetch variants. This should be the same [user](../../general/data-model.md#users) you [fetched variants](./fetch-variants.md) for. |
-| `<FLAG_KEY>` | The flag key; `getting-started` if you're using the naming from this guide. |
-| `<VARIANT>` | The variant key, `on` if you're using the default flag variant. |
+--8<-- "includes/experiment-interactive-exposure-table.md"
 
 If the request succeeded, you should see a user in the Exposures chart in Experiment.
 

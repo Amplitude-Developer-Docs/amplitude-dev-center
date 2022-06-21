@@ -190,7 +190,7 @@ nav:
     - Ruby SDK (Beta): experiment/sdks/ruby-sdk.md
     - Python SDK (Beta): experiment/sdks/python-sdk.md
   - REST APIs:
-    - Evaluation API: "https://developers.experiment.amplitude.com/reference/get_v1-vardata"
+    - Evaluation API: experiment/apis/evaluation-api.md
     - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
   # - Remove / Move:
   #   - experiment/sdks/beta-migration.md

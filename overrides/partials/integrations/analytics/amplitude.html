@@ -34,32 +34,36 @@ if (consent) {
         includeReferrer: true,
         includeGclid: true
     });
+
+    function trackWithPageContext(event, url) {
+        let paths = [];
+        for (const seg of url.pathname.split('/')) {
+            if (seg.length > 0) {
+                paths.push(seg);
+            }
+        }
+        let properties = {
+            url: window.location.href,
+            path: url.pathname,
+        };
+        if (paths.length > 0) {
+            properties.product = paths[0];
+            properties.page = paths[paths.length-1];
+        }
+        if (url.hash) {
+            properties.anchor = url.hash;
+        }
+        // HACK: figure out better environment switching
+        if (url.hostname === 'docs.developers.amplitude.com' || url.hostname === 'www.docs.developers.amplitude.com') {
+            amplitude.getInstance().logEvent(event, properties);
+        }
+    }
+
     /* Wait for page to load and application to mount */
     document.addEventListener("DOMContentLoaded", function() {
         // Subscribe to navigation changes
         location$.subscribe(function(url) {
-            /* Track a page event */
-            let paths = [];
-            for (const seg of url.pathname.split('/')) {
-                if (seg.length > 0) {
-                    paths.push(seg);
-                }
-            }
-            let properties = {
-                url: window.location.href,
-                path: url.pathname,
-            };
-            if (paths.length > 0) {
-                properties.product = paths[0];
-                properties.page = paths[paths.length-1];
-            }
-            if (url.hash) {
-                properties.anchor = url.hash;
-            }
-            // HACK: figure out better environment switching
-            if (url.hostname === 'docs.developers.amplitude.com' || url.hostname === 'www.docs.developers.amplitude.com') {
-                amplitude.getInstance().logEvent("page viewed", properties);
-            }
+            trackWithPageContext("page viewed", url);
         });
     });
 }
