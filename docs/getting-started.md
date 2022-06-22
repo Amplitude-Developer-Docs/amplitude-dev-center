@@ -1,8 +1,6 @@
 ---
 title: Getting Started with Amplitude
 description: Read this guide to understand the basics of getting started with Amplitude instrumentation.
-hide: 
-  - navigation
 ---
 
 This article is meant for developers, and complements the [Amplitude Quick Start Guide](https://help.amplitude.com/hc/en-us/sections/201146908-Amplitude-Quick-Start-Guide), which walks through the Amplitude data structure and explains which data you should send to Amplitude.
