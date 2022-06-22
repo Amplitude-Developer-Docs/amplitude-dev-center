@@ -4,13 +4,24 @@ description: The Lookup Table API lets you create, get, update, and delete looku
 ---
 
 !!!beta "This feature is in beta"
-    This requires that you have the `lookup_table` feature enabled in Amplitude. Ask your rep to help you with this.
+        This requires that you have the `lookup_table` feature enabled in Amplitude. Contact your Amplitude account manager if you need help.
 
 ### Introduction
 
-Lookup Tables is a way to augment properties. Instead of using formulas, you can upload a CSV file that contains property mappings to derive new properties.
+Lookup Tables let you augment user and event properties. Instead of using formulas, you can upload a CSV file that contains property mappings to derive new properties.
 
-To create a Lookup property, you need to create a Lookup Table to reference. You can retrieve and update each of the tables using the API. Lookup Tables are identified by the name and are scoped per project.
+To create a Lookup property, create a Lookup Table to reference. You can retrieve and update each of the tables using the API. Lookup Tables are identified by the name and are scoped per project.
+
+--8<-- "includes/postman.md"
+
+## Endpoints
+
+| Region | Endpoint |
+| --- | --- |
+| Standard Server | https://amplitude.com/api/2/lookup_table |
+| EU Residency Server | https://analytics.eu.amplitude.com/api/2/lookup_table |
+
+--8<-- "includes/auth-basic.md"
 
 ### Create a Lookup Table
 
@@ -20,26 +31,26 @@ To create a Lookup Table, you create a Lookup Table object by uploading a CSV ma
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`table_name` | Required. String. Name of the table.|
+|`name` | Required. String. Name of the table.|
 |`file` | Required. File. A CSV representation of the mappings.|
 
 #### Example request
 
 === "cURL"
     ```curl
-    curl -L -X POST 'https://amplitude.com/api/2/lookup_table/:table_name' \
+    curl -L -X POST 'https://amplitude.com/api/2/lookup_table/:name' \
          -u API_KEY:SECRET_KEY \
          -F 'file=@"/path/to/file.csv"' \
     ```
 === "HTTP"
     ```bash
-    POST '/api/2/lookup_table/:table_name' HTTP/1.1
+    POST '/api/2/lookup_table/:name' HTTP/1.1
     Host: api2.amplitude.com
     Authorization: Basic {{api-key}}:{{secret-key}}
     Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
     ----WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="file"; filename=":path-to-file.csv"
+    Content-Disposition: form-data; name=":name"; filename="file.csv"
     Content-Type: text/csv
 
     (data)
@@ -64,24 +75,24 @@ To create a Lookup Table, you create a Lookup Table object by uploading a CSV ma
 
 ### Retrieve a Lookup Table
 
-Retrieve the Lookup Table by its name
+Retrieve a Lookup Table by its name.
 
 #### Parameters
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`table_name` | Required. String. Name of the table.|
+|`name` | Required. String. Name of the table.|
 
 #### Example request
 
 === "cURL"
     ```curl
-    curl -L -X GET 'https://amplitude.com/api/2/lookup_table/:table_name' \
+    curl -L -X GET 'https://amplitude.com/api/2/lookup_table/:name' \
          -u API_KEY:SECRET_KEY
     ```
 === "HTTP"
     ```bash
-    GET /api/2/lookup_table/:table_name HTTP/1.1
+    GET /api/2/lookup_table/:name HTTP/1.1
     Host: amplitude.com
     Authorization: Basic {{api-key}}:{{secret-key}}
     ```
@@ -104,32 +115,32 @@ Retrieve the Lookup Table by its name
 
 ### Update a Lookup Table
 
-Update the Lookup Table's columns and data.
+Update a Lookup Table's columns and data.
 
 #### Parameters
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`table_name` | Required. String. Name of the table.|
+|`name` | Required. String. Name of the table.|
 |`file` | Required. File. A CSV representation of the mappings.|
 
 #### Example request
 
 === "cURL"
     ```curl
-    curl -L -X PATCH 'https://amplitude.com/api/2/lookup_table/:table_name' \
+    curl -L -X PATCH 'https://amplitude.com/api/2/lookup_table/:name' \
          -u API_KEY:SECRET_KEY
          -F 'file=@"/path/to/file.csv"' \
     ```
 === "HTTP"
     ```bash
-    PATCH /api/2/lookup_table/:table_name HTTP/1.1
+    PATCH /api/2/lookup_table/:name HTTP/1.1
     Host: amplitude.com
     Authorization: Basic {{api-key}}:{{secret-key}}
     Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
     ----WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="file"; filename="skuProductReference-updated.csv"
+    Content-Disposition: form-data; name=":name"; filename="file.csv"
     Content-Type: text/csv
 
     (data)
@@ -154,20 +165,20 @@ Update the Lookup Table's columns and data.
 
 ### Delete a Lookup Table
 
-Delete the Lookup Table
+Delete a Lookup Table.
 
 #### Parameters
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`table_name` | Required. String. Name of the table.|
+|`name` | Required. String. Name of the table.|
 |`force` | Optional. Boolean. Delete the associated properties. Defaults to `false`.|
 
 #### Example request
 
 === "cURL"
     ```curl
-    curl -L -X DELETE 'https://amplitude.com/api/2/lookup_table/:table_name' \
+    curl -L -X DELETE 'https://amplitude.com/api/2/lookup_table/:name' \
          -u API_KEY:SECRET_KEY
     ```
 === "HTTP"
@@ -186,9 +197,9 @@ Delete the Lookup Table
 }
 ```
 
-### List all the Lookup Tables
+### List all Lookup Tables
 
-List all the Lookup Tables for the project
+List all the Lookup Tables for the project.
 
 #### Example request
 
