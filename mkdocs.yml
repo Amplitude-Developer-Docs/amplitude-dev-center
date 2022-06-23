@@ -139,7 +139,6 @@ nav:
   - analytics/index.md
   - Overview: analytics/index.md
   - What is Amplitude?: analytics/what-is-amplitude.md
-
   - API References:
     - Attribution: analytics/apis/attribution-api.md
     - Batch Event Upload: analytics/apis/batch-event-upload-api.md
@@ -159,7 +158,6 @@ nav:
   - Advanced Topics:
     - analytics/data-backfill-guide.md
     - Custom Domain Proxy: analytics/domain-proxy.md
-
 - Experiment:
   - experiment/index.md
   - Overview: experiment/index.md
@@ -207,9 +205,8 @@ nav:
 - Data:
   - data/index.md
   - Overview: data/index.md
-  # - Getting Started: "data/getting-started.md"
+  - Getting Started: "getting-started.md"
   - Debugging Analytics: "data/debugger.md"
-
   - Sources:
     - Overview: data/sources.md
     - Ampli:
@@ -221,33 +218,32 @@ nav:
       - data/ampli/middleware.md
       - data/ampli/migration.md
     - SDKs:
-      - Ampli Browser: data/sdks/browser-ampli.md
-      - Ampli Node.js: data/sdks/nodejs-ampli.md
-      - Ampli iOS: data/sdks/ios-ampli.md
-      - Ampli Android: data/sdks/android-ampli.md
-      - Ampli JRE: data/sdks/jre-ampli.md
-      - Ampli React: data/sdks/react-native-ampli.md
-      - Android: data/sdks/android.md
-      - Android Kotlin (Beta): data/sdks/android-kotlin.md
-      - iOS: data/sdks/ios.md
-      - Flutter: data/sdks/flutter.md
-      - JavaScript: data/sdks/javascript.md
       - TypeScript (Beta): data/sdks/typescript-browser.md
-      - Java: data/sdks/java.md
+      - JavaScript: data/sdks/javascript.md
+      - Browser using Ampli: data/sdks/browser-ampli.md
+      - Node.js using Ampli: data/sdks/nodejs-ampli.md
       - Node.js: data/sdks/node.md
+      - Android Kotlin (Beta): data/sdks/android-kotlin.md
+      - Android: data/sdks/android.md
+      - Android using Ampli: data/sdks/android-ampli.md
+      - iOS: data/sdks/ios.md
+      - Java: data/sdks/java.md
+      - iOS using Ampli: data/sdks/ios-ampli.md
+      - JRE using Ampli: data/sdks/jre-ampli.md
       - React Native: data/sdks/react-native.md
+      - React Native using Ampli: data/sdks/react-native-ampli.md
+      - Flutter: data/sdks/flutter.md
+      - Python (Beta): data/sdks/python.md
       - Unity: data/sdks/unity.md
       - Unreal: data/sdks/unreal.md
-      - Python (Beta): data/sdks/python.md
-      - Other:
+      - Other Topics:
         - data/dynamic-configuration.md
     - Warehouse:
       - Amazon S3: data/sources/amazon-s3.md
       - BigQuery: data/sources/bigquery.md
       - Google Cloud Storage: data/sources/google-cloud-storage.md
       - Snowflake: data/sources/snowflake.md
-      - Other:
-        - Converter Configuration: data/converter-configuration-reference.md
+      - Converter Configuration: data/converter-configuration-reference.md
     - Other Sources:
       - Adjust: data/sources/adjust.md
       - Adobe Tag Manager: data/sources/adobe.md
@@ -273,7 +269,6 @@ nav:
       - Taplytics: data/sources/taplytics.md
       - Tribe: data/sources/tribe.md
       - Userflow: data/sources/userflow.md
-
   - Destinations: 
     - Overview: data/destinations.md
     - Warehouse:
@@ -299,7 +294,6 @@ nav:
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
-
 - Partners:
   - partners/index.md
   - Overview: partners/index.md
@@ -308,7 +302,6 @@ nav:
   - all-resources.md
 
 # Files Intentionally left out of nav:
-# getting-started.md 
   #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav
       #- data/deprecated-sdks/browser.md
       #- data/deprecated-sdks/nodejs.md

@@ -1,7 +1,7 @@
 ---
 title: Node.js SDK
 description: The Amplitude Node.js SDK installation and quick start guide.
-icon: fontawesome/brands/node-js
+icon: material/nodejs
 ---
 
 ![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg)
