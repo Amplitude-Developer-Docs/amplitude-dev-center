@@ -221,7 +221,7 @@ nav:
       - TypeScript (Beta): data/sdks/typescript-browser.md
       - JavaScript: data/sdks/javascript.md
       - Browser using Ampli: data/sdks/browser-ampli.md
-      - Ampli Node.js: data/sdks/nodejs-ampli.md
+      - Node.js using Ampli: data/sdks/nodejs-ampli.md
       - Node.js: data/sdks/node.md
       - Android Kotlin (Beta): data/sdks/android-kotlin.md
       - Android: data/sdks/android.md
