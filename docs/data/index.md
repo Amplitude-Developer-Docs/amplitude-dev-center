@@ -1,6 +1,7 @@
 ---
 title: Amplitude Data Overview
-description: Get started with Amplitude Data. 
+description: Get started with Amplitude Data.
+nav: hide
 ---
 
 !!!beta "Amplitude Data is in Beta"
