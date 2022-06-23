@@ -23,7 +23,6 @@ To create a Lookup property, create a Lookup Table to reference. You can retriev
 
 --8<-- "includes/auth-basic.md"
 
-
 ## Considerations
 
 The max file size is 100 MB and the file can not have more than 1,000,000 rows.
@@ -283,32 +282,31 @@ List all the Lookup Tables for the project.
 
 #### Response
 
-== "Success"
-    ```json
-    {
-        "data": [
-            {
-                "name": "isbnToMetadata",
-                "column_headers": [
-                    "Genres",
-                    "Authors"
-                ],
-                "created_at": "2021-07-15T21:04:23.000593",
-                "created_by": "rest",
-                "last_modified_at": "2021-07-16T19:14:11.627477",
-                "last_modified_by": "rest"
-            },
-            {
-                "name": "skuToMetadata",
-                "column_headers": [
-                    "Product Category",
-                    "Product Name"
-                ],
-                "created_at": "2021-07-16T19:28:18.070073",
-                "created_by": "rest",
-                "last_modified_at": "2021-07-16T19:28:18.070073",
-                "last_modified_by": "rest"
-            }
-        ]
-    }
-    ```
+```json
+{
+    "data": [
+        {
+            "name": "isbnToMetadata",
+            "column_headers": [
+                "Genres",
+                "Authors"
+            ],
+            "created_at": "2021-07-15T21:04:23.000593",
+            "created_by": "rest",
+            "last_modified_at": "2021-07-16T19:14:11.627477",
+            "last_modified_by": "rest"
+        },
+        {
+            "name": "skuToMetadata",
+            "column_headers": [
+                "Product Category",
+                "Product Name"
+            ],
+            "created_at": "2021-07-16T19:28:18.070073",
+            "created_by": "rest",
+            "last_modified_at": "2021-07-16T19:28:18.070073",
+            "last_modified_by": "rest"
+        }
+    ]
+}
+```
