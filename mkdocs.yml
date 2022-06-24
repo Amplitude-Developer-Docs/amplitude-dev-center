@@ -216,6 +216,7 @@ nav:
       - data/ampli/integrating-with-ci.md
       - Source Control: data/ampli/git-workflow.md
       - data/ampli/middleware.md
+      - data/ampli/plugin.md
       - data/ampli/migration.md
     - SDKs:
       - TypeScript (Beta): data/sdks/typescript-browser.md
@@ -223,9 +224,10 @@ nav:
       - Browser using Ampli: data/sdks/browser-ampli.md
       - Node.js using Ampli: data/sdks/nodejs-ampli.md
       - Node.js: data/sdks/node.md
-      - Android Kotlin (Beta): data/sdks/android-kotlin.md
-      - Android: data/sdks/android.md
-      - Android using Ampli: data/sdks/android-ampli.md
+      - Android Kotlin: data/sdks/android-kotlin.md
+      - Android Kotlin using Ampli: data/sdks/android-kotlin-ampli.md
+      - Android (Legacy): data/sdks/android.md
+      - Android using Ampli (Legacy): data/sdks/android-ampli.md
       - iOS: data/sdks/ios.md
       - Java: data/sdks/java.md
       - iOS using Ampli: data/sdks/ios-ampli.md
