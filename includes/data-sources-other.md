@@ -14,7 +14,7 @@
 - :kochava: [Kochava](../data/sources/kochava.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
-- :qualtrics: [Qualtrics](../data/sources/qualtrics.md)
+- :qualtrics-xm: [Qualtrics](../data/sources/qualtrics.md)
 - :radar: [Radar](../data/sources/radar.md)
 - :revenuecat: [RevenueCat](../data/sources/revenuecat.md)
 - :salesforce: [Salesforce](../data/sources/salesforce-group.md)
