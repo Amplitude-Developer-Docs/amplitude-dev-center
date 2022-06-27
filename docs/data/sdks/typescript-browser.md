@@ -269,7 +269,7 @@ revenue(event);
 
 #### Revenue interface
 
-Name |  Type  |Description | Default
+|Name | Description |
 -----|-------|--------------|--------
 |`product_id` | Optional. String. An identifier for the product. We recommend something like the Google Play Store product ID. Defaults to null. |
 quantity *(required)* | int| The quantity of products purchased. Note: revenue = quantity * price | 1
