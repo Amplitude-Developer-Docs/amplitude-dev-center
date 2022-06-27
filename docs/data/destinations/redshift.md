@@ -98,3 +98,14 @@ The **Event** table schema will include the following columns:
 | `user_properties` | STRING |    |
 | `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
 | `version_name` | STRING | The app version. Example: 1.0.0 |
+
+### Merged User table schema
+
+The Merged User table schema contains the following:  
+
+| <div class="big-column">Column</div> |Type| Description  |
+|---|---|---|
+| `amplitude_id`| NUMBER(38,0) | The Amplitude ID being merged into a user's original Amplitude ID.  |
+| `merge_event_time` |TIMESTAMP | The time of the event a user's new Amplitude ID was associated with their original Amplitude ID.  |
+| `merge_server_time` | TIMESTAMP | The server time of the event when a user's new Amplitude ID was associated with their original Amplitude ID. |
+| `merged_amplitude_id` | NUMBER(38,0) | The originally assigned Amplitude ID when the user is first created.  |
