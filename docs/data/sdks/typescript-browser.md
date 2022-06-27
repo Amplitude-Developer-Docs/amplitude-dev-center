@@ -277,7 +277,7 @@ revenue(event);
 |`revenue_type` | Optional, but required for revenue verification. String. The type of revenue (e.g. tax, refund, income).  Defaults to null.|
 |`receipt`| Optional. String. The receipt identifier of the revenue. Defaults to null|
 |`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
-properties (optional) | JSONObject| An object of event properties to include in the revenue event.| null
+|`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
 
 ### Custom user ID
 
