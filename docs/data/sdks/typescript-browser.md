@@ -273,7 +273,7 @@ revenue(event);
 |-----|-------|
 |`product_id` | Optional. String. An identifier for the product. We recommend something like the Google Play Store product ID. Defaults to null. |
 |`quantity` | Required. Int. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1|
-price *(required)* | Double | The price of the products purchased, and this can be negative. Note: revenue = quantity * price | null
+|`price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to null. |
 revenue_type (optional, *required for revenue verification*) | String| The type of revenue (e.g. tax, refund, income). | null
 receipt (optional) | String| The receipt identifier of the revenue. | null
 receipt_sig (optional, *required for revenue verification*) | String| The receipt signature of the revenue. | null
