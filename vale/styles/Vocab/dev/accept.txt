@@ -15,6 +15,7 @@ boolean
 Boolean
 CleverTap
 CocoaPods
+Convizit
 deduplicates
 deduplicated
 deduplication
