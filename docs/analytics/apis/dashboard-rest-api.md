@@ -694,7 +694,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 ## User activity
 
-Get a user summary and their most recent 1000 events, plus all events from their most recent session. Exceeding the request limits results in 429 errors.
+Get a user summary and their most (or least) recent events. Exceeding the request limits results in 429 errors.
 
 `GET https://amplitude.com/api/2/useractivity`
 
@@ -714,7 +714,8 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | --- | --- |
 | `user` | Required. Amplitude ID of the user. |
 | `offset`  | Optional. Zero-indexed offset to start returning events from. |
-| `limit` | Optional. Limit on the number of events returned (up to 1000). |
+| `limit` | Optional. Number of events to return (up to 1000). Note that more events may be returned so that there are no partial sessions. Defaults to 1000. |
+| `direction` | Optional. "earliest" to include the user's eariest event or "latest" to includs the most recent. Defaults to "latest". |
 
 ### Response
 
