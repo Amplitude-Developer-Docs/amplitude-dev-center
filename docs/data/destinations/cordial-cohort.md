@@ -11,8 +11,6 @@ description: Use this integration to send Amplitude cohorts to Cordial lists.
 
 This cohort integration allows you to sync users from Amplitude cohorts to Cordial lists. Using lists along with other contact data in Cordial, you can create dynamic segments of contacts for sending messages, searching contacts, and filtering analytics reports.
 
-## Considerations
-
 ## Setup
 
 ### Cordial setup
