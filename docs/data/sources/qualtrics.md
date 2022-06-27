@@ -1,0 +1,41 @@
+--- 
+title: Import Qualtrics Survey Data
+descripton: Use the Qualtrics event ingestion integration to send survey data to Amplitude when a response is received, and enable data-driven charts and cohorts in Amplitude.
+---
+
+With the Qualtrics event ingestion integration, you can send survey data to Amplitude when a response is received, to enable data-driven charts and cohorts in Amplitude.
+
+After you connect the integration you can:
+
+- Send an event to Amplitude when someone completes a survey.
+- Send any event or user properties collected as question responses or embedded data.
+- Send survey response data to build charts and cohorts in Amplitude.
+
+## Considerations
+
+- This integration imports the email address as the `User_ID`. There is no option to define the mapping and select another `User_ID`.
+
+## Setup
+
+### Prerequisites
+
+You need your Qualtrics Survey ID and API key. 
+
+### Amplitude setup
+
+1. In Amplitude, navigate to **Data Sources**, then find **Qualtrics** in the **I want to import data into Amplitude** tab.
+2. Paste your Survey ID and Qualtrics API Key, then click **Request Survey Info**.
+3. Copy the auto-generated JSON payload on the right-hand side of the page.
+
+### Qualtrics setup
+
+!!!tip
+
+    See the [Qualtrics documentation](https://www.qualtrics.com/support/survey-platform/actions-page/actions-in-global-navigation/) for more details on setting up workflows. 
+
+1. In Qualtrics, click on the hamburger menu, select **Workflows**, and  select **Create a workflow**.
+2. In the search bar on the top left corner, search for *Amplitude* and select **Send data to Amplitude when a survey response is received**.
+3. Click **Get Started**.
+4. Enter a name for your workflow, select the survey you want to track, and click **create workflow**.
+5. Click the Non-authenticated tile and replace the JSON payload in the Body with the Amplitude-generated payload that you copied earlier.
+6. Save your work.
