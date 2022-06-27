@@ -275,7 +275,7 @@ revenue(event);
 |`quantity` | Required. Int. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1|
 |`price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to null. |
 |`revenue_type` | Optional, but required for revenue verification. String. The type of revenue (e.g. tax, refund, income).  Defaults to null.|
-receipt (optional) | String| The receipt identifier of the revenue. | null
+|`receipt`| Optional. String. The receipt identifier of the revenue. Defaults to null|
 receipt_sig (optional, *required for revenue verification*) | String| The receipt signature of the revenue. | null
 properties (optional) | JSONObject| An object of event properties to include in the revenue event.| null
 
