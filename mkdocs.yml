@@ -290,6 +290,7 @@ nav:
       - Meta Pixel: data/destinations/meta-pixel.md
     - Cohorts:
       - AppsFlyer: data/destinations/appsflyer-cohort.md
+      - Cordial: data/destinations/cordial-cohort.md
       - Enterpret: data/destinations/enterpret-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
