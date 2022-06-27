@@ -220,7 +220,6 @@ identify(identifyObj);
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
 --8<-- "includes/groups-intro-paragraph.md"
-
 When setting groups, you will need to define a groupType and groupName(s). In the above example, 'orgId' is the groupType and the values '10' and '15' are groupName(s). Another example of a groupType could be 'sport' with groupName(s) like 'tennis' and 'baseball'. You can use setGroup() to designate which groups a user belongs to. Note: This will also set the 'groupType:groupName' as a user property. This will overwrite any existing groupName value set for that user's groupType, as well as the corresponding user property value. groupType is a string and groupName can be either a string or an array of strings to indicate a user being in multiple groups (for example, if Joe is in 'orgId' '10' and '16', then the groupName would be '[10, 16]'). Here is what your code might look like.
 
 ```ts
