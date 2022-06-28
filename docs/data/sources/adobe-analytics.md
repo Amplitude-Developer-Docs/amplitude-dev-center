@@ -3,9 +3,9 @@ title: Import Adobe Analytics Data
 description: Import Adobe Analytics data directly into Amplitude without any complicated engineering work. 
 ---
 
-With Amplitude's Adobe Analytics integration, you can export your Adobe Analytics data directly to Amplitude, without any engineering work. Dive deeper into your Adobe-generated customer and product data, give your data governors more self-service control, and connect customer behavior across devices and channels. Your teams can go beyond single-device pageview data and see a detailed, cross-platform view of all customer behavior.
+With Amplitude's Adobe Analytics integration, you can import your Adobe Analytics data directly into Amplitude, without any engineering work. Dive deeper into your Adobe-generated customer and product data, give your data governors more self-service control, and connect customer behavior across devices and channels. Your teams can go beyond single-device pageview data and see a detailed, cross-platform view of all customer behavior.
 
-This integration also gives your team better visibility into how raw data comes into your analytics system from various sources---visibility that comes in handy for not only planning and analyzing data, but also maintaining control, compliance, and privacy.
+This integration also gives your team better visibility into how raw data comes into your analytics system from various sources. This visibility comes in handy for not only planning and analyzing data, but also maintaining control, compliance, and privacy.
 
 This article helps guide you through the process of ingesting Adobe data into Amplitude.
 
