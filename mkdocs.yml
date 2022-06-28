@@ -246,7 +246,9 @@ nav:
       - Converter Configuration: data/converter-configuration-reference.md
     - Other Sources:
       - Adjust: data/sources/adjust.md
-      - Adobe Tag Manager: data/sources/adobe.md
+      - Adobe: 
+        - Adobe Analytics: data/sources/adobe-analytics.md
+        - Adobe Tag Manager: data/sources/adobe.md
       - Airbridge: data/sources/airbridge.md
       - AppsFlyer: data/sources/appsflyer.md
       - Apphud: data/sources/apphud.md
