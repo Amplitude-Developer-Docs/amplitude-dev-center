@@ -29,6 +29,7 @@ gzipped
 IDFA
 IDFV
 Itly
+Infobip
 JavaScript
 js
 Kotlin
