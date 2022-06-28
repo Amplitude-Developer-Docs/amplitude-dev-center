@@ -9,7 +9,7 @@ This integration lets you send targeted messages using the specific cohorts you'
 
 !!!tip
 
-    For any issues with Infobip, please reach out to Infobip's [support team](https://www.infobip.com/contact).
+    For issues with Infobip, reach out to Infobip's [support team](https://www.infobip.com/contact).
 
 ## Setup
 
