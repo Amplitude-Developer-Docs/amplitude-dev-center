@@ -403,7 +403,7 @@ This method contains the logic for processing events and has event as parameter.
 
 #### Plugin examples
 
-#### Enrichment type plugin
+##### Enrichment type plugin
 
 Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to event_id property of an event starting from 100.
 
