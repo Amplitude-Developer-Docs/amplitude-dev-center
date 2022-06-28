@@ -3,6 +3,7 @@
 <div class="grid cards" markdown>
 
 - :adjust: [Adjust](../data/sources/adjust.md)
+- :adobe-analytics: [Adobe Analytics](../data/sources/adobe-analytics.md)
 - :adobe-experience-cloud: [Adobe Launch](../data/sources/adobe.md)
 - :airbridge: [Airbridge](../data/sources/airbridge.md)
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
