@@ -68,7 +68,7 @@ Status codes
             }
         }
     ```
-=== "429 Too Many Request"
+=== "429 Too Many Requests"
 
     One request per API key every 2 seconds
 
@@ -234,4 +234,4 @@ URL: `https://api.infobip.com/saas/amplitude/1/lists/%257BlistId%257D/remove`
            }
 
     }
-    ```|
+    ```
