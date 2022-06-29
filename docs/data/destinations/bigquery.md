@@ -32,7 +32,7 @@ To set up a recurring export of your Amplitude data to BigQuery, follow these st
 
 1. In Amplitude, navigate to **Data Destinations**, then click **View more destinations**.
 2. Click **Big Query - Raw Events**.
-3. On the **Getting Started** tab, select the data you'd like to export. You can *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both.
+3. On the **Getting Started** tab, select the data you'd like to export and the export's cadence. You can *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both.
 4. Review the schemas for the *Event* table and the *Merge IDs* table and click **Next**.
 5. Specify the BigQuery dataset to receive your Amplitude data, and upload the service account key file. This file must be in JSON format.
 6. Click **Next**. Amplitude attempts a test upload to test the credentials. If the upload is successful, click **Finish** to complete the BigQuery destination configuration and activation.
