@@ -147,10 +147,14 @@ Install the Go Server SDK's local evaluation package using `go get`.
 !!!warning "CGO, OS, and architecture support"
     Local evaluation requires `CGO` be enabled (`CGO_ENABLED=1`). Additionally, the local evaluation package currently only supports the following OS' and architectures (`GOOS/GOARCH`):
 
+    **Supported**
+
     * darwin/amd64
     * darwin/arm64
     * linux/amd64
     * linux/arm64
+
+    **Alpine linux is not supported** at this time.
 
     If you need another OS/Arch supported, please [submit an issue on github](https://github.com/amplitude/experiment-go-server/issues/new) or email [experiment@amplitude.com](mailto:experiment@amplitude.com).
 
