@@ -5,6 +5,7 @@
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :enterpret: [Enterpret](../data/destinations/enterpret-cohort.md)
+- :hubspot: [HubSpot](../data/destinations/hubspot-cohort.md)
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)

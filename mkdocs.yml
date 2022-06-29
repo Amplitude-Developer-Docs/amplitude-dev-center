@@ -296,6 +296,7 @@ nav:
       - AppsFlyer: data/destinations/appsflyer-cohort.md
       - Cordial: data/destinations/cordial-cohort.md
       - Enterpret: data/destinations/enterpret-cohort.md
+      - HubSpot: data/destinations/hubspot-cohort.md
       - Infobip: data/destinations/infobip-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md

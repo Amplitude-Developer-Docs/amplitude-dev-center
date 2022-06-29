@@ -26,6 +26,7 @@ gclid
 Gclid
 Gradle
 gzipped
+HubSpot
 IDFA
 IDFV
 Itly
