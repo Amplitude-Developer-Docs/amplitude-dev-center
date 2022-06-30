@@ -189,7 +189,7 @@ nav:
     - Python SDK (Beta): experiment/sdks/python-sdk.md
   - REST APIs:
     - Evaluation API: experiment/apis/evaluation-api.md
-    - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
+    - Management API (Beta): experiment/apis/management-api.md
   # - Remove / Move:
   #   - experiment/sdks/beta-migration.md
   #   - Concepts:
