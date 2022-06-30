@@ -38,8 +38,6 @@ Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you 
 === "Javascript"
 
     ```js
-    import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
-
     export class AddEventIdPlugin implements EnrichmentPlugin {
       name = 'add-event-id';
       type = PluginType.ENRICHMENT;
