@@ -9,13 +9,13 @@ The HubSpot destination allows you to sync your Amplitude-built cohort to your H
 
     Contact your CSM if you want to use this integration.
 
-## Enable the HubSpot destination
+## Setup
 
 1. In Amplitude, navigate to **Data Destinations**, then find **HubSpot - Cohort**.
 2. Log into your HubSpot account (via OAuth) to authenticate. Then select the account that contains the cohort you want to sync.
 3. After you're redirected to the Amplitude dashboard, select the identifiers you want to use for the cohort sync. When you're done, save your work.
 4. Next, navigate to the *Cohort* section in the Amplitude dashboard.
-5. After finding (or building) the cohort you want to send to HubSpot, click *Sync To*. In the dropdown, specify the HubSpot account you want to send the cohort to.
+5. After finding (or building) the cohort you want to send to HubSpot, click **Sync To**. In the dropdown, specify the HubSpot account you want to send the cohort to.
 6. Set the frequency of your sync: one-time or scheduled. Syncs can be scheduled for hourly or daily frequencies.
 
 !!!note
