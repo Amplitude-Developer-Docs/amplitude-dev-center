@@ -5,7 +5,7 @@ description: Use middleware to extend Amplitude by running a sequence of custom 
 ---
 
 !!!note
-    Middleware is only supported in Ampli legacy.
+    Middleware is only supported in Ampli legacy. If you are on the latest Ampli this functionality has been replaced by **[Plugins](#data/ampli/plugin/)**.
 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event.
  This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
