@@ -1,5 +1,5 @@
 ---
-title: Android Ampli SDK
+title: Android Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli SDK for the Android Java and Kotlin runtimes. 
 icon: material/android
 ---
@@ -228,7 +228,7 @@ To track an event, call the event's corresponding function. Every event in your 
     ampli.eventName(...eventNameProperties)
     ```
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `deviceID`. The `extra` argument lets you pass data to middleware.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `deviceID`. The `extra` argument lets you pass data to middleware.
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 

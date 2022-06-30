@@ -233,7 +233,8 @@ nav:
       - React Native: data/sdks/react-native.md
       - React Native using Ampli: data/sdks/react-native-ampli.md
       - Flutter: data/sdks/flutter.md
-      - Python (Beta): data/sdks/python.md
+      - Python using Ampli: data/sdks/python-ampli.md
+      - Python: data/sdks/python.md
       - Unity: data/sdks/unity.md
       - Unreal: data/sdks/unreal.md
       - Other Topics:
