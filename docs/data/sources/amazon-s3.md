@@ -81,7 +81,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
     }
     ```
 
-4. Attach the following policy (for example, `AmplitudeS3ReadOnlyAccess`) with the appropriate bucket to the Role created in Step 1.
+3. Attach the following policy (for example, `AmplitudeS3ReadOnlyAccess`) with the appropriate bucket to the Role created in Step 1.
 Note: update the yellow highlighted text to match your bucket and prefix information as appropriate (`data/` is a sample prefix ).
 
     ```json hl_lines="16 30 41"
