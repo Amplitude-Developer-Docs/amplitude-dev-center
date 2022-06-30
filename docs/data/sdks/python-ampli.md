@@ -267,4 +267,4 @@ Migrate from an Itly Python runtime to Ampli by following these steps.
     - `import itly` => `from ampli import *`
     - `itly.` => `ampli.`
 
-6. See updated Event tracking details on your Implementation page in the web app.
+8. See updated Event tracking details on your Implementation page in the web app.
