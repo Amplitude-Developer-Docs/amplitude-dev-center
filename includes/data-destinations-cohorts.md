@@ -4,6 +4,7 @@
 
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
+- :braze: [Braze](../data/destinations/braze-cohort.md)
 - :enterpret: [Enterpret](../data/destinations/enterpret-cohort.md)
 - :hubspot: [HubSpot](../data/destinations/hubspot-cohort.md)
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
