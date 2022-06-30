@@ -43,7 +43,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
     npm install @amplitude/analytics-browser
     ```
 
-=== "Yarn"
+=== "yarn"
 
     ```bash
     yarn add @amplitude/analytics-browser
@@ -71,7 +71,7 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser/TypeScript (2.0)
+    Runtime: Browser/TypeScript
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -87,7 +87,7 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser/JavaScript (2.0)
+    Runtime: Browser/JavaScript
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -201,50 +201,43 @@ To track an event, call the event's corresponding function. Every event in your 
 === "TypeScript"
 
     ```js
-    ampli.eventName(properties: EventNameProperties, options: EventOptions, extra: MiddlewareExtra)
+    ampli.eventName(properties: EventNameProperties, options: EventOptions)
     ```
 
 === "JavaScript"
 
     ```js
-    ampli.eventName(properties: EventNameProperties, options: EventOptions, extra: MiddlewareExtra)
+    ampli.eventName(properties: EventNameProperties, options: EventOptions)
     ```
 
 The `properties` argument passes event properties.
 
 The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
 
-The `extra` argument lets you pass data to middleware.
-
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
- The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](#middleware).
 
 === "TypeScript"
 
     ```js
-    ampli.songPlayed( {
+    ampli.songPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
       deviceId: 'a-device-id',
-    }, {
-      myMiddleware: { myMiddlewareProp: "value to send to middleware" }
     });
     ```
 
 === "JavaScript"
 
     ```js
-    ampli.songPlayed( {
+    ampli.songPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
       deviceId: 'a-device-id',
-    }, {
-      myMiddleware: { myMiddlewareProp: "value to send to middleware" }
     });
     ```
 
@@ -309,7 +302,7 @@ The output displays status and indicates what events are missing.
 ✘ Verifying event tracking implementation in source code
  ✔ Song Played (1 location)
  ✘ Song Stopped Called when a user stops playing a song.
-Events Tracked: 2 missed, 3 total
+Events Tracked: 1 missed, 2 total
 ```
 
 Learn more about [`ampli status`](/data/using-the-ampli-cli.md#ampli-status).
