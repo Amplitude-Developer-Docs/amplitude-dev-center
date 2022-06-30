@@ -58,7 +58,7 @@ Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you 
        * example: client.track('New Event');
        */
       execute(event) {
-        event.event_id = currentId;
+        event.event_id = this.currentId++;;
         return event;
       }
     }
@@ -67,6 +67,8 @@ Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you 
 === "Typescript"
 
     ```js
+    import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+
     export class AddEventIdPlugin implements EnrichmentPlugin {
       name = 'add-event-id';
       type = PluginType.ENRICHMENT as const;
@@ -85,7 +87,7 @@ Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you 
        * example: client.track('New Event');
        */
       execute(event: Event): Promise<Event> {
-        event.event_id = currentId;
+        event.event_id = this.currentId++;;
         return event;
       }
     }
