@@ -105,9 +105,9 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 |---------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `disabled`                            | Optional. Boolean. Specifies whether the Ampli SDK does any work. When `true`, all calls to the Ampli SDK are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
 | `environment`                         | Optional. String. Specifies the environment the Ampli SDK is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
-| `client.apiKey`                       |Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+| `client.apiKey`                       | Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 | `client.instance`                     | Optional. AmpltitudeClient. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-| `client.options`                      | Optional. Amplitude.Config. Overrides the default configuration for the AmplitudeClient.|
+| `client.configuration`                | Optional. Amplitude.Config. Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
 
@@ -217,7 +217,7 @@ The `options` argument allows you to pass to pass [Amplitude fields](https://dev
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
+The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/#keys-for-the-event-argument).
 
 === "TypeScript"
 
@@ -279,6 +279,81 @@ Track Event objects using Ampli `track`:
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }));
+    ```
+
+
+### Plugin
+Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type).
+
+First you need to define your plugin. Enrichment Plugin example:
+
+=== "TypeScript"
+
+    ```js
+    import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+
+    export class AddEventIdPlugin implements EnrichmentPlugin {
+      name = 'add-event-id';
+      type = PluginType.ENRICHMENT as const;
+      currentId = 100;
+
+      /**
+       * setup() is called on plugin installation
+       * example: client.add(new AddEventIdPlugin());
+       */
+      setup(config: BrowserConfig): Promise<undefined> {
+         this.config = config;
+      }
+
+      /**
+       * execute() is called on each event instrumented
+       * example: client.track('New Event');
+       */
+      execute(event: Event): Promise<Event> {
+        event.event_id = this.currentId++;
+        return event;
+      }
+    }
+    ```
+
+=== "JavaScript"
+
+    ```js
+    export class AddEventIdPlugin {
+      name = 'add-event-id';
+      currentId = 100;
+
+      /**
+       * setup() is called on plugin installation
+       * example: client.add(new AddEventIdPlugin());
+       */
+      setup(config) {
+         this.config = config;
+      }
+
+      /**
+       * execute() is called on each event instrumented
+       * example: client.track('New Event');
+       */
+      execute(event) {
+        event.event_id = this.currentId++;
+        return event;
+      }
+    }
+    ```
+
+Add your plugin after init Ampli.
+
+=== "TypeScript"
+
+    ```js
+    ampli.client.add(new AddEventIdPlugin())
+    ```
+
+=== "JavaScript"
+
+    ```js
+    ampli.client.add(new AddEventIdPlugin())
     ```
 
 ## Verify implementation status
