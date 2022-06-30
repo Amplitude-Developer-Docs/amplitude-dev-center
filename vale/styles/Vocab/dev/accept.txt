@@ -35,6 +35,7 @@ JavaScript
 js
 Kotlin
 Kochava
+Mailchimp
 md
 middleware
 Middleware
