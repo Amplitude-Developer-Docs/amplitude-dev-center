@@ -5,7 +5,7 @@ icon: material/android
 ---
 
 !!!note
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
+    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/deprecated-sdks/android/)**.
 
 Amplitude Data supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 
@@ -30,13 +30,13 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "Java"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:0.1.0-beta.9'
+    implementation 'com.amplitude:analytics-android:1.0.0'
     ```
 
 === "Kotlin"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:0.1.0-beta.9'
+    implementation 'com.amplitude:analytics-android:1.0.0'
     ```
 
 !!!note
@@ -62,7 +62,7 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Android - Java
+    Runtime: Android / Java
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -78,7 +78,7 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Android - Kotlin
+    Runtime: Android / Kotlin
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -159,7 +159,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
     Ampli.getInstance().identify(
       userId,
-      Identify.builder() .userProp("A trait associated with this user").build(),
+      Identify.builder().userProp("A trait associated with this user").build(),
       eventOptions
     );
     ```
@@ -240,7 +240,7 @@ For example, in the code snippet below, your tracking plan contains an event cal
 
     ```java
     Ampli.getInstance().songPlayed(SongPlayed.builder()
-      .songId('songId') // String
+      .songId("songId") // String
       .songFavorited(true) // Boolean
       .build()
     );
@@ -250,7 +250,7 @@ For example, in the code snippet below, your tracking plan contains an event cal
 
     ```kotlin
     ampli.songPlayed(
-      songId = 'songId', // String,
+      songId = "songId", // String,
       songFavorited = true, // Boolean
     )
     ```
@@ -261,7 +261,7 @@ Ampli also generates a class for each event.
 
     ```java
     SongPlayed event = SongPlayed.builder()
-      .songId('songId') // String
+      .songId("songId") // String
       .songFavorited(true) // Boolean
       .build()
     ```
@@ -270,7 +270,7 @@ Ampli also generates a class for each event.
 
     ```kotlin
     val myEventObject = SongPlayed(
-      songId = 'songId', // String,
+      songId = "songId", // String,
       songFavorited = true, // Boolean
     );
     ```
@@ -280,19 +280,25 @@ Send event objects using the generic track method.
 === "Java"
 
     ```java
+    EventOptions options = new EventOptions();
+    options.setUserId("user-id");
+
     Ampli.getInstance().track(SongPlayed.builder()
-        .songId('songId') // String
+        .songId("songId") // String
         .songFavorited(true) // Boolean
-        .build())
+        .build(), options);
     ```
 
 === "Kotlin"
 
     ```kotlin
+    val options = EventOptions()
+    options.userId = "user_id"
+
     ampli.track(SongPlayed(
-      songId = 'songId', // String,
+      songId = "songId", // String
       songFavorited = true, // Boolean
-    );
+      ), options);
     ```
 
 ### Plugin
@@ -310,7 +316,7 @@ First you need to define your plugin. Destination Plugin example:
     	String SEGMENT_API_KEY;
     	public SegmentDestinationPlugin(android.content.Context appContext, String segmentAPIKey) {
         	this.context = appContext;
-        	this.SEGMENT_API_KEY = segmentAPIKey;
+        	this.SEGMENT_WRITE_KEY = segmentWriteKey;
     	}
     	@Override
      	public void setup(Amplitude amplitude) {
@@ -395,7 +401,7 @@ The output displays status and indicates what events are missing.
 ✘ Verifying event tracking implementation in source code
  ✔ Song Played (1 location)
  ✘ Song Stopped Called when a user stops playing a song.
-Events Tracked: 2 missed, 3 total
+Events Tracked: 1 missed, 2 total
 ```
 
 Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
@@ -420,7 +426,7 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
 2. Add Amplitude dependencies.
 
     ```bash
-    implementation 'com.amplitude:analytics-android:0.1.0-beta.9'
+    implementation 'com.amplitude:analytics-android:1.0.0'
     ```
 
 3. Pull the latest Ampli SDK.

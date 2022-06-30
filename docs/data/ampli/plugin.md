@@ -5,7 +5,7 @@ description: Use plugin to extend Amplitude by running a sequence of custom code
 ---
 
 !!!note
-    Plugin is support for the latest version of Ampli.
+    Plugin is support for the latest version of Ampli. If you are looking at the doc related to Middleware, please go to **[here](#data/ampli/middleware/)**.
 
 
 Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). This is a replacement for Middleware in Ampli legacy.
@@ -22,7 +22,12 @@ This method contains the logic for processing events and has event as parameter.
 Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you like. Each plugin runs in the order based on the plugin type.
 
 === "Typescript"
-	```ts
+	```js
+	ampli.client.add(yourPlugin())
+	```
+
+=== "Javascript"
+	```js
 	ampli.client.add(yourPlugin())
 	```
 
@@ -30,30 +35,58 @@ Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you 
 
 ### Enrichment Type Plugin
 
+=== "Javascript"
+
+    ```js
+    import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+
+    export class AddEventIdPlugin implements EnrichmentPlugin {
+      name = 'add-event-id';
+      type = PluginType.ENRICHMENT;
+      currentId = 100;
+
+      /**
+       * setup() is called on plugin installation
+       * example: client.add(new AddEventIdPlugin());
+       */
+      setup(config) {
+       this.config = config;
+      }
+
+      /**
+       * execute() is called on each event instrumented
+       * example: client.track('New Event');
+       */
+      execute(event) {
+        event.event_id = currentId;
+        return event;
+      }
+    }
+    ```
+
 === "Typescript"
-```ts
-import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
 
-export class AddEventIdPlugin implements EnrichmentPlugin {
-  name = 'add-event-id';
-  type = PluginType.ENRICHMENT as const;
-  currentId = 100;
+    ```js
+    export class AddEventIdPlugin implements EnrichmentPlugin {
+      name = 'add-event-id';
+      type = PluginType.ENRICHMENT as const;
+      currentId = 100;
 
-  /**
-   * setup() is called on plugin installation
-   * example: client.add(new AddEventIdPlugin());
-   */
-  setup(config: BrowserConfig): Promise<undefined> {
-     this.config = config;
-  }
-   
-  /**
-   * execute() is called on each event instrumented
-   * example: client.track('New Event');
-   */
-  execute(event: Event): Promise<Event> {
-    event.event_id = currentId;
-    return event;
-  }
-}
-```
+      /**
+       * setup() is called on plugin installation
+       * example: client.add(new AddEventIdPlugin());
+       */
+      setup(config: BrowserConfig): Promise<undefined> {
+        this.config = config;
+      }
+
+      /**
+       * execute() is called on each event instrumented
+       * example: client.track('New Event');
+       */
+      execute(event: Event): Promise<Event> {
+        event.event_id = currentId;
+        return event;
+      }
+    }
+    ```
