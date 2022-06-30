@@ -218,17 +218,18 @@ nav:
       - data/ampli/middleware.md
       - data/ampli/migration.md
     - SDKs:
-      - TypeScript (Beta): data/sdks/typescript-browser.md
+      - TypeScript: data/sdks/typescript-browser.md
+      - TypeScript using Ampli: data/sdks/typescript-ampli.md
       - JavaScript: data/sdks/javascript.md
-      - Browser using Ampli: data/sdks/browser-ampli.md
+      - Browser using Ampli (Legacy): data/sdks/browser-ampli.md
       - Node.js using Ampli: data/sdks/nodejs-ampli.md
       - Node.js: data/sdks/node.md
       - Android Kotlin (Beta): data/sdks/android-kotlin.md
       - Android: data/sdks/android.md
       - Android using Ampli: data/sdks/android-ampli.md
       - iOS: data/sdks/ios.md
-      - Java: data/sdks/java.md
       - iOS using Ampli: data/sdks/ios-ampli.md
+      - Java: data/sdks/java.md
       - JRE using Ampli: data/sdks/jre-ampli.md
       - React Native: data/sdks/react-native.md
       - React Native using Ampli: data/sdks/react-native-ampli.md

@@ -1,7 +1,7 @@
 ---
-title: Browser Ampli SDK
-description: Learn how to install and use the Amplitude Data Ampli SDK for the browser JavaScript and Typescript runtimes.
-icon: material/language-javascript
+title: Typescript Ampli SDK
+description: The Amplitude Typescript SDK Installation & Quick Start guide.
+icon: material/language-typescript
 ---
 
 
@@ -13,22 +13,6 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
  code completion and compile-time checks.
-
-??? tip "Enable real-time type checking for JavaScript"
-    Because JavaScript isn't a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc.
-     For a better development experience Ampli generates JSDocs for all methods and classes.
-
-    To enable real-time type checking in VSCode for JavaScript:
-
-    1. Go to **Preferences > Settings** then search for **checkJs**.
-    2. Select **JS/TS > Implicit Project Config: Check JS**.
-
-    After it's activated, type errors appear directly in the IDE.
-
-    Jetbrains provides similar support:
-
-    1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
-    2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
 
 ???tip "Linting with Prettier"
 
@@ -56,17 +40,17 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "npm"
 
     ```bash
-    npm install amplitude-js
+    npm install @amplitude/analytics-browser
     ```
 
 === "Yarn"
 
     ```bash
-    yarn add amplitude-js
+    yarn add @amplitude/analytics-browser
     ```
 
 !!!note
-    Note: when using Ampli in the browser, we recommend loading `amplitude-js` as a module rather than as a JS snippet.
+    Note: when using Ampli in the browser, we recommend loading `@amplitude/analytics-browser` as a module rather than as a JS snippet.
 
 ### Pull the SDK into your project
 
@@ -87,11 +71,11 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser - TypeScript
+    Runtime: Browser/TypeScript (2.0)
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
-    Path: ./src/itly
+    Path: ./src/ampli
     ```
 
 === "JavaScript"
@@ -103,11 +87,11 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser - JavaScript
+    Runtime: Browser/JavaScript (2.0)
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
-    Path: ./src/itly
+    Path: ./src/ampli
     ```
 
 ## API
@@ -342,7 +326,7 @@ Migrate from an Itly Browser runtime to Ampli by following these steps.
 
 4. Add Amplitude dependencies:
   
-      `yarn add amplitude-js`
+      `yarn add @amplitude/analytics-browser`
 
 5. Pull the latest Ampli SDK:
 
