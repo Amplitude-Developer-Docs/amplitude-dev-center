@@ -1,5 +1,5 @@
 ---
-title: Node.js Ampli SDK
+title: Node.js Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli SDK for the Node.js JavaScript and Typescript runtimes.
 icon: material/nodejs
 ---
@@ -242,7 +242,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 `properties` passes in event properties specific to this event in the tracking plan.
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 

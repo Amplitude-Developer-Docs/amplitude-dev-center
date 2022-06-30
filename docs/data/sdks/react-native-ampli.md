@@ -1,5 +1,5 @@
 ---
-title: React Native Ampli SDK
+title: React Native Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli SDK for the React Native TypeScript and JavaScript runtimes.
 icon: material/react
 ---
@@ -229,7 +229,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `properties` argument passes event properties.
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 

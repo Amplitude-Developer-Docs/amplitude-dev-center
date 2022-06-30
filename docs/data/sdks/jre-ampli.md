@@ -1,5 +1,5 @@
 ---
-title: JRE Ampli SDK
+title: JRE Ampli Wrapper
 description: Documentation for Amplitude Data's JRE Ampli SDK. 
 icon: fontawesome/brands/java
 ---
@@ -230,7 +230,7 @@ To track an event, call the event's corresponding function. Every event in your 
     ampli.track(userId: String, event: Event, options: EventOptions, extra: MiddlewareExtra)
     ```
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1),
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1),
  like `price`, `quantity` and `revenue`. The `extra` argument lets you pass data to middleware.
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.`
