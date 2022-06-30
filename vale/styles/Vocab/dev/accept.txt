@@ -26,6 +26,7 @@ gclid
 Gclid
 Gradle
 gzipped
+HubSpot
 IDFA
 IDFV
 Itly
@@ -34,6 +35,7 @@ JavaScript
 js
 Kotlin
 Kochava
+Mailchimp
 md
 middleware
 Middleware
