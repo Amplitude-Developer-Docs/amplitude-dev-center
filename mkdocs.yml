@@ -298,6 +298,7 @@ nav:
       - Enterpret: data/destinations/enterpret-cohort.md
       - HubSpot: data/destinations/hubspot-cohort.md
       - Infobip: data/destinations/infobip-cohort.md
+      - Intercom: data/destinations/intercom-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
