@@ -43,6 +43,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
 
     If you're not already requesting the [INTERNET permission](https://developer.android.com/reference/android/Manifest.permission#INTERNET), add `<uses-permission android:name="android.permission.INTERNET" />` to your AndroidManifest.xml.
 
+
 ### Pull the Wrapper into your project
 
 At the project root, run `pull` command.

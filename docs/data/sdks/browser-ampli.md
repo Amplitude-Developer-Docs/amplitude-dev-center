@@ -1,5 +1,5 @@
 ---
-title: Browser Ampli SDK
+title: Browser Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli SDK for the browser JavaScript and Typescript runtimes.
 icon: material/language-javascript
 ---
@@ -7,7 +7,7 @@ icon: material/language-javascript
 
 !!! note
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-browser-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
@@ -228,7 +228,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `properties` argument passes event properties.
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 

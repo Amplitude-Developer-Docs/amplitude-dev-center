@@ -189,7 +189,7 @@ nav:
     - Python SDK (Beta): experiment/sdks/python-sdk.md
   - REST APIs:
     - Evaluation API: experiment/apis/evaluation-api.md
-    - Management API (Beta): "https://developers.experiment.amplitude.com/reference/management-api"
+    - Management API (Beta): experiment/apis/management-api.md
   # - Remove / Move:
   #   - experiment/sdks/beta-migration.md
   #   - Concepts:
@@ -219,9 +219,10 @@ nav:
       - data/ampli/plugin.md
       - data/ampli/migration.md
     - SDKs:
-      - TypeScript (Beta): data/sdks/typescript-browser.md
+      - TypeScript: data/sdks/typescript-browser.md
+      - TypeScript using Ampli: data/sdks/typescript-ampli.md
       - JavaScript: data/sdks/javascript.md
-      - Browser using Ampli: data/sdks/browser-ampli.md
+      - Browser using Ampli (Legacy): data/sdks/browser-ampli.md
       - Node.js using Ampli: data/sdks/nodejs-ampli.md
       - Node.js: data/sdks/node.md
       - Android Kotlin: data/sdks/android-kotlin.md
@@ -229,13 +230,14 @@ nav:
       - Android (Legacy): data/sdks/android.md
       - Android using Ampli (Legacy): data/sdks/android-ampli.md
       - iOS: data/sdks/ios.md
-      - Java: data/sdks/java.md
       - iOS using Ampli: data/sdks/ios-ampli.md
+      - Java: data/sdks/java.md
       - JRE using Ampli: data/sdks/jre-ampli.md
       - React Native: data/sdks/react-native.md
       - React Native using Ampli: data/sdks/react-native-ampli.md
       - Flutter: data/sdks/flutter.md
-      - Python (Beta): data/sdks/python.md
+      - Python using Ampli: data/sdks/python-ampli.md
+      - Python: data/sdks/python.md
       - Unity: data/sdks/unity.md
       - Unreal: data/sdks/unreal.md
       - Other Topics:

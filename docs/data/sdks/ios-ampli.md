@@ -1,5 +1,5 @@
 ---
-title: iOS Ampli SDK
+title: iOS Ampli Wrapper
 icon: material/apple-ios
 description: Learn how to install and use the Ampli SDK for the iOS Swift and Objective-C runtimes. 
 ---
@@ -227,7 +227,7 @@ To track an event, call the event's corresponding function. Every event in your 
     ];
     ``
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `deviceID`. The `extra` argument lets you pass data to middleware.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `deviceID`. The `extra` argument lets you pass data to middleware.
 
 !!! note
     EventOptions are set via generic track and aren't exposed on the strongly typed event methods such as `Ampli.instance.songPlayed(songId: 'id', songFavorited: true)`.
