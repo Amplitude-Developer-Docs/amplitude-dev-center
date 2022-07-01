@@ -77,8 +77,8 @@ ampli.load(LoadOptions(
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
-|`disabled`|Optional. Defaults to False. Specifies whether the Ampli SDK does any work. When true, all calls to the Ampli SDK are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to None. Specifies the environment the Ampli SDK runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
+|`disabled`|Optional. Defaults to False. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
+|`environment`|Optional. Defaults to None. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
 |`client`|Optional. Defaults to None. A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|
 
 | <div class ="big-column">Arg of LoadClientOptions</div> | Description |
@@ -107,7 +107,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 ampli.identify("user_id", Identify(role="admin"), EventOptions(device_id="device_id"))
 ```
 
-### Group
+### Group Identify
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
@@ -122,6 +122,8 @@ For example your tracking plan contains a group `sport:football` has a property 
 ```python
 ampli.group_identify("sport", "football", Group(total_member=23))
 ```
+
+### Set Group
 
 Call `set_group()` to associate a user with their group (for example, their department or company). The `set_group()` function accept `user_id` `group_type`, `group_name` and an optional EventOptions.
 
@@ -253,13 +255,13 @@ Migrate from an Itly Python runtime to Ampli by following these steps.
     pip install amplitude-analytics
     ```
 
-5. Pull the latest Ampli SDK.
+5. Pull the latest Ampli Wrapper.
 
     ```bash
     ampli pull
     ```
 
-6. Check your Ampli SDK path.
+6. Check your Ampli Wrapper path.
     `ampli pull` prints the location of where the new SDK was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 
 7. Find and replace:

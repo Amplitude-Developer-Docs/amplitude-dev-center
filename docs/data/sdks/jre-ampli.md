@@ -1,6 +1,6 @@
 ---
 title: JRE Ampli Wrapper
-description: Documentation for Amplitude Data's JRE Ampli SDK. 
+description: Documentation for Amplitude Data's JRE Ampli Wrapper. 
 icon: fontawesome/brands/java
 ---
 
@@ -123,9 +123,9 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 | <div class="big-column">Arg</div> | Description |
 |-|-|
-| `LoadOptions` | Optional. Defaults to `false`. Specifies configuration options for the Ampli SDK.|
-|`disabled`|Optional. Specifies whether the Ampli SDK does any work. When true, all calls to the Ampli SDK are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli SDK runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it logs an error but stills let the event through. In development, the SDK throws an exception to alert you that something is wrong.|
+| `LoadOptions` | Optional. Defaults to `false`. Specifies configuration options for the Ampli Wrapper.|
+|`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
+|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it logs an error but stills let the event through. In development, the SDK throws an exception to alert you that something is wrong.|
 |`client`|Optional. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 |`apiKey`|Optional. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 
@@ -216,7 +216,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 ### Track
 
-To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli SDK. The call is structured like this:
+To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
 
 === "Java"
 
@@ -355,13 +355,13 @@ Migrate from an Itly JRE runtime to Ampli by following these steps.
     implementation 'org.json:json:20201115'
     ```
 
-3. Pull the latest Ampli SDK.
+3. Pull the latest Ampli Wrapper.
 
     ```bash
     ampli pull
     ```
 
-4. Check your Ampli SDK path.
+4. Check your Ampli Wrapper path.
 
     `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path`
      parameter: `ampli pull -p ./path/to/ampli`.
