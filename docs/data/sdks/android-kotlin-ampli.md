@@ -209,7 +209,7 @@ For example your tracking plan contains a group `test group:android-java-ampli` 
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Call `setGroup()` to associate a user with their group (for example, their department or company). The `setGroup()` function accepts a required `groupType`, and `groupName`.
+Call `setGroup()` to associate a user with their group (for example, their department or company). The `setGroup()` function accepts a required `groupType`, and `groupName` and an optional EventOptions.
 
 === "Java"
 
@@ -225,7 +225,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 --8<-- "includes/groups-intro-paragraph.md"
 
- Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+ GroupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
 
  Your code might look like this:
 
