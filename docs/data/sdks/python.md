@@ -6,11 +6,11 @@ icon: fontawesome/brands/python
 
 ![PyPI version](https://badge.fury.io/py/amplitude-analytics.svg)
 
-!!!beta "This SDK is in Beta"
-
 !!!info "SDK Resources"
     - [Python SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Python)
     - [Python SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Python/releases)
+
+--8<-- "includes/ampli-vs-amplitude.md"
 
 The Python SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-Python).
 

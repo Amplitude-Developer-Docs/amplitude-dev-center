@@ -22,7 +22,7 @@ By default, the Node SDK uses the [HTTP API V2](/analytics/apis/http-v2-api/).
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
-To learn more about Ampli SDK, please refer to the [Ampli Node](https://developers.data.amplitude.com/nodejs-ampli) and [examples](https://github.com/amplitude/ampli-examples).
+To learn more about Ampli Wrapper, please refer to the [Ampli Node](https://developers.data.amplitude.com/nodejs-ampli) and [examples](https://github.com/amplitude/ampli-examples).
 
 ## Installation
 

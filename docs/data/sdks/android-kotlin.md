@@ -6,8 +6,6 @@ icon: material/language-kotlin
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/analytics-android.svg?label=Maven%20Central)
 
-!!!beta "This SDK is in Beta"
-
 !!!info "SDK Resources"
     - [Android Kotlin SDK Reference :material-book:](https://amplitude.github.io/Amplitude-Kotlin/)
     - [Android Kotlin SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Kotlin)
@@ -26,7 +24,7 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
 
 ```txt
 dependencies {
-  implementation 'com.amplitude:analytics-android:0.1.0-beta.2'
+  implementation 'com.amplitude:analytics-android:1.0.0'
 }
 ```
 

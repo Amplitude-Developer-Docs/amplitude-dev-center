@@ -1,6 +1,6 @@
 ---
-title: React Native Ampli SDK
-description: Learn how to install and use the Amplitude Data Ampli SDK for the React Native TypeScript and JavaScript runtimes.
+title: React Native Ampli Wrapper
+description: Learn how to install and use the Amplitude Data Ampli Wrapper for the React Native TypeScript and JavaScript runtimes.
 icon: material/react
 ---
 
@@ -120,8 +120,8 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 
 | <div class ="big-column">Option</div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |---------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disabled`                            | Optional. Boolean. Specifies whether the Ampli SDK does any work. When `true`, all calls to the Ampli SDK are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
-| `environment`                         | Optional. String. Specifies the environment the Ampli SDK is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
+| `disabled`                            | Optional. Boolean. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
+| `environment`                         | Optional. String. Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
 | `client.apiKey`                       |Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 | `client.instance`                     | Optional. AmpltitudeClient. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 | `client.options`                      | Optional. Amplitude.Config. Overrides the default configuration for the AmplitudeClient.|
@@ -130,7 +130,7 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 
 Call `identify()` to identify a user in your app and associate all future events with their identity, or to set their properties.
 
-Just as the Ampli SDK creates types for events and their properties, it creates types for user properties.
+Just as the Ampli Wrapper creates types for events and their properties, it creates types for user properties.
 
 The `identify()` function accepts an optional `userId`, optional user properties, and optional `options`.
 
@@ -213,7 +213,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 ### Track
 
-To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli SDK. The call is structured like this:
+To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
 
 === "TypeScript"
 
@@ -229,7 +229,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `properties` argument passes event properties.
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 
