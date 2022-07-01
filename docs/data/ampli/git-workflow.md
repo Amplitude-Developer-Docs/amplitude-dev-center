@@ -18,7 +18,7 @@ When updates need to be made to the tracking plan:
 1. Create a branch in Amplitude Data. Make tracking plan updates.
 2. Create a branch in Git.(1)
 3. Pull the latest generated code for your Data branch into your Git branch with `ampli pull`.
-4. Implement the changes using the Ampli SDK in your code on your Git branch
+4. Implement the changes using the Ampli Wrapper in your code on your Git branch
 5. Check implementation status with `ampli status`.
 6. Merge the Data branch.
 7. Check merge status with `ampli status --is-merged`.
@@ -31,7 +31,7 @@ When updates need to be made to the tracking plan:
 
 ### Ampli CLI
 
-The Ampli CLI is able to pull down generated Ampli SDK code for Sources and Branches you have created in Data.
+The Ampli CLI is able to pull down generated Ampli Wrapper code for Sources and Branches you have created in Data.
 
 The first time you run `ampli pull` you will be prompted to select a Source and Branch from your tracking plan.
 This will create an `ampli.json` file to store your configuration for future development.
@@ -53,7 +53,7 @@ If later you would like to change branches you have a couple of options.
 
 #### `ampli checkout [my-branch-name]`
 
-The provided branch will be pulled down from Data to your Ampli SDK. If no branch name is provided you will be prompted
+The provided branch will be pulled down from Data to your Ampli Wrapper. If no branch name is provided you will be prompted
 to select one from a list of active branches in your tracking plan.
 
 ```bash
@@ -189,7 +189,7 @@ Here are some common errors and solutions for the ampli status command.
 #### Event tracking implementation error
 
 * This means you have not properly instrumented all events in your tracking plan.
-* Implement the missing events in your project using the Ampli SDK.
+* Implement the missing events in your project using the Ampli Wrapper.
 
 #### `is-merged` error
 
@@ -256,7 +256,7 @@ Once the `ampli.json` is on the `main` branch future calls to `--is-latest-if-no
 
 !!!info
 
-    If you run `ampli pull` on a merged version it will update the `ampli.json` and Ampli SDK to contain the associated version main that was created by the merged branch. If you want to get the latest version of `main` you can run `ampli pull` a second time.
+    If you run `ampli pull` on a merged version it will update the `ampli.json` and Ampli Wrapper to contain the associated version main that was created by the merged branch. If you want to get the latest version of `main` you can run `ampli pull` a second time.
 
 ## Github Actions
 
@@ -377,4 +377,4 @@ Yes, that is expected! The Ampli CLI uses this information to verify that the Am
 
 ### Do I need to run ampli pull -b main before merging my Git branch?
 
-Not anymore! If you were using an earlier version of Ampli make sure to update to Ampli CLI 1.9.0+ and pull the latest version of your Ampli SDK. After that you'll never need to run ampli pull -b main again.
+Not anymore! If you were using an earlier version of Ampli make sure to update to Ampli CLI 1.9.0+ and pull the latest version of your Ampli Wrapper. After that you'll never need to run ampli pull -b main again.

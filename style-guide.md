@@ -62,4 +62,4 @@ For example, when introducing a function in the docs:
 
 |**Rule**|**Don't** :x:|**Do** :white_check_mark:|
 |-------|----------|-------|
-|*Optional, required. Type. Description.* *Defaults*.|Specifies additional configuration options for the Ampli SDK. This field is optional. Default is `false`.|Optional. String. Specifies additional configuration options for the Ampli SDK. Defaults to `false`.|
+|*Optional, required. Type. Description.* *Defaults*.|Specifies additional configuration options for the Ampli Wrapper. This field is optional. Default is `false`.|Optional. String. Specifies additional configuration options for the Ampli Wrapper. Defaults to `false`.|

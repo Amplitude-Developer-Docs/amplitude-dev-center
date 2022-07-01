@@ -1,6 +1,6 @@
 ---
 title: Android (Itly)
-description: This SDK is deprecated. Learn how to install and use the Ampli SDK for the Android Java and Kotlin runtimes. 
+description: This SDK is deprecated. Learn how to install and use the Ampli Wrapper for the Android Java and Kotlin runtimes. 
 icon: material/android
 search:
   exclude: true

@@ -1,7 +1,7 @@
 ---
 title: iOS Ampli Wrapper
 icon: material/apple-ios
-description: Learn how to install and use the Ampli SDK for the iOS Swift and Objective-C runtimes. 
+description: Learn how to install and use the Ampli Wrapper for the iOS Swift and Objective-C runtimes. 
 ---
 
 !!! note
@@ -123,9 +123,9 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 | Arg | Description |
 |-|-|
-| `LoadOptions` | Optional. Defaults to `false`. Specifies configuration options for the Ampli SDK.|
-|`disabled`|Optional. Specifies whether the Ampli SDK does any work. When true, all calls to the Ampli SDK are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli SDK runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it logs an error but stills let the event through. In development, the SDK throws an exception to alert you that something is wrong.|
+| `LoadOptions` | Optional. Defaults to `false`. Specifies configuration options for the Ampli Wrapper.|
+|`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
+|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it logs an error but stills let the event through. In development, the SDK throws an exception to alert you that something is wrong.|
 |`instance`|Optional. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 |`apiKey`|Optional. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 
@@ -133,7 +133,7 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 Call `identify()` to identify a user in your app and associate all future events with their identity, or to set their properties.
 
-Just as the Ampli SDK creates types for events and their properties, it creates types for user properties.
+Just as the Ampli Wrapper creates types for events and their properties, it creates types for user properties.
 
 The `identify()` function accepts an optional `userId`, optional user properties, and optional `options`.
 
@@ -210,7 +210,7 @@ When setting groups, define a `groupType` and `groupName`. In the previous examp
 
 ### Track
 
-To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli SDK. The call is structured like this:
+To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
 
 === "Swift"
 
@@ -358,13 +358,13 @@ Migrate from an Itly iOS runtime to Ampli by following these steps.
     pod install
     ```
 
-4. Pull the latest Ampli SDK.
+4. Pull the latest Ampli Wrapper.
 
     ```bash
     ampli pull
     ```
 
-5. Check your Ampli SDK path.
+5. Check your Ampli Wrapper path.
 
     `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 

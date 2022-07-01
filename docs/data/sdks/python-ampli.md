@@ -77,8 +77,8 @@ ampli.load(LoadOptions(
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
-|`disabled`|Optional. Defaults to False. Specifies whether the Ampli SDK does any work. When true, all calls to the Ampli SDK are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to None. Specifies the environment the Ampli SDK runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
+|`disabled`|Optional. Defaults to False. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
+|`environment`|Optional. Defaults to None. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
 |`client`|Optional. Defaults to None. A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|
 
 | <div class ="big-column">Arg of LoadClientOptions</div> | Description |
@@ -255,13 +255,13 @@ Migrate from an Itly Python runtime to Ampli by following these steps.
     pip install amplitude-analytics
     ```
 
-5. Pull the latest Ampli SDK.
+5. Pull the latest Ampli Wrapper.
 
     ```bash
     ampli pull
     ```
 
-6. Check your Ampli SDK path.
+6. Check your Ampli Wrapper path.
     `ampli pull` prints the location of where the new SDK was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 
 7. Find and replace:
