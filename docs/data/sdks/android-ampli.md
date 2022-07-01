@@ -1,6 +1,6 @@
 ---
-title: Android Ampli SDK
-description: Learn how to install and use the Amplitude Data Ampli SDK for the Android Java and Kotlin runtimes. 
+title: Android Ampli Wrapper
+description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
 icon: material/android
 ---
 
@@ -115,10 +115,10 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 | <div class ="big-column">Arg</div> | Description |
 |-|-|
-| `appContext`| An object with a set of properties to add to every event sent by the Ampli SDK.<br /><br /> This option is available when there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your team's tracking plan.|
-| `LoadOptions` | Optional. Specifies configuration options for the Ampli SDK.|
-|`disabled`|Optional. Specifies whether the Ampli SDK does any work. When true, all calls to the Ampli SDK are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli SDK runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it logs an error but stills let the event through. In development, the SDK throws an exception to alert you that something is wrong.|
+| `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your team's tracking plan.|
+| `LoadOptions` | Optional. Specifies configuration options for the Ampli Wrapper.|
+|`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
+|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the wrapper detects an invalid event, it logs an error but stills let the event through. In development, the wrapper throws an exception to alert you that something is wrong.|
 |`client.instance`| Optional. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 |`client.apiKey`|Optional. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 
@@ -214,7 +214,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 ### Track
 
-To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli SDK. The call is structured like this:
+To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
 
 === "Java"
 
@@ -344,14 +344,14 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
-3. Pull the latest Ampli SDK.
+3. Pull the latest Ampli Wrapper.
 
     ```bash
     ampli pull
     ```
 
-4. Check your Ampli SDK path.
-    `ampli pull` prints the location of where the new SDK was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+4. Check your Ampli Wrapper path.
+    `ampli pull` prints the location of where the new wrapper was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 
 5. Find and replace:
 
