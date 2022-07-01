@@ -56,26 +56,28 @@ When your dataset is ready to be ingested, you can set up Amazon S3 Import in Am
 Follow these steps to give Amplitude read access to your AWS S3 bucket.
 
 1. Create a new IAM role, for example: “AmplitudeReadRole”.
-2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy, using the following example. Update **only** the highlighted text as needed.
+2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy, using the following example. Update **{{}}** in highlighted text. 
 
-    ```json hl_lines="7 8 13"
+    * **{{amplitude_account}}**: `358203115967` for Amplitude US data center. `202493300829` for Amplitude EU data center. 
+    * **{{external_id}}**: unique identifiers used when assuming roles. Example can be `vzup2dfp-5gj9-8gxh-5294-sd9wsncks7dc`.
+
+    ``` json hl_lines="7 12"
     {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": {
-          "AWS": "arn:aws:iam::358203115967:root"(us region)
-        "AWS": "arn:aws:iam::202493300829:root"(eu region)
-        },
-        "Action": "sts:AssumeRole",
-        "Condition": {
-          "StringEquals": {
-            "sts:ExternalId": "vzup2dfp-5gj9-8gxh-5294-sd9wsncks7dc"
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "AWS": "arn:aws:iam::{{amplitude_account}}:root"
+          },
+          "Action": "sts:AssumeRole",
+          "Condition": {
+            "StringEquals": {
+              "sts:ExternalId": "{{external_id}}"
+            }
           }
         }
-      }
-    ]
+      ]
     }
     ```
 
@@ -154,10 +156,10 @@ When you have your bucket details, create the Amazon S3 Import source.
 
 3. Complete the **Configure S3 location** section on the Set up S3 Bucket page:
 
-   1. **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-<customername>.` This tells Amplitude where to look for your files.
-   2. **Prefix**: Location of files to be imported. This must end with “/”. For example, `dev/event-data/`.
-   3. **AWS Role ARN**. Required.
-   4. **AWS External ID**. Required.
+    * **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-<customername>.` This tells Amplitude where to look for your files.
+    * **Prefix**: Location of files to be imported. This must end with “/”. For example, `dev/event-data/`.
+    * **AWS Role ARN**. Required.
+    * **AWS External ID**. Required.
 
 4. Optional: enable **S3 Event Notification**. See [Manage Event Notifications](#optional-manage-event-notifications) for more information.
 

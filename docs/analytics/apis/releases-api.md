@@ -56,8 +56,8 @@ You can send the release's parameters as a JSON payload, or query parameters.
 |<div class="big-column">Name</div>|Description|
 |----|-------|
 |`version`|Required. The version of your product corresponding to this release.|
-|`release_start`| Required. Timestamp corresponding to the start of this release in UTC. Must be in this format: `YYYY-mm-dd HH:mm:ss`.|
-|`release_end`| Optional. Timestamp corresponding to the end of this release in UTC. Must be in this format: `YYYY-mm-dd HH:mm:ss`.|
+|`release_start`| Required. Timestamp corresponding to the start of this release in UTC. Must be in this format: `yyyy-MM-dd HH:mm:ss`.|
+|`release_end`| Optional. Timestamp corresponding to the end of this release in UTC. Must be in this format: `yyyy-MM-dd HH:mm:ss`.|
 |`title`|Required. A name for the release.|
 |`description`|Optional. A description for the release.|
 |`platforms`|Optional. A list of platforms for this release.|
