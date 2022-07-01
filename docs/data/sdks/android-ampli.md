@@ -1,10 +1,6 @@
 ---
 title: Android Ampli Wrapper
-<<<<<<< HEAD
-description: Learn how to install and use the Amplitude Data Ampli SDK for the Android Java and Kotlin runtimes. 
-=======
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
->>>>>>> cf2d143513022d8231bd5612318dc45b9d60c9ae
 icon: material/android
 ---
 
