@@ -187,7 +187,7 @@ Just as Ampli creates types for events and their properties, it creates types fo
 
 The `groupIdentify()` function accepts a string group_type, a string group_name, an Group event instance, and an optional EventOptions.
 
-For example your tracking plan contains a group `sport:football` has a property called `total_member`. The property's type is a int.
+For example your tracking plan contains a group `test group:android-java-ampli` has a property called `requiredBoolean` with a boolean type.
 
 
 === "Java"
@@ -195,7 +195,8 @@ For example your tracking plan contains a group `sport:football` has a property 
     ```java
     Ampli.getInstance().groupIdentify("test group", "android-java-ampli", Group.builder()
         .requiredBoolean(true)
-        .build());
+        .build()
+    );
     ```
 
 === "Kotlin"
@@ -219,7 +220,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "Kotlin"
 
     ```kotlin
-    ampli.setGroup("groupType", "groupName");
+    ampli.setGroup("groupType", "groupName")
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
