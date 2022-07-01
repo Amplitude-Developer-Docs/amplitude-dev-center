@@ -107,7 +107,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 ampli.identify("user_id", Identify(role="admin"), EventOptions(device_id="device_id"))
 ```
 
-### Group
+### Group Identify
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
@@ -122,6 +122,8 @@ For example your tracking plan contains a group `sport:football` has a property 
 ```python
 ampli.group_identify("sport", "football", Group(total_member=23))
 ```
+
+### Set Group
 
 Call `set_group()` to associate a user with their group (for example, their department or company). The `set_group()` function accept `user_id` `group_type`, `group_name` and an optional EventOptions.
 
