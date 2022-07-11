@@ -12,6 +12,7 @@
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
 - :intercom: [Intercom](../data/destinations/intercom-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
+- :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
 - :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
