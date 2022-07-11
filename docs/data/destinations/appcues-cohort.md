@@ -24,7 +24,7 @@ Amplitude's Appcues integration allows you to send finely-targeted behavioral au
 To sync a cohort between Amplitude and Appcues, follow these steps:
 
 1. Open your cohort and select the API target to sync to.
-2. Specify the custom field that you want to sync to. Appcues automatically creates this field the first time your sync is run. **This should not contain any quote characters.**
+2. Specify the custom field that you want to sync to. Appcues automatically creates this field the first time your cohort syncs. The field name can't contain any quote characters.
 3. Specify whether you want to run a one-time sync, or whether you want the sync to occur on a scheduled basis.
 
 In Appcues, the cohort appears as a user property. Its name matches the one you provided for the custom field. It's set to `true` if a user is in the cohort at the time of sync, and `false` if they're not.
