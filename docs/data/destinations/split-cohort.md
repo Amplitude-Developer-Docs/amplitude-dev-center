@@ -21,10 +21,10 @@ To set up the integration, you'll need to collect some information from your Spl
 
 1. In Amplitude, navigate to **Data Destinations**, then find **Split - Cohort**.
 2. In the *Connect to Split* modal, enter the following information you collected from Split:
-   - The access token (API Key)
-   - Workspace ID
-   - Environment ID
-   - Traffic type ID
+      - The access token (API Key)
+      - Workspace ID
+      - Environment ID
+      - Traffic type ID
 3. Map the user identifier Amplitude uses to sync with Split.
 4. Save your work.
 
