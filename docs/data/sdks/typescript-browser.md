@@ -63,7 +63,7 @@ init(API_KEY);
 // Option 2, initialize including user ID if it's already known
 init(API_KEY, 'user@amplitude.com');
 
-// Option 2, initialize including configuration
+// Option 3, initialize including configuration
 init(API_KEY, 'user@amplitude.com', {
   disableCookies: true, // Disables the use of browser cookies
 });
