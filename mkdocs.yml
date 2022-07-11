@@ -297,6 +297,8 @@ nav:
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
       - Meta Pixel: data/destinations/meta-pixel.md
     - Cohorts:
+      - Airship: data/destinations/airship-cohort.md
+      - Appcues: data/destinations/appcues-cohort.md
       - AppsFlyer: data/destinations/appsflyer-cohort.md
       - Braze: data/destinations/braze-cohort.md
       - Cordial: data/destinations/cordial-cohort.md
@@ -304,7 +306,9 @@ nav:
       - HubSpot: data/destinations/hubspot-cohort.md
       - Infobip: data/destinations/infobip-cohort.md
       - Intercom: data/destinations/intercom-cohort.md
+      - Iterable: data/destinations/iterable-cohort.md
       - Mailchimp: data/destinations/mailchimp-cohort.md
+      - Split: data/destinations/split-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
