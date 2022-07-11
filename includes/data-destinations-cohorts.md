@@ -2,6 +2,7 @@
 
 <div class="grid cards" markdown>
 
+- :airship: [Airship](../data/destinations/airship-cohort.md)
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
