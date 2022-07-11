@@ -19,8 +19,8 @@ To set up the integration, you'll need to collect some information from your Spl
 
 ### Amplitude setup 
 
-1. **In your Amplitude dashboard**, navigate to *Sources & Destinations → Destinations* and click the *Split* destination
-2. . In the *Connect to Split* modal, enter the following information you collected from Split:
+1. In Amplitude, navigate to **Data Destinations**, then find **Split - Cohort**.
+2. In the *Connect to Split* modal, enter the following information you collected from Split:
    - The access token (API Key)
    - Workspace ID
    - Environment ID

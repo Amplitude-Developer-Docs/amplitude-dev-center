@@ -11,6 +11,7 @@
 - :hubspot: [HubSpot](../data/destinations/hubspot-cohort.md)
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
 - :intercom: [Intercom](../data/destinations/intercom-cohort.md)
+- :iterable: [Iterable](../data/destinations/iterable-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
