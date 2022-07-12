@@ -1,6 +1,6 @@
 ---
 title: Send Cohorts to Facebook Ads
-description: Send Amplitude cohorts to the Facebook ad network to create custom audiences. 
+description: Send Amplitude cohorts to the Facebook ad network to use them in custom audiences. 
 ---
 
 This integration enables you to create [custom audiences](https://www.facebook.com/business/help/381385302004628) from your first-party behavioral data to drive new user acquisition and conversions. With this integration, you can upload and sync [behavioral cohorts](https://help.amplitude.com/hc/en-us/articles/231881448) directly to Facebook for campaign targeting throughout the Facebook ad network.  

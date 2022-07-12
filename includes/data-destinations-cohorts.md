@@ -15,6 +15,7 @@
 - :intercom: [Intercom](../data/destinations/intercom-cohort.md)
 - :iterable: [Iterable](../data/destinations/iterable-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
+- :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
