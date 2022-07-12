@@ -8,6 +8,7 @@
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - :enterpret: [Enterpret](../data/destinations/enterpret-cohort.md)
+- :facebook: [Facebook Ads](../data/destinations/facebook-cohort.md)
 - :hubspot: [HubSpot](../data/destinations/hubspot-cohort.md)
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
 - :insider: [Insider](../data/destinations/insider-cohort.md)
