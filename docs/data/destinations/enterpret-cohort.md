@@ -27,7 +27,7 @@ Enterpret analyzes your customer feedback across different sources, such as supp
 
 After you save the integration, you can sync your first cohort.
 
-### Sync an Amplitude cohort
+## Send a cohort
 
 Next, follow these steps to sync any of your Amplitude cohorts to your Enterpret destinations:
 
@@ -35,5 +35,5 @@ Next, follow these steps to sync any of your Amplitude cohorts to your Enterpret
 2. Click **Sync**.
 3. Select **Enterpret**, then click **Next**.
 4. From the *Select an API target to sync to list*, select your Enterpret destination.
-5. Define the sync cadence.
+5. Set the sync cadence.
 6. Click **Sync** to start syncing.

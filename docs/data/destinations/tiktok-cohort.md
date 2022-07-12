@@ -40,16 +40,15 @@ The TikTok Ads integration allows you to send audiences from Amplitude to TikTok
    - GAID - Google Ads ID: Matches on user GAID (Google Ads ID).
 5. When finished, save your work.
 
-### Sync a cohort
+## Send a cohort
 
 To sync your first cohort, follow these steps:
 
-1. In Amplitude, navigate to **Cohorts**.
-2. Open the cohort you want to sync, then click **Sync**.
-3. Select **TikTok Ad Account**, then click **Next**.
-4. Choose the account you want to sync to.
-5. Choose the appropriate sync frequency: either a one-time sync, scheduled sync, or real-time sync.[^2]
-6. When finished, save your work.
+1. In Amplitude, open the cohort you want to sync, then click **Sync**.
+2. Select **TikTok Ad Account**, then click **Next**.
+3. Choose the account you want to sync to.
+4. Choose the sync cadence..[^2]
+5. When finished, save your work.
 [^2]: If you're not sure which selection is best, we recommend setting up automated recurring syncs for any essential cohorts. Use one-time syncs for work on individual projects.
 
 In [TikTok Ads Manager](https://ads.tiktok.com/i18n/dashboard) the cohort appears under **Assets → Audiences**. It can take TikTok Ads up to 12 hours to populate the sync. If the cohort is less than 1000 users, it's marked as *unavailable* on TikTok Ads. In this case, disconnect the TikTok Ads integration in Amplitude, change the mapping and cohort definition to restart the cohort sync.

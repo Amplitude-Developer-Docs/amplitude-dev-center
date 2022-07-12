@@ -19,7 +19,7 @@ Amplitude's Appcues integration allows you to send finely-targeted behavioral au
 3. Select the Amplitude user property you want to map to the Appcues `User ID` field. This property should match the `User ID` field.
 4. Save your work.
 
-### Sync a cohort
+## Send a cohort
 
 To sync a cohort between Amplitude and Appcues, follow these steps:
 

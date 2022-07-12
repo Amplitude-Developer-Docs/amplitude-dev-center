@@ -47,9 +47,9 @@ Copy the app ID from your AppsFlyer dashboard.
       - For Android audiences: Google Advertiser ID, Amplitude User ID, or AppsFlyer Customer User ID
 6. Save the destination.
 
-#### Configure the sync
+## Send a cohort
 
-Next, follow these steps to sync any of your Amplitude cohorts to your AppsFlyer destinations:
+Follow these steps to sync any of your Amplitude cohorts to your AppsFlyer destinations:
 
 1. From the Cohorts page in Amplitude, click the cohort for which you want to create an AppsFlyer audience, or create a cohort.
 2. Click **Sync**.

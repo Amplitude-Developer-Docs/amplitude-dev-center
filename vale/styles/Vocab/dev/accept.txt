@@ -33,6 +33,7 @@ IDFV
 Itly
 Infobip
 Iterable
+Insider
 JavaScript
 js
 Kotlin

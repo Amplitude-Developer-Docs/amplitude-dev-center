@@ -23,11 +23,12 @@ Copy your Iterable API key. You can find this in Iterable under **Integrations >
 4. Map the Amplitude user ID.
 5. Save your work. 
 
-### Export cohort to Iterable
+## Send a cohort
 
-1. In Amplitude, open the cohort you want to export. Click **Sync To**, and choose Iterable from the drop-down list.
-2. In the modal that appears, choose the Iterable destination you've already configured.
-3. Select the sync frequency you need.
-4. Click **Save Sync** to complete the process.
+1. In Amplitude, open the cohort you want to export. 
+2. Click **Sync**, and choose Iterable.
+3. Select the destination.
+4. Select the sync cadence.
+5. Save when finished.
 
 You can now find the synced behavioral cohort under Iterable's user list. The cohort's name is prefixed with `[Amplitude]`.

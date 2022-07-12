@@ -68,7 +68,7 @@ Create a tag group in Airship called "Amplitude".
 
 When your app update is deployed, you are ready to sync cohorts.
 
-### Sync cohorts to Airship
+## Send a cohort
 
 To sync cohorts between Amplitude and Airship, follow these steps:
 
