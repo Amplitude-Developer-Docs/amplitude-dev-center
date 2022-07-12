@@ -34,7 +34,7 @@ Get an API key from the Insider platform. If you don't have one, create one.
 4. Map an Amplitude property to an Insider property. 
 5. Save when finished. 
 
-## Export cohorts to Insider
+## Send a cohort
 
 After Insider is connected to Amplitude, you can sync any Amplitude cohort to it.
 
