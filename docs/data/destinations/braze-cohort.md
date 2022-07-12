@@ -28,6 +28,10 @@ To configure an cohort integration from Amplitude to Braze, you need the followi
 3. Select an Amplitude User Property and a Braze target object. 
 4. When finished, save.
 
-### Sync a cohort to Braze
+## Send a cohort
 
-To send a cohort to Braze, select or create a cohort in Amplitude, then click **Sync to...** and select Braze.
+1. In Amplitude, open the cohort you want to export. 
+2. Click **Sync**, and choose Braze.
+3. Select the destination.
+4. Select the sync frequency you need.
+5. Save when finished.

@@ -303,11 +303,14 @@ nav:
       - Braze: data/destinations/braze-cohort.md
       - Cordial: data/destinations/cordial-cohort.md
       - Enterpret: data/destinations/enterpret-cohort.md
+      - Facebook Ads: data/destinations/facebook-cohort.md
       - HubSpot: data/destinations/hubspot-cohort.md
       - Infobip: data/destinations/infobip-cohort.md
       - Intercom: data/destinations/intercom-cohort.md
+      - Insider: data/destinations/insider-cohort.md
       - Iterable: data/destinations/iterable-cohort.md
       - Mailchimp: data/destinations/mailchimp-cohort.md
+      - Notivize: data/destinations/notivize-cohort.md
       - Split: data/destinations/split-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md

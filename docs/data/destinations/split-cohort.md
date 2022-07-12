@@ -32,14 +32,14 @@ To set up the integration, you'll need to collect some information from your Spl
 
     You must make sure to choose a matching identifier in Amplitude and Split. This is often `userID`. If they don't match, the integration will not work.
 
-### Export cohorts into Split
+## Export cohorts into Split
 
 After Split is connected to Amplitude, you can sync any Amplitude cohort to it.
 
-1. In Amplitude, open the cohort you want to export. Click **Sync To**, and choose Split from the drop-down list.
-2. In the modal that appears, choose the Split destination you've already configured.
-3. Select the sync frequency you need: one-time, hourly, daily.
-4. Click **Save Sync** to complete the process.
+1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose Split.
+2. Choose the API target.
+1. Select the sync cadence.
+2. Save your work.
 
 !!!note
 

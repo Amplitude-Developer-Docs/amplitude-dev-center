@@ -27,4 +27,12 @@ This cohort integration allows you to sync users from Amplitude cohorts to Cordi
 5. In the Contact identifier mapping dropdown, select a user property name. The value is passed as the value for the contact identifier.
 6. Save the destination.
 
+## Send a cohort
+
+1. In Amplitude, open the cohort you want to export. 
+2. Click **Sync**, and choose Cordial.
+3. Select the destination.
+4. Select the sync frequency you need.
+5. Save when finished.
+
 After a cohort is synced, the contacts are added to a list in Cordial. The list name is the cohort name in Amplitude with spaces removed. For example, when the "active users" cohort with 10 users is synced to Cordial, you see 10 contacts added to the `activeusers` list. When a user is removed from a cohort and the cohort is synced, the contact is removed from the list. Refer to [Cordial's lists](https://support.cordial.com/hc/en-us/articles/115005528428) article for details on using lists.

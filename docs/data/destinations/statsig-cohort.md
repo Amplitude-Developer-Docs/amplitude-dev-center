@@ -27,4 +27,12 @@ This integration allows you to target experiments at specific cohorts you’ve a
 3. Enter _Name_ and _Statsig API Key_.
 4. Save the destination.
 
+## Send a cohort
+
+1. In Amplitude, open the cohort you want to export. 
+2. Click **Sync**, and choose Statsig.
+3. Select the destination.
+4. Select the sync cadence.
+5. Save when finished.
+
 After your cohort is synced into Statsig, you can find it under **Segments** in the Statsig console. Expect updates to reflect within 15 minutes. See Statsig's [Segments documentation](https://docs.statsig.com/segments) for more information on how you can use the data.

@@ -33,6 +33,7 @@ IDFV
 Itly
 Infobip
 Iterable
+Insider
 JavaScript
 js
 Kotlin
@@ -45,6 +46,7 @@ monorepo
 monorepos
 Netcore
 NGINX
+Notivize
 NPM
 npm
 Objective-C
