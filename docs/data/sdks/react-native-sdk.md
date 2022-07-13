@@ -6,7 +6,7 @@ icon: material/react
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native.svg)
 
-!!!info "SDK Resources"
+!!!beta "Beta SDK Resources"
     [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
@@ -15,10 +15,10 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 
 ### Installation
 
+To get started with using Amplitude React Native SDK, install the package to your project via NPM. You must also install `@react-native-async-storage/async-storage` for the SDK to work properly.
+
 !!!tip "Web and Expo Support"
     This SDK can be used for react-native apps built for web or built using [Expo](https://expo.dev/) (Expo Go not yet supported).
-
-To get started with using Amplitude React Native SDK, install the package to your project via NPM. You must also install `@react-native-async-storage/async-storage` for the SDK to work properly.
 
 === "npm"
 
