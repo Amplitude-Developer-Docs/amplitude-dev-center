@@ -16,6 +16,7 @@
 - :iterable: [Iterable](../data/destinations/iterable-cohort.md)
 - :klaviyo: [Klaviyo](../data/destinations/klaviyo-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
+- :marketo: [Marketo](../data/destinations/marketo-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
