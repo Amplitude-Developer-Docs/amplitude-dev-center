@@ -147,14 +147,14 @@ The event parameter can include these keys:
 ## Get results from an existing chart
 
 Get JSON results from any saved chart via chart ID.
-`GET https://amplitude.com/api/3/chart/chart_id/`
+`GET https://amplitude.com/api/3/chart/chart_id/query`
 
 ### Example request
 
 --8<-- "includes/postman.md"
 
 ```bash
-GET /api/3/chart/:chart_id/ HTTP/1.1
+GET /api/3/chart/:chart_id/query HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
 ```
@@ -180,7 +180,7 @@ Get the number of active or new users.
 --8<-- "includes/postman.md"
 
 ```bash
-GET /api/2/users?users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
+GET /api/2/users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
 ```
