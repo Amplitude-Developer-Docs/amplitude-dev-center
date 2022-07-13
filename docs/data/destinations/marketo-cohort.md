@@ -30,9 +30,9 @@ This integration combines Amplitude with Marketo's tools for in-app messaging, p
 1. In Amplitude, navigate to **Data Destinations**, then find **Intercom - Marketo**.
 2. Enter the API key, API secret, and base URL. The base URL is the same as the REST API endpoint.
 3. Enter the rest of the information requested by the modal:
-    For *Name*, enter the name for the API key, so you can select the API target when syncing cohorts.
-    For *Amplitude User Property,* select the Amplitude field you want Marketo to match with.
-    For *Target,* enter the Marketo field to match to the Amplitude user property.
+    - For *Name*, enter the name for the API key, so you can select the API target when syncing cohorts.
+    - For *Amplitude User Property,* select the Amplitude field you want Marketo to match with.
+    - For *Target,* enter the Marketo field to match to the Amplitude user property.
 
 ## Send a cohort
 
