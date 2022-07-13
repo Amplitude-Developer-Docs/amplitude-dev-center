@@ -81,8 +81,10 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
     }
     ```
 
-3. Attach the following policy (for example, `AmplitudeS3ReadOnlyAccess`) with the appropriate bucket to the Role created in Step 1.
-Note: update the yellow highlighted text to match your bucket and prefix information as appropriate (`data/` is a sample prefix ).
+3. Attach the following policy (for example, `AmplitudeS3ReadOnlyAccess`) with the appropriate bucket to the Role created in Step 1. Update **{{}}** in highlighted text.
+
+    * **{{bucket_name}}**: the s3 bucket name where your data will be imported from.
+    * **{{prefix}}**: the location in s3 bucket above where your data lives.
 
     ```json hl_lines="16 30 41"
     {
@@ -95,12 +97,12 @@ Note: update the yellow highlighted text to match your bucket and prefix informa
           ],
           "Effect":"Allow",
           "Resource":[
-            "arn:aws:s3:::shareddatabucket"
+            "arn:aws:s3:::{{bucket_name}}"
           ],
           "Condition":{
             "StringLike":{
               "s3:prefix":[
-                "data/*"
+                "{{prefix}}/*"
               ]
             }
           }
@@ -114,7 +116,7 @@ Note: update the yellow highlighted text to match your bucket and prefix informa
             "s3:Head*"
           ],
           "Resource":[
-            "arn:aws:s3:::shareddatabucket/data/*"
+            "arn:aws:s3:::{{bucket_name}}/{{prefix}}/*"
           ]
         },
         {
@@ -125,7 +127,7 @@ Note: update the yellow highlighted text to match your bucket and prefix informa
             "s3:GetBucketNotification"
           ],
           "Resource":[
-            "arn:aws:s3:::shareddatabucket"
+            "arn:aws:s3:::{{bucket_name}}"
           ]
         }
       ]

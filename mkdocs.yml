@@ -242,12 +242,13 @@ nav:
       - Unreal: data/sdks/unreal.md
       - Other Topics:
         - data/dynamic-configuration.md
-    - Warehouse:
+    - Cloud Storage:
       - Amazon S3: data/sources/amazon-s3.md
-      - BigQuery: data/sources/bigquery.md
       - Google Cloud Storage: data/sources/google-cloud-storage.md
-      - Snowflake: data/sources/snowflake.md
       - Converter Configuration: data/converter-configuration-reference.md
+    - Warehouse:
+      - BigQuery: data/sources/bigquery.md
+      - Snowflake: data/sources/snowflake.md
     - Other Sources:
       - Adjust: data/sources/adjust.md
       - Adobe: 
@@ -279,10 +280,11 @@ nav:
       - Userflow: data/sources/userflow.md
   - Destinations: 
     - Overview: data/destinations.md
-    - Warehouse:
+    - Cloud Storage:
       - Amazon S3: data/destinations/amazon-s3.md
-      - Redshift: data/destinations/redshift.md
       - Google Cloud Storage: data/destinations/google-cloud-storage.md
+    - Warehouse:
+      - Redshift: data/destinations/redshift.md
       - BigQuery: data/destinations/bigquery.md
       - Snowflake: data/destinations/snowflake.md
     - Event Streaming:
