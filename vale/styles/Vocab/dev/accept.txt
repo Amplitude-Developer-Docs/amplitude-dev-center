@@ -38,6 +38,7 @@ JavaScript
 js
 Kotlin
 Kochava
+Klaviyo
 Mailchimp
 md
 middleware
