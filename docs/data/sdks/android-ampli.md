@@ -7,7 +7,7 @@ icon: material/android
 !!!note
     This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
 
-Amplitude Data supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
+Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
 In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
