@@ -2,9 +2,7 @@
 
 <div class="grid cards" markdown>
 
-- :s3: [Amazon S3](../data/sources/amazon-s3.md)
 - :bigquery: [Google BigQuery](../data/sources/bigquery.md)
 - :snowflake: [Snowflake](../data/sources/snowflake.md)
-- :google-cloud-platform: [Google Cloud Storage](../data/sources/google-cloud-storage.md)
 
 </div>

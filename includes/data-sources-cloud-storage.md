@@ -2,8 +2,7 @@
 
 <div class="grid cards" markdown>
 
-- :redshift: [Amazon RedShift](../data/destinations/redshift.md)
-- :bigquery: [Google BigQuery](../data/destinations/bigquery.md)
-- :snowflake: [Snowflake](../data/destinations/snowflake.md)
+- :s3: [Amazon S3](../data/sources/amazon-s3.md)
+- :google-cloud-platform: [Google Cloud Storage](../data/sources/google-cloud-storage.md)
 
 </div>

@@ -16,6 +16,12 @@ You can add a new destination in just a few clicks.
 
 For detailed instructions, see the documentation for the destination you want to add. 
 
+### Cloud storage
+
+<!-- This content is used in several places. Make changes to includes/data-destinations-cloud-storage.md -->
+
+--8<-- "includes/data-destinations-cloud-storage.md"
+
 ### Warehouse 
 
 <!-- This content is used in several places. Make changes to includes/data-destinations-warehouse.md -->

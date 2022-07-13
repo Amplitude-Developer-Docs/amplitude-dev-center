@@ -26,6 +26,12 @@ For detailed instructions, see the documentation for the source you want to add.
 
 --8<-- "includes/data-sources-sdks.md"
 
+### Cloud storage
+
+<!-- This content is used in several places. Make changes to includes/data-sources-cloud-storage.md -->
+
+--8<-- "includes/data-sources-cloud-storage.md"
+
 ### Warehouse
 
 <!-- This content is used in several places. Make changes to includes/data-sources-warehouse.md -->
