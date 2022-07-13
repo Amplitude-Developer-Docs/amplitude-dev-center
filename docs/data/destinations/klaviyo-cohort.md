@@ -1,9 +1,9 @@
 ---
 title: Send Cohorts to Klaviyo
-description: words
+description: Send Amplitude cohorts to Klaviyo to use in targeted messaging. 
 ---
 
-This integration is only available for customers who have paid plans with Amplitude and Klaviyo. Also, this integration must be enabled on a per-project basis.
+Send Amplitude cohorts to Klaviyo to use in targeted messaging. 
 
 ## Setup
 
