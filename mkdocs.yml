@@ -331,10 +331,6 @@ nav:
   - all-resources.md
 
 # Files Intentionally left out of nav:
-<<<<<<< HEAD
-=======
-# getting-started.md
->>>>>>> a60d3d6... Add Lookup Table API documentation
   #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav
       #- data/deprecated-sdks/browser.md
       #- data/deprecated-sdks/nodejs.md
