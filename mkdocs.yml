@@ -315,6 +315,7 @@ nav:
       - Mailchimp: data/destinations/mailchimp-cohort.md
       - Marketo: data/destinations/marketo-cohort.md
       - Notivize: data/destinations/notivize-cohort.md
+      - Productboard: data/destinations/productboard-cohort.md
       - Split: data/destinations/split-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
