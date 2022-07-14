@@ -432,4 +432,121 @@ export class AddEventIdPlugin implements EnrichmentPlugin {
 }
 ```
 
+## Advanced Topics
+
+### Web Attribution
+
+Amplitude SDK collects attribution data by default. Amplitude supports automatically tracking the following attribution parameters:
+
+- The 5 standard UTM parameters from the user's browser cookie or URL parameters
+- The referring URL and domain
+- Google Click Identifier from URL parameters
+- Facebook Click Identifier from URL parameters
+
+#### UTM Parameters
+
+UTM stand for Urchin Traffic Monitor and are useful for analyzing the effectiveness of different ad campaigns and referring sites. Note that UTM parameters are case sensitive so they will turn out to be different values if the capitalization varies.
+
+There are five different standard UTM parameters:
+
+- `utm_source`: This identifies which website sent the traffic (e.g. Google, Facebook)
+- `utm_medium`: This identifies what type of link was used (e.g. banner, button, email)
+- `utm_campaign`: This identifies a specific campaign used (e.g. summer_sale)
+- `utm_term`: This identifies paid search terms used (e.g. product+analytics)
+- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (e.g. bannerlink, textlink)
+
+Here is an example URL with UTM parameters:
+
+```
+https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=bannerlink
+```
+
+#### Referrer Parameters
+
+Referrer is the URL of the page that linked to the destination page. Referrer is an empty string '' if the user navigated to the destination page directly. Amplitude tracks the following parameters:
+
+- `referrer`: The last page the user was on (e.g. `https://amplitude.com/behavioral-analytics-platform?ref=nav`)
+- `referring_domain`: The domain that the user was last on (e.g. `https://amplitude.com`)
+
+#### Click ID Parameters
+
+Click IDs are campaign identifiers included as URL parameters. These IDs are used by Ad platforms to identify the campaign and other attributes. While Amplitude does not have access to further campaign attributes associated to Click IDs, Amplitude can track Click ID values specified below.
+
+- `gclid`: Google Click Identifier
+- `fbclid`: Facebook Click Identifier
+
+#### First-touch Attribution
+
+Amplitude captures the initial attribution data at the start of the first session. The first-touch attribution values are set when a user's attribution data are seen for the first time. The following user properties are set once:
+
+- `initial_utm_source`
+- `initial_utm_medium`
+- `initial_utm_campaign`
+- `initial_utm_term`
+- `initial_utm_content`
+- `initial_referrer`
+- `initial_referring_domain`
+- `initial_gclid`
+- `initial_fbclid`
+
+For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If a different initial value is preferred, this can be done by setting `attriubtion.initialEmptyValue` to any string value.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    initialEmptyValue: "none",
+  }
+});
+```
+
+#### Multi-touch Attribution
+
+In addition to first-touch attribution, Amplitude captures the attribution data at the start of each session. The following data are tracked as user properties. For campaign related traffic where these values are found either in the URL or browser cookies, these properties are set as user identity. On the other hand, for organic or direct traffic, these properties may not be found therefore these user properties are unset from user identity.
+
+- `utm_source`
+- `utm_medium`
+- `utm_campaign`
+- `utm_term`
+- `utm_content`
+- `referrer`
+- `referring_domain`
+- `gclid`
+- `fbclid`
+
+Using the default configuration, these are tracked at the start of each session. This means when user navigates back to the page through a campaign but with the previous session still valid, the recent campaign is not be tracked. 
+
+If one prefers to track new campaigns mid-session, Amplitude can be configured to capture new campaigns, regardless of the state of the user session. This effectively expires the previous session and creates a new session but only if new attribution data is found. If the same attribution data is found, then no attribution data is tracked and default session expiration policy is applied. This can be done by setting `attribution.trackNewCampaigns` to `true`. By default this is set to `false`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    trackNewCampaigns: true,
+  }
+});
+```
+
+#### Page View Tracking
+
+Together with tracking attribution data, Amplitude can optionally track page views, specifically where the user lands after clicking a hyperlink that contains campaign parameters. Page views can only be tracked if attribution tracking is enabled and new attribution data is tracked. Page view tracking is not a standalone feature. This can be done by setting `attribution.trackPageView` to `true`. By default this is set to `false`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    trackPageViews: true,
+  }
+});
+```
+
+#### Disabling Attribution Tracking
+
+Amplitude can be configured to opt out of automatic collection of attribution data. This can be done by setting `attirubtion.disabled` to `true`. By default this is set to `false`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    disabled: true,
+  }
+});
+```
+
 --8<-- "includes/abbreviations.md"
