@@ -128,7 +128,7 @@ For more information, see the [Segment documentation.](https://segment.com/docs
 
 Amplitude Recommend lets you automatically send behavioral audiences to ad networks, marketing automation tools, and personalization engines so you can better tailor campaigns and product experiences.
 
-With Amplitude Recommend, you can export behavioral cohorts from Amplitude to Segment so that you can better target users across their many downstream connections. Learn more about syncing cohorts to Segment in [this doc](https://help.amplitude.com/hc/en-us/articles/360030986111). 
+See [Send Cohorts to Segment](/data/destinations/segment-cohort) for more information.
 
 ## More help
 
