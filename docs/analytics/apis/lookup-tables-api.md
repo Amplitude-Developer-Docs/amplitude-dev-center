@@ -29,7 +29,7 @@ The max file size is 100 MB and the file can not have more than 1,000,000 rows.
 
 ### Create a Lookup Table
 
-To create a Lookup Table, you create a Lookup Table object by uploading a CSV mapping from a property to the new properties to create. You'll need to send a request of type multipart/form-data.
+Create a Lookup Table object by uploading a CSV that maps an existing property to the new properties to create. Send the request with the type multipart/form-data type.
 
 #### Parameters
 
