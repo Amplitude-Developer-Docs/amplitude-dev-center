@@ -312,6 +312,7 @@ nav:
       - Insider: data/destinations/insider-cohort.md
       - Iterable: data/destinations/iterable-cohort.md
       - Klaviyo: data/destinations/klaviyo-cohort.md
+      - LaunchDarkly: data/destinations/launchdarkly-cohort.md
       - Mailchimp: data/destinations/mailchimp-cohort.md
       - Marketo: data/destinations/marketo-cohort.md
       - Notivize: data/destinations/notivize-cohort.md

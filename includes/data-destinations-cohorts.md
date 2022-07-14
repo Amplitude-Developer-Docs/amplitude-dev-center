@@ -15,6 +15,7 @@
 - :intercom: [Intercom](../data/destinations/intercom-cohort.md)
 - :iterable: [Iterable](../data/destinations/iterable-cohort.md)
 - :klaviyo: [Klaviyo](../data/destinations/klaviyo-cohort.md)
+- :launchdarkly: [LaunchDarkly](../data/destinations/launchdarkly-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
 - :marketo: [Marketo](../data/destinations/marketo-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)

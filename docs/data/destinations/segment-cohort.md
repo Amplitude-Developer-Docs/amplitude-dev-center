@@ -9,7 +9,7 @@ Send Amplitude behavioral cohorts to Segment to use with your ad networks, marke
 
 - To configure this integration, you need a level of access that allows you to configure sources in Segment and integrations in Amplitude. For Amplitude users, this means you need Admin or Manager privileges.
 - This integration sends `user_id` values from behavioral cohorts to Segment, along with an attribute that flags the cohort each user belongs to. 
-- Anonymous users are not currently supported.
+- Anonymous users aren't supported.
 - You can sync behavioral cohorts to your Segment-connected raw data warehouses and downstream destinations that accept Segment identify events. Amplitude sets cohorts as unique user traits in Segment with True/False values to reflect whether the given user belongs to the cohort that has been synced.
 
 ## Setup

@@ -39,6 +39,7 @@ js
 Kotlin
 Kochava
 Klaviyo
+LaunchDarkly
 Mailchimp
 Marketo
 md
