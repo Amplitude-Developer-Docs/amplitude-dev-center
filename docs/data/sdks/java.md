@@ -21,7 +21,7 @@ Use Gradle or another build system to resolve the Java SDK dependency. The follo
 ```java
 dependencies {
     implementation 'org.json:json:20201115'
-    implementation 'com.amplitude:java-sdk:1.6.1'
+    implementation 'com.amplitude:java-sdk:1.10.0'
 }
 ```
 
@@ -97,6 +97,50 @@ client.useBatchMode(true);
 
 // Disable batch mode
 client.useBatchMode(false);
+```
+
+## Config custom http proxy
+
+New in version 1.9.0. Set and unset custom proxy for http requests.
+
+```java
+// Set proxy for http requests
+client.setProxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.domain.com", port)));
+
+// Unset proxy
+client.setProxy(Proxy.NO_PROXY);
+```
+
+## Config custom logger
+
+New in version 1.10.0. Set an customized logger for amplitude client.
+
+```java
+// Set logger 
+client.setLogger(new AmplitudeLog() {
+  @Override
+  public void log(String tag, String message, LogMode messageMode) {
+    if (messageMode.level >= logMode.level) {
+      // implement using custom logging framework and format
+    }
+  }
+});
+```
+
+## Config events flusing thread timeout
+
+New in version 1.10.0. Set events flusing thread timeout in milliseconds. If set a positive long integer, events flusing tasks will timeout and trigger callbacks for those events.
+
+```java
+client.setFlushTimeout(2000L); // 2 seconds
+```
+
+## Shutdown client and release resource
+
+New in version 1.10.0. Shutdown the amplitude client will stop it accepting new events and shutdown threadspool gracefully. Events in buffer will trigger callbacks. A new instance will be created and returned if call Amplitude.getInstance(INSTANCE_NAME) with the same instance name.
+
+```java
+client.shutdown();
 ```
 
 ## Sending events
