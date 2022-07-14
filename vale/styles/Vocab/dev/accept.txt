@@ -39,6 +39,7 @@ js
 Kotlin
 Kochava
 Klaviyo
+LaunchDarkly
 Mailchimp
 Marketo
 md
@@ -59,6 +60,7 @@ Optimizely
 orgs
 podfile
 Podfile
+Productboard
 Qualtrics
 prepends
 runtimes
