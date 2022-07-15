@@ -223,8 +223,8 @@ nav:
       - TypeScript using Ampli: data/sdks/typescript-ampli.md
       - JavaScript: data/sdks/javascript.md
       - Browser using Ampli (Legacy): data/sdks/browser-ampli.md
-      - Node.js using Ampli: data/sdks/nodejs-ampli.md
       - Node.js: data/sdks/node.md
+      - Node.js using Ampli: data/sdks/nodejs-ampli.md
       - Android Kotlin: data/sdks/android-kotlin.md
       - Android Kotlin using Ampli: data/sdks/android-kotlin-ampli.md
       - Android (Legacy): data/sdks/android.md
@@ -236,8 +236,8 @@ nav:
       - React Native: data/sdks/react-native.md
       - React Native using Ampli: data/sdks/react-native-ampli.md
       - Flutter: data/sdks/flutter.md
-      - Python using Ampli: data/sdks/python-ampli.md
       - Python: data/sdks/python.md
+      - Python using Ampli: data/sdks/python-ampli.md
       - Unity: data/sdks/unity.md
       - Unreal: data/sdks/unreal.md
       - Other Topics:
