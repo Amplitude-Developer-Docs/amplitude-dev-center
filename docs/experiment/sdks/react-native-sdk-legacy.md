@@ -1,52 +1,37 @@
 ---
-title: Experiment React Native SDK (Beta)
+title: Experiment React Native SDK
 description: Official documentation for Amplitude Experiment's Client-side React Native SDK.
 icon: material/react
 ---
 
+!!!warning
+    This SDK is legacy and will only continue to receive bug fixes until it is eventually deprecated. We recommend upgrading to `v1.0.0+` which supports SDK integrations, React Native Web, Expo, and more.
+
 Official documentation for Amplitude Experiment's Client-side React Native SDK.
 
-!!!beta "Beta SDK Resources"
-    This SDK is in beta, you may still use the [legacy SDK](react-native-sdk-legacy.md).
-
+!!!info "SDK Resources"
     [:material-github: Github](https://github.com/amplitude/experiment-react-native-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-react-native-client/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-react-native-client/)
 
 ## Install
 
+!!!warning "Web Compatibility"
+    Experiment React Native SDK is only compatible with iOS and Android React Native projects. Use the [JavaScript SDK](./javascript-sdk.md) to support all three platforms.
+
 [![npm version](https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client.svg)](https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client)
 
-Install the Experiment JavaScript Client SDK. This library depends on `@react-native-async-storage/async-storage` which you'll also need to install.
-
-!!!info "Web and Expo Support"
-    This SDK can be used for react-native apps built for web or built using [Expo](https://expo.dev/) (Expo Go not yet supported).
+Install the Experiment JavaScript Client SDK.
 
 === "npm"
 
     ```bash
-    npm install @amplitude/experiment-react-native-client
-    npm install @react-native-async-storage/async-storage
+    npm install --save @amplitude/experiment-react-native-client
     ```
 
 === "yarn"
 
     ```bash
     yarn add @amplitude/experiment-react-native-client
-    yarn add @react-native-async-storage/async-storage
     ```
-
-=== "expo"
-
-    ```bash
-    expo install @amplitude/experiment-react-native-client
-    expo install @react-native-async-storage/async-storage
-    ```
-
-You'll need to install the native modules to run the SDK on iOS.
-
-```bash
-cd ios
-pod install
-```
 
 !!!tip "Quick Start"
 
@@ -56,7 +41,7 @@ pod install
 
     ```js
     // (1) Initialize the experiment client
-    const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
+    await Experiment.initialize('<DEPLOYMENT_KEY>');
 
     // (2) Fetch variants for a user
     const user = {
@@ -66,10 +51,10 @@ pod install
             'premium': true,
         },
     };
-    await experiment.fetch(user);
+    await Experiment.fetch(user);
 
     // (3) Lookup a flag's variant
-    const variant = experiment.variant('<FLAG_KEY>');
+    const variant = await Experiment.variant('<FLAG_KEY>');
     if (variant.value === 'on') {
         // Flag is on
     } else {
@@ -81,13 +66,16 @@ pod install
 
 The following functions make up the core of the Experiment client-side SDK.
 
+!!!info "Async Functions"
+    Native SDKs are used under-the-hood, so you need to `await` the result of all functions.
+
 ---
 ### Initialize
 
 The SDK client should be initialized in your application on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```js
-initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
+initialize(apiKey: string, config?: ExperimentConfig): Promise<boolean>
 ```
 
 | Parameter | Requirement | Description |
@@ -98,7 +86,7 @@ initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
 The initializer returns a singleton instance, so subsequent initializations for the same instance name will always return the initial instance. To create multiple instances, use the `instanceName` [configuration](#configuration).
 
 ```js
-const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
+const experiment = await Experiment.initialize('<DEPLOYMENT_KEY>');
 ```
 
 #### Integrations
@@ -107,53 +95,20 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
 ???amplitude "Amplitude Integration"
 
-    **This SDK only integrates with the [next generation Amplitude Analytics React Native SDK](../../data/sdks/react-native-sdk.md).**
-
     The Amplitude Experiment SDK is set up to integrate seamlessly with the Amplitude Analytics SDK. All you need to do is update your SDK versions to the latest, and use the special integration initialization function.
 
     ```js hl_lines="2"
-    init('<API_KEY>');
-    const experiment = Experiment.initializeWithAmplitudeAnalytics('<DEPLOYMENT_KEY>');
+    await Amplitude.getInstance().init('<API_KEY>');
+    await Experiment.initializeWithAmplitudeAnalytics('<DEPLOYMENT_KEY>');
     ```
 
     Using the integration initializer will automatically configure implementations of the [user provider](#user-provider) and [exposure tracking provider](#exposure-tracking-provider) interfaces to pull user data from the Amplitude Analytics SDK and track exposure events.
 
-???segment "Segment Integration"
+    **Supported Versions**
 
-    Experiment's integration with Segment Analytics is still a manual implementation at this point. Copy the exposure tracking provider implementation into your app code base and initialize the Experiment SDK with the provider instances in the configuration.
-
-    ```js title="SegmentExposureTrackingProvider"
-    class SegmentExposureTrackingProvider implements ExposureTrackingProvider {
-        private analytics: Analytics;
-        constructor(analytics: Analytics) {
-            this.analytics = analytics;
-        }
-        track(exposure: Exposure) {
-            this.analytics.track('$exposure', exposure);
-        }
-    }
-    ```
-
-    The Experiment SDK must then be configured on initialization with an instance of the the exposure tracking provider. Make sure this happens _after_ the analytics SDK has been loaded an initialized.
-
-    ```js
-    analytics.ready(() => {
-        const experiment =  Experiment.initialize('<DEPLOYMENT_KEY>', {
-            exposureTrackingProvider: new SegmentExposureTrackingProvider(analytics),
-        });
-    });
-    ```
-
-    When [fetching variants](#fetch), pass the segment anonymous ID and user ID for the device ID and user ID, respectively.
-
-    ```js
-    const userId = analytics.user().id()
-    const deviceId = analytics.user().analyticsId()
-    await experiment.fetch({
-        user_id: userId,
-        device_id: deviceId,
-    });
-    ```
+    | Analytics SDK Version | Experiment SDK Version |
+    | --- | --- |
+    | `2.8.0+` | `0.6.0+` |
 
 #### Configuration
 
@@ -179,7 +134,7 @@ The SDK client can be configured once on initialization.
 Fetches variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 ```js
-fetch(user?: ExperimentUser): Promise<Client>
+fetch(user?: ExperimentUser): Promise<boolean>
 ```
 
 | Parameter  | Requirement | Description |
@@ -196,13 +151,13 @@ const user = {
         'premium': true,
     },
 };
-await experiment.fetch(user);
+await Experiment.fetch(user);
 ```
 
 If you're using an [integration](#integrations) or a custom [user provider](#user-provider) then you can fetch without inputting the user.
 
 ```js
-await experiment.fetch();
+await Experiment.fetch();
 ```
 
 ???tip "Fetch When User Identity Changes"
@@ -223,7 +178,11 @@ Access a [variant](../general/data-model.md#variants) for a [flag or experiment]
     When an [integration](#integrations) is used or a custom [exposure tracking provider](#exposure-tracking-provider) is set, `variant()` will automatically track an exposure event through the tracking provider. To disable this functionality, [configure](#configuration) `automaticExposureTracking` to be `false`, and track exposures manually using [`exposure()`](#exposure).
 
 ```js
-variant(key: string, fallback?: string | Variant): Variant
+variant(key: string): Promise<Variant>
+```
+
+```js
+variantWithFallback(key: string, fallback: Variant): Promise<Variant>
 ```
 
 | Parameter | Requirement | Description |
@@ -234,7 +193,7 @@ variant(key: string, fallback?: string | Variant): Variant
 When determining which variant a user has been bucketed into, you'll want to compare the variant `value` to a well-known string.
 
 ```js
-const variant = experiment.variant('<FLAG_KEY>');
+const variant = await Experiment.variant('<FLAG_KEY>');
 if (variant.value === 'on') {
     // Flag is on
 } else {
@@ -246,7 +205,7 @@ if (variant.value === 'on') {
     A variant may also be configured with a dynamic [payload](../general/data-model.md#variants) of arbitrary data. Access the `payload` field from the variant object after checking the variant's `value`.
 
     ```js
-    const variant = experiment.variant('<FLAG_KEY>');
+    const variant = await Experiment.variant('<FLAG_KEY>');
     if (variant.value === 'on') {
         const payload = variant.payload;
     }
@@ -255,7 +214,7 @@ if (variant.value === 'on') {
 A `null` variant `value` means that the user has not been bucketed into a variant. You may use the built in **fallback** parameter to provide a variant to return if the store does not contain a variant for the given flag key.
 
 ```js
-const variant = experiment.variant('<FLAG_KEY>', { value: 'control' });
+const variant = await Experiment.variantWithFallback('<FLAG_KEY>', { value: 'control' });
 if (variant === 'control') {
     // Control
 } else if (variant === 'treatment') {
@@ -269,7 +228,7 @@ if (variant === 'control') {
 Access all [variants](../general/data-model.md#variants) stored by the SDK client.
 
 ```js
-all(): Variants
+all(): Promise<Variants>
 ```
 
 ---
@@ -278,7 +237,7 @@ all(): Variants
 Manually track an [exposure event](../general/exposure-tracking.md#exposure-event) for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
 
 ```js
-exposure(key: string): void
+exposure(key: string): Promise<boolean>
 ```
 
 | Parameter | Requirement | Description |
@@ -286,73 +245,14 @@ exposure(key: string): void
 | `key` | required | The **flag key** to identify the [flag or experiment](../general/data-model.md#flags-and-experiments) variant to track an [exposure event](../general/exposure-tracking.md#exposure-event) for. |
 
 ```js
-const variant = experiment.variant('<FLAG_KEY>');
+const variant = await Experiment.variant('<FLAG_KEY>');
 
 // Do other things...
 
-experiment.exposure('<FLAG_KEY>');
+await Experiment.exposure('<FLAG_KEY>');
 if (variant === 'control') {
     // Control
 } else if (variant === 'treatment') {
     // Treatment
 }
-```
-
----
-## Providers
-
-!!!tip "Integrations"
-    If you use Amplitude or Segment analytics SDKs along side the Experiment Client SDK, we recommend you use an [integration](#integrations) instead of implementing custom providers.
-
-Provider implementations enable a more streamlined developer experience by making it easier to manage user identity and track exposures events.
-
-### User provider
-
-The user provider is used by the SDK client to access the most up-to-date user information only when it's needed (i.e. when [`fetch()`](#fetch) is called). This provider is optional, but helps if you have a user information store already set up in your application. This way, you don't need to manage two separate user info stores in parallel, which may result in a divergent user state if the application user store is updated and experiment is not (or via versa).
-
-```js title="ExperimentUserProvider"
-interface ExperimentUserProvider {
-  getUser(): ExperimentUser;
-}
-```
-
-To utilize your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
-
-```js
-const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
-    userProvider: new CustomUserProvider(),
-});
-```
-
-### Exposure tracking provider
-
-Implementing an exposure tracking provider is highly recommended. [Exposure tracking](../general/exposure-tracking.md) increases the accuracy and reliability of experiment results and improves visibility into which flags and experiments a user is exposed to.
-
-```js title="ExposureTrackingProvider"
-export interface ExposureTrackingProvider {
-  track(exposure: Exposure): void;
-}
-```
-
-The implementation of `track()` should track an event of type `$exposure` (a.k.a name) with two event properties, `flag_key` and `variant`, corresponding to the two fields on the `Exposure` object argument. Finally, the event tracked must eventually end up in Amplitude Analytics for the same project that the [deployment] used to [initialize](#initialize) the SDK client lives within, and for the same user that variants were [fetched](#fetch) for.
-
-To utilize your custom user provider, set the `exposureTrackingProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
-
-```js
-const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
-    exposureTrackingProvider: new CustomExposureTrackingProvider(),
-});
-```
-
-## Bootstrapping
-
-You may want to bootstrap the experiment client with an initial set of flags and variants when variants are obtained from an external source (i.e. not from calling `fetch()` on the SDK client). Use cases include [local evaluation](../general/evaluation/local-evaluation.md), [server-side rendering](../guides/server-side-rendering.md), or integration testing on specific variants.
-
-To bootstrap the client, set the flags and variants in the `initialVariants` [configuration](#configuration) object, then set the `source` to `Source.InitialVariants` so that the SDK client prefers the bootstrapped variants over any previously fetched & stored variants for the same flags.
-
-```js
-const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
-    initialVariants: { /* Flags and variants */ },
-    source: Source.InitialVariants,
-});
 ```

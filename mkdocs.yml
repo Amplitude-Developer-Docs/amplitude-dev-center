@@ -181,12 +181,14 @@ nav:
     - JavaScript SDK: experiment/sdks/javascript-sdk.md
     - Android SDK: experiment/sdks/android-sdk.md
     - iOS SDK: experiment/sdks/ios-sdk.md
-    - React Native SDK: experiment/sdks/react-native-sdk.md
+    - React Native SDK (Beta): experiment/sdks/react-native-sdk.md
     - Node.js SDK: experiment/sdks/nodejs-sdk.md
     - JVM SDK (Beta): experiment/sdks/jvm-sdk.md
     - Go SDK (Beta): experiment/sdks/go-sdk.md
     - Ruby SDK (Beta): experiment/sdks/ruby-sdk.md
     - Python SDK (Beta): experiment/sdks/python-sdk.md
+    - Legacy:
+      - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
   - REST APIs:
     - Evaluation API: experiment/apis/evaluation-api.md
     - Management API (Beta): experiment/apis/management-api.md
