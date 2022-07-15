@@ -60,7 +60,7 @@ Different chart types have different costs. For all endpoints not listed here, t
 Here are the limits for these endpoints, measured in the cost per query:
 
 - **Concurrent Limit**: Up to 1000 cost at the same time.
-- **Rate Limit**: Up to 36,000 cost per hour.
+- **Rate Limit**: Up to 108,000 cost per hour.
 
 - [Event Segmentation](#event-segmentation): Equal to the number of events you are looking at in the left module. If any event has a group by, add a cost of 4 per group by and event.
 - [Funnel Analysis](#funnel-analysis): The number of events you are looking at in the funnel multiplied by two. If any event has a group by, add a cost of 4 per group by and event.
