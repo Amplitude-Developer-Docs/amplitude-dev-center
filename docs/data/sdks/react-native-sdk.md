@@ -41,6 +41,13 @@ To get started with using Amplitude React Native SDK, install the package to you
     expo install @react-native-async-storage/async-storage
     ```
 
+You'll need to install the native modules to run the SDK on iOS.
+
+```bash
+cd ios
+pod install
+```
+
 ## Usage
 
 !!!info "Web vs Mobile"
