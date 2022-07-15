@@ -165,7 +165,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     p JSON.parse(result)
     ```
 
-=== "Python" 
+=== "Python"
     ```python
     import requests
     headers = {
@@ -231,7 +231,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 |-------|-------|
 |`body`| Required. UploadRequestBody. A JSON object that contains your API key and an array of events.|
 
-##### Example body 
+##### Example body
 
 ```json
 {
@@ -324,7 +324,7 @@ These properties belong to the `events` object.
 |   `user_properties`   |                        Optional. Object. A dictionary of key-value pairs that represent additional data tied to the user. You can store property values in an array. Date values are transformed into string values. In addition, user property operations (`$set`,` $setOnce`, `$add`, `$append`, `$unset`) are supported when `event_type` is `$identify`. Object depth may not exceed 40 layers.                         |
 |       `groups`        |                        Optional. Object. This feature is available only to customers who have purchased the Accounts add-on. This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. Note: You can only track up to 5 unique group types and 10 total groups. Any groups past that threshold will not be tracked.                         |
 |  `group_properties`   | Optional. Object. This feature is available only to customers who have purchased the Accounts add-on. When "event_type" is `$groupidentify`, the field is a dictionary of key-value pairs that represent properties tied to the groups listed in the "groups" field. The field is ignored for other event types. Group property operations (`$set`, `$setOnce`, `$add`, `$append`, `$unset`) are also supported. |
-|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties are not synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.| 
+|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties are not synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.|
 |     `app_version`     |                                                                                                                                                                            Optional. String. The current version of your application.                                                                                                                                                                             |
 |      `platform`       |                                                                                                                                                                                     Optional. String. Platform of the device.                                                                                                                                                                                     |
 |       `os_name`       |                                                                                                                                                           Optional. String. The name of the mobile operating system or browser that the user is using.                                                                                                                                                            |
@@ -360,7 +360,7 @@ These properties belong to the `events` object.
 
 #### Option properties
 
-These properties belong to the `options` object. 
+These properties belong to the `options` object.
 
 |<div class="big-column">Name</div>| Description|
 |----|------------|
@@ -421,7 +421,7 @@ These properties belong to the `options` object.
 
 ```
 
-#### IvalidRequestError Properties
+#### InvalidRequestError Properties
 
 | Name |  Description |
 | --- | --- |
