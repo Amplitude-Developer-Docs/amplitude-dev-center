@@ -13,7 +13,7 @@ Official documentation for Amplitude Experiment's Client-side React Native SDK.
 
 ## Install
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client.svg)](https://badge.fury.io/js/@amplitude%2Fexperiment-react-native-client)
+![npm (tag)](https://img.shields.io/npm/v/@amplitude/experiment-react-native-client/beta)
 
 Install the Experiment JavaScript Client SDK. This library depends on `@react-native-async-storage/async-storage` which you'll also need to install.
 
