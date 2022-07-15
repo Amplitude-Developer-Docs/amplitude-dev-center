@@ -235,6 +235,7 @@ nav:
       - JRE using Ampli: data/sdks/jre-ampli.md
       - React Native: data/sdks/react-native.md
       - React Native using Ampli: data/sdks/react-native-ampli.md
+      - React Native (Beta): data/sdks/react-native-sdk.md
       - Flutter: data/sdks/flutter.md
       - Python: data/sdks/python.md
       - Python using Ampli: data/sdks/python-ampli.md
