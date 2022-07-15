@@ -11,6 +11,7 @@
 - :branch: [Branch](../data/sources/branch.md)
 - :clevertap: [CleverTap](../data/sources/clevertap.md)
 - :convizit: [Convizit](../data/sources/convizit.md)
+- :csv: [CSV](../data/sources/lookup-table.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :kochava: [Kochava](../data/sources/kochava.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
