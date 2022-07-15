@@ -23,21 +23,21 @@ Install the Experiment JavaScript Client SDK. This library depends on `@react-na
 === "npm"
 
     ```bash
-    npm install @amplitude/experiment-react-native-client
+    npm install @amplitude/experiment-react-native-client@beta
     npm install @react-native-async-storage/async-storage
     ```
 
 === "yarn"
 
     ```bash
-    yarn add @amplitude/experiment-react-native-client
+    yarn add @amplitude/experiment-react-native-client@beta
     yarn add @react-native-async-storage/async-storage
     ```
 
 === "expo"
 
     ```bash
-    expo install @amplitude/experiment-react-native-client
+    expo install @amplitude/experiment-react-native-client@beta
     expo install @react-native-async-storage/async-storage
     ```
 
