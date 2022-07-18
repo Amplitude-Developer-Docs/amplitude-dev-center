@@ -14,7 +14,7 @@ Amplitude's Lookup Table integration lets you import your own data and map it to
 To setup this integration, you need the following:
 
 + An event property or user property to create a mapping from.
-+ A CSV that contains the data you want to map to. The first column data must correspond to the mapping property value.
++ A CSV that has the data you want to map to. The first column data must correspond to the mapping property value.
 
 ### Amplitude setup
 
@@ -34,7 +34,7 @@ In Amplitude, navigate to **Data Sources**, then find CSV in the **I want to imp
 
 ## Updates
 
-If you want to create a new lookup property or that mapped property is incorrect, you can update the Lookup Table.
+If you want to create a new lookup property or that mapped property is wrong, you can update the Lookup Table.
 
 In Amplitude, navigate to Data Sources, then find the corresponding lookup table in the Sources table.
 
