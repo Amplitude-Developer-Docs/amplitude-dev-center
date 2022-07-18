@@ -42,9 +42,7 @@ client = Amplitude.init(<AMPLITUDE_API_KEY>, {
 
 - Please see the code snippet below.
 
-!!!note
-
-    The Node SDK uses the [HTTP V2](https://developers.amplitude.com/docs/http-api-v2) API and follows the same constraints for events. Make sure that all events logged in the Node SDK have the `event_type` field and at least one of `device_id` or `user_id`, and follows the HTTP API's constraints on each of those fields.
+--8<-- "includes/sdk-httpv2-notice.md"
 
 === "TypeScript"
 
