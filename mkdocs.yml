@@ -268,6 +268,7 @@ nav:
       - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - Kochava: data/sources/kochava.md
+      - Leanplum: data/sources/leanplum.md
       - mParticle: data/sources/mparticle.md
       - Optimizely: data/sources/optimizely.md
       - Qualtrics: data/sources/qualtrics.md
@@ -317,6 +318,7 @@ nav:
       - Iterable: data/destinations/iterable-cohort.md
       - Klaviyo: data/destinations/klaviyo-cohort.md
       - LaunchDarkly: data/destinations/launchdarkly-cohort.md
+      - Leanplum: data/destinations/leanplum-cohort.md
       - Mailchimp: data/destinations/mailchimp-cohort.md
       - Marketo: data/destinations/marketo-cohort.md
       - Notivize: data/destinations/notivize-cohort.md
