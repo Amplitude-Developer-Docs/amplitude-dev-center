@@ -113,7 +113,7 @@ client.setProxy(Proxy.NO_PROXY);
 
 ## Config custom logger
 
-New in version 1.10.0. Set an customized logger for amplitude client.
+New in version 1.10.0. Set a customized logger for amplitude client.
 
 ```java
 // Set logger 
@@ -129,7 +129,7 @@ client.setLogger(new AmplitudeLog() {
 
 ## Config events flusing thread timeout
 
-New in version 1.10.0. Set events flusing thread timeout in milliseconds. If set a positive long integer, events flusing tasks will timeout and trigger callbacks for those events.
+New in version 1.10.0. Set events flusing thread timeout in milliseconds. If set to a positive long integer, events flushing tasks will timeout and trigger callbacks for those events.
 
 ```java
 client.setFlushTimeout(2000L); // 2 seconds
@@ -137,7 +137,7 @@ client.setFlushTimeout(2000L); // 2 seconds
 
 ## Shutdown client and release resource
 
-New in version 1.10.0. Shutdown the amplitude client will stop it accepting new events and shutdown threadspool gracefully. Events in buffer will trigger callbacks. A new instance will be created and returned if call Amplitude.getInstance(INSTANCE_NAME) with the same instance name.
+New in version 1.10.0. Stops the Amplitude client from accepting new events and shuts down the threadspool gracefully. Events in the buffer will trigger callbacks. A new instance is created and returned if you call Amplitude.getInstance(INSTANCE_NAME) with the same instance name.
 
 ```java
 client.shutdown();
