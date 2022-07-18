@@ -145,6 +145,8 @@ client.shutdown();
 
 ## Sending events
 
+--8<-- "includes/sdk-httpv2-notice.md"
+
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to track.
 
 !!!note
