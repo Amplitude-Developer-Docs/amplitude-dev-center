@@ -224,36 +224,36 @@ nav:
     - SDKs:
       - TypeScript:
         - data/sdks/typescript-browser/index.md
-        - Ampli Code Generation: data/sdks/typescript-ampli.md
+        - Ampli Codegen: data/sdks/typescript-ampli.md
       - Node.js:
         - data/sdks/node/index.md
-        - Ampli Code Generation: data/sdks/nodejs-ampli.md
+        - Ampli Codegen: data/sdks/nodejs-ampli.md
       - Android:
         - data/sdks/android-kotlin/index.md
         - data/sdks/android-kotlin-ampli.md
       - iOS:
         - data/sdks/ios/index.md
-        - Ampli Code Generation: data/sdks/ios-ampli.md
+        - Ampli Codegen: data/sdks/ios-ampli.md
       - Java:
         - data/sdks/java/index.md
-        - Ampli Code Generation: data/sdks/jre-ampli.md
+        - Ampli Codegen: data/sdks/jre-ampli.md
       - React Native (Beta): data/sdks/react-native-sdk.md
       - Flutter: data/sdks/flutter.md
       - Python:
         - data/sdks/python/index.md
-        - Ampli Code Generation: data/sdks/python-ampli.md
+        - Ampli Codegen: data/sdks/python-ampli.md
       - Unity: data/sdks/unity.md
       - Unreal: data/sdks/unreal.md
       - Legacy:
         - JavaScript:
           - data/sdks/javascript/index.md
-          - Ampli Code Generation: data/sdks/browser-ampli.md
+          - Ampli Codegen: data/sdks/browser-ampli.md
         - Android:
           - data/sdks/android/index.md
-          - Ampli Code Generation: data/sdks/android-ampli.md
+          - Ampli Codegen: data/sdks/android-ampli.md
         - React Native:
           - data/sdks/react-native/index.md
-          - Ampli Code Generation: data/sdks/react-native-ampli.md
+          - Ampli Codegen: data/sdks/react-native-ampli.md
 
       - Other Topics:
         - data/dynamic-configuration.md

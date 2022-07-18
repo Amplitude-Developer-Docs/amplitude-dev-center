@@ -1,7 +1,6 @@
 ---
 title: JRE Ampli Wrapper
 description: Documentation for Amplitude Data's JRE Ampli Wrapper. 
-icon: fontawesome/brands/java
 ---
 
 !!!note
