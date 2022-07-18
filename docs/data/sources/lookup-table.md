@@ -5,7 +5,7 @@ description: Amplitude's Lookup Table integration lets you import your own data 
 
 Amplitude's Lookup Table integration lets you import your own data and map it to ingested properties to have an enhanced set of properties.
 
--8<-- "includes/closed-beta.md"
+--8<-- "includes/closed-beta.md"
 
 ## Setup
 
@@ -30,6 +30,7 @@ In Amplitude, navigate to **Data Sources**, then find CSV in the **I want to imp
 3. Select a property
 ![Amplitude Lookup Select Property](../../assets/images/integration-lookup-create-property.png)
 4. Click finish
+![Amplitude Lookup Select Property](../../assets/images/integration-lookup-create-finish-button.png)
 
 ## Updates
 
