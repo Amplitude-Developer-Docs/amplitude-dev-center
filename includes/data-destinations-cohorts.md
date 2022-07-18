@@ -18,6 +18,7 @@
 - :launchdarkly: [LaunchDarkly](../data/destinations/launchdarkly-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
 - :marketo: [Marketo](../data/destinations/marketo-cohort.md)
+- :netcore: [Netcore Cloud](../data/destinations/netcore-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :productboard: [Productboard](../data/destinations/productboard-cohort.md)
 - :segment: [Segment](../data/destinations/segment-cohort.md)

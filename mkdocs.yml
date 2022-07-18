@@ -319,6 +319,7 @@ nav:
       - LaunchDarkly: data/destinations/launchdarkly-cohort.md
       - Mailchimp: data/destinations/mailchimp-cohort.md
       - Marketo: data/destinations/marketo-cohort.md
+      - Netcore Cloud: data/destinations/netcore-cohort.md
       - Notivize: data/destinations/notivize-cohort.md
       - Productboard: data/destinations/productboard-cohort.md
       - Split: data/destinations/split-cohort.md
