@@ -182,12 +182,14 @@ nav:
     - JavaScript SDK: experiment/sdks/javascript-sdk.md
     - Android SDK: experiment/sdks/android-sdk.md
     - iOS SDK: experiment/sdks/ios-sdk.md
-    - React Native SDK: experiment/sdks/react-native-sdk.md
+    - React Native SDK (Beta): experiment/sdks/react-native-sdk.md
     - Node.js SDK: experiment/sdks/nodejs-sdk.md
     - JVM SDK (Beta): experiment/sdks/jvm-sdk.md
     - Go SDK (Beta): experiment/sdks/go-sdk.md
     - Ruby SDK (Beta): experiment/sdks/ruby-sdk.md
     - Python SDK (Beta): experiment/sdks/python-sdk.md
+    - Legacy:
+      - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
   - REST APIs:
     - Evaluation API: experiment/apis/evaluation-api.md
     - Management API (Beta): experiment/apis/management-api.md
@@ -267,6 +269,7 @@ nav:
       - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - Kochava: data/sources/kochava.md
+      - Leanplum: data/sources/leanplum.md
       - mParticle: data/sources/mparticle.md
       - Optimizely: data/sources/optimizely.md
       - Qualtrics: data/sources/qualtrics.md
@@ -316,8 +319,10 @@ nav:
       - Iterable: data/destinations/iterable-cohort.md
       - Klaviyo: data/destinations/klaviyo-cohort.md
       - LaunchDarkly: data/destinations/launchdarkly-cohort.md
+      - Leanplum: data/destinations/leanplum-cohort.md
       - Mailchimp: data/destinations/mailchimp-cohort.md
       - Marketo: data/destinations/marketo-cohort.md
+      - Netcore Cloud: data/destinations/netcore-cohort.md
       - Notivize: data/destinations/notivize-cohort.md
       - Productboard: data/destinations/productboard-cohort.md
       - Split: data/destinations/split-cohort.md

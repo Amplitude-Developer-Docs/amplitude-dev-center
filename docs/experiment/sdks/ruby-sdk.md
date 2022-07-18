@@ -47,10 +47,10 @@ Install the Ruby Server SDK with bundler or gem directly.
     require 'amplitude-experiment'
 
     # (1) Initialize the experiment client
-    experiment = Experiment.init('<DEPLOYMENT_KEY>', Experiment::Config.new)
+    experiment = AmplitudeExperiment.init('<DEPLOYMENT_KEY>', AmplitudeExperiment::Config.new)
 
     # (2) Fetch variants for a user
-    user = Experiment::User.new(
+    user = AmplitudeExperiment::User.new(
       user_id: 'user@company.com',
       device_id: 'abcdefg',
       user_properties: {
@@ -86,7 +86,7 @@ init(apiKey, config = nil) : Client
 !!!info "Timeout & Retry Configuration"
      Please configure the timeout and retry options to best fit your performance requirements.
     ```ruby
-    experiment = Experiment.init('<DEPLOYMENT_KEY>', Experiment::Config.new)
+    experiment = AmplitudeExperiment.init('<DEPLOYMENT_KEY>', AmplitudeExperiment::Config.new)
     ```
 
 #### Configuration
@@ -112,7 +112,7 @@ The SDK client can be configured on initialization.
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 ```ruby
-fetch(user: Experiment::User) : Variants
+fetch(user: AmplitudeExperiment::User) : Variants
 ```
 
 | Parameter  | Requirement | Description |
@@ -120,7 +120,7 @@ fetch(user: Experiment::User) : Variants
 | `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
 
 ```ruby
-user = Experiment::User.new(
+user = AmplitudeExperiment::User.new(
     user_id: 'user@company.com',
     device_id: 'abcdefg',
     user_properties: {
@@ -147,13 +147,13 @@ end
 
 The fetch method is synchronous. To fetch asynchronously, you can use `fetch_async` method
 ```ruby
-fetch_async(user: Experiment::User, &callback)
+fetch_async(user: AmplitudeExperiment::User, &callback)
 ```
 
-| Parameter  | Requirement | Description                                                                   |
-|------------|-------------|-------------------------------------------------------------------------------|
-| `user`     | required    | The user [user](../general/data-model.md#users) to remote fetch variants for. |
-| `callback` | optional    | The callback to handle the variants.                                          |
+| Parameter  | Requirement | Description                                                                                           |
+|------------|-------------|-------------------------------------------------------------------------------------------------------|
+| `user`     | required    | The user [user](../general/data-model.md#users) to remote fetch variants for.                         |
+| `callback` | optional    | The callback to handle the variants. Callback takes two arguments: User object and returned Variants. |
 
 ```ruby
 experiment.fetch_async(user) do |_, variants|
@@ -176,16 +176,16 @@ If you're using the Amplitude Analytics SDK on the client-side, the Ruby server 
 require 'amplitude-experiment'
 
 # grab amp device id if present
-amp_cookie_name = Experiment::AmplitudeCookie.cookie_name('amplitude-api-key')
+amp_cookie_name = AmplitudeExperiment::AmplitudeCookie.cookie_name('amplitude-api-key')
 device_id = nil
 unless cookies[amp_cookie_name].nil?
-  device_id = Experiment::AmplitudeCookie.parse(cookies[amp_cookie_name]).device_id
+  device_id = AmplitudeExperiment::AmplitudeCookie.parse(cookies[amp_cookie_name]).device_id
 end
 
 if device_id.nil?
   # deviceId doesn't exist, set the Amplitude Cookie
   device_id = SecureRandom.uuid
-  amp_cookie_value = Experiment::AmplitudeCookie.generate(device_id)
+  amp_cookie_value = AmplitudeExperiment::AmplitudeCookie.generate(device_id)
   cookies[amp_cookie_name] = {
     value: amp_cookie_value,
     domain: '.yourdomain.com', # this should be the same domain used by the Amplitude JS SDK
