@@ -5,9 +5,6 @@ description: Guide to creating a local evaluation flag, or migrating an existing
 
 Guide to creating a local evaluation flag, or migrating an existing remote evaluation flag to local evaluation.
 
-!!!info "Local evaluation (alpha)"
-    [Local evaluation](../general/evaluation/local-evaluation.md) is still in alpha. Reach out to your representative or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to participate in the alpha.
-
 ## Create a local evaluation flag or experiment
 
 1. [Create a flag or experiment](./getting-started/create-a-flag.md) as you normally would, but select the **Local** option for the **Evaluation Mode** setting (if you cant edit this setting contact us and we can turn on the feature).

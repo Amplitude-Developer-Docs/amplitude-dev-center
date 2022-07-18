@@ -12,7 +12,7 @@ Official documentation for Amplitude Experiment's server-side JVM SDK implementa
 This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
 * [Remote evaluation](#remote-evaluation)
-* [Local evaluation (alpha)](#local-evaluation-alpha)
+* [Local evaluation](#local-evaluation)
 
 ## Remote evaluation
 
@@ -233,7 +233,7 @@ After fetching variants for a user, you may to access the variant for a specific
     }
     ```
 
-## Local evaluation (alpha)
+## Local evaluation
 
 Implements evaluating variants for a user via [local evaluation](../general/evaluation/local-evaluation.md). If you plan on using local evaluation, you should [understand the tradeoffs](../general/evaluation/local-evaluation.md#targeting-capabilities).
 

@@ -95,7 +95,7 @@ Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) invol
 
 ![Server-side remote evaluation experimentation diagram.](../assets/images/experiment/server-side-remote-overview.drawio.svg)
 
-#### Local evaluation (alpha)
+#### Local evaluation
 
 !!!tip "Fast evaluation for performance minded systems."
 
