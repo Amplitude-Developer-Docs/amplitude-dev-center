@@ -16,6 +16,7 @@
 - :iterable: [Iterable](../data/destinations/iterable-cohort.md)
 - :klaviyo: [Klaviyo](../data/destinations/klaviyo-cohort.md)
 - :launchdarkly: [LaunchDarkly](../data/destinations/launchdarkly-cohort.md)
+- :leanplum: [Leanplum](../data/destinations/leanplum-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
 - :marketo: [Marketo](../data/destinations/marketo-cohort.md)
 - :netcore: [Netcore Cloud](../data/destinations/netcore-cohort.md)
