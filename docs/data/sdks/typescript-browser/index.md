@@ -73,6 +73,8 @@ init(API_KEY, 'user@amplitude.com', {
 
 ### Tracking an event
 
+--8<-- "includes/sdk-httpv2-notice.md"
+
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```ts
