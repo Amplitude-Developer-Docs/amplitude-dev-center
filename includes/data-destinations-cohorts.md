@@ -19,6 +19,7 @@
 - :leanplum: [Leanplum](../data/destinations/leanplum-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
 - :marketo: [Marketo](../data/destinations/marketo-cohort.md)
+- :moengage: [MoEngage](../data/destinations/moengage-cohort.md)
 - :netcore: [Netcore Cloud](../data/destinations/netcore-cohort.md)
 - :onesignal: [OneSignal](../data/destinations/onesignal-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
