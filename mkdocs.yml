@@ -323,6 +323,7 @@ nav:
       - Marketo: data/destinations/marketo-cohort.md
       - Netcore Cloud: data/destinations/netcore-cohort.md
       - Notivize: data/destinations/notivize-cohort.md
+      - OneSignal: data/destinations/onesignal-cohort.md
       - Productboard: data/destinations/productboard-cohort.md
       - Split: data/destinations/split-cohort.md
       - Segment: data/destinations/segment-cohort.md
