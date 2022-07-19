@@ -230,7 +230,7 @@ nav:
         - Ampli Codegen: data/sdks/nodejs-ampli.md
       - Android:
         - data/sdks/android-kotlin/index.md
-        - data/sdks/android-kotlin-ampli.md
+        - Ampli Codegen: data/sdks/android-kotlin-ampli.md
       - iOS:
         - data/sdks/ios/index.md
         - Ampli Codegen: data/sdks/ios-ampli.md

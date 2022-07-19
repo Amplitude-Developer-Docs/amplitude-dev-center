@@ -365,7 +365,7 @@ See setup instructions in [Unity iOS IDFA and GPS Setup](#ios-idfa-and-gps-setu
 
 #### Android setup
 
-See setup instructions in the [Android SDK](android.md#advertising-id).
+See setup instructions in the [Android SDK](android-kotlin/#advertiser-id).
 
 ### Location Tracking
 

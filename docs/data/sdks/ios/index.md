@@ -846,7 +846,7 @@ If you want to enable SDK to report this information from devices, add `CoreTel
 
 ### Dynamic configuration
 
-The iOS SDK lets you configure your apps to use [dynamic configuration](../dynamic-configuration.md).
+The iOS SDK lets you configure your apps to use [dynamic configuration](../../dynamic-configuration.md).
  This feature finds the best server URL automatically based on app users' location.
 
  To use, enable the `useDynamicConfig` flag.
@@ -980,7 +980,7 @@ Add middleware to Amplitude via `client.addEventMiddleware`. You can add as man
 
 You can find examples for [Objective-C](https://github.com/amplitude/ampli-examples/blob/main/ios/objective-c/AmpliObjectiveCSampleApp/AmpliObjectiveCSampleApp/AppDelegate.m#L65) and [Swift](https://github.com/amplitude/ampli-examples/blob/main/ios/swift/AmpliSwiftSampleApp/Shared/AmpliSwiftSampleAppApp.swift#L48).
 
-Learn more about [middleware](../../data/ampli/middleware.md)
+Learn more about [middleware](../../ampli/middleware.md)
 
 ### More resources
 

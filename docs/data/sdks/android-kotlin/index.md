@@ -1,7 +1,7 @@
 ---
 title: Android Kotlin SDK
 description: The Amplitude Android Kotlin SDK installation and quick start guide.
-icon: material/language-kotlin
+icon: material/android
 ---
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/analytics-android.svg?label=Maven%20Central)

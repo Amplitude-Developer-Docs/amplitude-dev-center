@@ -624,7 +624,7 @@ Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the
 
 ### Dynamic configuration
 
-Beginning with version 8.9.0, you can configure your apps to use [dynamic configuration](../dynamic-configuration.md).
+Beginning with version 8.9.0, you can configure your apps to use [dynamic configuration](../../dynamic-configuration.md).
  This feature finds the best server URL automatically based on app users' location.
 
  To use, set `useDynamicConfig` to `true`.

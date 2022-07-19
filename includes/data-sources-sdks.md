@@ -2,14 +2,14 @@
 
 <div class="grid cards" markdown>
 
-- :android: [Android](../data/sdks/android.md)
-- :material-apple-ios: [iOS](../data/sdks/ios.md)
-- :javascript-color: [JavaScript](../data/sdks/javascript.md)
-- :java: [Java](../data/sdks/java.md)
-- :node: [Node.js](../data/sdks/node.md)
-- :python: [Python](../data/sdks/python.md)
-- :react: [React Native](../data/sdks/react-native.md)
-- :typescript: [TypeScript](../data/sdks/typescript-browser.md)
+- :android: [Android](../data/sdks/android-kotlin/index.md)
+- :material-apple-ios: [iOS](../data/sdks/ios/index.md)
+- :javascript-color: [JavaScript](../data/sdks/javascript/index.md)
+- :java: [Java](../data/sdks/java/index.md)
+- :node: [Node.js](../data/sdks/node/index.md)
+- :python: [Python](../data/sdks/python/index.md)
+- :react: [React Native](../data/sdks/react-native-sdk.md)
+- :typescript: [TypeScript](../data/sdks/typescript-browser/index.md)
 - :unity: [Unity](../data/sdks/unity.md)
 - :unreal: [Unreal](../data/sdks/unreal.md)
 
