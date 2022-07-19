@@ -222,28 +222,39 @@ nav:
       - data/ampli/plugin.md
       - data/ampli/migration.md
     - SDKs:
-      - TypeScript: data/sdks/typescript-browser.md
-      - TypeScript using Ampli: data/sdks/typescript-ampli.md
-      - JavaScript: data/sdks/javascript.md
-      - Browser using Ampli (Legacy): data/sdks/browser-ampli.md
-      - Node.js: data/sdks/node.md
-      - Node.js using Ampli: data/sdks/nodejs-ampli.md
-      - Android Kotlin: data/sdks/android-kotlin.md
-      - Android Kotlin using Ampli: data/sdks/android-kotlin-ampli.md
-      - Android (Legacy): data/sdks/android.md
-      - Android using Ampli (Legacy): data/sdks/android-ampli.md
-      - iOS: data/sdks/ios.md
-      - iOS using Ampli: data/sdks/ios-ampli.md
-      - Java: data/sdks/java.md
-      - JRE using Ampli: data/sdks/jre-ampli.md
-      - React Native: data/sdks/react-native.md
-      - React Native using Ampli: data/sdks/react-native-ampli.md
+      - TypeScript:
+        - data/sdks/typescript-browser/index.md
+        - Ampli Codegen: data/sdks/typescript-ampli.md
+      - Node.js:
+        - data/sdks/node/index.md
+        - Ampli Codegen: data/sdks/nodejs-ampli.md
+      - Android:
+        - data/sdks/android-kotlin/index.md
+        - Ampli Codegen: data/sdks/android-kotlin-ampli.md
+      - iOS:
+        - data/sdks/ios/index.md
+        - Ampli Codegen: data/sdks/ios-ampli.md
+      - Java:
+        - data/sdks/java/index.md
+        - Ampli Codegen: data/sdks/jre-ampli.md
       - React Native (Beta): data/sdks/react-native-sdk.md
       - Flutter: data/sdks/flutter.md
-      - Python: data/sdks/python.md
-      - Python using Ampli: data/sdks/python-ampli.md
+      - Python:
+        - data/sdks/python/index.md
+        - Ampli Codegen: data/sdks/python-ampli.md
       - Unity: data/sdks/unity.md
       - Unreal: data/sdks/unreal.md
+      - Legacy:
+        - JavaScript:
+          - data/sdks/javascript/index.md
+          - Ampli Codegen: data/sdks/browser-ampli.md
+        - Android:
+          - data/sdks/android/index.md
+          - Ampli Codegen: data/sdks/android-ampli.md
+        - React Native:
+          - data/sdks/react-native/index.md
+          - Ampli Codegen: data/sdks/react-native-ampli.md
+
       - Other Topics:
         - data/dynamic-configuration.md
     - Cloud Storage:

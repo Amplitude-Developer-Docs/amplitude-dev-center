@@ -1,6 +1,5 @@
 ---
 title: iOS Ampli Wrapper
-icon: material/apple-ios
 description: Learn how to install and use the Ampli Wrapper for the iOS Swift and Objective-C runtimes. 
 ---
 
