@@ -285,6 +285,7 @@ nav:
       - Qualtrics: data/sources/qualtrics.md
       - Radar: data/sources/radar.md
       - RevenueCat: data/sources/revenuecat.md
+      - Rudderstack: data/sources/rudderstack.md
       - Salesforce: data/sources/salesforce-group.md
       - Segment: data/sources/segment.md
       - SendGrid: data/sources/sendgrid.md

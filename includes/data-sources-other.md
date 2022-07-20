@@ -19,6 +19,7 @@
 - :qualtrics-xm: [Qualtrics](../data/sources/qualtrics.md)
 - :radar: [Radar](../data/sources/radar.md)
 - :revenuecat: [RevenueCat](../data/sources/revenuecat.md)
+- :rudderstack: [Rudderstack](../data/sources/rudderstack.md)
 - :salesforce: [Salesforce](../data/sources/salesforce-group.md)
 - :segment: [Segment](../data/sources/segment.md)
 - :sendgrid: [SendGrid](../data/sources/sendgrid.md)
