@@ -24,6 +24,7 @@
 - :onesignal: [OneSignal](../data/destinations/onesignal-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :productboard: [Productboard](../data/destinations/productboard-cohort.md)
+- :salesforce: [Salesforce Marketing Cloud](../data/destinations/marketing-cloud-cohort.md)
 - :segment: [Segment](../data/destinations/segment-cohort.md)
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)

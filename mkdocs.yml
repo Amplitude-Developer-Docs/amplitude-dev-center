@@ -332,13 +332,13 @@ nav:
       - LaunchDarkly: data/destinations/launchdarkly-cohort.md
       - Leanplum: data/destinations/leanplum-cohort.md
       - Mailchimp: data/destinations/mailchimp-cohort.md
-      - Marketing Cloud: data/destinations/marketing-cloud-cohort.md
       - Marketo: data/destinations/marketo-cohort.md
       - MoEngage: data/destinations/moengage-cohort.md
       - Netcore Cloud: data/destinations/netcore-cohort.md
       - Notivize: data/destinations/notivize-cohort.md
       - OneSignal: data/destinations/onesignal-cohort.md
       - Productboard: data/destinations/productboard-cohort.md
+      - Salesforce Marketing Cloud: data/destinations/marketing-cloud-cohort.md
       - Split: data/destinations/split-cohort.md
       - Segment: data/destinations/segment-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
