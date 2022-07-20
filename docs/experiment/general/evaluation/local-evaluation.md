@@ -46,7 +46,7 @@ Local evaluation is only supported by server-side SDKs which have local evaluati
 | [:material-language-java: JVM (Beta)](../../sdks/jvm-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } | ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server.svg?label=Maven%20Central) |
 | [:fontawesome-brands-golang: Go (Beta)](../../sdks/go-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } | ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/amplitude/experiment-go-server?sort=semver) |
 | [:material-language-ruby: Ruby (Beta)](../../sdks/ruby-sdk.md) |  :material-check-bold:{ .green } | :material-close-thick:{ .red } | - |
-
+| [:material-language-python: Python (Beta)](../../sdks/python-sdk.md) |  :material-check-bold:{ .green } | :material-close-thick:{ .red } | - |
 
 ### Performance
 
