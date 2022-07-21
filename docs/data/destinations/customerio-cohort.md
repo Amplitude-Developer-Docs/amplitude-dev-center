@@ -1,6 +1,6 @@
 ---
 title: Send Cohorts to Customer.io 
-description: words
+description: Send Amplitude cohorts to Customer.io for use in automated messaging campaigns.
 ---
 
 [Customer.io](http://customer.io/ "http://Customer.io") is a messaging platform that allows marketers to turn ideas into powerful automated message campaigns. [Customer.io](http://customer.io/ "http://Customer.io")'s logic-based tools help you capture every edge case and connect to the real people in your audience.
