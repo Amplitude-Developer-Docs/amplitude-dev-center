@@ -6,6 +6,7 @@
 - :appcues: [Appcues](../data/destinations/appcues-cohort.md)
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
+- :customerio: [Customer.io](../data/destinations/customerio-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - :enterpret: [Enterpret](../data/destinations/enterpret-cohort.md)
 - :facebook: [Facebook Ads](../data/destinations/facebook-cohort.md)
