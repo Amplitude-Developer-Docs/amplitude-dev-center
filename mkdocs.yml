@@ -317,6 +317,7 @@ nav:
       - Meta Pixel: data/destinations/meta-pixel.md
     - Cohorts:
       - Airship: data/destinations/airship-cohort.md
+      - Amazon S3: data/destinations/amazon-s3-cohort.md
       - Appcues: data/destinations/appcues-cohort.md
       - AppsFlyer: data/destinations/appsflyer-cohort.md
       - Braze: data/destinations/braze-cohort.md
