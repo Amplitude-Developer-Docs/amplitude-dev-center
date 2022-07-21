@@ -55,4 +55,11 @@ The following results are for **a single flag evaluation**, and were collected o
 | SDK | Average | Median | Cold Start |
 | --- | --- | --- | --- |
 | [:material-nodejs: Node.js](../../sdks/nodejs-sdk.md) | 0.025ms | 0.018ms | 3ms |
-| [:fontawesome-brands-golang: Go](../../sdks/go-sdk.md) | 0.098ms | 0.071ms | 0.762ms |
+| [:fontawesome-brands-golang: Go](../../sdks/go-sdk.md) | 0.098ms | 0.071ms | 0.762ms |=
+| [:material-language-java: JVM](../../sdks/go-sdk.md) | 0.098ms | 0.071ms | 0.762ms |
+
+
+
+Cold Start: 6.413201
+Average: 0.003698
+Median: 0.001517
