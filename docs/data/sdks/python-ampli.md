@@ -1,7 +1,6 @@
 ---
 title: Python Ampli Wrapper
 description:  Learn how to install and use the Amplitude Data Ampli Wrapper for the Python runtimes.
-icon: fontawesome/brands/python
 ---
 
 !!!note

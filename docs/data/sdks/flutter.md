@@ -82,6 +82,8 @@ Amplitude.getInstance().setServerUrl("https://api.eu.amplitude.com")
 
 ### Sending events
 
+--8<-- "includes/sdk-httpv2-notice.md"
+
 #### Basic events
 
 Events represent how users interact with your application. For example, "button clicked" may be an action you want to track.
@@ -334,7 +336,7 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
 
  Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA isn't available.
 
-See [iOS Advertising ID](ios.md#advertising-id) or the [Android Advertising ID](android.md#advertising-id) for more information.
+See [iOS Advertising ID](ios/#advertising-id) or the [Android Advertising ID](android-kotlin/#advertiser-id) for more information.
 
 ### Opt out of tracking
 

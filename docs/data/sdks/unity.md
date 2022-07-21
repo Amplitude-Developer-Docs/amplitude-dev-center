@@ -135,6 +135,8 @@ amplitude.setServerUrl("https://api.eu.amplitude.com");
 
 ### Sending events
 
+--8<-- "includes/sdk-httpv2-notice.md"
+
 #### Basic events
 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
@@ -365,7 +367,7 @@ See setup instructions in [Unity iOS IDFA and GPS Setup](#ios-idfa-and-gps-setu
 
 #### Android setup
 
-See setup instructions in the [Android SDK](android.md#advertising-id).
+See setup instructions in the [Android SDK](android-kotlin/#advertiser-id).
 
 ### Location Tracking
 

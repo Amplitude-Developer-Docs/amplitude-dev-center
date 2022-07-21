@@ -1,7 +1,6 @@
 ---
 title: React Native Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the React Native TypeScript and JavaScript runtimes.
-icon: material/react
 ---
 
 

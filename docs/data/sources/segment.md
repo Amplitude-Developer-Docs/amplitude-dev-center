@@ -27,7 +27,7 @@ There are advantages and disadvantages to taking the client-side bundled approac
 - Events logged during the same user session are grouped together when viewing that user's stream on Amplitude Dashboard. This also allows for [session length calculations](https://help.amplitude.com/hc/en-us/articles/115002323627#how-sessions-are-tracked).
 - The SDKs automatically record several user properties such as device type, operating system, and user agent. Here is a list of the [user properties](https://help.amplitude.com/hc/en-us/articles/215562387-Appendix-Amplitude-User-Property-Definitions) tracked automatically by Amplitude's SDKs.
 - By enabling Track Session Events, you can ensure the SDKs automatically send `Start Session` and `End Session` events to mark the start and end of a user's mobile session.
-- When Amplitude's SDKs are installed, you can directly interact with them. See the docs for [iOS SDK](/../data/sdks/ios) and [Android SDK](/../data/sdks/android) to learn more.
+- When Amplitude's SDKs are installed, you can directly interact with them. See the docs for [iOS SDK](/../data/sdks/ios) and [Android SDK](/../data/sdks/android-kotlin) to learn more.
 
 On the other hand, adding more SDKs increases the size of your application (each one is <200kb), which you may have to account for if you are already using several libraries in your app. These SDKs are entirely optional, and you can still conduct almost the same analysis in Amplitude by using only Segment's libraries. 
 

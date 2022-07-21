@@ -1,7 +1,6 @@
 ---
 title: Typescript Ampli Wrapper
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
-icon: material/language-typescript
 ---
 
 

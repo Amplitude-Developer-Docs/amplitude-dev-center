@@ -81,6 +81,8 @@ For earlier versions, you need to configure the `serverURL` property after initi
 
 ### Sending events
 
+--8<-- "includes/sdk-httpv2-notice.md"
+
 #### Basic events
 
 Events represent how users interact with your application. For example, "button clicked" may be an action you want to track.
@@ -365,7 +367,7 @@ Users may wish to opt out of tracking entirely, which means no events and no rec
 
 ### Dynamic Configuration
 
-React Native SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration.md). This feature finds the best server URL automatically based on app users' location.
+React Native SDK allows users to configure their apps to use [dynamic configuration](../../dynamic-configuration.md). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.
