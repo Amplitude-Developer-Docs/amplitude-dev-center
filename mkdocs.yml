@@ -321,6 +321,7 @@ nav:
       - AppsFlyer: data/destinations/appsflyer-cohort.md
       - Braze: data/destinations/braze-cohort.md
       - Cordial: data/destinations/cordial-cohort.md
+      - Customer.io: data/destinations/customerio-cohort.md
       - Enterpret: data/destinations/enterpret-cohort.md
       - Facebook Ads: data/destinations/facebook-cohort.md
       - HubSpot: data/destinations/hubspot-cohort.md
