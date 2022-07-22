@@ -6,10 +6,10 @@
 - :material-apple-ios: [iOS](../data/sdks/ios/index.md)
 - :javascript-color: [JavaScript](../data/sdks/javascript/index.md)
 - :java: [Java](../data/sdks/java/index.md)
-- :node: [Node.js](../data/sdks/node/index.md)
 - :python: [Python](../data/sdks/python/index.md)
 - :react: [React Native](../data/sdks/react-native-sdk.md)
-- :typescript: [TypeScript](../data/sdks/typescript-browser/index.md)
+- :typescript: [TypeScript Browser](../data/sdks/typescript-browser/index.md)
+- :node: [TypeScript Node.js](../data/sdks/typescript-node/index.md)
 - :unity: [Unity](../data/sdks/unity.md)
 - :unreal: [Unreal](../data/sdks/unreal.md)
 
