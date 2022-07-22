@@ -1,5 +1,5 @@
 ---
-title: Typescript Node.js
+title: Node.js SDK
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
 icon: material/language-typescript
 ---
@@ -7,18 +7,18 @@ icon: material/language-typescript
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-node.svg)
 
-!!!info "SDK Resources"
-    - [TypeScript Node SDK Reference :material-book:](https://amplitude.github.io/Amplitude-TypeScript/)
-    - [TypeScript Node SDK Repository :material-github:](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)
-    - [TypeScript Node SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-TypeScript/releases)
+!!!beta "Beta SDK Resources"
+    [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
-The TypeScript Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
+--8<-- "includes/no-ampli.md"
+
+The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 ## Getting Started
 
 ### Installation
 
-To get started with using TypeScript Node SDK, install the package to your project via NPM or script loader.
+To get started with using Node SDK, install the package to your project via NPM or script loader.
 
 #### Installing as Node package
 
