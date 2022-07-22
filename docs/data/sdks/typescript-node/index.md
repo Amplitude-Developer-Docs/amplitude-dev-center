@@ -1,7 +1,7 @@
 ---
 title: Node.js SDK
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
-icon: material/language-typescript
+icon: material/language-node
 ---
 
 

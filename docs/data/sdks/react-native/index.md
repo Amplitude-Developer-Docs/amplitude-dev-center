@@ -14,6 +14,9 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
     - [React SDK Repository :material-github:](https://github.com/amplitude/Amplitude-ReactNative)
     - [React SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-ReactNative/releases)
 
+!!!info "New Amplitude Node.js SDK Available in Beta"
+    Amplitude released a new [Analytics SDK for React Native](/data/sdks/typescript-node/) available in Beta. This new SDK offers a new code architecture and supports plugins, but does not come with [Ampli Wrapper](https://www.docs.developers.amplitude.com/data/ampli/sdk/) yet.
+
 --8<-- "includes/ampli-vs-amplitude.md"
 
 ## SDK installation
