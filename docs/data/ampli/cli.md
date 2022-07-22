@@ -130,25 +130,33 @@ the last published version will be used. If you'd like to generate a tracking li
 
 Check the status of your instrumentation by linting (verifying) your source code for analytics.
 
-```shell
+```text
 USAGE
   $ ampli status
 
 OPTIONS
-  -b, --branch=branch              enforces source is on provided the branch
-  -t, --token=token                personal API token to authenticate with
-  -u, --update                     update tracking plan with latest implementation status
-  --skip-update-on-default-branch  prevents updating implementation status on default branch
+  -b, --branch=branch                enforces source is on provided the branch
+  -t, --token=token                  personal API token to authenticate with
+  -u, --update                       update tracking plan with latest implementation status
+  --instanceName                     Ampli instance name(s) to check. Default is "ampli".
+  --is-latest                        check if current version is the latest
+  --is-latest-if-not-default-branch  check if current version is the latest (do not check if on default branch)
+  --is-merged                        check if current branch/version has been merged into default branch
+  --skip-update-on-default-branch    prevents updating implementation status on default branch
+  --sourceDir                        source code location(s). Default is current directory.
 
 EXAMPLES
   $ ampli status
   $ ampli status -u
   $ ampli status -b main
   $ ampli status -u --skip-update-on-default-branch
+  $ ampli status --instanceName myAmpliInstance
+  $ ampli status --is-merged
+  $ ampli status --sourceDir ./src ./util
 ```
 
 Run this command in the root folder of your project. The command
-scans your source files, locate all calls to the Itly tracking library, and
+scans your source files, locate all calls to the Ampli tracking library, and
 let you know which events are being tracked, and which have yet to be
 instrumented.
 
