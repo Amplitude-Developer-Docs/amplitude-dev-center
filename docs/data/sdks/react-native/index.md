@@ -15,7 +15,9 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
     - [React SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-ReactNative/releases)
 
 !!!info "New Analytics SDK for React Native Available in Beta"
-    Amplitude released a new [Analytics SDK for React Native](/data/sdks/react-native-sdk/) available in Beta. This new SDK offers a new code architecture and supports plugins, but does not come with [Ampli Wrapper](https://www.docs.developers.amplitude.com/data/ampli/sdk/) yet.
+    We just released a new [Analytics SDK for React Native](/data/sdks/react-native-sdk/) available in Beta. The new SDK offers an improved code architecture which supports plugins and React Native Web.
+    
+    The Beta SDK does not yet support the [Ampli Wrapper](https://www.docs.developers.amplitude.com/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
