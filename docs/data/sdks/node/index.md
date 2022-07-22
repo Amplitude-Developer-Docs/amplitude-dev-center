@@ -10,8 +10,8 @@ icon: material/nodejs
     - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
     - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
 
-!!!info "New Amplitude Node.js SDK Available in Beta"
-    Amplitude released a new [Analytics SDK for React Native](/data/sdks/react-native-sdk/) available in Beta. This new SDK offers a new code architecture, supports plugins and React Native Web, but does not come with [Ampli Wrapper](https://www.docs.developers.amplitude.com/data/ampli/sdk/) yet.
+!!!info "New Analytics SDK for Node.js Available in Beta"
+    Amplitude released a new [Analytics SDK for Node.js](/data/sdks/typescript-node/) available in Beta. This new SDK offers a new code architecture, supports plugins and React Native Web, but does not come with [Ampli Wrapper](https://www.docs.developers.amplitude.com/data/ampli/sdk/) yet.
 
 This is Amplitude Node.js SDK written in Typescript, the 1st backend SDK for Amplitude. We would like to hear your ideas too!
 
