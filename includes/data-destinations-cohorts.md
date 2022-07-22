@@ -26,10 +26,12 @@
 - :onesignal: [OneSignal](../data/destinations/onesignal-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :productboard: [Productboard](../data/destinations/productboard-cohort.md)
+- :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
 - :segment: [Segment](../data/destinations/segment-cohort.md)
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
-- :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
+- :userflow: [Userflow](../data/destinations/userflow-cohort.md)
+
 
 </div>
