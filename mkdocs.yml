@@ -341,11 +341,12 @@ nav:
       - Notivize: data/destinations/notivize-cohort.md
       - OneSignal: data/destinations/onesignal-cohort.md
       - Productboard: data/destinations/productboard-cohort.md
+      - Qualtrics: data/destinations/qualtrics-cohort.md
       - Split: data/destinations/split-cohort.md
       - Segment: data/destinations/segment-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
-      - Qualtrics: data/destinations/qualtrics-cohort.md
+      - Userflow: data/destinations/userflow-cohort.md
 - Partners:
   - partners/index.md
   - Overview: partners/index.md
