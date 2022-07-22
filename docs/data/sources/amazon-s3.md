@@ -55,7 +55,7 @@ When your dataset is ready to be ingested, you can set up Amazon S3 Import in Am
 
 Follow these steps to give Amplitude read access to your AWS S3 bucket.
 
-1. Create a new IAM role, for example: “AmplitudeReadRole”.
+1. Create a new IAM role, for example: `AmplitudeReadRole`.
 2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy, using the following example. Update **{{}}** in highlighted text. 
 
     * **{{amplitude_account}}**: `358203115967` for Amplitude US data center. `202493300829` for Amplitude EU data center. 
@@ -81,10 +81,10 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
     }
     ```
 
-3. Attach the following policy (for example, `AmplitudeS3ReadOnlyAccess`) with the appropriate bucket to the Role created in Step 1. Update **{{}}** in highlighted text.
+3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Update **{{}}** in highlighted text.
 
     * **{{bucket_name}}**: the s3 bucket name where your data will be imported from.
-    * **{{prefix}}**: the location in s3 bucket above where your data lives.
+    * **{{prefix}}**: the folder in s3 bucket above where your data lives, for example `/folder1`. For root folder, leave it as empty.
 
     ```json hl_lines="16 30 41"
     {
@@ -112,11 +112,10 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
           "Effect":"Allow",
           "Action":[
             "s3:Get*",
-            "s3:List*",
-            "s3:Head*"
+            "s3:List*"
           ],
           "Resource":[
-            "arn:aws:s3:::{{bucket_name}}/{{prefix}}/*"
+            "arn:aws:s3:::{{bucket_name}}{{prefix}}/*"
           ]
         },
         {
@@ -133,6 +132,8 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
       ]
     }
     ```
+   
+4. Go to **Permissions** for the role. Attach the policy created in step3 to the role.
 
 ### Create Amazon S3 Import source
 
