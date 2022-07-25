@@ -246,7 +246,7 @@ nav:
       - Unity: data/sdks/unity.md
       - Unreal: data/sdks/unreal.md
       - Legacy:
-        - JavaScript:
+        - Browser:
           - data/sdks/javascript/index.md
           - Ampli Codegen: data/sdks/browser-ampli.md
         - Android:
