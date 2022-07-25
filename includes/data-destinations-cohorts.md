@@ -12,6 +12,7 @@
 - :enterpret: [Enterpret](../data/destinations/enterpret-cohort.md)
 - :facebook: [Facebook Ads](../data/destinations/facebook-cohort.md)
 - :hubspot: [HubSpot](../data/destinations/hubspot-cohort.md)
+- :google-ads: [Google Ads](../data/destinations/google-ads-cohort.md)
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
 - :insider: [Insider](../data/destinations/insider-cohort.md)
 - :intercom: [Intercom](../data/destinations/intercom-cohort.md)

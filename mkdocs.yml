@@ -327,6 +327,7 @@ nav:
       - Customer.io: data/destinations/customerio-cohort.md
       - Enterpret: data/destinations/enterpret-cohort.md
       - Facebook Ads: data/destinations/facebook-cohort.md
+      - Google Ads: data/destinations/google-ads-cohort.md
       - HubSpot: data/destinations/hubspot-cohort.md
       - Infobip: data/destinations/infobip-cohort.md
       - Intercom: data/destinations/intercom-cohort.md
