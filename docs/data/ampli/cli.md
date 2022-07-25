@@ -92,11 +92,16 @@ OPTIONS
   -p, --path=path        where the tracking library will be created
   -t, --token=token      personal API token to authenticate with
   -v, --version=version  the version to pull
+  --include-api-keys     include api keys to the tracking library (default true)
+  --omit-api-keys        omit api keys from the tracking library (default false)
 
 EXAMPLES
+  $ ampli pull
   $ ampli pull web
   $ ampli pull web -p ./ampli -b develop
   $ ampli pull web -p ./ampli -b develop -v 2.1.1
+  $ ampli pull --omit-api-keys
+  $ ampli pull --include-api-keys
 ```
 
 Run this command in the root folder of your project. For example:
