@@ -23,6 +23,11 @@ To invoke the next middleware in the queue, use the `next` function.
 
 Add middleware to Ampli via `ampli.client.addEventMiddleware()`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
 
+!!!note
+    In our Browser SDKs, Middleware is added directly via `ampli` instead of `ampli.client`. To add Middleware in these
+    SDKs you should use `ampli.addEventMiddlware()`.
+
+
 ```js
 const loggingMiddleware: Middleware = (payload, next) => {
   console.log(`[ampli] event=${payload.event} extra=${payload.extra}`);
