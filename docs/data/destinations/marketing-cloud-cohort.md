@@ -28,10 +28,21 @@ Salesforce Marketing Cloud provides marketing engagement automation that allows 
 
 ### Marketing Cloud setup
 
-You need your subdomain, client ID, and client secret from Marketing Cloud.
+You need a subdomain, client ID, and client secret from Marketing Cloud.
 
 1. In Marketing Cloud, navigate to **Setup**.
-2. Copy the client ID, client secret, and subdomain from the app you are interested in.
+2. In the *Quick Find* box, search for **Installed packages**.
+3. Create a new package. 
+4. Click **Add Component** on the page, and select **API Integration**. This tells Salesforce to generate API integration information that Amplitude can use. S
+5. For the integration type, select **Server-to-Server**.
+6. Grant the package these permissions:
+    - Contacts
+      - Audiences: Read and Write
+      - Lists and subscribers: Read and Write
+    - Data
+      - Data Extensions: Read and Write
+7. Save the package. 
+8. Copy the client ID, client secret, and subdomain from the app you are interested in.
 
 ### Amplitude setup
 
@@ -44,7 +55,6 @@ In Amplitude: 
 !!!note
 
     When entering the subdomain, be sure you paste the subdomain **only**, and not the entire URL. For example, if the URL is [https://subdomain.domain.com,](https://subdomain.domain.com%2C/) you should only type or paste "subdomain".
-
 
 ## Send a cohort
 
