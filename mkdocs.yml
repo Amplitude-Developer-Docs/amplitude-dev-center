@@ -63,6 +63,8 @@ extra_javascript:
 plugins:
   - search
   - git-revision-date
+  - mkdocs-jupyter:
+      ignore_h1_titles: True
 
 # Extensions
 markdown_extensions:
@@ -193,17 +195,8 @@ nav:
   - REST APIs:
     - Evaluation API: experiment/apis/evaluation-api.md
     - Management API (Beta): experiment/apis/management-api.md
-  # - Remove / Move:
-  #   - experiment/sdks/beta-migration.md
-  #   - Concepts:
-  #     - experiment/remove-move/concepts/index.md
-  #     - experiment/remove-move/concepts/experiment-user.md
-  #     - experiment/remove-move/concepts/experiment-sdk-configuration.md
-  #     - experiment/remove-move/concepts/experiment-variants.md
-  #   - Local Evaluation (Alpha):
-  #     - experiment/remove-move/local-evaluation/local-evaluation-overview.md
-  #     - experiment/remove-move/local-evaluation/create-a-local-evaluation-flag.md
-  #     - experiment/remove-move/local-evaluation/nodejs-sdk.md
+  - Notebooks:
+    - Sequential Testing vs T-Test: experiment/notebooks/sequential-testing-vs-t-test.ipynb
 
 - Data:
   - data/index.md
