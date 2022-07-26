@@ -6,9 +6,6 @@ icon: fontawesome/brands/golang
 
 Official documentation for Amplitude Experiment's server-side Go SDK implementation.
 
-!!!bug "Memory leak in `v0.4.0`"
-    The initial beta release version, `v0.4.0`, contains a memory leak in the local evaluation implementation. Please use the latest version ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/amplitude/experiment-go-server?sort=semver).
-
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/amplitude/experiment-go-server?sort=semver)
 
 !!!info "SDK Resources"
