@@ -274,6 +274,7 @@ nav:
       - Apphud: data/sources/apphud.md
       - AppsFlyer: data/sources/appsflyer.md
       - Branch: data/sources/branch.md
+      - Braze: data/sources/braze.md
       - CleverTap: data/sources/clevertap.md
       - Convizit: data/sources/convizit.md
       - CSV: data/sources/lookup-table.md

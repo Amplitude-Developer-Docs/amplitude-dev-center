@@ -9,6 +9,7 @@
 - :apphud: [Apphud](../data/sources/apphud.md)
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
 - :branch: [Branch](../data/sources/branch.md)
+- :braze: [Braze](../data/sources/braze.md)
 - :clevertap: [CleverTap](../data/sources/clevertap.md)
 - :convizit: [Convizit](../data/sources/convizit.md)
 - :csv: [CSV](../data/sources/lookup-table.md)
