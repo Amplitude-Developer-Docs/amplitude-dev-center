@@ -9,7 +9,7 @@ By using this integration, teams can leverage Amplitude's analytics capabilities
 
 !!!note "Send Amplitude cohorts to Leanplum"
 
-    See [Send Cohorts to Leanplum](/../data/destinations/leanplum-cohort) for information on how to import events from Leanplum into Amplitude.
+    See [Send Cohorts to Leanplum](/../data/destinations/leanplum-cohort) for information on how to send cohorts from Amplitude to Leanplum.
 
 ## Setup
 

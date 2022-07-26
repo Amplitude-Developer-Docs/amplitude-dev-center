@@ -6,6 +6,7 @@
 *[UUID]: Universally unique identifier
 *[UUIDs]: Universally unique identifiers
 *[ADID]: Android Advertising ID
+*[AAID]: Android Advertising ID
 *[IDFV]: Identifier for Vendors
 *[IDFA]: Identifier for Advertiser
 *[DMA]: Designated Market Area

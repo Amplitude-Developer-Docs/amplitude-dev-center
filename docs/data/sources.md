@@ -1,20 +1,20 @@
 ---
 title: Sources Overview
-description: Sources let you import data from third-party platforms into Amplitude. 
+description: Sources let you import data from third-party platforms into Amplitude.
 ---
 
-Sources let you import data from third-party platforms into Amplitude. 
+Sources let you import data from third-party platforms into Amplitude.
 
 ## Add a source
 
-You can add a new source in just a few clicks. 
+You can add a new source in just a few clicks.
 
-1. From Data, click **Sources** in the Connections section. 
+1. From Data, click **Sources** in the Connections section.
 2. Click **Add Source**.
-3. Browse or search for the source you want to add. 
-4. Follow the on-screen prompts. 
+3. Browse or search for the source you want to add.
+4. Follow the on-screen prompts.
 
-For detailed instructions, see the documentation for the source you want to add. 
+For detailed instructions, see the documentation for the source you want to add.
 
 ### SDKs
 

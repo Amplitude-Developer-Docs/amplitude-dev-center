@@ -3,13 +3,16 @@
 <div class="grid cards" markdown>
 
 - :airship: [Airship](../data/destinations/airship-cohort.md)
+- :amazon-s3: [Amazon S3](../data/destinations/amazon-s3-cohort.md)
 - :appcues: [Appcues](../data/destinations/appcues-cohort.md)
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
+- :customerio: [Customer.io](../data/destinations/customerio-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - :enterpret: [Enterpret](../data/destinations/enterpret-cohort.md)
 - :facebook: [Facebook Ads](../data/destinations/facebook-cohort.md)
 - :hubspot: [HubSpot](../data/destinations/hubspot-cohort.md)
+- :google-ads: [Google Ads](../data/destinations/google-ads-cohort.md)
 - :infobip: [Infobip](../data/destinations/infobip-cohort.md)
 - :insider: [Insider](../data/destinations/insider-cohort.md)
 - :intercom: [Intercom](../data/destinations/intercom-cohort.md)
@@ -24,11 +27,13 @@
 - :onesignal: [OneSignal](../data/destinations/onesignal-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :productboard: [Productboard](../data/destinations/productboard-cohort.md)
+- :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
 - :salesforce: [Salesforce Marketing Cloud](../data/destinations/marketing-cloud-cohort.md)
 - :segment: [Segment](../data/destinations/segment-cohort.md)
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
-- :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
+- :userflow: [Userflow](../data/destinations/userflow-cohort.md)
+
 
 </div>

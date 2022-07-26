@@ -10,6 +10,11 @@ icon: material/nodejs
     - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
     - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
 
+!!!info "New Analytics SDK for Node.js Available in Beta"
+    We just released a new [Analytics SDK for Node.js](/data/sdks/typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins.
+    
+    The Beta SDK does not yet support the [Ampli Wrapper](https://www.docs.developers.amplitude.com/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
+
 This is Amplitude Node.js SDK written in Typescript, the 1st backend SDK for Amplitude. We would like to hear your ideas too!
 
 While the client-side SDKs are optimized to track session and attribution for a single user or device, the Node SDK's focus is to provide a helpful developer experience to help back-end services reliably and correctly send events from many users and sources. Out of the box, the Node SDK provides:
