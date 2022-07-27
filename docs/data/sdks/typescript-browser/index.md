@@ -71,7 +71,7 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-### EU data residency
+#### EU data residency
 
 You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
 
@@ -83,7 +83,7 @@ import * as amplitude from '@amplitude/analytics-browser';
 
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   serverZone: 'EU',
-  });
+});
 ```
 
 ### Tracking an event

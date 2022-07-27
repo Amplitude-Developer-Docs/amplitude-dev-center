@@ -66,7 +66,7 @@ import * as amplitude from '@amplitude/analytics-node';
 
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   serverZone: 'EU',
-  });
+});
 ```
 
 ### Tracking an event
