@@ -73,25 +73,18 @@ init(API_KEY, 'user@amplitude.com', {
 
 ### EU data residency
 
-You can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
- The server zone configuration supports dynamic configuration as well.
-
-For earlier versions, you need to configure the `serverURL` property after initializing the client.
+You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
 
 !!!note
     For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
 
-=== "TypeScript"
+```ts
+import * as amplitude from '@amplitude/analytics-browser';
 
-    ```ts
-    // For versions starting from 2.6.0
-    // No need to call setServerUrl for sending data to Amplitude's EU servers
-    Amplitude.getInstance().setServerZone('EU');
-
-    // For earlier versions
-    Amplitude.getInstance().setServerUrl("https://api.eu.amplitude.com"));
-    ```
-
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  serverZone: 'EU',
+  });
+```
 
 ### Tracking an event
 
