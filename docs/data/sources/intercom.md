@@ -1,7 +1,6 @@
 ---
 title: Import Intercom Data
 description: Sync Intercom event data to Amplitude so that you can better engage your users based on how they've interacted with your product and their lifecycle timing. 
-
 ---
 
 Intercom makes it easy for you to communicate with your users through targeted content, behavior-driven email, in-app, and web messages. Learn more [here](https://www.intercom.com/help/en/articles/294-what-is-intercom).

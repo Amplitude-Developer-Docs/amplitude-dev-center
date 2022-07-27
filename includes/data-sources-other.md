@@ -19,6 +19,7 @@
 - :iterable: [Iterable](../data/sources/iterable.md)
 - :kochava: [Kochava](../data/sources/kochava.md)
 - :leanplum: [Leanplum](../data/sources/leanplum.md)
+- :mailchimp: [Mailchimp](../data/sources/mailchimp.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :qualtrics-xm: [Qualtrics](../data/sources/qualtrics.md)
