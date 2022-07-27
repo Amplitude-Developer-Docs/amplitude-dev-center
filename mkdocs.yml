@@ -282,6 +282,7 @@ nav:
       - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - HubSpot: data/sources/hubspot.md
+      - Iterable: data/sources/iterable.md
       - Kochava: data/sources/kochava.md
       - Leanplum: data/sources/leanplum.md
       - mParticle: data/sources/mparticle.md

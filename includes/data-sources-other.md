@@ -15,6 +15,7 @@
 - :csv: [CSV](../data/sources/lookup-table.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :hubspot: [HubSpot](../data/sources/hubspot.md)
+- :iterable: [Iterable](../data/sources/iterable.md)
 - :kochava: [Kochava](../data/sources/kochava.md)
 - :leanplum: [Leanplum](../data/sources/leanplum.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
