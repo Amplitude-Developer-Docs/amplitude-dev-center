@@ -54,6 +54,16 @@ init(API_KEY, {
 });
 ```
 
+#### EU Data Residency
+
+Sending data to Amplitude's EU servers, you need to configure the server URL during the initialization.
+
+```ts
+client = Amplitude.init(<AMPLITUDE_API_KEY>, {
+    serverUrl: "https://api.eu.amplitude.com/2/httpapi"
+});
+```
+
 ### Tracking an event
 
 --8<-- "includes/sdk-httpv2-notice.md"

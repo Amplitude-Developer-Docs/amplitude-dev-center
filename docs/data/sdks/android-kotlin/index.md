@@ -53,6 +53,28 @@ val amplitude = Amplitude(
 )
 ```
 
+### EU data residency
+
+You can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
+ The server zone configuration supports dynamic configuration as well.
+
+For earlier versions, you need to configure the `serverURL` property after initializing the client.
+
+!!!note
+    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
+
+=== "Kotlin"
+
+    ```kotlin
+    // For versions starting from 2.34.0
+    // No need to call setServerUrl for sending data to Amplitude's EU servers
+    client.setServerZone(AmplitudeServerZone.EU)
+
+    // For earlier versions
+    client.setServerUrl("https://api.eu.amplitude.com")
+    ```
+
+
 ## Usage
 
 ### `track`
