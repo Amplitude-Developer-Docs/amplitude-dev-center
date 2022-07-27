@@ -282,8 +282,11 @@ nav:
       - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md
       - HubSpot: data/sources/hubspot.md
+      - Intercom: data/sources/intercom.md
+      - Iterable: data/sources/iterable.md
       - Kochava: data/sources/kochava.md
       - Leanplum: data/sources/leanplum.md
+      - Mailchimp: data/sources/mailchimp.md
       - mParticle: data/sources/mparticle.md
       - Optimizely: data/sources/optimizely.md
       - Qualtrics: data/sources/qualtrics.md
