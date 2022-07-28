@@ -403,7 +403,7 @@ Get a single event type, by name.
 #### Example request
 
 ```bash
-GET /api/2/taxonomy/category/:category_name HTTP/1.1
+GET /api/2/taxonomy/event/:event_type HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
 ```
