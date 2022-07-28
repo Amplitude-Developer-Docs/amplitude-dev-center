@@ -281,6 +281,7 @@ nav:
       - Facebook Ads: data/sources/facebook-ads.md
       - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md
+      - Hightouch: data/sources/hightouch.md
       - HubSpot: data/sources/hubspot.md
       - Intercom: data/sources/intercom.md
       - Iterable: data/sources/iterable.md

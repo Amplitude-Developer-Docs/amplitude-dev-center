@@ -14,6 +14,7 @@
 - :convizit: [Convizit](../data/sources/convizit.md)
 - :csv: [CSV](../data/sources/lookup-table.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
+- :hightouch: [Hightouch](../data/sources/hightouch.md)
 - :hubspot: [HubSpot](../data/sources/hubspot.md)
 - :intercom: [Intercom](../data/sources/intercom.md)
 - :iterable: [Iterable](../data/sources/iterable.md)
