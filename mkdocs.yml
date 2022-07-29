@@ -350,6 +350,7 @@ nav:
       - OneSignal: data/destinations/onesignal-cohort.md
       - Productboard: data/destinations/productboard-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
+      - Salesforce Marketing Cloud: data/destinations/marketing-cloud-cohort.md
       - Split: data/destinations/split-cohort.md
       - Segment: data/destinations/segment-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
