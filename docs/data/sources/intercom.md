@@ -40,6 +40,8 @@ Amplitude supports the following Intercom events, also known as **topics**:
 - All visitor topics
 - Event topics
 
+See a full list of topics in the [Intercom documentation](https://developers.intercom.com/intercom-api-reference/reference/webhook-models-1).
+
 ## Disconnect the integration
 
 To disconnect the Intercom integration, navigate to this URL, replacing `**your_Intercom_app_id**` with your Intercom app ID.
