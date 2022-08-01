@@ -290,6 +290,7 @@ nav:
       - Leanplum: data/sources/leanplum.md
       - Mailchimp: data/sources/mailchimp.md
       - mParticle: data/sources/mparticle.md
+      - OneSignal: data/sources/onesignal.md
       - Optimizely: data/sources/optimizely.md
       - Qualtrics: data/sources/qualtrics.md
       - Radar: data/sources/radar.md

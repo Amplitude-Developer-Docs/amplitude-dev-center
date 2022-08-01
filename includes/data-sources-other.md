@@ -23,6 +23,7 @@
 - :leanplum: [Leanplum](../data/sources/leanplum.md)
 - :mailchimp: [Mailchimp](../data/sources/mailchimp.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
+- :onesignal: [OneSignal](../data/sources/onesignal.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
 - :qualtrics-xm: [Qualtrics](../data/sources/qualtrics.md)
 - :radar: [Radar](../data/sources/radar.md)
