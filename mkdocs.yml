@@ -275,6 +275,7 @@ nav:
       - AppsFlyer: data/sources/appsflyer.md
       - Branch: data/sources/branch.md
       - Braze: data/sources/braze.md
+      - Census: data/sources/census.md
       - CleverTap: data/sources/clevertap.md
       - Convizit: data/sources/convizit.md
       - CSV: data/sources/lookup-table.md
