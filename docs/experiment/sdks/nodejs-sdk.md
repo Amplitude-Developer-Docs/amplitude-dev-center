@@ -12,7 +12,7 @@ Official documentation for Amplitude Experiment's server-side Node.js SDK implem
 This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
 * [Remote evaluation](#remote-evaluation)
-* [Local evaluation (alpha)](#local-evaluation-alpha)
+* [Local evaluation](#local-evaluation)
 
 ## Remote evaluation
 
@@ -46,7 +46,7 @@ Install the Node.js Server SDK with npm or yarn.
 
     ```js
     // (1) Initialize the experiment client
-    const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
+    const experiment = Experiment.initializeRemote('<DEPLOYMENT_KEY>', config: {
         fetchTimeoutMillis: 500,
         fetchRetries: 1,
         fetchRetryBackoffMinMillis: 0,
@@ -72,12 +72,12 @@ Install the Node.js Server SDK with npm or yarn.
     }
     ```
 
-### Initialize
+### Initialize remote
 
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```js
-initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
+initializeRemote(apiKey: string, config?: RemoteEvaluationConfig): RemoteEvaluationClient
 ```
 
 | Parameter | Requirement | Description |
@@ -86,10 +86,10 @@ initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!warning "Timeout & Retry Configuration"
-    **The default timeout and retry configuration options are too high for most server environments**. Please configure the timeout and retry options to best fit your performance requirements. If [remote evaluation performance](../general/performance-and-caching.md#remote-evaluation) is too slow, consider using [local evaluation](#local-evaluation-alpha).
+    **The default timeout and retry configuration options are too high for most server environments**. Please configure the timeout and retry options to best fit your performance requirements. If [remote evaluation performance](../general/performance-and-caching.md#remote-evaluation) is too slow, consider using [local evaluation](#local-evaluation).
 
 ```js
-const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', config: {
+const experiment = Experiment.initializeRemote('<DEPLOYMENT_KEY>', config: {
     fetchTimeoutMillis: 500,
     fetchRetries: 1,
     fetchRetryBackoffMinMillis: 0,
@@ -149,27 +149,27 @@ if (variant?.value === 'on') {
 }
 ```
 
-## Local evaluation (alpha)
+## Local evaluation
 
 Implements evaluating variants for a user via [local evaluation](../general/evaluation/local-evaluation.md). If you plan on using local evaluation, you should [understand the tradeoffs](../general/evaluation/local-evaluation.md#targeting-capabilities).
 
-!!!warning "Local Evaluation Mode"
+!!!note "Local Evaluation Mode"
     The local evaluation client can only evaluation flags which are [set to local evaluation mode](../guides/create-local-evaluation-flag.md).
 
 ### Install
 
-Install the Node.js Server SDK from the `alpha` tag with `npm` or `yarn`.
+Install the Node.js Server SDK with `npm` or `yarn`.
 
 === "npm"
 
     ```npm
-    $ npm install --save @amplitude/experiment-node-server@alpha
+    $ npm install --save @amplitude/experiment-node-server
     ```
 
 === "yarn"
 
     ```yarn
-    $ yarn add @amplitude/experiment-node-server@alpha
+    $ yarn add @amplitude/experiment-node-server
     ```
 
 !!!tip "Quick Start"
