@@ -298,6 +298,7 @@ nav:
       - Segment: data/sources/segment.md
       - SendGrid: data/sources/sendgrid.md
       - Shopify: data/sources/shopify.md
+      - Split: data/sources/split.md
       - Singular: data/sources/singular.md
       - Survicate: data/sources/survicate.md
       - Taplytics: data/sources/taplytics.md
