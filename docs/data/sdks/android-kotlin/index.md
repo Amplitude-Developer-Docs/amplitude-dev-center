@@ -67,7 +67,7 @@ You can configure the server zone when initializing the client for sending data 
       Configuration(
         apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
-        serverZone = ServerZone.US
+        serverZone = ServerZone.EU
       )
     )
     ```
