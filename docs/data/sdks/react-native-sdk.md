@@ -345,6 +345,21 @@ const { uuid } = require('uuidv4');
 setDeviceId(uuid());
 ```
 
+### Reset when user logs out
+
+`reset` is a shortcut to anonymize users after they log out, by:
+
+- setting `userId` to `undefined`
+- setting `deviceId` to a new uuid value
+
+With an undefined `userId` and a completely new `deviceId`, the current user would appear as a brand new user in dashboard.
+
+```ts
+import { reset } from '@amplitude/analytics-react-native';
+
+reset();
+```
+
 ### Opt users out of tracking
 
 You can turn off logging for a given user by setting `setOptOut` to `true`.
