@@ -10,6 +10,12 @@ description: Set up a recurring or one-time export of Amplitude event data to Bi
 
 You can set up recurring syncs of your Amplitude event data to BigQuery through the Amplitude UI,  or manually start a sync of your historical data. This article outlines the process for connecting your Amplitude and BigQuery accounts, and then syncing your data.
 
+!!!note "Other Amplitude + BigQuery Integrations"
+
+    This integration sends Amplitude event data to BigQuery. Amplitude offers another integrations with BigQuery: 
+
+    - [Import data from BigQuery](/data/sources/bigquery)
+
 ## Prerequisites
 
 To get started with exporting to BigQuery, you need the following:

@@ -5,6 +5,10 @@ description: Send Amplitude cohorts to Customer.io for use in automated messagin
 
 [Customer.io](http://customer.io/ "http://Customer.io") is a messaging platform that allows marketers to turn ideas into powerful automated message campaigns. [Customer.io](http://customer.io/ "http://Customer.io")'s logic-based tools help you capture every edge case and connect to the real people in your audience.
 
+!!!note "Send Amplitude events to Customer.io"
+
+    This integration sends Amplitude cohorts to Customer.io. There is a separate integration to send Amplitude events. See [Send events to Customer.io](customerio.md) for information.
+
 ## Considerations
 
 - This integration is only available for customers who have paid plans with Amplitude. 

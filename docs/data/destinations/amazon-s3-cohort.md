@@ -5,9 +5,12 @@ description: Send Amplitude cohorts to Amazon S3 to use with other databases and
 
 Set up this integration to send cohorts to an Amazon S3 bucket. This enables you to export groups of users out of Amplitude and synchronize them with other databases or stored procedures you've built off your Amazon S3 bucket. From there, you can use Amplitude cohorts in internal analytics dashboards and internal personalization engines.
 
-!!!note
+!!!note "Other Amplitude + Amazon S3 Integrations"
 
-    This integration is used for syncing **cohorts** to S3. There is a separate destination for [syncing raw data to S3](amazon-s3.md).
+    This integration sends Amplitude cohorts to Amazon S3. Amplitude offers two other integrations with Amazon S3: 
+
+    - [Import data from Amazon S3](/data/sources/amazon-s3)
+    - [Send raw event data to Amazon S3 ](/data/destinations/amazon-s3)
 
 ## Setup
 

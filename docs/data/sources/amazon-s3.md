@@ -8,6 +8,13 @@ With Amplitude’s Amazon S3 Import, you can import event, group properties, or 
 
 --8<-- "includes/editions-all-paid-editions.md"
 
+!!!note "Other Amplitude + Amazon S3 Integrations"
+
+    This integration imports Amazon S3 data into Amplitude. Amplitude offers two other integrations with Amazon S3: 
+
+    - [Send cohorts to Amazon S3](/data/destinations/amazon-s3-cohort)
+    - [Send raw event data to Amazon S3 ](/data/destinations/amazon-s3)
+
 During setup, you configure conversion rules to control how events are instrumented.
  After Amazon S3 Import is set up and enabled, Amplitude's ingestion service continuously discovers data files in S3 buckets and then converts and ingest events.
 

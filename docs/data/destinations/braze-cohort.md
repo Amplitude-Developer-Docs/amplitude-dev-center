@@ -7,7 +7,7 @@ Amplitude Data's Braze integration lets you send your Amplitude cohorts straight
 
 !!!note "Send Amplitude Events to Braze"
 
-    See [Braze Event Streaming](/../data/destinations/braze) for information on how to send events to Braze.
+    This integration sends cohorts to Braze. There is a separate integration to send Amplitude event data. See [Braze Event Streaming](/../data/destinations/braze) for information.
 
 ## Considerations
 

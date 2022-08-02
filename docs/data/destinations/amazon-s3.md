@@ -11,12 +11,17 @@ Because the export works on a per-project basis, teams have the flexibility to s
  event data into a single Amazon S3 bucket. 
 However, each bucket can only be accessed by a single organization.
 
-!!!info
+!!!note "Other Amplitude + Amazon S3 Integrations"
 
-    Portfolio projects can't be used as data sources for the Amazon S3 export.
+    This integration sends Amplitude data to Amazon S3. Amplitude offers two other integrations with Amazon S3: 
+
+    - [Import data from Amazon S3](/data/sources/amazon-s3)
+    - [Send cohorts to Amazon S3 ](/data/destinations/amazon-s3-cohort)
+
 
 ## Considerations
 
+- Portfolio projects can't be used as data sources for the Amazon S3 export.
 - The export finishes within one hour after the currently exported hour. The export time is typically between one and 10 minutes.
 - The only potential error is an accessibility error. This can happen if you have changed any configurations on the receiving end and Amplitude is unable to access to your bucket. 
 In this case, the export fails after several tries, and the admin and the user who created the S3 export are notified via email.
