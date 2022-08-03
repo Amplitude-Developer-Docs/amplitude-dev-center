@@ -11,6 +11,12 @@ After you connect the integration you can:
 - Send any event or user properties collected as question responses or embedded data.
 - Send survey response data to build charts and cohorts in Amplitude.
 
+!!!note "Other Amplitude + Qualtrics integrations"
+
+    This integration imports Qualtrics survey data into Amplitude. Amplitude offers other integrations with Qualtrics: 
+
+    - [Send Cohorts to Qualtrics](/data/destinations/qualtrics-cohort)
+
 ## Considerations
 
 - This integration imports the email address as the `User_ID`. There is no option to define the mapping and select another `User_ID`.

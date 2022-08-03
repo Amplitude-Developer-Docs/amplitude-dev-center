@@ -4,6 +4,12 @@ description: Send Amplitude cohorts to Segment to use with your ad networks, mar
 ---
 
 Send Amplitude behavioral cohorts to Segment to use with your ad networks, marketing automation tools, and personalization engines so you can better tailor campaigns and product experiences.
+
+!!!note "Other Amplitude + Segment integrations"
+
+    This integration sends Amplitude cohorts to Segment. Amplitude offers other integrations with Segment: 
+
+    - [Import Segment Data](/data/sources/segment)
  
 ## Considerations
 

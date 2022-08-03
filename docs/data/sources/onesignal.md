@@ -10,9 +10,11 @@ OneSignal can send events to Amplitude for mobile push, web push, email, SMS, an
 - Viewed: The user has viewed the message.
 - Confirmed Delivery: The message has been delivered by the provider to the user.
 
-!!!note "Send Amplitude cohorts to OneSignal"
+!!!note "Other Amplitude + OneSignal integrations"
 
-    See [Send Cohorts to OneSignal](/../data/destinations/onesignal-cohort) for information.
+    This integration imports OneSignal data. Amplitude offers other integrations with OneSignal: 
+
+    - [Send Cohorts to OneSignal](/data/destinations/onesignal-cohort)
 
 ## Setup
 
