@@ -9,8 +9,9 @@
 - :node: [Node.js](../data/sdks/node/index.md)
 - :node: [Node.js (Beta)](../data/sdks/typescript-node/index.md)
 - :python: [Python](../data/sdks/python/index.md)
-- :react: [React Native](../data/sdks/typescript-react-native/)
-- :unity: [Unity](../data/sdks/unity/index.md)
-- :unreal: [Unreal](../data/sdks/unreal/index.md)
+- :react: [React Native](../data/sdks/react-native-sdk.md)
+- :unity: [Unity](../data/sdks/unity.md)
+- :unreal: [Unreal](../data/sdks/unreal.md)
+- :go: [Go (Alpha)](../data/sdks/go.md)
 
 </div>
