@@ -180,3 +180,112 @@ With an empty `userId` and a completely new `deviceId`, the current user would a
 ```kotlin
 amplitude.reset()
 ```
+
+## Amplitude SDK Plugin
+
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+
+### Plugin.setup
+
+This method contains logic for preparing the plugin for use and has `client` instance as a parameter. The expected return value is `null`. A typical use for this method, is to copy configuration from `client.configuration` or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.add()`.
+
+### Plugin.execute
+
+This method contains the logic for processing events and has `event` instance as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is `null`. This method is called for each event, including Identify, GroupIdentify and Revenue events, that is instrumented using the client interface.
+
+### Plugin Examples
+
+#### Enrichment Type Plugin
+
+Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `event_id` property of an event.
+
+```java
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.amplitude.core.Amplitude;
+import com.amplitude.core.events.BaseEvent;
+import com.amplitude.core.platform.Plugin;
+
+import java.util.HashMap;
+
+public class EnrichmentPlugin implements Plugin {
+    public Amplitude amplitude;
+    @NonNull
+    @Override
+    public Amplitude getAmplitude() {
+        return this.amplitude;
+    }
+
+    @Override
+    public void setAmplitude(@NonNull Amplitude amplitude) {
+        this.amplitude = amplitude;
+    }
+
+    @NonNull
+    @Override
+    public Type getType() {
+        return Type.Enrichment;
+    }
+
+    @Nullable
+    @Override
+    public BaseEvent execute(@NonNull BaseEvent baseEvent) {
+        if (baseEvent.getEventProperties() == null) {
+            baseEvent.setEventProperties(new HashMap<String, Object>());
+        }
+        baseEvent.getEventProperties().put("custom android event property", "test");
+        return baseEvent;
+    }
+
+    @Override
+    public void setup(@NonNull Amplitude amplitude) {
+        this.amplitude = amplitude;
+    }
+}
+
+amplitude.add(new EnrichmentPlugin());
+```
+
+#### Destination Type Plugin
+
+```java
+import com.amplitude.core.Amplitude;
+import com.amplitude.core.events.BaseEvent;
+import com.amplitude.core.platform.DestinationPlugin;
+import com.segment.analytics.Analytics;
+import com.segment.analytics.Properties;
+
+public class SegmentDestinationPlugin extends DestinationPlugin {
+    android.content.Context context;
+    Analytics analytics;
+    String SEGMENT_WRITE_KEY;
+    public SegmentDestinationPlugin(android.content.Context appContext, String segmentWriteKey) {
+        this.context = appContext;
+        this.SEGMENT_WRITE_KEY = segmentWriteKey;
+    }
+    @Override
+     public void setup(Amplitude amplitude) {
+        super.setup(amplitude);
+        analytics = new Analytics.Builder(this.context, SEGMENT_WRITE_KEY)
+                .build();
+
+        Analytics.setSingletonInstance(analytics);
+    }
+
+    @Override
+    public BaseEvent track(BaseEvent event) {
+        Properties properties = new Properties();
+        for (Map.Entry<String,Object> entry : event.getEventProperties().entrySet()) {
+            properties.putValue(entry.getKey(),entry.getValue());
+        }
+        analytics.track(event.eventType, properties);
+        return event;
+    }
+}
+
+amplitude.add(
+    new SegmentDestinationPlugin(this, SEGMENT_WRITE_KEY)
+)
+```
