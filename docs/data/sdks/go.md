@@ -16,7 +16,7 @@ The Go SDK lets you send events to Amplitude. This library is open-source, check
 
 ### Installation
 
-Install `amplitude-analytics` using pip:
+Install `Amplitude-Go` for analytics:
 
 ```bash
 go get https://github.com/amplitude/Amplitude-Go
@@ -34,10 +34,10 @@ import "github.com/amplitude/Amplitude-Go/amplitude"
 
 func main() {
 
-    // Create a config struct 
+    // Create a Config struct 
 	config := amplitude.NewConfig("your_api_key")
 
-	// Pass a config struct  
+	// Pass a Config struct  
     // to initialize a client struct
     // which implements Client interface
 	client := amplitude.NewClient(config)
@@ -72,17 +72,17 @@ Config{
 
 | <div class="big-column">Name</div> | Description  |
 | --- | --- |
-| `APIKey` | Required. string. The API key of the Amplitude project. Events sent by the client instance can be found under this project. Set when you initialize the client instance. |
-| `FlushQueueSize` | int. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `flush_queue_size`. Defaults to 200.|
+| `APIKey` | Required. string. The API key of the Amplitude project. Events sent by the client struct can be found under this project. Set when you initialize the client struct. |
+| `FlushQueueSize` | int. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. Defaults to 200.|
 | `FlushInterval` | time.Duration. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. Defaults to 10 seconds.|
 | `FlushMaxRetries` | int. The number of times the client retries an event when the request returns an error. Defaults to 12 |
-| `Logger` | Logger interface. The logger instance used by Amplitude client. Defaults to using a wrapper of [Go standard Logger](https://pkg.go.dev/log#Logger): `log.Logger`. |
+| `Logger` | Logger interface. The logger used by Amplitude client. Defaults to using a wrapper of [Go standard Logger](https://pkg.go.dev/log#Logger): `log.Logger`. |
 | `MinIDLength` | int. The minimum length of `UserID` and `DeviceID`. Defaults to 5.|
 | `Callback`  | func. Optional. Client level callback function. Takes three parameters:<br> 1. event: an Event struct<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. Defaults to `None`. |
 | `ServerZone` |string. The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. Defaults to `US`. |
-| `UseBatch` | bool. Uses HTTP v2 API endpoint if set to `False`, otherwise use batch API endpoint. More about difference between HTTP v2 and batch can be found [here](https://developers.amplitude.com/docs/batch-event-upload-api). Defaults to `false` |
+| `UseBatch` | bool. Uses HTTP v2 API endpoint if set to `false`, otherwise use batch API endpoint. More about difference between HTTP v2 and batch can be found [here](https://developers.amplitude.com/docs/batch-event-upload-api). Defaults to `false` |
 | `ServerURL` | string. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set with a string value instead of `nil`, then `ServerZone` and `UseBatch` are ignored and the string value is used. Defaults to the HTTP API V2 endpoint. |
-| `Storage` | Storage interface. Used to create storage instance to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorage`. |
+| `Storage` | Storage interface. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorage`. |
 | `OptOut`  | bool. Opt out option. If set to `true`, client doesn't process and send events. Defaults to `false`. |
 
 ### Track an event
@@ -92,7 +92,7 @@ Events represent how users interact with your application. For example, “Butto
 ```Go
 
 // Track a basic event
-// One of user_id and device_id is required
+// One of UserID and DeviceID is required
 event := amplitude.Event{
     EventOptions: amplitude.EventOptions{UserID: "user-id"},
     EventType:    "Button Clicked",
@@ -112,16 +112,16 @@ client.Track(amplitude.Event{
 
 ### User Properties
 
-User properties help you understand your users at the time they performe some action within your app such as their device details, their preferences, or language.
+User properties help you understand your users at the time they perform some action within your app such as their device details, their preferences, or language.
 
-Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `Set`, `SetOnce`, `Unset`, `Add`, `Append`, `Prepend`, `PreInsert`, `PostInsert`,`Remove`, and `ClearAll1` on individual user properties. The operations are declared via a provided Identify interface. Multiple operations can be chained together in a single Identify object. The Identify struc is then passed to the Amplitude client to send to the server.
+Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `Set`, `SetOnce`, `Unset`, `Add`, `Append`, `Prepend`, `PreInsert`, `PostInsert`,`Remove`, and `ClearAll1` on individual user properties. The operations are declared as Identify struct methods. Multiple operations can be chained together in a single Identify struct. The Identify struct is then passed to the Amplitude client to send to the server.
 
 !!!info "Important Note"
     If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user’s profile area, but it will not appear in chart result until another event is sent after the Identify call. So the identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
 #### Setting a User Property
 
-The Identify struct provides controls over setting user properties. An Identify struct must first be instantiated, then Identify methods can be called on it, and finally the client will make a call with the Identify object.
+The Identify struct provides controls over setting user properties. An Identify struct must first be instantiated, then Identify methods can be called on it, and finally the client will make a call with the Identify struct.
 
 ```Go
 identifyObj := amplitude.Identify{}
@@ -232,14 +232,14 @@ client.SetGroup("org-id", []string{"15", "21"}, amplitude.EventOptions{UserID: "
 Event level groups are set by `Groups` attribute of events
 
 ```Go
-// set groups when initial a event instance
+// set groups when initial an Event struct
 event := amplitude.Event{
 		EventType:       "event-type",
 		EventOptions:    amplitude.EventOptions{UserID: "user-id"},
 		Groups: map[string][]string{"org-id": []string{"15", "21"}},
 	}
 
-// set groups for an existing instance
+// set groups for an existing Event struct
 event.Groups["Sport"] = []string{"soccer"}
 
 client.Track(event)
@@ -261,7 +261,7 @@ identifyObj := amplitude.Identify{}
 
 ### Revenue Tracking
 
-The preferred method of tracking revenue for a user is to use `Revenue()` in conjunction with the provided Revenue interface. Revenue struct will store each revenue transaction and allow you to define several special revenue properties (such as 'RevenueType', 'ProductID', etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `Revenue` to send as revenue events to Amplitude. This allows us to automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
+The preferred method of tracking revenue for a user is to use `Revenue()` in conjunction with the provided Revenue interface. Revenue struct will store each revenue transaction and allow you to define several special revenue properties (such as 'RevenueType', 'ProductID', etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue struct are then passed into `Revenue` to send as revenue events to Amplitude. This allows us to automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
 To track revenue from a user, call `Revenue()` each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
 
@@ -279,13 +279,13 @@ revenueObj := amplitude.Revenue{
 Name |  Type  |Description | Default
 -----|-------|--------------|--------
 ProductID (optional) | string | An identifier for the product. We recommend something like the Google Play Store product ID. | ""
-Quantity (optional) | int| The quantity of products purchased. Note: revenue = quantity * price | 0
-Price (optional *required for revenue data if the revenue field isn't set) | float64 | The price of the products purchased. You can use negative values to indicate refunds. Note: revenue = quantity * price | 0
+Quantity (optional) | int| The quantity of products purchased. Note: Revenue = Quantity * Price | 0
+Price (optional *required for revenue data if the revenue field isn't set) | float64 | The price of the products purchased. You can use negative values to indicate refunds. Note: Revenue = Quantity * Price | 0
 RevenueType (optional) | string| The type of revenue (e.g. tax, refund, income). | ""
 Receipt (optional) | string| The receipt identifier of the revenue. | ""
-ReceiptSig (optional) | string| The receipt signature of the revenue. | null
+ReceiptSig (optional) | string| The receipt signature of the revenue. | ""
 Properties (optional) | map[string]interface{}| An map of event properties to include in the revenue event.| nil
-Revenue (optional) | float64 | Use negative values to indicate refunds.  Note: revenue = quantity * price | 0
+Revenue (optional) | float64 | Use negative values to indicate refunds. Note: Revenue = Quantity * Price | 0
 
 ### `Flush`
 
@@ -297,7 +297,7 @@ client.Flush()
 
 ### `Add`
 
-The `Add` method adds a plugin to Amplitude client instance. Plugins can help processing and sending events. [Learn more about plugins.](#amplitude-sdk-plugin).
+The `Add` method adds a plugin to Amplitude client struct. Plugins can help processing and sending events. [Learn more about plugins.](#amplitude-sdk-plugin).
 
 ```Go
 client.add(plugin_obj)
@@ -305,7 +305,7 @@ client.add(plugin_obj)
 
 ### `Remove`
 
-The `Remove` method removes the given plugin from the client instance if exists.
+The `Remove` method removes the given plugin from the client struct if exists.
 
 ```Go
 client.Remove(plugin_obj)
@@ -313,7 +313,7 @@ client.Remove(plugin_obj)
 
 ### Shutdown
 
-`Shutdown` method close the instance. Closed instance will not accepting new events and will try to flush events left in buffer. Then the client instance will shutdown running threads.
+`Shutdown` method closes the client struct. Closed client struct will not accepting new events and will try to flush events left in buffer. Then the client struct will shutdown running threads.
 
 ```Go
 client.Shutdown()
@@ -321,15 +321,15 @@ client.Shutdown()
 
 ## Amplitude SDK Plugin
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `Setup()` and `Execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is struct with methods `Setup()` and `Execute()`.
 
 ### Plugin.Setup
 
-This method contains logic for preparing the plugin for use and has `Config` instance as a parameter. The expected return value is `nil`. A typical use for this method, is to copy configuration from `config` or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.Add()`.
+This method contains logic for preparing the plugin for use and has `Config` struct as a parameter. The expected return value is `nil`. A typical use for this method, is to copy configuration from `Config` or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.Add()`.
 
 ### Plugin.Execute
 
-This method contains the logic for processing events and has `*Event` as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is `Nil`. This method is called for each event, including Identify, GroupIdentify and Revenue events, that is instrumented using the client interface.
+This method contains the logic for processing events and has `*Event` as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is `nil`. This method is called for each event, including Identify, GroupIdentify and Revenue events, that is instrumented using the client interface.
 
 ### Plugin Examples
 
