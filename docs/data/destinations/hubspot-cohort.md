@@ -5,11 +5,20 @@ description: Use this integration to send Amplitude cohorts to HubSpot contacts 
 
 The HubSpot destination allows you to sync your Amplitude-built cohort to your HubSpot contacts lists for targeting purposes.
 
-!!!note
 
-    Contact your CSM if you want to use this integration.
+!!!note "Other Amplitude + HubSpot integrations"
+
+    This integration imports HubSpot data into Amplitude. Amplitude offers other integrations with HubSpot: 
+
+    - [Import HubSpot data](/data/sources/hubspot)
 
 ## Setup
+
+### Prerequisites
+
+Contact your CSM if you want to use this integration.
+
+### Amplitude setup 
 
 1. In Amplitude, navigate to **Data Destinations**, then find **HubSpot - Cohort**.
 2. Log into your HubSpot account (via OAuth) to authenticate. Then select the account that contains the cohort you want to sync.

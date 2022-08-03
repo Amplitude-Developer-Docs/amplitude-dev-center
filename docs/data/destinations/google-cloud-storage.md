@@ -9,7 +9,7 @@ Amplitude users can now export Amplitude event data and merged user data to thei
 
 !!!note "Other Amplitude + Google Cloud Storage Integrations"
 
-    This integration sends Amplitude data to GCS. Amplitude offers other integrations with Google Ads: 
+    This integration sends Amplitude data to GCS. Amplitude offers other integrations with Google Cloud Storage: 
 
     - [Import Google Cloud Storage Data](/data/sources/google-cloud-storage)
 
