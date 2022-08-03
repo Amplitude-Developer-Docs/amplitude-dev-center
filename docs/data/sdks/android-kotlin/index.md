@@ -187,7 +187,7 @@ Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying 
 
 ### Plugin.setup
 
-This method contains logic for preparing the plugin for use and has `client` instance as a parameter. The expected return value is `null`. A typical use for this method, is to copy configuration from `client.configuration` or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.add()`.
+This method contains logic for preparing the plugin for use and has `amplitude` instance as a parameter. The expected return value is `null`. A typical use for this method, is to instantiate plugin dependencies. This method is called when the plugin is registered to the client via `amplitude.add()`.
 
 ### Plugin.execute
 
@@ -197,7 +197,7 @@ This method contains the logic for processing events and has `event` instance as
 
 #### Enrichment Type Plugin
 
-Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `event_id` property of an event.
+Here's an example of a plugin that modifies each event that is instrumented by adding extra event property.
 
 ```java
 
