@@ -7,9 +7,11 @@ Mailchimp is an all-in-one Marketing Platform for small business. Mailchimp empo
 
 Use this integration to import Mailchimp subscribe and unsubscribe events.
 
-!!!note "Send Amplitude cohorts to Mailchimp"
+!!!note "Other Amplitude + Mailchimp integrations"
 
-    See [Send Cohorts to Mailchimp](/../data/destinations/mailchimp-cohort) for information on how to send cohorts from Amplitude to Mailchimp.
+    This integration imports Mailchimp events into Amplitude. Amplitude offers other integrations with Mailchimp: 
+
+    - [Send Cohorts to Mailchimp](/data/destinations/mailchimp-cohort)
 
 ## Considerations
 

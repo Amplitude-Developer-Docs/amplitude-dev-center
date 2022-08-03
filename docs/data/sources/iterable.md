@@ -7,6 +7,12 @@ Iterable is the growth marketing platform that enables brands to create, execute
 
 Amplitude's integration with Iterable enables you to automatically ingest Iterable's campaign metrics into your Amplitude projects. Use them to better understand how users engage across all channels, and how this engagement affects usage down-funnel in your product. 
 
+!!!note "Other Amplitude + Iterable integrations"
+
+    This integration imports Iterable data into Amplitude. Amplitude offers other integrations with Iterable: 
+
+    - [Send Amplitude Cohorts to Iterable](/data/destinations/iterable-cohort)
+    - [Stream Amplitude Events to Iterable](/data/destinations/iterable)
 
 ## Considerations
 

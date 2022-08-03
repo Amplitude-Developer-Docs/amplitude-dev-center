@@ -1,9 +1,15 @@
 ---
 title: Send Cohorts to Mailchimp
-description: Send Amplitude cohorts to Mailchimp to create targeted audiences for your email marketing needs.   
+description: Send Amplitude cohorts to Mailchimp to create targeted audiences for your email marketing needs.
 ---
 
-Send Amplitude cohorts to Mailchimp to create targeted audiences for your email marketing needs.   
+Send Amplitude cohorts to Mailchimp to create targeted audiences for your email marketing needs.
+
+!!!note "Other Amplitude + Mailchimp integrations"
+
+    This integration sends Amplitude cohorts to Mailchimp. Amplitude offers other integrations with Mailchimp: 
+
+    - [Import Mailchimp Data](/data/sources/mailchimp)
 
 ## Considerations
 

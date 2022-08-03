@@ -5,9 +5,12 @@ description: Send Amplitude cohorts to Iterable to use them in your customer eng
 
 Send Amplitude cohorts to Iterable to use them in your customer engagement efforts. 
 
-!!!note "Send Amplitude events to Iterable"
+!!!note "Other Amplitude + Iterable integrations"
 
-    This integration sends Amplitude events to Iterable. There is a separate integration to send events. See [Send events to Iterable](iterable.md) for information.
+    This integration sends Amplitude cohorts to Iterable. Amplitude offers other integrations with Iterable: 
+
+    - [Import Iterable Data](/data/sources/iterable)
+    - [Stream Amplitude Events to Iterable](/data/destinations/iterable)
 
 ## Considerations 
 
