@@ -5,6 +5,12 @@ description: Send Amplitude cohorts to Google Ads to create audiences for more p
 
 Send Amplitude cohorts to Google Ads to create audiences for more personalized campaigns. 
 
+!!!note "Other Amplitude + Google Ads Integrations"
+
+    This integration sends cohorts to Google Ads. Amplitude offers other integrations with Google Ads: 
+
+    - [Import Google Ads Data](/data/sources/google-ads)
+
 ## Considerations
 
 - This integration is available for Growth and Enterprise customers
