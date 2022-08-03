@@ -5,6 +5,13 @@ description: Send Amplitude cohorts to Iterable to use them in your customer eng
 
 Send Amplitude cohorts to Iterable to use them in your customer engagement efforts. 
 
+!!!note "Other Amplitude + Iterable integrations"
+
+    This integration sends Amplitude cohorts to Iterable. Amplitude offers other integrations with Iterable: 
+
+    - [Import Iterable Data](/data/sources/iterable)
+    - [Stream Amplitude Events to Iterable](/data/destinations/iterable)
+
 ## Considerations 
 
 - Amplitude’s `user_id` value maps to Iterable’s `userId`. If these values don't match or the user doesn't exist in Iterable, Iterable generates a dummy placeholder email address.

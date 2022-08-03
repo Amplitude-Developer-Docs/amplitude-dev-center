@@ -5,6 +5,13 @@ description: Send behavioral cohorts from Amplitude to Intercom so that you can 
 
 Send behavioral cohorts from Amplitude to Intercom so that you can better engage your users based on how they’ve interacted with your product and their lifecycle timing. 
 
+!!!note "Other Amplitude + Intercom integrations"
+
+    This integration sends Amplitude cohorts to Intercom. Amplitude offers other integrations with Intercom: 
+
+    - [Stream Amplitude Events to Intercom](/data/destinations/intercom)
+    - [Import Intercom Data](/data/sources/intercom)
+
 ## Setup
 
 1. In Amplitude, navigate to **Data Destinations**, then find **Intercom - Cohort**.

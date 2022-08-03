@@ -11,6 +11,12 @@ description: The Userflow integration streams Userflow-generated onboarding even
 
 This integration streams Userflow-generated events (such as Flow Started and Checklist Task Completed) to Amplitude. You can then analyze your users' onboarding behavior together with the rest of your product events.
 
+!!!note "Other Amplitude + Userflow integrations"
+
+    This integration imports Userflow data into Amplitude. Amplitude offers other integrations with Userflow: 
+
+    - [Send Cohorts to Userflow](/data/destinations/userflow-cohort)
+
 ## Considerations
 
 - This integration connects a single Userflow environment and a single Amplitude project. You should use separate testing and production environments to prevent test data from skewing production data. 

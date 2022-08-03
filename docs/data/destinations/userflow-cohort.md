@@ -15,6 +15,12 @@ This integration lets you sync cohorts from Amplitude to Userflow, so you can ta
 
     This integration is maintained by Userflow. Contact the Userflow support team for support with this integration.
 
+!!!note "Other Amplitude + Userflow integrations"
+
+    This integration sends Amplitude cohorts to Userflow. Amplitude offers other integrations with Userflow: 
+
+    - [Import Userflow Data](/data/sources/userflow)
+
 ## Setup
 
 For more details on using this integration, see [Userflow's documentation](https://userflow.com/docs/integrations/amplitude).

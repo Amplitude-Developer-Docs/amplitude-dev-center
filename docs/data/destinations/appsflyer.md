@@ -7,9 +7,16 @@ Amplitude Data's AppsFlyer integration lets you stream your Amplitude event data
 
 --8<-- "includes/closed-beta.md"
 
+!!!note "Other Amplitude + AppsFlyer integrations"
+
+    This integration sends Amplitude data into AppsFlyer. Amplitude offers two other integrations with AppsFlyer: 
+
+    - [Import AppsFlyer data](/data/sources/appsflyer)
+    - [Send cohorts to AppsFlyer](/data/destinations/appsflyer-cohort)
+
 ## Considerations
 
-Keep a few things in mind when sending events to AppsFlyer:
+Keep these things in mind when sending events to AppsFlyer:
 
 - A user must exist in AppsFlyer to send events for them. Amplitude sends the event data with the `user_id`, which must match the `customer_user_id` within AppsFlyer. Make sure that the AppsFlyer `customer_user_id` and the Amplitude `user_id` match.
 - Amplitude forwards all event, user, and group properties as key value pairs within `eventValue`.

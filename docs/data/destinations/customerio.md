@@ -7,6 +7,10 @@ Amplitude Data's Customer.io integration lets you stream your Amplitude event da
 
 --8<-- "includes/closed-beta.md"
 
+!!!note "Send Amplitude cohorts to Customer.io"
+
+    This integration sends Amplitude events to Customer.io. There is a separate integration to send cohorts. See [Send cohorts to Customer.io](customerio-cohort.md) for information.
+
 ## Considerations
 
 Keep these things in mind when sending events to [Customer.io:](http://customer.io/)

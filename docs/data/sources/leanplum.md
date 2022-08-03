@@ -7,9 +7,11 @@ description: Import Leanplum marketing activity to Amplitude.
 
 By using this integration, teams can leverage Amplitude's analytics capabilities with Leanplum's marketing automation tools to drive better audience engagement. 
 
-!!!note "Send Amplitude cohorts to Leanplum"
+!!!note "Other Amplitude + Leanplum integrations"
 
-    See [Send Cohorts to Leanplum](/../data/destinations/leanplum-cohort) for information on how to send cohorts from Amplitude to Leanplum.
+    This integration import Leanplum data. Amplitude offers other integrations with Leanplum: 
+
+    - [Send Cohorts to Leanplum](/data/destinations/leanplum-cohort)
 
 ## Setup
 

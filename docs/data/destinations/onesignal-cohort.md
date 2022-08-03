@@ -9,6 +9,12 @@ OneSignal and Amplitude work together to enable you to sync cohorts from Amplitu
 
 For more information on how to set up and use this integration, see [OneSignal's documentation.](https://documentation.onesignal.com/docs/amplitude)
 
+!!!note "Other Amplitude + OneSignal integrations"
+
+    This integration sends Amplitude cohorts to OneSignal. Amplitude offers other integrations with OneSignal: 
+
+    - [Import OneSignal Data](/data/sources/onesignal)
+
 ## Considerations
 
 - This integration is only available for customers who have paid plans with both OneSignal and Amplitude.

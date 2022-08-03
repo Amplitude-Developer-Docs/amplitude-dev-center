@@ -7,9 +7,13 @@ Intercom makes it easy for you to communicate with your users through targeted c
 
 Sync Intercom event data to Amplitude so that you can better engage your users based on how they've interacted with your product and their lifecycle timing. 
 
-!!!note "Send Amplitude cohorts to Intercom"
+!!!note "Other Amplitude + Intercom integrations"
 
-    See [Send Cohorts to Intercom](/../data/destinations/intercom-cohort) for information on how to send cohorts from Amplitude to Intercom.
+    This integration imports Intercom data into Amplitude. Amplitude offers other integrations with Intercom: 
+
+    - [Send Amplitude Cohorts to Intercom](/data/destinations/intercom-cohort)
+    - [Send Amplitude Event Data to Intercom](/data/destinations/intercom)
+
 
 ## Considerations
 

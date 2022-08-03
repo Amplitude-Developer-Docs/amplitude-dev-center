@@ -7,6 +7,13 @@ description: Amplitude Data's Iterable integration lets you stream your Amplitud
 
 Amplitude Data's Iterable integration lets you stream your Amplitude event data straight to Iterable with just a few clicks.
 
+!!!note "Other Amplitude + Iterable integrations"
+
+    This integration streams Amplitude events to Iterable. Amplitude offers other integrations with Iterable: 
+
+    - [Send Amplitude Cohorts to Iterable](/data/destinations/iterable-cohort)
+    - [Import Iterable Data](/data/sources/iterable)
+
 ## Considerations
 
 - You must have an Iterable account.

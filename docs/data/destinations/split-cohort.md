@@ -5,6 +5,12 @@ description: Export your Amplitude cohorts and use them as segmentation and targ
 
 With Amplitude's Split integration, you can export your Amplitude cohorts and use them as segmentation and targeting criteria in Split. From there you can create splits or feature flags for specific segments of users defined by your Amplitude data.
 
+!!!note "Other Amplitude + Split integrations"
+
+    This integration sends Amplitude cohorts to Split. Amplitude offers other integrations with Split: 
+
+    - [Import Split Data](/data/sources/split)
+
 ## Setup
 
 ### Split setup

@@ -7,10 +7,11 @@ Use this integration to import traffic impression data from Split. Impressions a
 
 See more detailed instructions in the [Split documentation](https://help.split.io/hc/en-us/articles/360046658932-Amplitude).
 
+!!!note "Other Amplitude + Split integrations"
 
-!!!note "Send Amplitude cohorts to Split"
+    This integration imports Split data into Amplitude. Amplitude offers other integrations with Split: 
 
-    See [Send Cohorts to Split](/../data/destinations/split-cohort) for more information.
+    - [Send Cohorts to Split](/data/destinations/split-cohorts)
 
 ### Amplitude setup
 

@@ -1,5 +1,5 @@
 ---
-title: Snowflake Import
+title: Import Snowflake Data
 description: Use Amplitude's Snowflake integration to ingest Snowflake data directly into your Amplitude project. 
 ---
 
@@ -7,13 +7,18 @@ With Amplitude's Snowflake integration, you can ingest Snowflake data directly i
 
 --8<-- "includes/editions-all-paid-editions.md"
 
-!!!note "Add Amplitude IP addresses"
+!!!note "Other Amplitude + Snowflake integrations"
 
-    Depending on your company's network policy, you may need add these IP addresses to your allowlist in order for Amplitude's servers to access your Snowflake instance:
+    This integration imports Snowflake data into Amplitude. Amplitude offers other integrations with Snowflake: 
 
-    - 52.33.3.219
-    - 35.162.216.242
-    - 52.27.10.221
+    - [Export Amplitude Data to Snowflake](/data/destinations/snowflake)
+
+## Considerations
+
+    - Depending on your company's network policy, you may need add these IP addresses to your allowlist in order for Amplitude's servers to access your Snowflake instance:
+      - 52.33.3.219
+      - 35.162.216.242
+      - 52.27.10.221
 
 ## Add Snowflake as a source
 

@@ -7,6 +7,12 @@ Amplitude's GCS Import feature lets you import event or user properties into you
 
 --8<-- "includes/editions-all-paid-editions.md"
 
+!!!note "Other Amplitude + Google Cloud Storage Integrations"
+
+    This integration imports GCS data into Amplitude. Amplitude offers other integrations with Google Cloud Storage: 
+
+    - [Send Amplitude Events to Google Cloud Storage](/data/destinations/google-cloud-storage)
+
 ## Getting started
 
 ### Prerequisites

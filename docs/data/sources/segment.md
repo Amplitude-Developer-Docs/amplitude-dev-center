@@ -7,6 +7,12 @@ With Segment, you can manage data and integrations with services across your Gro
 
 This guide complements [Segment's integration documentation](https://segment.com/docs/integrations/amplitude/). It provides additional details on the different types of Segment integrations you can use, how they affect your data in Amplitude, and instructions for setting up the integrations.
 
+!!!note "Other Amplitude + Segment integrations"
+
+    This integration imports Segment data into Amplitude. Amplitude offers other integrations with Segment: 
+
+    - [Send Cohorts to Segment](/data/destinations/segment-cohort)
+
 ## Setup overview
 
 To set up this integration between Segment and Amplitude, follow these steps:

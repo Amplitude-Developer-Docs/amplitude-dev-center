@@ -1,11 +1,17 @@
 ---
-title: Snowflake Export
+title: Export Amplitude Data to Snowflake
 description: Upload your Amplitude event data to your Snowflake account with recurring exports.
 ---
 
-Load your Amplitude event data into your Snowflake account. You can set up recurring syncs through the Amplitude UI,  as well as manually start a sync of your historical data.
+Load your Amplitude event data into your Snowflake account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.
 
 --8<-- "includes/editions-all-paid-editions.md"
+
+!!!note "Other Amplitude + Snowflake integrations"
+
+    This integration sends Amplitude data to Snowflake. Amplitude offers other integrations with Snowflake: 
+
+    - [Import Snowflake Data](/data/sources/snowflake)
 
 ## Set up a recurring data export to Snowflake
 

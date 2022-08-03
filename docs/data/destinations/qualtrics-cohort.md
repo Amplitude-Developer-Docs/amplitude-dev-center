@@ -5,6 +5,12 @@ description: With the Qualtrics cohort export integration, you can export Amplit
 
 With the Qualtrics cohort export integration, you can export Amplitude user cohorts into an existing mailing list in your Qualtrics XM directory.
 
+!!!note "Other Amplitude + Qualtrics integrations"
+
+    This integration sends Amplitude cohorts to Qualtrics. Amplitude offers other integrations with Qualtrics: 
+
+    - [Import Qualtrics Survey Data](/data/sources/qualtrics)
+
 ## Considerations
 
 - In Qualtrics, your cohorts appear as `[Amplitude] <cohort name> (<cohort ID>)`, with a value of `active`. If a user doesn't exist in Qualtrics, a contact is added to the mailing list. See the [Qualtrics documentation](https://www.qualtrics.com/support/iq-directory/lists-tab/creating-mailing-lists/) for more information.

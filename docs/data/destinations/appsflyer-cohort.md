@@ -11,6 +11,13 @@ description: Send Amplitude cohorts to AppsFlyer Audiences to leverage your firs
 
 By sending Amplitude cohorts to AppsFlyer Audiences, you can leverage your first-party Amplitude data to create rich audiences that power performance and organic marketing initiatives at scale.
 
+!!!note "Other Amplitude + AppsFlyer integrations"
+
+    This integration sends Amplitude cohorts into AppsFlyer. Amplitude offers two other integrations with AppsFlyer: 
+
+    - [Import AppsFlyer data](/data/sources/appsflyer)
+    - [Send event data to AppsFlyer](/data/destinations/appsflyer)
+
 ## Considerations
 
 - You must define a separate data destination in Amplitude for each app for which you are syncing data to AppsFlyer. For example, if you have an Android and an iOS app, you need to create two destinations in Amplitude: one for the Android app, and one for the iOS app.
@@ -58,6 +65,6 @@ Follow these steps to sync any of your Amplitude cohorts to your AppsFlyer desti
 5. Define the sync cadence.
 6. Click **Sync** to start syncing.
 
-After the first sync is finished, a new audience for this cohort is visible the Audiences tab of the Audiences dashboard in AppsFlyer.
+When the first sync finishes running, a new audience for this cohort is visible the Audiences tab of the Audiences dashboard in AppsFlyer.
 
 By default, the name of the new audience is the name of the synced Amplitude cohort, followed by an alphanumeric identifier. You can edit the audience name from the Audiences dashboard if you wish.
