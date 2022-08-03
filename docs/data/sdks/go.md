@@ -35,7 +35,7 @@ import "github.com/amplitude/Amplitude-Go/amplitude"
 func main() {
 
     // Create a Config struct 
-	config := amplitude.NewConfig("your_api_key")
+	config := amplitude.NewConfig("your-api-key")
 
 	// Pass a Config struct  
     // to initialize a client struct
@@ -56,7 +56,7 @@ func callback(event Event, code int, message ...string) {
 }
 
 Config{
-		APIKey:          "your_api_key",
+		APIKey:          "your-api-key",
 		FlushInterval:   time.Second * 10,
 		FlushQueueSize:  100,
 		FlushMaxRetries: 5,
@@ -219,7 +219,7 @@ client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 
 Amplitude supports assigning users to groups and performing queries such as Count by Distinct on those groups. An example would be if you want to group your users based on what organization they are in by using an 'orgId'. You can designate Joe to be in 'orgId' '10' while Sue is in 'orgId' '15'. When performing a query in our Event Segmentation chart, you can then select "..performed by" 'orgId' to query the number of different organizations that have performed a specific event. As long as at least one member of that group has performed the specific event, that group will be included in the count.
 
-When setting groups, you will need to define a groupType and groupName(s). In the above example, 'orgId' is the groupType and the values '10' and '15' are groupName(s). Another example of a groupType could be 'sport' with groupName(s) like 'tennis' and 'baseball'. You can use `SetGroup()` to designate which groups a user belongs to. Note: This will also set the 'groupType:groupName' as a user property. This will overwrite any existing groupName value set for that user's groupType, as well as the corresponding user property value. `groupType` is a string and `groupName` is an array of strings to indicate a user being in one group or in multiple groups (for example, if Joe is in 'orgId' '10' and '16', then the group_name would be '[10, 16]'). Here is what your code might look like.
+When setting groups, you will need to define a groupType and groupName(s). In the above example, 'orgId' is the groupType and the values '10' and '15' are groupName(s). Another example of a groupType could be 'sport' with groupName(s) like 'tennis' and 'baseball'. You can use `SetGroup()` to designate which groups a user belongs to. Note: This will also set the 'groupType:groupName' as a user property. This will overwrite any existing groupName value set for that user's groupType, as well as the corresponding user property value. `groupType` is a string and `groupName` is an array of strings to indicate a user being in one group or in multiple groups (for example, if Joe is in 'orgId' '10' and '16', then the groupName would be '[10, 16]'). Here is what your code might look like.
 
 ```Go
 // set group with single group name
@@ -300,7 +300,7 @@ client.Flush()
 The `Add` method adds a plugin to Amplitude client struct. Plugins can help processing and sending events. [Learn more about plugins.](#amplitude-sdk-plugin).
 
 ```Go
-client.add(plugin_obj)
+client.add(pluginObj)
 ```
 
 ### `Remove`
@@ -308,7 +308,7 @@ client.add(plugin_obj)
 The `Remove` method removes the given plugin from the client struct if exists.
 
 ```Go
-client.Remove(plugin_obj)
+client.Remove(pluginObj)
 ```
 
 ### Shutdown
@@ -357,7 +357,7 @@ func (plugin *addEventPlugin) Execute(event *amplitude.Event) *amplitude.Event {
 	return event
 }
   
-config := amplitude.NewConfig("your_api_key")
+config := amplitude.NewConfig("your-api-key")
 client := amplitude.NewClient(config)
 client.Add(&addEventPlugin{})
 ```
@@ -399,7 +399,7 @@ func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 	defer response.Body.Close()
 }
 
-config := amplitude.NewConfig("your_api_key")
+config := amplitude.NewConfig("your-api-key")
 client := amplitude.NewClient(config)
 client.Add(&myDestinationPlugin{})
 ```
