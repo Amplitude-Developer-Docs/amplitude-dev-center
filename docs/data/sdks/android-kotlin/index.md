@@ -250,7 +250,7 @@ amplitude.add(new EnrichmentPlugin());
 
 #### Destination Type Plugin
 
-In destination plugin, you are able to overrite the track(), identify(), groupIdentify(), revenue(), flush() functions.
+In destination plugin, you are able to overwrite the track(), identify(), groupIdentify(), revenue(), flush() functions.
 
 ```java
 import com.amplitude.core.Amplitude;
