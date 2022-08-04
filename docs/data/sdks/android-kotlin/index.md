@@ -250,6 +250,8 @@ amplitude.add(new EnrichmentPlugin());
 
 #### Destination Type Plugin
 
+In destination plugin, you are able to overrite the track(), identify(), groupIdentify(), revenue(), flush() functions.
+
 ```java
 import com.amplitude.core.Amplitude;
 import com.amplitude.core.events.BaseEvent;
@@ -260,15 +262,15 @@ import com.segment.analytics.Properties;
 public class SegmentDestinationPlugin extends DestinationPlugin {
     android.content.Context context;
     Analytics analytics;
-    String SEGMENT_WRITE_KEY;
-    public SegmentDestinationPlugin(android.content.Context appContext, String segmentWriteKey) {
+    String writeKey;
+    public SegmentDestinationPlugin(android.content.Context appContext, String writeKey) {
         this.context = appContext;
-        this.SEGMENT_WRITE_KEY = segmentWriteKey;
+        this.writeKey = writeKey;
     }
     @Override
      public void setup(Amplitude amplitude) {
         super.setup(amplitude);
-        analytics = new Analytics.Builder(this.context, SEGMENT_WRITE_KEY)
+        analytics = new Analytics.Builder(this.context, this.writeKey)
                 .build();
 
         Analytics.setSingletonInstance(analytics);
