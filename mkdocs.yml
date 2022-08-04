@@ -268,6 +268,7 @@ nav:
       - CleverTap: data/sources/clevertap.md
       - Convizit: data/sources/convizit.md
       - CSV: data/sources/lookup-table.md
+      - Datazoom: data/sources/datazoom.md
       - Facebook Ads: data/sources/facebook-ads.md
       - Google Ads: data/sources/google-ads.md
       - Google Tag Manager: data/sources/google-tag-manager.md

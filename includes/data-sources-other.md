@@ -14,6 +14,7 @@
 - :clevertap: [CleverTap](../data/sources/clevertap.md)
 - :convizit: [Convizit](../data/sources/convizit.md)
 - :csv: [CSV](../data/sources/lookup-table.md)
+- :datazoom: [Datazoom](../data/sources/datazoom.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
 - :hightouch: [Hightouch](../data/sources/hightouch.md)
 - :hubspot: [HubSpot](../data/sources/hubspot.md)
