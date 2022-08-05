@@ -139,6 +139,8 @@ nav:
   - analytics/index.md
   - Overview: analytics/index.md
   - What is Amplitude?: analytics/what-is-amplitude.md
+  - SDKs: 
+    - SDK Catalog: data/sources/#sdks
   - API References:
     - Attribution: analytics/apis/attribution-api.md
     - Batch Event Upload: analytics/apis/batch-event-upload-api.md
