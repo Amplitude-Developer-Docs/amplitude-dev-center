@@ -1,5 +1,5 @@
 ---
-title: Migrating Guide
+title: Migration Guide
 description: This is a guide on migrating from amplitude-js
 icon: material/language-typescript
 ---
