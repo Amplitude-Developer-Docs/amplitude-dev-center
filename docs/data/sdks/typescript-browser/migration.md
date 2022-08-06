@@ -1,7 +1,6 @@
 ---
 title: Migration Guide
 description: This is a guide on migrating from amplitude-js
-icon: material/language-typescript
 ---
 
 Amplitude has releases a new version of Browser SDK (`@amplitude/analytics-browser`), which features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version is not backwards compatibly with the `amplitude-js` version. 
