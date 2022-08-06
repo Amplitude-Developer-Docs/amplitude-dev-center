@@ -22,7 +22,7 @@ For Node projects, update your dependency list in package.json.
   ```json
   {
     "dependencies": {
-      "@amplitude/analytics-browser": "8"
+      "amplitude-js": "8"
     }
   }
   ```
