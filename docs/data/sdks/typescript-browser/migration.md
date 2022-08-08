@@ -322,7 +322,7 @@ The `setUserProperties` API has been removed, but you can now use the unified `i
 
 #### `identify()`
 
-Making an identify call can be done on `amplitude` without calling `getInstance()`.
+You can now make an identify call on `amplitude` without calling `getInstance()`.
 
 === "amplitude-js"
   ```javascript
