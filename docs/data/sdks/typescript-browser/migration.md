@@ -31,7 +31,7 @@ For Node projects, update your dependency list in package.json.
   ```json
   {
     "dependencies": {
-      "@amplitude/analytics-browser": "1"
+      "@amplitude/analytics-browser": "^1.0.0"
     }
   }
   ```
