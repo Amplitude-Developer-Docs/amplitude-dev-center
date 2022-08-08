@@ -116,7 +116,7 @@ The new Browser SDK configuration comes in a different shape. These were updated
 
 ### Tracking events
 
-The APIs to track events the most commonly used. `@amplitude/analytics-browser` offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all of these variations into a unified `track` API in `@amplitude/analytics-browser`.
+The legacy Browser SDK offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all of these variations into a unified `track` API in `@amplitude/analytics-browser`.
 
 #### `logEvent()`
 
