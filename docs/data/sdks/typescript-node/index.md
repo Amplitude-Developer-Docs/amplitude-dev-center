@@ -346,33 +346,93 @@ This method contains the logic for processing events and has event as parameter.
 
 ##### Enrichment type plugin
 
-Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to event_id property of an event starting from 100.
+Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
 ```ts
+import { init, add } from '@amplitude/analytics-node';
 import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
 
 export class AddEventIdPlugin implements EnrichmentPlugin {
   name = 'add-event-id';
   type = PluginType.ENRICHMENT as const;
   currentId = 100;
+  config?: BrowserConfig;
   
   /**
    * setup() is called on plugin installation
    * example: client.add(new AddEventIdPlugin());
    */
-  setup(config: BrowserConfig): Promise<undefined> {
+  async setup(config: BrowserConfig): Promise<undefined> {
      this.config = config;
+     return;
   }
    
   /**
    * execute() is called on each event instrumented
    * example: client.track('New Event');
    */
-  execute(event: Event): Promise<Event> {
+  async execute(event: Event): Promise<Event> {
     event.event_id = this.currentId++;
     return event;
   }
 }
+
+init('API_KEY');
+add(new AddEventIdPlugin());
+```
+
+#### Destination Type Plugin
+
+Here's an example of a plugin that sends each event that is instrumented to a target server URL using your preferred HTTP client.
+
+```ts
+import { init, add } from '@amplitude/analytics-node';
+import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+import fetch from 'node-fetch';
+
+export class MyDestinationPlugin implements DestinationPlugin {
+  name = 'my-destination-plugin';
+  type = PluginType.DESTINATION as const;
+  serverUrl: string;
+  config?: BrowserConfig;
+
+  constructor(serverUrl: string) {
+    this.serverUrl = serverUrl;
+  }
+
+  /**
+   * setup() is called on plugin installation
+   * example: client.add(new MyDestinationPlugin());
+   */
+  async setup(config: BrowserConfig): Promise<undefined> {
+    this.config = config;
+    return;
+  }
+
+  /**
+   * execute() is called on each event instrumented
+   * example: client.track('New Event');
+   */
+  async execute(event: Event): Promise<Result> {
+    const payload = { key: 'secret', data: event };
+    const response = await fetch(this.serverUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: '*/*',
+      },
+      body: JSON.stringify(payload),
+    });
+    return {
+      code: response.status,
+      event: event,
+      message: response.statusText,
+    };
+  }
+}
+    
+init('API_KEY');
+add(new MyDestinationPlugin('https://custom.domain.com'));
 ```
 
 --8<-- "includes/abbreviations.md"
