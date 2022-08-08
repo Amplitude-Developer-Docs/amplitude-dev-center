@@ -362,7 +362,7 @@ You can now make an identify call on `amplitude` without calling `getInstance()`
 
 #### `logRevenueV2()`
 
-Tracking revenue can be done using `revenue()` API on `amplitude` without calling `getInstance()`.
+Track revenue using `revenue()` API on `amplitude` without calling `getInstance()`.
 
 === "amplitude-js"
   ```javascript
