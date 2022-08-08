@@ -53,7 +53,7 @@ Similar to all other calls, `getInstance()` has been removed. To initialize the 
 
 === "@amplitude/analytics-browser"
   ```typescript
-  import * as amplitude from "amplitude-js"
+  import * as amplitude from "@amplitude/analytics-browser"
 
   amplitude.init(API_KEY, OPTIONAL_USER_ID, config)
   ```
