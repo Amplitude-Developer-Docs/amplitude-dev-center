@@ -415,6 +415,13 @@ The configs `config.language`, `config.library`, `config.platform` were availabl
   }
   ```
 
+To install your custom plugin, use `add()` with your custom plugin as parameter.
+
+=== "@amplitude/analytics-browser"
+  ```typescript
+  import { add } from "@amplitude/analytics-browser"
+
+  add(new LibraryModifierPlugin())
 #### Defer initialization
 
 To defer initialization in `amplitude-js`, init must be called with `config.deferInitialization` set to true, and eventually calling `enableTracking()` to formalize initialization and send all enqueued events.
