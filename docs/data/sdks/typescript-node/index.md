@@ -289,6 +289,16 @@ revenue(event, {
 |`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
 |`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
 
+### Flushing event buffer
+
+The `flush` method triggers the client to send buffered events.
+
+```typescript
+import { flush } from '@amplitude/analytics-node';
+
+flush();
+```
+
 ### Opt users out of tracking
 
 You can turn off logging for a given user by setting `setOptOut` to `true`.
@@ -333,6 +343,28 @@ track('Button Clicked').promise.then((result) => {
 ### Plugins
 
 Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+
+#### `add`
+
+The `add` method adds a plugin to Amplitude client instance. Plugins can help processing and sending events.
+
+```typescript
+import { add } from '@amplitude/analytics-node';
+
+add(new Plugin());
+```
+
+#### `remove`
+
+The `remove` method removes the given plugin name from the client instance if it exists.
+
+```typescript
+import { remove } from '@amplitude/analytics-node';
+
+remove(plugin.name);
+```
+
+#### Creating your custom plugin
 
 #### Plugin.setup
 
