@@ -60,7 +60,7 @@ Similar to all other calls, `getInstance()` has been removed. To initialize the 
 
 ### Configuration
 
-The new Browser SDK configuration comes in a different shape. These were updated to have more consistency across other runtimes. In addition, some configurations are no unsupported for various reasons like, simplification, adopted as default hehavior, etc.
+The new Browser SDK configuration comes in a different shape. These were updated to have more consistency across other runtimes. In addition, some configurations are no longer supported for various reasons like, simplification, adopted as default behavior, etc.
 
 |amplitude-js|@amplitude/analytics-browser|
 |-|-|
