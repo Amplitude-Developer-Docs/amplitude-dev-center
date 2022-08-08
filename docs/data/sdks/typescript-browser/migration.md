@@ -342,7 +342,7 @@ You can now make an identify call on `amplitude` without calling `getInstance()`
 
 ### `groupIdentify()`
 
-Making an identify call can be done on `amplitude` without calling `getInstance()`.
+You can now make an identify call on `amplitude` without calling `getInstance()`.
 
 === "amplitude-js"
   ```javascript
