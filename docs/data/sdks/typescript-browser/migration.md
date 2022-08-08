@@ -233,7 +233,7 @@ The `sendEvents()` API maps to `flush()`.
 
 ### Setting user properties
 
-The APIs for setting user properties remain familiar with the exception of the removal of `getInstance()`. Here are code snippets to migrate APIs for user properties.
+The APIs for setting user properties are the same, with the exception of the removal of `getInstance()`. Here are code snippets to migrate APIs for user properties.
 
 #### `setUserId()`
 
