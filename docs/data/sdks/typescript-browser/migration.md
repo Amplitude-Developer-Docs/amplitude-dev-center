@@ -1,6 +1,6 @@
 ---
 title: Browser SDK Migration Guide
-description: This is a guide on migrating from amplitude-js
+description: Use this guide to easily migrate from Amplitude's legacy browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
 ---
 
 Amplitude has released a new version of Browser SDK (`@amplitude/analytics-browser`), which features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version is not backwards compatible with `amplitude-js`. 
