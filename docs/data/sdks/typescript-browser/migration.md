@@ -1,5 +1,5 @@
 ---
-title: Migration Guide
+title: Browser SDK Migration Guide
 description: This is a guide on migrating from amplitude-js
 ---
 
