@@ -38,7 +38,7 @@ For Node projects, update your dependency list in package.json.
 
 ## Instrumentation
 
-The new Browser SDK offers a new API to instrument events. To move forward with the migration, the following API calls must be changed.
+The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls need to be changed.
 
 ### Initialization
 
