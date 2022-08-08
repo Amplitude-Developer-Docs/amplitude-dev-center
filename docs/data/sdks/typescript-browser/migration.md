@@ -483,7 +483,7 @@ For `@amplitude/analytics-browser`, Amplitude recommends adding your own event l
 
 #### Callback
 
-For `amplitude-js`, two separate callback functions are passed for success and error. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `track()`, `identify()`, `groupIdentify` return a custom promise interface.
+For `amplitude-js`, two separate callback functions are passed for success and error. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `track()`, `identify()`, `groupIdentify()` return a custom promise interface.
 
 === "@amplitude/analytics-browser"
   ```javascript
