@@ -390,7 +390,7 @@ The configs `config.language`, `config.library`, `config.platform` were availabl
 
 === "@amplitude/analytics-browser"
   ```ts
-  import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types'
+  import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from "@amplitude/analytics-types"
 
   export class LibraryModifierPlugin implements EnrichmentPlugin {
     name = 'library-modifier'
