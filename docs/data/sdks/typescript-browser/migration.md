@@ -301,7 +301,7 @@ The `clearUserProperties` API has been removed, but you can now use the unified 
 
 #### `setUserProperties()`
 
-The `clearUserProperties` API has been removed; however the same funcationality can be achieved by using a unified `identify` API.
+The `setUserProperties` API has been removed, but you can now use the unified `identify` API to add user properties. 
 
 === "amplitude-js"
   ```javascript
