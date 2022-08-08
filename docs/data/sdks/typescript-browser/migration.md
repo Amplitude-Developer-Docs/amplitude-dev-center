@@ -264,7 +264,7 @@ Setting a device ID can be invoked on `amplitude` without calling `getInstance()
 === "@amplitude/analytics-browser"
   ```typescript
   const deviceId = "1"
-  amplitude.getDeviceId(deviceId)
+  amplitude.setDeviceId(deviceId)
   ```
 
 #### `setSessionId()`
