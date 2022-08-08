@@ -382,19 +382,19 @@ Here's an example of a plugin that modifies each event that is instrumented by a
 
 ```ts
 import { init, add } from '@amplitude/analytics-node';
-import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+import { NodeConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
 
 export class AddEventIdPlugin implements EnrichmentPlugin {
   name = 'add-event-id';
   type = PluginType.ENRICHMENT as const;
   currentId = 100;
-  config?: BrowserConfig;
+  config?: NodeConfig;
   
   /**
    * setup() is called on plugin installation
    * example: client.add(new AddEventIdPlugin());
    */
-  async setup(config: BrowserConfig): Promise<undefined> {
+  async setup(config: NodeConfig): Promise<undefined> {
      this.config = config;
      return;
   }
@@ -419,14 +419,14 @@ Here's an example of a plugin that sends each event that is instrumented to a ta
 
 ```ts
 import { init, add } from '@amplitude/analytics-node';
-import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+import { NodeConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
 import fetch from 'node-fetch';
 
 export class MyDestinationPlugin implements DestinationPlugin {
   name = 'my-destination-plugin';
   type = PluginType.DESTINATION as const;
   serverUrl: string;
-  config?: BrowserConfig;
+  config?: NodeConfig;
 
   constructor(serverUrl: string) {
     this.serverUrl = serverUrl;
@@ -436,7 +436,7 @@ export class MyDestinationPlugin implements DestinationPlugin {
    * setup() is called on plugin installation
    * example: client.add(new MyDestinationPlugin());
    */
-  async setup(config: BrowserConfig): Promise<undefined> {
+  async setup(config: NodeConfig): Promise<undefined> {
     this.config = config;
     return;
   }
