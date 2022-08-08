@@ -474,6 +474,8 @@ add(new AddEventIdPlugin());
 
 #### Destination Type Plugin
 
+Here's an example of a plugin that sends each event that is instrumented to a target server URL using your preferred HTTP client.
+
 ```ts
 import { init, add } from '@amplitude/analytics-browser';
 import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
