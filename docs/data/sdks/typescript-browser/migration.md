@@ -27,7 +27,7 @@ For Node projects, update your dependency list in package.json.
   }
   ```
 
-=== "amplitude-js"
+=== "@amplitude/analytics-browser"
   ```json
   {
     "dependencies": {
