@@ -386,7 +386,7 @@ Track revenue using `revenue()` API on `amplitude` without calling `getInstance(
 
 #### Plugins
 
-The configs `config.language`, `config.library`, `config.platform` were added to `amplitude-js` to allow modification of event payloads for these specific fields. While `@amplitude/analytics-browser` do not support these configurations anymore, the new Browser SDK allows for plugins to be added and enrich event payloads.
+The configs `config.language`, `config.library`, `config.platform` were available in `amplitude-js` to allow modification of event payloads for these specific fields. Although `@amplitude/analytics-browser` doesn't support these configurations, you can add plugins to the new Browser SDK to enrich event payloads.
 
 === "@amplitude/analytics-browser"
   ```ts
