@@ -143,7 +143,7 @@ The `logEvent()` API maps to `track()`.
   amplitude.track(
     eventType,
     eventProperties,
-  ).promise
+  )
   ```
 
 #### `logEventWithTimestamp()`
