@@ -469,7 +469,7 @@ In `amplitude-js` this is done by using `onExitPage()` callback.
   })
   ```
 
-For `@amplitude/analytics-browser`, Amplitude recommends adding your own event listerer for `pagehide` event.
+For `@amplitude/analytics-browser`, Amplitude recommends adding your own event listener for `pagehide` event.
 
 === "@amplitude/analytics-browser"
   ```javascript
