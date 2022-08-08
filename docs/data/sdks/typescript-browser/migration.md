@@ -285,7 +285,7 @@ Setting a session ID can be invoked on `amplitude` without calling `getInstance(
 
 #### `clearUserProperties()`
 
-The `clearUserProperties` API has been removed; however the same funcationality can be achieved by using a unified `identify` API.
+The `clearUserProperties` API has been removed, but you can now use the unified `identify` API to remove user properties. 
 
 === "amplitude-js"
   ```javascript
