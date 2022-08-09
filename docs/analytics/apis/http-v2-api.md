@@ -392,9 +392,9 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 | `location_lat` | Optional. Float. The current Latitude of the user. |
 | `location_lng` | Optional. Float. The current Longitude of the user. |
 | `ip` | Optional. String. The IP address of the user. Use `$remote` to use the IP address on the upload request. Amplitude uses the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude can drop the location and IP address from events after they reach our servers. Contact the Support team to configure this. |
-| `idfa` | Optional. String. (iOS) Identifier for Advertiser. |
+| `idfa`[^2] | Optional. String. (iOS) Identifier for Advertiser. |
 | `idfv` | Optional. String. (iOS) Identifier for Vendor. |
-| `adid` | Optional. String. (Android) Google Play Services advertising ID |
+| `adid`[^2] | Optional. String. (Android) Google Play Services advertising ID |
 | `android_id` | Optional. String. (Android) Android ID (not the advertising ID) |
 | `event_id` | Optional. Integer. (Optional) An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultaneously. |
 | `session_id` | Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A `session_id` of –1 is the same as no `session_id` specified. |
@@ -407,6 +407,8 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 [^1]:
     `[Amplitude] Country`, `[Amplitude] City`, `[Amplitude] Region`, and `[Amplitude] DMA` are user properties pulled using GeoIP. We use MaxMind's database, which is widely accepted as the most reliable digital mapping source, to look up location information from the user's IP address.
      For any HTTP API events, if GeoIP information is unavailable, then Amplitude pulls the information from the `location_lat` and `location_lng` keys if those keys are populated. If the location properties are manually set, then Amplitude doesn't change that property.
+[^2]:
+    These values appear as `null` in Amplitude. For privacy reasons, Amplitude processes the attribution information, but strips the values before saving the event in the system.
 
 ### Options
 
