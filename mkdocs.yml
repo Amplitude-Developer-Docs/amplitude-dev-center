@@ -215,6 +215,7 @@ nav:
     - SDKs:
       - Browser:
         - data/sdks/typescript-browser/index.md
+        - data/sdks/typescript-browser/migration.md
         - Ampli Codegen: data/sdks/typescript-ampli.md
       - Node.js:
         - data/sdks/node/index.md
