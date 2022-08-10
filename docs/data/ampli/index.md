@@ -32,7 +32,7 @@ provides autocomplete and static type checking.
 
  The Ampli Wrapper is a light wrapper for untyped Amplitude SDKs.
 
-## Amplitude Wrapper
+## Amplitude SDK
 
 The Amplitude SDK is a static, open source SDK with untyped events.
 
@@ -59,7 +59,7 @@ class Ampli {
   }
 
   // strongly typed event method wraps "generic" track
-  myEvent(properties: EventProperties) {
+  myEvent(properties: MyEventProperties) {
     this.track(new MyEvent(properties));
   }
 }
