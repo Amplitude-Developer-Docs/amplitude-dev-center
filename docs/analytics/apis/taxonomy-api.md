@@ -25,7 +25,6 @@ You can edit planned events and properties, and not events and properties that a
  For example, encode `Play Song` as `Play%20Song`. Use the [W3Schools](http://www.w3schools.com/tags/ref_urlencode.asp) encoding reference.
 - Events or properties must be planned in the schema before you can delete them via this API.
 
-
 ## Limits
 
 For each endpoint, there is a concurrent and a rate limit.
@@ -71,7 +70,7 @@ Content-Type: application/x-www-form-urlencoded
 category_name=Marketing
 ```
 
-##### Body parameters
+##### Request parameters
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
@@ -218,7 +217,7 @@ category_name=Converted
 |----|-----|
 |`category_id`| Required. The ID of the category|
 
-##### Body parameters
+##### Request parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -323,7 +322,7 @@ Content-Length: 80
 event_type=My%20event&category=Conversion&description=Event%20type%20description
 ```
 
-##### Body parameters
+##### Request parameters
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
@@ -471,7 +470,7 @@ category=&display_name=Event%20Number%203
 |----|-----|
 |`event_type`| Required. String. The event name. |
 
-##### Body parameters
+##### Request parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
