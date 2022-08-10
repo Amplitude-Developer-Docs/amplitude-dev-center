@@ -25,7 +25,6 @@ You can edit planned events and properties, and not events and properties that a
  For example, encode `Play Song` as `Play%20Song`. Use the [W3Schools](http://www.w3schools.com/tags/ref_urlencode.asp) encoding reference.
 - Events or properties must be planned in the schema before you can delete them via this API.
 
-
 ## Limits
 
 For each endpoint, there is a concurrent and a rate limit.
@@ -403,7 +402,7 @@ Get a single event type, by name.
 #### Example request
 
 ```bash
-GET /api/2/taxonomy/category/:category_name HTTP/1.1
+GET /api/2/taxonomy/event/:event_type HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
 ```
