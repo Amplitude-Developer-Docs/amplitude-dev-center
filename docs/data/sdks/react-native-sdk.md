@@ -300,6 +300,16 @@ revenue(event);
 |`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
 |`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
 
+### Flushing event buffer
+
+The `flush` method triggers the client to send buffered events.
+
+```typescript
+import { flush } from '@amplitude/analytics-react-native';
+
+flush();
+```
+
 ### Custom user ID
 
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
@@ -429,6 +439,28 @@ track('Button Clicked').promise.then((result) => {
 
 Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
+#### `add`
+
+The `add` method adds a plugin to Amplitude. Plugins can help processing and sending events.
+
+```typescript
+import { add } from '@amplitude/analytics-browser';
+
+add(new Plugin());
+```
+
+#### `remove`
+
+The `remove` method removes the given plugin name from the client instance if it exists.
+
+```typescript
+import { remove } from '@amplitude/analytics-browser';
+
+remove(plugin.name);
+```
+
+#### Creating your custom plugin
+
 #### Plugin.setup
 
 This method contains logic for preparing the plugin for use and has config as a parameter. The expected return value is undefined. A typical use for this method, is to copy configuration from config or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.add()`.
@@ -441,33 +473,92 @@ This method contains the logic for processing events and has event as parameter.
 
 ##### Enrichment type plugin
 
-Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to event_id property of an event starting from 100.
+Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
 ```ts
+import { init, add } from '@amplitude/analytics-node';
 import { ReactNativeConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
 
 export class AddEventIdPlugin implements EnrichmentPlugin {
   name = 'add-event-id';
   type = PluginType.ENRICHMENT as const;
   currentId = 100;
+  config?: ReactNativeConfig;
   
   /**
    * setup() is called on plugin installation
    * example: client.add(new AddEventIdPlugin());
    */
-  setup(config: ReactNativeConfig): Promise<undefined> {
+  async setup(config: ReactNativeConfig): Promise<undefined> {
      this.config = config;
+     return;
   }
    
   /**
    * execute() is called on each event instrumented
    * example: client.track('New Event');
    */
-  execute(event: Event): Promise<Event> {
+  async execute(event: Event): Promise<Event> {
     event.event_id = this.currentId++;
     return event;
   }
 }
+
+init('API_KEY');
+add(new AddEventIdPlugin());
+```
+
+#### Destination Type Plugin
+
+Here's an example of a plugin that sends each event that is instrumented to a target server URL using your preferred HTTP client.
+
+```ts
+import { init, add } from '@amplitude/analytics-node';
+import { ReactNativeConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+
+export class MyDestinationPlugin implements DestinationPlugin {
+  name = 'my-destination-plugin';
+  type = PluginType.DESTINATION as const;
+  serverUrl: string;
+  config?: ReactNativeConfig;
+
+  constructor(serverUrl: string) {
+    this.serverUrl = serverUrl;
+  }
+
+  /**
+   * setup() is called on plugin installation
+   * example: client.add(new MyDestinationPlugin());
+   */
+  async setup(config: ReactNativeConfig): Promise<undefined> {
+    this.config = config;
+    return;
+  }
+
+  /**
+   * execute() is called on each event instrumented
+   * example: client.track('New Event');
+   */
+  async execute(event: Event): Promise<Result> {
+    const payload = { key: 'secret', data: event };
+    const response = await fetch(this.serverUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: '*/*',
+      },
+      body: JSON.stringify(payload),
+    });
+    return {
+      code: response.status,
+      event: event,
+      message: response.statusText,
+    };
+  }
+}
+    
+init('API_KEY');
+add(new MyDestinationPlugin('https://custom.domain.com'));
 ```
 
 --8<-- "includes/abbreviations.md"

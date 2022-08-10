@@ -289,6 +289,16 @@ revenue(event, {
 |`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
 |`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
 
+### Flushing event buffer
+
+The `flush` method triggers the client to send buffered events.
+
+```typescript
+import { flush } from '@amplitude/analytics-node';
+
+flush();
+```
+
 ### Opt users out of tracking
 
 You can turn off logging for a given user by setting `setOptOut` to `true`.
@@ -334,6 +344,28 @@ track('Button Clicked').promise.then((result) => {
 
 Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
+#### `add`
+
+The `add` method adds a plugin to Amplitude client instance. Plugins can help processing and sending events.
+
+```typescript
+import { add } from '@amplitude/analytics-node';
+
+add(new Plugin());
+```
+
+#### `remove`
+
+The `remove` method removes the given plugin name from the client instance if it exists.
+
+```typescript
+import { remove } from '@amplitude/analytics-node';
+
+remove(plugin.name);
+```
+
+#### Creating your custom plugin
+
 #### Plugin.setup
 
 This method contains logic for preparing the plugin for use and has config as a parameter. The expected return value is undefined. A typical use for this method, is to copy configuration from config or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.add()`.
@@ -350,19 +382,19 @@ Here's an example of a plugin that modifies each event that is instrumented by a
 
 ```ts
 import { init, add } from '@amplitude/analytics-node';
-import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+import { NodeConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
 
 export class AddEventIdPlugin implements EnrichmentPlugin {
   name = 'add-event-id';
   type = PluginType.ENRICHMENT as const;
   currentId = 100;
-  config?: BrowserConfig;
+  config?: NodeConfig;
   
   /**
    * setup() is called on plugin installation
    * example: client.add(new AddEventIdPlugin());
    */
-  async setup(config: BrowserConfig): Promise<undefined> {
+  async setup(config: NodeConfig): Promise<undefined> {
      this.config = config;
      return;
   }
@@ -387,14 +419,14 @@ Here's an example of a plugin that sends each event that is instrumented to a ta
 
 ```ts
 import { init, add } from '@amplitude/analytics-node';
-import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+import { NodeConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
 import fetch from 'node-fetch';
 
 export class MyDestinationPlugin implements DestinationPlugin {
   name = 'my-destination-plugin';
   type = PluginType.DESTINATION as const;
   serverUrl: string;
-  config?: BrowserConfig;
+  config?: NodeConfig;
 
   constructor(serverUrl: string) {
     this.serverUrl = serverUrl;
@@ -404,7 +436,7 @@ export class MyDestinationPlugin implements DestinationPlugin {
    * setup() is called on plugin installation
    * example: client.add(new MyDestinationPlugin());
    */
-  async setup(config: BrowserConfig): Promise<undefined> {
+  async setup(config: NodeConfig): Promise<undefined> {
     this.config = config;
     return;
   }
