@@ -22,6 +22,7 @@ deduplicated
 deduplication
 Enterpret
 Fastly
+Firehose
 Fbclid
 gclid
 Gclid
@@ -37,6 +38,7 @@ Insider
 JavaScript
 js
 Kotlin
+Kinesis
 Kochava
 Klaviyo
 LaunchDarkly

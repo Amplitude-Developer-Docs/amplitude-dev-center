@@ -10,6 +10,9 @@ Amplitude Data's Google Pub/Sub integration lets you stream your Amplitude event
 ## Considerations
 
 - Amplitude sends the `user_id`, `event_name`, and `created_at`  along with all user, group, and event properties to Pub/Sub.
+- The data Amplitude posts in Pub/Sub is the same JSON as documented in the [Amplitude Export API](https://www.docs.developers.amplitude.com/analytics/apis/export-api/#response).
+- This destination supports Identify Forwarding. Anytime you make an Identify call to Amplitude, we forward that user information. See [Identify documentation](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) for more information.
+- The ‘Google Cloud Service Account’ must be entered in as a base64 encoded string.  
 
 ## Setup
 
