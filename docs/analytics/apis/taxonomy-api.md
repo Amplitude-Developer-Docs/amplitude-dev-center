@@ -70,7 +70,7 @@ Content-Type: application/x-www-form-urlencoded
 category_name=Marketing
 ```
 
-##### Request parameters
+##### Body parameters
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
@@ -217,7 +217,7 @@ category_name=Converted
 |----|-----|
 |`category_id`| Required. The ID of the category|
 
-##### Request parameters
+##### Body parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -322,7 +322,7 @@ Content-Length: 80
 event_type=My%20event&category=Conversion&description=Event%20type%20description
 ```
 
-##### Request parameters
+##### Body parameters
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
@@ -470,7 +470,7 @@ category=&display_name=Event%20Number%203
 |----|-----|
 |`event_type`| Required. String. The event name. |
 
-##### Request parameters
+##### Body parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
