@@ -338,7 +338,7 @@ This method contains the logic for processing events and has `*Event` as paramet
 Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `EventId` property of an event.
 
 ```Go
-type addEventPlugin struct {
+type addEventIdPlugin struct {
 	currentID int
 	config    amplitude.Config
 }
