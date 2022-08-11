@@ -60,13 +60,12 @@ Config{
 		FlushInterval:   time.Second * 10,
 		FlushQueueSize:  100,
 		FlushMaxRetries: 5,
-		Logger:          newDefaultLogger(),
 		MinIDLength:     7,
 		Callback:        callback,
-		ServerZone:      "EU",
+		ServerZone:      ServerZoneEU,
 		UseBatch:        true,
 		OptOut:          false,
-		ServerURL:       "proxy url that forwarding the requests",
+		ServerURL:       HTTPV2,
 	}
 ```
 
@@ -335,23 +334,23 @@ This method contains the logic for processing events and has `*Event` as paramet
 
 #### Enrichment Type Plugin
 
-Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `EventId` property of an event.
+Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `EventID` property of an event.
 
 ```Go
-type addEventIdPlugin struct {
+type addEventIDPlugin struct {
 	currentID int
 	config    amplitude.Config
 }
 
-func (plugin *addEventPlugin) Setup(config amplitude.Config) {
+func (plugin *addEventIDPlugin) Setup(config amplitude.Config) {
 	plugin.config = config
 }
 
-func (plugin *addEventPlugin) Priority() amplitude.EnrichmentPriority {
-	return amplitude.EnrichmentPriorityEnrichment
+func (plugin *addEventIDPlugin) Type() amplitude.PluginType {
+	return amplitude.ENRICHMENT
 }
 
-func (plugin *addEventPlugin) Execute(event *amplitude.Event) *amplitude.Event {
+func (plugin *addEventIDPlugin) Execute(event *amplitude.Event) *amplitude.Event {
 	event.EventID = plugin.currentID
 	plugin.currentID += 1
 	return event
@@ -359,7 +358,7 @@ func (plugin *addEventPlugin) Execute(event *amplitude.Event) *amplitude.Event {
   
 config := amplitude.NewConfig("your-api-key")
 client := amplitude.NewClient(config)
-client.Add(&addEventPlugin{})
+client.Add(&addEventIDPlugin{})
 ```
 
 #### Destination Type Plugin
