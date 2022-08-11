@@ -375,7 +375,7 @@ func (plugin *myDestinationPlugin) Setup(config amplitude.Config) {
 }
 
 func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
-	payload := map[string]interface{}{"key": "secret", "event":event}
+	payload := map[string]interface{}{"key": "secret", "events":event}
 	payloadBytes, err := json.Marshal(payload)
 	
 	if err != nil{
