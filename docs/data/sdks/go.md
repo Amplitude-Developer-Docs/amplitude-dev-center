@@ -8,7 +8,7 @@ icon: fontawesome/brands/golang
     - [Go SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Go)
     - [Go SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Go/releases)
 
---8<-- "includes/ampli-vs-amplitude.md"
+--8<-- "includes/no-ampli.md"
 
 The Go SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-Go).
 
