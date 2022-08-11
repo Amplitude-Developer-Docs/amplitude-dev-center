@@ -23,7 +23,7 @@ The Amplitude [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115
 ## Considerations
 
 - Updates affect only future events, and don't update historical events.
-- You can track up to 5 unique group types and 10 total groups.
+- You can track up to 5 unique group types and 10 total groups per event.
 
 ## Example request
 
