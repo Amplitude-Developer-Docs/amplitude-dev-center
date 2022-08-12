@@ -14,7 +14,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - 100% event capture for adds to cart, checkout steps, sales.
 - Customer data (for example, email) securely relayed server-side.
 - No extra scripts on the sensitive and secure checkout pages.
-- Accurate marketing attribution, even when customers use ad-blockers or cookie opt-outs.
+- Accurate marketing attribution, even when customers use ad blockers or opt out of cookies.
 - More reliable and trustworthy than client-side events because it represents final, concluded transactions and states within Shopify.
 
 ## Considerations
