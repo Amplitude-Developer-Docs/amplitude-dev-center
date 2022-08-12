@@ -7,7 +7,7 @@ Amplitude’s app with Shopify is a smart analytics app that automates eCommerce
 
 ### Client-side (device mode) tracking
 During installation, the Amplitude Shopify App adds the code snippet to all pages (included in theme.liquid) on your Shopify store. The benefits of this approach include:
-- Amplitude’s JS SDK library is loaded on all pages, except for the checkout
+- Amplitude’s JS SDK library is loaded on all pages, except for the checkout.
 
 ### Server-side (cloud mode) tracking
 During the Amplitude connection setup, the app adds a set of webhooks to your Shopify store. When a customer interacts with your store these changes are relayed server-side from Shopify to Amplitude. The advantages to this approach are:
