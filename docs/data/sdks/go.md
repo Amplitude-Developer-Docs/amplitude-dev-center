@@ -263,28 +263,12 @@ ReceiptSig (optional) | string| The receipt signature of the revenue. | ""
 Properties (optional) | map[string]interface{}| An map of event properties to include in the revenue event.| nil
 Revenue (optional) | float64 | Use negative values to indicate refunds. Note: Revenue = Quantity * Price | 0
 
-### `Flush`
+### Flush
 
 The `Flush` method triggers the client to send buffered events.
 
 ```Go
 client.Flush()
-```
-
-### `Add`
-
-The `Add` method adds a plugin to Amplitude client struct. Plugins can help processing and sending events. [Learn more about plugins](#amplitude-sdk-plugin).
-
-```Go
-client.Add(pluginObj)
-```
-
-### `Remove`
-
-The `Remove` method removes the given plugin from the client struct if exists.
-
-```Go
-client.Remove(pluginObj)
 ```
 
 ### Shutdown
@@ -298,6 +282,22 @@ client.Shutdown()
 ## Amplitude SDK Plugin
 
 Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is struct with methods `Setup()` and `Execute()`.
+
+### Client.Add
+
+The `Add` method adds a plugin to Amplitude client struct. Plugins can help processing and sending events. [Learn more about plugins](#amplitude-sdk-plugin).
+
+```Go
+client.Add(pluginObj)
+```
+
+### Client.Remove
+
+The `Remove` method removes the given plugin from the client struct if exists.
+
+```Go
+client.Remove(pluginObj)
+```
 
 ### Plugin.Setup
 
@@ -314,6 +314,10 @@ This method contains the logic for processing events and has `*Event` as paramet
 Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `EventID` property of an event.
 
 ```Go
+package main
+
+import "github.com/amplitude/analytics-go/amplitude"
+
 type addEventIDPlugin struct {
 	currentID int
 	config    amplitude.Config
@@ -332,10 +336,13 @@ func (plugin *addEventIDPlugin) Execute(event *amplitude.Event) *amplitude.Event
 	plugin.currentID += 1
 	return event
 }
-  
-config := amplitude.NewConfig("your-api-key")
-client := amplitude.NewClient(config)
-client.Add(&addEventIDPlugin{})
+
+func main() {
+	config := amplitude.NewConfig("your-api-key")
+	client := amplitude.NewClient(config)
+	client.Add(&addEventIDPlugin{})
+}
+
 ```
 
 #### Destination Type Plugin
