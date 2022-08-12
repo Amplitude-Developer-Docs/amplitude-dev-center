@@ -10,7 +10,7 @@ During installation, the Amplitude Shopify App adds the code snippet to all page
 - Amplitude’s JS SDK library is loaded on all pages, except for the checkout
 
 ### Server-side (cloud mode) tracking
-During the Amplitude connection setup, our Shopify App also adds a set of webhooks to your Shopify store. When a customer interacts with your store these changes are relayed server-side from Shopify to Amplitude. The advantages to this approach are:
+During the Amplitude connection setup, the app adds a set of webhooks to your Shopify store. When a customer interacts with your store these changes are relayed server-side from Shopify to Amplitude. The advantages to this approach are:
 - 100% event capture for adds to cart, checkout steps, sales.
 - Customer data (for example, email) securely relayed server-side.
 - No extra scripts on the sensitive and secure checkout pages.
