@@ -5,12 +5,12 @@ icon: fontawesome/brands/golang
 ---
 
 !!!info "SDK Resources"
-    - [Go SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Go)
-    - [Go SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Go/releases)
+    - [Go SDK Repository :material-github:](https://github.com/amplitude/analytics-go)
+    - [Go SDK Releases :material-code-tags-check:](https://github.com/amplitude/analytics-go/releases)
 
 --8<-- "includes/no-ampli.md"
 
-The Go SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-Go).
+The Go SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/analytics-go).
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ The Go SDK lets you send events to Amplitude. This library is open-source, check
 Install `Amplitude-Go` for analytics:
 
 ```bash
-go get https://github.com/amplitude/Amplitude-Go
+go get https://github.com/amplitude/analytics-go
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ Initialization is necessary before any instrumentation is done. The API key for 
 
 ```GO
 
-import "github.com/amplitude/Amplitude-Go/amplitude"
+import "github.com/amplitude/analytics-go/amplitude"
 
 func main() {
 
