@@ -35,7 +35,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - The app doesn't track revenue event properties.
 5) Amplitude’s Shopify app does not track Order Fulfillment status events.
 - The app doesn't track Subscription events.
-7) Amplitude’s Shopify app does not track sales/return events.
+- The app doesn't sales/return events.
 
 ## Events taxonomy
 See the entire tracking plan and event schema in [Google Sheets](https://docs.google.com/spreadsheets/d/13EZKuXbcnFUIgj721791Nx1LfvIincGndDDt1v7lpUs/edit#gid=95612975). You can see which events and properties are automatically sent by default by installing the Shopify App onto your store.
