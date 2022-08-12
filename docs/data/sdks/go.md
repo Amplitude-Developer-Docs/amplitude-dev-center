@@ -16,7 +16,7 @@ The Go SDK lets you send events to Amplitude. This library is open-source, check
 
 ### Installation
 
-Install `Amplitude-Go` for analytics:
+Install `analytics-go` using `go get`:
 
 ```bash
 go get https://github.com/amplitude/analytics-go
@@ -68,36 +68,36 @@ Set your configuration before a client is initialized.
 Events represent how users interact with your application. For example, “Button Clicked” may be an action you want to note.
 
 ```Go
-	// Track a basic event
-	// EventOne of UserID and DeviceID is required as well as EventType
-	client.Track(amplitude.Event{
-		EventType:    "Button Clicked",
-		EventOptions: amplitude.EventOptions{UserID: "user-id"},
-	})
+// Track a basic event
+// EventOne of UserID and DeviceID is required as well as EventType
+client.Track(amplitude.Event{
+	EventType:    "Button Clicked",
+	EventOptions: amplitude.EventOptions{UserID: "user-id"},
+})
 
-	// Track events with optional properties
-	client.Track(amplitude.Event{
-		EventType: "Button Clicked",
-		EventOptions: amplitude.EventOptions{
-			UserID:   "user-id",
-			DeviceID: "device-id",
-		},
-		EventProperties: map[string]interface{}{"source": "notification"},
-	})
+// Track events with optional properties
+client.Track(amplitude.Event{
+	EventType: "Button Clicked",
+	EventOptions: amplitude.EventOptions{
+		UserID:   "user-id",
+		DeviceID: "device-id",
+	},
+	EventProperties: map[string]interface{}{"source": "notification"},
+})
 ```
 
 ### User Properties
 
-User properties help you understand your users at the time they perform some action within your app such as their device details, their preferences, or language.
+User properties help you understand your users at the time they perform some actions within your app such as their device details, their preferences, or languages.
 
-Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `Set`, `SetOnce`, `Unset`, `Add`, `Append`, `Prepend`, `PreInsert`, `PostInsert`,`Remove`, and `ClearAll` on individual user properties. The operations are declared as Identify struct methods. Multiple operations can be chained together in a single Identify struct. The Identify struct is then passed to the Amplitude client to send to the server.
+`Identify` is for setting the user properties of a particular user without sending any event. The SDK supports the operations `Set`, `SetOnce`, `Unset`, `Add`, `Append`, `Prepend`, `PreInsert`, `PostInsert`,`Remove`, and `ClearAll` on individual user properties. The operations are declared as `Identify` struct methods. Multiple operations can be chained together in a single `Identify` struct which is then passed to the Amplitude client to send to the server.
 
 !!!info "Important Note"
     If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user’s profile area, but it will not appear in chart result until another event is sent after the Identify call. So the identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
 #### Setting a User Property
 
-The Identify struct provides controls over setting user properties. An Identify struct must first be instantiated, then Identify methods can be called on it, and finally the client will make a call with the Identify struct.
+`Identify` struct provides controls over setting user properties. An `Identify` struct must first be instantiated, then `Client.Identify()` methods can be called on it.
 
 ```Go
 identifyObj := amplitude.Identify{}
@@ -112,7 +112,6 @@ This method sets the value of a user property. For example, you can set a role p
 identifyObj := amplitude.Identify{}
 identifyObj.Set("location", "LAX")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
-
 ```
 
 #### Identify.SetOnce
@@ -247,7 +246,7 @@ revenueObj := amplitude.Revenue{
 		Quantity:    3,
 		ProductID:   "com.company.productID",
 	}
-	client.Revenue(revenueObj, amplitude.EventOptions{UserID: "user-id"})
+client.Revenue(revenueObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
 #### Revenue Interface
