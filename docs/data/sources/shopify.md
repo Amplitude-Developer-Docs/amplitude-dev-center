@@ -15,7 +15,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - Customer data (for example, email) securely relayed server-side.
 - No extra scripts on the sensitive and secure checkout pages.
 - Accurate marketing attribution, even when customers use ad-blockers or cookie opt-outs.
-- More reliable and trustyworthy than client-side events (as it represents final, concluded transactions or states within Shopify).
+- More reliable and trustworthy than client-side events because it represents final, concluded transactions and states within Shopify.
 
 ## Considerations
 - The Amplitude app is free to install.
