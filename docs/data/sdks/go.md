@@ -348,6 +348,15 @@ func main() {
 #### Destination Type Plugin
 
 ```Go
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"github.com/amplitude/analytics-go/amplitude"
+	"net/http"
+)
+
 type myDestinationPlugin struct{
 	url string
 	config amplitude.Config
@@ -357,10 +366,14 @@ func (plugin *myDestinationPlugin) Setup(config amplitude.Config) {
 	plugin.config = config
 }
 
+func (plugin myDestinationPlugin) Type() amplitude.PluginType {
+	return amplitude.DESTINATION
+}
+
 func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 	payload := map[string]interface{}{"key": "secret", "events":event}
 	payloadBytes, err := json.Marshal(payload)
-	
+
 	if err != nil{
 		plugin.config.Logger.Error("Event encoding failed: ", err)
 	}
@@ -369,7 +382,7 @@ func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 	if err != nil {
 		plugin.config.Logger.Error("Building new request failed", err)
 	}
-	
+
 	httpClient := http.Client{}
 
 	response, err := httpClient.Do(request)
@@ -382,7 +395,10 @@ func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 	defer response.Body.Close()
 }
 
-config := amplitude.NewConfig("your-api-key")
-client := amplitude.NewClient(config)
-client.Add(&myDestinationPlugin{})
+func main() {
+	config := amplitude.NewConfig("your-api-key")
+	client := amplitude.NewClient(config)
+	client.Add(&myDestinationPlugin{})
+}
+
 ```
