@@ -299,7 +299,7 @@ client.Flush()
 The `Add` method adds a plugin to Amplitude client struct. Plugins can help processing and sending events. [Learn more about plugins](#amplitude-sdk-plugin).
 
 ```Go
-client.add(pluginObj)
+client.Add(pluginObj)
 ```
 
 ### `Remove`
