@@ -6,7 +6,7 @@ description: Amplitude’s app with Shopify is a smart analytics app that automa
 Amplitude’s app with Shopify is a smart analytics app that automates eCommerce tracking. With Amplitude’s app, you can automatically track and ingest key e-commerce events, event properties, and user properties on a Shopify or Shopify Plus store.
 
 ### Client-side (device mode) tracking
-During the installation process, Amplitude Shopify App adds the code snippet to all pages (included in theme.liquid) on your Shopify store. The benefits of this approach include:
+During installation, the Amplitude Shopify App adds the code snippet to all pages (included in theme.liquid) on your Shopify store. The benefits of this approach include:
 - Amplitude’s JS SDK library is loaded on all pages, except for the checkout
 
 ### Server-side (cloud mode) tracking
