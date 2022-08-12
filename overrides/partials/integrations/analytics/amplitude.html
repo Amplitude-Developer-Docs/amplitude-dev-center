@@ -35,6 +35,52 @@ if (consent) {
         includeGclid: true
     });
 
+    function checkAuthenticatedUser() {
+        try {
+            const AMP_PREFIX = 'amp_';   
+            const currUserId = amplitude.getInstance().getUserId();
+            if (!currUserId) {
+                // Iterate through all amplitude cookies within amplitude domain
+                const amplitudeCookies = getCookies(AMP_PREFIX);
+                
+                for (let [cookieName, cookieValue] of amplitudeCookies.map((cookies) => cookies.split('='))) {
+                    const [deviceId, userId] = cookieValue.split('.');
+                    if (userId) {
+                        amplitude.getInstance().setUserId(decodeURIComponent(escape(window.atob(userId))));
+
+                        // If device id is found from other projects, use this device id
+                        if (deviceId) {
+                            amplitude.getInstance().setDeviceId(deviceId);
+                        }
+
+                        break;
+                    }
+                }
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    function getCookies(prefix) {
+        try {
+            const cookieArray = document.cookie.split(';').map((c) => c.trimStart());
+            let values = [];
+            for (let cookie of cookieArray) {
+                while (cookie.charAt(0) === ' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.startsWith(prefix)) {
+                    values.push(cookie.substring(name.length));
+                }
+            }
+
+            return values;
+        } catch (e) {
+            return [];
+        }
+    }
+
     function trackWithPageContext(event, url) {
         let paths = [];
         for (const seg of url.pathname.split('/')) {
@@ -63,6 +109,7 @@ if (consent) {
     document.addEventListener("DOMContentLoaded", function() {
         // Subscribe to navigation changes
         location$.subscribe(function(url) {
+            checkAuthenticatedUser();
             trackWithPageContext("page viewed", url);
         });
     });
