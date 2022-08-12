@@ -26,60 +26,39 @@ go get https://github.com/amplitude/analytics-go
 
 ### Initializing SDK
 
-Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required to construct a Config struct. Use that Config struct to initialize a client struct which implements Client interface. It can be used across requests after it is initialized.
-
-```GO
-
-import "github.com/amplitude/analytics-go/amplitude"
-
-func main() {
-
-    // Create a Config struct 
-	config := amplitude.NewConfig("your-api-key")
-
-	// Pass a Config struct  
-    // to initialize a client struct
-    // which implements Client interface
-	client := amplitude.NewClient(config)
-}
-```
+Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required to construct a Config struct. Use that Config struct to initialize a client struct which implements Client interface. It can be used across requests after it is initialized. See the example in next Configuration section. 
 
 ### Configuration
 
-Set your configuration before a client is initialized.
-```Go
-func callback(event Event, code int, message ...string) {
-	//callback function that takes three input parameters
-	//event: the event that triggered this callback
-	//code: status code of request response
-	//message: a optional string message for more detailed information
+```GO
+package main
+
+import (
+	"github.com/amplitude/analytics-go/amplitude"
+)
+
+func main() {
+	// Create a Config struct
+	config := amplitude.NewConfig("your-api-key")
+	// Modify your configuration if necessary
+	config.FlushQueueSize = 200
+
+	// Pass a Config struct
+	// to initialize a client struct
+	// which implements Client interface
+	client := amplitude.NewClient(config)
 }
 
-Config{
-		APIKey:          "your-api-key",
-		FlushInterval:   time.Second * 10,
-		FlushQueueSize:  100,
-		FlushMaxRetries: 5,
-		MinIDLength:     7,
-		Callback:        callback,
-		ServerZone:      ServerZoneEU,
-		UseBatch:        true,
-		OptOut:          false,
-		ServerURL:       HTTPV2,
-	}
 ```
+
+Set your configuration before a client is initialized.
 
 | <div class="big-column">Name</div> | Description  |
 | --- | --- |
 | `APIKey` | Required. string. The API key of the Amplitude project. Events sent by the client struct can be found under this project. Set when you initialize the client struct. |
 | `FlushQueueSize` | int. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. Defaults to 200.|
 | `FlushInterval` | time.Duration. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. Defaults to 10 seconds.|
-| `FlushMaxRetries` | int. The number of times the client retries an event when the request returns an error. Defaults to 12 |
 | `Logger` | Logger interface. The logger used by Amplitude client. Defaults to using a wrapper of [Go standard Logger](https://pkg.go.dev/log#Logger): `log.Logger`. |
-| `MinIDLength` | int. The minimum length of `UserID` and `DeviceID`. Defaults to 5.|
-| `Callback`  | func. Optional. Client level callback function. Takes three parameters:<br> 1. event: an Event struct<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. Defaults to `None`. |
-| `ServerZone` |string. The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. Defaults to `US`. |
-| `UseBatch` | bool. Uses HTTP v2 API endpoint if set to `false`, otherwise use batch API endpoint. More about difference between HTTP v2 and batch can be found [here](https://developers.amplitude.com/docs/batch-event-upload-api). Defaults to `false` |
 | `ServerURL` | string. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set with a string value instead of `nil`, then `ServerZone` and `UseBatch` are ignored and the string value is used. Defaults to the HTTP API V2 endpoint. |
 | `Storage` | Storage interface. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorage`. |
 | `OptOut`  | bool. Opt out option. If set to `true`, client doesn't process and send events. Defaults to `false`. |
