@@ -68,24 +68,22 @@ Set your configuration before a client is initialized.
 Events represent how users interact with your application. For example, “Button Clicked” may be an action you want to note.
 
 ```Go
+	// Track a basic event
+	// EventOne of UserID and DeviceID is required as well as EventType
+	client.Track(amplitude.Event{
+		EventType:    "Button Clicked",
+		EventOptions: amplitude.EventOptions{UserID: "user-id"},
+	})
 
-// Track a basic event
-// One of UserID and DeviceID is required
-event := amplitude.Event{
-    EventOptions: amplitude.EventOptions{UserID: "user-id"},
-    EventType:    "Button Clicked",
-}
-client.Track(event)
-
-// Track events with optional properties
-client.Track(amplitude.Event{
-		EventType:       "type-of-event",
-		EventOptions:    amplitude.EventOptions{
-			UserID:             "user-id",
-			DeviceID:           "device-id",
+	// Track events with optional properties
+	client.Track(amplitude.Event{
+		EventType: "Button Clicked",
+		EventOptions: amplitude.EventOptions{
+			UserID:   "user-id",
+			DeviceID: "device-id",
 		},
 		EventProperties: map[string]interface{}{"source": "notification"},
-})
+	})
 ```
 
 ### User Properties
