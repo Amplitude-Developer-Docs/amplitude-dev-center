@@ -231,8 +231,8 @@ The `GroupIdentify()` method accepts a group type and group name string paramete
 
 ```Go
 identifyObj := amplitude.Identify{}
-	identifyObj.Set("local", "en-us")
-	client.GroupIdentify("org-id", []string{"15"}, identifyObj)
+identifyObj.Set("local", "en-us")
+client.GroupIdentify("org-id", []string{"15"}, identifyObj, amplitude.EventOptions{})
 ```
 
 ### Revenue Tracking
