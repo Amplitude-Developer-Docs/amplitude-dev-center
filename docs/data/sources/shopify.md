@@ -33,7 +33,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 2) Currently Amplitude's Shopify App code is not open-sourced which means we are not able to support specific customer use cases (such as custom event properties).
 - User identity `User_ID` is limited to just email address and SHA-256. You can't customize or set your own identifier.
 - The app doesn't track revenue event properties.
-5) Amplitude’s Shopify app does not track Order Fulfillment status events.
+- The app doesn't track Order Fulfillment status events.
 - The app doesn't track Subscription events.
 - The app doesn't sales/return events.
 
