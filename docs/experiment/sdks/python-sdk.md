@@ -11,7 +11,10 @@ Official documentation for Amplitude Experiment's server-side Python SDK impleme
 !!!info "SDK Resources"
      [:material-github: Github](https://github.com/amplitude/experiment-python-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-python-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-python-server/)
 
-Python SDK supports [remote evaluation](../general/evaluation/remote-evaluation.md) now.
+This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
+
+* [Remote evaluation](#remote-evaluation)
+* [Local evaluation](#local-evaluation)
 
 ## Remote evaluation
 
@@ -39,7 +42,7 @@ Install the Python Server SDK with pip.
     3. [Access a flag's variant](#fetch)
 
     ```python
-    from amplitude_experiment import Experiment, Config, Client, User
+    from amplitude_experiment import Experiment, RemoteEvaluationConfig, RemoteEvaluationClient, User
 
     # (1) Initialize the experiment client
     experiment = Experiment.initialize('<DEPLOYMENT_KEY>')
@@ -68,7 +71,7 @@ Install the Python Server SDK with pip.
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `api_key` parameter must live within the same project that you are sending analytics events to.
 
 ```python
-Experiment.initialize(api_key, config = None) : Client
+Experiment.initialize_remote(api_key, config = None) : RemoteEvaluationClient
 ```
 
 | Parameter | Requirement | Description |
@@ -79,7 +82,7 @@ Experiment.initialize(api_key, config = None) : Client
 !!!info "Timeout & Retry Configuration"
     Please configure the timeout and retry options to best fit your performance requirements.
     ```python
-    experiment = Experiment.initialize('<DEPLOYMENT_KEY>', Config())
+    experiment = Experiment.initialize_remote('<DEPLOYMENT_KEY>', Config())
     ```
 
 #### Configuration
@@ -156,6 +159,140 @@ def fetch_callback(user, variants):
       # Flag is off
 
 experiment.fetch_async(user, fetch_callback)
+```
+
+## Local evaluation
+
+Implements evaluating variants for a user via [local evaluation](../general/evaluation/local-evaluation.md). If you plan on using local evaluation, you should [understand the tradeoffs](../general/evaluation/local-evaluation.md#targeting-capabilities).
+
+!!!warning "Local Evaluation Mode"
+    The local evaluation client can only evaluation flags which are [set to local evaluation mode](../guides/create-local-evaluation-flag.md).
+
+### Install
+
+Install the Python Server SDK's local evaluation.
+
+!!!warning "OS, and architecture support"
+    Local evaluation requires `CGO` be enabled (`CGO_ENABLED=1`). Additionally, the local evaluation package currently only supports the following OS' and architectures (`GOOS/GOARCH`):
+
+    **Supported**
+
+    * darwin/amd64
+    * darwin/arm64
+    * linux/amd64
+    * linux/arm64
+
+    **Alpine linux is not supported** at this time.
+
+    If you need another OS/Arch supported, please [submit an issue on github](https://github.com/amplitude/experiment-python-server/issues/new) or email [experiment@amplitude.com](mailto:experiment@amplitude.com).
+
+Install the Python Server SDK with pip.
+
+=== "pip"
+
+    ```bash
+    pip install amplitude-experiment
+    ```
+
+
+!!!tip "Quick Start"
+
+    1. [Initialize the local evaluation client.](#initialize_1)
+    2. [Start the local evaluation client.](#start)
+    3. [Evaluate a user.](#evaluate)
+
+    ```python
+    # (1) Initialize the local evaluation client with a server deployment key.
+    experiment = Experiment.initialize_local(api_key)
+
+    # (2) Start the local evaluation client.
+	experiment.start()
+
+    # (3) Evaluate a user.
+	user = User(
+        device_id="abcdefg",
+        user_id="user@company.com",
+        user_properties={
+            'premium': True
+        }
+    )
+	variants = experiment.evaluate(user)
+    ```
+
+### Initialize
+
+Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
+
+!!!warning "Server Deployment Key"
+    You must [initialize](#initialize_1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+
+```python
+Experiment.initialize_local(api_key, config = None) : LocalEvaluationClient
+```
+
+| Parameter | Requirement | Description |
+| --- | --- | --- |
+| `apiKey` | required | The server [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags should be evaluated for the user. |
+| `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
+
+!!!tip "Flag Polling Interval"
+    Use the `flag_config_polling_interval_millis` [configuration](#configuration_1) to determine the time flag configs take to update once modified (default 30s).
+
+#### Configuration
+
+The SDK client can be configured on initialization.
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `debug` | Set to `true` to enable debug logging. | `false` |
+    | `server_url` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
+    | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start()`](#start) | `30000` |
+    | `flag_config_poller_request_timeout_millis` | The timeout for the request made by the flag config poller | `10000` |
+
+### Start
+
+Start the local evaluation client, pre-fetching local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration_1) interval.
+
+```python
+start()
+```
+
+You should await the result of `start()` to ensure that flag configs are ready to be used before calling [`evaluate()`](#evaluate)
+
+```python
+experiment.start()
+```
+
+### Evaluate
+
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+
+```go
+evaluate(self, user: User, flag_keys: List[str]) : Dict[str, Variant]
+```
+
+| Parameter   | Requirement | Description |
+|-------------| --- | --- |
+| `user`      | required | The [user](../general/data-model.md#users) to evaluate. |
+| `flag_keys` | optional | Specific flags or experiments to evaluate. If nil, or empty, all flags and experiments are evaluated. |
+
+```python
+# The user to evaluate
+user = User(user_id='test_user')
+
+# Evaluate all flag variants
+all_variants = experiment.evaluate(user)
+
+# Evaluate a specific subset of flag variants
+specific_variants = experiment.evaluate(user, ["<FLAG_KEY_1>", "<FLAG_KEY_2>"])
+
+# Access a variant
+variant = all_variants["<FLAG_KEY>"]
+if variant.value == 'on':
+    # Flag is on
+else:
+    # Flag is off
 ```
 
 ## Accessing Amplitude cookies
