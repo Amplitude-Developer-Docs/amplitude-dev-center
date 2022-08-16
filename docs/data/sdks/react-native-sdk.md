@@ -409,6 +409,7 @@ By default, the SDK tracks some properties automatically. You can override this 
 | `platform` | `true` |
 | `region` | `true` |
 | `versionName` | `true` |
+| `adid` | `true` |
 
 !!!note
 
