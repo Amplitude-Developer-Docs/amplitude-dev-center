@@ -4,9 +4,8 @@ description: The Amplitude Go SDK installation and quick start guide.
 icon: fontawesome/brands/golang
 ---
 
-!!!info "SDK Resources"
-    - [Go SDK Repository :material-github:](https://github.com/amplitude/analytics-go)
-    - [Go SDK Releases :material-code-tags-check:](https://github.com/amplitude/analytics-go/releases)
+!!!alpha "Alpha SDK Resources"
+    [:material-github: Github](https://github.com/amplitude/analytics-go) · [:material-code-tags-check: Releases](https://github.com/amplitude/analytics-go/releases) · [:material-book: API Reference](https://pkg.go.dev/github.com/amplitude/analytics-go/amplitude)
 
 --8<-- "includes/no-ampli.md"
 
