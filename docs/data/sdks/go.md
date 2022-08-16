@@ -231,7 +231,7 @@ The `GroupIdentify()` method accepts a group type and group name string paramete
 ```Go
 identifyObj := amplitude.Identify{}
 identifyObj.Set("local", "en-us")
-client.GroupIdentify("org-id", []string{"15"}, identifyObj, amplitude.EventOptions{})
+client.GroupIdentify("org-id", []string{"15"}, identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
 ### Revenue Tracking
@@ -345,6 +345,7 @@ func main() {
 ```
 
 #### Destination Type Plugin
+Here's an example of a plugin that sends each event that is instrumented to a target server URL.
 
 ```Go
 package main
@@ -356,40 +357,44 @@ import (
 	"net/http"
 )
 
-type myDestinationPlugin struct{
-	url string
-	config amplitude.Config
+type myDestinationPlugin struct {
+	url        string
+	config     amplitude.Config
+	httpClient http.Client
 }
 
+// Setup is called on plugin installation
 func (plugin *myDestinationPlugin) Setup(config amplitude.Config) {
 	plugin.config = config
+	plugin.httpClient = http.Client{}
 }
 
+// Type defines your amplitude.PluginType from:
+// 	- amplitude.BEFORE
+// 	- amplitude.ENRICHMENT
+// 	- amplitude.DESTINATION
 func (plugin myDestinationPlugin) Type() amplitude.PluginType {
 	return amplitude.DESTINATION
 }
 
+// Execute is called on each event instrumented
 func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
-	payload := map[string]interface{}{"key": "secret", "events":event}
+	payload := map[string]interface{}{"key": "secret", "events": event}
 	payloadBytes, err := json.Marshal(payload)
 
-	if err != nil{
+	if err != nil {
 		plugin.config.Logger.Error("Event encoding failed: ", err)
 	}
 
-	request, err := http.NewRequest("POST", plugin.config.ServerURL, bytes.NewReader(payloadBytes))
+	request, err := http.NewRequest("POST", plugin.url, bytes.NewReader(payloadBytes))
 	if err != nil {
 		plugin.config.Logger.Error("Building new request failed", err)
 	}
 
-	httpClient := http.Client{}
-
-	response, err := httpClient.Do(request)
+	response, err := plugin.httpClient.Do(request)
 	if err != nil {
 		plugin.config.Logger.Error("HTTP request failed", err)
 	}
-
-	plugin.config.Logger.Info("HTTP request response", response)
 
 	defer response.Body.Close()
 }
@@ -397,7 +402,32 @@ func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 func main() {
 	config := amplitude.NewConfig("your-api-key")
 	client := amplitude.NewClient(config)
-	client.Add(&myDestinationPlugin{})
-}
+	client.Add(&myDestinationPlugin{
+		// Change it to your target server URL
+		url: "https://custom.domain.com",
+	})
 
+	client.Track(amplitude.Event{
+		EventType: "Button Clicked",
+		EventOptions: amplitude.EventOptions{
+			UserID: "user-id",
+		},
+	})
+}
+```
+
+The example above sends a HTTP POST request with a body as JSON format
+```
+{
+	"events":
+		{
+			"event_type":"Button Clicked",
+			"user_id":"user-id",
+			"time":1660683660056,
+			"insert_id":"1c8aac41-8257-4bea-ab3f-de914e39df5e",
+			"library":"amplitude-go/0.0.2",
+			"plan":{}
+		},
+	"key":"secret"
+}
 ```
