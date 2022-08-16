@@ -59,7 +59,7 @@ Set your configuration before a client is initialized.
 | `FlushQueueSize` | int. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. Defaults to 200.|
 | `FlushInterval` | time.Duration. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. Defaults to 10 seconds.|
 | `Logger` | Logger interface. The logger used by Amplitude client. Defaults to using a wrapper of [Go standard Logger](https://pkg.go.dev/log#Logger): `log.Logger`. |
-| `ServerURL` | string. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set with a string value instead of `nil`, then `ServerZone` and `UseBatch` are ignored and the string value is used. Defaults to the HTTP API V2 endpoint. |
+| `ServerURL` | string. The API endpoint URL that events are sent to. |
 | `Storage` | Storage interface. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorage`. |
 | `OptOut`  | bool. Opt out option. If set to `true`, client doesn't process and send events. Defaults to `false`. |
 
