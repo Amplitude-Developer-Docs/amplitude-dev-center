@@ -5,16 +5,21 @@ icon: material/android
 ---
 
 
-This is the official documentation for the Amplitude Analytics Android SDK. This is a legacy SDK. If you haven't already deployed this SDK, we recommend using the [Android Kotlin SDK](../android-kotlin) instead.
+[![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.amplitude%22%20AND%20a:%22android-sdk%22)
+
+This is the official documentation for the Amplitude Analytics Android SDK.
+
+!!!info "Legacy SDK"
+    This SDK is legacy and only continue to receive bug fixes until deprecated. Checkout and upgrade to the [Android Kotlin SDK](../android-kotlin) which supports plugins, SDK integrations and more.
 
 !!!info "SDK Resources"
-    [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/) · [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Android) · [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Android/releases)
+    - [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/)
+    - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Android)
+    - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Android/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
 ## Install
-
-[![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/android-sdk.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.amplitude%22%20AND%20a:%22android-sdk%22)
 
 ### Add dependencies
 
