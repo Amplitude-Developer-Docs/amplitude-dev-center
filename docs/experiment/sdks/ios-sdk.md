@@ -106,6 +106,18 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
     )
     ```
 
+    Note that if you specify a custom instance name for the Amplitude Analytics SDK, you need to feed the same instance name into the Amplitude Experiment SDK to establish the connection:
+    ```swift hl_lines="2"
+    Amplitude.instance("my_custom_instance").initializeApiKey("<API_KEY>")
+    ExperimentConfig config = ExperimentConfigBuilder()
+        .exposureTrackingProvider(SegmentExposureTrackingProvider(analytics))
+        .build()
+    let experiment = Experiment.initializeWithAmplitudeAnalytics(
+        apiKey: "<DEPLOYMENT_KEY>",
+        config: ExperimentConfigBuilder().instanceName("my_custom_instance").build()
+    )
+    ```
+
     Using the integration initializer will automatically configure implementations of the [user provider](#user-provider) and [exposure tracking provider](#exposure-tracking-provider) interfaces to pull user data from the Amplitude Analytics SDK and track exposure events.
 
     **Supported Versions**
