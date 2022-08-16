@@ -65,7 +65,7 @@ Set your configuration before a client is initialized.
 
 ### Track an event
 
-Events represent how users interact with your application. For example, “Button Clicked” may be an action you want to note.
+Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```Go
 // Track a basic event
