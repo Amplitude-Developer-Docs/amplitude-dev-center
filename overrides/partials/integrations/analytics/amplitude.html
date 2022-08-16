@@ -47,6 +47,7 @@ if (consent) {
                     const [deviceId, userId] = cookieValue.split('.');
                     if (userId) {
                         amplitude.getInstance().setUserId(decodeURIComponent(escape(window.atob(userId))));
+                        break;
                     }
                 }
             }
