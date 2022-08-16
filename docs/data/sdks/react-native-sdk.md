@@ -392,7 +392,7 @@ setOptOut(false);
 
 ### Optional tracking
 
-By default, the SDK tracks these properties automatically. You can override this behavior by passing an configuration called `trackingOptions` when initializing the SDK, setting the appropriate options to false.
+By default, the SDK tracks these properties automatically. You can override this behavior by passing a configuration called `trackingOptions` when initializing the SDK, setting the appropriate options to false.
 
 | Tracking Options | Default |
 | --- | --- |
