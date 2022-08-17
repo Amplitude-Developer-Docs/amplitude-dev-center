@@ -4,6 +4,9 @@ description: The Amplitude Java SDK installation and quick start guide.
 icon: fontawesome/brands/java
 ---
 
+
+![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/java-sdk)
+
 This is the documentation for the Amplitude Analytics Java SDK. Note that this is not the Android SDK. 
 
 !!!info "SDK Resources"

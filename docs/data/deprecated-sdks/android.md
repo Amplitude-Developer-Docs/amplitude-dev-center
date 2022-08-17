@@ -8,7 +8,7 @@ search:
 <!-- markdownlint-disable -->
 
 !!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Android SDK (Ampli)](/data/sdks/android-ampli).
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Android SDK (Ampli)](/data/sdks/android/ampli/).
 
 Amplitude Data supports tracking analytics events from Android apps (API 22 and above) written in Kotlin and Java.
 

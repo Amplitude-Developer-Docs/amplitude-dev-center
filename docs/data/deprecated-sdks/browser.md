@@ -9,7 +9,7 @@ search:
 <!-- markdownlint-disable -->
 
 !!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Browser SDK (Ampli)](data/sdks/browser-ampli).
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Browser SDK (Ampli)](/data/sdks/javascript/ampli).
 
 
 
