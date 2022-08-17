@@ -50,6 +50,10 @@ Guide to getting started developing for Amplitude Experiment.
 3. [Fetch variants for a user](guides/getting-started/fetch-variants.md)
 4. [Track an exposure event](guides/getting-started/track-exposure.md)
 
+## Data Science Guides
+
+1. [How to debug an SRM](guides/debugging-sample-ratio-mismatch.md)
+
 ## SDKs
 
 Client-side SDKs work in a single-user context; server-side SDKs work in a multi-user context.
@@ -63,6 +67,7 @@ Client-side SDKs work in a single-user context; server-side SDKs work in a multi
 --8<-- "includes/experiment-server-sdks.md"
 
 ## REST APIs
+
 | API | Description |
 | --- | --- |
 | [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
