@@ -11,7 +11,10 @@ Official documentation for Amplitude Experiment's server-side Ruby SDK implement
 !!!info "SDK Resources"
      [:material-github: Github](https://github.com/amplitude/experiment-ruby-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ruby-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ruby-server/)
 
-Ruby SDK supports [remote evaluation](../general/evaluation/remote-evaluation.md) now.
+This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
+
+* [Remote evaluation](#remote-evaluation)
+* [Local evaluation](#local-evaluation)
 
 ## Remote evaluation
 
@@ -47,7 +50,7 @@ Install the Ruby Server SDK with bundler or gem directly.
     require 'amplitude-experiment'
 
     # (1) Initialize the experiment client
-    experiment = AmplitudeExperiment.init('<DEPLOYMENT_KEY>', AmplitudeExperiment::Config.new)
+    experiment = AmplitudeExperiment.init_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::Config.new)
 
     # (2) Fetch variants for a user
     user = AmplitudeExperiment::User.new(
@@ -166,6 +169,152 @@ experiment.fetch_async(user) do |_, variants|
     end
   end
 end
+```
+
+## Local evaluation
+
+## Local evaluation
+
+Implements evaluating variants for a user via [local evaluation](../general/evaluation/local-evaluation.md). If you plan on using local evaluation, you should [understand the tradeoffs](../general/evaluation/local-evaluation.md#targeting-capabilities).
+
+!!!warning "Local Evaluation Mode"
+    The local evaluation client can only evaluation flags which are [set to local evaluation mode](../guides/create-local-evaluation-flag.md).
+
+### Install
+
+Install the Ruby Server SDK's local evaluation.
+
+!!!warning "OS, and architecture support"
+    Local evaluation requires `CGO` be enabled (`CGO_ENABLED=1`). Additionally, the local evaluation package currently only supports the following OS' and architectures (`GOOS/GOARCH`):
+
+    **Supported**
+
+    * darwin/amd64
+    * darwin/arm64
+    * linux/amd64
+    * linux/arm64
+
+    **Alpine linux is not supported** at this time.
+
+    If you need another OS/Arch supported, please [submit an issue on github](https://github.com/amplitude/experiment-ruby-server/issues/new) or email [experiment@amplitude.com](mailto:experiment@amplitude.com).
+
+Install the Ruby Server SDK with pip.
+
+=== "ruby"
+
+!!!info "Ruby version compatibility"
+
+    The Ruby Server SDK works with Ruby 2.0+.
+
+Install the Ruby Server SDK with bundler or gem directly.
+
+=== "bundler"
+
+    ```bash
+    gem 'amplitude-experiment'
+    ```
+
+=== "gem"
+
+    ```bash
+    gem install amplitude-experiment --pre
+    ```
+
+!!!tip "Quick Start"
+
+    1. [Initialize the experiment client](#initialize)
+    2. [Start the local evaluation client](#start)
+    3. [Evaluate a user](#evaluate)
+
+    ```ruby
+    require 'amplitude-experiment'
+
+    # (1) Initialize the local evaluation client with a server deployment key.
+    experiment = AmplitudeExperiment.init_local(api_key)
+    # (2) Start the local evaluation client.
+	  experiment.start
+    # (3) Evaluate a user
+	  user = AmplitudeExperiment::User.new(
+        device_id: "abcdefg",
+        user_id: "user@company.com",
+        user_properties: {
+            'premium': True
+        }
+    )
+	  variants = experiment.evaluate(user)
+    ```
+
+### Initialize
+
+Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
+
+!!!warning "Server Deployment Key"
+    You must [initialize](#initialize_1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+
+```ruby
+AmplitudeExperiment.init_local(api_key)
+```
+
+| Parameter | Requirement | Description |
+| --- | --- | --- |
+| `apiKey` | required | The server [deployment key](../general/data-model.md#deployments) which authorizes fetch requests and determines which flags should be evaluated for the user. |
+| `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
+
+!!!tip "Flag Polling Interval"
+    Use the `flag_config_polling_interval_millis` [configuration](#configuration_1) to determine the time flag configs take to update once modified (default 30s).
+
+#### Configuration
+
+The SDK client can be configured on initialization.
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `debug` | Set to `true` to enable debug logging. | `false` |
+    | `server_url` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
+    | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start()`](#start) | `30000` |
+    | `flag_config_poller_request_timeout_millis` | The timeout for the request made by the flag config poller | `10000` |
+
+### Start
+
+Start the local evaluation client, pre-fetching local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration_1) interval.
+
+```ruby
+start
+```
+
+You should await the result of `start` to ensure that flag configs are ready to be used before calling [`evaluate()`](#evaluate)
+
+```ruby
+experiment.start
+```
+
+### Evaluate
+
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+
+```ruby
+evaluate(user, flag_keys)
+```
+
+| Parameter   | Requirement | Description |
+|-------------| --- | --- |
+| `user`      | required | The [user](../general/data-model.md#users) to evaluate. |
+| `flag_keys` | optional | Specific flags or experiments to evaluate. If nil, or empty, all flags and experiments are evaluated. |
+
+```ruby
+# The user to evaluate
+user = AmplitudeExperiment::User.new(user_id: 'test-user')
+# Evaluate all flag variants
+all_variants = experiment.evaluate(user)
+# Evaluate a specific subset of flag variants
+specific_variants = experiment.evaluate(user, ["<FLAG_KEY_1>", "<FLAG_KEY_2>"])
+# Access a variant
+variant = all_variants["<FLAG_KEY>"]
+if variant.value == 'on':
+    # Flag is on
+else:
+    # Flag is off
 ```
 
 ## Accessing Amplitude cookies
