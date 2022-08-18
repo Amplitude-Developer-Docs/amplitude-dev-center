@@ -3,7 +3,7 @@ title: Intercom Event Streaming
 description: The Intercom integration lets you stream your Amplitude event data to Intercom with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
+--8<-- "includes/closed-beta.md"
 
 Amplitude Data's Intercom integration lets you stream your Amplitude event data straight to Intercom with just a few clicks.
 

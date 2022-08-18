@@ -3,6 +3,8 @@ title: Kinesis Data Firehose Event Streaming
 description: Amplitude Data's Kinesis Data Firehose integration lets you stream your Amplitude event data straight to a Kinesis Firehose stream.
 ---
 
+--8<-- "includes/closed-beta.md"
+
 Amplitude Data's Kinesis Data Firehose integration lets you stream your Amplitude event data straight to a Kinesis Firehose stream.
 
 ## Considerations

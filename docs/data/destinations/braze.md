@@ -3,7 +3,7 @@ title: Braze Event Streaming
 description: Amplitude Data's Braze integration lets you stream your Amplitude event data straight to Braze with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
+--8<-- "includes/closed-beta.md"
 
 Amplitude Data's Braze integration lets you stream your Amplitude event data straight to Braze with just a few clicks.
 

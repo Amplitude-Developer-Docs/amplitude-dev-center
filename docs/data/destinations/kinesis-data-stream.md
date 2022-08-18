@@ -3,6 +3,8 @@ title: Kinesis Data Stream Event Streaming
 description: Amplitude Data's Kinesis Data Stream integration lets you stream your Amplitude event data straight to a Kinesis Data Stream.
 ---
 
+--8<-- "includes/closed-beta.md"
+
 Amplitude Data's Kinesis Data Stream integration lets you stream your Amplitude event data straight to a Kinesis Data Stream.
 
 ## Considerations
