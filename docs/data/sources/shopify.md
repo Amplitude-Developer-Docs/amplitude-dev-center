@@ -22,7 +22,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - You need an Amplitude Starter, Growth, or Enterprise plan to start sending data from your Shopify store.
 - The Shopify App was built to solve the general use cases for most Shopify stores. We've designed a generalized Out of the Box Taxonomy to include events and properties that most Shopify stores would be interested in tracking. 
 - We recommend leveraging our Amplitude SDKs or APIs in addition to this app if your Shopify Store has a high degree of in-built functionality or if you require instrumenting a lot of custom events outside our taxonomy list. 
-- All events sent by the Shopify app have the preheader `[Shopify]` to distinguish themselves from the custom events.
+- All events sent by the Shopify app have the preheader `[Shopify]` to help distinguish them from custom events.
 - Using Govern, you can change the display name and description for events, event properties, and user properties. You can also block, delete or filter out events and user properties.
 - In addition, using [Govern](https://help.amplitude.com/hc/en-us/articles/360043750992-Govern-Manage-your-Amplitude-data-at-scale), you’ll be able to manage event types, properties, and user properties from a single interface.
 - The Amplitude App doesn't interact with other third-party Shopify apps.
