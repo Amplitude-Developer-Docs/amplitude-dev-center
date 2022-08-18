@@ -29,7 +29,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - If you have more than one Shopify store, you can use the same project and API key all of them. Or, you can use a separate project for each store. If you use separate projects, and you want to analyze or generate a holistic view of how your users interact with your entire product portfolio, you will need to purchase Amplitude’s [Portfolio add-on](https://help.amplitude.com/hc/en-us/articles/360002750712-Portfolio-Conduct-cross-project-analysis-in-Amplitude).
 
 ## Key Limitations
-1) Each shopify store uses a particular theme to shape the online store experience for merchants and their customers. Currently Amplitude's Shopify App only installs this client-side snippet code to every existing theme in a store. However, if a customer was to add a new theme after the installation, it would mean the Amplitude code snippet would not be installed and certain client-side events will not be forwarded from Shopify to Amplitude. 
+- Each Shopify store uses a particular theme to shape the online store experience for merchants and their customers. Currently Amplitude's Shopify App only installs this client-side snippet code to every existing theme in a store. If you add a new theme after app installation, the Amplitude code snippet isn't added to the new theme and certain client-side events aren't forwarded from Shopify to Amplitude. 
 2) Currently Amplitude's Shopify App code is not open-sourced which means we are not able to support specific customer use cases (such as custom event properties).
 - User identity `User_ID` is limited to just email address and SHA-256. You can't customize or set your own identifier.
 - The app doesn't track revenue event properties.
