@@ -30,7 +30,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 
 ## Key Limitations
 - Each Shopify store uses a particular theme to shape the online store experience for merchants and their customers. Currently Amplitude's Shopify App only installs this client-side snippet code to every existing theme in a store. If you add a new theme after app installation, the Amplitude code snippet isn't added to the new theme and certain client-side events aren't forwarded from Shopify to Amplitude. 
-2) Currently Amplitude's Shopify App code is not open-sourced which means we are not able to support specific customer use cases (such as custom event properties).
+- Amplitude's Shopify App code isn't open source, and Amplitude isn't able to support specific customer use cases, such as custom event properties.
 - User identity `User_ID` is limited to just email address and SHA-256. You can't customize or set your own identifier.
 - The app doesn't track revenue event properties.
 - The app doesn't track Order Fulfillment status events.
