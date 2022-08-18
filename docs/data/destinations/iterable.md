@@ -3,7 +3,7 @@ title: Iterable Event Streaming
 description: Amplitude Data's Iterable integration lets you stream your Amplitude event data straight to Iterable with just a few clicks.
 ---
 
---8<-- "includes/closed-beta.md"
+--8<-- "includes/open-beta.md"
 
 Amplitude Data's Iterable integration lets you stream your Amplitude event data straight to Iterable with just a few clicks.
 
