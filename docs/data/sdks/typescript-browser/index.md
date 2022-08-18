@@ -388,27 +388,32 @@ setOptOut(false);
 
 ### Optional tracking
 
-By default, the SDK tracks some properties automatically. You can override this behavior by passing an object called `trackingOptions` when initializing the SDK, setting the appropriate options to false.
+By default, the SDK tracks these properties automatically. You can override this behavior by passing a configuration called `trackingOptions` when initializing the SDK, setting the appropriate options to false.
 
 | Tracking Options | Default |
 | --- | --- |
-| `city` | `true` |
-| `country` | `true` |
-| `carrier` | `true` |
 | `deviceManufacturer` | `true` |
 | `deviceModel` | `true` |
-| `dma` | `true` |
 | `ipAddress` | `true` |
 | `language` | `true` |
 | `osName` | `true` |
 | `osVersion` | `true` |
 | `platform` | `true` |
-| `region` | `true` |
-| `versionName` | `true` |
 
-!!!note
 
-    The optional tracking configurations only prevent default properties from being tracked on newly-created projects, where data has not yet been sent. If you have a project with existing data that you would like to stop collecting the default properties for, please get help in the [Amplitude Community](https://community.amplitude.com/). Note that the existing data is not deleted.
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  trackingOptions: {
+    deviceManufacturer: false,
+    deviceModel: false,
+    ipAddress: false,
+    language: false,
+    osName: false,
+    osVersion: false,
+    platform: false,
+  },
+});
+```
 
 ### Callback
 
