@@ -5,7 +5,7 @@ description: Amplitude Data's Customer.io integration lets you stream your Ampli
 
 Amplitude Data's Customer.io integration lets you stream your Amplitude event data straight to Customer.io with just a few clicks.
 
---8<-- "includes/closed-beta.md"
+--8<-- "includes/open-beta.md"
 
 !!!note "Send Amplitude cohorts to Customer.io"
 
