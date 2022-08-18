@@ -19,7 +19,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 
 ## Considerations
 - The Amplitude app is free to install.
-- You will need either an Amplitude Starter, Growth, or Enterprise plan to start sending data from your Shopify store.
+- You need an Amplitude Starter, Growth, or Enterprise plan to start sending data from your Shopify store.
 - The Shopify App was built to solve the general use cases for most Shopify stores. We've designed a generalized Out of the Box Taxonomy to include events and properties that most Shopify stores would be interested in tracking. 
 - We recommend leveraging our Amplitude SDKs or APIs in addition to this app if your Shopify Store has a high degree of in-built functionality or if you require instrumenting a lot of custom events outside our taxonomy list. 
 - All events sent by the Shopify app have the preheader `[Shopify]` to distinguish themselves from the custom events.
