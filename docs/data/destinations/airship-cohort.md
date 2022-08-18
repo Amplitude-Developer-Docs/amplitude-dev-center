@@ -12,7 +12,7 @@ You can also send events from Airship to Amplitude if your Airship plan include
 
 ## Considerations
 
-- To schedule daily and hourly syncs, you need Amplitude Recommend.
+- To schedule daily and hourly syncs, you need Amplitude Audiences.
 
 ## Setup
 

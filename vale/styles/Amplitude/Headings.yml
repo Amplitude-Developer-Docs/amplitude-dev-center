@@ -7,6 +7,7 @@ indicators:
   - ':'
 exceptions:
   - Azure
+  - Audiences
   - CLI
   - Code
   - Cosmos

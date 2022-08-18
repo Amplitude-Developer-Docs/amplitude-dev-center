@@ -23,7 +23,7 @@ Salesforce Marketing Cloud provides marketing engagement automation that allows 
 ### Prerequisites
 
 - The Salesforce Marketing Cloud / Amplitude integration is only available for Growth and Enterprise customers (allows on-demand sync only). 
-- Scheduled syncs are available to customers who have purchased [Amplitude Recommend](https://help.amplitude.com/hc/en-us/articles/360028552471#syncs). 
+- Scheduled syncs are available to customers who have purchased [Amplitude Audiences](https://help.amplitude.com/hc/en-us/articles/360028552471#syncs). 
 - Anonymized UUID as identifiers in both Amplitude and Salesforce Marketing Cloud work for this integration so you don't have to send email / PII to Amplitude.
 
 ### Marketing Cloud setup
