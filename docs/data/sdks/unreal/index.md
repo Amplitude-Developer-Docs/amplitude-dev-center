@@ -12,6 +12,8 @@ icon: material/unreal
     - [Unreal Engine SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Unreal)
     - [Unreal Engine SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0)
 
+--8<-- "includes/no-ampli.md"
+
 ## SDK installation
 
 ### Install the SDK plugin
