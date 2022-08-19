@@ -88,7 +88,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
     }
     ```
 
-3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Update **{{}}** in highlighted text.
+3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Use the entire example code below, but be sure to update **{{}}** in highlighted text.
 
     * **{{bucket_name}}**: the s3 bucket name where your data will be imported from.
     * **{{prefix}}**: the folder in s3 bucket above where your data lives, for example `/folder1`. For root folder, leave it as empty.
