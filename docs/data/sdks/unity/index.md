@@ -121,7 +121,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ## EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](data/dynamic-configuration/) as well.
+ The server zone configuration supports [dynamic configuration](/data/dynamic-configuration/) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 
