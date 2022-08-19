@@ -182,7 +182,8 @@ Implements evaluating variants for a user via [local evaluation](../general/eval
 
 Install the Ruby Server SDK's local evaluation.
 
-!!!architecture support"
+!!!warning "OS, and architecture support"
+    The local evaluation package currently only supports the following OS' and architectures (`OS/ARCH`):
 
     **Supported**
 
