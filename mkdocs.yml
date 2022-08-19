@@ -139,6 +139,7 @@ nav:
   - analytics/index.md
   - Overview: analytics/index.md
   - What is Amplitude?: analytics/what-is-amplitude.md
+  - Find API Credentials: analytics/find-api-credentials.md
   - SDKs: 
     - SDK Catalog: data/sources/#sdks
   - API References:
