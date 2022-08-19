@@ -7,12 +7,14 @@ icon: material/nodejs
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-node.svg)
 
+The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
+
 !!!beta "Beta SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    - [Node.js SDk Reference :material-book:](https://amplitude.github.io/Amplitude-TypeScript/)
+    - [Node.js SDk Repository :material-github:](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)
+    - [Node.js SDk Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-TypeScript/releases)
 
 --8<-- "includes/no-ampli.md"
-
-The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 ## Getting Started
 

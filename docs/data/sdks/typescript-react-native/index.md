@@ -6,12 +6,14 @@ icon: material/react
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native.svg)
 
+The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
+
 !!!beta "Beta SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    - [React Native SDK Reference :material-book:](https://amplitude.github.io/Amplitude-TypeScript/)
+    - [React Native SDK Repository :material-github:](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native)
+    - [React Native SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-TypeScript/releases)
 
 --8<-- "includes/no-ampli.md"
-
-The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 ## Getting Started
 
