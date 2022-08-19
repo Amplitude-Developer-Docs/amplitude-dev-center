@@ -50,7 +50,7 @@ Install the Ruby Server SDK with bundler or gem directly.
     require 'amplitude-experiment'
 
     # (1) Initialize the experiment client
-    experiment = AmplitudeExperiment.init_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::Config.new)
+    experiment = AmplitudeExperiment.init_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::RemoteEvaluationConfig.new)
 
     # (2) Fetch variants for a user
     user = AmplitudeExperiment::User.new(
@@ -78,7 +78,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```ruby
-init(apiKey, config = nil) : Client
+init_remote(apiKey, config = nil) : Client
 ```
 
 | Parameter | Requirement | Description |
@@ -89,7 +89,7 @@ init(apiKey, config = nil) : Client
 !!!info "Timeout & Retry Configuration"
      Please configure the timeout and retry options to best fit your performance requirements.
     ```ruby
-    experiment = AmplitudeExperiment.init('<DEPLOYMENT_KEY>', AmplitudeExperiment::Config.new)
+    experiment = AmplitudeExperiment.init_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::RemoteEvaluationConfig.new)
     ```
 
 #### Configuration
@@ -173,8 +173,6 @@ end
 
 ## Local evaluation
 
-## Local evaluation
-
 Implements evaluating variants for a user via [local evaluation](../general/evaluation/local-evaluation.md). If you plan on using local evaluation, you should [understand the tradeoffs](../general/evaluation/local-evaluation.md#targeting-capabilities).
 
 !!!warning "Local Evaluation Mode"
@@ -184,8 +182,7 @@ Implements evaluating variants for a user via [local evaluation](../general/eval
 
 Install the Ruby Server SDK's local evaluation.
 
-!!!warning "OS, and architecture support"
-    Local evaluation requires `CGO` be enabled (`CGO_ENABLED=1`). Additionally, the local evaluation package currently only supports the following OS' and architectures (`GOOS/GOARCH`):
+!!!architecture support"
 
     **Supported**
 
@@ -198,15 +195,11 @@ Install the Ruby Server SDK's local evaluation.
 
     If you need another OS/Arch supported, please [submit an issue on github](https://github.com/amplitude/experiment-ruby-server/issues/new) or email [experiment@amplitude.com](mailto:experiment@amplitude.com).
 
-Install the Ruby Server SDK with pip.
-
-=== "ruby"
+Install the Ruby Server SDK with bundler or gem directly.
 
 !!!info "Ruby version compatibility"
 
     The Ruby Server SDK works with Ruby 2.0+.
-
-Install the Ruby Server SDK with bundler or gem directly.
 
 === "bundler"
 
@@ -230,18 +223,28 @@ Install the Ruby Server SDK with bundler or gem directly.
     require 'amplitude-experiment'
 
     # (1) Initialize the local evaluation client with a server deployment key.
-    experiment = AmplitudeExperiment.init_local(api_key)
-    # (2) Start the local evaluation client.
-	  experiment.start
+    experiment = AmplitudeExperiment.init_local('<DEPLOYMENT_KEY>', AmplitudeExperiment::LocalEvaluationConfig.new)
+
+    # (2) Start the local evaluation
+    experiment.start
+
     # (3) Evaluate a user
-	  user = AmplitudeExperiment::User.new(
-        device_id: "abcdefg",
-        user_id: "user@company.com",
-        user_properties: {
-            'premium': True
-        }
+    user = AmplitudeExperiment::User.new(
+      user_id: 'user@company.com',
+      device_id: 'abcdefg',
+      user_properties: {
+        'premium' => true
+      }
     )
-	  variants = experiment.evaluate(user)
+    variants = expriment.evaluate(user)
+    variant = variants['YOUR-FLAG-KEY']
+    unless variant.nil?
+        if variant.value == 'on'
+            # Flag is on
+        else
+            # Flag is off
+        end
+    end
     ```
 
 ### Initialize
@@ -270,10 +273,10 @@ The SDK client can be configured on initialization.
 ???config "Configuration Options"
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
-    | `debug` | Set to `true` to enable debug logging. | `false` |
     | `server_url` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
-    | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start()`](#start) | `30000` |
-    | `flag_config_poller_request_timeout_millis` | The timeout for the request made by the flag config poller | `10000` |
+    | `bootstrap` |	Bootstrap the client with a map of flag key to flag configuration | `{}` |
+    | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start`](#start) | `30000` |
+    | `debug` | Set to `true` to enable debug logging. | `false` |
 
 ### Start
 
@@ -315,6 +318,7 @@ if variant.value == 'on':
     # Flag is on
 else:
     # Flag is off
+end
 ```
 
 ## Accessing Amplitude cookies
