@@ -173,7 +173,7 @@ Implements evaluating variants for a user via [local evaluation](../general/eval
 Install the Python Server SDK's local evaluation.
 
 !!!warning "OS, and architecture support"
-    Local evaluation requires `CGO` be enabled (`CGO_ENABLED=1`). Additionally, the local evaluation package currently only supports the following OS' and architectures (`GOOS/GOARCH`):
+    The local evaluation package currently only supports the following OS' and architectures (`OS/ARCH`):
 
     **Supported**
 
