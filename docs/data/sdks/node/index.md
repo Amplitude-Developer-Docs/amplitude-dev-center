@@ -4,16 +4,8 @@ description: The Amplitude Node.js SDK installation and quick start guide.
 icon: material/nodejs
 ---
 
+
 ![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg)
-
-!!!info "SDK Resources"
-    - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
-    - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
-
-!!!info "New Analytics SDK for Node.js Available in Beta"
-    We just released a new [Analytics SDK for Node.js](/data/sdks/typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins.
-    
-    The Beta SDK does not yet support the [Ampli Wrapper](https://www.docs.developers.amplitude.com/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
 This is Amplitude Node.js SDK written in Typescript, the 1st backend SDK for Amplitude. We would like to hear your ideas too!
 
@@ -25,9 +17,16 @@ While the client-side SDKs are optimized to track session and attribution for a 
 
 By default, the Node SDK uses the [HTTP API V2](/analytics/apis/http-v2-api/).
 
---8<-- "includes/ampli-vs-amplitude.md"
+!!!attention "Legacy SDK"
+    This SDK is legacy and only continue to receive bug fixes until deprecated. A new [Analytics SDK for Node.js](/data/sdks/typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
+    
+    The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
-To learn more about Ampli Wrapper, please refer to the [Ampli Node](https://developers.data.amplitude.com/nodejs-ampli) and [examples](https://github.com/amplitude/ampli-examples).
+!!!info "SDK Resources"
+    - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
+    - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
+
+--8<-- "includes/ampli-vs-amplitude.md"
 
 ## Installation
 

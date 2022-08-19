@@ -4,16 +4,22 @@ description: The Amplitude JavaScript SDK installation and quick start guide.
 icon: material/language-javascript
 ---
 
+
+[![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js)
+
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
+!!!attention "Legacy SDK"
+    This SDK is legacy and only continue to receive bug fixes until deprecated. Checkout and upgrade to the [TypeScript Browser SDK](../typescript-browser) which supports plugins and more.
+
 !!!info "SDK Resources"
-    [:material-book: API Reference](https://amplitude.github.io/Amplitude-JavaScript/) · [:material-github: GitHub](https://github.com/amplitude/Amplitude-JavaScript) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Javascript/releases)
+    - [JavaScript Browser SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
+    - [JavaScript Browser SDK Repository :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
+    - [JavaScript Browser SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
 ## Install
-
-[![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js)
 
 Install the Amplitude Analytics JavaScript SDK in your project.
 
