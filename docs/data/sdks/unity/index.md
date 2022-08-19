@@ -4,13 +4,18 @@ description: The Amplitude Unity SDK installation and quick start guide.
 icon: material/unity
 ---
 
+
+![Unity SDK](https://img.shields.io/github/v/tag/amplitude/unity-plugin?label=Unity%20SDK)
+
 The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher.
 
 !!!info "SDK Resources"
     - [Unity SDK Repository :material-github:](https://github.com/amplitude/unity-plugin)
     - [Unity SDK Releases :material-code-tags-check:](https://github.com/amplitude/unity-plugin/releases)
 
-!!!note
+--8<-- "includes/no-ampli.md"
+
+!!!tip "Supported Platforms"
 
     Unity SDK does not support pure desktop or Editor
 
@@ -116,7 +121,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ## EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](../dynamic-configuration.md) as well.
+ The server zone configuration supports [dynamic configuration](data/dynamic-configuration/) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 

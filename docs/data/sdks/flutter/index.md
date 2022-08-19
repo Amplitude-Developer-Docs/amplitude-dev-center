@@ -9,11 +9,11 @@ icon: flutter
 This is the official documentation for the Amplitude Analytics Flutter SDK.
 
 !!!info "SDK Resources"
-    - [Android SDK Reference :material-book:](https://pub.dev/documentation/amplitude_flutter/latest/)
-    - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Flutter)
-    - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Flutter/releases)
+    - [Flutter SDK Reference :material-book:](https://pub.dev/documentation/amplitude_flutter/latest/)
+    - [Flutter SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Flutter)
+    - [Flutter SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Flutter/releases)
 
---8<-- "includes/ampli-vs-amplitude.md"
+--8<-- "includes/no-ampli.md"
 
 ## Installation
 
@@ -351,7 +351,7 @@ Amplitude.getInstance().setOptOut(false);
 
 ### Dynamic configuration
 
-Flutter SDK lets users configure their apps to use [dynamic configuration](../dynamic-configuration.md). This feature will find the best server URL automatically based on app users' location.
+Flutter SDK lets users configure their apps to use [dynamic configuration](data/dynamic-configuration/). This feature will find the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.

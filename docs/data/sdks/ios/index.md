@@ -3,16 +3,20 @@ title: iOS SDK
 description: The Amplitude iOS SDK installation and quick start guide. 
 icon: material/apple-ios
 ---
+
+
+![CocoaPods](https://img.shields.io/cocoapods/v/Amplitude)
+
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
 !!!info "SDK Resources"
-    [iOS SDK Reference :material-book:](http://amplitude.github.io/Amplitude-iOS/) · [iOS SDK Repository :material-github:](https://github.com/amplitude/Amplitude-iOS) · [iOS SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-iOS/releases)
+    - [iOS SDK Reference :material-book:](http://amplitude.github.io/Amplitude-iOS/)
+    - [iOS SDK Repository :material-github:](https://github.com/amplitude/Amplitude-iOS)
+    - [iOS SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-iOS/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
 ## Install 
-
-![CocoaPods](https://img.shields.io/cocoapods/v/Amplitude)
 
 Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
 

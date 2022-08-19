@@ -107,7 +107,7 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
 ???amplitude "Amplitude Integration"
 
-    **This SDK only integrates with the [next generation Amplitude Analytics React Native SDK](../../data/sdks/react-native-sdk.md).**
+    **This SDK only integrates with the [next generation Amplitude Analytics React Native SDK](../../data/sdks/typescript-react-native/).**
 
     The Amplitude Experiment SDK is set up to integrate seamlessly with the Amplitude Analytics SDK. All you need to do is update your SDK versions to the latest, and use the special integration initialization function.
 

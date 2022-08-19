@@ -9,7 +9,7 @@ search:
 <!-- markdownlint-disable -->
 
 !!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [iOS SDK (Ampli)](/data/sdks/ios-ampli).
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [iOS SDK (Ampli)](/data/sdks/ios/ampli/).
 
 
 Amplitude Data supports tracking analytics events from iOS apps written in Swift and Objective-C.
