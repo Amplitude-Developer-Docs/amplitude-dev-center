@@ -34,7 +34,7 @@ yarn add @amplitude/react-native@latest
 ### iOS installation
 
 ```bash
-cd /ios && pod install
+cd ios && pod install
 ```
 
 ## Usage and examples
