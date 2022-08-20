@@ -252,7 +252,7 @@ The SDK client can be configured on initialization.
 
 ### Start
 
-Start the local evaluation client, pre-fetching local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
+Start the local evaluation client, pre-fetching local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration_1) interval.
 
 ```python
 start()
