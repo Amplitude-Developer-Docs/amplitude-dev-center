@@ -50,7 +50,7 @@ Install the Ruby Server SDK with bundler or gem directly.
     require 'amplitude-experiment'
 
     # (1) Initialize the experiment client
-    experiment = AmplitudeExperiment.init_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::RemoteEvaluationConfig.new)
+    experiment = AmplitudeExperiment.initialize_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::RemoteEvaluationConfig.new)
 
     # (2) Fetch variants for a user
     user = AmplitudeExperiment::User.new(
@@ -78,7 +78,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
 
 ```ruby
-init_remote(apiKey, config = nil) : Client
+initialize_remote(apiKey, config = nil) : Client
 ```
 
 | Parameter | Requirement | Description |
@@ -89,7 +89,7 @@ init_remote(apiKey, config = nil) : Client
 !!!info "Timeout & Retry Configuration"
      Please configure the timeout and retry options to best fit your performance requirements.
     ```ruby
-    experiment = AmplitudeExperiment.init_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::RemoteEvaluationConfig.new)
+    experiment = AmplitudeExperiment.initialize_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::RemoteEvaluationConfig.new)
     ```
 
 #### Configuration
@@ -224,7 +224,7 @@ Install the Ruby Server SDK with bundler or gem directly.
     require 'amplitude-experiment'
 
     # (1) Initialize the local evaluation client with a server deployment key.
-    experiment = AmplitudeExperiment.init_local('<DEPLOYMENT_KEY>', AmplitudeExperiment::LocalEvaluationConfig.new)
+    experiment = AmplitudeExperiment.initialize_local('<DEPLOYMENT_KEY>', AmplitudeExperiment::LocalEvaluationConfig.new)
 
     # (2) Start the local evaluation
     experiment.start
@@ -256,7 +256,7 @@ Initializes a [local evaluation](../general/evaluation/local-evaluation.md) clie
     You must [initialize](#initialize_1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
 
 ```ruby
-AmplitudeExperiment.init_local(api_key)
+AmplitudeExperiment.initialize_local(api_key)
 ```
 
 | Parameter | Requirement | Description |
