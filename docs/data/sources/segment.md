@@ -132,7 +132,7 @@ For more information, see the [Segment documentation.](https://segment.com/docs
 
 ## Export cohorts to Segment
 
-Amplitude Recommend lets you automatically send behavioral audiences to ad networks, marketing automation tools, and personalization engines so you can better tailor campaigns and product experiences.
+Amplitude Audiences lets you automatically send behavioral audiences to ad networks, marketing automation tools, and personalization engines so you can better tailor campaigns and product experiences.
 
 See [Send Cohorts to Segment](/data/destinations/segment-cohort) for more information.
 

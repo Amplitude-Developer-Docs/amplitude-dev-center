@@ -5,9 +5,9 @@ description: The User Profile API serves Amplitude User Profiles, which includes
 
 The User Profile API serves Amplitude user profiles, which include user properties, computed user properties, a list of cohort IDs of cohorts that the user is in, and recommendations.
 
-!!!note "Some features require Amplitude Recommend"
+!!!note "Some features require Amplitude Audiences"
 
-    To get cohort IDs or recommendation IDs, you must have a plan with Recommend. 
+    To get cohort IDs or recommendation IDs, you must have a plan with Audiences. 
 
 --8<-- "includes/postman.md"
 
@@ -67,7 +67,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
 Retrieve a single recommendation by ID.
 
@@ -121,7 +121,7 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
 Retrieves multiple recommendations for a user.
 
@@ -238,7 +238,7 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
 Computations convert events into a new user property you can use to segment your users.
 
@@ -275,9 +275,9 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
-Retrieves a single computation by ID. Find the computation ID by navigating to the computation in the Recommend web app and copying the ID at the end of the URL. The ID is bold in this example:
+Retrieves a single computation by ID. Find the computation ID by navigating to the computation in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example:
 
 <recommend.amplitude.com/org/00000/computations/**t14bqib**>
 
@@ -309,9 +309,9 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
-When you create a prediction in Amplitude Recommend, you can sync the prediction score to the Profile API. A prediction propensity is the probability that a user will perform a predicted action.
+When you create a prediction in Amplitude Audiences, you can sync the prediction score to the Profile API. A prediction propensity is the probability that a user will perform a predicted action.
 
 To fetch a user's prediction propensity, send a request that includes a `prediction_id` and `propensity_type`. The propensity type can be either the raw score or a percentile.
 
@@ -319,7 +319,7 @@ Percentile is useful to understand users in comparison to each other. For exampl
 
 Score is the raw propensity score.
 
-Find the `prediction_id` by navigating to the prediction in the Recommend web app and copying the ID at the end of the URL. The ID is bold in this example:
+Find the `prediction_id` by navigating to the prediction in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example:
 
 recommend.amplitude.com/0000/predictions/**0x10x**
 

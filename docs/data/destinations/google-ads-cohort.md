@@ -14,7 +14,7 @@ Send Amplitude cohorts to Google Ads to create audiences for more personalized c
 ## Considerations
 
 - This integration is available for Growth and Enterprise customers
-- You should have an understanding of [Amplitude Recommend](https://help.amplitude.com/hc/en-us/articles/360028552471-Amplitude-Engage) and [Behavioral Cohorts](https://help.amplitude.com/hc/en-us/articles/231881448) before setting up this integration.
+- You should have an understanding of [Amplitude Audiences](https://help.amplitude.com/hc/en-us/articles/360028552471-Amplitude-Engage) and [Behavioral Cohorts](https://help.amplitude.com/hc/en-us/articles/231881448) before setting up this integration.
 - You need a Google Ads Manager account.
 - You should already have identified an Amplitude user property that matches what you're using for your user ID field in Google Ads.
 - The integration is enabled on a per-project basis. 
