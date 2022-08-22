@@ -240,6 +240,8 @@ nav:
         - data/sdks/unity/index.md
       - Unreal: 
         - data/sdks/unreal/index.md
+      - GO:
+        - data/sdks/go/index.md
       - Legacy:
         - Browser:
           - data/sdks/javascript/index.md
