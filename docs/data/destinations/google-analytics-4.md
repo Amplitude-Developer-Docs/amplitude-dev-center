@@ -5,8 +5,6 @@ description: Amplitude Data's Google Analytics 4 integration lets you stream you
 
 Amplitude Data's Google Analytics 4 (GA4) integration lets you stream your Amplitude event data straight to Google Analytics with just a few clicks.
 
---8<-- "includes/closed-beta.md"
-
 ## Considerations
 
 Keep these things in mind when sending Amplitude data to GA4. 
