@@ -338,6 +338,8 @@ func (plugin *addEventIDPlugin) Execute(event *amplitude.Event) *amplitude.Event
 func main() {
 	config := amplitude.NewConfig("your-api-key")
 	client := amplitude.NewClient(config)
+	defer client.Shutdown()
+
 	client.Add(&addEventIDPlugin{})
 }
 
@@ -393,14 +395,16 @@ func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 	response, err := plugin.httpClient.Do(request)
 	if err != nil {
 		plugin.config.Logger.Error("HTTP request failed", err)
+	} else {
+		defer response.Body.Close()
 	}
-
-	defer response.Body.Close()
 }
 
 func main() {
 	config := amplitude.NewConfig("your-api-key")
 	client := amplitude.NewClient(config)
+	defer client.Shutdown()
+
 	client.Add(&myDestinationPlugin{
 		// Change it to your target server URL
 		url: "https://custom.domain.com",
