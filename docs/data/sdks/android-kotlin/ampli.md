@@ -4,7 +4,7 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 ---
 
 !!!note
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.
+    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/android/)**.
 
 Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
