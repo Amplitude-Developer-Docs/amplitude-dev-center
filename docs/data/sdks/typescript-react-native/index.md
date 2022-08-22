@@ -14,6 +14,7 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
     - [React Native SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-TypeScript/releases)
 
 --8<-- "includes/no-ampli.md"
+    To use Ampli see the [non-Beta SDK](/data/sdks/react-native/) and [Ampli Wrapper](/data/sdks/react-native/ampli/) instead.
 
 ## Getting Started
 
