@@ -180,7 +180,8 @@ nav:
       - experiment/guides/getting-started/track-exposure.md
     - experiment/guides/server-side-rendering.md
     - experiment/guides/create-local-evaluation-flag.md
-    - experiment/guides/debugging-sample-ratio-mismatch.md
+    - Troubleshooting:
+      - experiment/guides/debugging-sample-ratio-mismatch.md
   - SDKs:
     - JavaScript SDK: experiment/sdks/javascript-sdk.md
     - Android SDK: experiment/sdks/android-sdk.md
