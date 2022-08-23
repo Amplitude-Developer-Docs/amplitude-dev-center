@@ -176,6 +176,7 @@ nav:
       - Local Evaluation: experiment/general/evaluation/local-evaluation.md
     - experiment/general/performance-and-caching.md
     - experiment/general/exposure-tracking.md
+    - experiment/general/experiment-duration-estimate.md
   - Guides:
     - Getting Started:
       - experiment/guides/getting-started/create-a-deployment.md
