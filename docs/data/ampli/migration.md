@@ -7,7 +7,7 @@ If you already have analytics implemented in your product and want to migrate, A
 
 ## Considerations
 
-- The `context` parameter isn't supported in Ampli. This was originally based on per Source Templates which is a feature that is eprecated. To add additional data on each event you can do so by creating a Middleware like below that will set "contextProp=true" on all events.
+- The `context` parameter isn't supported in Ampli. This was originally based on per Source Templates which is a feature that is deprecated. To add additional data on each event you can do so by creating a Middleware like below that will set "contextProp=true" on all events.
 
     ```js
     export const contextMiddleware:Middleware = (payload, next) => {
@@ -27,12 +27,10 @@ analytics.track('Song Uploaded',{
 });
 ```
 
-After you import your tracking plan into Amplitude Data, this event becomes:
+After you import your tracking plan into Amplitude Data, this event becomes the following, with all the benefits of type-safety, linting, and data validation to make sure that your analytics are accurate and trustworthy.
 
 ```ts
 ampli.songUploaded({
   device: 'iOS'
 });
 ```
-
-With all the benefits of type-safety, linting, and data validation to make sure that your analytics are accurate and trustworthy.
