@@ -116,6 +116,9 @@ extra:
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
   getting_started_guide: https://docs.developers.amplitude.com/getting-started
   more_resources: all-resources
+  status:
+    new: Recently added
+    deprecated: Deprecated
   analytics:
     provider: amplitude
   consent:
