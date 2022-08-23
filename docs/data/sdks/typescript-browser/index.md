@@ -643,9 +643,9 @@ In addition to first-touch attribution, Amplitude captures the attribution data 
 - `gclid`
 - `fbclid`
 
-Using the default configuration, these are tracked at the start of each session. This means when user navigates back to the page through a campaign but with the previous session still valid, the recent campaign is not be tracked. 
+Using the default configuration, these are tracked at the start of each session. This means when a user navigates back to the page through a campaign while the previous session is still valid, the newer campaign is not tracked. 
 
-If one prefers to track new campaigns mid-session, Amplitude can be configured to capture new campaigns, regardless of the state of the user session. This effectively expires the previous session and creates a new session but only if new attribution data is found. If the same attribution data is found, then no attribution data is tracked and default session expiration policy is applied. This can be done by setting `attribution.trackNewCampaigns` to `true`. By default this is set to `false`.
+If one prefers to track new campaigns mid-session, Amplitude can be configured to capture new campaigns, regardless of the state of the user session. This effectively expires the previous session and creates a new session, but only if new attribution data is found. If the same attribution data is found, then no attribution data is tracked and default session expiration policy is applied. This can be done by setting `attribution.trackNewCampaigns` to `true`. By default this is set to `false`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -669,7 +669,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 #### Disabling Attribution Tracking
 
-Amplitude can be configured to opt out of automatic collection of attribution data. This can be done by setting `attirubtion.disabled` to `true`. By default this is set to `false`.
+Amplitude can be configured to opt out of automatic collection of attribution data. This can be done by setting `attribution.disabled` to `true`. By default this is set to `false`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
