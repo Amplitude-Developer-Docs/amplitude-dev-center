@@ -47,6 +47,8 @@
       "pattern": "^../",
       "replacement": "https://docs.developers.amplitude.com/"
     }
-  ]
+  ],
+
+  "aliveStatusCodes": [200, 206, 403]
 
 }
