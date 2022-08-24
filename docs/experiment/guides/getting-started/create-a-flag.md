@@ -15,9 +15,9 @@ To create a [flag](../../general/data-model.md#flags-and-experiments), first nav
 
 ### Add a deployment
 
-Once you've created the flag, you'll need to add a [deployment](../../general/data-model.md#deployments). To add a deployment, click the selection drop down in the upper right corner of the screen and select the deployment you created previously.
+Once you've created the flag, you'll need to add a [deployment](../../general/data-model.md#deployments). Add one or more deployments using the Settings card on the Configure page.
 
-<!-- TODO: Add image of adding a deployment -->
+![Screenshot of settings card with deployments](../../../assets/images/experiment/create-flag-1.png)
 
 !!!tip "Multiple Deployments"
     You may select multiple deployments in the dropdown if you want to target multiple deployments. E.g. if you are running an experiment on both your iOS and Android apps, you should create separate deployments for each and select both in the multi-deployment experiment.
@@ -28,14 +28,16 @@ After you have created your flag, you are ready to define its [variants](../../g
 
 !!!info "Your flag must have at least one variant."
 
+![Screenshot of variants in configure tab](../../../assets/images/experiment/create-flag-2.png)
+
 ### Configure targeting rules
 
-Your flag will not target any users by default. To target users, navigate to the "Targeting" tab and set the **Percentage Rollout** to 100%. Now all evaluated users will be assigned the "on" variant for this feature flag.
+Your flag will not target any users by default. To target users, set the **Percentage Rollout** to 100%. Now all evaluated users will be assigned the "on" variant for this feature flag.
 
-<!-- TODO: Add Image -->
+![Screenshot of allocation card with percentage rollout](../../../assets/images/experiment/create-flag-3.png)
 
 ### Activate the flag
 
 Once you're done configuring your flag, activate the flag using the toggle in the upper right corner and follow the instructions in the activation modal.
 
-<!-- TODO: Add Image -->
+![Screenshot of top navigation bar with active toggle](../../../assets/images/experiment/create-flag-4.png)
