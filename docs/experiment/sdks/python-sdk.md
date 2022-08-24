@@ -34,7 +34,6 @@ Install the Python Server SDK with pip.
     pip install amplitude-experiment
     ```
 
-
 !!!tip "Quick Start"
 
     1. [Initialize the experiment client](#initialize)
@@ -101,8 +100,6 @@ The SDK client can be configured on initialization.
     | `fetch_retry_backoff_scalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetch_retry_timeout_millis` | The request timeout for retrying variant fetches. | `10000` |
 
-
-
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -140,6 +137,7 @@ if variant:
 ### Fetch Async
 
 The fetch method is synchronous. To fetch asynchronously, you can use `fetch_async` method
+
 ```python
 fetch_async(user: User, callback)
 ```
@@ -193,7 +191,6 @@ Install the Python Server SDK with pip.
     ```bash
     pip install amplitude-experiment
     ```
-
 
 !!!tip "Quick Start"
 

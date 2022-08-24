@@ -14,7 +14,7 @@ This article helps guide you through the process of ingesting Adobe data into Am
 - This feature is available to customers on the [Enterprise, Growth, and Scholarship](https://amplitude.com/pricing) plans.
 - We suggest reading this [blog post on how Adobe and Amplitude work together](https://amplitude.com/blog/adobe-customers-can-see-user-behavior-with-amplitude). You may also want to go over our [Data Taxonomy Playbook](https://help.amplitude.com/hc/en-us/articles/115000465251-Data-Taxonomy-Playbook) before getting started.
 - Amplitude maps Adobe data like this: 
-    -  For `event_type,` Amplitude looks up the events in the Adobe event list and compares it to a lookup table where the event names are defined.
+    - For `event_type,` Amplitude looks up the events in the Adobe event list and compares it to a lookup table where the event names are defined.
     - `user_id:` Amplitude uses `postvisidhigh` or, if that's not available, `postvisidlow`.
     - `device_id`: Amplitude uses `custvisid`.
     - User properties aren't synced in this integration. 
@@ -35,6 +35,5 @@ To integrate Amplitude with Adobe Analytics, follow these steps:
 5. When you're done, click *Save Source*. Then click *Finish*.
 
 You should now see Adobe Analytics in your list of data sources.
-
 
 To view the daily events uploaded chart, click on the Adobe Analytics data source.

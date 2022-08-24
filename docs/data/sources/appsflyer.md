@@ -17,7 +17,8 @@ This integration combines Amplitude's analytics with AppsFlyer's attribution too
 [AppsFlyer](https://www.appsflyer.com/) provides mobile advertising attribution and analytics, helping marketers to pinpoint their targeting optimize their ad spend and boost their ROI. Send your AppsFlyer data to Amplitude to see how your different acquisition sources are performing.
 
 ## Considerations
--  This AppsFlyer integration uses the [Amplitude Attribution API](../../analytics/apis/attribution-api.md) to send data to Amplitude. Make sure you understand how the Attribution API works before setting up this integration.
+
+- This AppsFlyer integration uses the [Amplitude Attribution API](../../analytics/apis/attribution-api.md) to send data to Amplitude. Make sure you understand how the Attribution API works before setting up this integration.
 - AppsFlyer uses the Attribution API, which means:
     - Attribution events are held for up to 72 hours for potential user matching. If a user didn't trigger an Amplitude event within 72 hours of the attribution event, the attribution data is dropped.
     - Attribution is matched to Amplitude users or events via the Advertising ID (IDFA/IDFV or ADID). Make sure you are sending this ID with your Amplitude events. [Android SDK](../../sdks/android) and [iOS SDK](../../sdks/ios) sends this data automatically. If you use [JavaScript SDK](../../sdks/javascript), you must send the Advertising ID using [HTTP API](../../../analytics/apis/http-v2-api).

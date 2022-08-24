@@ -9,7 +9,6 @@ description: With Amplitude's BigQuery integration, you can ingest BigQuery data
 
 With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project.
 
-
 !!!note "Other Amplitude + BigQuery Integrations"
 
     This integration imports BigQuery data into Amplitude. Amplitude offers another integration with BigQuery: 
@@ -77,9 +76,7 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `user_properties` | Yes | VARIANT (JSON Object) |
 | `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
 
-
 ## BigQuery SQL Helper
-
 
 ### Properties fields
 

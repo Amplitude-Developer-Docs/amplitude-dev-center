@@ -6,11 +6,13 @@ description: Amplitude’s app with Shopify is a smart analytics app that automa
 Amplitude’s app with Shopify is a smart analytics app that automates eCommerce tracking. With Amplitude’s app, you can automatically track and ingest key e-commerce events, event properties, and user properties on a Shopify or Shopify Plus store.
 
 ### Client-side (device mode) tracking
-During installation, the Amplitude Shopify App adds the code snippet to all pages (included in theme.liquid) on your Shopify store. The benefits of this approach include:
-- Amplitude’s JS SDK library is loaded on all pages, except for the checkout.
+
+During installation, the Amplitude Shopify App adds the code snippet to all pages (included in theme.liquid) on your Shopify store. The benefit of this approach is that Amplitude’s JS SDK library is loaded on all pages, except for the checkout.
 
 ### Server-side (cloud mode) tracking
+
 During the Amplitude connection setup, the app adds a set of webhooks to your Shopify store. When a customer interacts with your store these changes are relayed server-side from Shopify to Amplitude. The advantages to this approach are:
+
 - 100% event capture for adds to cart, checkout steps, sales.
 - Customer data (for example, email) securely relayed server-side.
 - No extra scripts on the sensitive and secure checkout pages.
@@ -18,6 +20,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - More reliable and trustworthy than client-side events because it represents final, concluded transactions and states within Shopify.
 
 ## Considerations
+
 - The Amplitude app is free to install.
 - You need an Amplitude Starter, Growth, or Enterprise plan to start sending data from your Shopify store.
 - The Shopify App was built to solve the general use cases for most Shopify stores. We've designed a generalized Out of the Box Taxonomy to include events and properties that most Shopify stores would be interested in tracking. 
@@ -29,6 +32,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - If you have more than one Shopify store, you can use the same project and API key all of them. Or, you can use a separate project for each store. If you use separate projects, and you want to analyze or generate a holistic view of how your users interact with your entire product portfolio, you will need to purchase Amplitude’s [Portfolio add-on](https://help.amplitude.com/hc/en-us/articles/360002750712-Portfolio-Conduct-cross-project-analysis-in-Amplitude).
 
 ## Key Limitations
+
 - Each Shopify store uses a particular theme to shape the online store experience for merchants and their customers. Currently Amplitude's Shopify App only installs this client-side snippet code to every existing theme in a store. If you add a new theme after app installation, the Amplitude code snippet isn't added to the new theme and certain client-side events aren't forwarded from Shopify to Amplitude. 
 - Amplitude's Shopify App code isn't open source, and Amplitude isn't able to support specific customer use cases, such as custom event properties.
 - User identity `User_ID` is limited to just email address and SHA-256. You can't customize or set your own identifier.
@@ -38,6 +42,7 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 - The app doesn't sales/return events.
 
 ## Events taxonomy
+
 See the entire tracking plan and event schema in [Google Sheets](https://docs.google.com/spreadsheets/d/13EZKuXbcnFUIgj721791Nx1LfvIincGndDDt1v7lpUs/edit#gid=95612975). You can see which events and properties are automatically sent by default by installing the Shopify App onto your store.
 
 |<div class="big-column">Event</div>| Description|
@@ -113,7 +118,7 @@ To do this perform the following steps:
 
 1. In your Shopify Admin portal, navigate to **Online Store > Themes > Actions > Edit Code**.
 2. Create an `amplitude-options.liquid` file in the Layout section.
-3.  Insert the following code template inside this file:
+3. Insert the following code template inside this file:
   
     ```json
     window.amplitudeShopify.customOptions = {
@@ -123,5 +128,3 @@ To do this perform the following steps:
 
 !!!note
     Any configurations defined here are passed onto the underlying JS SDK used by Amplitude's Shopify app (as this also overrides the default options you see in `theme.liquid`).
-
-

@@ -124,6 +124,7 @@ import { identify, Identify } from '@amplitude/analytics-browser';
 const identifyObj = new Identify();
 identify(identifyObj);
 ```
+
 ### Identify.set
 
 This method sets the value of a user property. For example, you can set a role property of a user.
@@ -400,7 +401,6 @@ By default, the SDK tracks these properties automatically. You can override this
 | `osVersion` | `true` |
 | `platform` | `true` |
 
-
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   trackingOptions: {
@@ -587,7 +587,7 @@ There are five different standard UTM parameters:
 
 Here is an example URL with UTM parameters:
 
-```
+```html
 https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=bannerlink
 ```
 

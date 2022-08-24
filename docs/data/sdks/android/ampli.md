@@ -150,7 +150,6 @@ For example your tracking plan contains a user property called `userProp`. The p
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
 
-
 === "Java"
 
     ```java
@@ -233,7 +232,6 @@ For example, in the code snippet below, your tracking plan contains an event cal
 
  The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](#middleware).
 
-
 === "Java"
 
     ```java
@@ -293,7 +291,7 @@ Send event objects using the generic track method.
     );
     ```
 
-##  Verify implementation status
+## Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
@@ -306,6 +304,7 @@ To update the implementation status in your tracking plan use the `--update` fla
 ```bash
 ampli status -u
 ```
+
 The output displays status and indicates what events are missing.
 
 ```bash
@@ -317,7 +316,6 @@ Events Tracked: 2 missed, 3 total
 ```
 
 Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
-
 
 ## Migrating from an Itly Android runtime
 

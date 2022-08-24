@@ -103,6 +103,7 @@ At this point, you can start calling `track` and `identify` to track users i
 2. In the file where you initialize the Segment SDK add:
     `import com.segment.analytics.android.integrations.amplitude.AmplitudeIntegration;`
 3. Register the Amplitude integration with Segment's SDK. When building the Analytics object, append `.use(AmplitudeIntegration.FACTORY)` before the `.build()`. It would look something like this:
+    
     ```java
     Analytics analytics = new Analytics.Builder(this,"KEY").use
     (AmplitudeIntegration.FACTORY).build();

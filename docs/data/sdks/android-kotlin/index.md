@@ -72,7 +72,6 @@ You can configure the server zone when initializing the client for sending data 
     )
     ```
 
-
 ## Usage
 
 ### `track`

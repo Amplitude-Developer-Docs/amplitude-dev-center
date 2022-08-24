@@ -30,4 +30,3 @@ To retrieve all schemas ever created in your tracking plan:
 ```bash
 curl 'https://data-api.amplitude.com/iglu/schemas/{vendor-name}/' --header 'apikey: {your-api-key}'
 ```
-

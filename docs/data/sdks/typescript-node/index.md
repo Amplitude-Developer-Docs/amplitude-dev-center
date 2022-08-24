@@ -116,6 +116,7 @@ identify(identifyObj, {
   user_id: 'user@amplitude.com',
 });
 ```
+
 ### Identify.set
 
 This method sets the value of a user property. For example, you can set a role property of a user.

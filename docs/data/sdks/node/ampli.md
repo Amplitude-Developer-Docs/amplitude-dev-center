@@ -318,7 +318,7 @@ Track Event objects using Ampli `track`:
 
     ```
 
-##  Verify implementation status
+## Verify implementation status
 
 Verify events are implemented in your code with the status command:
 

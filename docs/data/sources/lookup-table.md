@@ -21,8 +21,8 @@ To set up this integration, you need the following:
 1. Open or create the project where you want to import the CSV data, then click **Data Sources**.
 2. Click **I want to import data into Amplitude**, then click **CSV**.
 3. Upload the CSV then click **Next**.
-3. Map your event property.
-4. When you're done mapping, click **Finish**.
+4. . Map your event property.
+5. When you're done mapping, click **Finish**.
 
 ## Update a lookup table
 

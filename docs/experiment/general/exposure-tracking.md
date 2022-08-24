@@ -24,7 +24,6 @@ Client-side Experiment SDKs above a certain version support automatic exposure t
 | [:material-apple-ios: iOS SDK](../sdks/ios-sdk.md#integrations) | `1.6.0+` |
 | [:material-react: React Native](../sdks/react-native-sdk.md#integrations) | `0.6.0+` |
 
-
 ## Exposure event
 
 The exposure event has been designed to be simple and ergonomic enough to be sent through any analytics implementation or customer data platform without needing to manipulate user properties directly. When an **`$exposure`** event is ingested, the requisite user properties are automatically set or unset for 100% accuracy and confidence.
