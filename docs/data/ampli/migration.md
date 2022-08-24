@@ -1,6 +1,7 @@
 ---
 title: Migrate to Ampli
 description: If you already have analytics implemented in your product you can easily migrate.
+template: guide-last.html
 ---
 
 If you already have analytics implemented in your product and want to migrate, Amplitude makes it easy to switch from your existing Analytics provider.

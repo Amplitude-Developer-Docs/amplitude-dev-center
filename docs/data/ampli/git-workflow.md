@@ -1,6 +1,7 @@
 ---
 title: Use Ampli with Source Control
 description: Learn how to use branches in Ampli with source control systems like Git. 
+template: guide.html
 ---
 
 !!!info

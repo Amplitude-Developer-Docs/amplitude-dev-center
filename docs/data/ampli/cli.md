@@ -1,6 +1,7 @@
 ---
 title: Ampli CLI
 description: Ampli is Amplitude Data's command line app. It works hand-in-hand with the Amplitude Data web app and enables developers to quickly and correctly instrument tracking code in their apps.
+template: guide.html
 ---
 
 Ampli is Amplitude's command line app. It works hand-in-hand with the Amplitude Data web app and enables developers to quickly and correctly instrument tracking code in their apps.

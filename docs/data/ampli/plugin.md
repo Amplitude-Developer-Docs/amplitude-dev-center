@@ -1,6 +1,7 @@
 ---
 title: Plugin
 description: Use plugin to extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
+template: guide.html
 
 ---
 
