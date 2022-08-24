@@ -1,4 +1,5 @@
 {
+
 	"ignorePatterns": [
 	  {
 		"pattern": "^https://developer.android.com/reference/android/Manifest.permission"
@@ -37,26 +38,15 @@
 
 		"pattern": "https://badge.fury.io"
 
-		},
-
-		{
-		"pattern": "/analytics/apis/http-v2-api/"
-		},
-
-		{
-		"pattern": "/using-the-ampli-cli"
-		},
-
-		{
-		"pattern": "#keys-for-the-event-argument"
-		},
-
-		{
-		"pattern": "/analytics/dynamic-configuration"
-		},
-
-		{
-		"pattern": "/data/deprecated-sdks/ios"
 		}
-	]
+
+	],
+
+  "replacementPatterns": [
+    {
+      "pattern": "^../",
+      "replacement": "https://docs.developers.amplitude.com/"
+    }
+  ]
+
 }
