@@ -169,7 +169,6 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
     | --- | --- |
     | `2.36.0+` | `1.5.1+` |
 
-
 ???segment "Segment Integration"
 
     Experiment's integration with Segment Analytics is still a manual implementation at this point. Copy the exposure tracking provider implementation into your app code base and initialize the Experiment SDK with the provider instances in the configuration.
@@ -267,8 +266,6 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
         }
         ```
 
-
-
 #### Configuration
 
 The SDK client can be configured once on initialization.
@@ -350,7 +347,6 @@ If you're using an [integration](#integrations) or a custom [user provider](#use
 
     In the case of **user properties**, we recommend passing new user properties explicitly to `fetch()` instead of relying on user enrichment prior to [remote evaluation](../general/evaluation/remote-evaluation.md). This is because user properties that are synced remotely through a separate system have no timing guarantees with respect to `fetch()`--i.e. a race.
 
-
 !!!info "Timeout & Retries"
     If `fetch()` times out (default 10 seconds) or fails for any reason, the SDK client will return and retry in the background with back-off. You may configure the timeout or disable retries in the [configuration options](#configuration) when the SDK client is initialized.
 
@@ -394,7 +390,6 @@ When determining which variant a user has been bucketed into, you'll want to com
         // Flag is off
     }
     ```
-
 
 ???info "Accessing the variant's payload"
     A variant may also be configured with a dynamic [payload](../general/data-model.md#variants) of arbitrary data. Access the `payload` field from the variant object after checking the variant's `value`.

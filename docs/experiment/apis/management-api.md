@@ -88,7 +88,6 @@ GET https://management-api.experiment.amplitude.com/deployments/list
 
 Fetch a list of deployments that experiments can be assigned to.
 
-
 ### Query parameters
 
 |<div class="big-column">Name</div>|Description|
@@ -200,7 +199,6 @@ The `conditions` field contains these objects.
 #### `op`
 
 An string value representing operations on a property value. Possible values are: `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `glob match`, `glob does not match`
-
 
 ### Response
 

@@ -108,8 +108,6 @@ The SDK client can be configured on initialization.
     | `fetch_retry_backoff_scalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetch_retry_timeout_millis` | The request timeout for retrying variant fetches. | `10000` |
 
-
-
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -149,6 +147,7 @@ end
 ### Fetch Async
 
 The fetch method is synchronous. To fetch asynchronously, you can use `fetch_async` method
+
 ```ruby
 fetch_async(user: AmplitudeExperiment::User, &callback)
 ```

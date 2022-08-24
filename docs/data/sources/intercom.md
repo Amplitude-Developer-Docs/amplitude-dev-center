@@ -14,7 +14,6 @@ Sync Intercom event data to Amplitude so that you can better engage your users b
     - [Send Amplitude Cohorts to Intercom](/data/destinations/intercom-cohort)
     - [Send Amplitude Event Data to Intercom](/data/destinations/intercom)
 
-
 ## Considerations
 
 - You need both an Amplitude and an Intercom account.

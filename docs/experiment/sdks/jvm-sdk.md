@@ -386,7 +386,6 @@ Executes the [evaluation logic](../general/evaluation/implementation.md) using t
 | `user` | required | The [user](../general/data-model.md#users) to evaluate. |
 | `flagKeys` | optional | Specific flags or experiments to evaluate. If empty, all flags and experiments are evaluated. |
 
-
 === "Kotlin"
 
     ```kotlin

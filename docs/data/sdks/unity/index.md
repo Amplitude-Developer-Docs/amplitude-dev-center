@@ -485,8 +485,8 @@ These functions prompt the iOS user to accept or reject permissions for GPS loca
 Furthermore, your Unity app needs two special configurations.\
 For location, please navigate to `Unity > Edit > Project Settings...`. The menu in the first image below will pop up. Select `Player`, then click the `iOS` tab. Click `Other Settings`, and scroll until the field `Location Usage Description`. Type a sentence that prompts the user for GPS tracking permissions into the textbox.
 
-![](/assets/images/analytics-unity-player.png)
-![](/assets/images/analytics-unity-player-2.png)
+![screenshot of unity player](/assets/images/analytics-unity-player.png)
+![screenshot of unity player](/assets/images/analytics-unity-player-2.png)
 
 !!!note "Xcode Simulator"
 
@@ -496,7 +496,7 @@ For IDFA, the file `Info.plist` has to be edited according to Apple's specific
 
 Also, when the app is compiled into iOS and launches into xcode, find the top-level file `Info.plist`. Click the plus symbol next to any key value pair. Use the xcode editor to find the key `Privacy - Tracking Usage Description`, ensure the Type is String, and type a prompt to ask for tracking permission in the Value field.
 
-![](/assets/images/analytics-unity-value-field.png)
+![screenshot of the value field](/assets/images/analytics-unity-value-field.png)
 
 ## Report issues
 

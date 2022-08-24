@@ -42,7 +42,6 @@ If you haven't already, install the core Amplitude SDK dependencies.
 
     If you're not already requesting the [INTERNET permission](https://developer.android.com/reference/android/Manifest.permission#INTERNET), add `<uses-permission android:name="android.permission.INTERNET" />` to your AndroidManifest.xml.
 
-
 ### Pull the Wrapper into your project
 
 At the project root, run `pull` command.
@@ -150,11 +149,10 @@ For example your tracking plan contains a user property called `userProp`. The p
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
 
-
 === "Java"
 
     ```java
-	EventOptions eventOptions =  new EventOptions();
+ EventOptions eventOptions =  new EventOptions();
     eventOptions.setDeviceId("deviceId");
 
     Ampli.getInstance().identify(
@@ -167,7 +165,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 === "Kotlin"
 
     ```kotlin
-	var eventOptions = EventOptions();
+ var eventOptions = EventOptions();
     eventOptions.deviceId = "device-id";
 
     ampli.identify(
@@ -188,7 +186,6 @@ Just as Ampli creates types for events and their properties, it creates types fo
 The `groupIdentify()` function accepts a string group_type, a string group_name, an Group event instance, and an optional EventOptions.
 
 For example your tracking plan contains a group `test group:android-java-ampli` has a property called `requiredBoolean` with a boolean type.
-
 
 === "Java"
 
@@ -260,7 +257,6 @@ To track an event, call the event's corresponding function. Every event in your 
 The `options` argument allows you to pass [Amplitude fields](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/#properties-1), like `deviceID`.
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
-
 
 === "Java"
 
@@ -337,54 +333,54 @@ First you need to define your plugin. Destination Plugin example:
 
     ```java
     public class SegmentDestinationPlugin extends DestinationPlugin {
-    	android.content.Context context;
-    	Analytics analytics;
-    	String SEGMENT_API_KEY;
-    	public SegmentDestinationPlugin(android.content.Context appContext, String segmentAPIKey) {
-        	this.context = appContext;
-        	this.SEGMENT_WRITE_KEY = segmentWriteKey;
-    	}
-    	@Override
-     	public void setup(Amplitude amplitude) {
-        	super.setup(amplitude);
-        	analytics = new Analytics.Builder(this.context, SEGMENT_API_KEY)
+     android.content.Context context;
+     Analytics analytics;
+     String SEGMENT_API_KEY;
+     public SegmentDestinationPlugin(android.content.Context appContext, String segmentAPIKey) {
+         this.context = appContext;
+         this.SEGMENT_WRITE_KEY = segmentWriteKey;
+     }
+     @Override
+      public void setup(Amplitude amplitude) {
+         super.setup(amplitude);
+         analytics = new Analytics.Builder(this.context, SEGMENT_API_KEY)
                 .build();
 
-       	 	Analytics.setSingletonInstance(analytics);
-    	}
+          Analytics.setSingletonInstance(analytics);
+     }
 
-    	@Override
-    	public BaseEvent track(BaseEvent event) {
-        	Properties properties = new Properties();
-        	for (Map.Entry<String,Object> entry : event.getEventProperties().entrySet()) {
-            	properties.putValue(entry.getKey(),entry.getValue());
-        	}
-        	analytics.track(event.eventType, properties);
-        	return event;
-    	}
-	}
+     @Override
+     public BaseEvent track(BaseEvent event) {
+         Properties properties = new Properties();
+         for (Map.Entry<String,Object> entry : event.getEventProperties().entrySet()) {
+             properties.putValue(entry.getKey(),entry.getValue());
+         }
+         analytics.track(event.eventType, properties);
+         return event;
+     }
+ }
     ```
 
 === "Kotlin"
 
     ```kotlin
     class SegmentDestinationPlugin(appContext: Context, segmentApiKey: String) : DestinationPlugin() {
-    	var analytics: Analytics? = null;
-    	val context: Context = appContext;
-    	init {
-        	analytics = Analytics.Builder(appContext, segmentApiKey).build()
-    	}
+     var analytics: Analytics? = null;
+     val context: Context = appContext;
+     init {
+         analytics = Analytics.Builder(appContext, segmentApiKey).build()
+     }
 
-    	override fun track(event: BaseEvent): BaseEvent {
-        	val eventProperties =  Properties();
-        	event.eventProperties?.forEach { entry -> entry.value?.let {
-            	eventProperties.put(entry.key,
+     override fun track(event: BaseEvent): BaseEvent {
+         val eventProperties =  Properties();
+         event.eventProperties?.forEach { entry -> entry.value?.let {
+             eventProperties.put(entry.key,
                 it)
-        	} }
+         } }
 
-        	analytics?.track(event.eventType, eventProperties);
-        	return event
-    	}
+         analytics?.track(event.eventType, eventProperties);
+         return event
+     }
     }
     ```
 
@@ -393,9 +389,9 @@ Add your plugin after init Ampli.
 === "Java"
 
     ```java
-	Ampli.getInstance().getClient().add(
-		new YourDestinationPlugin(this, DESTINATION_API_KEY)
-	);
+ Ampli.getInstance().getClient().add(
+  new YourDestinationPlugin(this, DESTINATION_API_KEY)
+ );
 
     ```
 
@@ -403,11 +399,11 @@ Add your plugin after init Ampli.
 
     ```kotlin
     ampli.client?.add(
-		YourDestinationPlugin(this, DESTINATION_API_KEY)
-	)
+  YourDestinationPlugin(this, DESTINATION_API_KEY)
+ )
     ```
 
-##  Verify implementation status
+## Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
@@ -420,6 +416,7 @@ To update the implementation status in your tracking plan use the `--update` fla
 ```bash
 ampli status -u
 ```
+
 The output displays status and indicates what events are missing.
 
 ```bash
@@ -431,7 +428,6 @@ Events Tracked: 1 missed, 2 total
 ```
 
 Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
-
 
 ## Migrating from an Itly Android runtime
 

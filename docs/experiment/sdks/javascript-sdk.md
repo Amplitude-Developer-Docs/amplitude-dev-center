@@ -109,7 +109,6 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
     | --- | --- |
     | `8.18.1+` | `1.4.1+` |
 
-
 ???segment "Segment Integration"
 
     Experiment's integration with Segment Analytics is still a manual implementation at this point. Copy the exposure tracking provider implementation into your app code base and initialize the Experiment SDK with the provider instances in the configuration.

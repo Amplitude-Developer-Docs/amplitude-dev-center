@@ -63,11 +63,11 @@ Client-side SDKs work in a single-user context; server-side SDKs work in a multi
 --8<-- "includes/experiment-server-sdks.md"
 
 ## REST APIs
+
 | API | Description |
 | --- | --- |
 | [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
 | [Management API (Beta)](https://developers.experiment.amplitude.com/reference/management-api) | Manage or list flags and experiments within your organization. |
-
 
 ## System overview
 

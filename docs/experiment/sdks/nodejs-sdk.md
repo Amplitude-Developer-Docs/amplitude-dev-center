@@ -113,8 +113,6 @@ The SDK client can be configured on initialization.
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetchRetryTimeoutMillis` | The request timeout for retrying variant fetches. | `10000` |
 
-
-
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.

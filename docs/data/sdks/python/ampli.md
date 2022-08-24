@@ -207,7 +207,7 @@ Add your plugin after init Ampli:
 ampli.client.add(SegmentPlugin("write_key"))
 ```
 
-##  Verify implementation status
+## Verify implementation status
 
 Verify events are implemented in your code with the status command:
 

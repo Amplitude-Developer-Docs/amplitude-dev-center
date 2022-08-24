@@ -37,7 +37,7 @@ This is Amplitude's recommendation for backfilling large amounts of data:
 1. Break up the set of events into mini non-overlapping sets (for example, partition by `device_id`).
 2. Have one worker per set of events executing these steps:
     1. Read a large number of events from your system.
-    2.  Partition those events into requests based on `device_id` or `user_id`.
+    2. Partition those events into requests based on `device_id` or `user_id`.
     3. Send your requests concurrently/in parallel to Amplitude.
 
 To optimize this process further, add aggressive retry logic with high timeouts. Continue to retry until you receive a 200 response. If you send an `insert_id`, 
@@ -141,7 +141,6 @@ When `"$skip_user_properties_sync": true` is included, Amplitude ignores the use
       ]
     ```
     Any new event still has `"city":"New York"`, but this event displays `"city":"San Francisco"`.
-
 
 ### Timing
 

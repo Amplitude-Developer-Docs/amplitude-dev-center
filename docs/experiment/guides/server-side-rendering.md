@@ -31,7 +31,6 @@ Install both the JavaScript Server SDK and JavaScript Client SDKs.
 
 On server startup, you should run initialize the Server SDK. To distinguish from the Client SDK `Experiment` object, we have aliased the `Experiment` object from the Server SDK as `ExperimentServer` here.
 
-
 ```js
 let ExperimentServer;
 if (typeof window === 'undefined') {
