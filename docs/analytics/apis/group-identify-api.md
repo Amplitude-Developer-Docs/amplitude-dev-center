@@ -11,7 +11,7 @@ The Amplitude [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/auth-api-key.md"
+--8<-- "includes/auth-api-key-query-param.md"
 
 ## Endpoints
 
