@@ -215,6 +215,34 @@ If the user property does not have a value set yet, it will be initialized to an
     Amplitude.getInstance().identify(identify);
     ```
 
+#### `preInsert`
+
+`preInsert` insert a value or values to a user property, if it does not exist in the user property yet.
+Pre-insert means inserting the value(s) at the beginning of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+
+=== "TypeScript"
+
+    ```ts
+    const array = ["some_string", 56];
+    const identify = new Identify();
+    identify.preInsert("ab-tests", "new-user-test")
+    Amplitude.getInstance().identify(identify);
+    ```
+
+#### `postInsert`
+
+`postInsert` insert a value or values to a user property, if it does not exist in the user property yet.
+Post-insert means inserting the value(s) at the end of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+
+=== "TypeScript"
+
+    ```ts
+    const array = ["some_string", 56];
+    const identify = new Identify();
+    identify.postInsert("ab-tests", "new-user-test")
+    Amplitude.getInstance().identify(identify);
+    ```
+
 #### Removing user properties
 
 ##### Clearing all user properties
