@@ -1,6 +1,7 @@
 ---
 title: Validate in CI
 description: Use Amplitude Data with your continuous integration (CI) workflow. 
+template: guide.html
 ---
 
 Amplitude Data works best when integrated into your continuous integration (CI) workflow, running continuously alongside your test suite. We integrate with all common CI providers and can be configured for custom environments.
