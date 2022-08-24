@@ -7,7 +7,7 @@
 		"pattern": "https://help.amplitude.com/hc"
 	  },
 	  {
-		"pattern": "^https://api2.amplitude"
+		"pattern": "^https://api2.amplitude.com"
 	  },
 	  {
 		"pattern": "^https://api."
