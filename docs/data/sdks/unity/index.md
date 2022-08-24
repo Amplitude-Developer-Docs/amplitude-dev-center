@@ -121,7 +121,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ## EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](/data/dynamic-configuration/) as well.
+ The server zone configuration supports [dynamic configuration](../dynamic-configuration/) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 
@@ -417,7 +417,7 @@ client.setOptOut(true); //No events will be tracked for this user
 
 ### Dynamic configuration
 
-Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
+Unity SDK allows users to configure their apps to use [dynamic configuration](/data/dynamic-configuration). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.
@@ -485,18 +485,18 @@ These functions prompt the iOS user to accept or reject permissions for GPS loca
 Furthermore, your Unity app needs two special configurations.\
 For location, please navigate to `Unity > Edit > Project Settings...`. The menu in the first image below will pop up. Select `Player`, then click the `iOS` tab. Click `Other Settings`, and scroll until the field `Location Usage Description`. Type a sentence that prompts the user for GPS tracking permissions into the textbox.
 
-![](../../assets/images/analytics-unity-player.png)
-![](../../assets/images/analytics-unity-player-2.png)
+![](/assets/images/analytics-unity-player.png)
+![](/assets/images/analytics-unity-player-2.png)
 
 !!!note "Xcode Simulator"
 
-   IDFA tracking permissions can generally only be tested reliably on real life phones.
+    IDFA tracking permissions can generally only be tested reliably on real life phones.
 
 For IDFA, the file `Info.plist` has to be edited according to Apple's specifications. This can be done with a Unity script with [guidance from this Unity post](https://forum.unity.com/threads/how-can-you-add-items-to-the-xcode-project-targets-info-plist-using-the-xcodeapi.330574/).
 
 Also, when the app is compiled into iOS and launches into xcode, find the top-level file `Info.plist`. Click the plus symbol next to any key value pair. Use the xcode editor to find the key `Privacy - Tracking Usage Description`, ensure the Type is String, and type a prompt to ask for tracking permission in the Value field.
 
-![](../../assets/images/analytics-unity-value-field.png)
+![](/assets/images/analytics-unity-value-field.png)
 
 ## Report issues
 
