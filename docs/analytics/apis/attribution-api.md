@@ -7,7 +7,7 @@ The Attribution API is for sending attribution campaign events (identified by `
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/auth-api-key.md"
+--8<-- "includes/auth-api-key-query-param.md"
 
 ## Endpoints
 

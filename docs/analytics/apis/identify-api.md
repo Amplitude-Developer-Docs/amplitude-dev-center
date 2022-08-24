@@ -7,7 +7,7 @@ Use the Identify API to set the User ID for a particular Device ID or update use
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/auth-api-key.md"
+--8<-- "includes/auth-api-key-query-param.md"
 
 ## Endpoints
 
