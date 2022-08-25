@@ -38,7 +38,15 @@
 
 		"pattern": "https://badge.fury.io"
 
-		}
+		},
+
+    {
+    "pattern": "#initialize_1"
+    },
+
+    {
+    "pattern": "#configuration_1"
+    }
 
 	],
 

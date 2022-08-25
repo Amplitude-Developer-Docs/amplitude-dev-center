@@ -11,4 +11,4 @@ Welcome to Amplitude Partner documentation. Building an integration with Amplitu
 
 |Documentation|Description|
 |---|-----------|
-|[Receiving Behavioral Cohorts](sending-cohorts/)| Create and update lists of users or user properties. |
+|[Receiving Behavioral Cohorts](../partners/sending-cohorts)| Create and update lists of users or user properties. |
