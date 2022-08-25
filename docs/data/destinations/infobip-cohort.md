@@ -3,7 +3,7 @@ title: Send Cohorts to Infobip
 description: Integrate Amplitude and Infobip to send targeted messages to Amplitude cohorts.
 ---
 
-[Infobip](https://www.linkedin.com/company/infobip/) is a global leader in omnichannel engagement powering a broad range of messaging channels, tools, and solutions for advanced customer engagement, authentication, and security.
+[Infobip](https://www.infobip.com/) is a global leader in omnichannel engagement powering a broad range of messaging channels, tools, and solutions for advanced customer engagement, authentication, and security.
 
 This integration lets you send targeted messages using the specific cohorts you've created in Amplitude.
 

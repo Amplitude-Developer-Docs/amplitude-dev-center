@@ -1,4 +1,5 @@
 <!-- markdownlint-disable-file -->
+<!-- markdown-link-check-disable -->
 
 # Contributing to Amplitude Developer docs
 

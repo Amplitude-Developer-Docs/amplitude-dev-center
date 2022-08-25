@@ -3,7 +3,7 @@ title: Debugging Analytics
 description: Troubleshoot and debug any data errors that may occur in the instrumentation process.
 ---
 
-Data validation is a critical step in the instrumentation process. Amplitude allows you to easily validate your event data via Amplitude's [User Lookup](/data/debugger/#user-lookup) or using the [Instrumentation Explore](/data/debugger/#instrumentation-explorer) Chrome extension.
+Data validation is a critical step in the instrumentation process. Amplitude allows you to easily validate your event data via Amplitude's [User Lookup](#user-lookup) or using the [Instrumentation Explore](#instrumentation-explorer) Chrome extension.
 
 ### Before you begin: Instrument your events
 

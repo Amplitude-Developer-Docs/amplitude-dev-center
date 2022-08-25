@@ -1100,8 +1100,8 @@ To invoke the next middleware in the queue, use the `next` function. You must 
 
 Add middleware to Amplitude via `client.addEventMiddleware`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
 
-Find middleware examples for [Java](https://github.com/amplitude/ampli-examples/blob/main/android/java/AmpliApp/app/src/main/java/com/example/ampliapp/LoggingMiddleware.java)
- and [Kotlin](https://github.com/amplitude/ampli-examples/blob/main/android/kotlin/AmpliApp/app/src/main/java/com/example/ampliapp/LoggingMiddleware.kt) on GitHub.
+Find middleware examples for [Java](https://github.com/amplitude/ampli-examples/blob/main/android/java/v1/AmpliApp/app/src/test/java/com/example/ampliapp/AmpliTest.java)
+ and [Kotlin](https://github.com/amplitude/ampli-examples/blob/main/android/kotlin/v1/AmpliApp/app/src/test/java/com/example/ampliapp/AmpliTest.kt) on GitHub.
 
 ## More help
 

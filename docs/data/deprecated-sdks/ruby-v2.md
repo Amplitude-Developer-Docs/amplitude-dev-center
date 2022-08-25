@@ -5,6 +5,7 @@ search:
 ---
 
 <!-- markdownlint-disable -->
+<!-- markdown-link-check-disable -->
 
 !!!note "Previous Version"
     Still using the **Ruby (Legacy)** runtime? Docs for the previous version are available [here](ruby).

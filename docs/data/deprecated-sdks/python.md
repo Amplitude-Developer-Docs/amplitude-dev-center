@@ -7,6 +7,7 @@ search:
 ---
 
 <!-- markdownlint-disable -->
+<!-- markdown-link-check-disable -->
 
 !!!warning "Deprecated SDK"
     This SDK is deprecated and these docs are no longer maintained.

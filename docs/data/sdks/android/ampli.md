@@ -4,7 +4,7 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 ---
 
 !!!note
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
+    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser)**.
 
 Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
@@ -20,7 +20,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../data/using-the-ampli-cli).
 
 ### Install dependencies
 
@@ -114,7 +114,7 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 | <div class ="big-column">Arg</div> | Description |
 |-|-|
-| `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your team's tracking plan.|
+| `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one source template associated with your team's tracking plan.|
 | `LoadOptions` | Optional. Specifies configuration options for the Ampli Wrapper.|
 |`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the wrapper detects an invalid event, it logs an error but stills let the event through. In development, the wrapper throws an exception to alert you that something is wrong.|
@@ -230,7 +230,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
- The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](#middleware).
+ The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../../ampli/middleware).
 
 === "Java"
 

@@ -17,7 +17,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 | Region | Endpoint |
 | --- | --- |
-| Standard Server | <https://profile-api.amplitude.com/v1/userprofile> |
+| Standard Server | `https://profile-api.amplitude.com/v1/userprofile` |
 
 ## Considerations
 
