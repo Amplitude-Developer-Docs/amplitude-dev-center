@@ -15,10 +15,10 @@ While the client-side SDKs are optimized to track session and attribution for a 
 - Retry handling mechanisms to handle when a network request fails, or a payload is throttled or invalid.
 - Useful utilities and typing help debug instrumentation issues.
 
-By default, the Node SDK uses the [HTTP API V2](/analytics/apis/http-v2-api/).
+By default, the Node SDK uses the [HTTP API V2](../analytics/apis/http-v2-api/).
 
 !!!attention "Legacy SDK"
-    This SDK is legacy and only continue to receive bug fixes until deprecated. A new [Analytics SDK for Node.js](/data/sdks/typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
+    This SDK is legacy and only continue to receive bug fixes until deprecated. A new [Analytics SDK for Node.js](../../sdks/typescript-node) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
     
     The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
@@ -137,7 +137,7 @@ client.addEventMiddleware(loggingMiddleware)
 client.addEventMiddleware(filteringMiddleware)
 ```
 
-You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/src/middleware) and [Javasscript](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/src/middleware).
+You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app/src/middleware) and [Javasscript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app/src/middleware).
 
 ## More resources
 

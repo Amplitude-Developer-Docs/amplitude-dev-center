@@ -6,7 +6,7 @@ template: guide.html
 ---
 
 !!!note
-    Plugin is support for the latest version of Ampli. If you are looking at the doc related to Middleware, please go to **[here](#data/ampli/middleware/)**.
+    Plugin is support for the latest version of Ampli. If you are looking at the doc related to Middleware, please go to **[here](../middleware/)**.
 
 
 Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). This is a replacement for Middleware in Ampli legacy.

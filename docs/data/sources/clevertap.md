@@ -7,7 +7,7 @@ description: Use this integration to import CleverTap retention data into Amplit
 
     This CleverTap integration is currently in beta, and is still in active development. To join their beta program, or if you have any queries about the feature, contact CleverTap Customer Success Team.
 
-[CleverTap](https://www.linkedin.com/company/clevertap/) is a modern, integrated retention cloud that empowers digital consumer brands to increase customer retention and lifetime value. With this integration, you can ingest event data from CleverTap into Amplitude for further analysis.
+[CleverTap](https://clevertap.com/) is a modern, integrated retention cloud that empowers digital consumer brands to increase customer retention and lifetime value. With this integration, you can ingest event data from CleverTap into Amplitude for further analysis.
 
 ## Considerations
 

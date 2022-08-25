@@ -1,3 +1,4 @@
+<!-- markdown-link-check-disable -->
 !!!warning "Potential data changes"
     This example makes real requests to the API and can potentially change the data in your Amplitude project. We recommend using a development project when testing APIs.
 

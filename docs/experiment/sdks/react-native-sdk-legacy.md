@@ -3,6 +3,7 @@ title: Experiment React Native SDK
 description: Official documentation for Amplitude Experiment's Client-side React Native SDK.
 icon: material/react
 ---
+<!-- markdown-link-check-disable -->
 
 !!!warning
     This SDK is legacy and will only continue to receive bug fixes until it is eventually deprecated. We recommend upgrading to `v1.0.0+` which supports SDK integrations, React Native Web, Expo, and more.

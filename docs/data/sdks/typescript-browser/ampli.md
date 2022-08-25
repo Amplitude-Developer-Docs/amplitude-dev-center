@@ -6,7 +6,7 @@ description: The Amplitude Typescript SDK Installation & Quick Start guide.
 
 !!! note
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
@@ -30,7 +30,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -379,7 +379,7 @@ The output displays status and indicates what events are missing.
 Events Tracked: 1 missed, 2 total
 ```
 
-Learn more about [`ampli status`](/data/using-the-ampli-cli.md#ampli-status).
+Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
 ## Migrating from an Itly runtime
 

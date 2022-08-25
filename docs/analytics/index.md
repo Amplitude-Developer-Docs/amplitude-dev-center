@@ -16,7 +16,7 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
     Learn the basics of Amplitude Analytics.
 
-    [:octicons-arrow-right-24: Understand the basics](what-is-amplitude)
+    [:octicons-arrow-right-24: Understand the basics](../analytics/what-is-amplitude)
 
 -   :material-code-braces:{ .lg .middle } __Instrument analytics__
 
@@ -24,7 +24,7 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
     Send data to Amplitude.
 
-    [:octicons-arrow-right-24: See the SDKs](/data/sources#sdks)
+    [:octicons-arrow-right-24: See the SDKs](../data/sources#sdks)
 
 -   :material-file-code-outline:{ .lg .middle } __Analytics APIs__
 

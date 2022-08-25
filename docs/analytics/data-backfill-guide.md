@@ -3,7 +3,7 @@ title: Data Backfill Guide
 description: Understand how backfilling historical data in Amplitude works. 
 ---
 
-You can import historical data to Amplitude yourself using the [Batch Event Upload API](/analytics/apis/batch-event-upload-api). 
+You can import historical data to Amplitude yourself using the [Batch Event Upload API](../apis/batch-event-upload-api). 
 
 ## Considerations
 
@@ -24,13 +24,13 @@ This means that at any given time, a particular user or device can only send 500
 
 ## Backfill best practices
 
-- Review the documentation for the [Batch API](/analytics/apis/batch-event-upload-api.md). If you exported historical data using the Export API and want use the data to backfill, 
+- Review the documentation for the [Batch API](../analytics/apis/batch-event-upload-api.md). If you exported historical data using the Export API and want use the data to backfill, 
 note that the fields exported aren't in the same format as the fields needed for import. For example, the Export API uses `$insert_id` while HTTP and Batch APIs use the format `insert_id` without the `$`).
 - Understand which fields you want to send and map your historical data to Amplitude fields. We highly recommend that you use the `insert_id` field to deduplicate events.
 - Because there is no way to undo an import, create a test project in Amplitude to send sample data from your backfill. Do several tests with a few days worth of data in an Amplitude test project
  before the final upload to the production project.
 - Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload but we recommend not sending more than 10 events per batch. Your upload is throttled
- if you send more than 10 events per second for a single device ID. See [Batch Event Upload](/docs/analytics/apis/batch-event-upload-api#code-429-explained) for more information about throttling. 
+ if you send more than 10 events per second for a single device ID. See [Batch Event Upload](../analytics/apis/batch-event-upload-api#code-429-explained) for more information about throttling. 
 
 This is Amplitude's recommendation for backfilling large amounts of data:
 

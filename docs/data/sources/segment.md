@@ -26,14 +26,14 @@ To set up this integration between Segment and Amplitude, follow these steps:
 
 ### Client-side bundled integration
 
-In addition to [Segment's libraries](https://segment.com/docs/sources/), you can install [Amplitude's SDKs](/data/sources/#sdks). If you do, Segment's library delegates the data collection to Amplitude's SDK, which then sends the data to Amplitude's servers. 
+In addition to [Segment's libraries](https://segment.com/docs/sources/), you can install [Amplitude's SDKs](../../sources/#sdks). If you do, Segment's library delegates the data collection to Amplitude's SDK, which then sends the data to Amplitude's servers. 
 
 There are advantages and disadvantages to taking the client-side bundled approach. One advantage is that adding Amplitude native SDKs adds session tracking capability and automatic user property tracking:
 
 - Events logged during the same user session are grouped together when viewing that user's stream on Amplitude Dashboard. This also allows for [session length calculations](https://help.amplitude.com/hc/en-us/articles/115002323627#how-sessions-are-tracked).
 - The SDKs automatically record several user properties such as device type, operating system, and user agent. Here is a list of the [user properties](https://help.amplitude.com/hc/en-us/articles/215562387-Appendix-Amplitude-User-Property-Definitions) tracked automatically by Amplitude's SDKs.
 - By enabling Track Session Events, you can ensure the SDKs automatically send `Start Session` and `End Session` events to mark the start and end of a user's mobile session.
-- When Amplitude's SDKs are installed, you can directly interact with them. See the docs for [iOS SDK](/../data/sdks/ios) and [Android SDK](/../data/sdks/android-kotlin) to learn more.
+- When Amplitude's SDKs are installed, you can directly interact with them. See the docs for [iOS SDK](../sdks/ios) and [Android SDK](../sdks/android-kotlin) to learn more.
 
 On the other hand, adding more SDKs increases the size of your application (each one is <200kb), which you may have to account for if you are already using several libraries in your app. These SDKs are entirely optional, and you can still conduct almost the same analysis in Amplitude by using only Segment's libraries. 
 
@@ -55,7 +55,7 @@ Follow [Segment's Analytics.js quickstart guide](https://segment.com/docs/sourc
 You are now ready to use `track` and `identify` to track users. Analytics.js also automatically installs Amplitude's JS SDK onto your website, so you can access our JS SDK directly.
 
 !!!tip
-    See the [JavaScript SDK documentation](/../data/sdks/javascript) for all capabilities provided directly by the JavaScript SDK.
+    See the [JavaScript SDK documentation](../sdks/javascript) for all capabilities provided directly by the JavaScript SDK.
 
 There are settings for the JavaScript integration you can configure in the Advanced Settings of your Segment Amplitude integration panel, without needing to change your instrumentation:
 
@@ -135,7 +135,7 @@ For more information, see the [Segment documentation.](https://segment.com/docs
 
 Amplitude Audiences lets you automatically send behavioral audiences to ad networks, marketing automation tools, and personalization engines so you can better tailor campaigns and product experiences.
 
-See [Send Cohorts to Segment](/data/destinations/segment-cohort) for more information.
+See [Send Cohorts to Segment](../destinations/segment-cohort.md) for more information.
 
 ## More help
 

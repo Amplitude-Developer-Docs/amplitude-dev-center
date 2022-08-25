@@ -336,7 +336,7 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
 
  Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA isn't available.
 
-See [iOS Advertising ID](ios/#advertising-id) or the [Android Advertising ID](android-kotlin/#advertiser-id) for more information.
+See [iOS Advertising ID](../ios/#advertising-id) or the [Android Advertising ID](../android-kotlin/#advertiser-id) for more information.
 
 ### Opt out of tracking
 
@@ -351,7 +351,7 @@ Amplitude.getInstance().setOptOut(false);
 
 ### Dynamic configuration
 
-Flutter SDK lets users configure their apps to use [dynamic configuration](/data/dynamic-configuration/). This feature will find the best server URL automatically based on app users' location.
+Flutter SDK lets users configure their apps to use [dynamic configuration](../../dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.
