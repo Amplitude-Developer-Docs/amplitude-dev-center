@@ -15,7 +15,7 @@ In Java, the tracking library exposes a type-safe function for every event in yo
 
 !!!danger "Deprecated Itly runtime"
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../deprecated-sdks/jre.md)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-jre-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../deprecated-sdks/jre.md)**.
 
 ## Installation
 
