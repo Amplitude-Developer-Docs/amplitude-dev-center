@@ -46,6 +46,10 @@
     {
       "pattern": "^../",
       "replacement": "https://docs.developers.amplitude.com/"
+    },
+    {
+      "pattern": "^experiment/",
+      "replacement": "https://docs.developers.amplitude.com/experiment/"
     }
   ],
 

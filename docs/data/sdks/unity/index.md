@@ -372,7 +372,7 @@ See setup instructions in [Unity iOS IDFA and GPS Setup](#ios-idfa-and-gps-setu
 
 #### Android setup
 
-See setup instructions in the [Android SDK](android-kotlin/#advertiser-id).
+See setup instructions in the [Android SDK](../android-kotlin/#advertiser-id).
 
 ### Location Tracking
 
@@ -417,7 +417,7 @@ client.setOptOut(true); //No events will be tracked for this user
 
 ### Dynamic configuration
 
-Unity SDK allows users to configure their apps to use [dynamic configuration](/data/dynamic-configuration). This feature finds the best Amplitude server URL automatically based the user's location.
+Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, we recommend that you use dynamic configuration.

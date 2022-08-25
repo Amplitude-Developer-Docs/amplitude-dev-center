@@ -327,7 +327,7 @@ The output displays status and indicates what events are missing.
 Events Tracked: 2 missed, 3 total
 ```
 
-Learn more about [`ampli status`](../../ampli/clid.md#ampli-status).
+Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
 ## Migrating from an Itly runtime
 

@@ -23,4 +23,5 @@ This integration combines Amplitude's analytics with Adjust's attribution tools 
 
 ## Set up and use the integration
 
-You can find a complete set of instructions for implementing this integration in the [Adjust documentation](https://docs.adjust.com/en/special-partners/amplitude/).
+<!-- markdown-link-check-disable -->
+You can find a complete set of instructions for implementing this integration in the [Adjust documentation](https://help.adjust.com/en/integrated-partners/amplitude).
