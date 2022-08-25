@@ -3,18 +3,19 @@ title: JRE Ampli Wrapper
 description: Documentation for Amplitude Data's JRE Ampli Wrapper. 
 ---
 
-!!!note
-    This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-jre-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/jre.md)**.
 
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 
 In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan.
  The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!tip
+!!!example "Ampli Example"
 
     See example apps that use the JRE Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/jre).
+
+!!!danger "Deprecated Itly runtime"
+    This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../deprecated-sdks/jre.md)**.
 
 ## Installation
 

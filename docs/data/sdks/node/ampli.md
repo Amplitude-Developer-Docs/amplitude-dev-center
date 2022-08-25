@@ -3,13 +3,18 @@ title: Node.js Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Node.js JavaScript and Typescript runtimes.
 ---
 
-!!!note
-
-    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/nodejs.md)**.
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+
+!!!example "Ampli Example"
+    See example apps that use the Node.js [Javascript](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp) and [Typescript](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp) runtimes.
+
+!!!danger "Deprecated Itly runtime"
+    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
+
+--8<-- "includes/beta-not-supported.md"
 
 ???tip "Enable type checking"
 

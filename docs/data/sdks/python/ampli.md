@@ -3,17 +3,16 @@ title: Python Ampli Wrapper
 description:  Learn how to install and use the Amplitude Data Ampli Wrapper for the Python runtimes.
 ---
 
-!!!note
-
-    This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrating-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python)**.
 
 Amplitude Data supports tracking analytics events from Python apps (Python 3.6 or above). The generated tracking library is packaged as a python package.
 
 The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for auto code completion.
 
-!!!tip
+!!!example "Ampli Example"
+    See example apps that use the [Python](https://github.com/amplitude/ampli-examples/tree/main/python) runtime.
 
-    See example apps that use the Python runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/python).
+!!!danger "Deprecated Itly runtime"
+    This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrating-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/python)**.
 
 ## Install
 

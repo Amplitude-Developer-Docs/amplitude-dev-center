@@ -4,14 +4,16 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 ---
 
 
-!!! note
-    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
-
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
- code completion and compile-time checks.
+The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+
+!!!example "Ampli Example"
+    See example apps that use the Browser [Javascript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app) and [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app) runtimes.
+
+!!!danger "Deprecated Itly runtime"
+    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
+    If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
 
 ??? tip "Enable real-time type checking for JavaScript"
     Because JavaScript isn't a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc.

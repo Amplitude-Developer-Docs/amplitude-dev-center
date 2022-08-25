@@ -6,8 +6,12 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 
 Amplitude Data supports tracking analytics events from React Native apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
- code completion and compile-time checks.
+The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+
+!!!example "Ampli Example"
+    See example apps that use the React Native [Javascript](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v1/AmpliApp) and [Typescript](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v1/AmpliApp) runtimes.
+
+--8<-- "includes/beta-not-supported.md"
 
 ??? tip "Enable real-time type checking for JavaScript"
     Because JavaScript isn't a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc.
