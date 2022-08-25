@@ -5,7 +5,7 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 
 !!!note
 
-    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
+    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/nodejs.md)**.
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
@@ -43,7 +43,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/../data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -151,7 +151,7 @@ For example, your tracking plan contains a user property called `role`. The prop
     });
     ```
 
-The options argument allows you to pass [Amplitude fields](/../analytics/apis/http-v2-api#keys-for-the-event-argument) for this call, such as `deviceId`.
+The options argument allows you to pass [Amplitude fields](../analytics/apis/http-v2-api#keys-for-the-event-argument) for this call, such as `deviceId`.
 
 === "TypeScript"
 
@@ -247,7 +247,7 @@ The `extra` argument lets you pass data to middleware.
 
 For example, your tracking plan contains an event called Song Played. The SDK generates the `songPlayed` function for the event, using camelcase to make it valid JavaScript. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](#middleware).
+The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
 
 === "TypeScript"
 
@@ -342,7 +342,7 @@ The output displays status and indicates what events are missing.
 Events Tracked: 2 missed, 3 total
 ```
 
-Learn more about [`ampli status`](/../data/using-the-ampli-cli#ampli-status).
+Learn more about [`ampli status`](../ampli/cli.md#ampli-status).
 
 ## Migrating from an Itly runtime
 

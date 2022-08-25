@@ -6,7 +6,7 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 
 !!! note
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
@@ -46,7 +46,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -235,7 +235,7 @@ For example, in the code snippet below, your tracking plan contains an event cal
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
- The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](#middleware).
+ The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../ampli/middleware.md).
 
 === "TypeScript"
 
@@ -327,7 +327,7 @@ The output displays status and indicates what events are missing.
 Events Tracked: 2 missed, 3 total
 ```
 
-Learn more about [`ampli status`](/data/using-the-ampli-cli.md#ampli-status).
+Learn more about [`ampli status`](../../ampli/clid.md#ampli-status).
 
 ## Migrating from an Itly runtime
 

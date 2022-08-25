@@ -5,7 +5,7 @@ description: Documentation for Amplitude Data's JRE Ampli Wrapper.
 
 !!!note
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/deprecated-sdks/jre.md)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-jre-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/jre.md)**.
 
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 
@@ -22,7 +22,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/../data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -236,7 +236,7 @@ For example, in the code snippet below, your tracking plan contains an event cal
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields
- [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](#middleware).
+ [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../ampli/middleware.md).
 
 === "Java"
 

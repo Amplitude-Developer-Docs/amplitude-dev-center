@@ -42,7 +42,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -236,7 +236,7 @@ For example, in the code snippet below, your tracking plan contains an event cal
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
- The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](#middleware).
+ The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../ampli/middleware.md).
 
 === "TypeScript"
 
@@ -328,4 +328,4 @@ The output displays status and indicates what events are missing.
 Events Tracked: 2 missed, 3 total
 ```
 
-Learn more about [`ampli status`](/data/using-the-ampli-cli.md#ampli-status).
+Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).

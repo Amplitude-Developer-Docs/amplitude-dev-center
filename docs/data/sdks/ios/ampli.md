@@ -4,7 +4,7 @@ description: Learn how to install and use the Ampli Wrapper for the iOS Swift an
 ---
 
 !!! note
-    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/ios)**.
+    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/ios.md)**.
 
 Iteratively supports tracking analytics events from iOS apps written in Swift and Objective-C.
 
@@ -19,7 +19,7 @@ These instructions are also available from the **Implementation** page of your I
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -233,7 +233,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](#middleware-overview.md).
+The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
 
 === "Swift"
 
@@ -322,7 +322,7 @@ The output displays status and indicates which events are missing.
 Events Tracked: 2 missed, 3 total
 ```
 
-Learn more about [`ampli status`](/data/using-the-ampli-cli.md#ampli-status).
+Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
 ## Migrating from an Itly iOS runtime
 
