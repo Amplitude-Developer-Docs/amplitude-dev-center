@@ -34,6 +34,7 @@ Admonition types we use:
 - **tip**: a tip or trick that makes using the product easier. For example: quickstarts, helpful settings. 
 - **alpha**: Custom. Used for alpha notices.
 - **beta**: Custom. Used for beta notices.
+- **deprecated**: Custom. Used for deprecation notices.
 
 
 To make a block collapsible, use `???` instead of `!!!`
