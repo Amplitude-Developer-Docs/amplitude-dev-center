@@ -8,9 +8,6 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!example "Ampli Example"
-    See example apps that use the Node.js [Javascript](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp) and [Typescript](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp) runtimes.
-
 !!!info "Ampli Resources"
     - [Node.js Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp)
     - [Node.js Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp)

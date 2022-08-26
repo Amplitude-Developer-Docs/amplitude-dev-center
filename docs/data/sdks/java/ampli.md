@@ -7,11 +7,7 @@ description: Documentation for Amplitude Data's JRE Ampli Wrapper.
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 
 In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan.
- The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
-
-!!!example "Ampli Example"
-
-    See example apps that use the JRE Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/jre).
+The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
 !!!info "Ampli Resources"
     - [JRE Java Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp)
