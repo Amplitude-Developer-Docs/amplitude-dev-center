@@ -12,9 +12,9 @@ The tracking library exposes a function for every event in your team’s trackin
     - [Browser Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app)
     - [Browser Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app)
 
-!!!note "Deprecated Itly runtime"
+!!!deprecated "Deprecated Itly runtime"
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
 
 ???tip "Linting with Prettier"
 

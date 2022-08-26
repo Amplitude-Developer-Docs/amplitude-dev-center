@@ -17,7 +17,7 @@ While the client-side SDKs are optimized to track session and attribution for a 
 
 By default, the Node SDK uses the [HTTP API V2](../analytics/apis/http-v2-api/).
 
-!!!attention "Legacy SDK"
+!!!deprecated "Legacy SDK"
     This SDK is legacy and only continue to receive bug fixes until deprecated. A new [Analytics SDK for Node.js](../../sdks/typescript-node) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
     
     The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.

@@ -17,9 +17,9 @@ In Java, the tracking library exposes a type-safe function for every event in yo
     - [JRE Java Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp)
     - [JRE Kotlin Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp)
 
-!!!note "Deprecated Itly runtime"
+!!!deprecated "Deprecated Itly runtime"
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-jre-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../deprecated-sdks/jre.md)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-jre-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../deprecated-sdks/jre.md)**.
 
 ## Installation
 
