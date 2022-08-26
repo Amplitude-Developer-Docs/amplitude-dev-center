@@ -1,4 +1,3 @@
-<!-- markdownlint-disable -->
 # Amplitude Developer Docs PR
 
 
