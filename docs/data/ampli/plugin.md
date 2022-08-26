@@ -8,29 +8,28 @@ template: guide.html
 !!!note
     Plugin is support for the latest version of Ampli. If you are looking at the doc related to Middleware, please go to **[here](../middleware/)**.
 
-
 Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). This is a replacement for Middleware in Ampli legacy.
 This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more. A plugin is an object with methods `setup()` and `execute()`.
 
-
 ### Plugin.setup
+
 This method contains logic for preparing the plugin for use and has config as a parameter. The expected return value is undefined. A typical use for this method, is to copy configuration from config or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `ampli.client.add()`.
 
 ### Plugin.execute
-This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is `undefined`. This method is called for each event, including Identify, GroupIdentify and Revenue events, that is instrumented using the client interface.
 
+This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is `undefined`. This method is called for each event, including Identify, GroupIdentify and Revenue events, that is instrumented using the client interface.
 
 Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you like. Each plugin runs in the order based on the plugin type.
 
 === "Typescript"
-	```js
-	ampli.client.add(yourPlugin())
-	```
+    ```js
+    ampli.client.add(yourPlugin())
+    ```
 
 === "Javascript"
-	```js
-	ampli.client.add(yourPlugin())
-	```
+    ```js
+    ampli.client.add(yourPlugin())
+    ```
 
 ## Plugin examples
 

@@ -386,7 +386,7 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 | `language` | Optional. String. The language set by the user. |
 | `price` | Optional. Float. The price of the item purchased. Required for revenue data if the revenue field isn't sent. You can use negative values to indicate refunds. |
 | `quantity` | Optional. Integer. The quantity of the item purchased. Defaults to 1 if not specified. |
-| `revenue` | Optional. Float. revenue = price * quantity. If you send all 3 fields of price, quantity, and revenue, then the revenue value is (price * quantity). Use negative values to indicate refunds. |
+| `revenue` | Optional. Float. Revenue = (price x quantity). If you send all 3 fields of price, quantity, and revenue, then the revenue value is (price x quantity). Use negative values to indicate refunds. |
 | `productId` | Optional. String. An identifier for the item purchased. You must send a price and quantity or revenue with this field. |
 | `revenueType` | Optional. String. The type of revenue for the item purchased. You must send a price and quantity or revenue with this field. |
 | `location_lat` | Optional. Float. The current Latitude of the user. |

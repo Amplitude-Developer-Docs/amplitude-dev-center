@@ -5,7 +5,6 @@ description: Use this integration to send Amplitude cohorts to HubSpot contacts 
 
 The HubSpot destination allows you to sync your Amplitude-built cohort to your HubSpot contacts lists for targeting purposes.
 
-
 !!!note "Other Amplitude + HubSpot integrations"
 
     This integration imports HubSpot data into Amplitude. Amplitude offers other integrations with HubSpot: 
@@ -13,6 +12,7 @@ The HubSpot destination allows you to sync your Amplitude-built cohort to your H
     - [Import HubSpot data](/data/sources/hubspot)
 
 ## Considerations
+
 - This integration supports both Email and Contact ID as a `user_id` mapping option.
 - If you choose Email as HubSpot's userID, Amplitude creates a new email address contact in HubSpot if the user doesn't exist in HubSpot but does exist in the Amplitude cohort that you are syncing over. 
 - If you choose Contact ID as HubSpot's userID, it must already exist in HubSpot and is required to be in **long** data type format.

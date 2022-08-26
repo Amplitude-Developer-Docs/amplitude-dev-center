@@ -17,7 +17,6 @@ Amplitude Data's Braze integration lets you send your Amplitude cohorts straight
 - You must have a Braze account. 
 - For more details on using this integration in Braze, see the [Braze documentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/).
 
-
 ## Setup
 
 ### Prerequisites

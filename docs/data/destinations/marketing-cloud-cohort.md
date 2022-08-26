@@ -17,7 +17,6 @@ Salesforce Marketing Cloud provides marketing engagement automation that allows 
 - Cohort information can be synced to existing Salesforce contacts, as long as they share the same value for the "Contact Key" attribute as the Amplitude contact key.
 - Amplitude can't sync other user properties to Marketing Cloud. Let us know if you have a use case that requires this functionality.
 
-
 ## Setup 
 
 ### Prerequisites

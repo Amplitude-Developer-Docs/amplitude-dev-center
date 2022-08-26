@@ -39,13 +39,13 @@ There are three common errors users can run into while setting up the Facebook i
 
 **The Facebook Custom Audience Terms of Service were not accepted**. Amplitude must be authorized by the Facebook ad account to use custom audiences. Authorization is granted by accepting the Terms of Service.
 
-  - *Solution*: Accept the terms of service. You need to have Admin/Manager permissions on Amplitude and have the appropriate permissions on Facebook to accept the terms and services in the pop-up module.
+- *Solution*: Accept the terms of service. You need to have Admin/Manager permissions on Amplitude and have the appropriate permissions on Facebook to accept the terms and services in the pop-up module.
 
 **Facebook did not connect to Business Manager.** For security reasons, Facebook requires ad accounts to be associated with Business Manager. This integration doesn't work unless you've enabled Business Manager for your ad account.
 
-  - *Solution*: Create a [Business Manager](https://www.facebook.com/business/help/1710077379203657) for your account and associate your ad account with that Business Manager.
+- *Solution*: Create a [Business Manager](https://www.facebook.com/business/help/1710077379203657) for your account and associate your ad account with that Business Manager.
 
 **Facebook user lacks audience permissions.** The user who sets up the integration on Amplitude must have the appropriate permissions to access the Facebook APIs. Amplitude sends custom audiences to Facebook on behalf of that user; if they don't have the proper permissions, Amplitude won't either.
 
-  - *Solution*: Grant the setup user access to use APIs. If the original setup user lost permissions, disconnect the integration and reconnect it with another user who has permissions.
-  - To disconnect the integration, navigate to *Sources & Destinations* --> *{Project Name}* --> *Destinations* --> *Cohort Destinations* --> *Facebook*.
+- *Solution*: Grant the setup user access to use APIs. If the original setup user lost permissions, disconnect the integration and reconnect it with another user who has permissions.
+To disconnect the integration, navigate to *Sources & Destinations* --> *{Project Name}* --> *Destinations* --> *Cohort Destinations* --> *Facebook*.

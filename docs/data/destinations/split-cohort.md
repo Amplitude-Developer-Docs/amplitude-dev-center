@@ -44,8 +44,8 @@ After Split is connected to Amplitude, you can sync any Amplitude cohort to it.
 
 1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose Split.
 2. Choose the API target.
-1. Select the sync cadence.
-2. Save your work.
+3. Select the sync cadence.
+4. Save your work.
 
 !!!note
 
