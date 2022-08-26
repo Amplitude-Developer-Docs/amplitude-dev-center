@@ -35,8 +35,8 @@ The following results are for **a single flag evaluation**, and were collected o
 ## CDN caching
 
 !!!info "Content Delivery Network"
-    * A CDN (Content Delivery Network) refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
-    * CDN caching policy is only relevant to [remote evaluation](./evaluation/remote-evaluation.md) performance.
+    - A CDN (Content Delivery Network) refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
+    - CDN caching policy is only relevant to [remote evaluation](./evaluation/remote-evaluation.md) performance.
 
 After a response for a request has been computed and retrieved, it's cached so it can be reused to make future requests faster. Experiment uses a CDN to cache the experiments and feature flags for a user for low latency access on subsequent requests.
 
