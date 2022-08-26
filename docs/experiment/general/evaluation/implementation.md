@@ -57,7 +57,7 @@ The bucketing logic is split into two steps. The first step, [allocation bucketi
 
 Amplitude Experiment's consistent bucketing utilizes the [`murmur3`](https://en.wikipedia.org/wiki/MurmurHash) consistent hashing algorithm on the value of the bucketing key for the given segment. If either the bucketing salt or the bucketing value changes
 
-```
+```text
 murmur3_x86_32("bucketing_salt/bucketing_value")
 ```
 
@@ -65,7 +65,7 @@ murmur3_x86_32("bucketing_salt/bucketing_value")
 
 A user is determined to be allocated if the [hash](#hashing) value modulo 100 is less than the allocation configured in the segment.
 
-```
+```text
 murmur3_x86_32("bucketing_salt/bucketing_value") % 100
 ```
 
@@ -73,7 +73,7 @@ murmur3_x86_32("bucketing_salt/bucketing_value") % 100
 
 Once a user is allocated, variant bucketing determines which variant the user should receive. Variants are associated with values between 0 and 42949672, based on their weights.
 
-```
+```text
 floor(murmur3_x86_32("bucketing_salt/bucketing_value") / 100)
 ```
 

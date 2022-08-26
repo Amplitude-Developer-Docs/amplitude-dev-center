@@ -2,6 +2,7 @@
 title: Remote Evaluation
 description: Detailed information about Amplitude Experiment's remote evaluation architecture, limitations, and tradeoffs.
 ---
+<!-- markdownlint-disable MD036 -->
 
 Remote evaluation involves making a request to Amplitude Experiment's evaluation servers to fetch variants for a [user](../data-model.md#users). Remote evaluation is the default way to evaluate users on client-side apps, but may also be used from a server-side environment.
 

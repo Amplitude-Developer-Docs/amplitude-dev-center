@@ -39,16 +39,16 @@ Feature flags and experiments share the same underlying data model, and can be m
 Used for standard feature flagging without user analysis. When created, comes with a default variant, `on`.
 
 !!!example "Flag Use Cases"
-    * Rolling out a feature to a subset of users (e.g. beta customers).
-    * Different experience for a behavioral cohort (e.g. power users).
+    - Rolling out a feature to a subset of users (e.g. beta customers).
+    - Different experience for a behavioral cohort (e.g. power users).
 
 #### Experiments
 
 Used for feature experimentation on users. When created, comes with two default variants, `control` and `treatment`.
 
 !!!example "Experiment Use Cases"
-    * Run an A/B test for a new feature in your application.
-    * Experiment on multiple recommendation algorithms on your server.
+    - Run an A/B test for a new feature in your application.
+    - Experiment on multiple recommendation algorithms on your server.
 
 ## Variants
 

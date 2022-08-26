@@ -51,7 +51,7 @@ Endpoints that list resources such as `/experiments/list` will only return a lim
 
 ## List experiments
 
-```
+```bash
 GET https://management-api.experiment.amplitude.com/experiments/list
 ```
 
@@ -82,7 +82,7 @@ A successful request returns a `200 OK` response and a list of experiments encod
 
 ## List deployments
 
-```
+```bash
 GET https://management-api.experiment.amplitude.com/deployments/list
 ```
 
@@ -113,7 +113,7 @@ A successful request returns a `200 OK` response and a list of deployments encod
 
 ## Get experiment details
 
-```
+```bash
 GET https://management-api.experiment.amplitude.com/experiments/{id}
 ```
 
@@ -143,7 +143,7 @@ A successful request returns a `200 OK` response and a JSON object with the expe
 
 ## Create experiment
 
-```
+```bash
 POST https://management-api.experiment.amplitude.com/experiments/new
 ```
 
@@ -219,7 +219,7 @@ A successful request returns a `200 OK` response and a JSON object with the expe
 
 ## Activate experiment
 
-```
+```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/activate
 ```
 
@@ -245,7 +245,7 @@ Activate a inactive experiment.
 
 ## Deactivate experiment
 
-```
+```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/deactivate
 ```
 
@@ -271,7 +271,7 @@ Deactivate an active experiment.
 
 ## Rollout weights
 
-```
+```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/rollout-weights
 ```
 

@@ -39,17 +39,17 @@ go get github.com/amplitude/experiment-go-server
     client := remote.Initialize("<DEPLOYMENT_KEY>", nil)
 
     // (2) Fetch variants for a user
-	user := &experiment.User{
-		UserId:   "user@company.com",
-		DeviceId: "abcdefg",
-		UserProperties: map[string]interface{}{
-			"premium": true,
-		},
-	}
-	variants, err := client.Fetch(user)
-	if err != nil {
-		// Handle error
-	}
+  user := &experiment.User{
+    UserId:   "user@company.com",
+    DeviceId: "abcdefg",
+    UserProperties: map[string]interface{}{
+      "premium": true,
+    },
+  }
+  variants, err := client.Fetch(user)
+  if err != nil {
+    // Handle error
+  }
 
     // (3) Access a flag's variant
     variant := variants["<FLAG_KEY>"]
@@ -172,17 +172,17 @@ go get github.com/amplitude/experiment-go-server
     client := local.Initialize("<DEPLOYMENT_KEY>", nil)
 
     // (2) Start the local evaluation client.
-	err := client.Start()
-	if err != nil {
-		panic(err)
-	}
+  err := client.Start()
+  if err != nil {
+    panic(err)
+  }
 
     // (3) Evaluate a user.
-	user := &experiment.User{DeviceId: "abcdefg"}
-	variants, err := client.Evaluate(user, nil)
-	if err != nil {
-		panic(err)
-	}
+  user := &experiment.User{DeviceId: "abcdefg"}
+  variants, err := client.Evaluate(user, nil)
+  if err != nil {
+    panic(err)
+  }
     ```
 
 ### Initialize
