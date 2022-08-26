@@ -172,17 +172,17 @@ go get github.com/amplitude/experiment-go-server
     client := local.Initialize("<DEPLOYMENT_KEY>", nil)
 
     // (2) Start the local evaluation client.
-  err := client.Start()
-  if err != nil {
-    panic(err)
-  }
+    err := client.Start()
+    if err != nil {
+      panic(err)
+    }
 
-    // (3) Evaluate a user.
-  user := &experiment.User{DeviceId: "abcdefg"}
-  variants, err := client.Evaluate(user, nil)
-  if err != nil {
-    panic(err)
-  }
+      // (3) Evaluate a user.
+    user := &experiment.User{DeviceId: "abcdefg"}
+    variants, err := client.Evaluate(user, nil)
+    if err != nil {
+      panic(err)
+    }
     ```
 
 ### Initialize
