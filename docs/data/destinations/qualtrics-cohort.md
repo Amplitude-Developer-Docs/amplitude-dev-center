@@ -30,11 +30,11 @@ You need to complete setup simultaneously in Amplitude and Qualtrics.
 9. In Qualtrics, find a mailing list ID.
       1. Click on the hamburger menu and select **Directories**.
 
-       ![Directories menu](/../../../assets/images/integrations-qualtrics-directories-menu.png)
+          ![Directories menu](/../../../assets/images/integrations-qualtrics-directories-menu.png)
 
       2. In the *Segments & lists* tab, click **Lists**.
 
-       ![Segments and lists tab](/../../../assets/images/integrations-qualtrics-lists.png)
+          ![Segments and lists tab](/../../../assets/images/integrations-qualtrics-lists.png)
 
 10. Select the mailing list you want to add exported Amplitude cohort to. If you don't have a mailing list created, or want to export users to a new list, click *Create a list* and follow the instructions.
 11. In the URL (for example `https://org.qualtrics.com/iq-directory/#/POOL_XXXXX/groups/lists/CG_XXXXX`) retrieve your mailing list ID, starting with `CG_`, from the end of the URL.

@@ -41,11 +41,11 @@ To add BigQuery as a data source in your Amplitude project, follow these steps.
 3. Add the service account key and specify a GCS bucket name.
 4. Click **Next** to test the connection to make sure it's working.
 5. After you confirm your credentials, click **Next** to select data. You have several configuration options to choose from here:
-      - Type of data: This tells Amplitude whether you're ingesting event data or user property data.
-      - Type of import:
-           - Full Sync: Amplitude periodically imports the entire dataset, regardless of whether the data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
-           - Time-based: Amplitude periodically ingests the most recent rows in the data, as determined by the provided Timestamp column. The first import ingests all available data, and later imports ingest any data with timestamps after the time of the most recent import. To use this option, include the timestamp column in the output of your SQL statement.
-      - Frequency: Choose from several scheduling options ranging from five minutes to one month (when this is selected, ingestion happens on the first of the month).
+    - Type of data: This tells Amplitude whether you're ingesting event data or user property data.
+    - Type of import:
+          - Full Sync: Amplitude periodically imports the entire dataset, regardless of whether the data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
+          - Time-based: Amplitude periodically ingests the most recent rows in the data, as determined by the provided Timestamp column. The first import ingests all available data, and later imports ingest any data with timestamps after the time of the most recent import. To use this option, include the timestamp column in the output of your SQL statement.
+    - Frequency: Choose from several scheduling options ranging from five minutes to one month (when this is selected, ingestion happens on the first of the month).
     - SQL query: This is the code for the query Amplitude uses to ingest the right data.
 6. After you've set your configuration options, click **Test SQL** to see how the data is coming through from your BigQuery instance. If there are any errors, they'll appear under the Test SQL button.
 7. If there are no errors, click **Finish**. You'll see a notification indicating you've successfully enabled the new BigQuery source. You'll also be redirected to the Sources listing page, where you'll see the newly created BigQuery source.

@@ -33,19 +33,19 @@ Initialization is necessary before any instrumentation is done. The API key for 
 package main
 
 import (
-	"github.com/amplitude/analytics-go/amplitude"
+  "github.com/amplitude/analytics-go/amplitude"
 )
 
 func main() {
-	// Create a Config struct
-	config := amplitude.NewConfig("your-api-key")
-	// Modify your configuration if necessary
-	config.FlushQueueSize = 200
+  // Create a Config struct
+  config := amplitude.NewConfig("your-api-key")
+  // Modify your configuration if necessary
+  config.FlushQueueSize = 200
 
-	// Pass a Config struct
-	// to initialize a client struct
-	// which implements Client interface
-	client := amplitude.NewClient(config)
+  // Pass a Config struct
+  // to initialize a client struct
+  // which implements Client interface
+  client := amplitude.NewClient(config)
 }
 
 ```
@@ -70,18 +70,18 @@ Events represent how users interact with your application. For example, "Button 
 // Track a basic event
 // EventOne of UserID and DeviceID is required as well as EventType
 client.Track(amplitude.Event{
-	EventType:    "Button Clicked",
-	EventOptions: amplitude.EventOptions{UserID: "user-id"},
+  EventType:    "Button Clicked",
+  EventOptions: amplitude.EventOptions{UserID: "user-id"},
 })
 
 // Track events with optional properties
 client.Track(amplitude.Event{
-	EventType: "Button Clicked",
-	EventOptions: amplitude.EventOptions{
-		UserID:   "user-id",
-		DeviceID: "device-id",
-	},
-	EventProperties: map[string]interface{}{"source": "notification"},
+  EventType: "Button Clicked",
+  EventOptions: amplitude.EventOptions{
+    UserID:   "user-id",
+    DeviceID: "device-id",
+  },
+  EventProperties: map[string]interface{}{"source": "notification"},
 })
 ```
 
@@ -208,10 +208,10 @@ Event level groups are set by `Groups` attribute of events
 ```Go
 // set groups when initial an Event struct
 event := amplitude.Event{
-		EventType:       "event-type",
-		EventOptions:    amplitude.EventOptions{UserID: "user-id"},
-		Groups: map[string][]string{"org-id": []string{"15", "21"}},
-	}
+    EventType:       "event-type",
+    EventOptions:    amplitude.EventOptions{UserID: "user-id"},
+    Groups: map[string][]string{"org-id": []string{"15", "21"}},
+  }
 
 // set groups for an existing Event struct
 event.Groups["Sport"] = []string{"soccer"}
@@ -241,10 +241,10 @@ To track revenue from a user, call `Revenue()` each time a user generates revenu
 
 ```Go
 revenueObj := amplitude.Revenue{
-		Price:       3.99,
-		Quantity:    3,
-		ProductID:   "com.company.productID",
-	}
+    Price:       3.99,
+    Quantity:    3,
+    ProductID:   "com.company.productID",
+  }
 client.Revenue(revenueObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
@@ -317,120 +317,122 @@ package main
 import "github.com/amplitude/analytics-go/amplitude"
 
 type addEventIDPlugin struct {
-	currentID int
-	config    amplitude.Config
+  currentID int
+  config    amplitude.Config
 }
 
 func (plugin *addEventIDPlugin) Setup(config amplitude.Config) {
-	plugin.config = config
+  plugin.config = config
 }
 
 func (plugin *addEventIDPlugin) Type() amplitude.PluginType {
-	return amplitude.ENRICHMENT
+  return amplitude.ENRICHMENT
 }
 
 func (plugin *addEventIDPlugin) Execute(event *amplitude.Event) *amplitude.Event {
-	event.EventID = plugin.currentID
-	plugin.currentID += 1
-	return event
+  event.EventID = plugin.currentID
+  plugin.currentID += 1
+  return event
 }
 
 func main() {
-	config := amplitude.NewConfig("your-api-key")
-	client := amplitude.NewClient(config)
-	defer client.Shutdown()
+  config := amplitude.NewConfig("your-api-key")
+  client := amplitude.NewClient(config)
+  defer client.Shutdown()
 
-	client.Add(&addEventIDPlugin{})
+  client.Add(&addEventIDPlugin{})
 }
 
 ```
 
-#### Destination Type Plugin
+#### Destination type plugin
+
 Here's an example of a plugin that sends each event that is instrumented to a target server URL.
 
 ```Go
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"github.com/amplitude/analytics-go/amplitude"
-	"net/http"
+  "bytes"
+  "encoding/json"
+  "github.com/amplitude/analytics-go/amplitude"
+  "net/http"
 )
 
 type myDestinationPlugin struct {
-	url        string
-	config     amplitude.Config
-	httpClient http.Client
+  url        string
+  config     amplitude.Config
+  httpClient http.Client
 }
 
 // Setup is called on plugin installation
 func (plugin *myDestinationPlugin) Setup(config amplitude.Config) {
-	plugin.config = config
-	plugin.httpClient = http.Client{}
+  plugin.config = config
+  plugin.httpClient = http.Client{}
 }
 
 // Type defines your amplitude.PluginType from:
-// 	- amplitude.BEFORE
-// 	- amplitude.ENRICHMENT
-// 	- amplitude.DESTINATION
+//  - amplitude.BEFORE
+//  - amplitude.ENRICHMENT
+//  - amplitude.DESTINATION
 func (plugin myDestinationPlugin) Type() amplitude.PluginType {
-	return amplitude.DESTINATION
+  return amplitude.DESTINATION
 }
 
 // Execute is called on each event instrumented
 func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
-	payload := map[string]interface{}{"key": "secret", "events": event}
-	payloadBytes, err := json.Marshal(payload)
+  payload := map[string]interface{}{"key": "secret", "events": event}
+  payloadBytes, err := json.Marshal(payload)
 
-	if err != nil {
-		plugin.config.Logger.Error("Event encoding failed: ", err)
-	}
+  if err != nil {
+    plugin.config.Logger.Error("Event encoding failed: ", err)
+  }
 
-	request, err := http.NewRequest("POST", plugin.url, bytes.NewReader(payloadBytes))
-	if err != nil {
-		plugin.config.Logger.Error("Building new request failed", err)
-	}
+  request, err := http.NewRequest("POST", plugin.url, bytes.NewReader(payloadBytes))
+  if err != nil {
+    plugin.config.Logger.Error("Building new request failed", err)
+  }
 
-	response, err := plugin.httpClient.Do(request)
-	if err != nil {
-		plugin.config.Logger.Error("HTTP request failed", err)
-	} else {
-		defer response.Body.Close()
-	}
+  response, err := plugin.httpClient.Do(request)
+  if err != nil {
+    plugin.config.Logger.Error("HTTP request failed", err)
+  } else {
+    defer response.Body.Close()
+  }
 }
 
 func main() {
-	config := amplitude.NewConfig("your-api-key")
-	client := amplitude.NewClient(config)
-	defer client.Shutdown()
+  config := amplitude.NewConfig("your-api-key")
+  client := amplitude.NewClient(config)
+  defer client.Shutdown()
 
-	client.Add(&myDestinationPlugin{
-		// Change it to your target server URL
-		url: "https://custom.domain.com",
-	})
+  client.Add(&myDestinationPlugin{
+    // Change it to your target server URL
+    url: "https://custom.domain.com",
+  })
 
-	client.Track(amplitude.Event{
-		EventType: "Button Clicked",
-		EventOptions: amplitude.EventOptions{
-			UserID: "user-id",
-		},
-	})
+  client.Track(amplitude.Event{
+    EventType: "Button Clicked",
+    EventOptions: amplitude.EventOptions{
+      UserID: "user-id",
+    },
+  })
 }
 ```
 
 The example above sends a HTTP POST request with a body as JSON format
-```
+
+```json
 {
-	"events":
-		{
-			"event_type":"Button Clicked",
-			"user_id":"user-id",
-			"time":1660683660056,
-			"insert_id":"1c8aac41-8257-4bea-ab3f-de914e39df5e",
-			"library":"amplitude-go/0.0.2",
-			"plan":{}
-		},
-	"key":"secret"
+  "events":
+    {
+      "event_type":"Button Clicked",
+      "user_id":"user-id",
+      "time":1660683660056,
+      "insert_id":"1c8aac41-8257-4bea-ab3f-de914e39df5e",
+      "library":"amplitude-go/0.0.2",
+      "plan":{}
+    },
+  "key":"secret"
 }
 ```

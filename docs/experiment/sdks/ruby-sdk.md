@@ -274,7 +274,7 @@ The SDK client can be configured on initialization.
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `server_url` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
-    | `bootstrap` |	Bootstrap the client with a map of flag key to flag configuration | `{}` |
+    | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
     | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start`](#start) | `30000` |
     | `debug` | Set to `true` to enable debug logging. | `false` |
 

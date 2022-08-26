@@ -21,7 +21,6 @@ Amplitude Data's Kinesis Data Firehose integration lets you stream your Amplitud
 
 Create a [Kinesis Data Firehose stream](https://docs.aws.amazon.com/firehose/latest/dev/basic-create.html) in the AWS console.
 
-
 #### 2. Create an IAM role
 
 Create an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console) that gives Amplitude permission to **write** directly to your AWS Kinesis Data Firehose Stream.

@@ -20,7 +20,6 @@ Amplitude Data's Kinesis Data Stream integration lets you stream your Amplitude 
 
 Create a [Kinesis stream](https://docs.aws.amazon.com/streams/latest/dev/introduction.html "https://docs.aws.amazon.com/streams/latest/dev/introduction.html") in the AWS console.
 
-
 #### 2. Create an IAM role
 
 Create an [IAM role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console) that gives Amplitude permission to **write** directly to your AWS Kinesis Stream.

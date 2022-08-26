@@ -286,4 +286,3 @@ In monorepos with multiple sources, you must run `ampli pull` and `ampli status`
     You run `ampli pull` in `web/` for Browser and again in `backend/` for Node.
 
     To verify instrumentation status run `cd ~/monorepo/web && ampli status` for Browser, and `cd ~/monorepo/backend && ampli status` for Node.
-

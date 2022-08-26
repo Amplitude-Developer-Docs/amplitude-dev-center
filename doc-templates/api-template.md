@@ -2,6 +2,14 @@
 title: PAGE TITLE
 description:  Enter a description. This content becomes the page's meta description.
 ---
+<!-- markdownlint-disable -->
+<!-->
+Instructions: 
+- Use this template to write the API docs.
+- Replace placeholder text with your own.
+- If you have any questions or need help, reach out to developerdocs@amplitude.com
+- Remove all comments. 
+</-->
 
 Intro paragraph
 

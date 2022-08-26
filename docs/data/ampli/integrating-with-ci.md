@@ -14,12 +14,11 @@ After you've added Amplitude Data to your CI environment, Amplitude Data will ve
 
 ### Step 1: Create an API token
 
-Create an [API token](https://data.amplitude.com/settings/api-tokens) in your account or set up another account to be used for CI. Ampli will use this token for authentication when running inside CI to update your tracking plan's implementation status.
+Create an [API token](https://data.amplitude.com/settings/api-tokens) in your account or set up another account to be used for CI. Ampli uses this token for authentication when running inside CI to update your tracking plan's implementation status.
 
 !!!warning
 
     Keep your token secret. Your token has global permissions on your account.
-
 
 ### Step 2: Configure a CI environment variable
 
@@ -52,6 +51,7 @@ To install Ampli locally, run `npm install @amplitude/ampli -D`.
 ### Step 4: Run Ampli in CI
 
 To integrate Ampli with your CI system, modify your CI configuration to run [`ampli status`](cli.md#ampli-status) as part of the build process. We've made it easy by creating [Docker Containers](https://hub.docker.com/u/amplitudeinc) that you can use which include dependencies. Some runtimes have their own containers:
+
 - `amplitudeinc/ampli`
 - `amplitudeinc/ampli-swift`
 - `amplitudeinc/ampli-dotnet`
@@ -85,7 +85,6 @@ The following examples are for Bitbucket Pipelines but you can use the same imag
         script:
           - ampli status [-u] -t $ITLY_KEY
     ```
-
 
 === "Swift"
 

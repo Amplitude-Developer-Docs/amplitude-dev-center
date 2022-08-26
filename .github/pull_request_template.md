@@ -1,4 +1,5 @@
-# Dev Docs PR
+<!-- markdownlint-disable -->
+# Amplitude Developer Docs PR
 
 
 ## Description

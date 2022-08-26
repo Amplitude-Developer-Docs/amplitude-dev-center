@@ -162,7 +162,6 @@ For the branch structure above, `is-latest` would return success for `b2@5`, `b3
 
     For merged branches `is-latest` will be successful only if it contains the exact version that corresponds to the latest version of `main`.
 
-
 The `--is-latest-if-not-on-default-branch` works the same as `is-latest` but will also return success for any version of the Ampli `main` branch. This is useful for CI integrations where you don't want to enforce using the latest version on the main branch.
 
 For the branch structure above, `is-latest-if-not-on-default-branch` would return success for `b2@5` , `b3@4`, `main@3`, `main@2`, `main@1`.
@@ -229,7 +228,6 @@ Before merging your Git branch with implementation changes you should verify tha
 
     We recommend merging your Git branch immediately after you merge your Data branch. This ensures other teams will have your implementation of the new events.
 
-
 ## CI workflows
 
 Branch status checks can be added in CI to ensure the best practices are enforced.
@@ -241,6 +239,7 @@ You can combine these into a single command, but for CI it can be useful to keep
 * In PR workflows we recommend the use of `--skip-update-on-default-branch` when calling `--update` or `-u`.
 
 ### Using `is-latest` in CI
+
 Using `is-latest` in CI workflows is not necessary but can be used for stricter enforcement.
 
 If `is-latest` is used in a multi-team environment or on a tracking plan with multiple Sources it can require additional steps to keep the merge checks in a passing state. Changes merged into to the `main` tracking plan by other teams or on other Sources will cause future runs of `is-latest` to fail in your project as it is no longer on the latest version.
@@ -251,7 +250,6 @@ This means any time an "external" change happens to the tracking plan you will n
 
 1. Run `ampli pull` to update the `ampli.json` to be on the `main` Branch.
 2. Commit changes to Git branch.
-
 
 Once the `ampli.json` is on the `main` branch future calls to `--is-latest-if-not-on-default-branch` will pass. This is useful you want to keep the current version fixed regardless of new tracking plan changes.
 
@@ -265,45 +263,41 @@ Once the `ampli.json` is on the `main` branch future calls to `--is-latest-if-no
 
 1. Add `ampli-implementation-check.yml` and `ampli-merge-check.yml` to your `.github/workflows` directory.
 
-`ampli-implementation-check.yml`
+    ```yaml title="ampli-implementation-check.yml"
+    name: Ampli Implementation Check
+    on: pull_request
 
-```yaml
-name: Ampli Implementation Check
-on: pull_request
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        container:
+          image: amplitudeinc/ampli
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: amplitudeinc/ampli
+        steps:
+          - name: Checkout repo
+            uses: actions/checkout@v2
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+          - name: Verify analytics implementation and update status in Data
+            run: ampli status -u --skip-update-on-default-branch -t ${{secrets.AMPLI_TOKEN}}
+    ```
 
-      - name: Verify analytics implementation and update status in Data
-        run: ampli status -u --skip-update-on-default-branch -t ${{secrets.AMPLI_TOKEN}}
-```
+    ```yaml title="ampli-merge-check.yml"
+    name: Ampli Merge Check
+    on: pull_request
 
-`ampli-merge-check.yml`
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        container:
+          image: amplitudeinc/ampli
 
-```yaml
-name: Ampli Merge Check
-on: pull_request
+        steps:
+          - name: Checkout repo
+            uses: actions/checkout@v2
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: amplitudeinc/ampli
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Check the Data branch is merged before merging the Git branch
-        run: ampli status --is-merged -t ${{secrets.AMPLI_TOKEN}}
-```
+          - name: Check the Data branch is merged before merging the Git branch
+            run: ampli status --is-merged -t ${{secrets.AMPLI_TOKEN}}
+    ```
 
 2. If your Ampli project is in a subdirectory, you may need to set the correct working-directory in your Actions. See Github documentation [here](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
 
@@ -334,7 +328,6 @@ jobs:
     !!!caution
         If your Data branch is out of date with the main tracking plan you may need to "Refresh" before you can merge. This will apply the latest changes from main to your Data branch. If you "Refresh" your branch it is important to also pull the latest changes in both Git and Ampli.
   
-
     !!!note
         You may need to get the approval before merging the Data branch. See more about approval workflows here.
     

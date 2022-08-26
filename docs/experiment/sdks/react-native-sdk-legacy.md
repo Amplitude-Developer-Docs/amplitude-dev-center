@@ -71,6 +71,7 @@ The following functions make up the core of the Experiment client-side SDK.
     Native SDKs are used under-the-hood, so you need to `await` the result of all functions.
 
 ---
+
 ### Initialize
 
 The SDK client should be initialized in your application on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
@@ -133,6 +134,7 @@ The SDK client can be configured once on initialization.
     | `instanceName` | Custom instance name for experiment SDK instance. **The value of this field is case-sensitive.** | `null` |
 
 ---
+
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -173,6 +175,7 @@ await Experiment.fetch();
     If `fetch()` times out (default 10 seconds) or fails for any reason, the SDK client will return and retry in the background with back-off. You may configure the timeout or disable retries in the [configuration options](#configuration) when the SDK client is initialized.
 
 ---
+
 ### Variant
 
 Access a [variant](../general/data-model.md#variants) for a [flag or experiment](../general/data-model.md#flags-and-experiments) from the SDK client's local store.
@@ -226,6 +229,7 @@ if (variant === 'control') {
 ```
 
 ---
+
 ### All
 
 Access all [variants](../general/data-model.md#variants) stored by the SDK client.
@@ -235,6 +239,7 @@ all(): Promise<Variants>
 ```
 
 ---
+
 ### Exposure
 
 Manually track an [exposure event](../general/exposure-tracking.md#exposure-event) for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.

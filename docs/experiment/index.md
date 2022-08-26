@@ -7,7 +7,7 @@ Welcome to Amplitude Experiment. This page acts as a quick reference as well as 
 
 <div class="grid cards" markdown>
 
--   :material-book-open-variant:{ .lg .middle } __Getting started__
+- :material-book-open-variant:{ .lg .middle } __Getting started__
 
     ---
 
@@ -15,7 +15,7 @@ Welcome to Amplitude Experiment. This page acts as a quick reference as well as 
 
     [:octicons-arrow-right-24: Start developing](#getting-started)
 
--   :material-hexagon-multiple:{ .lg .middle } __System overview__
+- :material-hexagon-multiple:{ .lg .middle } __System overview__
 
     ---
 
@@ -23,7 +23,7 @@ Welcome to Amplitude Experiment. This page acts as a quick reference as well as 
 
     [:octicons-arrow-right-24: Learn more](#system-overview)
 
--   :material-code-braces:{ .lg .middle } __Experiment SDKs__
+- :material-code-braces:{ .lg .middle } __Experiment SDKs__
 
     ---
 
@@ -31,7 +31,7 @@ Welcome to Amplitude Experiment. This page acts as a quick reference as well as 
 
     [:octicons-arrow-right-24: See the SDKs](#sdks)
 
--   :material-file-code-outline:{ .lg .middle } __Experiment REST APIs__
+- :material-file-code-outline:{ .lg .middle } __Experiment REST APIs__
 
     ---
 
