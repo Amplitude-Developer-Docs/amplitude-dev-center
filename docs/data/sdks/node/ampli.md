@@ -11,7 +11,12 @@ The tracking library exposes a function for every event in your team’s trackin
 !!!example "Ampli Example"
     See example apps that use the Node.js [Javascript](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp) and [Typescript](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp) runtimes.
 
-!!!danger "Deprecated Itly runtime"
+!!!info "Ampli Resources"
+    - [Node.js Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp)
+    - [Node.js Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp)
+    - [Next.js Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app)
+
+!!!note "Deprecated Itly runtime"
     This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
 
 --8<-- "includes/beta-not-supported.md"

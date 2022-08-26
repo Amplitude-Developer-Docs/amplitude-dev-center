@@ -8,10 +8,11 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!example "Ampli Example"
-    See example apps that use the Browser [Javascript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app) and [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app) runtimes.
+!!!info "Ampli Resources"
+    - [Browser Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app)
+    - [Browser Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app)
 
-!!!danger "Deprecated Itly runtime"
+!!!note "Deprecated Itly runtime"
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
      If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
 

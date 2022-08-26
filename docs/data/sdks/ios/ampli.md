@@ -8,10 +8,11 @@ Iteratively supports tracking analytics events from iOS apps written in Swift an
 
 In Swift and Objective-C, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!example "Ampli Example"
-    See example apps that use the iOS Swift and Objective-C runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/ios).
+!!!info "Ampli Resources"
+    - [iOS Swift Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/AmpliSwiftSampleApp)
+    - [iOS Objective-C Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/ios/objective-c/AmpliObjectiveCSampleApp)
 
-!!!danger "Deprecated Itly runtime"
+!!!note "Deprecated Itly runtime"
     This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/ios)**.
 
 ## Installation

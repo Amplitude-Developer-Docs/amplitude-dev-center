@@ -8,10 +8,11 @@ Amplitude Data supports tracking analytics events from Android apps written in K
 
 In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!example "Ampli Example"
-    See example apps that use the Android [Java](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp) and [Kotlin](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp) runtimes.
+!!!info "Ampli Resources"
+    - [Android Java Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp)
+    - [Android Kotlin Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp)
 
-!!!danger "Deprecated Itly runtime"
+!!!note "Deprecated Itly runtime"
     This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/android/)**.
 
 ## Installation
