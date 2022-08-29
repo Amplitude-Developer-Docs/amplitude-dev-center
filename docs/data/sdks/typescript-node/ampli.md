@@ -1,12 +1,8 @@
 ---
-title: Browser TypeScript Ampli Wrapper
-description: The Amplitude Typescript SDK Installation & Quick Start guide.
+title: Node Typescript Ampli Wrapper
+description: The Ampli Wrapper - Node Typescript Installation & Quick Start guide.
 ---
 
-
-!!! note
-    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
