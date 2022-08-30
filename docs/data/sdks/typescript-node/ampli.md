@@ -48,7 +48,7 @@ This prompts you to log in to your workspace and select a source.
 
 === "TypeScript"
 
-    ```
+    ```text
     ➜ ampli pull sourcename
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
@@ -64,7 +64,7 @@ This prompts you to log in to your workspace and select a source.
 
 === "JavaScript"
 
-    ```
+    ```text
     ➜ ampli pull sourcename
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
@@ -364,7 +364,7 @@ ampli status -u
 
 The output displays status and indicates what events are missing.
 
-```
+```text
 ➜ ampli status
 ✘ Verifying event tracking implementation in source code
  ✔ Song Played (1 location)
