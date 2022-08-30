@@ -388,15 +388,15 @@ Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node
 
     `yarn remove @amplitude/node`
 
-4. Add new dependencies:
+4. Add new dependencies.
   
     `yarn add @amplitude/analytics-node`
 
-5. Pull the latest Ampli Wrapper:
+5. Pull the latest Ampli Wrapper.
 
     `ampli pull`
 
-6. Find and replace:
+6. Find and replace.
 
     Middleware is no longer support. It has been replaced by a new Plugin architecture. Migrating from Middleware to a Plugin is easy.
 
