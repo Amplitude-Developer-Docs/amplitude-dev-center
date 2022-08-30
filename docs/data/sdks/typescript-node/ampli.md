@@ -1,5 +1,5 @@
 ---
-title: Node Typescript Ampli Wrapper
+title: Node Ampli Wrapper
 description: The Ampli Wrapper - Node Typescript Installation & Quick Start guide.
 ---
 
