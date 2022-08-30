@@ -1,20 +1,18 @@
 ---
-title: Browser TypeScript Ampli Wrapper
-description: The Amplitude Typescript SDK Installation & Quick Start guide.
+title: Node Ampli Wrapper
+description: The Ampli Wrapper - Node Typescript Installation & Quick Start guide.
 ---
-
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
+ code completion and compile-time checks.
+
+--8<-- "includes/closed-beta.md"
 
 !!!info "Ampli Resources"
-    - [Browser Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app)
-    - [Browser Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app)
-
-!!!note "Deprecated Itly runtime"
-    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
+    - [Node TypeScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v2/AmpliApp)
+    - [Node JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v2/AmpliApp)
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
@@ -33,17 +31,14 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "npm"
 
     ```bash
-    npm install @amplitude/analytics-browser
+    npm install @amplitude/analytics-node
     ```
 
 === "yarn"
 
     ```bash
-    yarn add @amplitude/analytics-browser
+    yarn add @amplitude/analytics-node
     ```
-
-!!!note
-    Note: when using Ampli in the browser, we recommend loading `@amplitude/analytics-browser` as a module rather than as a JS snippet.
 
 ### Pull the SDK into your project
 
@@ -57,14 +52,14 @@ This prompts you to log in to your workspace and select a source.
 
 === "TypeScript"
 
-    ```bash
+    ```text
     ➜ ampli pull sourcename
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser/TypeScript
+    Runtime: Node.js/TypeScript
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -73,14 +68,14 @@ This prompts you to log in to your workspace and select a source.
 
 === "JavaScript"
 
-    ```bash
+    ```text
     ➜ ampli pull sourcename
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser/JavaScript
+    Runtime: Node.js/JavaScript
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -114,7 +109,7 @@ For example, your tracking plan contains a user property called `role`. The prop
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.identify('user-id', {
       role: 'admin'
     });
@@ -122,7 +117,7 @@ For example, your tracking plan contains a user property called `role`. The prop
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.identify('user-id', {
       role: 'admin'
     });
@@ -132,7 +127,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.identify('user-id', {
       role: 'admin'
     }, {
@@ -142,7 +137,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.identify('user-id', {
       role: 'admin'
     }, {
@@ -159,14 +154,14 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 === "TypeScript"
 
-    ```js
-    ampli.setGroup('groupType', 'groupName');
+    ```typescript
+    ampli.setGroup('userId', groupType', 'groupName');
     ```
 
 === "JavaScript"
 
-    ```js
-    ampli.setGroup('groupType', 'groupName');
+    ```javascript
+    ampli.setGroup('userId', 'groupType', 'groupName');
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
@@ -177,14 +172,14 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 === "TypeScript"
 
-    ```js
-    ampli.setGroup('orgId', ['10', '20']);
+    ```typescript
+    ampli.setGroup('userId', 'orgId', ['10', '20']);
     ```
 
 === "JavaScript"
 
-    ```js
-    ampli.setGroup('orgId', ['10', '20']);
+    ```javascript
+    ampli.setGroup('userId', 'orgId', ['10', '20']);
     ```
 
 ### Track
@@ -193,14 +188,22 @@ To track an event, call the event's corresponding function. Every event in your 
 
 === "TypeScript"
 
-    ```js
-    ampli.eventName(properties: EventNameProperties, options: EventOptions)
+    ```typescript
+    ampli.eventName(
+      userId: string : undefined,
+      properties: EventNameProperties,
+      options: EventOptions
+    )
     ```
 
 === "JavaScript"
 
-    ```js
-    ampli.eventName(properties: EventNameProperties, options: EventOptions)
+    ```javascript
+    ampli.eventName(
+      userId: string : undefined,
+      properties: EventNameProperties,
+      options: EventOptions
+    )
     ```
 
 The `properties` argument passes event properties.
@@ -214,8 +217,8 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 
 === "TypeScript"
 
-    ```js
-    ampli.songPlayed({
+    ```typescript
+    ampli.songPlayed('userId', {
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
@@ -225,8 +228,8 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 
 === "JavaScript"
 
-    ```js
-    ampli.songPlayed({
+    ```javascript
+    ampli.songPlayed('userId', {
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
@@ -238,7 +241,7 @@ Ampli also generates a class for each event.
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     const myEventObject = new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -247,7 +250,7 @@ Ampli also generates a class for each event.
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     const myEventObject = new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -258,7 +261,7 @@ Track Event objects using Ampli `track`:
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.track(new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -267,7 +270,7 @@ Track Event objects using Ampli `track`:
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.track(new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -282,8 +285,8 @@ First you need to define your plugin. Enrichment Plugin example:
 
 === "TypeScript"
 
-    ```js
-    import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+    ```typescript
+    import { Config, EnrichmentPlugin, Event, PluginType } from '"@amplitude/analytics-node"';
 
     export class AddEventIdPlugin implements EnrichmentPlugin {
       name = 'add-event-id';
@@ -294,7 +297,7 @@ First you need to define your plugin. Enrichment Plugin example:
        * setup() is called on plugin installation
        * example: client.add(new AddEventIdPlugin());
        */
-      setup(config: BrowserConfig): Promise<undefined> {
+      setup(config: Config): Promise<undefined> {
          this.config = config;
       }
 
@@ -311,7 +314,7 @@ First you need to define your plugin. Enrichment Plugin example:
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     export class AddEventIdPlugin {
       name = 'add-event-id';
       currentId = 100;
@@ -339,13 +342,13 @@ Add your plugin after init Ampli.
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.client.add(new AddEventIdPlugin())
     ```
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.client.add(new AddEventIdPlugin())
     ```
 
@@ -365,7 +368,7 @@ ampli status -u
 
 The output displays status and indicates what events are missing.
 
-```bash
+```text
 ➜ ampli status
 ✘ Verifying event tracking implementation in source code
  ✔ Song Played (1 location)
@@ -375,33 +378,30 @@ Events Tracked: 1 missed, 2 total
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
-## Migrating from an Itly runtime
+## Migrating from Ampli (Legacy) for the `@amplitude/node` runtime
 
-Migrate from an Itly Browser runtime to Ampli by following these steps.
+Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node` by following these steps.
 
-1. Update Source runtime. In the web app open the **Connections > Source** modal. From the dropdown, update the source to a non-`(Itly)` runtime.
-2. Go to the **Implementation** page, then select the new Source for detailed setup and usage instructions.
-3. Remove legacy Itly dependencies from your project. This includes anything that contains `@itly`:
+1. Update Source runtime.
 
-    `yarn remove @itly/sdk @itly/plugin-schema-validator @itly/plugin-amplitude ...`
+    In the web app open the **Sources** page and select the NodeJS Source you want to update. In the modal, change the runtime from `TypeScript (Legacy)` to `TypeScript` or `JavaScript (Legacy)` to `JavaScript`.
 
-4. Add Amplitude dependencies:
+2. Go to the **Implementation** page, then select the updated Source for detailed setup and usage instructions.
+
+3. Remove legacy dependencies from your project.
+
+    `yarn remove @amplitude/node`
+
+4. Add new dependencies.
   
-      `yarn add @amplitude/analytics-browser`
+    `yarn add @amplitude/analytics-node`
 
-5. Pull the latest Ampli Wrapper:
+5. Pull the latest Ampli Wrapper.
 
     `ampli pull`
 
-6. Check your Ampli Wrapper path.
+6. Find and replace.
 
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`,
-     you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+    Middleware is no longer support. It has been replaced by a new Plugin architecture. Migrating from Middleware to a Plugin is easy.
 
-7. Find and replace:
-    - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
-    - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
-    - `itly.load()` => `ampli.load()`
-    - All `itly.` with `ampli.`
-
-8. See updated Event tracking details on your Implementation page in the web app.
+7. See more details on your **Implementation** page in the web app.
