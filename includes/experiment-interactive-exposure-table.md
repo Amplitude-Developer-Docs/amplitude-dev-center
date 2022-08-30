@@ -12,7 +12,7 @@
 | --- | --- |
 |  <textarea class="at-field" spellcheck="false" placeholder="analytics_api_key" id="api_key">api_key</textarea> | The analytics API key from [project](../../general/data-model.md#projects) which you created your [flag](../../general/data-model.md#flags-and-experiments) and [deployment](../../general/data-model.md#deployments) in. |
 | <textarea class="at-field" spellcheck="false" placeholder="user_id" id="user_id">user_id</textarea> | The user ID used to fetch variants. This should be the same [user](../../general/data-model.md#users) you [fetched variants](./fetch-variants.md) for. |
-| <textarea class="at-field" spellcheck="false" placeholder="flag_key" id="flag_key">getting-started</textarea> | The flag key; `getting-started` if you're using the naming from this guide. |
+| <textarea class="at-field" spellcheck="false" placeholder="flag_key" id="flag_key"></textarea> | The flag key of the flag or experiment the user has been exposed to. |
 | <textarea class="at-field" spellcheck="false" placeholder="variant" id="variant">on</textarea> | The variant key, `on` if you're using the default flag variant. |
 | <a class="md-button" id="at-action-button">Track Exposure</a> | |
 
