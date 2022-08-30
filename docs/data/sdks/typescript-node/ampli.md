@@ -380,7 +380,7 @@ Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node
 
 1. Update Source runtime.
 
-   In the web app open the **Sources** page and select the NodeJS Source you want to update. In the modal, change the runtime from `TypeScript (Legacy)` to `TypeScript` or `JavaScript (Legacy)` to `JavaScript`.
+    In the web app open the **Sources** page and select the NodeJS Source you want to update. In the modal, change the runtime from `TypeScript (Legacy)` to `TypeScript` or `JavaScript (Legacy)` to `JavaScript`.
 
 2. Go to the **Implementation** page, then select the updated Source for detailed setup and usage instructions.
 
