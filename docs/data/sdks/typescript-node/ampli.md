@@ -397,6 +397,7 @@ Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node
     `ampli pull`
 
 6. Find and replace:
-   - Middleware is no longer support. It has been replaced by a new Plugin architecture. Migrating from Middleware to a Plugin is easy.
+
+    Middleware is no longer support. It has been replaced by a new Plugin architecture. Migrating from Middleware to a Plugin is easy.
 
 7. See more details on your **Implementation** page in the web app.
