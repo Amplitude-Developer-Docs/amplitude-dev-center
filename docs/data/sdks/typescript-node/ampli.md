@@ -9,16 +9,7 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
  code completion and compile-time checks.
 
-???tip "Linting with Prettier"
-
-    To prevent linting errors for eslint and tslint, the SDK-generated files have the following to diasable the linters: 
-
-    `/* tslint:disable */`
-
-    `/* eslint-disable */`
-    
-
-    There's no corresponding “in-code” functionality with Prettier. Instead, add the generated `path/to/ampli` to your `.prettierignore` file. You can get the path with `ampli pull`. See the [Prettier documentation](https://prettier.io/docs/en/ignore.html) for more information. 
+--8<-- "includes/ampli-linting-with-prettier.md"
 
 ## Installation
 
@@ -35,17 +26,14 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "npm"
 
     ```bash
-    npm install @amplitude/analytics-browser
+    npm install @amplitude/analytics-node
     ```
 
 === "yarn"
 
     ```bash
-    yarn add @amplitude/analytics-browser
+    yarn add @amplitude/analytics-node
     ```
-
-!!!note
-    Note: when using Ampli in the browser, we recommend loading `@amplitude/analytics-browser` as a module rather than as a JS snippet.
 
 ### Pull the SDK into your project
 
@@ -66,7 +54,7 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser/TypeScript
+    Runtime: Node.js/TypeScript
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -82,7 +70,7 @@ This prompts you to log in to your workspace and select a source.
     Organization: Amplitude
     Workspace: My Workspace
     Source: sourcename
-    Runtime: Browser/JavaScript
+    Runtime: Node.js/JavaScript
     Branch: main
     Pulling latest version (1.0.0)...
     Tracking library generated successfully.
@@ -162,13 +150,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "TypeScript"
 
     ```js
-    ampli.setGroup('groupType', 'groupName');
+    ampli.setGroup('userId', groupType', 'groupName');
     ```
 
 === "JavaScript"
 
     ```js
-    ampli.setGroup('groupType', 'groupName');
+    ampli.setGroup('userId', 'groupType', 'groupName');
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
@@ -180,13 +168,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "TypeScript"
 
     ```js
-    ampli.setGroup('orgId', ['10', '20']);
+    ampli.setGroup('userId', 'orgId', ['10', '20']);
     ```
 
 === "JavaScript"
 
     ```js
-    ampli.setGroup('orgId', ['10', '20']);
+    ampli.setGroup('userId', 'orgId', ['10', '20']);
     ```
 
 ### Track
@@ -196,13 +184,21 @@ To track an event, call the event's corresponding function. Every event in your 
 === "TypeScript"
 
     ```js
-    ampli.eventName(properties: EventNameProperties, options: EventOptions)
+    ampli.eventName(
+      userId: string : undefined,
+      properties: EventNameProperties,
+      options: EventOptions
+    )
     ```
 
 === "JavaScript"
 
     ```js
-    ampli.eventName(properties: EventNameProperties, options: EventOptions)
+    ampli.eventName(
+      userId: string : undefined,
+      properties: EventNameProperties,
+      options: EventOptions
+    )
     ```
 
 The `properties` argument passes event properties.
@@ -216,8 +212,8 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 
 === "TypeScript"
 
-    ```js
-    ampli.songPlayed({
+    ```typescript
+    ampli.songPlayed('userId', {
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
@@ -227,8 +223,8 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 
 === "JavaScript"
 
-    ```js
-    ampli.songPlayed({
+    ```typescript
+    ampli.songPlayed('userId', {
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
@@ -240,7 +236,7 @@ Ampli also generates a class for each event.
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     const myEventObject = new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -249,7 +245,7 @@ Ampli also generates a class for each event.
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     const myEventObject = new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -260,7 +256,7 @@ Track Event objects using Ampli `track`:
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.track(new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -284,8 +280,8 @@ First you need to define your plugin. Enrichment Plugin example:
 
 === "TypeScript"
 
-    ```js
-    import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+    ```typescript
+    import { Config, EnrichmentPlugin, Event, PluginType } from '"@amplitude/analytics-node"';
 
     export class AddEventIdPlugin implements EnrichmentPlugin {
       name = 'add-event-id';
@@ -296,7 +292,7 @@ First you need to define your plugin. Enrichment Plugin example:
        * setup() is called on plugin installation
        * example: client.add(new AddEventIdPlugin());
        */
-      setup(config: BrowserConfig): Promise<undefined> {
+      setup(config: Config): Promise<undefined> {
          this.config = config;
       }
 
@@ -377,33 +373,26 @@ Events Tracked: 1 missed, 2 total
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
-## Migrating from an Itly runtime
+## Migrating from `@amplitude/node` runtime
 
-Migrate from an Itly Browser runtime to Ampli by following these steps.
+Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node` by following these steps.
 
-1. Update Source runtime. In the web app open the **Connections > Source** modal. From the dropdown, update the source to a non-`(Itly)` runtime.
-2. Go to the **Implementation** page, then select the new Source for detailed setup and usage instructions.
-3. Remove legacy Itly dependencies from your project. This includes anything that contains `@itly`:
+1. Update Source runtime.
+  - In the web app open the **Sources** page and select the NodeJS Source you want to update. In the modal, change the runtime from `TypeScript (Legacy)` to `TypeScript` or `JavaScript (Legacy)` to `JavaScript`.
+2. Go to the **Implementation** page, then select the updated Source for detailed setup and usage instructions.
+3. Remove legacy dependencies from your project.
 
-    `yarn remove @itly/sdk @itly/plugin-schema-validator @itly/plugin-amplitude ...`
+    `yarn remove @amplitude/node`
 
-4. Add Amplitude dependencies:
+4. Add new dependencies:
   
-      `yarn add @amplitude/analytics-browser`
+    `yarn add @amplitude/analytics-node`
 
 5. Pull the latest Ampli Wrapper:
 
     `ampli pull`
 
-6. Check your Ampli Wrapper path.
+6. Find and replace:
+   - Middleware is no longer support. It has been replaced by a new Plugin architecture. Migrating from Middleware to a Plugin is easy.
 
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`,
-     you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-
-7. Find and replace:
-    - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
-    - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
-    - `itly.load()` => `ampli.load()`
-    - All `itly.` with `ampli.`
-
-8. See updated Event tracking details on your Implementation page in the web app.
+7. See more details on your **Implementation** page in the web app.

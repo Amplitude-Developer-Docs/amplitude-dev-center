@@ -13,16 +13,7 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
  code completion and compile-time checks.
 
-???tip "Linting with Prettier"
-
-    To prevent linting errors for eslint and tslint, the SDK-generated files have the following to diasable the linters: 
-
-    `/* tslint:disable */`
-
-    `/* eslint-disable */`
-    
-
-    There's no corresponding “in-code” functionality with Prettier. Instead, add the generated `path/to/ampli` to your `.prettierignore` file. You can get the path with `ampli pull`. See the [Prettier documentation](https://prettier.io/docs/en/ignore.html) for more information. 
+--8<-- "includes/ampli-linting-with-prettier.md"
 
 ## Installation
 
