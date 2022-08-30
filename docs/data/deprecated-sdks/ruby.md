@@ -9,7 +9,7 @@ search:
 <!-- markdownlint-disable -->
 <!-- markdown-link-check-disable -->
 
-!!!warning "Deprecated SDK"
+!!!deprecated "Deprecated SDK"
     This SDK is deprecated and these docs are no longer maintained.
 
 Amplitude Data supports tracking analytics events from Ruby apps.

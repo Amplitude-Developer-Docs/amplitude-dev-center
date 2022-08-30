@@ -9,8 +9,8 @@ icon: fontawesome/brands/react
 
 This is the official documentation for the Amplitude Analytics React Native SDK.
 
-!!!attention "Legacy SDK"
-    This SDK is legacy and only continue to receive bug fixes until deprecated. A new [Analytics SDK for React Native](../../sdks/typescript-react-native/) available in Beta. The new SDK offers an improved code architecture which supports plugins and React Native Web. 
+!!!deprecated "Legacy SDK"
+    This is a legacy SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for React Native](/data/sdks/typescript-react-native/) available in Beta. The new SDK offers an improved code architecture which supports plugins and React Native Web. 
 
     The Beta SDK doesn't yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 

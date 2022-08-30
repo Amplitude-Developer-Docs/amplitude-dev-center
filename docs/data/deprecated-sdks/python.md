@@ -9,8 +9,8 @@ search:
 <!-- markdownlint-disable -->
 <!-- markdown-link-check-disable -->
 
-!!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained.
+!!!deprecated "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Python SDK (Ampli)](/data/sdks/python/ampli/).
 
 Amplitude Data supports tracking analytics events from Python 3 applications.
 
