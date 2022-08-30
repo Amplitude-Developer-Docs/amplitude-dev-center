@@ -3,6 +3,7 @@ title: Node Typescript Ampli Wrapper
 description: The Ampli Wrapper - Node Typescript Installation & Quick Start guide.
 ---
 
+--8<-- "includes/closed-beta.md"
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
@@ -47,7 +48,7 @@ This prompts you to log in to your workspace and select a source.
 
 === "TypeScript"
 
-    ```bash
+    ```
     ➜ ampli pull sourcename
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
@@ -63,7 +64,7 @@ This prompts you to log in to your workspace and select a source.
 
 === "JavaScript"
 
-    ```bash
+    ```
     ➜ ampli pull sourcename
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
@@ -104,7 +105,7 @@ For example, your tracking plan contains a user property called `role`. The prop
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.identify('user-id', {
       role: 'admin'
     });
@@ -112,7 +113,7 @@ For example, your tracking plan contains a user property called `role`. The prop
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.identify('user-id', {
       role: 'admin'
     });
@@ -122,7 +123,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.identify('user-id', {
       role: 'admin'
     }, {
@@ -132,7 +133,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.identify('user-id', {
       role: 'admin'
     }, {
@@ -149,13 +150,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.setGroup('userId', groupType', 'groupName');
     ```
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.setGroup('userId', 'groupType', 'groupName');
     ```
 
@@ -167,13 +168,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.setGroup('userId', 'orgId', ['10', '20']);
     ```
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.setGroup('userId', 'orgId', ['10', '20']);
     ```
 
@@ -183,7 +184,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.eventName(
       userId: string : undefined,
       properties: EventNameProperties,
@@ -193,7 +194,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.eventName(
       userId: string : undefined,
       properties: EventNameProperties,
@@ -223,7 +224,7 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 
 === "JavaScript"
 
-    ```typescript
+    ```javascript
     ampli.songPlayed('userId', {
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -265,7 +266,7 @@ Track Event objects using Ampli `track`:
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.track(new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -309,7 +310,7 @@ First you need to define your plugin. Enrichment Plugin example:
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     export class AddEventIdPlugin {
       name = 'add-event-id';
       currentId = 100;
@@ -337,13 +338,13 @@ Add your plugin after init Ampli.
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.client.add(new AddEventIdPlugin())
     ```
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.client.add(new AddEventIdPlugin())
     ```
 
@@ -363,7 +364,7 @@ ampli status -u
 
 The output displays status and indicates what events are missing.
 
-```bash
+```
 ➜ ampli status
 ✘ Verifying event tracking implementation in source code
  ✔ Song Played (1 location)
@@ -373,7 +374,7 @@ Events Tracked: 1 missed, 2 total
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
-## Migrating from `@amplitude/node` runtime
+## Migrating from Ampli (Legacy) for the `@amplitude/node` runtime
 
 Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node` by following these steps.
 
