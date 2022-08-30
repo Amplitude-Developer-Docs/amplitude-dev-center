@@ -9,8 +9,8 @@ search:
 <!-- markdownlint-disable -->
 <!-- markdown-link-check-disable -->
 
-!!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Node.js SDK (Ampli)](/sdks/node/ampli.md).
+!!!deprecated "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Node.js SDK (Ampli)](/data/sdks/node/ampli/).
 
 !!!note "Migrating"
 

@@ -9,8 +9,8 @@ icon: material/language-javascript
 
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
-!!!attention "Legacy SDK"
-    This SDK is legacy and only continue to receive bug fixes until deprecated. Checkout and upgrade to the [TypeScript Browser SDK](../typescript-browser) which supports plugins and more.
+!!!deprecated "Legacy SDK"
+    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [TypeScript Browser SDK](/data/sdks/typescript-browser/) which supports plugins and more.
 
 !!!info "SDK Resources"
     - [JavaScript Browser SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)

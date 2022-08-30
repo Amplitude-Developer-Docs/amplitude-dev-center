@@ -9,8 +9,8 @@ search:
 <!-- markdownlint-disable -->
 <!-- markdown-link-check-disable -->
 
-!!!warning "Deprecated SDK"
-    This SDK is deprecated and these docs are no longer maintained. Migrate to the [JRE SDK (Ampli)](/data/sdks/java/ampli).
+!!!deprecated "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [JRE SDK (Ampli)](/data/sdks/java/ampli/).
 
 Iteratively supports tracking analytics events from JRE programs written in Java (6 and above).
 

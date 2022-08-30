@@ -7,6 +7,9 @@ search:
 <!-- markdownlint-disable -->
 <!-- markdown-link-check-disable -->
 
+!!!deprecated "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Java SDK (Ampli)](/data/sdks/java/ampli/).
+
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 
 In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
