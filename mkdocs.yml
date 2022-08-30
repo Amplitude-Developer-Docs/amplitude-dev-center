@@ -185,7 +185,7 @@ nav:
     - experiment/guides/server-side-rendering.md
     - experiment/guides/create-local-evaluation-flag.md
     - Troubleshooting:
-      - experiment/guides/debugging-sample-ratio-mismatch.md
+      - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
   - SDKs:
     - JavaScript SDK: experiment/sdks/javascript-sdk.md
     - Android SDK: experiment/sdks/android-sdk.md
