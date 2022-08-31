@@ -37,7 +37,7 @@ description: The quick start guide of how to use amplitude SDK
         implementation 'com.amplitude:analytics-android:1.0.0'
     }
     ```
-=== "iOS"
+=== "ios1"
 
     ```bash
     // CocoaPods #(1)!
@@ -47,7 +47,6 @@ description: The quick start guide of how to use amplitude SDK
     Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
 
     // Carthage #(3)!
-
     github 'amplitude/Amplitude-iOS' ~> 8.8.0
     ```
     { .annotate }
@@ -56,7 +55,7 @@ description: The quick start guide of how to use amplitude SDK
     3. Learn more about [Add Dependency using Carthage](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
 
 
-=== "iOS"
+=== "ios2"
 
     CocoaPods (1)
     { .annotate }
