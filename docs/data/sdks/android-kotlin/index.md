@@ -35,7 +35,7 @@ dependencies {
 To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file.
 `<uses-permission android:name="android.permission.INTERNET" />`
 
-For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone related information.
+For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone carrier information. If you don't add this permission, the SDK still works, but doesn't track phone carrier information. 
 `<uses-permission android:name="android.permission.READ_PHONE_STATE" />`
 
 The SDK internally uses a number of Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring)) or requires a minimum API level of 26.

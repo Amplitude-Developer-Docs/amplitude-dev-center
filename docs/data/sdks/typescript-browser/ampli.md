@@ -1,28 +1,22 @@
 ---
-title: Typescript Ampli Wrapper
+title: Browser TypeScript Ampli Wrapper
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
 ---
 
 
-!!! note
-    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to ugrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
-
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
- code completion and compile-time checks.
+The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-???tip "Linting with Prettier"
+!!!info "Ampli Resources"
+    - [Browser Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app)
+    - [Browser Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app)
 
-    To prevent linting errors for eslint and tslint, the SDK-generated files have the following to diasable the linters: 
+!!!note "Deprecated Itly runtime"
+    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
 
-    `/* tslint:disable */`
-
-    `/* eslint-disable */`
-    
-
-    There's no corresponding “in-code” functionality with Prettier. Instead, add the generated `path/to/ampli` to your `.prettierignore` file. You can get the path with `ampli pull`. See the [Prettier documentation](https://prettier.io/docs/en/ignore.html) for more information. 
+--8<-- "includes/ampli-linting-with-prettier.md"
 
 ## Installation
 

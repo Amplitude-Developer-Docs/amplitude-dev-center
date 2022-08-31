@@ -144,7 +144,7 @@ nav:
   - Overview: analytics/index.md
   - What is Amplitude?: analytics/what-is-amplitude.md
   - Find Your API Credentials: analytics/find-api-credentials.md
-  - SDKs: 
+  - SDKs:
     - SDK Catalog: data/sources/#sdks
   - API References:
     - Attribution: analytics/apis/attribution-api.md
@@ -222,8 +222,9 @@ nav:
         - data/sdks/typescript-browser/index.md
         - data/sdks/typescript-browser/migration.md
         - Ampli Codegen: data/sdks/typescript-browser/ampli.md
-      - Node.js (Beta): 
+      - Node.js (Beta):
         - data/sdks/typescript-node/index.md
+        - Ampli Codegen (Beta): data/sdks/typescript-node/ampli.md
       - Android:
         - data/sdks/android-kotlin/index.md
         - Ampli Codegen: data/sdks/android-kotlin/ampli.md
@@ -233,16 +234,16 @@ nav:
       - Java:
         - data/sdks/java/index.md
         - Ampli Codegen: data/sdks/java/ampli.md
-      - React Native (Beta): 
+      - React Native (Beta):
         - data/sdks/typescript-react-native/index.md
-      - Flutter: 
+      - Flutter:
         - data/sdks/flutter/index.md
       - Python:
         - data/sdks/python/index.md
         - Ampli Codegen: data/sdks/python/ampli.md
-      - Unity: 
+      - Unity:
         - data/sdks/unity/index.md
-      - Unreal: 
+      - Unreal:
         - data/sdks/unreal/index.md
       - GO:
         - data/sdks/go/index.md

@@ -14,8 +14,8 @@ The Node.js SDK lets you send events to Amplitude. This library is open-source, 
     - [Node.js SDk Repository :material-github:](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)
     - [Node.js SDk Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-TypeScript/releases)
 
---8<-- "includes/no-ampli.md"
-    To use Ampli see the [non-Beta SDK](../../sdks/node/) and [Ampli Wrapper](../../sdks/node/ampli/) instead.
+--8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation for [Ampli for Node](../typescript-node/index.md)
 
 ## Getting Started
 
