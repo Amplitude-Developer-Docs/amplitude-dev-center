@@ -12,7 +12,7 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
     - [Android Kotlin Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp)
 
 !!!note "Deprecated Itly runtime"
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/android/)**.
+    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.
 
 ## Installation
 

@@ -10,7 +10,7 @@ icon: material/android
 This is the official documentation for the Amplitude Analytics Android SDK.
 
 !!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [Android Kotlin SDK](/data/sdks/android-kotlin/) which supports plugins, SDK integrations, and more.
+    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [Android Kotlin SDK](../android-kotlin) which supports plugins, SDK integrations, and more.
 
 !!!info "SDK Resources"
     - [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/)
