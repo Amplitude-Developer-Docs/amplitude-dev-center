@@ -91,19 +91,17 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Unity"
 
-    ```bash
-    // Unity Package Manager #(1)!
-  
-    Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
+    ```bash title="Unity Package Manager"
 
-    // Manual download #(2)!
+    Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
+    ```
+    Learn more about [Unity package manager initizalization](../data/sdks/unity/#option-1-unity-package-manager)
+
+    ```bash title="Manual download"
 
     Download amplitude-unity.unitypackage
     ```
-    { .annotate }
-
-    1. Learn more: [Unity Package Manager Initialization](../data/sdks/unity/#option-1-unity-package-manager)
-    2. Learn more: [Unity Package Download](../data/sdks/unity/#option-2-manual-download-and-add-dependency)
+    Learn more about the [Unity package download](../data/sdks/unity/#option-2-manual-download-and-add-dependency).
 
 === "Unreal"
 
