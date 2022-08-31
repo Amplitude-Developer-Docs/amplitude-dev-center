@@ -41,18 +41,23 @@ description: The quick start guide of how to use amplitude SDK
 
     ```bash
     // CocoaPods #(1)!
+
     pod 'Amplitude', '~> 8.8.0'
 
     // Swift Package Manager #(2)!
+
     Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
 
     // Carthage #(3)!
+
     github 'amplitude/Amplitude-iOS' ~> 8.8.0
+
     ```
     { .annotate }
-    1. Learn more about [Add Dependency using CocoaPods](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
-    2. Learn more about [Add Dependency using SPM](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
-    3. Learn more about [Add Dependency using Carthage](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+    1. Learn more: [Add Dependency](../data/sdks/unity/#option-1-unity-package-manager)
+    2. Learn more: [Unity Package Download](../data/sdks/unity/#option-2-manual-download-and-add-dependency)
+    3. Learn more: [Unity Package Download](../data/sdks/unity/#option-2-manual-download-and-add-dependency)
 
 
 === "ios2"
@@ -60,26 +65,29 @@ description: The quick start guide of how to use amplitude SDK
     CocoaPods (1)
     { .annotate }
 
+    1. Learn more about [Add Dependency using CocoaPods](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
     ```bash
     pod 'Amplitude', '~> 8.8.0'
     ```
-    1. Learn more about [Add Dependency using CocoaPods](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
 
     Swift Package Manager (1)
     { .annotate }
 
+    1. Learn more about [Add Dependency using SPM](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
     ```bash
     Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
     ```
-    1. Learn more about [Add Dependency using SPM](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
 
     Carthage (1)
     { .annotate }
 
+    1. Learn more about [Add Dependency using Carthage](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
     ```bash
     github 'amplitude/Amplitude-iOS' ~> 8.8.0
     ```
-    1. Learn more about [Add Dependency using Carthage](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
 
 
 === "iOS"
