@@ -13,7 +13,7 @@ The tracking library exposes a type-safe function for every event in your teamâ€
     - [Django Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/python/django/v1)
 
 !!!note "Deprecated Itly runtime"
-    This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrating-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/python)**.
+    This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrating-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python.md)**.
 
 ## Install
 
