@@ -37,57 +37,114 @@ description: The quick start guide of how to use amplitude SDK
         implementation 'com.amplitude:analytics-android:1.0.0'
     }
     ```
-
 === "iOS"
 
     ```bash
-    // CocoaPods [^1]
+    // CocoaPods #(1)!
     pod 'Amplitude', '~> 8.8.0'
 
-    // Swift Package Manager
+    // Swift Package Manager #(2)!
     Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
 
-    // Carthage
-    github 'amplitude/Amplitude-iOS' ~> 8.8.0
+    // Carthage #(3)!
 
+    github 'amplitude/Amplitude-iOS' ~> 8.8.0
     ```
+    { .annotate }
+    1. Learn more about [Add Dependency using CocoaPods](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+    2. Learn more about [Add Dependency using SPM](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+    3. Learn more about [Add Dependency using Carthage](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+
+=== "iOS"
+
+    CocoaPods (1)
+    { .annotate }
+
+    ```bash
+    pod 'Amplitude', '~> 8.8.0'
+    ```
+    1. Learn more about [Add Dependency using CocoaPods](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+    Swift Package Manager (1)
+    { .annotate }
+
+    ```bash
+    Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
+    ```
+    1. Learn more about [Add Dependency using SPM](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+    Carthage (1)
+    { .annotate }
+
+    ```bash
+    github 'amplitude/Amplitude-iOS' ~> 8.8.0
+    ```
+    1. Learn more about [Add Dependency using Carthage](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+
+=== "iOS"
+
+    ```bash title="CocoaPods"
+
+    pod 'Amplitude', '~> 8.8.0'
+    ```
+    Learn more about [Add Dependency using CocoaPods](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+
+    ```bash title="Swift Package Manager"
+
+    Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
+    ```
+    Learn more about [Add Dependency using SPM](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+    ```bash title="Carthage"
+
+    github 'amplitude/Amplitude-iOS' ~> 8.8.0
+    ```
+    Learn more about [Add Dependency using Carthage](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
 
 === "JAVA"
 
-    ```bash
+    ```bash title="Maven"
 
-    // Gradle
     dependencies {
         implementation 'org.json:json:20201115'
         implementation 'com.amplitude:java-sdk:1.10.0'
     }
     ```
+    Learn more about [Add Dependency using Gradle](../data/sdks/java/#step-2-initialize-and-connect-ampli-and-amplitude-data)
+
+    ```bash title="Download"
+    ```
+    Download the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases) and add it to the project's buildpath. See instructions for your IDE.
 
 === "PYTHON"
 
     ```bash
-
     pip install amplitude-analytics
     ```
 
 === "React Native"
 
-    ```bash
-    // NPM
-    npm install @amplitude/react-native@latest
+    ```bash title="NPM"
 
-    // YARN
+    npm install @amplitude/react-native@latest
+    ```
+
+    ```bash title="YARN"
+
     yarn add @amplitude/react-native@latest
     ```
 
 === "Flutter"
 
-    ```bash
+    ```bash  title="YAML"
 
-    // YAML
     dependencies:
         amplitude_flutter: ^3.7.0
     ```
+    Learn more about [Add Dependency](../data/sdks/flutter/#add-dependencies)
 
 === "Unity"
 
