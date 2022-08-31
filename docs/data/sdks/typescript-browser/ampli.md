@@ -14,7 +14,7 @@ The tracking library exposes a function for every event in your team’s trackin
 
 !!!note "Deprecated Itly runtime"
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
