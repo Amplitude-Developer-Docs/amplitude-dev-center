@@ -4,129 +4,187 @@ description: The quick start guide of how to use amplitude SDK
 ---
 
 ## Overview
-1. Initialize the Library
+
+### 1. Initialize the library
+
 === "Browser"
-    ```bash
-	// NPM
-    npm install @amplitude/analytics-browser
 
-	// YARN
-    yarn add @amplitude/analytics-browser
+    ```bash
+
+    // NPM
+        npm install @amplitude/analytics-browser
+
+    // YARN
+        yarn add @amplitude/analytics-browser
     ```
-=== "Node"
-	```bash
-	// NPM
-	npm install @amplitude/analytics-node
 
-	// YARN
-	yarn add @amplitude/analytics-node
-	```
-=== "Android"
-	```bash
-	// Gradle
-	dependencies {
-  		implementation 'com.amplitude:analytics-android:1.0.0'
-	}
-	```
-=== "iOS"
+=== "Node"
+
     ```bash
-	// CocoaPods [^1]
+    // NPM
+    npm install @amplitude/analytics-node
+
+    // YARN
+    yarn add @amplitude/analytics-node
+
+    ```
+
+=== "Android"
+
+    ```bash
+    // Gradle
+    dependencies {
+        implementation 'com.amplitude:analytics-android:1.0.0'
+    }
+    ```
+
+=== "iOS"
+
+    ```bash
+    // CocoaPods [^1]
     pod 'Amplitude', '~> 8.8.0'
 
-	// Swift Package Manager
-	Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
+    // Swift Package Manager
+    Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
 
-	// Carthage
-	github 'amplitude/Amplitude-iOS' ~> 8.8.0
-	```
+    // Carthage
+    github 'amplitude/Amplitude-iOS' ~> 8.8.0
+
+    ```
+
 === "JAVA"
-	```bash
-	// Gradle
-	dependencies {
-	    implementation 'org.json:json:20201115'
-	    implementation 'com.amplitude:java-sdk:1.10.0'
-	}
-	```
+
+    ```bash
+
+    // Gradle
+    dependencies {
+        implementation 'org.json:json:20201115'
+        implementation 'com.amplitude:java-sdk:1.10.0'
+    }
+    ```
+
 === "PYTHON"
-	```bash
-	pip install amplitude-analytics
-	```
+
+    ```bash
+
+    pip install amplitude-analytics
+    ```
+
 === "React Native"
-	```bash
-	// NPM
-	npm install @amplitude/react-native@latest
 
-	// YARN
-	yarn add @amplitude/react-native@latest
-	```
+    ```bash
+    // NPM
+    npm install @amplitude/react-native@latest
+
+    // YARN
+    yarn add @amplitude/react-native@latest
+    ```
+
 === "Flutter"
-	```bash
-	// YAML
-	dependencies:
-  		amplitude_flutter: ^3.7.0
-	```
+
+    ```bash
+
+    // YAML
+    dependencies:
+        amplitude_flutter: ^3.7.0
+    ```
+
 === "Unity"
-	// Unity Package Manager [^1]
-	```bash
-	Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
-	```
-	// Manual Download [^2]
-	```
-	Download amplitude-unity.unitypackage
-	```
+
+    Unity Package Manager (1)
+    { .annotate }
+
+    1. Learn more: [Unity Package Manager Initialization](../data/sdks/unity/#option-1-unity-package-manager)
+
+    ```bash
+    Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
+    ```
+
+    Manual Download (1)
+    { .annotate }
+
+    1. Learn more: [Unity Package Download](../data/sdks/unity/#option-2-manual-download-and-add-dependency)
+
+    ```
+    Download amplitude-unity.unitypackage
+    ```
+
 === "Unreal"
-	```txt
-	Download AmplitudUnreal.zip[GitHub releases page](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
-	Unzip it into a folder inside your Unreal project's Plugins directory.
-	```
+
+    ```txt
+    Download AmplitudUnreal.zip[GitHub releases page](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
+    Unzip it into a folder inside your Unreal project's Plugins directory.
+    ```
+
 === "GO"
-	```bash
-	go get https://github.com/amplitude/analytics-go
-	```
 
+    ```bash
+    go get https://github.com/amplitude/analytics-go
+    ```
 
-[^1] [Unity Package Manager Initialization](../data/sdks/unity/#option-1-unity-package-manager)
-[^2] [Unity Pakage Download](../data/sdks/unity/#option-2-manual-download-and-add-dependency)
+### 2. Send data
 
-
-2. Send Data
 === "Browser"
+
     ```bash
     ```
+
 === "Node"
-	```bash
-	```
-=== "Android"
-	```bash
-	```
-=== "iOS"
+
     ```bash
-	```
+    ```
+
+=== "Android"
+
+    ```bash
+    ```
+
+=== "iOS"
+
+    ```bash
+
+    ```
+
 === "JAVA"
-	```bash
-	```
+
+    ```bash
+    ```
+
 === "PYTHON"
-	```bash
-	```
+
+ ```bash
+ ```
+
 === "React Native"
-	```bash
-	```
+
+    ```bash
+    ```
+
 === "Flutter"
-	```bash
-	```
+
+    ```bash
+    ```
+
 === "Unity"
-	```bash
-	```
+
+    ```bash
+    ```
+
 === "Unreal"
-	```txt
-	Download AmplitudUnreal.zip[GitHub releases page](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
-	Unzip it into a folder inside your Unreal project's Plugins directory.
-	```
+
+    ```txt
+    Download AmplitudUnreal.zip[GitHub releases page](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
+    Unzip it into a folder inside your Unreal project's Plugins directory.
+    ```
+
 === "GO"
-	```
-	```
 
-3. Check for Sucess
-4. Enforce event schemas  (ampli)
+    ```
 
-## Complete Code Example
+    ```
+
+### 3. Check for success
+
+### 4. Enforce event schemas (ampli)
+
+## Complete code example
