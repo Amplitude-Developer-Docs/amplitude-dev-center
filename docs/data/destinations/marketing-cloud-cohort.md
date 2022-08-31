@@ -1,7 +1,11 @@
 ---
-title: Send Cohorts to Marketing Cloud
+title: Send Cohorts to Marketing Cloud (v1)
 description: Send Amplitude cohorts to Salesforce Marketing Cloud. 
 ---
+
+!!!tip "Improved v2 integration is now in beta"
+
+    Amplitude has released an improved version of this integration. Learn more in [Send Cohorts to Salesforce Marketing Cloud (v2)](../marketing-cloud-cohort-v2)
 
 This integration combines Amplitude's analytics with Salesforce Marketing Cloud. You can export [Behavioral Cohorts](https://help.amplitude.com/hc/en-us/articles/231881448-Amplitude-2-0-Behavioral-Cohorts) from Amplitude to Salesforce Marketing Cloud so that you can better engage your users. 
 

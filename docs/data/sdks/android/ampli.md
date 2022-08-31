@@ -3,7 +3,6 @@ title: Android Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
 ---
 
-
 Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
 In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
@@ -21,7 +20,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](../data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -231,7 +230,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
- The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../../ampli/middleware).
+ The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../ampli/middleware.md).
 
 === "Java"
 
