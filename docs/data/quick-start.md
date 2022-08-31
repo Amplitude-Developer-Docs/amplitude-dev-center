@@ -66,16 +66,14 @@ description: The quick start guide of how to use amplitude SDK
   		amplitude_flutter: ^3.7.0
 	```
 === "Unity"
+	// Unity Package Manager [^1]
 	```bash
-	// Unity Package Manager # (1)
 	Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
-
-	// Manual Download
-	Download amplitude-unity.unitypackage # (2)
 	```
-	1. [Unity Package Manager Initialization](../data/sdks/unity/#option-1-unity-package-manager)
-	2. [Unity Pakage Download](../data/sdks/unity/#option-2-manual-download-and-add-dependency)
-
+	// Manual Download [^2]
+	```
+	Download amplitude-unity.unitypackage
+	```
 === "Unreal"
 	```txt
 	Download AmplitudUnreal.zip[GitHub releases page](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
@@ -85,6 +83,11 @@ description: The quick start guide of how to use amplitude SDK
 	```bash
 	go get https://github.com/amplitude/analytics-go
 	```
+
+
+[^1] [Unity Package Manager Initialization](../data/sdks/unity/#option-1-unity-package-manager)
+[^2] [Unity Pakage Download](../data/sdks/unity/#option-2-manual-download-and-add-dependency)
+
 
 2. Send Data
 === "Browser"
