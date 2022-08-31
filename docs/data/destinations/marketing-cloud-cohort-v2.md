@@ -51,7 +51,7 @@ You need a subdomain, client ID, and client secret from Marketing Cloud.
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Salesforce Marketing Cloud - Cohort**.
+1. In Amplitude, navigate to **Data Destinations**, then find **Salesforce Marketing Cloud V2**.
 2. Enter a name and the client ID, client secret, and subdomain you found in Salesforce.
 3. (Optional) Enter a folder name you created in the Data Extension page.
 4. Map an Amplitude user property to the Marketing Cloud contact key.
