@@ -71,7 +71,7 @@ description: The quick start guide of how to use amplitude SDK
 	Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
 
 	// Manual Download
-	Download amplitude-unity.unitypackage # (1)!
+	Download amplitude-unity.unitypackage
 	```
 === "Unreal"
 	```txt
@@ -83,7 +83,16 @@ description: The quick start guide of how to use amplitude SDK
 	go get https://github.com/amplitude/analytics-go
 	```
 
-1. https://github.com/amplitude/unity-plugin/releases
+
+``` yaml
+theme:
+  features:
+    - content.code.annotate # (1)
+```
+
+1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
+    text__, images, ... basically anything that can be written in Markdown.
+
 
 
 
