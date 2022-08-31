@@ -13,7 +13,7 @@ In Swift and Objective-C, the tracking library exposes a type-safe function for 
     - [iOS Objective-C Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/ios/objective-c/AmpliObjectiveCSampleApp)
 
 !!!note "Deprecated Itly runtime"
-    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/ios)**.
+    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/ios.md)**.
 
 ## Installation
 

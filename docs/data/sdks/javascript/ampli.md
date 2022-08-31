@@ -14,7 +14,7 @@ The tracking library exposes a function for every event in your team’s trackin
 
 !!!note "Deprecated Itly runtime"
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-    If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](/data/deprecated-sdks/browser)**.
+    If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
 
 ??? tip "Enable real-time type checking for JavaScript"
     Because JavaScript isn't a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc.
