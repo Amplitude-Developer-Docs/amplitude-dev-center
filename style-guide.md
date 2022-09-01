@@ -1,6 +1,5 @@
 <!-- markdownlint-disable-file -->
 <!-- markdown-link-check-disable -->
-<!-- vale off-->
 
 # Amplitude Developer Center Style Guide
 
