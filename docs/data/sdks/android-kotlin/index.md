@@ -20,7 +20,7 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
 ### 1. Add dependencies
 
 - We recommend using Android Studio as an IDE and Gradle to manage dependencies.
-- In `build.gradle` file, add the following dependencies. OkHttp is needed for the SDK.
+- In `build.gradle` file, add the following dependencies.
 
 ```txt
 dependencies {
@@ -35,10 +35,10 @@ dependencies {
 To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file.
 `<uses-permission android:name="android.permission.INTERNET" />`
 
-For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone carrier information. If you don't add this permission, the SDK still works, but doesn't track phone carrier information. 
+For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone carrier information. If you don't add this permission, the SDK still works, but doesn't track phone carrier information.
 `<uses-permission android:name="android.permission.READ_PHONE_STATE" />`
 
-The SDK internally uses a number of Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring)) or requires a minimum API level of 26.
+The SDK internally uses a number of Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) or requires a minimum API level of 26.
 
 ### 3. Initialization
 
