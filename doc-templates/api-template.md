@@ -3,6 +3,7 @@ title: PAGE TITLE
 description:  Enter a description. This content becomes the page's meta description.
 ---
 <!-- markdownlint-disable -->
+<!-- vale off -->
 <!-->
 Instructions: 
 - Use this template to write the API docs.

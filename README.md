@@ -1,5 +1,6 @@
 <!-- markdownlint-disable-file -->
 <!-- markdown-link-check-disable -->
+<!-- vale off -->
 
 # README
 

@@ -64,6 +64,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Node"
+
     ```js
     const request = require('node-fetch');
     const inputBody = '{
@@ -149,6 +150,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Ruby"
+
     ```ruby
     require 'rest-client'
     require 'json'
@@ -166,6 +168,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Python"
+
     ```python
     import requests
     headers = {
@@ -181,6 +184,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Java"
+
     ```java
     URL obj = new URL("https://api2.amplitude.com/batch");
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -198,6 +202,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Go"
+
     ```go
     package main
 
@@ -234,6 +239,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 ##### Example body
 
 ```json
+
 {
   "api_key": "my_amplitude_api_key",
   "events": [
@@ -350,7 +356,7 @@ These properties belong to the `events` object.
 |        `idfv`         |                                                                                                                                                                                  Optional. String. (iOS) Identifier for Vendor.                                                                                                                                                                                   |
 |        `adid`         |                                                                                                                                                                          Optional. String. (Android) Google Play Services advertising ID                                                                                                                                                                          |
 |     `android_id`      |                                                                                                                                                                          Optional. String. (Android) Android ID (not the advertising ID)                                                                                                                                                                          |
-|      `event_id`       |                                                                                      Optional. Integer. An incrementing counter to distinguish events with the same user_id and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultanenously.                                                                                      |
+|      `event_id`       |                                                                                      Optional. Integer. An incrementing counter to distinguish events with the same user_id and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultaneously.                                                                                      |
 |     `session_id`      |                                                                                            Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A session_id of -1 is the same as no session_id specified.                                                                                             |
 |      `insert_id`      |                                                               Optional. String. A unique identifier for the event. We will deduplicate subsequent events sent with an `insert_id` we have already seen before within the past 7 days. We recommend generation a UUID or using some combination of device_id, user_id, event_type, event_id, and time.                                                               |
 |        `plan`         |                                                                                                                                                         Optional. Object. Tracking plan properties. Only branch, source, version properties are accepted                                                                                                                                                          |

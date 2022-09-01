@@ -1,6 +1,6 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
-level: error
+level: warning
 ignorecase: true
 action:
   name: replace

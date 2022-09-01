@@ -1,7 +1,0 @@
-extends: existence
-message: " Do you mean because? '%s' is hard to translate."
-ignorecase: true
-level: warning
-tokens:
-  - since
-  - Since

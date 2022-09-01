@@ -1,5 +1,5 @@
 extends: existence
-message: "Try to avoid using first-person plural like '%s'."
+message: "Avoid using first-person plural like '%s'."
 level: warning
 ignorecase: true
 tokens:

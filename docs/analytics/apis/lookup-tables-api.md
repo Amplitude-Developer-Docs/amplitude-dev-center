@@ -47,6 +47,7 @@ Create a Lookup Table object by uploading a CSV that maps an existing property t
          -F 'file=@"/path/to/file.csv"' \
     ```
 === "HTTP"
+
     ```bash
     POST '/api/2/lookup_table/:name' HTTP/1.1
     Host: api2.amplitude.com
@@ -163,12 +164,14 @@ Update a Lookup Table's columns and data.
 #### Example request
 
 === "cURL"
+
     ```curl
     curl -L -X PATCH 'https://amplitude.com/api/2/lookup_table/:name' \
          -u API_KEY:SECRET_KEY
          -F 'file=@"/path/to/file.csv"' \
     ```
 === "HTTP"
+
     ```bash
     PATCH /api/2/lookup_table/:name HTTP/1.1
     Host: amplitude.com
