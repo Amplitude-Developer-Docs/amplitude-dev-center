@@ -7,7 +7,7 @@ You can get data that's displayed on the dashboard graphs in JSON format via the
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/authb-basic.md"
+--8<-- "includes/auth-basic.md"
 
 ## Endpoints
 
@@ -89,7 +89,7 @@ The event parameter can include these keys:
 | <div class ="big-column">Name</div>| Description|
 |-----|------------|
 |`event_type`| Required. The event type.<br> For custom events, prefix the name with `ce:`. For example: "ce:name"). <br> For '[Amplitude] Any Active Event', use `_active`.<br> For '[Amplitude] Any Event', use `_all`. <br> For '[Amplitude] Revenue', use `revenue_amount`. <br> For '[Amplitude] Revenue (Verified)', use `verified_revenue`. <br>For '[Amplitude] Revenue (Unverified)', use `unverified_revenue`.|
-|`filters` | Optional. A list of property filters. Each filter is a JSON object with the following keys: <br>`subprop_type` Required. Either "event" or "user", indicating that the property is either an event or user property, respectively. <br> `subprop_key` Required. The name of the property to filter on. Note: For non-Amplitude, custom user properties, prepend the user property name with "gp:". "gp:" isn't needed for event properties.<br>`subprop_op` Required. The operator for filtering on specific property values, either `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.<br>`subprop_value`: Required. A list of values to filter the event property by.|
+|`filters` | Optional. A list of property filters. Each filter is a JSON object with the following keys: <br>`subprop_type` Required. Either "event" or "user", indicating that the property is either an event or user property, respectively. <br> `subprop_key` Required. The name of the property to filter on. Note: For non-Amplitude, custom user properties, prepend the user property name with `gp:`. `gp:` isn't needed for event properties.<br>`subprop_op` Required. The operator for filtering on specific property values, either `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.<br>`subprop_value`: Required. A list of values to filter the event property by.|
 |`group_by` | Optional. A list of properties to group by (at most 2). Each group by is a JSON object with these keys:<br> `type` (required) - Either "event" or "user", indicating that the property is either an event or user property, respectively. <br>`value` (required) - The name of the property to group by.|
 
 #### Event format example
@@ -502,7 +502,7 @@ Remember that you may have to URL encode special characters in the names of even
 | `s`  | Optional. Segment definitions (default: none). [Full description](#shared-query-parameters). |
 | `g` | Optional. Include up to two. The property to group by. Defaults to none. [Full description](#event-format). |
 | `limit` | Optional. The number of Group By values returned (default: 100). The limit is 1000. |
-| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you will need to pass in the formula here (e.g. "UNIQUES(A)/UNIQUES(B)"). |
+| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you will need to pass in the formula here (for example, `UNIQUES(A)/UNIQUES(B)`). |
 | `rollingWindow` | Required to use a rolling window. To include a rolling window, pass in the number of days/weeks/months with which to compute a rolling window over.  |
 | `rollingAverage` | Required to use a rolling average. To include a rolling average, pass in the number of days/weeks/months with which to compute a rolling average over.|
 

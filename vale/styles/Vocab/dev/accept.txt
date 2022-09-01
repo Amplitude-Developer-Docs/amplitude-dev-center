@@ -18,6 +18,7 @@ CleverTap
 CocoaPods
 Convizit
 [Dd]edeuplicate
+datetime
 deduplicates
 deduplicated
 deduplication
@@ -71,6 +72,8 @@ runtimes
 SendGrid
 signup
 Statsig
+SDK
+SDKs
 SLAs
 SLA
 spammy
@@ -81,3 +84,8 @@ Xcode
 xcodeproj
 ProGuard
 Userflow
+xValues
+formattedXValues
+segmentIndex
+realtime
+seriesMeta

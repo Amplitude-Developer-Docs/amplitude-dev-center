@@ -10,7 +10,7 @@ This guide provides detailed documentation on the specific routes supported by A
  implementation of the
   [System for Cross-domain Identity Management (SCIM) 2.0 Standard](http://www.simplecloud.info/#Specification), with specific attention to any details useful for debugging issues with a SCIM integration.
 
-For a guide detailing how to **integrate** the SCIM API with an Identity Provider like Okta or JumpCloud, or how to enable the SCIM API for an organization, please see the [Help Center Guide](https://help.amplitude.com/hc/en-us/articles/360058399851).
+For a guide detailing how to **integrate** the SCIM API with an Identity Provider like Okta or JumpCloud, or how to enable the SCIM API for an organization, see the [Help Center Guide](https://help.amplitude.com/hc/en-us/articles/360058399851).
 
 --8<-- "includes/postman.md"
 
@@ -39,7 +39,7 @@ Although the route includes "1", this doesn't mean that Amplitude implements the
 
 ### API Usage Limits
 
-The SCIM API supports 100 requests per minute per organization. This restriction can be lifted for burst requests on a per-request basis. Please contact the support team or a customer success manager for more information.
+The SCIM API supports 100 requests per minute per organization. This restriction can be lifted for burst requests on a per-request basis. Contact the support team or a customer success manager for more information.
 
 ## User Routes
 

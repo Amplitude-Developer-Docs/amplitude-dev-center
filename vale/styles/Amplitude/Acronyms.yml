@@ -9,7 +9,7 @@ second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
 exceptions:
 - API
 - ARPU
-- ARRPU
+- ARPPU
 - ASP
 - CCPA
 - CDN
@@ -50,6 +50,7 @@ exceptions:
 - PATH
 - PDF
 - PHP
+- PUT
 - POST
 - RAM
 - REPL
