@@ -1,3 +1,4 @@
+<!-- vale off -->
 MIT License
 
 Copyright (c) 2022 Amplitude, Inc
