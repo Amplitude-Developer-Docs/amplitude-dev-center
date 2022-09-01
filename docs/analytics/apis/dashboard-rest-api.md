@@ -716,7 +716,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | `user` | Required. Amplitude ID of the user. |
 | `offset`  | Optional. Zero-indexed offset to start returning events from. |
 | `limit` | Optional. Number of events to return (up to 1000). Note that more events may be returned so that there are no partial sessions. Defaults to 1000. |
-| `direction` | Optional. "earliest" to include the user's eariest event or "latest" to includs the most recent. Defaults to "latest". |
+| `direction` | Optional. "earliest" to include the user's earliest event or "latest" to includes the most recent. Defaults to "latest". |
 
 ### Response
 

@@ -103,7 +103,6 @@ The response includes one event JSON object per line in each file, with the foll
  "idfa": string,
  "client_event_time": UTC ISO-8601 formatted timestamp,
 }
-
 ```
 
 ## Status codes

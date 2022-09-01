@@ -150,9 +150,11 @@ If the job has finished running, polling the request status returns a 200 code a
 When the job has finished running, download the cohort.
 
 ```bash
+
 GET /api/5/cohorts/request/requestId/file HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
+
 ```
 
 ### Download cohort path parameters
@@ -163,7 +165,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 - For small cohorts, the response body contains the cohort data.
 - For large cohorts, you must download the data. If the cohort is large, the response redirects with a 302 response code to a pre-signed Amazon S3 download URL. The download URL is valid for one minute, access it immediately.
-- The API request link (https://amplitude.com/api/5/cohorts/request/:requestId/file) is valid for seven days. During the seven days, you can make the same request to get a new S3 download link. Each S3 link is valid for one minute.
+- The API request link (`https://amplitude.com/api/5/cohorts/request/:requestId/file`) is valid for seven days. During the seven days, you can make the same request to get a new S3 download link. Each S3 link is valid for one minute.
 - Most clients used to send API requests automatically download the data from the S3 link. If your API client doesn't automatically download the cohort from the S3 link, you have one minute access it manually.
 
 ## Upload cohort
@@ -218,6 +220,7 @@ The response is a JSON object with this schema:
 Add and remove IDs to incrementally update existing cohort membership.
 
 ```bash
+
 POST /api/3/cohorts/membership HTTP/1.1
 Host: amplitude.com
 Content-Type: application/json
@@ -244,7 +247,7 @@ Content-Length: 362
     }
   ],
  "skip_invalid_ids":true,
-
+}
 ```
 
 Perform incremental update (add / remove) to existing cohort membership.

@@ -1,7 +1,7 @@
 extends: existence
-message: " Do you mean because? '%s' is hard to translate."
+message: "Do you mean because? '%s' is hard to translate."
 ignorecase: true
-level: warning
+level: suggestion
 tokens:
   - since
   - Since

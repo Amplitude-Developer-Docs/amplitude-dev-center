@@ -20,7 +20,7 @@ The Attribution API is for sending attribution campaign events (identified by `
 
 - When Amplitude can't match attribution events to an existing user, they're held for up to 72 hours for potential user matching. If an event isn't logged for a matching user within 72 hours of receiving the attribution data, then the **attribution data is dropped**.
 - For most of Amplitude's partners, attribution is matched to Amplitude users/events via the Advertising ID (IDFA, IDFV, or ADID). Therefore, you must send the Advertising ID for attribution requests and you must set the `idfa`, `idfv`, and `adid` fields in Amplitude as the Advertising ID. 
-- If you are using the iOS SDK or Android SDK, you can enable tracking of the Advertising ID by following the instructions [here](https://developers.amplitude.com/docs/ios#advertising-id). If you are using JS SDK or React Native, these don't have the functionality to collect Advertising ID automatically due to Google's and Apple's privacy rules around advertising ID and web tracking. You have to send the Advertising ID through the HTTP API endpoint so that Amplitude can match attribution data/events. See keys in our [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) doc.
+- If you are using the iOS SDK or Android SDK, you can enable tracking of the Advertising ID by following the instructions [here](https://developers.amplitude.com/docs/ios#advertising-id). If you are using a JavaScript SDK or React Native, these don't have the functionality to collect Advertising ID automatically due to Google's and Apple's privacy rules around advertising ID and web tracking. You have to send the Advertising ID through the HTTP API endpoint so that Amplitude can match attribution data/events. See keys in our [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) doc.
 
 ## Differences between HTTP API and Attribution API
 
@@ -64,12 +64,12 @@ These keys are available for the Event argument.
 
 | Key              | Description                                                                                                                          | Example                                                  |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| `event_type`     | Required. String. The event info. Prefix with brackets "[YOUR COMPANY]".                                                             | "[YOUR COMPANY] Install"                                 |
-| `platform`       | Required. String. Either "ios" or "android".                                                                                         | "ios"                                                    |
+| `event_type`     | Required. String. The event info. Prefix with brackets `[YOUR COMPANY]`.                                                             | `[YOUR COMPANY] Install`                                 |
+| `platform`       | Required. String. Either `ios` or `android`.                                                                                         | `ios`                                                    |
 | `idfa` or `idfv` | Required for iOS. String. The Identifier for Advertiser or the Identifier for Vendor. You must include *at least* one for iOS devices. | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
-| `adid`           | Required for Android. String. The Google AdID, or Amazon Advertising ID for Amazon devices.                                          | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
+| `adid`           | Required for Android. String. The Google ADID, or Amazon Advertising ID for Amazon devices.                                          | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
 | `android_id`       | Optional. String. (Android) The Android ID                                                                                           | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
-| `user_properties`  | Optional. Dictionary. A dictionary of attribution properties prefixed with brackets "[YOUR COMPANY]".                                | {"[YOUR COMPANY] media source": "Facebook"}              |
+| `user_properties`  | Optional. Dictionary. A dictionary of attribution properties prefixed with brackets `[YOUR COMPANY]`.                                | `{"[YOUR COMPANY] media source": "Facebook"}`            |
 | `time`             | Optional. Long. Timestamp of the event in milliseconds since epoch.                                                                  | 1396381378123, will be set to the upload time by default |
 
 ## Responses

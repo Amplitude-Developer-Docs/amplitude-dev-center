@@ -59,8 +59,8 @@ Amplitude supports the following fields in the core User Schema:
 | `userName` | Primary user email address. |
 | `id` | Primary user email address. |
 | `emails` | Amplitude supports one email address per user currently. |
-| `name.givenName` | Prepended to familyName to create the display name. |
-| `name.familyName` | appended to givenName to create display name within Amplitude. |
+| `name.givenName` | Prepended to `familyName` to create the display name. |
+| `name.familyName` | appended to `givenName` to create display name within Amplitude. |
 | `active` | True for pending and joined users. |
 
 ### `GET /Users`
@@ -222,7 +222,7 @@ Setting the `active` schema field to `false` in the request body removes the use
 
 #### Example requests
 
-=== "Update givenName"
+=== "Update `givenName`"
 
     In this example, update the user's given name. 
 
@@ -314,7 +314,7 @@ A successful delete request returns a `204 No Content` response.
 !!!info
     Permission groups are available in Enterprise accounts.
 
-This section details the requests available for Permission Group related API's. Amplitude supports all core fields of the Group Schema, with users within groups returned with the fields listed in [supported user fields](#supported-user-fields).
+This section details the requests available for Permission Group related APIs. Amplitude supports all core fields of the Group Schema, with users within groups returned with the fields listed in [supported user fields](#supported-user-fields).
 
 ### Group route methods
 
@@ -327,6 +327,7 @@ Returns all active groups.
 #### Example request
 
 ```bash
+
 GET /scim/1/Groups HTTP/1.1
 Host: core.amplitude.com
 Authorization: Bearer {{scim-token}}

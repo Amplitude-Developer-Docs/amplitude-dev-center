@@ -3,12 +3,13 @@ title: Page TITLE
 description: Enter a description. This content becomes the page's meta description. 
 ---
 <!-- markdownlint-disable -->
+<!-- vale off -->
 <!-->
 Instructions: 
 - Use this template to write the docs for your integration with Amplitude.
 - Replace placeholder text with your own.
 - If you have any questions or need help, reach out to developerdocs@amplitude.com
-- Remove all comments. 
+- Remove ALL comments. 
 </-->
 
 

@@ -5,12 +5,13 @@ description:  Enter a description. This content becomes the page's meta descript
 
 <!-- see https://www.docs.developers.amplitude.com/experiment/sdks/javascript-sdk/ for a live example-->
 <!-- markdownlint-disable -->
+<!-- vale off -->
 <!-->
 Instructions: 
 - Use this template to write the SDK docs.
 - Replace placeholder text with your own.
 - If you have any questions or need help, reach out to developerdocs@amplitude.com
-- Remove all comments. 
+- Remove ALL comments. 
 </-->
 
 !!!info "SDK Resources"
