@@ -7,7 +7,6 @@ Amplitude Data supports tracking analytics events from React Native apps written
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-
 --8<-- "includes/closed-beta.md"
 
 !!!info "Ampli Resources"
