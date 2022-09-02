@@ -54,7 +54,7 @@ extra_css:
   - stylesheets/extra.css # Amplitude Styles
 extra_javascript:
   - /javascripts/accessibe.js # Script for Accessibe. Don't remove without speaking to Legal
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js # Tablesort
   - /javascripts/tablesort.js #script for Tablesort feature
   - /javascripts/anchor-copy.js #script for copying anchor links
 
@@ -91,8 +91,6 @@ markdown_extensions:
   - pymdownx.highlight: # Enables code block syntax highlighting
       #anchor_linenums: true
       use_pygments: true
-      noclasses: true
-      pygments_style: default
   - pymdownx.inlinehilite 
   - pymdownx.keys # Enables inline key display
   - pymdownx.mark #
