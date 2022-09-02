@@ -67,6 +67,38 @@ The final step in setting up Amplitude's GCS ingestion source is creating the co
 The converter file tells Amplitude how to process the ingested files. Create it in two steps: first, configure the compression type, file name, and escape characters for your files.
  Then use JSON to describe the rules your converter follows.
 
+### Guided Converter Creation
+
+Customers can now create converters via Amplitude's new **Guided** Converter creation interface. This allows customers to map and/or transform fields easily, removing the need to manually write a JSON configuration file. Behind the scenes, the UI compiles down to the existing JSON configuration language used at Amplitude.
+
+First, let's look at the different data types you can import: **Event**, **User Property** and **Group Property** data.
+
+![Screenshot of converter mapping](../../assets/images/converter-mapping.png)
+
+**Note: We recommend selecting preview in step 1 of the Data Converter, where you see a sample source record before moving to the next step.**
+
+![Screenshot of the converter file settings ](../../assets/images/converter-file-setting.png)
+
+Once you have selected a particular field, you can choose to transform the field in your database. You can do this by clicking on “Transform “ shown below and choosing the kind of transformation you would like to apply. You can find a short description for each transformation.
+
+![Screenshot of the converter mapping](../../assets/images/converter-mapping-2.png)
+
+Once you select a field, you can open the transformation modal and choose from a variety of Transformations.
+
+![Screenshot of tranformations menu](../../assets/images/converter-transformations.png)
+
+Depending on the transformation you select, you may be prompted to include additional fields. 
+
+![Screenshot of transformations details](../../assets/images/converter-transformations-2.png)
+
+After you have all the fields needed for the transformation, you can save it. These can be updated as and when your requirements change.
+
+Although Amplitude needs certain fields to bring data in, we also support additional fields which you can include by selecting the “Add Mapping” button. Here we support 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
+
+After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview will auto update as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data will be imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
+
+![Screenshot of a converter preview](../../assets/images/converter-preview.png)
+
 The converter language describes extraction of a value given a JSON element. This is specified by a SOURCE_DESCRIPTION, which includes:
 
 - BASIC_PATH
