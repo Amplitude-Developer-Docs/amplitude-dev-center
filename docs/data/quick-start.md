@@ -6,7 +6,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Browser"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
     ```bash title="NPM"
 
     npm install @amplitude/analytics-browser
@@ -25,7 +25,7 @@ description: The quick start guide of how to use amplitude SDK
     </script>
     ```
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```ts
     import { init } from '@amplitude/analytics-browser';
@@ -35,7 +35,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Node"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash title="NPM"
 
@@ -47,7 +47,7 @@ description: The quick start guide of how to use amplitude SDK
     yarn add @amplitude/analytics-node
     ```
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```ts
     import { init } from '@amplitude/analytics-node';
@@ -57,7 +57,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Android"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash title="Gradle"
 
@@ -71,7 +71,7 @@ description: The quick start guide of how to use amplitude SDK
 
     Learn more about [Add Android Permission](../sdks/android-kotlin/#2-add-permissions).
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```kotlin title="Kotlin"
     val amplitude = Amplitude(
@@ -91,7 +91,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "iOS"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash title="CocoaPods"
 
@@ -112,7 +112,7 @@ description: The quick start guide of how to use amplitude SDK
     ```
     Learn more about [Add Dependency using Carthage](../sdks/ios/#__tabbed_1_3).
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```obj-c title="Objective-C"
     [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
@@ -124,7 +124,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Java"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash title="Maven"
 
@@ -143,7 +143,7 @@ description: The quick start guide of how to use amplitude SDK
     Get the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases).
 
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```java title="Java"
     Amplitude amplitude = Amplitude.getInstance();
@@ -152,13 +152,13 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Python"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash
     pip install amplitude-analytics
     ```
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```python title="Python"
     from amplitude import Amplitude
@@ -168,7 +168,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "React Native"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash title="NPM"
 
@@ -193,7 +193,7 @@ description: The quick start guide of how to use amplitude SDK
     pod install
     ```
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```ts
     import { init } from '@amplitude/analytics-react-native';
@@ -203,7 +203,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Flutter"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash  title="YAML"
 
@@ -215,7 +215,7 @@ description: The quick start guide of how to use amplitude SDK
     
     Learn more about [Add Dependency](../sdks/flutter/#add-dependencies).
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```dart title="Dart"
     import 'package:amplitude_flutter/amplitude.dart';
@@ -226,13 +226,13 @@ description: The quick start guide of how to use amplitude SDK
 
 === "GO"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash title="Command GO"
     go get https://github.com/amplitude/analytics-go
     ```
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```go title="GO"
     import (
@@ -246,7 +246,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Unity"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```bash title="Unity Package Manager"
 
@@ -260,7 +260,7 @@ description: The quick start guide of how to use amplitude SDK
     ```
     Learn more about the [Unity package download](../sdks/unity/#option-2-manual-download-and-add-dependency).
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```c# title="C#"
     Amplitude amplitude = Amplitude.getInstance()
@@ -269,7 +269,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Unreal"
 
-    ##### Install the Dependency
+    <h4> Install the Dependency </h4>
 
     ```txt title="Download SDK and add to project"
     1. Download AmplitudeUnreal.zip.
@@ -277,7 +277,7 @@ description: The quick start guide of how to use amplitude SDK
     ```
     Download the latest [AmplitudeUnreal.zip](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
 
-    ##### Initialization
+    <h4> Initialization </h4>
 
     ```text title="Enable the SDK plugin"
 
