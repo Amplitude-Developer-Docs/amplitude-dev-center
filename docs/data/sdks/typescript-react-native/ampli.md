@@ -216,7 +216,7 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 === "TypeScript"
 
     ```typescript
-    ampli.songPlayed('userId', {
+    ampli.songPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
@@ -227,7 +227,7 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 === "JavaScript"
 
     ```javascript
-    ampli.songPlayed('userId', {
+    ampli.songPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
     }, {
