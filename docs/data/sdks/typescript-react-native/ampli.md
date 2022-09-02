@@ -155,13 +155,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "TypeScript"
 
     ```typescript
-    ampli.setGroup('userId', groupType', 'groupName');
+    ampli.setGroup('groupType', 'groupName');
     ```
 
 === "JavaScript"
 
     ```javascript
-    ampli.setGroup('userId', 'groupType', 'groupName');
+    ampli.setGroup('groupType', 'groupName');
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
