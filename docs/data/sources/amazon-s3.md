@@ -188,8 +188,6 @@ To enable the feature, you can either enable it when you create the source, or m
 
 ## Create the converter configuration
 
-
-
 Your converter configuration gives the S3 vacuum this information:
 
 - A pattern that tells Amplitude what a valid data file looks like. For example:**“\\w+\_\\d{4}-\\d{2}-\\d{2}.json.gz”**
@@ -203,23 +201,23 @@ Customers can now create converters via Amplitude's new **Guided** Converter cre
 
 First, let's look at the different data types you can import: **Event**, **User Property** and **Group Property** data.
 
-![](../../assets/images/converter-mapping.png)
+![Screenshot of the converter mapping](../../assets/images/converter-mapping.png)
 
 **Note: We recommend selecting preview in step 1 of the Data Converter, where you see a sample source record before moving to the next step.**
 
-![](../../assets/images/converter-file-setting.png)
+![Screenshot of the converter file settings](../../assets/images/converter-file-setting.png)
 
 Once you have selected a particular field, you can choose to transform the field in your database. You can do this by clicking on “Transform “ shown below and choosing the kind of transformation you would like to apply. You can find a short description for each transformation.
 
-![](../../assets/images/converter-mapping-2.png)
+![Screenshot of the converter mapping screen](../../assets/images/converter-mapping-2.png)
 
 Once you select a field, you can open the transformation modal and choose from a variety of Transformations.
 
-![](../../assets/images/converter-transformations.png)
+![Screenshot of the transformation menu](../../assets/images/converter-transformations.png)
 
 Depending on the transformation you select, you may be prompted to include additional fields. 
 
-![](../../assets/images/converter-transformations-2.png)
+![Screenshot of a transformation's details](../../assets/images/converter-transformations-2.png)
 
 Once you have all the fields needed for the transformation, you can save it. These can be updated as and when your requirements change.
 
@@ -227,7 +225,7 @@ While Amplitude needs certain fields to bring data in, we also support additiona
 
 Once you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview will auto update as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data will be imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
 
-![](../../assets/images/converter-preview.png)
+![Screenshot of a converter preview](../../assets/images/converter-preview.png)
 
 ### Manual Converter Creation
 
