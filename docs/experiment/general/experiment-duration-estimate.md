@@ -28,11 +28,24 @@ The duration estimate only shows up when the follow criteria is met:
 
 The time until a hypothesis test reaches statistical significance is a random variable. We use the worst case, average case, and best case to indicate the uncertainty in our estimate. The best case estimate of 3 days means that 20% of the time the experiment will reach stat sig in <=3 days. The average case estimate of 7 days means that 50% of the time the experiment will reach stat sig in <=7 days. The worst case estimate of 10 days means that 80% of the time the experiment will reach stat sig in <=10 days.
 
+### 3. Why is the largest duration estimate 40 days?
+
+The 40 day limit is there for a couple of reasons:
+
+1. Computational/latency reasons. We do real time simulations and don't want to add lots of latency. Also, there are theoretical edge cases where the simulations may never terminate.
+2. Assuming that the means/standard deviations won't change over time is not the greatest assumption to make especially for long running experiments.
+3. It is easier to predict things in the short term than in the long term. For example, it is easier to predict and be correct if it will rain tomorrow than predict and be correct if it will rain 2 months from now.
+4. Generally you should run experiments less than 40 days and knowing that the experiment is going to day 40+ days vs. 60 days probably isn't that much more helpful for a customer.
+
+### 4. How does Amplitude determine the number of exposures per day?
+
+We assumed that the cumulative exposures is a straight line (i.e. we take the cumulative exposures today and divide by the length of the experiment so far to get how many exposures per day. 
+
 ## Types of Errors we can make
 
 ### 1. Irreducible Error
 
-This is an error we can do nothing about. It is not something where if we spend more time we can decrease this error. Say you are trying to predict if a fair coin is heads. No matter what algorithm you use you cannot be correct more than 50% of the time. There is just randomness that you cannot account for. If you want to move to the continuous version, say you are drawing a number from a standard normal distribution. Your best guess is 0. Then 32% of the time you will be off by >= 1 of the true value. Another way of stating this is that the mean squared error is 1. There is no way to get a smaller mean squared error. Now relating this to experiment duration. The time it takes for an experiment to reach stat sig is a random variable because it depends on the p-value and the p-value depends on data. Even if we cheat and say we know the control mean, control standard deviation, treatment mean, treatment standard deviation, and we force everything to be normally distributed exactly and independence and all the stats assumptions we want to make, we still cannot get 0 error. When we run simulations, we can see that each simulation will reach stat sig at different times. This is the whole reason why we need to run multiple simulations. If each simulation returned the same number, then we would only need to do 1 simulation. This is just how randomness works. If you want to map this to t-test, the p-value is random variable and thats the reason why we need to have power and say the probability of the p-value < .05 (i.e. we are asking what is the probability of a probability).
+This is an error we can do nothing about. It is not something where if we spend more time we can decrease this error. Say you are trying to predict if a fair coin is heads. No matter what algorithm you use you cannot be correct more than 50% of the time. There is just randomness that you cannot account for. If you want to move to the continuous version, say you are drawing a number from a standard normal distribution. Your best guess is 0. Then 32% of the time you will be off by >= 1 of the true value. Another way of stating this is that the mean squared error is 1. There is no way to get a smaller mean squared error. Now relating this to experiment duration. The time it takes for an experiment to reach stat sig is a random variable because it depends on the p-value and the p-value depends on data. Even if we cheat and say we know the control mean, control standard deviation, treatment mean, treatment standard deviation, and we force everything to be normally distributed exactly and independence and all the stats assumptions we want to make, we still cannot get 0 error. When we run simulations, we can see that each simulation will reach stat sig at different times. This is the whole reason why we need to run multiple simulations. If each simulation returned the same number, then we would only need to do 1 simulation. This is just how randomness works. If you want to map this to t-test, the p-value is a random variable and that is the reason why we need to have power and say the probability of the p-value < .05 (i.e. we are asking what is the probability of a probability).
 
 ### 2. Estimates being wrong
 
@@ -40,4 +53,4 @@ We estimate the control population mean, control population standard deviation, 
 
 ### 3. Drift
 
-If there is any drift in any of the statistics we will do poorly. By drift I mean today the control mean = 5 and ten days from now the control mean = 15. This includes things like seasonality. We are already making this assumption of no drift when doing hypothesis testing, so its not like we are adding an extra assumption.
+If there is any drift in any of the statistics we will do poorly. By drift I mean today the control mean = 5 and ten days from now the control mean = 15. This includes things like seasonality. We are already making this assumption of no drift when doing hypothesis testing, so it is not like we are adding an extra assumption.
