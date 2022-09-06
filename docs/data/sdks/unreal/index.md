@@ -63,7 +63,7 @@ The API of Amplitude Unreal follows the [analytics provider interface](https://
 
 Events represent how users interact with your app. For example, "Game Started" may be an action you want to note.
 
-```c++
+```cpp
 FAnalytics::Get().GetDefaultConfiguredProvider()->StartSession();
 FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game started"));
 FAnalytics::Get().GetDefaultConfiguredProvider()->EndSession();
@@ -73,7 +73,7 @@ FAnalytics::Get().GetDefaultConfiguredProvider()->EndSession();
 
 Events can contain properties. Properties give context about the event taken.
 
-```c++
+```cpp
 TArray<FAnalyticsEventAttribute> AppendedAttributes;
 AppendedAttributes.Emplace(TEXT("Test Event Prop key1"), TEXT("Test Event value1"));
 AppendedAttributes.Emplace(TEXT("Test Event Prop key2"), TEXT("Test Event value2"));
@@ -86,7 +86,7 @@ User properties help you understand your users at the time they performed some a
 
 The generic Unreal Engine [`IAnalyticsProvider`](https://docs.unrealengine.com/en-US/API/Runtime/Analytics/Interfaces/IAnalyticsProvider/index.html) supports a limited number of user properties.
 
-```c++
+```cpp
 FAnalytics::Get().GetDefaultConfiguredProvider()->SetLocation(TEXT("Test location"));
 FAnalytics::Get().GetDefaultConfiguredProvider()->SetGender(TEXT("Test gender"));
 FAnalytics::Get().GetDefaultConfiguredProvider()->SetAge(TEXT(27));
@@ -96,6 +96,6 @@ FAnalytics::Get().GetDefaultConfiguredProvider()->SetAge(TEXT(27));
 
 If your app has its own login system that you want to track users with, use `SetUserId` to set a custom user ID.
 
-```c++
+```cpp
 FAnalytics::Get().GetDefaultConfiguredProvider()->SetUserID(TEXT("test123@test.com"));
 ```
