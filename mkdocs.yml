@@ -57,6 +57,7 @@ extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js # Tablesort
   - /javascripts/tablesort.js #script for Tablesort feature
   - /javascripts/anchor-copy.js #script for copying anchor links
+  - /javascripts/prism.js
 
 # Plugins
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too.
@@ -90,7 +91,7 @@ markdown_extensions:
           - overrides/.icons
   - pymdownx.highlight: # Enables code block syntax highlighting
       #anchor_linenums: true
-      use_pygments: true
+      use_pygments: false
   - pymdownx.inlinehilite 
   - pymdownx.keys # Enables inline key display
   - pymdownx.mark #
