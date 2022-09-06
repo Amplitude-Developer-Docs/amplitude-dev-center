@@ -41,7 +41,7 @@ The 40 day limit is there for a couple of reasons:
 
 We assumed that the cumulative exposures is a straight line (i.e. we take the cumulative exposures today and divide by the length of the experiment so far to get how many exposures per day. 
 
-## Types of Errors we can make
+## Types of Errors
 
 ### 1. Irreducible Error
 
