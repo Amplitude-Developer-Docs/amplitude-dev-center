@@ -43,7 +43,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "HTTP"
-    ```bash
+    ```http
     POST https//api2.amplitude.com/batch HTTP/1.1
     Host: api2.amplitude.com
     Content-Type: application/json
@@ -51,7 +51,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "JavaScript"
-    ```js
+    ```javascript
     var headers = {
         'Content-Type':'application/json',
         'Accept':'*/*'
@@ -65,7 +65,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 
 === "Node"
 
-    ```js
+    ```javascript
     const request = require('node-fetch');
     const inputBody = '{
     "api_key": "my_amplitude_api_key",
