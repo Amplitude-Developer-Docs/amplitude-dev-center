@@ -5,7 +5,7 @@ description: Use Amplitude's Snowflake integration to ingest Snowflake data dire
 
 With Amplitude's Snowflake integration, you can ingest Snowflake data directly into your Amplitude project. This article walks you through the steps needed to make that happen.
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 !!!note "Other Amplitude + Snowflake integrations"
 

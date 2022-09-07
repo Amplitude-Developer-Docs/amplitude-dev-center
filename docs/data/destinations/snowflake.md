@@ -5,7 +5,7 @@ description: Upload your Amplitude event data to your Snowflake account with rec
 
 Load your Amplitude event data into your Snowflake account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 !!!note "Other Amplitude + Snowflake integrations"
 
