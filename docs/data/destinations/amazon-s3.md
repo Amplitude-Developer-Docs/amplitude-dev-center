@@ -2,7 +2,7 @@
 title: Amazon S3 Export
 description: Export your Amplitude data to an Amazon S3 bucket, enabling you to analyze your Amplitude data sets side-by-side with data sourced elsewhere.
 ---
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 Often, business needs dictate that behavioral data be analyzed alongside other organizational sources of data that aren't captured within Amplitude. 
 By integrating Amplitude with Amazon S3, you can easily export your Amplitude data to an Amazon S3 bucket, enabling you to analyze your Amplitude data sets side-by-side with the rest of your data.

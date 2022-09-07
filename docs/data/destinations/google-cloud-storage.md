@@ -5,7 +5,7 @@ description: Export Amplitude event data and merged user data to your Google Clo
 
 Amplitude users can now export Amplitude event data and merged user data to their Google Cloud Storage (GCS) account. Google Cloud's bucket policies allow you to easily manage and programmatically export this data into a Google Cloud bucket. Using the Amplitude UI, you can set up recurring syncs as frequently as once per hour.
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 !!!note "Other Amplitude + Google Cloud Storage Integrations"
 

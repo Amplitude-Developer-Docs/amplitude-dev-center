@@ -5,7 +5,7 @@ description: With Amplitude's BigQuery integration, you can ingest BigQuery data
 
 --8<-- "includes/alpha-release.md"
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project.
 
