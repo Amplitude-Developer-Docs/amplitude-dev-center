@@ -10,7 +10,7 @@ A SRM points to biases in the data, and if unresolved, can lead to unexpected re
 
 ## About this guide
 
-This guide provides a deep dive into the process of troubleshooting and debugging a sample ratio mismatch (SRM). This guide assumes that you're using the "end-to-end" Experiment product. However, you may apply some of the same debugging steps to experiments which have been set up in Experiment Results.
+This guide provides a deep dive into the process of troubleshooting and debugging a sample ratio mismatch (SRM). This guide assumes that you're using the "end-to-end" Experiment product. However, you may apply some of these debugging steps to experiments which have been set up in Experiment Results.
 
 This page is ordered from most common cause to least common cause of an SRM.
 
@@ -45,7 +45,7 @@ If the analysis time window and the time the experiment was receiving traffic ar
 
 ## Variant jumping
 
-Variant jumping describes when a user moves from one variant to another, sometimes multiple times. Variant jumping makes it difficult to attribute the metric to a specific variant. Amplitude Experiment's built-in diagnostics in the Monitor tab has charts to make it easy to track the percentage of users jumping between variants. 
+Variant jumping describes when a user moves from one variant to another, sometimes multiple times. Variant jumping makes it difficult to attribute the metric to a specific variant. Amplitude Experiment's built-in diagnostics in the **Monitor** tab has charts to make it easy to track the percentage of users jumping between variants. 
 
 If there is variant jumping, is it because of anonymous users (people logging in and out frequently) or changing device IDs? You can see this by looking at the [User Stream](https://help.amplitude.com/hc/en-us/articles/229313067-Look-up-event-data-for-individual-users).
 
@@ -53,7 +53,7 @@ As a best practice, you shouldn't change a running experiment in a way that coul
 
 ## Significantly more users converted from Assignment to Exposure for one variant over another
 
-You can find the Assignment to Exposure funnel chart in the Monitor tab of an experiment. Enter the conversion rates and sample size into [this calculator](https://www.socscistatistics.com/tests/ztest/default2.aspx) to see if it's statistically significant or not at the 95% significance level. The conversion rates between variants should be similar (within randomness) because the assignment event should randomly split users into two equal cohorts. Because exposure events get sent right before the user experiences a variant, there should be no difference between users because they have the same user experience from the time the assignment event is sent to the time the exposure event is sent.
+You can find the Assignment to Exposure funnel chart in the **Monitor** tab of an experiment. Enter the conversion rates and sample size into [this calculator](https://www.socscistatistics.com/tests/ztest/default2.aspx) to see if it's statistically significant or not at the 95% significance level. The conversion rates between variants should be similar (within randomness) because the assignment event should randomly split users into two equal cohorts. Because exposure events get sent right before the user experiences a variant, there should be no difference between users because they have the same user experience from the time the assignment event is sent to the time the exposure event is sent.
 
 ## Variant added or removed in the experiment
 
@@ -67,7 +67,8 @@ Enabling or disabling sticky bucketing on a running experiment can cause a misma
 
 Is the SRM only on a certain segment of users? For example, filter by [country, OS version, app version, platform](https://help.amplitude.com/hc/en-us/articles/215562387-User-property-definitions)
 
-Debugging a SRM is similar to debugging general software: you need to find out which specific users were affected. Ask questions like:
+To troubleshoot this kind of problem, find out which specific users were affected. Ask questions like:
+
 - Did an instrumentation bug get pushed to an app version a subset of users have?
 - Did a change get pushed that only affects users in a certain country?
 
@@ -101,7 +102,7 @@ Are there two users who have the same sequence of events but one is missing expo
 
 If you're not using the Experiment SDK to automatically track exposures, are you incorrectly sending exposures for a fallback (default) variant?
 
-Is there some case where if the flag doesn't return a response in a reasonable amount of time, the flag default to control and counts that as an exposure? If so, control will have more exposures than treatment.
+Is there a case where if the flag doesn't return a response in a reasonable amount of time, the flag defaults to control and counts that as an exposure? If so, the control will have more exposures than treatment.
 
 !!! note "Note about Client-side SDKs"
 
@@ -111,5 +112,3 @@ Is there some case where if the flag doesn't return a response in a reasonable a
 
 What's the [platform user property](https://help.amplitude.com/hc/en-us/articles/215562387-User-property-definitions)?
 Are you sending data to Amplitude though [Segment](https://www.docs.developers.amplitude.com/data/sources/segment/#javascript-client-side), [Amplitude SDK](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/), or [Batch API](https://www.docs.developers.amplitude.com/analytics/apis/batch-event-upload-api/). If you are using the batch API make sure events are being sent in the right order.
-
-
