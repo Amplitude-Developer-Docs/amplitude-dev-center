@@ -82,7 +82,7 @@ You can configure the server zone when initializing the client for sending data 
 import * as amplitude from '@amplitude/analytics-browser';
 
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: 'EU',
+  serverZone: amplitude.Types.ServerZone.EU,
 });
 ```
 
