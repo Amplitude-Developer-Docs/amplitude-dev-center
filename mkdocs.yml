@@ -20,7 +20,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   features:
-    - content.tooltips
+    - content.tooltips #enables enhanced tooltips
 
   # Static files
   static_templates:
