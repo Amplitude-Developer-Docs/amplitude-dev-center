@@ -209,7 +209,6 @@ nav:
   - Debugging Analytics: "data/debugger.md"
   - Sources:
     - Overview: data/sources.md
-    - Quick Start: data/quick-start.md
     - Ampli:
       - data/ampli/index.md
       - data/ampli/cli.md
@@ -220,6 +219,7 @@ nav:
       - data/ampli/plugin.md
       - data/ampli/migration.md
     - SDKs:
+      - data/sdks/index.md
       - Browser:
         - data/sdks/typescript-browser/index.md
         - data/sdks/typescript-browser/migration.md
