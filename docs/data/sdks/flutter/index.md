@@ -1,7 +1,7 @@
 ---
 title: Flutter SDK
 description: The Amplitude Flutter SDK installation and quick start guide. 
-icon: flutter
+icon: simple/flutter
 ---
 
 ![pub package](https://img.shields.io/pub/v/amplitude_flutter.svg)

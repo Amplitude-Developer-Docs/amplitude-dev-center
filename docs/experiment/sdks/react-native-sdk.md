@@ -1,7 +1,7 @@
 ---
 title: Experiment React Native SDK (Beta)
 description: Official documentation for Amplitude Experiment's Client-side React Native SDK.
-icon: material/react
+icon: simple/react
 ---
 
 Official documentation for Amplitude Experiment's Client-side React Native SDK.

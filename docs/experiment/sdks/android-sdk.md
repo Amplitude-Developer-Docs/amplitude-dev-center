@@ -1,7 +1,7 @@
 ---
 title: Experiment Android SDK
 description: Official documentation for Amplitude Experiment's Client-side Android SDK.
-icon: material/android
+icon: simple/android
 ---
 
 Official documentation for Amplitude Experiment's Client-side Android SDK implementation.

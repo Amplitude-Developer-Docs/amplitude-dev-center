@@ -1,7 +1,7 @@
 ---
 title: Node.js SDK
 description: The Amplitude Node.js SDK installation and quick start guide.
-icon: material/nodejs
+icon: simple/nodedotjs
 ---
 
 

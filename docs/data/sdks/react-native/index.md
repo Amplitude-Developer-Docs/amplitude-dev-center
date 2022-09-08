@@ -1,7 +1,7 @@
 ---
 title: React Native SDK
 description: The Amplitude React Native SDK installation and quick start guide.
-icon: fontawesome/brands/react
+icon: simple/react
 ---
 
 

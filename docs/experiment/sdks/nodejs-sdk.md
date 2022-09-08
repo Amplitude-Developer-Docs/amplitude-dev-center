@@ -1,7 +1,7 @@
 ---
 title: Experiment Node.js SDK
 description: Official documentation for Amplitude Experiment's server-side Node.js SDK implementation.
-icon: fontawesome/brands/node-js
+icon: simple/nodedotjs
 ---
 
 Official documentation for Amplitude Experiment's server-side Node.js SDK implementation.

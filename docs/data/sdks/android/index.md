@@ -1,7 +1,7 @@
 ---
 title: Android SDK
 description: The Amplitude Android SDK installation and quick start guide.
-icon: material/android
+icon: simple/android
 ---
 
 
