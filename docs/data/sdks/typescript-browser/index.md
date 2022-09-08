@@ -1,7 +1,7 @@
 ---
 title: Typescript Browser
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
-icon: material/language-typescript
+icon: simple/typescript
 ---
 
 

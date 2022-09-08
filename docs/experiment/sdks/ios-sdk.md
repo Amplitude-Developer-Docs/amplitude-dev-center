@@ -1,7 +1,7 @@
 ---
 title: Experiment iOS SDK
 description: Official documentation for Amplitude Experiment's Client-side iOS SDK.
-icon: material/apple-ios
+icon: simple/ios
 ---
 
 Official documentation for Amplitude Experiment's Client-side iOS SDK implementation.

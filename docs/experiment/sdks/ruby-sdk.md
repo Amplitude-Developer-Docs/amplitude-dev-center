@@ -1,7 +1,7 @@
 ---
 title: Experiment Ruby SDK (Beta)
 description: Official documentation for Amplitude Experiment's server-side Ruby SDK implementation.
-icon: material/language-ruby
+icon: simple/ruby
 ---
 
 Official documentation for Amplitude Experiment's server-side Ruby SDK implementation.

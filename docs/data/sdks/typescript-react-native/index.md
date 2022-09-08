@@ -1,7 +1,7 @@
 ---
 title: React Native SDK (Beta)
 description: The Amplitude React Native SDK Installation & Quick Start guide.
-icon: material/react
+icon: simple/react
 ---
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native.svg)
