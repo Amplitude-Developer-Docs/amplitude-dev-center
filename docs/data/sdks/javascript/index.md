@@ -136,7 +136,6 @@ Set `userID` when initializing the client, or after initialization with the `set
     ```
     There is an optional `startNewSession` parameter for `setUserId`. Set it to `true` to start a new user session.
 
-
 #### EU data residency
 
 Beginning with version 8.9.0, you can configure the server zone to send data to Amplitude's EU server after initializing the client.
