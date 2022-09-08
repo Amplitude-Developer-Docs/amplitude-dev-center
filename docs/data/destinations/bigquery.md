@@ -27,6 +27,7 @@ To get started with exporting to BigQuery, you need the following:
    - A [custom role](https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role) that has the following permissions enabled:
      - `bigquery.transfers.get`
      - `bigquery.transfers.update`
+     - `bigquery.datasets.update`
 
 After you've created a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
