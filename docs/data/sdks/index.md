@@ -66,9 +66,7 @@ description: The quick start guide of how to use amplitude SDK
     }
     ```
 
-    To report events to Amplitude, add the INTERNET permission to your AndroidManifest.xml file.
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    To report events to Amplitude, add the INTERNET permission to your AndroidManifest.xml file. `<uses-permission android:name="android.permission.INTERNET" />`
 
     Learn more about [Add Android Permission](../sdks/android-kotlin/#2-add-permissions).
 
