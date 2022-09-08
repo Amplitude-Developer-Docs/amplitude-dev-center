@@ -209,6 +209,7 @@ nav:
   - Debugging Analytics: "data/debugger.md"
   - Sources:
     - Overview: data/sources.md
+    - Quick Start: data/quick-start.md
     - Ampli:
       - data/ampli/index.md
       - data/ampli/cli.md
