@@ -300,7 +300,7 @@ Accessibility note: Don't use markdown tables for formatting, only for tabular d
 
 [Learn more](https://squidfunk.github.io/mkdocs-material/reference/data-tables/ "https://squidfunk.github.io/mkdocs-material/reference/data-tables/")
 
-Toolips
+Tooltips
 -------
 
 Tooltips display plain text when you hover over an element. Use them with links or icons, never with headings or bare text. Tooltips can be added to data tables, and are a great alternative for annotations (which aren't supported in tables), or where a footnote doesn't make sense. 
