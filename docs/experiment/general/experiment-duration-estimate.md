@@ -23,6 +23,7 @@ The duration estimate only shows up when the follow criteria is met:
 2. The metric has already reached statistical significance
 3. The end date of the analysis window is in the past
 4. There are enough observations. We use the [same condition](https://help.amplitude.com/hc/en-us/articles/4403176829709-How-Amplitude-Experiment-uses-sequential-testing-for-statistical-inference#why-don%E2%80%99t-i-see-any-confidence-interval-on-the-confidence-interv) as for the starting to compute the confidence interval. 
+5. The experiment has been rolled out or rolled back
 
 ### 2. What does worst case, average case, and best case mean?
 
