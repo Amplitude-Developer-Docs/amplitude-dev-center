@@ -1,46 +1,18 @@
----
-# MegaLinter GitHub Action configuration file
-# More info at https://megalinter.github.io
-name: MegaLinter
+name: Scheduled Link Check
 
 on:
-
   schedule:
-  # Run every day at 9:00 AM (See https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)
-    #- cron: "0 0 * * *"
-    - cron: '*/15 * * * *' #set to run every 15 minutes for testing and troubleshooting for now
-
-
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
+  # Run everyday at 9:00 AM (See https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)
+  - cron: "*/15 * * * *"
 
 jobs:
-  build:
-    name: MegaLinter
+  markdown-link-check:
     runs-on: ubuntu-latest
     steps:
-      # Git Checkout
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-
-      # MegaLinter
-      - name: MegaLinter
-        id: ml
-        # You can override MegaLinter flavor used to have faster performances
-        # More info at https://megalinter.github.io/flavors/
-        uses: oxsecurity/megalinter/flavors/documentation@v6
-        env:
-          # All available variables are described in documentation
-          # https://megalinter.github.io/configuration/
-          VALIDATE_ALL_CODEBASE: true # Set ${{ github.event_name == &#39;push&#39; &amp;&amp; github.ref == &#39;refs/heads/main&#39; }} to validate only diff with main branch
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # ADD YOUR CUSTOM ENV VARIABLES HERE TO OVERRIDE VALUES OF .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
-          EMAIL_REPORTER: true
-          EMAIL_REPORTER_EMAIL: developerdocs@amplitude.com
-          EMAIL_REPORTER_SEND_SUCCESS: true
-
-
+    - uses: actions/checkout@master
+    - uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        use-verbose-mode: 'yes'
+        config-file: '.markdown-link-check.json'
+        folder-path: 'docs/'
