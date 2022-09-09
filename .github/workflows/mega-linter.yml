@@ -1,6 +1,6 @@
 ---
 # MegaLinter GitHub Action configuration file
-# This action runs on ever push to a PR against main. It checks the entire docset for markdown violations and broken links. 
+# This action runs on every push to a PR against main. It checks the entire docset for markdown violations and broken links. 
 # This is separate from the Megalinter cron job that runs daily (see cron-link-check.yml) to check for broken links.
 # More info at https://megalinter.github.io
 name: MegaLinter
