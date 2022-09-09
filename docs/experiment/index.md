@@ -3,8 +3,6 @@ title: Amplitude Experiment Overview
 description: Learn about Amplitude's experimentation and feature-flagging platform.
 ---
 
-Test Change to Test Linter configs!
-
 Welcome to Amplitude Experiment. This page acts as a quick reference as well as a high level system overview of Experiment's end-to-end feature-flagging and experimentation platform.
 
 <div class="grid cards" markdown>
