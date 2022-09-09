@@ -29,9 +29,9 @@ The duration estimate only shows up when the follow criteria is met:
 
 The time until a hypothesis test reaches statistical significance is a random variable. We use the worst case, average case, and best case to indicate the uncertainty in our estimate. The best case estimate of 3 days means that 20% of the time the experiment will reach stat sig in <=3 days. The average case estimate of 7 days means that 50% of the time the experiment will reach stat sig in <=7 days. The worst case estimate of 10 days means that 80% of the time the experiment will reach stat sig in <=10 days.
 
-### 3. Why is the largest duration estimate 40 days?
+### 3. Is there a cap for the duration estimate that we calculate?
 
-The 40 day limit is there for a couple of reasons:
+Currently, we put a cap at 40 days for the following reasons:
 
 1. Computational/latency reasons. We do real time simulations and don't want to add lots of latency. Also, there are theoretical edge cases where the simulations may never terminate.
 2. Assuming that the means/standard deviations won't change over time is not the greatest assumption to make especially for long running experiments.
