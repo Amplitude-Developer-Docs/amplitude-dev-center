@@ -1,18 +1,36 @@
-name: Scheduled Link Check
+---
+# MegaLinter GitHub Action configuration file for our daily link check. 
+# This action runs a link check on our entire doc set every day at 12:00 AM so we're warned when a link breaks.
+# This is a separate workflow file from main Megalinter checks because we needed to use different settings for this run. 
 
+name: Daily Link Check 
 on:
   schedule:
-  # Run everyday at 9:00 AM (See https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)
-  - cron: "*/15 * * * *"
+  # Run everyday at 12:00 AM
+  - cron: "0 0 * * *"
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
-  markdown-link-check:
+  build:
+    name: MegaLinter
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
-      with:
-        use-quiet-mode: 'yes'
-        use-verbose-mode: 'yes'
-        config-file: '.markdown-link-check.json'
-        folder-path: 'docs/'
+      # Git Checkout
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      # MegaLinter
+      - name: MegaLinter
+        id: ml
+        uses: oxsecurity/megalinter/flavors/documentation@v6
+        env:
+          VALIDATE_ALL_CODEBASE: true # Scans all doc files for broken links.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISABLE_LINTERS: MARKDOWNLINT
+          # ADD YOUR CUSTOM ENV VARIABLES HERE TO OVERRIDE VALUES OF .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
