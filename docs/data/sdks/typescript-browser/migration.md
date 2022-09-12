@@ -40,7 +40,7 @@ For Node projects, update your dependency list in package.json.
 
 ## Instrumentation
 
-The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls need to be changed.
+The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
@@ -64,7 +64,7 @@ Like all other calls, `getInstance()` has been removed. To initialize the SDK, c
 
 ### Configuration
 
-The new Browser SDK configuration comes in a different shape. The configurations were updated to be more consistent across runtimes. The configurations have been simplified, and some are no longer supported.
+The new Browser SDK configuration comes in a different shape. The configurations were updated to be simpler and more consistent across runtimes. Some configurations are no longer supported.
 
 |amplitude-js|@amplitude/analytics-browser|
 |-|-|
@@ -285,7 +285,7 @@ Setting a device ID can be invoked on `amplitude` without calling `getInstance()
 
 #### `setSessionId()`
 
-Setting a session ID can be invoked on `amplitude` without calling `getInstance()`.
+Set a session ID on `amplitude` without calling `getInstance()`.
 
 === "amplitude-js"
 
@@ -456,7 +456,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 #### Defer initialization
 
-To defer initialization in `amplitude-js`, init must be called with `config.deferInitialization` set to true, and eventually calling `enableTracking()` to formalize initialization and send all enqueued events.
+To defer initialization in `amplitude-js`, init must be called with `config.deferInitialization` set to `true`, and eventually calling `enableTracking()` to formalize initialization and send all enqueued events.
 
 === "amplitude-js"
 
@@ -472,7 +472,7 @@ To defer initialization in `amplitude-js`, init must be called with `config.defe
   amplitude.getInstance().enableTracking()
   ```
 
-For `@amplitude/analytics-browser`, `init()` can be called at a later time than `track()`. All `track()` calls are then processed after initialization is completed.
+For `@amplitude/analytics-browser`, you can call `init()` at a later time than `track()`. All `track()` calls are then processed after initialization is completed.
 
 === "@amplitude/analytics-browser"
 
@@ -493,13 +493,13 @@ In `amplitude-js`, web attribution is enabled by enabling the following configur
 * `config.includeReferrer`
 * `config.includeUtm`
 
-Moving forward, the web attribution is controlled by a single configuration `config.attribution.disabled` which by default is set to `false` and captures all campaign parameters. This configuration collects the same campaign parameters supported in `amplitude-js`.
+In `@amplitude/analytics-browser`, the web attribution is controlled by a single configuration `config.attribution.disabled` which by default is set to `false` and captures all campaign parameters. This configuration collects the same campaign parameters supported in `amplitude-js`.
 
 #### Flush or `onExitPage`
 
 There are certain scenarios that warrant sending events immediately, like when a user navigates away from a page. This is a common scenario when tracking button clicks that directs the user to another page while sending event payload in batches.
 
-In `amplitude-js` this is done by using `onExitPage()` callback.
+In `amplitude-js` do this by using `onExitPage()` callback.
 
 === "amplitude-js"
 
