@@ -6,7 +6,7 @@ description: Understand how experiment duration estimate is calculated
 !!! info
     This is only for the primary metric and sequential testing right now. This is not supported in Experiment Results.
 
-Given the current statistics (control/treatment mean, control/treatment variance, and control/treatment exposures), Amplitude forecasts what will happen in the future and sees how many days it will take to reach statistical significance. Note if any of these statistics changes a lot the estimate will be off. If there are multiple variants we take the max of the estimates. As Amplitude gets more data, the prediction will be better. Note that the estimate will change over time. 
+Given the current statistics (control/treatment mean, control/treatment variance, and control/treatment exposures), Amplitude forecasts expected behavior in the future, and calculates how many days it will take to reach statistical significance. If any of these statistics change significantly, the estimate will be off. If there are multiple variants the max of the estimates is taken. As Amplitude receives more data, the prediction will become better over time. 
 
 ## FAQ
 
