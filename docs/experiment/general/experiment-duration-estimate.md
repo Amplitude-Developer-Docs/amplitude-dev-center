@@ -44,7 +44,7 @@ There is currently a 40 day cap for the following reasons:
 
 ### 4. How does Amplitude determine the number of exposures per day?
 
-We assumed that the cumulative exposures is a straight line (i.e. we take the cumulative exposures today and divide by the length of the experiment so far to get how many exposures per day. 
+We assume a constant number of exposures per day. The estimate takes the cumulative exposures today and divides by the length of the experiment so far, in order to calculate the exposures per day.
 
 ## Types of Errors
 
