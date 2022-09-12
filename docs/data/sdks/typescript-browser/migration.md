@@ -3,7 +3,7 @@ title: Browser SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's legacy browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
 ---
 
-The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version is not backwards compatible with `amplitude-js`. 
+The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `amplitude-js`. 
 
 To migrate to `@amplitude/analytics-browser`, the dependency and instrumentation must be updated.
 
@@ -44,7 +44,7 @@ The new Browser SDK offers an API to instrument events. To migrate to the new SD
 
 ### Initialization
 
-Similar to all other calls, `getInstance()` has been removed. To initialize the SDK, call `init()`, with the same parameters. However, `config` comes in a different shape. See [Configuration](#configuration).
+Like all other calls, `getInstance()` has been removed. To initialize the SDK, call `init()`, with the same parameters. However, `config` comes in a different shape. See [Configuration](#configuration).
 
 === "amplitude-js"
 
@@ -64,7 +64,7 @@ Similar to all other calls, `getInstance()` has been removed. To initialize the 
 
 ### Configuration
 
-The new Browser SDK configuration comes in a different shape. These were updated to have more consistency across other runtimes. In addition, some configurations are no longer supported for various reasons like, simplification, adopted as default behavior, etc.
+The new Browser SDK configuration comes in a different shape. The configurations were updated to be more consistent across runtimes. The configurations have been simplified, and some are no longer supported.
 
 |amplitude-js|@amplitude/analytics-browser|
 |-|-|
@@ -120,7 +120,7 @@ The new Browser SDK configuration comes in a different shape. These were updated
 
 ### Tracking events
 
-The legacy Browser SDK offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all of these variations into a unified `track` API in `@amplitude/analytics-browser`.
+The legacy Browser SDK offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API in `@amplitude/analytics-browser`.
 
 #### `logEvent()`
 
@@ -245,7 +245,7 @@ The `sendEvents()` API maps to `flush()`.
 
 ### Setting user properties
 
-The APIs for setting user properties are the same, with the exception of the removal of `getInstance()`. Here are code snippets to migrate APIs for user properties.
+The APIs for setting user properties are the same, except for the removal of `getInstance()`. Here are code snippets to migrate APIs for user properties.
 
 #### `setUserId()`
 
@@ -497,7 +497,7 @@ Moving forward, the web attribution is controlled by a single configuration `con
 
 #### Flush or `onExitPage`
 
-There are certain scenarios that necessiate sending events immediately, like navigating away from a page. This is a common scenario when tracking button clicks that directs the user to another page while sending event payload in batches.
+There are certain scenarios that warrant sending events immediately, like when a user navigates away from a page. This is a common scenario when tracking button clicks that directs the user to another page while sending event payload in batches.
 
 In `amplitude-js` this is done by using `onExitPage()` callback.
 

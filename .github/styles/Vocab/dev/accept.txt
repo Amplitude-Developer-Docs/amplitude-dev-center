@@ -19,6 +19,7 @@ CleverTap
 CocoaPods
 Data's
 Convizit
+config
 CRM
 UCD
 SMS
@@ -28,6 +29,7 @@ datetime
 touchpoint
 touchpoints
 mParticle
+Monitor
 Tealium
 deduplicates
 deduplicated
@@ -68,6 +70,7 @@ Objective-C
 Okta
 [Oo]nboarding
 Optimizely
+orgId
 OneSignal
 orgs
 [pP]odfile

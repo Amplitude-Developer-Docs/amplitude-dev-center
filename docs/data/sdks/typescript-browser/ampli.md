@@ -4,12 +4,12 @@ description: The Amplitude Typescript SDK Installation & Quick Start guide.
 ---
 
 
-Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
+Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
 !!!info "Ampli Resources"
-    - [Browser Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app)
+    - [Browser JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app)
     - [Browser Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app)
 
 !!!note "Deprecated Itly runtime"
@@ -43,7 +43,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
     ```
 
 !!!note
-    Note: when using Ampli in the browser, we recommend loading `@amplitude/analytics-browser` as a module rather than as a JS snippet.
+    Note: when using Ampli in the browser, Amplitude recommends loading `@amplitude/analytics-browser` as a module rather than as a JavaScript snippet.
 
 ### Pull the SDK into your project
 
@@ -99,7 +99,7 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 | `disabled`                            | Optional. Boolean. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
 | `environment`                         | Optional. String. Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
 | `client.apiKey`                       | Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-| `client.instance`                     | Optional. AmpltitudeClient. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+| `client.instance`                     | Optional. AmplitudeClient. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 | `client.configuration`                | Optional. Amplitude.Config. Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
@@ -171,7 +171,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 --8<-- "includes/groups-intro-paragraph.md"
 
- Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+ Setting a group also sets the `groupType:groupName` as a user property, and overwrites any existing `groupName` value set for that user's `groupType`, and the corresponding user property value. `groupType` is a string, and `groupName` can be either a string or an array of strings to show that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
 
  Your code might look like this:
 
@@ -207,7 +207,7 @@ The `properties` argument passes event properties.
 
 The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
+For example, in the following code, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/#keys-for-the-event-argument).
@@ -405,3 +405,5 @@ Migrate from an Itly Browser runtime to Ampli by following these steps.
     - All `itly.` with `ampli.`
 
 8. See updated Event tracking details on your Implementation page in the web app.
+
+--8<-- "includes/abbreviations.md"
