@@ -7,7 +7,7 @@ icon: fontawesome/brands/java
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/java-sdk)
 
-This is the documentation for the Amplitude Analytics Java SDK. Note that this is not the Android SDK. 
+This is the documentation for the Amplitude Analytics Java SDK. Note that this is not the Android SDK.
 
 !!!info "SDK Resources"
     - [Java SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Java)

@@ -219,6 +219,7 @@ nav:
       - data/ampli/plugin.md
       - data/ampli/migration.md
     - SDKs:
+      - data/sdks/index.md
       - Browser:
         - data/sdks/typescript-browser/index.md
         - data/sdks/typescript-browser/migration.md
