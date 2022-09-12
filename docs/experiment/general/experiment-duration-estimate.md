@@ -35,7 +35,7 @@ The time until a hypothesis test reaches statistical significance is a random va
 
 ### 3. Is there a cap for the duration estimate that we calculate?
 
-Currently, we put a cap at 40 days for the following reasons:
+There is currently a 40 day cap for the following reasons:
 
 1. Computational/latency reasons. We do real time simulations and don't want to add lots of latency. Also, there are theoretical edge cases where the simulations may never terminate.
 2. Assuming that the means/standard deviations won't change over time is not the greatest assumption to make especially for long running experiments.
