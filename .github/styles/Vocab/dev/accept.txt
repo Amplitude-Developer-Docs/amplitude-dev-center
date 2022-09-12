@@ -6,6 +6,8 @@ Ampli
 ampli
 Amplitude
 amplitude
+Amplitude.Config
+AmplitudeClient
 API
 APIs
 Appcues
