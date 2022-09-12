@@ -27,7 +27,11 @@ The duration estimate only shows up when the follow criteria is met:
 
 ### 2. What does worst case, average case, and best case mean?
 
-The time until a hypothesis test reaches statistical significance is a random variable. We use the worst case, average case, and best case to indicate the uncertainty in our estimate. The best case estimate of 3 days means that 20% of the time the experiment will reach stat sig in <=3 days. The average case estimate of 7 days means that 50% of the time the experiment will reach stat sig in <=7 days. The worst case estimate of 10 days means that 80% of the time the experiment will reach stat sig in <=10 days.
+The time until a hypothesis test reaches statistical significance is a random variable. We use the worst case, average case, and best case to indicate the uncertainty in our estimate. 
+
+* Best case estimate of 3 days: 20% of the time, the experiment will reach stat sig in <= 3 days
+* Average case estimate of 7 days: 50% of the time the experiment will reach stat sig in <= 7 days
+* Worst case estimate of 10 days: 80% of the time the experiment will reach stat sig in <=10 days.
 
 ### 3. Is there a cap for the duration estimate that we calculate?
 
