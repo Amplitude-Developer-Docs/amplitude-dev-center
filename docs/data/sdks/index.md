@@ -6,7 +6,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Browser"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
     ```bash title="NPM"
 
     npm install @amplitude/analytics-browser
@@ -25,7 +25,7 @@ description: The quick start guide of how to use amplitude SDK
     </script>
     ```
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```ts
     import { init } from '@amplitude/analytics-browser';
@@ -35,7 +35,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Node"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash title="NPM"
 
@@ -47,7 +47,7 @@ description: The quick start guide of how to use amplitude SDK
     yarn add @amplitude/analytics-node
     ```
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```ts
     import { init } from '@amplitude/analytics-node';
@@ -57,7 +57,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Android"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash title="Gradle"
 
@@ -70,7 +70,7 @@ description: The quick start guide of how to use amplitude SDK
 
     Learn more about [Add Android Permission](../sdks/android-kotlin/#2-add-permissions).
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```kotlin title="Kotlin"
     val amplitude = Amplitude(
@@ -90,7 +90,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "iOS"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash title="CocoaPods"
 
@@ -111,7 +111,7 @@ description: The quick start guide of how to use amplitude SDK
     ```
     Learn more about [Add Dependency using Carthage](../sdks/ios/#__tabbed_1_3).
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```obj-c title="Objective-C"
     [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
@@ -123,7 +123,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Java"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash title="Maven"
 
@@ -142,7 +142,7 @@ description: The quick start guide of how to use amplitude SDK
     Get the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases).
 
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```java title="Java"
     Amplitude amplitude = Amplitude.getInstance();
@@ -151,13 +151,13 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Python"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash
     pip install amplitude-analytics
     ```
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```python title="Python"
     from amplitude import Amplitude
@@ -167,7 +167,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "React Native"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash title="NPM"
 
@@ -192,7 +192,7 @@ description: The quick start guide of how to use amplitude SDK
     pod install
     ```
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```ts
     import { init } from '@amplitude/analytics-react-native';
@@ -202,7 +202,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Flutter"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash  title="YAML"
 
@@ -214,7 +214,7 @@ description: The quick start guide of how to use amplitude SDK
     
     Learn more about [Add Dependency](../sdks/flutter/#add-dependencies).
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```dart title="Dart"
     import 'package:amplitude_flutter/amplitude.dart';
@@ -225,13 +225,13 @@ description: The quick start guide of how to use amplitude SDK
 
 === "GO"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash title="Command GO"
     go get https://github.com/amplitude/analytics-go
     ```
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```go title="GO"
     import (
@@ -245,7 +245,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Unity"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```bash title="Unity Package Manager"
 
@@ -259,7 +259,7 @@ description: The quick start guide of how to use amplitude SDK
     ```
     Learn more about the [Unity package download](../sdks/unity/#option-2-manual-download-and-add-dependency).
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```c# title="C#"
     Amplitude amplitude = Amplitude.getInstance()
@@ -268,7 +268,7 @@ description: The quick start guide of how to use amplitude SDK
 
 === "Unreal"
 
-    <h4> Install the Dependency </h4>
+    **Install the Dependency**
 
     ```txt title="Download SDK and add to project"
     1. Download AmplitudeUnreal.zip.
@@ -276,7 +276,7 @@ description: The quick start guide of how to use amplitude SDK
     ```
     Download the latest [AmplitudeUnreal.zip](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
 
-    <h4> Initialization </h4>
+    **Initialization**
 
     ```text title="Enable the SDK plugin"
 
@@ -437,34 +437,37 @@ description: The quick start guide of how to use amplitude SDK
     ```
 
 ## 3. Check for success
-#### Ingestion Debugger
+
+### Ingestion Debugger
 
 1. Login to you Amplitude Analytics Orgnization.
 2. Click the `Data Source tab` at the bottom of the navigation bar
 3. Choose the `Ingestion Debugger` section. You can check the Requests or which User or Device has been throttled.
 
 Learn more about [Ingestion Debugger](https://help.amplitude.com/hc/en-us/articles/360044835531).
-#### User Lookup
+
+###  User Lookup
 
 After you fired an event, you can navigate to the `User & Account Look-Up` tab in Amplitude validate your event.
 
 Learn more about [User Lookup](https://www.docs.developers.amplitude.com/data/debugger/#user-lookup).
 
-#### Event Explorer
+### Event Explorer
 
 In any Amplitude chart, click `Select events using your product`. You are able to watch the events roll in, in near-real time.
 
 Learn more about [Event Explorer](https://help.amplitude.com/hc/en-us/articles/360050836071-Event-Explorer-View-event-streams-in-real-time).
 
-#### Instrument Explorer
+### Instrument Explorer
 
 Instrument explorer is available for Browser SDKs only.
 
 Download the Google Chrome Extension which helps you examine and debug your Amplitude Browser SDK.
 
-Learn more about [Instrument Explorer](https://chrome.google.com/webstore/detail/amplitude-event-explorer/).
+Learn more about [Instrument Explorer](https://chrome.google.com/webstore/detail/amplitude-event-explorer/acehfjhnmhbmgkedjmjlobpgdicnhkbp?hl=en).
 
 ## 4. Enforce event schemas (Ampli)
+
 The Ampli CLI, Ampli Wrapper, and Amplitude SDK work together to generate a tracking library based on your Tracking Plan.
 The autogenerated library provides type-safety, supports linting, and enable features like input validation which contextualizes your analytics instrumentation, and reduces incorrect instrumentations in your production environments.
 
@@ -472,16 +475,16 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 
     ```ts
 
-	ampli.load();
+    ampli.load();
 
-	ampli.yourEventType({
-		stringProp: "Strongly typed property",
-		booleanProp: true
-	});
+    ampli.yourEventType({
+        stringProp: "Strongly typed property",
+        booleanProp: true
+    });
 
     ```
 
-	Learn more about [Ampli Browser](../sdks/typescript-browser/ampli/).
+Learn more about [Ampli Browser](../sdks/typescript-browser/ampli/).
 
 === "Node"
 
@@ -500,49 +503,52 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 === "Android"
 
     ```kotlin title="Kotlin"
-	ampli.load()
 
-	ampli.yourEventType({
-		stringProp = "Strongly typed property",
-		booleanProp = true
-	})
+    ampli.load()
+
+    ampli.yourEventType({
+        stringProp = "Strongly typed property",
+        booleanProp = true
+    })
 
     ```
 
     ```java title="Java"
     Ampli.getInstance().load();
 
-	Ampli.getInstance().yourEventType(YourEventType.builder()
-                	   .stringProp("Strongly typed property")
+    Ampli.getInstance().yourEventType(YourEventType.builder()
+                       .stringProp("Strongly typed property")
                        .booleanProp(true)
                        .build());
     ```
 
-	Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
+    Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
 
 === "iOS"
 
     ```obj-c title="Objective-C"
-	Ampli *ampli = [Ampli instance];
+
+    Ampli *ampli = [Ampli instance];
     [ampli load];
 
-	[ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
-										booleanProp:true
-	]];
+    [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
+                                        booleanProp:true
+    ]];
 
     ```
 
     ```swift title="Swift"
- 	ampli.load();
 
-	ampli.yourEventType(
+    ampli.load();
+
+    ampli.yourEventType(
         stringProp: "Strongly typed property",
-		booleanProp: true
+        booleanProp: true
     )
 
     ```
 
-	Learn more about [Ampli iOS](../sdks/ios/ampli/).
+    Learn more about [Ampli iOS](../sdks/ios/ampli/).
 
 === "Java"
 
@@ -564,34 +570,34 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 
     ```python
 
-	ampli.load();
-	ampli.yourEventType(
-    	"user_id",
-   		YourEventType(
-        	stringProp= "Strongly typed property",
-			booleanProp=True
-		)
-	)
+    ampli.load();
+    ampli.yourEventType(
+        "user_id",
+        YourEventType(
+            stringProp= "Strongly typed property",
+            booleanProp=True
+        )
+    )
 
     ```
-	Learn more about [Ampli Python](../sdks/python/ampli/).
+    Learn more about [Ampli Python](../sdks/python/ampli/).
 
 === "React Native"
 
     ```ts
 
-	ampli.load();
-	ampli.yourEventType({
+    ampli.load();
+    ampli.yourEventType({
         stringProp: "Strongly typed property",
     });
 
     ```
 
-	Learn more about [Ampli React Native](../sdks/typescript-react-native/ampli/).
+    Learn more about [Ampli React Native](../sdks/typescript-react-native/ampli/).
 
 === "Flutter"
 
-	TBD.
+    TBD.
 
 === "GO"
 
@@ -599,7 +605,7 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 
 === "Unity"
 
-	TBD.
+    TBD.
 
 === "Unreal"
 
@@ -626,7 +632,6 @@ The autogenerated library provides type-safety, supports linting, and enable fea
     ```
 
     Learn more available functionalities in [Broswer SDK](../sdks/typescript-browser/).
-
 
 === "Node"
 
@@ -714,7 +719,6 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 
     Learn more available functionalities in [Android SDK](../sdks/android-kotlin/).
 
-
 === "iOS"
 
     ```obj-c title="Objective-C"
@@ -753,7 +757,6 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 
     Learn more available functionalities in [iOS SDK](../sdks/ios/).
 
-
 === "Java"
 
     ```java
@@ -791,7 +794,6 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 
     Learn more available functionalities in [Java SDK](../sdks/java/).
 
-
 === "Python"
 
     ```python title="Python"
@@ -816,7 +818,6 @@ The autogenerated library provides type-safety, supports linting, and enable fea
     ```
 
     Learn more available functionalities in [Python SDK](../sdks/python/).
-
 
 === "React Native"
 
