@@ -50,11 +50,9 @@ We assume a constant number of exposures per day. The estimate takes the cumulat
 
 ### 1. Irreducible Error
 
-This is an error which cannot be solved. 
+This is an error which cannot be solved. See this [video](https://www.youtube.com/watch?v=uoV1g3i9Qmw&ab_channel=MachineLearningTV).
 
-Say you are trying to predict if a fair coin is heads. No matter which algorithm you use, you cannot be correct more than 50% of the time. There is inherit randomness that can't be accounted for. If you want to move to the continuous version (say you are drawing a number from a standard normal distribution) then your best guess is 0 and 32% of the time you will be off by >= 1 of the true value. 
-
-Another way of restating this issue is that the mean squared error is 1. There is no way to get a smaller mean squared error. Relating this to experiment duration, the time it takes for an experiment to reach stat sig is a random variable because it depends on the p-value and the p-value depends on data. Even if we cheat and say we know the control mean, control standard deviation, treatment mean, treatment standard deviation, and we force everything to be normally distributed and independent, we still cannot get 0 error. When we run simulations, we can see that each simulation will reach stat sig at different times--this difference is the main reason why we need to run multiple simulations. If each simulation returned the same number, then we would only need to do 1 simulation. This is just how randomness works. If you want to map this to t-test, the p-value is a random variable and that is the reason why we need to have power and say the probability of the p-value < .05 (i.e. we are asking what is the probability of a probability).
+Relating this to experiment duration, the time it takes for an experiment to reach stat sig is a random variable because it depends on the p-value and the p-value depends on data. Even if we cheat and say we know the control mean, control standard deviation, treatment mean, treatment standard deviation, and we force everything to be normally distributed and independent, we still cannot get 0 error. When we run simulations, we can see that each simulation will reach stat sig at different times--this difference is the main reason why we need to run multiple simulations. If each simulation returned the same number, then we would only need to do 1 simulation. This is just how randomness works. If you want to map this to t-test, the p-value is a random variable and that is the reason why we need to have power and say the probability of the p-value < .05 (i.e. we are asking what is the probability of a probability).
 
 ### 2. Estimates being wrong
 
