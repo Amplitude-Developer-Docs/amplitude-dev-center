@@ -58,4 +58,4 @@ We estimate the control population mean, control population standard deviation, 
 
 ### 3. Drift
 
-If there is any drift in any of the statistics we will do poorly. By drift I mean today the control mean = 5 and ten days from now the control mean = 15. This includes things like seasonality. We are already making this assumption of no drift when doing hypothesis testing, so it is not like we are adding an extra assumption.
+If there is any drift in any of the statistics, the estimate will do poorly. For example, if today the control mean = 5 and ten days from now the control mean = 15 then there is drift in the control mean. This includes things like seasonality. The estimate already assumes no drift when doing hypothesis testing, so we're not adding extra assumptions.
