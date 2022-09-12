@@ -38,7 +38,7 @@ The time until a hypothesis test reaches statistical significance is a random va
 There is currently a 40 day cap for the following reasons:
 
 1. Computational/latency reasons: The duration estimate uses real time simulations where the latency scales with days simulated. Additionally, there are theoretical edge cases where the simulations may never terminate.
-2. Assuming that the means/standard deviations won't change over time is not the greatest assumption to make especially for long running experiments.
+2. Assuming that the means/standard deviations won't change over time is not the best assumption to make especially for long running experiments.
 3. It is easier to predict things in the short term than in the long term. For example, it is easier to predict and be correct if it will rain tomorrow than predict and be correct if it will rain 2 months from now.
 4. Generally you should run experiments less than 40 days and knowing that the experiment is going to day 40+ days vs. 60 days probably isn't that much more helpful for a customer.
 
