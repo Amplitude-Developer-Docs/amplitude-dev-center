@@ -189,7 +189,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 ### Track
 
-To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
+To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call structure is like this:
 
 === "TypeScript"
 
@@ -375,7 +375,7 @@ Events Tracked: 1 missed, 2 total
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
-## Migrating from an Itly runtime
+## Migrate from an Itly runtime
 
 Migrate from an Itly Browser runtime to Ampli by following these steps.
 

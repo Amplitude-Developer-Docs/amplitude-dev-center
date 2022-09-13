@@ -3,6 +3,8 @@ message: "Don't use gerunds in headings."
 level: suggestion
 scope: heading
 raw:
-  - ing$
+  - \w+ing\b
 exceptions: 
+  - Tracking
   - tracking
+  - Getting

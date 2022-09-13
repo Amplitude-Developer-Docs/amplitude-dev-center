@@ -5,7 +5,7 @@ description: Use this guide to easily migrate from Amplitude's legacy browser SD
 
 The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `amplitude-js`. 
 
-To migrate to `@amplitude/analytics-browser`, the dependency and instrumentation must be updated.
+To migrate to `@amplitude/analytics-browser`, update your dependencies and instrumentation.
 
 ### Terminology
 
@@ -64,7 +64,7 @@ Like all other calls, `getInstance()` has been removed. To initialize the SDK, c
 
 ### Configuration
 
-The new Browser SDK configuration comes in a different shape. The configurations were updated to be simpler and more consistent across runtimes. Some configurations are no longer supported.
+The new Browser SDK configuration comes in a different shape. The configurations are simpler and more consistent across runtimes. Some configurations are no longer supported.
 
 |amplitude-js|@amplitude/analytics-browser|
 |-|-|
@@ -243,7 +243,7 @@ The `sendEvents()` API maps to `flush()`.
   amplitude.flush()
   ```
 
-### Setting user properties
+### Set user properties
 
 The APIs for setting user properties are the same, except for the removal of `getInstance()`. Here are code snippets to migrate APIs for user properties.
 
@@ -362,7 +362,7 @@ You can now make an identify call on `amplitude` without calling `getInstance()`
   amplitude.identify(identify)
   ```
 
-### Setting group properties
+### Set group properties
 
 ### `groupIdentify()`
 
@@ -456,7 +456,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 #### Defer initialization
 
-To defer initialization in `amplitude-js`, init must be called with `config.deferInitialization` set to `true`, and eventually calling `enableTracking()` to formalize initialization and send all enqueued events.
+To defer initialization in `amplitude-js`, call init with `config.deferInitialization` set to `true`, and eventually call `enableTracking()` to formalize initialization and send all enqueued events.
 
 === "amplitude-js"
 
@@ -472,7 +472,7 @@ To defer initialization in `amplitude-js`, init must be called with `config.defe
   amplitude.getInstance().enableTracking()
   ```
 
-For `@amplitude/analytics-browser`, you can call `init()` at a later time than `track()`. All `track()` calls are then processed after initialization is completed.
+For `@amplitude/analytics-browser`, you can call `init()` at a later time than `track()`. All `track()` calls are then processed after initialization completes.
 
 === "@amplitude/analytics-browser"
 

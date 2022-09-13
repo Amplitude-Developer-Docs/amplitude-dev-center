@@ -20,9 +20,9 @@ The TypeScript Browser SDK lets you send events to Amplitude. This library is op
 
 ### Installation
 
-To get started with using TypeScript Browser SDK, install the package to your project via NPM or script loader.
+To get started with using TypeScript Browser SDK, install the package in your project via NPM or script loader.
 
-#### Installing as Node package
+#### Install as Node package
 
 This package is available on NPM registry and you can install it using npm or yarn.
 
@@ -38,7 +38,7 @@ This package is available on NPM registry and you can install it using npm or ya
     yarn add @amplitude/analytics-browser
     ```
 
-#### Using script loader
+#### Use script loader
 
 This package is also distributed through a CDN. Copy and paste this script in your HTML file.
 
@@ -52,7 +52,7 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 ## Usage
 
-### Initializing SDK
+### Initialize the SDK
 
 You must initialize the SDK before you can instrument any events. Your Amplitude project's API key is required. You can pass an optional user ID and config object in this call. You can use the SDK anywhere after it's initialized anywhere in an application.
 
@@ -86,7 +86,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-### Tracking an event
+### Track an event
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -107,16 +107,16 @@ track('Button Clicked', eventProperties);
 
 ### User properties
 
-User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
+User properties are details like device details, user preferences, or language to help you understand your users at the time they performed an action in your app.
 
 Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
 
 !!!note 
-    If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they won't appear in chart result until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
+    If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they won't appear in chart results until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
-#### Setting a user property
+#### Set a user property
 
-The Identify object provides controls over setting user properties. An Identify object must first be instantiated, then Identify methods can be called on it, and finally the client makes a call with the Identify object.
+The Identify object provides controls over setting user properties. It works like this: first, instantiate an Identify object, then call Identify methods on it, and finally, the client can make a call with the Identify object.
 
 ```ts
 import { identify, Identify } from '@amplitude/analytics-browser';
@@ -166,7 +166,7 @@ identify(identifyObj);
 
 #### Arrays in user properties
 
-Arrays can be used as user properties. You can directly set arrays or use `prepend`, `append`, `preInsert` and `postInsert` to generate an array.
+You can use arrays as user properties. Directly set arrays or use `prepend`, `append`, `preInsert` and `postInsert` to generate an array.
 
 #### Identify.prepend
 
@@ -300,7 +300,7 @@ revenue(event);
 |`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
 |`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
 
-### Flushing event buffer
+### Flush the event buffer
 
 The `flush` method triggers the client to send buffered events immediately.
 
@@ -346,7 +346,7 @@ setSessionId(Date.now());
 
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
 
-You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. A UUID is recommended.
+You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. Amplitude recommends using a UUID.
 
 ```ts
 import { setDeviceId } from '@amplitude/analytics-browser';
@@ -463,7 +463,7 @@ import { remove } from '@amplitude/analytics-browser';
 remove(plugin.name);
 ```
 
-#### Creating your custom plugin
+#### Create your custom plugin
 
 #### Plugin.setup
 
@@ -597,10 +597,12 @@ https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_
 
 #### Referrer parameters
 
-Referrer is the URL of the page that linked to the destination page. Referrer is an empty string '' if the user navigated to the destination page directly. Amplitude tracks the following parameters:
+Referrer is the URL of the page that linked to the destination page. Amplitude tracks the following parameters:
 
-- `referrer`: The last page the user was on (for example, `https://amplitude.com/behavioral-analytics-platform?ref=nav`)
+- `referrer`: The last page the user was on (for example, `https://amplitude.com/behavioral-analytics-platform?ref=nav`). 
 - `referring_domain`: The domain that the user was last on (for example, `https://amplitude.com`)
+
+Referrer is an empty string (`''`) if the user navigated to the destination page directly.
 
 #### Click ID parameters
 
@@ -623,7 +625,7 @@ Amplitude captures the initial attribution data at the start of the first sessio
 - `initial_gclid`
 - `initial_fbclid`
 
-For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If a different initial value is preferred, this can be done by setting `attriubtion.initialEmptyValue` to any string value.
+For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If you prefer a different initial value, set `attriubtion.initialEmptyValue` to any string value.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -635,7 +637,9 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 #### Multi-touch attribution
 
-Amplitude captures the attribution data at the start of each session. The following data are tracked as user properties. For campaign-related traffic where these values are included in the URL or browser cookies, these properties are set as user identity. For organic or direct traffic, these properties may not be available. Therefore, these user properties are unset from user identity.
+Amplitude captures the attribution data at the start of each session, and tracks some values as user properties. For campaign-related traffic where the URL or browser cookies include these values, the properties are set as user identity. For organic or direct traffic, these properties may not be available. Therefore, these user properties are unset from user identity.
+
+Amplitude tracks the following as user properties:
 
 - `utm_source`
 - `utm_medium`
@@ -649,7 +653,7 @@ Amplitude captures the attribution data at the start of each session. The follow
 
 Using the default configuration, these properties are tracked at the start of each session. This means when a user navigates back to the page through a campaign while the previous session is still valid, the newer campaign isn't tracked. 
 
-If one prefers to track new campaigns mid-session, you can configure Amplitude to capture new campaigns, regardless of the state of the user session. This effectively expires the previous session and creates a new session, but only if new attribution data is found. If the same attribution data is found, then no attribution data is tracked and default session expiration policy is applied. You can also do this by setting `attribution.trackNewCampaigns` to `true`. By default this is set to `false`.
+If you prefer to track new campaigns mid-session, you can configure Amplitude to capture new campaigns, regardless of the state of the user session. This effectively expires the previous session and creates a new session, but only if new attribution data is found. If the same attribution data is found, then no attribution data is tracked and default session expiration policy is applied. You can also do this by setting `attribution.trackNewCampaigns` to `true`. By default this is set to `false`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
