@@ -7,7 +7,7 @@ status: new
 !!!alpha 
     This integration is currently in Alpha and is in active development. If you have any feedback to improve or have suggestions around this documentation, email <integrations@amplitude.com>. 
 
-[SendGrid](https://www.linkedin.com/company/sendgrid/) is a proven cloud-based customer communication platform that successfully delivers over 45 billion emails each month.
+[SendGrid](https://sendgrid.com/) is a proven cloud-based customer communication platform that successfully delivers over 45 billion emails each month.
 
 This SendGrid integration allows you to send audiences from Amplitude to SendGrid to create more personalized campaigns. 
 
