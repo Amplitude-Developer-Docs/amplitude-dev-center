@@ -100,3 +100,5 @@ formattedXValues
 segmentIndex
 realtime
 seriesMeta
+Uber
+Spotify
