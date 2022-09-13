@@ -7,6 +7,8 @@ Use this guide to get started with the Amplitude SDKs.
 
 ## 1. Initialize the library
 
+First, initialize the library in your app. 
+
 === "Browser"
 
     **Install the Dependency**
