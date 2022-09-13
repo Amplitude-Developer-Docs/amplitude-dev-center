@@ -453,7 +453,7 @@ Use the Ingestion Debugger in Amplitude to check your requests, event and identi
 
 1. Log in to Amplitude.
 2. Click **Data Source** at the bottom of the navigation bar.
-3. Click the `Ingestion Debugger` tab. 
+3. Click the **Ingestion Debugger** tab. 
 
 Learn more about the [Ingestion Debugger](https://help.amplitude.com/hc/en-us/articles/360044835531).
 
