@@ -19,9 +19,9 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Install dependencies
+    ### Install dependency
         
-    Install dependencies using NPM, YARN, or script loader.
+    Install the dependency using NPM, YARN, or script loader.
 
     === "NPM"
         ```bash
