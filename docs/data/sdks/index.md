@@ -527,11 +527,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../sdks/java/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_4)
+        2. [Send data](#send-data_4)
+        3. [Check for success](#check-for-success_4)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_4)
+        5. [Complete code example](#complete-code-example_4)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -627,11 +627,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 === "Python"
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_5)
+        2. [Send data](#send-data_5)
+        3. [Check for success](#check-for-success_5)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_5)
+        5. [Complete code example](#complete-code-example_5)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -721,11 +721,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../sdks/react-native/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_6)
+        2. [Send data](#send-data_6)
+        3. [Check for success](#check-for-success_6)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_6)
+        5. [Complete code example](#complete-code-example_6)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -827,11 +827,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../sdks/flutter/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_7)
+        2. [Send data](#send-data_7)
+        3. [Check for success](#check-for-success_7)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_7)
+        5. [Complete code example](#complete-code-example_7)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -910,11 +910,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../sdks/go/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_8)
+        2. [Send data](#send-data_8)
+        3. [Check for success](#check-for-success_8)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_8)
+        5. [Complete code example](#complete-code-example_8)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1002,11 +1002,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../sdks/unity/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_9)
+        2. [Send data](#send-data_9)
+        3. [Check for success](#check-for-success_9)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_9)
+        5. [Complete code example](#complete-code-example_9)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1084,11 +1084,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../sdks/unreal/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_10)
+        2. [Send data](#send-data_10)
+        3. [Check for success](#check-for-success_10)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_10)
+        5. [Complete code example](#complete-code-example_10)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
