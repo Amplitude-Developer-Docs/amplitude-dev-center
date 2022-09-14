@@ -346,7 +346,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         }
         ```
 
-    === "Java "
+    === "Java"
 
         ```java
         package com.amplitude.android.sample;
@@ -522,7 +522,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
     Learn more available functionalities in [iOS SDK](../sdks/ios/).
 
-=== "Java"
+=== "JRE"
 
     This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../sdks/java/).
 
