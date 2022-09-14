@@ -14,6 +14,7 @@ exceptions:
   - Docker
   - Emmet
   - I
+  - Node
   - Kubernetes
   - Linux
   - macOS
@@ -33,3 +34,12 @@ exceptions:
   - Middleware
   - ID
   - IDs 
+  - Identify.setOnce
+  - Identify.add
+  - Identify.set
+  - Identify.append
+  - Identify.preInsert
+  - Identify.postInsert
+  - Identify.remove
+  - Plugin.setup
+  - Plugin.execute

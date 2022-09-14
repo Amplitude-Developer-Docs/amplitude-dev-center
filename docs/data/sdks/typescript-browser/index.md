@@ -16,15 +16,15 @@ The TypeScript Browser SDK lets you send events to Amplitude. This library is op
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
-## Getting Started
+## Getting started
 
 ### Installation
 
-To get started with using TypeScript Browser SDK, install the package to your project via NPM or script loader.
+To get started with using TypeScript Browser SDK, install the package in your project via NPM or script loader.
 
-#### Installing as Node package
+#### Install as Node package
 
-This package is published on NPM registry and can be installed using npm and yarn.
+This package is available on NPM registry and you can install it using npm or yarn.
 
 === "npm"
 
@@ -38,9 +38,9 @@ This package is published on NPM registry and can be installed using npm and yar
     yarn add @amplitude/analytics-browser
     ```
 
-#### Using script loader
+#### Use script loader
 
-Alternatively, the package is also distributed through a CDN. Copy and paste this script in your HTML file.
+This package is also distributed through a CDN. Copy and paste this script in your HTML file.
 
 ```html
 <script type="text/javascript">
@@ -52,9 +52,9 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 ## Usage
 
-### Initializing SDK
+### Initialize the SDK
 
-Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required. Optionally, a user ID and config object can be passed in this call. The SDK can be used anywhere after it is initialized anywhere in an application.
+You must initialize the SDK before you can instrument any events. Your Amplitude project's API key is required. You can pass an optional user ID and config object in this call. You can use the SDK anywhere after it's initialized anywhere in an application.
 
 ```ts
 import { init } from '@amplitude/analytics-browser';
@@ -86,7 +86,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-### Tracking an event
+### Track an event
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -107,16 +107,16 @@ track('Button Clicked', eventProperties);
 
 ### User properties
 
-User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
+User properties are details like device details, user preferences, or language to help you understand your users at the time they performed an action in your app.
 
-Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. The operations are declared via a provided Identify interface. Multiple operations can be chained together in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
+Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
 
 !!!note 
-    If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user’s profile area, but it will not appear in chart result until another event is sent after the Identify call. So the identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
+    If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they won't appear in chart results until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
-#### Setting a user property
+#### Set a user property
 
-The Identify object provides controls over setting user properties. An Identify object must first be instantiated, then Identify methods can be called on it, and finally the client will make a call with the Identify object.
+The Identify object provides controls over setting user properties. It works like this: first, instantiate an Identify object, then call Identify methods on it, and finally, the client can make a call with the Identify object.
 
 ```ts
 import { identify, Identify } from '@amplitude/analytics-browser';
@@ -140,7 +140,7 @@ identify(identifyObj);
 
 #### Identify.setOnce
 
-This method sets the value of a user property only once. Subsequent calls using setOnce() will be ignored. For example, you can set an initial login method for a user and since only the initial value is tracked, setOnce() ignores subsequent calls.
+This method sets the value of a user property only one time. Subsequent calls using `setOnce()` are ignored. For example, you can set an initial login method for a user and because only the initial value is tracked, `setOnce()` ignores later calls.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-browser';
@@ -153,7 +153,7 @@ identify(identifyObj);
 
 #### Identify.add
 
-This method increments a user property by some numerical value. If the user property does not have a value set yet, it will be initialized to 0 before being incremented. For example, you can track a user's travel count.
+This method increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to 0 before it's incremented. For example, you can track a user's travel count.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-browser';
@@ -166,11 +166,11 @@ identify(identifyObj);
 
 #### Arrays in user properties
 
-Arrays can be used as user properties. You can directly set arrays or use prepend, append, preInsert and postInsert to generate an array.
+You can use arrays as user properties. Directly set arrays or use `prepend`, `append`, `preInsert` and `postInsert` to generate an array.
 
 #### Identify.prepend
 
-This method prepends a value or values to a user property array. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are prepended.
+This method prepends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-browser';
@@ -183,7 +183,7 @@ identify(identifyObj);
 
 #### Identify.append
 
-This method appends a value or values to a user property array. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are prepended.
+This method appends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-browser';
@@ -196,7 +196,7 @@ identify(identifyObj);
 
 #### Identify.preInsert
 
-This method pre-inserts a value or values to a user property, if it does not exist in the user property yet. Pre-insert means inserting the value(s) at the beginning of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the values at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, this method is a no-op.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-browser';
@@ -209,7 +209,7 @@ identify(identifyObj);
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it does not exist in the user property yet. Post-insert means inserting the value(s) at the end of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the values at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, this method is a no-op..
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-browser';
@@ -222,7 +222,7 @@ identify(identifyObj);
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value(s) from the given list. If the item does not exist in the user property, it will be no operation.
+This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the user property has an existing value, this method is a no-op.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-browser';
@@ -255,7 +255,7 @@ setGroup('sport', ['soccer', 'tennis']);
 
 Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
 
-The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that will be applied to the group.
+The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that's applied to the group.
 
 ```ts
 import { Identify, groupIdentify } from '@amplitude/analytics-browser';
@@ -269,8 +269,11 @@ groupIdentify(groupType, groupName, identify);
 ```
 
 ### Revenue tracking
+<!-- vale off-->
 
-The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances will store each revenue transaction and allow you to define several special revenue properties (such as 'revenueType', 'productIdentifier', etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
+The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances store each revenue transaction and allow you to define several special revenue properties (such as 'revenueType' and 'productIdentifier') that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
+
+<!--vale on-->
 
 To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
 
@@ -289,15 +292,15 @@ revenue(event);
 
 |Name | Description |
 |-----|-------|
-|`product_id` | Optional. String. An identifier for the product. We recommend something like the Google Play Store product ID. Defaults to null. |
+|`product_id` | Optional. String. An identifier for the product. Amplitude recommend something like the Google Play Store product ID. Defaults to null. |
 |`quantity` | Required. Int. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1|
 |`price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to null. |
-|`revenue_type` | Optional, but required for revenue verification. String. The type of revenue (e.g. tax, refund, income).  Defaults to null.|
+|`revenue_type` | Optional, but required for revenue verification. String. The revenue type (for example, tax, refund, income).  Defaults to null.|
 |`receipt`| Optional. String. The receipt identifier of the revenue. Defaults to null|
 |`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
 |`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
 
-### Flushing event buffer
+### Flush the event buffer
 
 The `flush` method triggers the client to send buffered events immediately.
 
@@ -343,7 +346,7 @@ setSessionId(Date.now());
 
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
 
-You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. A UUID is recommended.
+You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. Amplitude recommends using a UUID.
 
 ```ts
 import { setDeviceId } from '@amplitude/analytics-browser';
@@ -357,7 +360,7 @@ setDeviceId(uuid());
 `reset` is a shortcut to anonymize users after they log out, by:
 
 - setting `userId` to `undefined`
-- setting `deviceId` to a new uuid value
+- setting `deviceId` to a new UUID value
 
 With an undefined `userId` and a completely new `deviceId`, the current user would appear as a brand new user in dashboard.
 
@@ -377,9 +380,9 @@ import { setOptOut } from '@amplitude/analytics-browser';
 setOptOut(true);
 ```
 
-No events are saved or sent to the server while `setOptOut` is enabled, and the setting persists across page loads. 
+Events aren't saved or sent to the server while `setOptOut` is enabled, and the setting persists across page loads. 
 
-Reenable logging by setting `setOptOut` to `false`.
+Re-enable logging by setting `setOptOut` to `false`.
 
 ```ts
 import { setOptOut } from '@amplitude/analytics-browser';
@@ -460,7 +463,7 @@ import { remove } from '@amplitude/analytics-browser';
 remove(plugin.name);
 ```
 
-#### Creating your custom plugin
+#### Create your custom plugin
 
 #### Plugin.setup
 
@@ -468,13 +471,13 @@ This method contains logic for preparing the plugin for use and has config as a 
 
 #### Plugin.execute
 
-This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is undefined. This method is called for each event, including Identify, GroupIdentify and Revenue events, that is instrumented using the client interface.
+This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event. If used as a destination type plugin, the expected return value is undefined. This method is called for each event that's instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
 
 #### Plugin examples
 
 ##### Enrichment type plugin
 
-Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `event_id` property of an event starting from 100.
+Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
 ```ts
 import { init, add } from '@amplitude/analytics-browser';
@@ -509,9 +512,9 @@ init('API_KEY');
 add(new AddEventIdPlugin());
 ```
 
-#### Destination Type Plugin
+#### Destination type plugin
 
-Here's an example of a plugin that sends each event that is instrumented to a target server URL using your preferred HTTP client.
+Here's an example of a plugin that sends each event that's instrumented to a target server URL using your preferred HTTP client.
 
 ```ts
 import { init, add } from '@amplitude/analytics-browser';
@@ -562,9 +565,9 @@ init('API_KEY');
 add(new MyDestinationPlugin('https://custom.domain.com'));
 ```
 
-## Advanced Topics
+## Advanced topics
 
-### Web Attribution
+### Web attribution
 
 Amplitude SDK collects attribution data by default. Amplitude supports automatically tracking the following attribution parameters:
 
@@ -573,17 +576,18 @@ Amplitude SDK collects attribution data by default. Amplitude supports automatic
 - Google Click Identifier from URL parameters
 - Facebook Click Identifier from URL parameters
 
-#### UTM Parameters
+#### UTM parameters
 
-UTM stand for Urchin Traffic Monitor and are useful for analyzing the effectiveness of different ad campaigns and referring sites. Note that UTM parameters are case sensitive so they will turn out to be different values if the capitalization varies.
+UTM (Urchin Traffic Monitor) parameters are useful for analyzing the effectiveness of different ad campaigns and referring sites. UTM parameters are case-sensitive, so they're treated as different values when the capitalization varies.
 
 There are five different standard UTM parameters:
-
-- `utm_source`: This identifies which website sent the traffic (e.g. Google, Facebook)
-- `utm_medium`: This identifies what type of link was used (e.g. banner, button, email)
-- `utm_campaign`: This identifies a specific campaign used (e.g. summer_sale)
-- `utm_term`: This identifies paid search terms used (e.g. product+analytics)
-- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (e.g. bannerlink, textlink)
+<!-- vale off-->
+- `utm_source`: This identifies which website sent the traffic (for example, Google, Facebook)
+- `utm_medium`: This identifies the link type used (for example, banner, button, email)
+- `utm_campaign`: This identifies a specific campaign used (for example, "summer_sale")
+- `utm_term`: This identifies paid search terms used (for example, product+analytics)
+- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example, bannerlink, textlink)
+<!-- vale on-->
 
 Here is an example URL with UTM parameters:
 
@@ -591,23 +595,25 @@ Here is an example URL with UTM parameters:
 https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=bannerlink
 ```
 
-#### Referrer Parameters
+#### Referrer parameters
 
-Referrer is the URL of the page that linked to the destination page. Referrer is an empty string '' if the user navigated to the destination page directly. Amplitude tracks the following parameters:
+Referrer is the URL of the page that linked to the destination page. Amplitude tracks the following parameters:
 
-- `referrer`: The last page the user was on (e.g. `https://amplitude.com/behavioral-analytics-platform?ref=nav`)
-- `referring_domain`: The domain that the user was last on (e.g. `https://amplitude.com`)
+- `referrer`: The last page the user was on (for example, `https://amplitude.com/behavioral-analytics-platform?ref=nav`). 
+- `referring_domain`: The domain that the user was last on (for example, `https://amplitude.com`)
 
-#### Click ID Parameters
+Referrer is an empty string (`''`) if the user navigated to the destination page directly.
 
-Click IDs are campaign identifiers included as URL parameters. These IDs are used by Ad platforms to identify the campaign and other attributes. While Amplitude does not have access to further campaign attributes associated to Click IDs, Amplitude can track Click ID values specified below.
+#### Click ID parameters
+
+Click IDs are campaign identifiers included as URL parameters. These IDs are used by Ad platforms to identify the campaign and other attributes. While Amplitude doesn't have access to further campaign attributes associated to Click IDs, Amplitude can track Click ID values specified below.
 
 - `gclid`: Google Click Identifier
 - `fbclid`: Facebook Click Identifier
 
-#### First-touch Attribution
+#### First-touch attribution
 
-Amplitude captures the initial attribution data at the start of the first session. The first-touch attribution values are set when a user's attribution data are seen for the first time. The following user properties are set once:
+Amplitude captures the initial attribution data at the start of the first session. The first-touch attribution values are set when a user's attribution data are seen for the first time. The following user properties are set one time:
 
 - `initial_utm_source`
 - `initial_utm_medium`
@@ -619,7 +625,7 @@ Amplitude captures the initial attribution data at the start of the first sessio
 - `initial_gclid`
 - `initial_fbclid`
 
-For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If a different initial value is preferred, this can be done by setting `attriubtion.initialEmptyValue` to any string value.
+For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If you prefer a different initial value, set `attriubtion.initialEmptyValue` to any string value.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -629,9 +635,11 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-#### Multi-touch Attribution
+#### Multi-touch attribution
 
-In addition to first-touch attribution, Amplitude captures the attribution data at the start of each session. The following data are tracked as user properties. For campaign related traffic where these values are found either in the URL or browser cookies, these properties are set as user identity. On the other hand, for organic or direct traffic, these properties may not be found therefore these user properties are unset from user identity.
+Amplitude captures the attribution data at the start of each session, and tracks some values as user properties. For campaign-related traffic where the URL or browser cookies include these values, the properties are set as user identity. For organic or direct traffic, these properties may not be available. Therefore, these user properties are unset from user identity.
+
+Amplitude tracks the following as user properties:
 
 - `utm_source`
 - `utm_medium`
@@ -643,9 +651,9 @@ In addition to first-touch attribution, Amplitude captures the attribution data 
 - `gclid`
 - `fbclid`
 
-Using the default configuration, these are tracked at the start of each session. This means when a user navigates back to the page through a campaign while the previous session is still valid, the newer campaign is not tracked. 
+Using the default configuration, these properties are tracked at the start of each session. This means when a user navigates back to the page through a campaign while the previous session is still valid, the newer campaign isn't tracked. 
 
-If one prefers to track new campaigns mid-session, Amplitude can be configured to capture new campaigns, regardless of the state of the user session. This effectively expires the previous session and creates a new session, but only if new attribution data is found. If the same attribution data is found, then no attribution data is tracked and default session expiration policy is applied. This can be done by setting `attribution.trackNewCampaigns` to `true`. By default this is set to `false`.
+If you prefer to track new campaigns mid-session, you can configure Amplitude to capture new campaigns, regardless of the state of the user session. This effectively expires the previous session and creates a new session, but only if new attribution data is found. If the same attribution data is found, then no attribution data is tracked and default session expiration policy is applied. You can also do this by setting `attribution.trackNewCampaigns` to `true`. By default this is set to `false`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -655,9 +663,9 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-#### Page View Tracking
+#### Page view tracking
 
-Together with tracking attribution data, Amplitude can optionally track page views, specifically where the user lands after clicking a hyperlink that contains campaign parameters. Page views can only be tracked if attribution tracking is enabled and new attribution data is tracked. Page view tracking is not a standalone feature. This can be done by setting `attribution.trackPageView` to `true`. By default this is set to `false`.
+Together with tracking attribution data, Amplitude can track page views, specifically where the user lands after clicking a hyperlink that contains campaign parameters. You can track page views only if attribution tracking is enabled and new attribution data is tracked. Page view tracking isn't a standalone feature. You can do this by setting `attribution.trackPageView` to `true`. By default it's set to `false`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -667,9 +675,9 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-#### Disabling Attribution Tracking
+#### Disable attribution tracking
 
-Amplitude can be configured to opt out of automatic collection of attribution data. This can be done by setting `attribution.disabled` to `true`. By default this is set to `false`.
+You can configure Amplitude to opt out of automatic collection of attribution data. Do this by setting `attribution.disabled` to `true`. By default `attribution.disabled` is set to `false`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {

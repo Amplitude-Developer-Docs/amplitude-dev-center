@@ -1,7 +1,10 @@
 extends: existence
 message: "Don't use gerunds in headings."
-level: warning
+level: suggestion
 scope: heading
 raw:
-  - ing$
-  - (?!track)
+  - \w+ing\b
+exceptions: 
+  - Tracking
+  - tracking
+  - Getting

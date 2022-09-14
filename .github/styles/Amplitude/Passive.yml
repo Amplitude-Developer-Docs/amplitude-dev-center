@@ -180,3 +180,11 @@ tokens:
   - woven
   - written
   - wrung
+exceptions:
+  - enabled
+  - undefined
+  - controlled
+  - passsed
+  - packaged
+  - defined
+  - deprecated
