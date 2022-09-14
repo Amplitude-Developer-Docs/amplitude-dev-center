@@ -18,6 +18,11 @@ For detailed instructions, see the documentation for the source you want to add.
 
 ### SDKs
 
+
+!!!tip
+
+    See the [Amplitude SDK Quickstart Guide](../sdks/) for a high-level introduction to using these SDKs.
+
 <!-- #### Work with Ampli -->
 
 <!-- Consider breaking out SDKs by Web, Mobile, Server -->
