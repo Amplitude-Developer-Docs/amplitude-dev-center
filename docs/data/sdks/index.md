@@ -14,11 +14,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The TypeScript Browser SDK lets you send events to Amplitude. See the full documentation at [Typescript Browser](../sdks/typescript-browser/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library)
+        2. [Send data](#send-data)
+        3. [Check for success](#check-for-success)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli)
+        5. [Complete code example](#complete-code-example)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -122,15 +122,15 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../sdks/typescript-node/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_1)
+        2. [Send data](#send-data_1)
+        3. [Check for success](#check-for-success_1)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_1)
+        5. [Complete code example](#complete-code-example_1)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Install the Dependency
+    ### Install the dependency
 
       Install dependencies using NPM or YARN.
 
@@ -223,11 +223,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../sdks/android-kotlin/).
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_2)
+        2. [Send data](#send-data_2)
+        3. [Check for success](#check-for-success_2)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_2)
+        5. [Complete code example](#complete-code-example_2)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -387,11 +387,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../sdks/ios/)
 
     !!!info "Table of Contents"
-        1. [Initialize the library]()
-        2. [Send data]()
-        3. [Check for success]()
-        4. [Enforce event schemas]()
-        5. [Complete code example]()
+        1. [Initialize the library](#initialize-the-library_3)
+        2. [Send data](#send-data_3)
+        3. [Check for success](#check-for-success_3)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_3)
+        5. [Complete code example](#complete-code-example_3)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -729,7 +729,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Install the Dependency**
+    ### Install the dependency
 
     === "NPM"
 
@@ -1092,7 +1092,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Install the Dependency
+    ### Install the dependency
 
     #### Download SDK and add to project
 
