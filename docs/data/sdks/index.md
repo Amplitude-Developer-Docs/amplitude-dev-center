@@ -1,567 +1,576 @@
 ---
 title: Amplitude SDK Quickstart Guide
 description: Use this guide to get started with the Amplitude SDKs. 
+hide: 
+  - toc
+status: new
 ---
+<!-- Note to contributors: This doc has creative uses of standard formatting features. It's kind of brittle and can be hard to work with. If you have any questions or need help, reach out in #dev-doc-requests-->
 
-Use this guide to get started with the Amplitude SDKs. 
-
-## 1. Initialize the library
-
-First, initialize the library in your app. 
+Use this guide to get started with the Amplitude SDKs. Choose your target language:
 
 === "Browser"
 
-    **Install the Dependency**
-    ```bash title="NPM"
+    The TypeScript Browser SDK lets you send events to Amplitude. See the full documentation at [Typescript Browser](../sdks/typescript-browser/).
 
-    npm install @amplitude/analytics-browser
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library)
+        2. [Send data](#send-data)
+        3. [Check for success](#check-for-success)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli)
+        5. [Complete code example](#complete-code-example)
 
-    ```
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ```bash title="YARN"
+    ### Install dependency
+        
+    Install the dependency using NPM, YARN, or script loader.
 
-    yarn add @amplitude/analytics-browser
-    ```
+    === "NPM"
+        ```bash
 
-    ```html title="Script loader"
+        npm install @amplitude/analytics-browser
 
-    <script type="text/javascript">
-    !function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[]};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{r.invoked=!0;var n=t.createElement("script");n.type="text/javascript",n.integrity="sha384-XNX6U2ua04l5JNPk8racSkagg14UYkjWQjQmbRhYhLh0rtnEFZ1QTynnf4EUTukV",n.crossOrigin="anonymous",n.async=!0,n.src="https://cdn.amplitude.com/libs/analytics-browser-1.1.1-min.js.gz",n.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var s=t.getElementsByTagName("script")[0];function v(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}}s.parentNode.insertBefore(n,s);for(var o=function(){return this._q=[],this},i=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],a=0;a<i.length;a++)v(o,i[a]);r.Identify=o;for(var u=function(){return this._q=[],this},c=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],l=0;l<c.length;l++)v(u,c[l]);r.Revenue=u;var p=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],d=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];function f(e){function t(t,r){e[t]=function(){var n={promise:new Promise((r=>{e._q.push({name:t,args:Array.prototype.slice.call(arguments,0),resolve:r})}))};if(r)return n}}for(var r=0;r<p.length;r++)t(p[r],!1);for(var n=0;n<d.length;n++)t(d[n],!0)}f(r),e.amplitude=r}}(window,document)}();
-    </script>
-    ```
+        ```
+    === "YARN"
+        ```bash
 
-    **Initialization**
+        yarn add @amplitude/analytics-browser
+        ```
 
-    ```ts
-    import { init } from '@amplitude/analytics-browser';
+    === "Script loader"
+        ```html
 
-    init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-    ```
+        <script type="text/javascript">
+        !function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[]};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{r.invoked=!0;var n=t.createElement("script");n.type="text/javascript",n.integrity="sha384-XNX6U2ua04l5JNPk8racSkagg14UYkjWQjQmbRhYhLh0rtnEFZ1QTynnf4EUTukV",n.crossOrigin="anonymous",n.async=!0,n.src="https://cdn.amplitude.com/libs/analytics-browser-1.1.1-min.js.gz",n.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var s=t.getElementsByTagName("script")[0];function v(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}}s.parentNode.insertBefore(n,s);for(var o=function(){return this._q=[],this},i=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],a=0;a<i.length;a++)v(o,i[a]);r.Identify=o;for(var u=function(){return this._q=[],this},c=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],l=0;l<c.length;l++)v(u,c[l]);r.Revenue=u;var p=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],d=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];function f(e){function t(t,r){e[t]=function(){var n={promise:new Promise((r=>{e._q.push({name:t,args:Array.prototype.slice.call(arguments,0),resolve:r})}))};if(r)return n}}for(var r=0;r<p.length;r++)t(p[r],!1);for(var n=0;n<d.length;n++)t(d[n],!0)}f(r),e.amplitude=r}}(window,document)}();
+        </script>
+        ```
 
+    ### Initialization
+
+    === "TypeScript"
+
+        ```ts
+        import { init } from '@amplitude/analytics-browser';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        ```
+    
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "TypeScript"
+
+        ```ts
+        import { track } from '@amplitude/analytics-browser';
+
+        const eventProperties = {
+          buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties);
+
+        ```
+  
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    ### Instrument Explorer
+
+    Download the Google Chrome Extension, which helps you examine and debug your Amplitude Browser SDK.
+
+    Learn more about [Instrument Explorer](https://chrome.google.com/webstore/detail/amplitude-event-explorer/acehfjhnmhbmgkedjmjlobpgdicnhkbp?hl=en).
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        ampli.load();
+
+        ampli.yourEventType({
+            stringProp: "Strongly typed property",
+            booleanProp: true
+        });
+
+        ```
+
+    Learn more about [Ampli Browser](../sdks/typescript-browser/ampli/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "TypeScript"
+
+        ```ts
+        import { init, identify, Identify, track } from '@amplitude/analytics-browser';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        const eventProperties = {
+            buttonColor: 'primary',
+        };
+
+        const identifyObj = new Identify();
+        identifyObj.set('location', 'LAX');
+        identify(identifyObj);
+
+        track('Button Clicked', eventProperties);
+
+        ```
+
+    Learn more available functionalities in [Browser SDK](../sdks/typescript-browser/).
+    
 === "Node"
 
-    **Install the Dependency**
+    The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../sdks/typescript-node/).
 
-    ```bash title="NPM"
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_1)
+        2. [Send data](#send-data_1)
+        3. [Check for success](#check-for-success_1)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_1)
+        5. [Complete code example](#complete-code-example_1)
 
-    npm install @amplitude/analytics-node
-    ```
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ```bash title="YARN"
+    ### Install the dependency
 
-    yarn add @amplitude/analytics-node
-    ```
+      Install dependencies using NPM or YARN.
 
-    **Initialization**
+    === "NPM"
 
-    ```ts
-    import { init } from '@amplitude/analytics-node';
+        ```bash
 
-    init(AMPLITUDE_API_KEY);
-    ```
+        npm install @amplitude/analytics-node
+        ```
+
+    === "YARN"
+
+        ```bash
+
+        yarn add @amplitude/analytics-node
+        ```
+
+    ### Initialization
+
+    === "TypeScript"
+
+        ```ts
+        import { init } from '@amplitude/analytics-node';
+
+        init(AMPLITUDE_API_KEY);
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        import { track } from '@amplitude/analytics-node';
+
+        const eventProperties = {
+          buttonColor: 'primary',
+        };
+
+        track('Button Clicked', eventProperties, {
+          user_id: 'user@amplitude.com',
+        });
+
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        ampli.load();
+
+        ampli.yourEventType("ampli-user-id", {
+            stringProp: "Strongly typed property",
+            booleanProp: true,
+        });
+
+        ```
+
+        Learn more about [Ampli Node](../sdks/typescript-node/ampli/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "TypeScript"
+
+        ```ts
+        import { init, identify, Identify, track } from '@amplitude/analytics-node';
+        init(AMPLITUDE_API_KEY);
+
+        const identifyObj = new Identify();
+        identify(identifyObj, {
+            user_id: 'user@amplitude.com',
+        });
+
+        const eventProperties = {
+            buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties, {
+            user_id: 'user@amplitude.com',
+        });
+        ```
+
+    Learn more available functionalities in [Node SDK](../sdks/typescript-node/).
 
 === "Android"
 
-    **Install the Dependency**
+    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../sdks/android-kotlin/).
 
-    ```bash title="Gradle"
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_2)
+        2. [Send data](#send-data_2)
+        3. [Check for success](#check-for-success_2)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_2)
+        5. [Complete code example](#complete-code-example_2)
 
-    dependencies {
-        implementation 'com.amplitude:analytics-android:1.+'
-    }
-    ```
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
+
+    ### Install dependencies
+
+    === "Gradle"
+
+        ```bash
+
+        dependencies {
+            implementation 'com.amplitude:analytics-android:1.+'
+        }
+        ```
 
     To report events to Amplitude, add the INTERNET permission to your AndroidManifest.xml file. `<uses-permission android:name="android.permission.INTERNET" />`
 
     Learn more about [Add Android Permission](../sdks/android-kotlin/#2-add-permissions).
 
-    **Initialization**
+    ### Initialization
 
-    ```kotlin title="Kotlin"
-    val amplitude = Amplitude(
-        Configuration(
+    === "Kotlin"
+
+        ```kotlin
+        val amplitude = Amplitude(
+            Configuration(
+                apiKey = AMPLITUDE_API_KEY,
+                context = applicationContext
+            )
+        )
+        ```
+    === "Java"
+
+        ```java
+        Amplitude amplitude =  new Amplitude(new Configuration(
             apiKey = AMPLITUDE_API_KEY,
             context = applicationContext
-        )
-    )
-    ```
+        ));
+        ```
 
-    ```java title="Java"
-    Amplitude amplitude =  new Amplitude(new Configuration(
-        apiKey = AMPLITUDE_API_KEY,
-        context = applicationContext
-    ));
-    ```
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "Kotlin"
+
+        ```kotlin
+
+        amplitude.track("eventType", mutableMapOf<String, Any?>("test" to "event property value"))
+        ```
+
+    === "Java"
+
+        ```java
+        amplitude.track("eventType", new HashMap() {{
+            put("test", "test event property value");
+        }});
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Kotlin"
+
+        ```kotlin
+
+        ampli.load()
+
+        ampli.yourEventType({
+            stringProp = "Strongly typed property",
+            booleanProp = true
+        })
+
+        ```
+    === "Java"
+
+        ```java
+        Ampli.getInstance().load();
+
+        Ampli.getInstance().yourEventType(YourEventType.builder()
+                          .stringProp("Strongly typed property")
+                          .booleanProp(true)
+                          .build());
+        ```
+
+    Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "Kotlin"
+
+        ```kotlin 
+        package com.amplitude.android.sample
+
+        import android.os.Bundle
+        import com.amplitude.core.events.Identify
+        import com.amplitude.android.Amplitude
+        import com.amplitude.android.Configuration
+
+        class MainActivity : AppCompatActivity() {
+            private val amplitude = Amplitude(
+                Configuration(
+                    apiKey = AMPLITUDE_API_KEY,
+                    context = applicationContext
+                )
+            );
+
+            override fun onCreate(savedInstanceState: Bundle?) {
+                super.onCreate(savedInstanceState)
+                setContentView(R.layout.activity_main)
+
+                val identify = Identify()
+                identify.set("user-platform", "android")
+                amplitude.identify(identify)
+
+                amplitude.track("test event properties", mapOf("test" to "test event property value"))
+            }
+        }
+        ```
+
+    === "Java"
+
+        ```java
+        package com.amplitude.android.sample;
+
+        import androidx.appcompat.app.AppCompatActivity;
+        import android.os.Bundle;
+        import com.amplitude.android.Amplitude;
+        import com.amplitude.core.events.Identify;
+        import java.util.HashMap;
+
+        public class MainActivity extends AppCompatActivity {
+
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+                Amplitude amplitude = new Amplitude(new Configuration(
+                    apiKey = AMPLITUDE_API_KEY,
+                    context = applicationContext
+                ));
+
+                Identify identify = new Identify()
+                        .set("user-platform", "android")
+                amplitude.identify(identify);
+
+                amplitude.track("test event properties", new HashMap() {{
+                    put("test", "test event property value");
+                }});
+            }
+        }
+
+        ```
+
+    Learn more available functionalities in [Android SDK](../sdks/android-kotlin/).
 
 === "iOS"
 
-    **Install the Dependency**
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../sdks/ios/)
 
-    ```bash title="CocoaPods"
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_3)
+        2. [Send data](#send-data_3)
+        3. [Check for success](#check-for-success_3)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_3)
+        5. [Complete code example](#complete-code-example_3)
 
-    pod 'Amplitude', '~> 8.8.0'
-    ```
-    Learn more about [Add Dependency using CocoaPods](../sdks/ios/#__tabbed_1_1).
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
+
+    ### Install the dependency
+
+    === "CocoaPods"
+
+        ```bash
+
+        pod 'Amplitude', '~> 8.8.0'
+        ```
+        [Learn more](../sdks/ios/#__tabbed_1_1)
+
+    === "Swift Package Manager"
+
+        ```bash
+
+        Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
+        ```
+        [Learn more](../sdks/ios/#__tabbed_1_2)
+    
+    === "Carthage"
+
+        ```bash
+
+        github 'amplitude/Amplitude-iOS' ~> 8.8.0
+        ```
+        [Learn more](../sdks/ios/#__tabbed_1_3)
+
+    ### Initialization
+
+    === "Objective-C"
+
+        ```obj-c
+        [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
+        ```
+    === "Swift"
+
+        ```swift
+        Amplitude.instance().initializeApiKey(AMPLITUDE_API_KEY)
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "Objective-C"
+
+        ```obj-c
+        [[Amplitude instance] logEvent:@"Button Clicked"];
+        ```
+
+    === "Swift"
+
+        ```swift
+        Amplitude.instance().logEvent("Button Click")
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Objective-C"
+
+        ```obj-c title
+
+        Ampli *ampli = [Ampli instance];
+        [ampli load];
+
+        [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
+                                            booleanProp:true
+        ]];
+
+        ```
+
+    === "Swift"
+
+        ```swift
+
+        ampli.load();
+
+        ampli.yourEventType(
+            stringProp: "Strongly typed property",
+            booleanProp: true
+        )
+
+        ```
+
+    Learn more about [Ampli iOS](../sdks/ios/ampli/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "Objective-C"
+
+        ```obj-c
+        #import "Amplitude.h"
+
+        (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+            [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
+
+            AMPIdentify *identify = [[[AMPIdentify identify] set:@"gender" value:@"female"] set:@"age"
+                value:[NSNumber numberWithInt:20]];
+            [[Amplitude instance] identify:identify];
+
+            [[Amplitude instance] logEvent:@"app_start"];
+
+            return YES;
+        }
+
+        ```
+
+    === "Swift"
+
+        ```swift
+        import Amplitude
+
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+            Amplitude.instance().initializeApiKey("AMPLITUDE_API_KEY")
+
+            let identify = AMPIdentify()
+                .set("gender", value: "female")
+                .set("age",value: NSNumber(value: 20))
+            Amplitude.instance().identify(identify)
+
+            Amplitude.instance().logEvent("app_start")
+
+            return true
+        }
+        ```
+
+    Learn more available functionalities in [iOS SDK](../sdks/ios/).
+
+=== "JRE"
+
+    This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../sdks/java/).
+
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_4)
+        2. [Send data](#send-data_4)
+        3. [Check for success](#check-for-success_4)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_4)
+        5. [Complete code example](#complete-code-example_4)
+
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
+
+    ### Install the dependency
+
+    === "Maven"
+        ```bash
+
+        dependencies {
+            implementation 'org.json:json:20201115'
+            implementation 'com.amplitude:java-sdk:1.+'
+        }
+        ```
+        Learn more about [Add Dependency using Gradle](../sdks/java/#maven).
+
+    === "Download"
+
+        Download the latest JAR file and add it to the project's buildpath. See instructions for your IDE.
+
+        Get the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases).
 
 
-    ```bash title="Swift Package Manager"
+    ### Initialization
 
-    Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
-    ```
-    Learn more about [Add Dependency using SPM](../sdks/ios/#__tabbed_1_2).
-
-    ```bash title="Carthage"
-
-    github 'amplitude/Amplitude-iOS' ~> 8.8.0
-    ```
-    Learn more about [Add Dependency using Carthage](../sdks/ios/#__tabbed_1_3).
-
-    **Initialization**
-
-    ```obj-c title="Objective-C"
-    [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
-    ```
-
-    ```swift title="Swift"
-    Amplitude.instance().initializeApiKey(AMPLITUDE_API_KEY)
-    ```
-
-=== "Java"
-
-    **Install the Dependency**
-
-    ```bash title="Maven"
-
-    dependencies {
-        implementation 'org.json:json:20201115'
-        implementation 'com.amplitude:java-sdk:1.+'
-    }
-    ```
-    Learn more about [Add Dependency using Gradle](../sdks/java/#maven).
-
-    ```bash title="Download"
-
-    Download the latest JAR file and add it to the project's buildpath. See instructions for your IDE.
-    ```
-
-    Get the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases).
-
-
-    **Initialization**
-
-    ```java title="Java"
+    ```java
     Amplitude amplitude = Amplitude.getInstance();
     amplitude.init(AMPLITUDE_API_KEY);
     ```
 
-=== "Python"
-
-    **Install the Dependency**
-
-    ```bash
-    pip install amplitude-analytics
-    ```
-
-    **Initialization**
-
-    ```python title="Python"
-    from amplitude import Amplitude
-
-    amplitude = Amplitude(AMPLITUDE_API_KEY)
-    ```
-
-=== "React Native"
-
-    **Install the Dependency**
-
-    ```bash title="NPM"
-
-    npm install @amplitude/analytics-react-native
-    npm install @react-native-async-storage/async-storage
-    ```
-
-    ```bash title="YARN"
-    yarn add @amplitude/analytics-react-native
-    yarn add @react-native-async-storage/async-storage
-    ```
-
-
-    ```bash title="EXPO"
-    expo install @amplitude/analytics-react-native
-    expo install @react-native-async-storage/async-storage
-    ```
-
-    You'll need to install the native modules to run the SDK on iOS.
-    ```bash
-    cd ios
-    pod install
-    ```
-
-    **Initialization**
-
-    ```ts
-    import { init } from '@amplitude/analytics-react-native';
-
-    init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-    ```
-
-=== "Flutter"
-
-    **Install the Dependency**
-
-    ```bash  title="YAML"
-
-    dependencies:
-        amplitude_flutter: ^3.7.0
-    ```
-
-    iOS installation also need to add `platform :ios, '10.0'` to your Podfile.
-    
-    Learn more about [Add Dependency](../sdks/flutter/#add-dependencies).
-
-    **Initialization**
-
-    ```dart title="Dart"
-    import 'package:amplitude_flutter/amplitude.dart';
-
-    final Amplitude amplitude = Amplitude.getInstance();
-    amplitude.init(AMPLITUDE_API_KEY);
-    ```
-
-=== "GO"
-
-    **Install the Dependency**
-
-    ```bash title="Command GO"
-    go get https://github.com/amplitude/analytics-go
-    ```
-
-    **Initialization**
-
-    ```go title="GO"
-    import (
-    "github.com/amplitude/analytics-go/amplitude"
-    )
-
-    config := amplitude.NewConfig(AMPLITUDE_API_KEY)
-
-    client := amplitude.NewClient(config)
-    ```
-
-=== "Unity"
-
-    **Install the Dependency**
-
-    ```bash title="Unity Package Manager"
-
-    Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
-    ```
-    Learn more about [Unity package manager initizalization](../sdks/unity/#option-1-unity-package-manager)
-
-    ```bash title="Manual download"
-
-    Download amplitude-unity.unitypackage
-    ```
-    Learn more about the [Unity package download](../sdks/unity/#option-2-manual-download-and-add-dependency).
-
-    **Initialization**
-
-    ```c# title="C#"
-    Amplitude amplitude = Amplitude.getInstance()
-    amplitude.init("YOUR_API_KEY");
-    ```
-
-=== "Unreal"
-
-    **Install the Dependency**
-
-    ```txt title="Download SDK and add to project"
-    1. Download AmplitudeUnreal.zip.
-    2. Unzip it into a folder inside your Unreal project's Plugins directory.
-    ```
-    Download the latest [AmplitudeUnreal.zip](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
-
-    **Initialization**
-
-    ```text title="Enable the SDK plugin"
-
-    Settings > Plugins > Project > Analytics
-    ```
-    Learn more about [How to enable SDK plugin](../sdks/unreal/#enable-the-sdk-plugin-in-the-editor).
-
-
-    ```text title="Set Amplitude as your analytics provider"
-
-    Settings -> Project Settings -> Analytics -> Providers
-    ```
-
-    Learn more about [How to set analytics provider](../sdks/unreal/#set-amplitude-as-your-analytics-provider).
-
-
-    ```text title="Add your API keys"
-
-    Settings -> Project Settings -> Analytics -> Amplitude
-    ```
-
-    Learn more about [How to set API keys](../sdks/unreal/#add-your-api-keys).
-
-
-    ```c++ title="C++"
-    #include "Runtime/Analytics/Analytics/Public/Analytics.h"
-    #include "Runtime/Analytics/Analytics/Public/Interfaces/IAnalyticsProvider.h"
-    ```
-
-## 2. Send data
-
-Next, send data from your app or website to Amplitude. 
-
-=== "Browser"
-
-    ```ts title="TypeScript"
-    import { track } from '@amplitude/analytics-browser';
-
-    const eventProperties = {
-      buttonColor: 'primary',
-    };
-    track('Button Clicked', eventProperties);
-
-    ```
-
-=== "Node"
-
-    ```ts title="TypeScript"
-
-    import { track } from '@amplitude/analytics-node';
-
-    const eventProperties = {
-      buttonColor: 'primary',
-    };
-
-    track('Button Clicked', eventProperties, {
-      user_id: 'user@amplitude.com',
-    });
-    ```
-
-=== "Android"
-
-    ```kotlin title="Kotlin"
-
-    amplitude.track("eventType", mutableMapOf<String, Any?>("test" to "event property value"))
-    ```
-
-    ```java title="Java"
-    amplitude.track("eventType", new HashMap() {{
-        put("test", "test event property value");
-    }});
-    ```
-
-=== "iOS"
-
-    ```obj-c title="Objective-C"
-    [[Amplitude instance] logEvent:@"Button Clicked"];
-    ```
-
-    ```swift title="Swift"
-    Amplitude.instance().logEvent("Button Click")
-    ```
-
-=== "Java"
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
     ```java
 
     amplitude.logEvent(new Event("Button Clicked", "test_user_id"));
     ```
 
-=== "Python"
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    ```python title="Python"
-    from amplitude import BaseEvent
-
-    amplitude.track(
-        BaseEvent(
-            event_type="type of event",
-            user_id="USER_ID",
-            device_id="DEVICE_ID",
-            event_properties={
-                "source": "notification"
-            }
-    ))
-    ```
-
-=== "React Native"
-
-    ```ts title="TypeScript"
-
-    import { track } from '@amplitude/analytics-react-native';
-
-    const eventProperties = {
-        buttonColor: 'primary',
-    };
-    track('Button Clicked', eventProperties);
-    ```
-
-=== "Flutter"
-
-    ```dart title="Dart"
-
-    amplitude.logEvent('BUTTON_CLICKED', {"Hover Time": "100ms"});
-    ```
-
-=== "GO"
-
-    ```go title="GO"
-
-    amplitude.Track(amplitude.Event{
-           EventType: "Button Clicked",
-           EventOptions: amplitude.EventOptions{
-           UserID:   "user-id",
-           DeviceID: "device-id",
-        },
-        EventProperties: map[string]interface{}{"source": "notification"},
-    })
-
-    ```
-
-=== "Unity"
-
-    ```c# title="C#"
-    import 'package:amplitude_flutter/amplitude.dart';
-
-    amplitude.logEvent('MyApp startup', eventProperties: {
-      'friend_num': 10,
-      'is_heavy_user': true
-    });
-    ```
-
-=== "Unreal"
-
-    ```c++ title="C++"
-
-    TArray<FAnalyticsEventAttribute> AppendedAttributes;
-    AppendedAttributes.Emplace(TEXT("Test Event Prop key1"), TEXT("Test Event value1"));
-    AppendedAttributes.Emplace(TEXT("Test Event Prop key2"), TEXT("Test Event value2"));
-    FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
-    ```
-
-## 3. Check for success
-
-After you begin sending data to Amplitude, use one of these tools to check your instrumentation and validate your events.
-
-### Ingestion Debugger
-
-Use the Ingestion Debugger in Amplitude to check your requests, event and identify counts, and throttled users or devices.
-
-1. Log in to Amplitude.
-2. Click **Data Source** at the bottom of the navigation bar.
-3. Click the **Ingestion Debugger** tab. 
-
-Learn more about the [Ingestion Debugger](https://help.amplitude.com/hc/en-us/articles/360044835531).
-
-### User lookup
-
-After you fire an event, navigate to the **User & Account Look-Up** tab in Amplitude to validate your event.
-
-Learn more about [User Lookup](https://www.docs.developers.amplitude.com/data/debugger/#user-lookup).
-
-### Event Explorer
-
-In any Amplitude chart, click **Select events using your product**. You are able to watch the events roll in, in near-real time.
-
-Learn more about [Event Explorer](https://help.amplitude.com/hc/en-us/articles/360050836071-Event-Explorer-View-event-streams-in-real-time).
-
-### Instrument Explorer
-
-Instrument Explorer is available for Browser SDKs only.
-
-Download the Google Chrome Extension, which helps you examine and debug your Amplitude Browser SDK.
-
-Learn more about [Instrument Explorer](https://chrome.google.com/webstore/detail/amplitude-event-explorer/acehfjhnmhbmgkedjmjlobpgdicnhkbp?hl=en).
-
-## 4. Enforce event schemas (Ampli)
-
-The Ampli CLI, Ampli Wrapper, and Amplitude SDK work together to generate a tracking library based on your Tracking Plan.
-The autogenerated library provides type-safety, supports linting, and enable features like input validation which contextualizes your analytics instrumentation, and reduces instrumentation mistakes in your production environments.
-
-=== "Browser"
-
-    ```ts
-
-    ampli.load();
-
-    ampli.yourEventType({
-        stringProp: "Strongly typed property",
-        booleanProp: true
-    });
-
-    ```
-
-    Learn more about [Ampli Browser](../sdks/typescript-browser/ampli/).
-
-=== "Node"
-
-    ```ts
-
-    ampli.load();
-
-    ampli.yourEventType("ampli-user-id", {
-        stringProp: "Strongly typed property",
-        booleanProp: true,
-    });
-
-    ```
-    Learn more about [Ampli Node](../sdks/typescript-node/ampli/).
-
-=== "Android"
-
-    ```kotlin title="Kotlin"
-
-    ampli.load()
-
-    ampli.yourEventType({
-        stringProp = "Strongly typed property",
-        booleanProp = true
-    })
-
-    ```
-
-    ```java title="Java"
-    Ampli.getInstance().load();
-
-    Ampli.getInstance().yourEventType(YourEventType.builder()
-                       .stringProp("Strongly typed property")
-                       .booleanProp(true)
-                       .build());
-    ```
-
-    Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
-
-=== "iOS"
-
-    ```obj-c title="Objective-C"
-
-    Ampli *ampli = [Ampli instance];
-    [ampli load];
-
-    [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
-                                        booleanProp:true
-    ]];
-
-    ```
-
-    ```swift title="Swift"
-
-    ampli.load();
-
-    ampli.yourEventType(
-        stringProp: "Strongly typed property",
-        booleanProp: true
-    )
-
-    ```
-
-    Learn more about [Ampli iOS](../sdks/ios/ampli/).
-
-=== "Java"
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
     ```java
 
@@ -575,200 +584,10 @@ The autogenerated library provides type-safety, supports linting, and enable fea
     );
 
     ```
+    
     Learn more about [Ampli Java](../sdks/java/ampli/).
 
-=== "Python"
-
-    ```python
-
-    ampli.load();
-    ampli.yourEventType(
-        "user_id",
-        YourEventType(
-            stringProp= "Strongly typed property",
-            booleanProp=True
-        )
-    )
-
-    ```
-    Learn more about [Ampli Python](../sdks/python/ampli/).
-
-=== "React Native"
-
-    ```ts
-
-    ampli.load();
-    ampli.yourEventType({
-        stringProp: "Strongly typed property",
-    });
-
-    ```
-
-    Learn more about [Ampli React Native](../sdks/typescript-react-native/ampli/).
-
-=== "Flutter"
-
-    TBD.
-
-=== "GO"
-
-    Comming Soon.
-
-=== "Unity"
-
-    TBD.
-
-=== "Unreal"
-
-    TBD.
-
-## 5. Complete code example
-
-=== "Browser"
-
-    ```ts title="TypeScript"
-    import { init, identify, Identify, track } from '@amplitude/analytics-browser';
-
-    init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-    const eventProperties = {
-        buttonColor: 'primary',
-    };
-
-    const identifyObj = new Identify();
-    identifyObj.set('location', 'LAX');
-    identify(identifyObj);
-
-    track('Button Clicked', eventProperties);
-
-    ```
-
-    Learn more available functionalities in [Broswer SDK](../sdks/typescript-browser/).
-
-=== "Node"
-
-    ```ts title="TypeScript"
-    import { init, identify, Identify, track } from '@amplitude/analytics-node';
-    init(AMPLITUDE_API_KEY);
-
-    const identifyObj = new Identify();
-    identify(identifyObj, {
-        user_id: 'user@amplitude.com',
-    });
-
-    const eventProperties = {
-        buttonColor: 'primary',
-    };
-    track('Button Clicked', eventProperties, {
-        user_id: 'user@amplitude.com',
-    });
-    ```
-
-    Learn more available functionalities in [Node SDK](../sdks/typescript-node/).
-
-=== "Android"
-
-    ```kotlin title="Kotlin"
-    package com.amplitude.android.sample
-
-    import android.os.Bundle
-    import com.amplitude.core.events.Identify
-    import com.amplitude.android.Amplitude
-    import com.amplitude.android.Configuration
-
-    class MainActivity : AppCompatActivity() {
-        private val amplitude = Amplitude(
-            Configuration(
-                apiKey = AMPLITUDE_API_KEY,
-                context = applicationContext
-            )
-        );
-
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-
-            val identify = Identify()
-            identify.set("user-platform", "android")
-            amplitude.identify(identify)
-
-            amplitude.track("test event properties", mapOf("test" to "test event property value"))
-        }
-    }
-    ```
-
-    ```java title="Java"
-    package com.amplitude.android.sample;
-
-    import androidx.appcompat.app.AppCompatActivity;
-    import android.os.Bundle;
-    import com.amplitude.android.Amplitude;
-    import com.amplitude.core.events.Identify;
-    import java.util.HashMap;
-
-    public class MainActivity extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            Amplitude amplitude = new Amplitude(new Configuration(
-                apiKey = AMPLITUDE_API_KEY,
-                context = applicationContext
-            ));
-
-            Identify identify = new Identify()
-                    .set("user-platform", "android")
-            amplitude.identify(identify);
-
-            amplitude.track("test event properties", new HashMap() {{
-                put("test", "test event property value");
-            }});
-        }
-    }
-
-    ```
-
-    Learn more available functionalities in [Android SDK](../sdks/android-kotlin/).
-
-=== "iOS"
-
-    ```obj-c title="Objective-C"
-    #import "Amplitude.h"
-
-    (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
-
-        AMPIdentify *identify = [[[AMPIdentify identify] set:@"gender" value:@"female"] set:@"age"
-            value:[NSNumber numberWithInt:20]];
-        [[Amplitude instance] identify:identify];
-
-        [[Amplitude instance] logEvent:@"app_start"];
-
-        return YES;
-    }
-
-    ```
-
-    ```swift title="Swift"
-    import Amplitude
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Amplitude.instance().initializeApiKey("AMPLITUDE_API_KEY")
-
-        let identify = AMPIdentify()
-            .set("gender", value: "female")
-            .set("age",value: NSNumber(value: 20))
-        Amplitude.instance().identify(identify)
-
-        Amplitude.instance().logEvent("app_start")
-
-        return true
-    }
-    ```
-
-    Learn more available functionalities in [iOS SDK](../sdks/ios/).
-
-=== "Java"
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     ```java
     package com.demo.amplitude;
@@ -803,142 +622,544 @@ The autogenerated library provides type-safety, supports linting, and enable fea
 
     ```
 
-    Learn more available functionalities in [Java SDK](../sdks/java/).
+    Learn more in [Java SDK](../sdks/java/).
 
 === "Python"
 
-    ```python title="Python"
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_5)
+        2. [Send data](#send-data_5)
+        3. [Check for success](#check-for-success_5)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_5)
+        5. [Complete code example](#complete-code-example_5)
 
-    from amplitude import Amplitude, Identify, BaseEvent
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    amplitude = Amplitude("AMPLITUDE_API_KEY")
+    ### Install the dependency
 
-    identify_obj=Identify()
-    identify_obj.set("location", "LAX")
-    amplitude.identify(identify_obj)
-
-    amplitude.track(
-        BaseEvent(
-            event_type="type of event",
-            user_id="USER_ID",
-            device_id="DEVICE_ID",
-            event_properties={
-                "source": "notification"
-            }
-    ))
+    ```bash
+    pip install amplitude-analytics
     ```
+
+    ### Initialization
+
+    === "Python"
+
+        ```python
+        from amplitude import Amplitude
+
+        amplitude = Amplitude(AMPLITUDE_API_KEY)
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "Python"
+
+        ```python 
+        from amplitude import BaseEvent
+
+        amplitude.track(
+            BaseEvent(
+                event_type="type of event",
+                user_id="USER_ID",
+                device_id="DEVICE_ID",
+                event_properties={
+                    "source": "notification"
+                }
+        ))
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Python"
+
+        ```python
+
+        ampli.load();
+        ampli.yourEventType(
+            "user_id",
+            YourEventType(
+                stringProp= "Strongly typed property",
+                booleanProp=True
+            )
+        )
+
+        ```
+    Learn more about [Ampli Python](../sdks/python/ampli/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "Python"
+
+        ```python
+
+        from amplitude import Amplitude, Identify, BaseEvent
+
+        amplitude = Amplitude("AMPLITUDE_API_KEY")
+
+        identify_obj=Identify()
+        identify_obj.set("location", "LAX")
+        amplitude.identify(identify_obj)
+
+        amplitude.track(
+            BaseEvent(
+                event_type="type of event",
+                user_id="USER_ID",
+                device_id="DEVICE_ID",
+                event_properties={
+                    "source": "notification"
+                }
+        ))
+        ```
 
     Learn more available functionalities in [Python SDK](../sdks/python/).
 
 === "React Native"
 
-    ```ts title="TypeScript"
+    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../sdks/react-native/).
 
-    import { init, track, Identify, identify } from '@amplitude/analytics-react-native';
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_6)
+        2. [Send data](#send-data_6)
+        3. [Check for success](#check-for-success_6)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_6)
+        5. [Complete code example](#complete-code-example_6)
 
-    init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    const identifyObj = new Identify();
-    identifyObj.set('location', 'LAX');
-    identify(identifyObj);
+    ### Install the dependency
 
-    const eventProperties = {
-    buttonColor: 'primary',
-    };
-    track('Button Clicked', eventProperties);
+    === "NPM"
+
+        ```bash
+
+        npm install @amplitude/analytics-react-native
+        npm install @react-native-async-storage/async-storage
+        ```
+
+    === "YARN"
+
+        ```bash
+        yarn add @amplitude/analytics-react-native
+        yarn add @react-native-async-storage/async-storage
+        ```
+
+    === "EXPO"
+
+        ```bash
+        expo install @amplitude/analytics-react-native
+        expo install @react-native-async-storage/async-storage
+        ```
+
+    Install the native modules to run the SDK on iOS.
+
+    ```bash
+    cd ios
+    pod install
     ```
 
-    Learn more available functionalities in [React Native SDK](../sdks/typescript-react-native/).
+    ### Initialization**
+
+    === "TypeScript"
+
+        ```ts
+        import { init } from '@amplitude/analytics-react-native';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        import { track } from '@amplitude/analytics-react-native';
+
+        const eventProperties = {
+            buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties);
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        ampli.load();
+        ampli.yourEventType({
+            stringProp: "Strongly typed property",
+        });
+
+        ```
+
+    Learn more about [Ampli React Native](../sdks/typescript-react-native/ampli/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "TypeScript"
+        ```ts
+
+        import { init, track, Identify, identify } from '@amplitude/analytics-react-native';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+
+        const identifyObj = new Identify();
+        identifyObj.set('location', 'LAX');
+        identify(identifyObj);
+
+        const eventProperties = {
+        buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties);
+        ```
+
+        Learn more available functionalities in [React Native SDK](../sdks/typescript-react-native/).
 
 === "Flutter"
 
-    ```dart title="Dart"
+    The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../sdks/flutter/).
 
-    import 'package:amplitude_flutter/amplitude.dart';
-    import 'package:amplitude_flutter/identify.dart';
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_7)
+        2. [Send data](#send-data_7)
+        3. [Check for success](#check-for-success_7)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_7)
+        5. [Complete code example](#complete-code-example_7)
 
-    class YourClass {
-        Future<void> exampleForAmplitude() async {
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
+
+
+    ### Install the dependency
+
+    === "YAML"
+
+        ```bash
+
+        dependencies:
+            amplitude_flutter: ^3.7.0
+        ```
+
+    iOS installation also need to add `platform :ios, '10.0'` to your Podfile.
+    
+    Learn more about [adding the dependency](../sdks/flutter/#add-dependencies).
+
+    ### Initialization
+
+    === "Dart"
+
+        ```dart
+        import 'package:amplitude_flutter/amplitude.dart';
+
         final Amplitude amplitude = Amplitude.getInstance();
-
         amplitude.init(AMPLITUDE_API_KEY);
+        ```
 
-        final Identify identify1 = Identify();
-        identify1.setOnce('sign_up_date', '2015-08-24');
-        Amplitude.getInstance().identify(identify1);
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-        amplitude.logEvent('MyApp startup', eventProperties: {
-            'friend_num': 10,
-            'is_heavy_user': true
-        });
-    }
+    === "Dart"
 
-    ```
+        ```dart
 
-    Learn more available functionalities in [Flutter SDK](../sdks/flutter/).
+        amplitude.logEvent('BUTTON_CLICKED', {"Hover Time": "100ms"});
+        ```
 
-=== "GO"
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    ```go title="GO"
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
-    package main
+    More information TBD.
 
-    import (
-    "github.com/amplitude/analytics-go/amplitude"
-    )
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
-    func main() {
+    === "Dart"
+
+      ```dart
+
+      import 'package:amplitude_flutter/amplitude.dart';
+      import 'package:amplitude_flutter/identify.dart';
+
+      class YourClass {
+          Future<void> exampleForAmplitude() async {
+          final Amplitude amplitude = Amplitude.getInstance();
+
+          amplitude.init(AMPLITUDE_API_KEY);
+
+          final Identify identify1 = Identify();
+          identify1.setOnce('sign_up_date', '2015-08-24');
+          Amplitude.getInstance().identify(identify1);
+
+          amplitude.logEvent('MyApp startup', eventProperties: {
+              'friend_num': 10,
+              'is_heavy_user': true
+          });
+      }
+
+      ```
+
+      Learn more in [Flutter SDK](../sdks/flutter/).
+
+=== "Go"
+
+    The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../sdks/go/).
+
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_8)
+        2. [Send data](#send-data_8)
+        3. [Check for success](#check-for-success_8)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_8)
+        5. [Complete code example](#complete-code-example_8)
+
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
+
+    ### Install the dependency
+
+    === "Command Go"
+
+        ```bash 
+        go get https://github.com/amplitude/analytics-go
+        ```
+
+    ### Initialization
+
+    === "Go"
+
+        ```go
+        import (
+        "github.com/amplitude/analytics-go/amplitude"
+        )
+
         config := amplitude.NewConfig(AMPLITUDE_API_KEY)
-        amplitude := amplitude.NewClient(config)
 
-        identifyObj := amplitude.Identify{}
-        identifyObj.Set("location", "LAX")
-        amplitude.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
+        client := amplitude.NewClient(config)
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "Go"
+
+        ```
 
         amplitude.Track(amplitude.Event{
-            EventType: "Button Clicked",
-            EventOptions: amplitude.EventOptions{
-                UserID:   "user-id",
-                DeviceID: "device-id",
+              EventType: "Button Clicked",
+              EventOptions: amplitude.EventOptions{
+              UserID:   "user-id",
+              DeviceID: "device-id",
             },
             EventProperties: map[string]interface{}{"source": "notification"},
         })
-    }
 
-    ```
+        ```
 
-    Learn more available functionalities in [Go SDK](../sdks/go/).
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    Coming soon.
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "Go"
+
+        ```go
+
+        package main
+
+        import (
+        "github.com/amplitude/analytics-go/amplitude"
+        )
+
+        func main() {
+            config := amplitude.NewConfig(AMPLITUDE_API_KEY)
+            amplitude := amplitude.NewClient(config)
+
+            identifyObj := amplitude.Identify{}
+            identifyObj.Set("location", "LAX")
+            amplitude.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
+
+            amplitude.Track(amplitude.Event{
+                EventType: "Button Clicked",
+                EventOptions: amplitude.EventOptions{
+                    UserID:   "user-id",
+                    DeviceID: "device-id",
+                },
+                EventProperties: map[string]interface{}{"source": "notification"},
+            })
+        }
+
+        ```
+
+        Learn more available functionalities in [Go SDK](../sdks/go/).
 
 === "Unity"
 
-    ```c# title="C#"
-    Amplitude amplitude = Amplitude.getInstance();
-    amplitude.init("AMPLITUDE_API_KEY");
+    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../sdks/unity/).
 
-    amplitude.addUserProperty("oranges", 5);
-    Dictionary<string, object> values = new Dictionary<string, object>();
-    values.Add("Key A", "Value A");
-    amplitude.addUserPropertyDict("user_facts", values);
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_9)
+        2. [Send data](#send-data_9)
+        3. [Check for success](#check-for-success_9)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_9)
+        5. [Complete code example](#complete-code-example_9)
 
-    JSONObjecteventProperties=newJSONObject().put("key", "value");
-    Amplitude.getInstance().logEvent("initialize_game", eventProperties);
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ```
+    ### Install the dependency
 
-    Learn more available functionalities in [Unity SDK](../sdks/unity/).
+    === "Unity Package Manager"
+
+        ```bash
+
+        Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
+        ```
+        Learn more about [Unity package manager initizalization](../sdks/unity/#option-1-unity-package-manager)
+
+    === "Manual download"
+
+        ```bash
+
+        Download amplitude-unity.unitypackage
+        ```
+
+        Learn more about the [Unity package download](../sdks/unity/#option-2-manual-download-and-add-dependency).
+
+    ### Initialization
+
+    === "C#"
+
+        ```
+        Amplitude amplitude = Amplitude.getInstance()
+        amplitude.init("YOUR_API_KEY");
+
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "C#"
+
+        ```c#
+        import 'package:amplitude_flutter/amplitude.dart';
+
+        amplitude.logEvent('MyApp startup', eventProperties: {
+          'friend_num': 10,
+          'is_heavy_user': true
+        });
+
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    More information TBD.
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "C#"
+
+        ```c#
+        Amplitude amplitude = Amplitude.getInstance();
+        amplitude.init("AMPLITUDE_API_KEY");
+
+        amplitude.addUserProperty("oranges", 5);
+        Dictionary<string, object> values = new Dictionary<string, object>();
+        values.Add("Key A", "Value A");
+        amplitude.addUserPropertyDict("user_facts", values);
+
+        JSONObjecteventProperties=newJSONObject().put("key", "value");
+        Amplitude.getInstance().logEvent("initialize_game", eventProperties);
+
+        ```
+
+    Learn more in [Unity SDK](../sdks/unity/).
 
 === "Unreal"
 
-    ```c++ title="C++"
+    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../sdks/unreal/).
 
-    FAnalytics::Get().GetDefaultConfiguredProvider()->SetLocation(TEXT("Test location"));
-    FAnalytics::Get().GetDefaultConfiguredProvider()->SetGender(TEXT("Test gender"));
-    FAnalytics::Get().GetDefaultConfiguredProvider()->SetAge(TEXT(27));
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_10)
+        2. [Send data](#send-data_10)
+        3. [Check for success](#check-for-success_10)
+        4. [Enforce event schemas](#enforce-event-schemas-ampli_10)
+        5. [Complete code example](#complete-code-example_10)
 
-    TArray<FAnalyticsEventAttribute> AppendedAttributes;
-    AppendedAttributes.Emplace(TEXT("Test Event Prop key1"), TEXT("Test Event value1"));
-    AppendedAttributes.Emplace(TEXT("Test Event Prop key2"), TEXT("Test Event value2"));
-    FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
-    ```
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    Learn more available functionalities in [Unreal SDK](../sdks/unreal/).
+    ### Install the dependency
+
+    #### Download SDK and add to project
+
+    1. Download `AmplitudeUnreal.zip.`
+    2. Unzip it into a folder inside your Unreal project's Plugins directory.
+   
+    Download the latest [AmplitudeUnreal.zip](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
+
+    ### Initialization
+
+    #### Enable the SDK plugin
+
+    Settings > Plugins > Project > Analytics
+    
+    Learn more about [how to enable SDK plugin](../sdks/unreal/#enable-the-sdk-plugin-in-the-editor).
+
+    #### Set Amplitude as your analytics provider
+
+    Settings -> Project Settings -> Analytics -> Providers
+
+    Learn more about [how to set analytics provider](../sdks/unreal/#set-amplitude-as-your-analytics-provider).
+
+    #### Add your API keys
+
+    Settings -> Project Settings -> Analytics -> Amplitude
+
+    Learn more about [how to set API keys](../sdks/unreal/#add-your-api-keys).
+
+    === "C++"
+
+        ```c++
+        #include "Runtime/Analytics/Analytics/Public/Analytics.h"
+        #include "Runtime/Analytics/Analytics/Public/Interfaces/IAnalyticsProvider.h"
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "C++"
+
+        ```c++
+
+        TArray<FAnalyticsEventAttribute> AppendedAttributes;
+        AppendedAttributes.Emplace(TEXT("Test Event Prop key1"), TEXT("Test Event value1"));
+        AppendedAttributes.Emplace(TEXT("Test Event Prop key2"), TEXT("Test Event value2"));
+        FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    More information TBD.
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "C++"
+
+        ```c++
+
+        FAnalytics::Get().GetDefaultConfiguredProvider()->SetLocation(TEXT("Test location"));
+        FAnalytics::Get().GetDefaultConfiguredProvider()->SetGender(TEXT("Test gender"));
+        FAnalytics::Get().GetDefaultConfiguredProvider()->SetAge(TEXT(27));
+
+        TArray<FAnalyticsEventAttribute> AppendedAttributes;
+        AppendedAttributes.Emplace(TEXT("Test Event Prop key1"), TEXT("Test Event value1"));
+        AppendedAttributes.Emplace(TEXT("Test Event Prop key2"), TEXT("Test Event value2"));
+        FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
+        ```
+
+    Learn more in [Unreal SDK](../sdks/unreal/).
