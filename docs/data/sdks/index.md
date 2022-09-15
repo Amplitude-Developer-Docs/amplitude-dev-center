@@ -801,7 +801,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
                 event_properties={
                     "source": "notification"
                 }
-        ))
+            )
+        )
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
@@ -812,7 +813,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         ```python
 
-        ampli.load();
+        ampli.load()
 
         ampli.yourEventType(
             "user_id",
@@ -847,7 +848,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
                 event_properties={
                     "source": "notification"
                 }
-        ))
+            )
+        )
         ```
 
     Learn more available functionalities in [Python SDK](../sdks/python/).
@@ -905,7 +907,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         init(AMPLITUDE_API_KEY, 'user@amplitude.com');
         ```
-    
+
     === "JavaScript"
 
         ```js
@@ -927,7 +929,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         };
         track('Button Clicked', eventProperties);
         ```
-    
+
     === "JavaScript"
 
         ```js
@@ -1001,7 +1003,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         identify(identifyObj);
 
         const eventProperties = {
-        buttonColor: 'primary',
+            buttonColor: 'primary',
         };
         track('Button Clicked', eventProperties);
         ```
@@ -1033,7 +1035,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ```
 
     iOS installation also need to add `platform :ios, '10.0'` to your Podfile.
-    
+
     Learn more about [adding the dependency](../sdks/flutter/#add-dependencies).
 
     ### Initialization
@@ -1108,7 +1110,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
     === "Command Go"
 
-        ```bash 
+        ```bash
         go get https://github.com/amplitude/analytics-go
         ```
 
