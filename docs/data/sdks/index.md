@@ -55,7 +55,15 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         init(AMPLITUDE_API_KEY, 'user@amplitude.com');
         ```
-    
+
+    === "JavaScript"
+
+        ```js
+        import { init } from '@amplitude/analytics-browser';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        ```
+
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
     === "TypeScript"
@@ -69,7 +77,18 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         track('Button Clicked', eventProperties);
 
         ```
-  
+
+    === "JavaScript"
+
+        ```js
+        import { track } from '@amplitude/analytics-browser';
+
+        const eventProperties = {
+          buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties);
+        ```
+
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
     ### Instrument Explorer
@@ -91,6 +110,17 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
             booleanProp: true
         });
 
+        ```
+
+    === "JavaScript"
+
+        ```js
+        ampli.load();
+
+        ampli.yourEventType({
+            stringProp: "Strongly typed property",
+            booleanProp: true
+        });
         ```
 
     Learn more about [Ampli Browser](../sdks/typescript-browser/ampli/).
@@ -115,8 +145,26 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         ```
 
+    === "JavaScript"
+
+        ```js
+        import { init, identify, Identify, track } from '@amplitude/analytics-browser';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        const eventProperties = {
+            buttonColor: 'primary',
+        };
+
+        const identifyObj = new Identify();
+        identifyObj.set('location', 'LAX');
+        identify(identifyObj);
+
+        track('Button Clicked', eventProperties);
+
+        ```
+
     Learn more available functionalities in [Browser SDK](../sdks/typescript-browser/).
-    
+
 === "Node"
 
     The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../sdks/typescript-node/).
@@ -158,11 +206,35 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         init(AMPLITUDE_API_KEY);
         ```
 
+    === "JavaScript"
+
+        ```js
+        import { init } from '@amplitude/analytics-node';
+
+        init(AMPLITUDE_API_KEY);
+        ```
+
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
     === "TypeScript"
 
         ```ts
+
+        import { track } from '@amplitude/analytics-node';
+
+        const eventProperties = {
+          buttonColor: 'primary',
+        };
+
+        track('Button Clicked', eventProperties, {
+          user_id: 'user@amplitude.com',
+        });
+
+        ```
+
+    === "JavaScript"
+
+        ```js
 
         import { track } from '@amplitude/analytics-node';
 
@@ -193,13 +265,45 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         ```
 
-        Learn more about [Ampli Node](../sdks/typescript-node/ampli/).
+    === "JavaScript"
+
+        ```ts
+
+        ampli.load();
+
+        ampli.yourEventType("ampli-user-id", {
+            stringProp: "Strongly typed property",
+            booleanProp: true,
+        });
+
+        ```
+
+    Learn more about [Ampli Node](../sdks/typescript-node/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "TypeScript"
 
         ```ts
+        import { init, identify, Identify, track } from '@amplitude/analytics-node';
+        init(AMPLITUDE_API_KEY);
+
+        const identifyObj = new Identify();
+        identify(identifyObj, {
+            user_id: 'user@amplitude.com',
+        });
+
+        const eventProperties = {
+            buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties, {
+            user_id: 'user@amplitude.com',
+        });
+        ```
+
+    === "JavaScript"
+
+        ```js
         import { init, identify, Identify, track } from '@amplitude/analytics-node';
         init(AMPLITUDE_API_KEY);
 
@@ -556,71 +660,102 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
     ### Initialization
 
-    ```java
-    Amplitude amplitude = Amplitude.getInstance();
-    amplitude.init(AMPLITUDE_API_KEY);
-    ```
+    === "Java"
+
+        ```java
+        Amplitude amplitude = Amplitude.getInstance();
+        amplitude.init(AMPLITUDE_API_KEY);
+        ```
+
+    === "Kotlin"
+
+        ```kotlin
+        val amplitude = Amplitude.getInstance()
+        amplitude.init(AMPLITUDE_API_KEY)
+        ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-    ```java
+    === "Java"
 
-    amplitude.logEvent(new Event("Button Clicked", "test_user_id"));
-    ```
+        ```java
+        amplitude.logEvent(new Event("Button Clicked", "test_user_id"));
+        ```
+
+    === "Kotlin"
+
+        ```kotlin
+        amplitude.logEvent(Event("Button Clicked", "test_user_id"));
+        ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
-    ```java
+    === "Java"
+        ```java
+        Ampli.getInstance().load();
 
-    Ampli.getInstance().load();
+        Ampli.getInstance().yourEventType("ampli-user-id",
+            YourEventType.builder("Strongly typed property")
+                .stringProp()
+                .booleanProp(false)
+                .build()
+        );
 
-    Ampli.getInstance().yourEventType("ampli-user-id",
-        YourEventType.builder("Strongly typed property")
-            .stringProp()
-            .booleanProp(false)
-            .build()
-    );
+        ```
 
-    ```
-    
+    === "Kotlin"
+
+        ```kotlin
+        Ampli.getInstance().load()
+
+        Ampli.getInstance().yourEventType("ampli-user-id",
+            YourEventType(
+                stringProp = "Strongly typed property",
+                booleanProp = false,
+        ))
+
+        ```
+
     Learn more about [Ampli Java](../sdks/java/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
-    ```java
-    package com.demo.amplitude;
+    === "Java"
 
-    import com.amplitude.*;
-    import org.json.JSONObject;
-    import org.springframework.web.bind.annotation.RestController;
-    import org.springframework.web.bind.annotation.RequestMapping;
+        ```java
+        Amplitude amplitude = Amplitude.getInstance();
+        amplitude.init(AMPLITUDE_API_KEY);
 
-    @RestController
-    public class DemoController {
-        @RequestMapping("/")
-        public String index() {
-            Amplitude amplitude = Amplitude.getInstance();
-            amplitude.init(AMPLITUDE_API_KEY);
+        Event event = new Event("Button Clicked", "test_user_id");
 
-            Event event = new Event("Button Clicked", "test_user_id");
+        JSONObject eventProps = new JSONObject();
+        try {
+            eventProps.put("Hover Time", 10).put("prop_2", "value_2");
+        } catch (JSONException e) {
+            System.err.println("Invalid JSON");
+            e.printStackTrace();
+        }
+        event.eventProperties = eventProps;
 
-            JSONObject eventProps = new JSONObject();
-            try {
-                eventProps.put("Hover Time", 10).put("prop_2", "value_2");
-            } catch (JSONException e) {
-                System.err.println("Invalid JSON");
-                e.printStackTrace();
-            }
-            event.eventProperties = eventProps;
+        amplitude.logEvent(event);
+        ```
 
-            amplitude.logEvent(event);
-            return "Amplitude Java SDK Demo: sending test event.";
-          }
-    }
+    === "Kotlin"
 
-    ```
+        ```kotlin
+        val amplitude = Amplitude.getInstance()
+        amplitude.init(AMPLITUDE_API_KEY)
+
+        val eventProps= JSONObject()
+        eventProps.put("Hover Time", 10).put("prop_2", "value_2")
+
+        val event = Event("Button Clicked", "test_user_id")
+        event.eventProperties = eventProps
+
+        amplitude.logEvent(event)
+        ```
 
     Learn more in [Java SDK](../sdks/java/).
 
@@ -655,7 +790,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
     === "Python"
 
-        ```python 
+        ```python
         from amplitude import BaseEvent
 
         amplitude.track(
@@ -678,6 +813,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ```python
 
         ampli.load();
+
         ampli.yourEventType(
             "user_id",
             YourEventType(
@@ -760,11 +896,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
     pod install
     ```
 
-    ### Initialization**
+    ### Initialization
 
     === "TypeScript"
 
         ```ts
+        import { init } from '@amplitude/analytics-react-native';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        ```
+    
+    === "JavaScript"
+
+        ```js
         import { init } from '@amplitude/analytics-react-native';
 
         init(AMPLITUDE_API_KEY, 'user@amplitude.com');
@@ -783,6 +927,18 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         };
         track('Button Clicked', eventProperties);
         ```
+    
+    === "JavaScript"
+
+        ```js
+
+        import { track } from '@amplitude/analytics-react-native';
+
+        const eventProperties = {
+            buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties);
+        ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
@@ -793,6 +949,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ```ts
 
         ampli.load();
+
+        ampli.yourEventType({
+            stringProp: "Strongly typed property",
+        });
+
+        ```
+
+    === "JavaScript"
+
+        ```js
+
+        ampli.load();
+
         ampli.yourEventType({
             stringProp: "Strongly typed property",
         });
@@ -820,7 +989,24 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         track('Button Clicked', eventProperties);
         ```
 
-        Learn more available functionalities in [React Native SDK](../sdks/typescript-react-native/).
+    === "JavaScript"
+        ```js
+
+        import { init, track, Identify, identify } from '@amplitude/analytics-react-native';
+
+        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+
+        const identifyObj = new Identify();
+        identifyObj.set('location', 'LAX');
+        identify(identifyObj);
+
+        const eventProperties = {
+        buttonColor: 'primary',
+        };
+        track('Button Clicked', eventProperties);
+        ```
+
+    Learn more available functionalities in [React Native SDK](../sdks/typescript-react-native/).
 
 === "Flutter"
 
