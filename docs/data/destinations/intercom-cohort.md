@@ -28,7 +28,7 @@ Send behavioral cohorts from Amplitude to Intercom so that you can better engage
 
 !!!note
     
-    Users are exported based on their **User Id**. Users must already exist on Intercom with corresponding User Ids in order to be properly synced
+    Users are exported based on their **user ID**. Users must already exist in Intercom with corresponding user IDs in order to be properly synced
 
 !!!note
     
