@@ -106,7 +106,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ampli.load();
 
         ampli.yourEventType({
-            stringProp: "Strongly typed property",
+            stringProp: 'Strongly typed property',
             booleanProp: true
         });
 
@@ -258,8 +258,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         ampli.load();
 
-        ampli.yourEventType("ampli-user-id", {
-            stringProp: "Strongly typed property",
+        ampli.yourEventType('ampli-user-id', {
+            stringProp: 'Strongly typed property',
             booleanProp: true,
         });
 
@@ -271,8 +271,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         ampli.load();
 
-        ampli.yourEventType("ampli-user-id", {
-            stringProp: "Strongly typed property",
+        ampli.yourEventType('ampli-user-id', {
+            stringProp: 'Strongly typed property',
             booleanProp: true,
         });
 
@@ -953,7 +953,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ampli.load();
 
         ampli.yourEventType({
-            stringProp: "Strongly typed property",
+            stringProp: 'Strongly typed property',
         });
 
         ```
@@ -965,7 +965,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ampli.load();
 
         ampli.yourEventType({
-            stringProp: "Strongly typed property",
+            stringProp: 'Strongly typed property',
         });
 
         ```
