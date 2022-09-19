@@ -45,6 +45,8 @@ The SDK internally uses a number of Java 8 language APIs through desugaring. Mak
 Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. The Android SDK can be used anywhere after it's initialized in an Android application.
 
 ```kotlin
+import com.amplitude.android.Amplitude;
+
 val amplitude = Amplitude(
   Configuration(
     apiKey = AMPLITUDE_API_KEY,
@@ -63,6 +65,8 @@ You can configure the server zone when initializing the client for sending data 
 === "Kotlin"
 
     ```kotlin
+    import com.amplitude.android.Amplitude;
+    
     val amplitude = Amplitude(
       Configuration(
         apiKey = AMPLITUDE_API_KEY,

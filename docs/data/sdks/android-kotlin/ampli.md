@@ -30,13 +30,13 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "Java"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:1.0.0'
+    implementation 'com.amplitude:analytics-android:1.0+'
     ```
 
 === "Kotlin"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:1.0.0'
+    implementation 'com.amplitude:analytics-android:1.0+'
     ```
 
 !!!note
@@ -153,7 +153,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 === "Java"
 
     ```java
- EventOptions eventOptions =  new EventOptions();
+    EventOptions eventOptions = new EventOptions();
     eventOptions.setDeviceId("deviceId");
 
     Ampli.getInstance().identify(
@@ -166,7 +166,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 === "Kotlin"
 
     ```kotlin
- var eventOptions = EventOptions();
+    val eventOptions = EventOptions();
     eventOptions.deviceId = "device-id";
 
     ampli.identify(
@@ -334,54 +334,54 @@ First you need to define your plugin. Destination Plugin example:
 
     ```java
     public class SegmentDestinationPlugin extends DestinationPlugin {
-     android.content.Context context;
-     Analytics analytics;
-     String SEGMENT_API_KEY;
-     public SegmentDestinationPlugin(android.content.Context appContext, String segmentAPIKey) {
-         this.context = appContext;
-         this.SEGMENT_WRITE_KEY = segmentWriteKey;
-     }
-     @Override
-      public void setup(Amplitude amplitude) {
-         super.setup(amplitude);
-         analytics = new Analytics.Builder(this.context, SEGMENT_API_KEY)
+        android.content.Context context;
+        Analytics analytics;
+        String SEGMENT_API_KEY;
+        public SegmentDestinationPlugin(android.content.Context appContext, String segmentAPIKey) {
+            this.context = appContext;
+            this.SEGMENT_WRITE_KEY = segmentWriteKey;
+        }
+        @Override
+        public void setup(Amplitude amplitude) {
+            super.setup(amplitude);
+            analytics = new Analytics.Builder(this.context, SEGMENT_API_KEY)
                 .build();
-
-          Analytics.setSingletonInstance(analytics);
-     }
-
-     @Override
-     public BaseEvent track(BaseEvent event) {
-         Properties properties = new Properties();
-         for (Map.Entry<String,Object> entry : event.getEventProperties().entrySet()) {
+            
+            Analytics.setSingletonInstance(analytics);
+        }
+        
+        @Override
+        public BaseEvent track(BaseEvent event) {
+            Properties properties = new Properties();
+            for (Map.Entry<String,Object> entry : event.getEventProperties().entrySet()) {
              properties.putValue(entry.getKey(),entry.getValue());
-         }
-         analytics.track(event.eventType, properties);
-         return event;
-     }
- }
+            }
+            analytics.track(event.eventType, properties);
+            return event;
+        }
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin
     class SegmentDestinationPlugin(appContext: Context, segmentApiKey: String) : DestinationPlugin() {
-     var analytics: Analytics? = null;
-     val context: Context = appContext;
-     init {
-         analytics = Analytics.Builder(appContext, segmentApiKey).build()
-     }
-
-     override fun track(event: BaseEvent): BaseEvent {
-         val eventProperties =  Properties();
-         event.eventProperties?.forEach { entry -> entry.value?.let {
+        var analytics: Analytics? = null;
+        val context: Context = appContext;
+        init {
+            analytics = Analytics.Builder(appContext, segmentApiKey).build()
+        }
+        
+        override fun track(event: BaseEvent): BaseEvent {
+            val eventProperties =  Properties();
+            event.eventProperties?.forEach { entry -> entry.value?.let {
              eventProperties.put(entry.key,
                 it)
-         } }
-
-         analytics?.track(event.eventType, eventProperties);
-         return event
-     }
+            } }
+            
+            analytics?.track(event.eventType, eventProperties);
+            return event
+        }
     }
     ```
 
@@ -390,18 +390,17 @@ Add your plugin after init Ampli.
 === "Java"
 
     ```java
- Ampli.getInstance().getClient().add(
-  new YourDestinationPlugin(this, DESTINATION_API_KEY)
- );
-
+     Ampli.getInstance().getClient().add(
+        new YourDestinationPlugin(this, DESTINATION_API_KEY)
+     );
     ```
 
 === "Kotlin"
 
     ```kotlin
     ampli.client?.add(
-  YourDestinationPlugin(this, DESTINATION_API_KEY)
- )
+        YourDestinationPlugin(this, DESTINATION_API_KEY)
+     )
     ```
 
 ## Verify implementation status
