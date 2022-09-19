@@ -24,6 +24,9 @@ The Amplitude [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115
 
 - Updates affect only future events, and don't update historical events.
 - You can track up to 5 unique group types and 10 total groups per event.
+- The maximum number of group identifies per request is 1024
+- The maximum number of group properties per request is 1024
+- The maximum byte size/per request is 1 mb
 
 ## Example request
 
