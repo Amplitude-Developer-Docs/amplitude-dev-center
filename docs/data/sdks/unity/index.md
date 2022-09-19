@@ -1,7 +1,7 @@
 ---
 title: Unity SDK
 description: The Amplitude Unity SDK installation and quick start guide.
-icon: material/unity
+icon: simple/unity
 ---
 
 

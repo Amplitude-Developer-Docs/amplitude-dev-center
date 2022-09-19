@@ -19,6 +19,8 @@ theme:
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
+  features:
+    - content.tooltips #enables enhanced tooltips
 
   # Static files
   static_templates:
@@ -219,6 +221,7 @@ nav:
       - data/ampli/plugin.md
       - data/ampli/migration.md
     - SDKs:
+      - Quick Start: data/sdks/index.md
       - Browser:
         - data/sdks/typescript-browser/index.md
         - data/sdks/typescript-browser/migration.md
@@ -362,6 +365,7 @@ nav:
       - OneSignal: data/destinations/onesignal-cohort.md
       - Productboard: data/destinations/productboard-cohort.md
       - Qualtrics: data/destinations/qualtrics-cohort.md
+      - Sendgrid: data/destinations/sendgrid-cohort.md
       - Split: data/destinations/split-cohort.md
       - Segment: data/destinations/segment-cohort.md
       - Statsig: data/destinations/statsig-cohort.md

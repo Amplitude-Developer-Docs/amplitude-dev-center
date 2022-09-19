@@ -1,7 +1,7 @@
 ---
 title: Experiment Go SDK (Beta)
 description: Official documentation for Amplitude Experiment's server-side Go SDK implementation.
-icon: fontawesome/brands/golang
+icon: simple/go
 ---
 
 Official documentation for Amplitude Experiment's server-side Go SDK implementation.

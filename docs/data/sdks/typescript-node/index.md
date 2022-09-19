@@ -1,7 +1,7 @@
 ---
 title: Node.js SDK
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
-icon: material/nodejs
+icon: simple/nodedotjs
 ---
 
 
@@ -68,7 +68,7 @@ You can configure the server zone when initializing the client for sending data 
 import * as amplitude from '@amplitude/analytics-node';
 
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: 'EU',
+  serverZone: amplitude.Types.ServerZone.EU,
 });
 ```
 

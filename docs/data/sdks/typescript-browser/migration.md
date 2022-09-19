@@ -3,9 +3,9 @@ title: Browser SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's legacy browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
 ---
 
-The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version is not backwards compatible with `amplitude-js`. 
+The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `amplitude-js`. 
 
-To migrate to `@amplitude/analytics-browser`, the dependency and instrumentation must be updated.
+To migrate to `@amplitude/analytics-browser`, update your dependencies and instrumentation.
 
 ### Terminology
 
@@ -40,11 +40,11 @@ For Node projects, update your dependency list in package.json.
 
 ## Instrumentation
 
-The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls need to be changed.
+The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
-Similar to all other calls, `getInstance()` has been removed. To initialize the SDK, call `init()`, with the same parameters. However, `config` comes in a different shape. See [Configuration](#configuration).
+Like all other calls, `getInstance()` has been removed. To initialize the SDK, call `init()`, with the same parameters. However, `config` comes in a different shape. See [Configuration](#configuration).
 
 === "amplitude-js"
 
@@ -64,7 +64,7 @@ Similar to all other calls, `getInstance()` has been removed. To initialize the 
 
 ### Configuration
 
-The new Browser SDK configuration comes in a different shape. These were updated to have more consistency across other runtimes. In addition, some configurations are no longer supported for various reasons like, simplification, adopted as default behavior, etc.
+The new Browser SDK configuration comes in a different shape. The configurations are simpler and more consistent across runtimes. Some configurations are no longer supported.
 
 |amplitude-js|@amplitude/analytics-browser|
 |-|-|
@@ -120,7 +120,7 @@ The new Browser SDK configuration comes in a different shape. These were updated
 
 ### Tracking events
 
-The legacy Browser SDK offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all of these variations into a unified `track` API in `@amplitude/analytics-browser`.
+The legacy Browser SDK offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API in `@amplitude/analytics-browser`.
 
 #### `logEvent()`
 
@@ -243,9 +243,9 @@ The `sendEvents()` API maps to `flush()`.
   amplitude.flush()
   ```
 
-### Setting user properties
+### Set user properties
 
-The APIs for setting user properties are the same, with the exception of the removal of `getInstance()`. Here are code snippets to migrate APIs for user properties.
+The APIs for setting user properties are the same, except for the removal of `getInstance()`. Here are code snippets to migrate APIs for user properties.
 
 #### `setUserId()`
 
@@ -285,7 +285,7 @@ Setting a device ID can be invoked on `amplitude` without calling `getInstance()
 
 #### `setSessionId()`
 
-Setting a session ID can be invoked on `amplitude` without calling `getInstance()`.
+Set a session ID on `amplitude` without calling `getInstance()`.
 
 === "amplitude-js"
 
@@ -362,7 +362,7 @@ You can now make an identify call on `amplitude` without calling `getInstance()`
   amplitude.identify(identify)
   ```
 
-### Setting group properties
+### Set group properties
 
 ### `groupIdentify()`
 
@@ -456,7 +456,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 #### Defer initialization
 
-To defer initialization in `amplitude-js`, init must be called with `config.deferInitialization` set to true, and eventually calling `enableTracking()` to formalize initialization and send all enqueued events.
+To defer initialization in `amplitude-js`, call init with `config.deferInitialization` set to `true`, and eventually call `enableTracking()` to formalize initialization and send all enqueued events.
 
 === "amplitude-js"
 
@@ -472,7 +472,7 @@ To defer initialization in `amplitude-js`, init must be called with `config.defe
   amplitude.getInstance().enableTracking()
   ```
 
-For `@amplitude/analytics-browser`, `init()` can be called at a later time than `track()`. All `track()` calls are then processed after initialization is completed.
+For `@amplitude/analytics-browser`, you can call `init()` at a later time than `track()`. All `track()` calls are then processed after initialization completes.
 
 === "@amplitude/analytics-browser"
 
@@ -493,13 +493,13 @@ In `amplitude-js`, web attribution is enabled by enabling the following configur
 * `config.includeReferrer`
 * `config.includeUtm`
 
-Moving forward, the web attribution is controlled by a single configuration `config.attribution.disabled` which by default is set to `false` and captures all campaign parameters. This configuration collects the same campaign parameters supported in `amplitude-js`.
+In `@amplitude/analytics-browser`, the web attribution is controlled by a single configuration `config.attribution.disabled` which by default is set to `false` and captures all campaign parameters. This configuration collects the same campaign parameters supported in `amplitude-js`.
 
 #### Flush or `onExitPage`
 
-There are certain scenarios that necessiate sending events immediately, like navigating away from a page. This is a common scenario when tracking button clicks that directs the user to another page while sending event payload in batches.
+There are certain scenarios that warrant sending events immediately, like when a user navigates away from a page. This is a common scenario when tracking button clicks that directs the user to another page while sending event payload in batches.
 
-In `amplitude-js` this is done by using `onExitPage()` callback.
+In `amplitude-js` do this by using `onExitPage()` callback.
 
 === "amplitude-js"
 

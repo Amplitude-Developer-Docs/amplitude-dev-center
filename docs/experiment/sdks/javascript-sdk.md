@@ -1,7 +1,7 @@
 ---
 title: Experiment JavaScript SDK
 description: Official documentation for Amplitude Experiment's Client-side JavaScript SDK.
-icon: material/language-javascript
+icon: simple/javascript
 ---
 
 Official documentation for Amplitude Experiment's Client-side JavaScript SDK implementation.

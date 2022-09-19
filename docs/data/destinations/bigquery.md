@@ -6,7 +6,7 @@ description: Set up a recurring or one-time export of Amplitude event data to Bi
 
 !!!beta "This feature is in beta"
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 You can set up recurring syncs of your Amplitude event data to BigQuery through the Amplitude UI,  or manually start a sync of your historical data. This article outlines the process for connecting your Amplitude and BigQuery accounts, and then syncing your data.
 
@@ -27,6 +27,7 @@ To get started with exporting to BigQuery, you need the following:
    - A [custom role](https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role) that has the following permissions enabled:
      - `bigquery.transfers.get`
      - `bigquery.transfers.update`
+     - `bigquery.datasets.update`
 
 After you've created a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 

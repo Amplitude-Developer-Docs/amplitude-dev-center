@@ -11,3 +11,4 @@
 *[IDFA]: Identifier for Advertiser
 *[DMA]: Designated Market Area
 *[PII]: Personally Identifiable Information
+*[CJS]: CommonJS

@@ -22,12 +22,12 @@ Before you get started, create a topic in Pub/Sub, and a Google IAM service acco
 
 Amplitude needs two things from Pub/Sub to set up the integration:
 
-- **Pub/Sub topic name**: the name of the topic, not the full name in the google cloud. See the [Google Pub/Sub](https://cloud.google.com/pubsub/docs/admin) documentation for help with this step. 
+- **Pub/Sub topic name**: The name of the topic, not the full name in the google cloud. See the [Google Pub/Sub](https://cloud.google.com/pubsub/docs/admin) documentation for help with this step. 
 - **Google service account key**: A dedicated service account for Amplitude Pub/Sub integration should be created by the customer. See the [Google documentation](https://cloud.google.com/iam/docs/service-accounts) for help with this step.
 
 ### Google Pub/Sub setup
 
-After you create your topic and service role, you must add the service account as a principle for the topic you created. For more detailed instructions for this step, see the[Google documentation](https://cloud.google.com/pubsub/docs/access-control?hl=en#console).
+After you create your topic and service role, you must add the service account as a principle for the topic you created. For more detailed instructions for this step, see the [Google documentation](https://cloud.google.com/pubsub/docs/access-control?hl=en#console).
 
 1. Open the topic.
 2. In the *Permissions tab*, click **Add Principal**.

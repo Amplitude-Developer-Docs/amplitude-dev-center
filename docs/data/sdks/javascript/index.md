@@ -1,7 +1,7 @@
 ---
 title: JavaScript SDK
 description: The Amplitude JavaScript SDK installation and quick start guide.
-icon: material/language-javascript
+icon: simple/javascript
 ---
 
 
@@ -134,6 +134,7 @@ Set `userID` when initializing the client, or after initialization with the `set
     var userId = "12345";
     amplitude.getInstance().setUserId(userId);
     ```
+    There is an optional `startNewSession` parameter for `setUserId`. Set it to `true` to start a new user session.
 
 #### EU data residency
 

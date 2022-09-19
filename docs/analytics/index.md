@@ -63,9 +63,9 @@ Guide to getting started with Amplitude Analytics.
 - Testing & Debugging: "https://foo"
 - Sending Data to Destinations: "https://foo" -->
 
-## API References
+## API references
 
-Amplitude Analytics has several APIs that let you easily extend Amplitude.
+Amplitude Analytics has several APIs that let you extend Amplitude.
 !!!tip
 
     See the Amplitude Analytics Postman Collection for example requests and responses.

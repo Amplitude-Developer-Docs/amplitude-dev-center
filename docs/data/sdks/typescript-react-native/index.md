@@ -1,7 +1,7 @@
 ---
 title: React Native SDK (Beta)
 description: The Amplitude React Native SDK Installation & Quick Start guide.
-icon: material/react
+icon: simple/react
 ---
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native.svg)
@@ -88,7 +88,7 @@ You can configure the server zone when initializing the client for sending data 
 import * as amplitude from '@amplitude/analytics-react-native';
 
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: 'EU',
+  serverZone: amplitude.Types.ServerZone.EU,
 });
 ```
 

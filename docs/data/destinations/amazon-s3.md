@@ -2,7 +2,7 @@
 title: Amazon S3 Export
 description: Export your Amplitude data to an Amazon S3 bucket, enabling you to analyze your Amplitude data sets side-by-side with data sourced elsewhere.
 ---
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 Often, business needs dictate that behavioral data be analyzed alongside other organizational sources of data that aren't captured within Amplitude. 
 By integrating Amplitude with Amazon S3, you can easily export your Amplitude data to an Amazon S3 bucket, enabling you to analyze your Amplitude data sets side-by-side with the rest of your data.
@@ -62,3 +62,97 @@ After setup is complete, check the status of your exports from the integration.
 To disable automatic exports, open the integration and click **Manage**. You can toggle exports from the *Manage Export Settings* modal.
 
 ![Screenshot of the manage export settings modal](../../assets/images/integrations-amazon-s3-export-manage-modal.png)
+
+## Exported data format
+
+### Raw event file and data format
+
+Data is exported hourly as zipped archive JSON files, and partitioned by the hour with one or multiple files per hour. Each file contains one event JSON object per line.
+
+File names have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (for example, `server_upload_time`):
+
+`projectID_yyyy-MM-dd_H#partitionInteger.json.gz`
+
+For example, the first partition of data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, is found in the file:
+
+`187520_2020-01-25_17#1.json.gz`
+
+Here is the exported data JSON object schema:
+
+```json
+{
+  "server_received_time": UTC ISO-8601 timestamp,
+  "app": int,
+  "device_carrier": string,
+  "$schema":int,
+  "city": string,
+  "user_id": string,
+  "uuid": UUID,
+  "event_time": UTC ISO-8601 timestamp,
+  "platform": string,
+  "os_version": string,
+  "amplitude_id": long,
+  "processed_time": UTC ISO-8601 timestamp,
+  "user_creation_time": UTC ISO-8601 timestamp,
+  "version_name": string,
+  "ip_address": string,
+  "paying": boolean,
+  "dma": string,
+  "group_properties": dict,
+  "user_properties": dict,
+  "client_upload_time": UTC ISO-8601 timestamp,
+  "$insert_id": string,
+  "event_type": string,
+  "library":string,
+  "amplitude_attribution_ids": string,
+  "device_type": string,
+  "device_manufacturer": string,
+  "start_version": string,
+  "location_lng": float,
+  "server_upload_time": UTC ISO-8601 timestamp,
+  "event_id": int,
+  "location_lat": float,
+  "os_name": string,
+  "amplitude_event_type": string,
+  "device_brand": string,
+  "groups": dict,
+  "event_properties": dict,
+  "data": dict,
+  "device_id": string,
+  "language": string,
+  "device_model": string,
+  "country": string,
+  "region": string,
+  "is_attribution_event": bool,
+  "adid": string,
+  "session_id": long,
+  "device_family": string,
+  "sample_rate": null,
+  "idfa": string,
+  "client_event_time": UTC ISO-8601 timestamp,
+ }
+```
+
+### Merged Amplitude IDs file and data format
+
+Data is exported hourly as zipped archive JSON files. Each file contains one merged Amplitude ID JSON object per line.
+
+File names have the following syntax, where the time represents when the data was uploaded to Amplitude servers in UTC (for example `server_upload_time`):
+
+`-OrgID_yyyy-MM-dd_H.json.gz`
+
+For example, data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, is found in the file:
+
+`-189524_2020-01-25_17.json.gz`
+
+Merged ID JSON objects have the following schema:
+
+```json
+{
+ "scope": int,
+ "merge_time": long,
+ "merge_server_time": long,
+ "amplitude_id": long,
+ "merged_amplitude_id": long
+}
+```

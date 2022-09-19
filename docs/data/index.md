@@ -7,7 +7,7 @@ nav: hide
 !!!beta "Amplitude Data is in Beta"
      Amplitude Data must be enabled on your account. Contact Support to request access.
 
-Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, and Destinations receive data from Amplitude. The data that you send to Amplitude can be used for Analytics, Experiment, and Audiences. 
+Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, and Destinations receive data from Amplitude. You can use the data that you send to Amplitude for Analytics, Experiment, and Audiences. 
 
 <div class="grid cards" markdown>
 

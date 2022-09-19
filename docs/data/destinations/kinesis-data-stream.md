@@ -46,7 +46,7 @@ Create an [IAM role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_cr
 #### 3. Create an IAM policy
 
 1. Create an [IAM Policy](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) to give Amplitude permission to write to your Kinesis Stream.
-2. Select the **Create Policy from JSON** option and use the following template policy in the Policy Document field. Be sure to change the {region}, {account-id} and {stream-name} with the applicable values. Also replace {role-name} with the role just created.
+2. Select the **Create Policy from JSON** option and use the following template policy in the Policy Document field. Be sure to change the {account-id} to your account-id, and replace {region} and {stream-name} with the applicable values. Also replace {role-name} with the role just created.
 
     ```json
     {

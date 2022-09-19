@@ -1,7 +1,7 @@
 ---
 title: Go SDK (Alpha)
 description: The Amplitude Go SDK installation and quick start guide.
-icon: fontawesome/brands/golang
+icon: simple/go
 ---
 
 !!!alpha "Alpha SDK Resources"

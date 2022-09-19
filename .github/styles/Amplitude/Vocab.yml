@@ -1,0 +1,19 @@
+extends: existence
+message: "Verify your use of '%s' with the A-Z word list."
+level: suggestion
+ignorecase: true
+tokens:
+  - above
+  - accessible
+  - below
+  - against
+  - alarm
+  - alias
+  - and/or
+  - assure
+  - author
+  - avg
+  - ensure
+  - he
+  - insure
+  - she
