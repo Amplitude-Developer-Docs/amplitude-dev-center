@@ -188,3 +188,4 @@ exceptions:
   - packaged
   - defined
   - deprecated
+  - initialized

@@ -12,7 +12,7 @@ At the top level in Amplitude is your **organization**. Within an organization, 
 
 ## Projects
 
-Experiment uses the same projects which are required for Amplitude Analytics. Generally speaking you want to create a project per product and per environment. Since [flags](#flags-and-experiments), [experiments](#flags-and-experiments), and [deployments](#deployments) only exist within a single project, you will want to duplicate these objects across projects for the same product.
+Like Amplitude Analytics, Experiment uses projects. As a best practice, create a project per product and per environment. Because [flags](#flags-and-experiments), [experiments](#flags-and-experiments), and [deployments](#deployments) only exist within a single project, duplicate these objects across projects for the same product.
 
 !!!tip "Copying a flag to another project"
     When developing a new feature with an experiment, you can create the experiment in the dev environment project to develop and test that the implementation is correct, then copy the experiment into the prod project to run the experiment in prod.
@@ -22,13 +22,13 @@ Experiment uses the same projects which are required for Amplitude Analytics. Ge
 In Amplitude Experiment, a deployment serves a group of flags or experiments for use in an application. Deployments have an associated randomly generated **deployment key** (a.k.a API key) which is used to uniquely identify the deployment and authorize requests to Amplitude Experiment's evaluation servers. 
 
 !!!info "Client vs Server Deployments"
-    Deployments are either client or server deployments. Only server deployments can utilize access flag configs for [local evaluation](./evaluation/local-evaluation.md), and should not be shared to made public in any way.
+    Deployments are either client or server deployments. Only server deployments can use access flag configs for [local evaluation](./evaluation/local-evaluation.md), and shouldn't be shared to made public in any way.
 
 Deployments live within Amplitude Analytics projects; a project may have multiple deployments. Deployments are [added to Flags and Experiments](../guides/getting-started/create-a-flag.md#add-a-deployment) which exist within the same project. When a request to fetch variants for a user is received by Experiment's evaluation servers, the deployment key is used to look up all associated flags and experiments for evaluation.
 
 ## Flags and experiments
 
-Feature flag and experiments are used to serve a variable experience to a user. They're identified by the **flag key**, associated with `0-n` [deployments](#deployments), and contains `1-k` [variants](#variants). Additionally, the **evaluation mode** (local or remote) determines whether or not the flag or experiment can be [locally evaluated](evaluation/local-evaluation.md) and may limit the targeting capabilities for the flag if set to local (local evaluation mode flags cannot utilize advanced targeting features like behavioral cohorts).
+Feature flag and experiments are used to serve a variable experience to a user. They're identified by the **flag key**, associated with `0-n` [deployments](#deployments), and contains `1-k` [variants](#variants). Additionally, the **evaluation mode** (local or remote) determines whether the flag or experiment can be [locally evaluated](evaluation/local-evaluation.md) and may limit the targeting capabilities for the flag if set to local (local evaluation mode flags can't use advanced targeting features like behavioral cohorts).
 
 ### Comparison
 
@@ -39,8 +39,8 @@ Feature flags and experiments share the same underlying data model, and can be m
 Used for standard feature flagging without user analysis. When created, comes with a default variant, `on`.
 
 !!!example "Flag Use Cases"
-    - Rolling out a feature to a subset of users (e.g. beta customers).
-    - Different experience for a behavioral cohort (e.g. power users).
+    - Rolling out a feature to a subset of users (for example, beta customers).
+    - Different experience for a behavioral cohort (for example, power users).
 
 #### Experiments
 
@@ -57,8 +57,8 @@ A variant exists within a flag or an experiment, and represents a variable exper
 |<div class='med-column'> Property </div>| Requirement | Description |
 | --- | --- | --- |
 | `Value` | **Required** | A string which identifies the variant in the instrumentation. The value string is checked for equality when a variant is accessed from the SDK or [Evaluation REST API](../apis/evaluation-api.md). Formatting is limited to all lower case kebab-case or snake_case. |
-| `Payload` | Optional | Dynamic JSON payload for sending arbitrary data down with the variant. For example, you could send down a hex code to to change the color of a component in your application. |
-| `Name` | Optional | Additional name on top of the `Value` without formatting limitations. Also useful to re-name the variant without potentially breaking the instrumentation in your code base. |
+| `Payload` | Optional | Dynamic JSON payload for sending arbitrary data down with the variant. For example, you could send down a hex code to change the color of a component in your application. |
+| `Name` | Optional | Additional name on top of the `Value` without formatting limitations. Also useful to re-name the variant without breaking the instrumentation in your code base. |
 | `Description` | Optional | A more detailed description of the variant. Can be used to describe what the user experiences when viewing the variable experience in more detail. |
 
 !!!info "SDK Usage"
@@ -66,12 +66,12 @@ A variant exists within a flag or an experiment, and represents a variable exper
 
 ## Users
 
-Experiment users map neatly to a user within Amplitude Analytics. Alongside flag configurations, users are used as input to [evaluation](evaluation/implementation.md). The properties on the user can be used in flag and experiment targeting rules.
+Experiment users map to a user within Amplitude Analytics. Alongside flag configurations, users are used as input to [evaluation](evaluation/implementation.md). The properties on the user can be used in flag and experiment targeting rules.
 
 Within Amplitude Experiment, users are passed to evaluation via `fetch` requests in [remote evaluation](evaluation/remote-evaluation.md), or directly to the `evaluate` function for [local evaluation](evaluation/local-evaluation.md).
 
 !!!warning
-    **Either a user ID or device ID must be included in the user object for evaluation to succeed.** E.g. remote evaluation will return a 400 error if both the User ID and Device ID are null, empty, or missing.
+    **Either a user ID or device ID must be included in the user object for evaluation to succeed.** For example, remote evaluation returns a 400 error if both the User ID and Device ID are null, empty, or missing.
 
 | <div class='med-big-column'> Property </div> | Type | Description |
 | --- | --- | --- |
