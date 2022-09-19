@@ -23,8 +23,10 @@ Convizit
 CRM
 CSM
 Data's
+Datamonster
 datetime
 deduplicated
+deduplicate
 deduplicates
 deduplication
 enqueued
@@ -114,3 +116,5 @@ realtime
 seriesMeta
 Uber
 Spotify
+Iglu
+backgrounded
