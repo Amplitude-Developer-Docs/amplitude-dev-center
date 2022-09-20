@@ -12,7 +12,7 @@ At the top level in Amplitude is your **organization**. Within an organization, 
 
 ## Projects
 
-As a best practice, create a project per product and per environment. Because [flags](#flags-and-experiments), [experiments](#flags-and-experiments), and [deployments](#deployments) only exist within a single project, duplicate these objects across projects for the same product.
+Experiment uses the same projects which are required for Amplitude Analytics. As a best practice, create a project per product and per environment. Because [flags](#flags-and-experiments), [experiments](#flags-and-experiments), and [deployments](#deployments) only exist within a single project, duplicate these objects across projects for the same product.
 
 !!!tip "Copying a flag to another project"
 
