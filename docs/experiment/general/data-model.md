@@ -30,7 +30,7 @@ Add deployments to [Flags and Experiments](../guides/getting-started/create-a-fl
 
 ## Flags and experiments
 
-Experiment uses feature flag and experiments to serve a variable experience to a user. They're identified by the **flag key**, associated with `0-n` [deployments](#deployments), and contains `1-k` [variants](#variants). The **evaluation mode** (local or remote) determines whether the flag or experiment can be [locally evaluated](evaluation/local-evaluation.md) and may limit the targeting capabilities for the flag if set to local. Local evaluation mode flags can't use advanced targeting features like behavioral cohorts.
+Experiment uses feature flags and experiments to serve a variable experience to a user. They're identified by the **flag key**, associated with `0-n` [deployments](#deployments), and contains `1-k` [variants](#variants). The **evaluation mode** (local or remote) determines whether the flag or experiment can be [locally evaluated](evaluation/local-evaluation.md) and may limit the targeting capabilities for the flag if set to local. Local evaluation mode flags can't use advanced targeting features like behavioral cohorts.
 
 ### Comparison
 
