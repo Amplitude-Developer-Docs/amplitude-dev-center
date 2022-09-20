@@ -118,7 +118,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ampli.load();
 
         ampli.yourEventType({
-            stringProp: "Strongly typed property",
+            stringProp: 'Strongly typed property',
             booleanProp: true
         });
         ```
@@ -713,8 +713,9 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         Ampli.getInstance().yourEventType("ampli-user-id",
             YourEventType(
                 stringProp = "Strongly typed property",
-                booleanProp = false,
-        ))
+                booleanProp = false
+            )
+        )
 
         ```
 
@@ -986,7 +987,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         identify(identifyObj);
 
         const eventProperties = {
-        buttonColor: 'primary',
+            buttonColor: 'primary',
         };
         track('Button Clicked', eventProperties);
         ```
