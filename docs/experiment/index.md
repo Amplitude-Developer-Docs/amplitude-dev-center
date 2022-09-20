@@ -101,6 +101,6 @@ Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) invol
 
 <!-- !!!caution "Unable to utilized advanced targeting powered by historical analytics data." -->
 
-Server-side [local evaluation](./general/evaluation/local-evaluation.md) runs [evaluation logic](./general/evaluation/implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](./general/performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale. However, because evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics  possible.
+Server-side [local evaluation](./general/evaluation/local-evaluation.md) runs [evaluation logic](./general/evaluation/implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](./general/performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale. However, because evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics isn't possible.
 
 ![Client-side local evaluation experimentation diagram.](../assets/images/experiment/server-side-local-overview.drawio.svg)
