@@ -409,10 +409,12 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         ```java
         Ampli.getInstance().load();
 
-        Ampli.getInstance().yourEventType(YourEventType.builder()
-                          .stringProp("Strongly typed property")
-                          .booleanProp(true)
-                          .build());
+        Ampli.getInstance().yourEventType(
+            YourEventType.builder()
+                .stringProp("Strongly typed property")
+                .booleanProp(true)
+                .build()
+        );
         ```
 
     Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
@@ -564,8 +566,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
         [ampli load];
 
         [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
-                                            booleanProp:true
-        ]];
+                                            booleanProp:true]];
 
         ```
 
