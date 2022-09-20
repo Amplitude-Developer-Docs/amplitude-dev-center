@@ -110,5 +110,5 @@ Is there a case where if the flag doesn't return a response in a reasonable amou
 
 ## Event sending order
 
-What's the [platform user property](https://help.amplitude.com/hc/en-us/articles/215562387-User-property-definitions)?
+What's the [library user property](https://help.amplitude.com/hc/en-us/articles/215562387-User-property-definitions)?
 Are you sending data to Amplitude though [Segment](https://www.docs.developers.amplitude.com/data/sources/segment/#javascript-client-side), [Amplitude SDK](https://www.docs.developers.amplitude.com/analytics/what-is-amplitude/), or [Batch API](https://www.docs.developers.amplitude.com/analytics/apis/batch-event-upload-api/). If you are using the batch API make sure events are being sent in the right order.
