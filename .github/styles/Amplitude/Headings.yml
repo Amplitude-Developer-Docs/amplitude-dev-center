@@ -43,3 +43,6 @@ exceptions:
   - Identify.remove
   - Plugin.setup
   - Plugin.execute
+  - Lookup
+  - Explorer
+  - convertToAmplitudeFunc

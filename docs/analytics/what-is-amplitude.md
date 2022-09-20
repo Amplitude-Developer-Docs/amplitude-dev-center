@@ -106,7 +106,7 @@ User Sessions let you track series of events performed in a single visit or inte
 
 Most often, Amplitude keeps track of session automatically for you. If you are using the HTTP API, you must handle sessions manually.
 
-#### User Properties are details about your User
+#### User properties are details about your user
 
 User Properties help understand your User at the time they performed actions within your application.
  What state they were in, their preferences, or their device details, are all examples of common user properties.

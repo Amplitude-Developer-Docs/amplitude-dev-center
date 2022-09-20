@@ -23,8 +23,10 @@ Convizit
 CRM
 CSM
 Data's
+Datamonster
 datetime
 deduplicated
+deduplicate
 deduplicates
 deduplication
 enqueued
@@ -118,3 +120,5 @@ performant
 [Ee]valuate
 snake_case
 dev
+Iglu
+backgrounded

@@ -7,7 +7,7 @@ Amplitude Data fully supports the Iglu schema service APIs as defined in [Iglu s
 
 To get started:
 
-1. Generate an API Token in your Amplitude Data account. This is the `apikey` that the Iglu client will use to authenticate itself to the Amplitude Data Iglu-compatible schema repository.
+1. Generate an API Token in your Amplitude Data account. This is the `apikey` that the Iglu client uses to authenticate itself to the Amplitude Data Iglu-compatible schema repository.
     1. Browse to [Settings](https://data.amplitude.com/settings), select the API Tokens page, and create a new token
 2. Add another repository to your Iglu configuration file:
 
