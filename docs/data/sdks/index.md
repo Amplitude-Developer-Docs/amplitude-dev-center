@@ -398,10 +398,10 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
         ampli.load()
 
-        ampli.yourEventType({
+        ampli.yourEventType(
             stringProp = "Strongly typed property",
             booleanProp = true
-        })
+        )
 
         ```
     === "Java"
