@@ -25,7 +25,7 @@ Inclusions allow you to force bucket specific users (identified by either their 
 ### Sticky bucketing
 
 !!!warning
-    Sticky bucketing should be used with care. Even if sticky bucketing is disabled, [consistent bucketing](#consistent-bucketing) means that  users will still be bucketed into the same variant given that the user and targeting rules remain static. Changing targeting rules on an active flag with sticky bucketing enabled may cause a sample ratio mismatch (SRM), which may skew experiment results.
+    Sticky bucketing should be used with care. Even if sticky bucketing is disabled, [consistent bucketing](#consistent-bucketing) means that  users will still be bucketed into the same variant given that the user and targeting rules remain static. Changing targeting rules on an active flag with sticky bucketing enabled may cause a [sample ratio mismatch (SRM)](../../guides/troubleshooting/sample-ratio-mismatch.md), which may skew experiment results.
 
 If sticky bucketing is enabled, a user will always get evaluated to the same previously bucketed variant, regardless of the current targeting. Sticky bucketing does not apply if the user has not been bucketed into a variant.
 

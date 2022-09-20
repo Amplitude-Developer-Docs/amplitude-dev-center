@@ -71,6 +71,10 @@ OneSignal
 Optimizely
 orgId
 orgs
+[pP]odfile
+Productboard
+Monitor
+Qualtrics
 prepends
 Productboard
 ProGuard
@@ -79,6 +83,8 @@ realtime
 repo
 runtimes
 SDK
+SRM
+SRMs
 SDKs
 segmentIndex
 SendGrid
