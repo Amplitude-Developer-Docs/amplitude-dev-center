@@ -91,7 +91,7 @@ Client-side experimentation and feature-flagging involves the client making a re
 
 <!-- !!!caution "May have trouble scaling in high volume systems." -->
 
-Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) involves making a request from your server to Amplitude Experiment's evaluation servers to fetch variants for a user. use the resulting variants directly on the server or passed back for use on the client (or any other part of your system).
+Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) involves making a request from your server to Amplitude Experiment's evaluation servers to fetch variants for a user. Use the resulting variants directly on the server or passed back for use on the client (or any other part of your system).
 
 ![Server-side remote evaluation experimentation diagram.](../assets/images/experiment/server-side-remote-overview.drawio.svg)
 
