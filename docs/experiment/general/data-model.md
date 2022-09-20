@@ -23,7 +23,7 @@ As a best practice, create a project per product and per environment. Because [f
 In Amplitude Experiment, a deployment serves a group of flags or experiments for use in an application. Deployments have an associated randomly generated **deployment key** (also known as an API key) which Experiment uses to identify the deployment and authorize requests to the evaluation servers. 
 
 !!!info "Client vs Server Deployments"
-    Deployments are either client or server deployments. Only server deployments can use access flag configs for [local evaluation](./evaluation/local-evaluation.md), and shouldn't be shared to made public in any way.
+    Deployments are either client or server deployments. Only server deployments can access flag configs for [local evaluation](./evaluation/local-evaluation.md), and shouldn't be shared to made public in any way.
 
 Deployments live within Amplitude Analytics projects, and a project can have multiple deployments. 
 Add deployments to [Flags and Experiments](../guides/getting-started/create-a-flag.md#add-a-deployment) in the same project. When Experiment's evaluation servers receive a request to fetch variants for a user, Experiment uses the deployment key to look up all associated flags and experiments for evaluation.
