@@ -60,7 +60,7 @@ A variant exists within a flag or an experiment, and represents a variable exper
 | --- | --- | --- |
 | `Value` | **Required** | A string which identifies the variant in the instrumentation. The value string is checked for equality when a variant is accessed from the SDK or [Evaluation REST API](../apis/evaluation-api.md). Format must be lowercase kebab-case or snake_case. |
 | `Payload` | Optional | Dynamic JSON payload for sending arbitrary data down with the variant. For example, you could send down a hex code to change the color of a component in your application. |
-| `Name` | Optional | Name for the variant. This like `Value`, but doesn't have formatting limitations, and you can change it without breaking the instrumentation in your code base.|
+| `Name` | Optional | Name for the variant. This is like `Value`, but doesn't have formatting limitations, and you can change it without breaking the instrumentation in your code base.|
 | `Description` | Optional | A more detailed description of the variant. You can use this to describe what the user experiences when viewing the variable experience in more detail. |
 
 !!!info "SDK Usage"
