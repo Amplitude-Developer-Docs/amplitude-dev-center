@@ -70,7 +70,7 @@ A variant exists within a flag or an experiment, and represents a variable exper
 
 Experiment users map to a user within Amplitude Analytics. Alongside flag configurations, users are an input to [evaluation](evaluation/implementation.md). Flag and experiment targeted rules make use of user properties.
 
-Amplitude Experiment passes users to evaluation via `fetch` requests in [remote evaluation](evaluation/remote-evaluation.md), or directly to the `evaluate` function for [local evaluation](evaluation/local-evaluation.md).
+Pass users to evaluation via `fetch` requests for [remote evaluation](evaluation/remote-evaluation.md), or directly to the `evaluate` function for [local evaluation](evaluation/local-evaluation.md).
 
 !!!warning
     **You must include either a user ID or device ID in the user object for evaluation to succeed.** For example, remote evaluation returns a 400 error if both the User ID and Device ID are null, empty, or missing.
