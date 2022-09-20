@@ -6,7 +6,7 @@ This retention period is set at the **Amplitude Organization** level and impacts
 
 **Note**: Amplitude uses the date the event data reaches the Amplitude server when determining the retention period for event data and therefore any backfill or migration of event data may affect the retention period for that event data.
 
-## FAQ:
+## FAQ
 
 **Q: How do I enable/disable TTL for my organization?**
 In order to enable or disable TTL today, you have to reach out to your Account Manager at Amplitude or fill out a support request [here](https://help.amplitude.com/hc/en-us/requests/new).
