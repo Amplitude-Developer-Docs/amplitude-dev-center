@@ -7,7 +7,7 @@ This integration combines Amplitude with Marketo's tools for in-app messaging, p
 
 ## Considerations
 
-- Amplitude uses email addresses to map users to Marketo. Email address must be tracked as a user property. Values are also case-sensitive, and there must be consistency between email formatting in Amplitude and Marketo.
+- Email values are case-sensitive. If you use email address to map users between Amplitude and Marketo, the email address must be consistent between both systems.
 - Amplitude's cohort sync feature doesn't create new user profiles in Marketo. Instead, it flags whether an existing user on Marketo belongs to your Amplitude cohort.
 
 ## Setup
