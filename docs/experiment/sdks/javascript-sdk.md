@@ -180,6 +180,15 @@ fetch(user?: ExperimentUser): Promise<Client>
 | --- | --- | --- |
 | `user` | optional | Explicit [user](../general/data-model.md#users) information to pass with the request to evaluate. This user information is merged with user information provided from [integrations](#integrations) via the [user provider](#user-provider), preferring properties passed explicitly to `fetch()` over provided properties. |
 
+!!!beta "Account level bucketing and analysis support (v1.5.6+)"
+    If your organization has purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532-Account-level-reporting-in-Amplitude) you may perform bucketing and analysis on groups rather than users. Reach out to your representative to gain access to this beta feature.
+
+    Groups must either be included in the user sent with the fetch request (recommended), or identified with the user via a group identify call from the [Group Identify API](../../analytics/apis/group-identify-api.md) or via [`setGroup()` from an analytics SDK](../../data/sdks/typescript-browser/index.md#user-groups).
+
+    ```js
+    await fetch({groups: {'org name': ['Amplitude']}});
+    ```
+
 We recommend calling `fetch()` during application start up so that the user gets the most up-to-date variants for the application session. Furthermore, you'll need to wait for the fetch request to return a result before rendering the user experience in order to avoid the interface "flickering".
 
 ```js
