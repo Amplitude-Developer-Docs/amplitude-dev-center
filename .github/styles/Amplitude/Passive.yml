@@ -189,3 +189,4 @@ exceptions:
   - defined
   - deprecated
   - initialized
+  - exposed

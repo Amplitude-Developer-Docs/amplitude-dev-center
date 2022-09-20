@@ -30,11 +30,11 @@ Add deployments to [Flags and Experiments](../guides/getting-started/create-a-fl
 
 ## Flags and experiments
 
-Experiment uses feature flag and experiments to serve a variable experience to a user. They're identified by the **flag key**, associated with `0-n` [deployments](#deployments), and contains `1-k` [variants](#variants). The **evaluation mode** (local or remote) determines whether the flag or experiment can be [locally evaluated](evaluation/local-evaluation.md) and may limit the targeting capabilities for the flag if set to local (local evaluation mode flags can't use advanced targeting features like behavioral cohorts).
+Experiment uses feature flag and experiments to serve a variable experience to a user. They're identified by the **flag key**, associated with `0-n` [deployments](#deployments), and contains `1-k` [variants](#variants). The **evaluation mode** (local or remote) determines whether the flag or experiment can be [locally evaluated](evaluation/local-evaluation.md) and may limit the targeting capabilities for the flag if set to local. Local evaluation mode flags can't use advanced targeting features like behavioral cohorts.
 
 ### Comparison
 
-Feature flags and experiments share the same underlying data model, and can be migrated from one to the other retroactively. The most visible difference comes in the product interface: experiments guide you through an experiment lifecycle and give you the ability to define success metrics and perform analysis; whereas flags are more bare-bones, and don't include special planning and analysis sections.
+Feature flags and experiments share the same underlying data model, and you can migrate from one to the other retroactively. The most visible difference comes in the product interface: experiments guide you through an experiment lifecycle and give you the ability to define success metrics and perform analysis. Flags are more bare-bones, and don't include special planning and analysis sections.
 
 #### Flags
 
@@ -58,26 +58,26 @@ A variant exists within a flag or an experiment, and represents a variable exper
 
 |<div class='med-column'> Property </div>| Requirement | Description |
 | --- | --- | --- |
-| `Value` | **Required** | A string which identifies the variant in the instrumentation. The value string is checked for equality when a variant is accessed from the SDK or [Evaluation REST API](../apis/evaluation-api.md). Formatting is limited to all lower case kebab-case or snake_case. |
+| `Value` | **Required** | A string which identifies the variant in the instrumentation. The value string is checked for equality when a variant is accessed from the SDK or [Evaluation REST API](../apis/evaluation-api.md). Format must be lowercase kebab-case or snake_case. |
 | `Payload` | Optional | Dynamic JSON payload for sending arbitrary data down with the variant. For example, you could send down a hex code to change the color of a component in your application. |
-| `Name` | Optional | Additional name on top of the `Value` without formatting limitations. Also useful to re-name the variant without breaking the instrumentation in your code base. |
-| `Description` | Optional | A more detailed description of the variant. Can be used to describe what the user experiences when viewing the variable experience in more detail. |
+| `Name` | Optional | Name for the variant. This like `Value`, but doesn't have formatting limitations, and you can change it without breaking the instrumentation in your code base.|
+| `Description` | Optional | A more detailed description of the variant. You can use this to describe what the user experiences when viewing the variable experience in more detail. |
 
 !!!info "SDK Usage"
     Only the `Value` and `Payload` are available when accessing a variant from an SDK or the [Evaluation REST API](../apis/evaluation-api.md).
 
 ## Users
 
-Experiment users map to a user within Amplitude Analytics. Alongside flag configurations, users are used as input to [evaluation](evaluation/implementation.md). User properties are used in flag and experiment targeting rules.
+Experiment users map to a user within Amplitude Analytics. Alongside flag configurations, users are an input to [evaluation](evaluation/implementation.md). Flag and experiment targeted rules make use of user properties.
 
-Within Amplitude Experiment, users are passed to evaluation via `fetch` requests in [remote evaluation](evaluation/remote-evaluation.md), or directly to the `evaluate` function for [local evaluation](evaluation/local-evaluation.md).
+Amplitude Experiment passes users to evaluation via `fetch` requests in [remote evaluation](evaluation/remote-evaluation.md), or directly to the `evaluate` function for [local evaluation](evaluation/local-evaluation.md).
 
 !!!warning
-    **Either a user ID or device ID must be included in the user object for evaluation to succeed.** For example, remote evaluation returns a 400 error if both the User ID and Device ID are null, empty, or missing.
+    **You must include either a user ID or device ID in the user object for evaluation to succeed.** For example, remote evaluation returns a 400 error if both the User ID and Device ID are null, empty, or missing.
 
 | <div class='med-big-column'> Property </div> | Type | Description |
 | --- | --- | --- |
-| `user_id` | `string` | The [User ID](https://help.amplitude.com/hc/en-us/articles/206404628-Step-2-Identifying-your-users#h_533ee533-f04d-49d3-873f-5836945f43a6) is the primary identifier for the user, generally when the user is logged into an account within your system. The User ID is used when resolving the Amplitude ID on enrichment before [remote evaluation](evaluation/remote-evaluation.md) where the Amplitude ID is the default bucketing key. |
+| `user_id` | `string` | The [User ID](https://help.amplitude.com/hc/en-us/articles/206404628-Step-2-Identifying-your-users#h_533ee533-f04d-49d3-873f-5836945f43a6) is the primary identifier for the user, generally when the user is logged into an account within your system. Experiment uses the User ID when resolving the Amplitude ID on enrichment before [remote evaluation](evaluation/remote-evaluation.md) where the Amplitude ID is the default bucketing key. |
 | `device_id` | `string` | The Device ID is the secondary identifier for the user. This is usually randomly generated by an analytics SDK on the client side or set in a cookie on the server side. The Device ID is also used when resolving the Amplitude ID on enrichment before [remote evaluation](evaluation/remote-evaluation.md) where the Amplitude ID is the default bucketing key. |
 | `user_properties` | `object` | Optional object of custom properties used when evaluating the user during local or remote evaluation. |
 | `groups` | `object` | :material-beta: Optional object that lists groups associated with this user. Format is an object where the key is the group type, and the value is an array of strings, the group value for the type (for example, `{"org name":["Amplitude"]}`)  |
