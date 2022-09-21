@@ -28,4 +28,8 @@ Send behavioral cohorts from Amplitude to Intercom so that you can better engage
 
 !!!note
     
+    Users are exported based on their **user ID**. Users must already exist in Intercom with corresponding user IDs in order to be properly synced
+
+!!!note
+    
     For scheduled cohort syncs, the initial sync includes the full cohort. All subsequent syncs update the original cohort via additions and removals.
