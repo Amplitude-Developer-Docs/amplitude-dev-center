@@ -122,5 +122,9 @@ realtime
 seriesMeta
 Uber
 Spotify
+performant
+[Ee]valuate
+snake_case
+dev
 Iglu
 backgrounded

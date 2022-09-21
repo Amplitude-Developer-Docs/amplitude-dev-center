@@ -52,7 +52,7 @@ Guide to getting started developing for Amplitude Experiment.
 
 ## SDKs
 
-Client-side SDKs work in a single-user context; server-side SDKs work in a multi-user context.
+Client-side SDKs work in a single-user context. Server-side SDKs work in a multi-user context.
 
 ### Client-side
 
@@ -71,7 +71,7 @@ Client-side SDKs work in a single-user context; server-side SDKs work in a multi
 
 ## System overview
 
-When it comes to feature flag delivery and experimentation, one size does _not_ fit all. Amplitude Experiment is built for flexibility in order to fit in with any architecture and a variety of needs.
+When it comes to feature flag delivery and experimentation, one size does _not_ fit all. Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs.
 
 That said, we can generally split experimentation and feature-flagging systems into [client-side](#client-side) and [server-side](#server-side) architectures.
 
@@ -91,7 +91,7 @@ Client-side experimentation and feature-flagging involves the client making a re
 
 <!-- !!!caution "May have trouble scaling in high volume systems." -->
 
-Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) involves making a request from your server to Amplitude Experiment's evaluation servers to fetch variants for a user. The resulting variants may be used directly on the server or passed back for use on the client (or any other part of your system).
+Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) involves making a request from your server to Amplitude Experiment's evaluation servers to fetch variants for a user. Use the resulting variants directly on the server or passed back for use on the client (or any other part of your system).
 
 ![Server-side remote evaluation experimentation diagram.](../assets/images/experiment/server-side-remote-overview.drawio.svg)
 
@@ -101,6 +101,6 @@ Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) invol
 
 <!-- !!!caution "Unable to utilized advanced targeting powered by historical analytics data." -->
 
-Server-side [local evaluation](./general/evaluation/local-evaluation.md) runs [evaluation logic](./general/evaluation/implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](./general/performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale. However, since evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics is not possible.
+Server-side [local evaluation](./general/evaluation/local-evaluation.md) runs [evaluation logic](./general/evaluation/implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](./general/performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale. However, because evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics isn't possible.
 
 ![Client-side local evaluation experimentation diagram.](../assets/images/experiment/server-side-local-overview.drawio.svg)

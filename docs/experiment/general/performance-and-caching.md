@@ -7,7 +7,7 @@ Amplitude Experiment [evaluation](./evaluation/implementation.md) supports two m
 
 ## Performance
 
-Evaluation performance depends on what type of evaluation is used.
+Evaluation performance depends on what kind of evaluation is used.
 
 ### Remote evaluation
 
@@ -46,7 +46,7 @@ Requests to Experiment's server are cached on the CDN for 60 minutes. It's a TTL
 
 ### Cache key
 
-The CDN caches the exact request received, including user information. In short, any change in user info will always miss the CDN cache (unless that exact same request has been cached previously).
+The CDN caches the exact request received, including user information. In short, any change in user info always misses the CDN cache (unless that exact same request has been cached previously).
 
 ### Cache invalidation
 
@@ -54,7 +54,7 @@ To make sure you don't get stale results when your underlying flags have changed
 
 ### Dynamic targeting cache considerations
 
-Amplitude Experiment allows you to target feature-flags and experiments based on dynamic properties (user properties and behavioral cohorts) synced from Amplitude Analytics. Since these properties are not included in the fetch request, you may be receiving cached experiment results for up to an hour (the TTL) until the cache misses and the user is re-evaluated with the most recent dynamic properties.
+Amplitude Experiment allows you to target feature-flags and experiments based on dynamic properties (user properties and behavioral cohorts) synced from Amplitude Analytics. Because these properties aren't included in the fetch request, you may be receiving cached experiment results for up to an hour (the TTL) until the cache misses and the user is re-evaluated with the most recent dynamic properties.
 
 #### Amplitude user properties
 
