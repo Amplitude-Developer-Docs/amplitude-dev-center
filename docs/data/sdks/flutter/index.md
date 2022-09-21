@@ -362,7 +362,7 @@ Flutter SDK lets users configure their apps to use [dynamic configuration](../.
 Amplitude.getInstance().setUseDynamicConfig(true);
 ```
 
-### Flutter veb support
+### Flutter web support
 
 Flutter web support delivers the same experiences on the web as on mobile. Amplitude-Flutter starts to support flutter web from v3.8.0.
 
