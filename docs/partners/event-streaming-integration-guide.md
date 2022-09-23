@@ -22,40 +22,45 @@ Amplitude has just made [Event streaming destination connections widely availabl
 
 ### Supported features
 
-- Event Forwarding:  Event forwarding is the concept of forwarding Amplitude Track calls to a destination. Amplitude will forward both the 'raw' event, and also merged or [transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure). Amplitude also sends the user_id, event_name, and created_at to your destination.
-- User Properties Types: Amplitude sends all user, event, and group properties along with the event.
-- Event Selective Property Forwarding: We will also provide fine-grain filtering options that will allow the customer to choose which events to send based on selecting event types and/or property conditions.
+- **Event Forwarding:**  Event forwarding is the concept of forwarding Amplitude Track calls to a destination. Amplitude will forward both the 'raw' event, and also merged or [transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure). Amplitude also sends the user_id, event_name, and created_at to your destination.
+- **User Properties Types:** Amplitude sends all user, event, and group properties along with the event.
+- **Event Selective Property Forwarding:** We will also provide fine-grain filtering options that will allow the customer to choose which events to send based on selecting event types and/or property conditions.
 
 ### Limitations
-
-- Regular User Identify Forwarding (i.e. creating and updating a user): Amplitude will forward the user identify events that are sent by customers directly to the configured destinations. Anytime you make an Identify call to Amplitude, we forward that user information. See  [Identify documentation](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/)  for more information.
-- Change-based user Identify Forwarding: When there's a user property change during the event ingestion, we will automatically generate a user identify event and forward it to the configured destinations. 
-- Property Value Transformation: Transform a property value or type to another value or type (eg. Amplitude int user_id -> Destination string user_id , formatting such as encoding, datetime format transformations, etc.)
-- oAuth Authentication: We don't support OAuth, so partners need to generate their API key
-- Event Category name: We do not send the Event Category name.
+- **User Selective Property Forwarding:** We will enable users to forward certain event/group/user properties from an event based on an allow-list (the topic at hand).
+- **Select Amplitude property as the identifier:** We will provide the ability for users to select which amplitude property to use as an identifier. Currently our default is using Amplitude user_id.
+- **Mapping fields:** Currently we do not have Mapped Fields implemented. This enhancement will allow partners to have a field that can be mapped to from an Amplitude field. Eg. Partner requires a deviceId field, or country field or something and we want to let the customer choose which Amplitude field to populate that with.
+- **Forwarding arrays or object type properties:** (eg. if user wants to forward a property called cities which is an array of cities, it won't work)
+- **Regular User Identify Forwarding (i.e. creating and updating a user):** Amplitude will forward the user identify events that are sent by customers directly to the configured destinations. Anytime you make an Identify call to Amplitude, we forward that user information. See  [Identify documentation](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/)  for more information.
+- **Change-based user Identify Forwarding:** When there's a user property change during the event ingestion, we will automatically generate a user identify event and forward it to the configured destinations. 
+- **Property Value Transformation:** Transform a property value or type to another value or type (eg. Amplitude int user_id -> Destination string user_id , formatting such as encoding, datetime format transformations, etc.)
+- **oAuth Authentication:** We don't support OAuth, so partners need to generate their API key
+- **Event Category name:** We do not send the Event Category name.
 
 ## Preparation tips for Partners
 
-1. Freemarker: Familiarize yourself with [Freemarker](https://freemarker.apache.org/)  is the template that we use to send Events out from Amplitude
-2. Rate limits: Ensure your rate limits are as high as possible to minimize throttling. for example, We respect the rate limit that [Braze](https://www.docs.developers.amplitude.com/data/destinations/braze/) communicates: 50,000 requests per minute for Event Tracking. In addition, we have a retry mechanism w/ exponential backoff that will try 9 times over 4 hours. So any temporary throttling will be resolved through this process.
-3. Event limits: Ensure that your event size limit is flexible enough for customer use cases. For example, [Customer.io](https://www.docs.developers.amplitude.com/data/destinations/customerio/) events have the following limits:
-Maximum length of Customer ID: 150 bytes
-4. Maximum number of Unique Identify attributes: 300
-5. Maximum size of event data: 100K bytes
-6. for example, [Intercom](https://www.docs.developers.amplitude.com/data/destinations/intercom/) has a limit of 120 Event Types and 20 meta (which are event properties) per Event Types. Currently our customers will have to leverage the Event Filter to select the specific events they want to forward from Amplitude to Intercom.
+1. **Freemarker:** Familiarize yourself with [Freemarker](https://freemarker.apache.org/) is the template that we use to send Events out from Amplitude.
+2. **Rate limits:** Ensure your rate limits are as high as possible to minimize throttling. for example, We respect the rate limit that [Braze](https://www.docs.developers.amplitude.com/data/destinations/braze/) communicates: 50,000 requests per minute for Event Tracking. In addition, we have a retry mechanism w/ exponential backoff that will try 9 times over 4 hours. So any temporary throttling will be resolved through this process.
+3. **Event limits:** Ensure that your event size limit is flexible enough for customer use cases. 
+- For example, [Customer.io](https://www.docs.developers.amplitude.com/data/destinations/customerio/) events have the following limits:
+  - Maximum length of Customer ID: 150 bytes
+  - Maximum number of Unique Identify attributes: 300
+  - Maximum size of event data: 100K bytes
+- For example, [Intercom](https://www.docs.developers.amplitude.com/data/destinations/intercom/) has a limit of 120 Event Types and 20 meta (which are event properties) per Event Types. Currently our customers will have to leverage the Event Filter to select the specific events they want to forward from Amplitude to Intercom.
+4. **Authentication method:** We don't support OAuth, so partners need to generate their API key.
+5. **Ensure endpoint is flexible to ingest objects in a specific format:** We will generate a list of objects in this specific format. You will need to make sure your endpoint handles this specific payload structure. See below for an example.
 
-7. Authentication method: We don't support OAuth, so partners need to generate their API key
 
-8. Ensure endpoint is flexible to ingest objects in a specific format: We will generate a list of objects in this specific format. You will need to make sure your endpoint handles this specific payload structure. See below for an example.
+### Example Payload structure
 
 ![](https://lh5.googleusercontent.com/t7xQ3KCCf7U9xPLLHBpJdIdGAajP8SOEhrjTZo79LhFmdfYkeTmCoiTu6zFUBxmlzCXXyDmM2xKqCZjjUxUyOllBEOjAmAMUGtIgugNDDsE7p68pc5J3vZ00I0skl0iMhBwupnC5LFzz20rBsfgHA5SG5_K0O3hXIY-LogJQz7oZOJxTvYrvtNQ_7g)
 
-Example Payload structure
-
 ### What will it look like?
 
-![](https://lh3.googleusercontent.com/2vSY_bOC2tUWZkiaLZ9mbsr_QOlaly0J0X1yD2-59yrL7r-QaEVwebPvS4Y-Tf_r84O95Mx8kPWNfgyq3byJw25XVFdQSlmK9rSfE0PBGCfACUJ89tulE5abrbfmnGW8iw_3fWyagAWHf1e-BJwYh3aS3zoGJXWkCNbU_2ZKdKxoAnVzxeRBilJS)
+![](https://lh3.googleusercontent.com/2vSY_bOC2tUWZkiaLZ9mbsr_QOlaly0J0X1yD2-59yrL7r-QaEVwebPvS4Y-    Tf_r84O95Mx8kPWNfgyq3byJw25XVFdQSlmK9rSfE0PBGCfACUJ89tulE5abrbfmnGW8iw_3fWyagAWHf1e-BJwYh3aS3zoGJXWkCNbU_2ZKdKxoAnVzxeRBilJS)
 
 ![](https://lh3.googleusercontent.com/S6BnZXYivKhM4u0jUuWGjNSf9mli8jr5PUHG0DK5uWNOYP-9eisbhJArIuheZGZoPD6nqp3rmNczIKaoWxo-MjxWVtzqX_DRh9MMJmaDwnBF71hpj6pBPEX5veiv5qsJdjFl0bOwnzFLZsTlFXw0v8csCxxfTnlfHiTLMTpY6Hzzsy0oVlKw92tC)
 
 This is an example of what a built-out setup modal would look like in Amplitude once you've finalized your configuration. This would be part of the user's setup process when setting up your Event Streaming destination. Note this example shown is using our [Braze Event streaming destination](https://www.docs.developers.amplitude.com/data/destinations/braze/#considerations).
+
+
