@@ -9,7 +9,7 @@ icon: simple/unrealengine
     The Amplitude Analytics Unreal Engine SDK is in beta and currently supports projects targeting iOS, MacOS, or tvOS.
 
 !!!info "Unreal SDK Resources (Beta)"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-Unreal) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Unreal/releases) · [:material-book: API Reference](https://github.com/amplitude/Amplitude-Unreal) · [:material-code-tags-check: Tags](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0)
+    [:material-github: Github](https://github.com/amplitude/Amplitude-Unreal) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Unreal/releases) · [:material-code-tags-check: Tags](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0) · [:material-book: API Reference](https://github.com/amplitude/Amplitude-Unreal)
 
 --8<-- "includes/no-ampli.md"
 

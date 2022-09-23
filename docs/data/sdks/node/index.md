@@ -22,11 +22,12 @@ By default, the Node SDK uses the [HTTP API V2](../analytics/apis/http-v2-api/)
     
     The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
-!!!info "SDK Resources"
+!!!info "Node SDK Resources (Legacy)"
     - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
     - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for Node](./ampli.md).
 
 ## Installation
 
