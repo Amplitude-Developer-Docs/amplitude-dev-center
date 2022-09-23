@@ -1,18 +1,14 @@
 ---
-title: Go Ampli Wrapper
+title: Go Ampli Wrapper (Alpha)
 description:  Learn how to install and use the Amplitude Data Ampli Wrapper for the Go runtimes.
 ---
-
-!!!alpha "Alpha SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/analytics-go) · [:material-code-tags-check: Releases](https://github.com/amplitude/analytics-go/releases) · [:material-book: API Reference](https://pkg.go.dev/github.com/amplitude/analytics-go/amplitude)
 
 Amplitude Data supports tracking analytics events from Go apps. The generated tracking library is packaged as a Go package.
 
 The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for auto code completion.
 
-!!!tip
-
-    See example apps that use the Go runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/Go).
+!!!alpha "Go Ampli Resources (Alpha)"
+    [:material-github: Examples](https://github.com/amplitude/ampli-examples/tree/main/go/simple/v2) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 ## Install
 
@@ -44,14 +40,14 @@ This prompts you to log in to your workspace and select a source.
 ➜ ampli pull sourcename
 Ampli project is not initialized. No existing `ampli.json` configuration found.
 ? Create a new Ampli project here? Yes
-Organization: Amplitude
-Workspace: My Workspace
-Source: sourcename
-Runtime: go:go-ampli
-Branch: main
-Pulling latest version (0.0.0)...
-Tracking library generated successfully.
-Path: ./ampli
+? Organization: Amplitude
+? Workspace: My Workspace
+? Source: sourcename
+? Runtime: go:go-ampli
+? Branch: main
+✔ Pulling version 1 (latest)
+✔ Tracking library generated successfully.
+  ↳ Path: ./ampli
 ```
 
 ## API
@@ -62,7 +58,7 @@ Initialize Ampli in your code. The `Load()` method accepts configuration option 
 
 ```Go
 import (
-	"ampli-example/ampli"
+	"<your-module-name>/ampli"
 )
 
 
@@ -153,7 +149,7 @@ The same with `NewIdentify()`, if your tracking plan contains an optional proper
 ampli.Instance.GroupIdentify(
     "sport",
     "football",
-    ampli.NewGroup().SetOptionalTotalMember(23),
+    ampli.NewGroup().OptionalTotalMember(23),
     amplitude.EventOptions{},
 )
 ```
@@ -185,12 +181,10 @@ ampli.Instance.EventName("user_id", NewEventName(...), EventOptions(...))
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
 ```Go
-ampli.Instance.SongPlayed(
-    "user_id", 
-    NewSongPlayed(
-        "songId",
-        true,
-    ),
+ampli.Instance.SongPlayed("user_id", SongPlayed().Builder()
+    .SongId("songId")
+    .SongPlayed(true)
+    .Build(),
     amplitude.EventOptions{}
 )
 ```
@@ -198,21 +192,19 @@ ampli.Instance.SongPlayed(
 Ampli also generates a class for each event. Use `NewEventName()` to get the corresponding class for each event.
 
 ```Go
-NewSongPlayed(
-    "songId",
-    true,
-)
+SongPlayed().Builder()
+    .SongId("songId")
+    .SongPlayed(true)
+    .Build()
 ```
 
 Send event objects using the generic track method.
 
 ```Go
-ampli.Instance.Track(
-    "user-id",
-    NewSongPlayed(
-        "songId",
-        true,
-    ),
+ampli.Instance.Track("user-id", SongPlayed().Builder()
+    .SongId("songId")
+    .SongPlayed(true)
+    .Build(),
     amplitude.EventOptions{},
 )
 ```
