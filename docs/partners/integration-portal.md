@@ -13,17 +13,20 @@ The Integration Portal enables partners and the Amplitude team to scale the numb
 
 ## Getting started 
 
+Amplitude aims to make it easy for partners to self-define and add all the contextual information for your own integration tile in the Amplitude app. Using the Integration Portal, you can:
+
+- Add a brief overview of your integration.
+- Add a display name for your integration tile in Amplitude.
+- Choose an integration category (for example, Messaging, Attribution, Ad Network).
+- Upload your company logo for your integration tile.
+- Verify that Amplitude successfully receives your data payload.
+- Update your integration version (for example, V1.1 or V1.2.1).
+
 This Integration Portal suits partners who want build these kinds of integrations:
 
-1. [Event Ingestion](https://docs.google.com/document/d/1B5fx-Ck87pzxKdqWIiZvDboET-Kwwor-A-im0V_rCV8/edit#bookmark=id.36vif7agpt15) - Today, partners (such as yourself) send event data into Amplitude via the [HTTP API v2](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/),  [Batch Event Upload API](https://www.docs.developers.amplitude.com/analytics/apis/batch-event-upload-api/), or [SDKs](https://www.docs.developers.amplitude.com/data/sources/). However, Amplitude aims to make it easier for partners to self-define and add all the contextual information for your own integration tile in the Amplitude App. Using the Integration Portal, you can:
-      - Add a brief overview of your integration.
-      - Add a display name for your integration tile in Amplitude.
-      - Choose an integration category (for example, Messaging, Attribution, Ad Network).
-      - Upload your company logo for your integration tile.
-      - Verify that Amplitude successfully receives your data payload.
-      - Update your integration version (for example, V1.1 or V1.2.1).
-2. [Cohorts](https://docs.google.com/document/d/1B5fx-Ck87pzxKdqWIiZvDboET-Kwwor-A-im0V_rCV8/edit#bookmark=kix.9crabkxbid7l) - Build your own Amplitude Data Destination cohort tile to enable users to [sync cohorts](https://docs.google.com/document/d/1B5fx-Ck87pzxKdqWIiZvDboET-Kwwor-A-im0V_rCV8/edit#heading=h.nq2arr5g93ci) (audiences) from Amplitude to your platform through a series of REST API calls.
-3. [Event Streaming](https://docs.google.com/document/d/1B5fx-Ck87pzxKdqWIiZvDboET-Kwwor-A-im0V_rCV8/edit#bookmark=id.id25je5n2n11) - Build your own Amplitude Data Destination Event Streaming tile to enable users to stream Amplitude event data straight to your platforms. Amplitude sends all user, event, and group properties along with the event. COMING SOON during week of Sep 26th 
+- [Event Ingestion](../partners/event-ingestion-integration-guide) - Build your own Amplitude Data Source tile to let your users set up an integration between Amplitude and your app.
+- [Cohorts](../partners/cohort-integration-guide) - Build your own Amplitude Data Destination cohort tile to enable users to sync cohorts (audiences) from Amplitude to your platform through a series of REST API calls.
+- Event Streaming (Coming soon) - Build your own Amplitude Data Destination Event Streaming tile to enable users to stream Amplitude event data straight to your platforms. Amplitude sends all user, event, and group properties along with the event. COMING SOON during week of Sep 26th 
 
 ### Prerequisites 
 

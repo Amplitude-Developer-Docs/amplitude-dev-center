@@ -36,6 +36,12 @@ If you have high volume and concerned with scale, partition your work based on `
  This ensures that throttling on a particular `device_id` (or `user_id`) doesn't impact all senders in your system.
  If you are using a proxy service to send events to Amplitude, make sure that throttling is forwarded to your clients, instead of letting spammy clients slow down a partition of work in your system.
 
+### Information for partner integrations
+
+If you have an event ingestion integration with Amplitude, you need to send your integration's assigned partner ID in the event payload. 
+
+For help finding your integration's partner ID and a payload example, see [Create an Event Ingestion Integration](../../partners/event-ingestion-integration-guide.md#test-and-submit-the-integration).
+
 ### All-zero device IDs: Limit Ad Tracking enabled
 
 As of iOS 10, Apple replaces the Identifier for Advertiser (IDFA) with all zeros if the user enables Limit Ad Tracking. 

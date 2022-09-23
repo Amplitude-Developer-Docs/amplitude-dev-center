@@ -1,3 +1,6 @@
+# glightbox plugin significantly increases time to build, so use this config file for building locally with INSIDERS.
+# Don't use this build configuration unless you have Insiders installed locally. 
+
 INHERIT: mkdocs.yml
 
 extra_css:

@@ -374,12 +374,14 @@ nav:
       - Userflow: data/destinations/userflow-cohort.md
 - Partners:
   - partners/index.md
+  - Integrate with Amplitude: 
+    - partners/integration-portal.md
+    - Event Ingestion Integration: partners/event-ingestion-integration-guide.md
+    - Cohort Syncing Integration: partners/cohort-integration-guide.md
+    # - Event Streaming Integration: partners/event-streaming-integration-guide.md
+
   - partners/sending-cohorts.md
-  - Create Integrations: 
-      - Integration Portal: partners/integration-portal.md
-      - Event Ingestion Integration: partners/event-ingestion-integration-guide.md
-      - Event Streaming Integration: partners/event-streaming-integration-guide.md
-      - Cohort Syncing Integration: partners/cohort-integration-guide.md
+
 - Resources:
   - all-resources.md
 

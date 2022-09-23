@@ -9,22 +9,20 @@ status: new
 
 This guide walks through the basics of creating a cohort syncing integration with Amplitude. 
 
-This doc uses a list-based integration in its examples. If you create a property-based cohort integration, some of the steps may be slightly different than you see here. 
+This doc uses a list-based integration in its examples. If you create a property-based cohort integration, some steps may be slightly different than you see here. 
+
+--8<-- "includes/partners/partner-portal-connection-info.md"
 
 ## Integration setup
 
 The first step is to configure the integration tile that appears on the **Destinations** page in Amplitude after your integration is validated. You also need to decide between a **List-based cohort integration** or a **Property-based cohort integration**. See this [doc](https://www.docs.developers.amplitude.com/partners/sending-cohorts/) for more information.
 
-<figure markdown>
-![Screenshot of the Amplitude Destination page](../assets/images/partners/partner-destination-tiles.png){ width="300" }
-  <figcaption>Example of integration tiles</figcaption>
-</figure>
-
-1. **Display name**: this is the integration name users see in Amplitude. This name is used in the end-user setup modal and integration tile.
-2. **Integration logo**: Upload your company's icon in PNG format. After you uploaded your company's logo, you can preview your tile.
-3. **Integration type**: Choose whether you are building a list-based or property-based cohort integration. 
+1. From the Integration Portal page (**Settings > Developer Portal**), click **Add New Destination**.
+2. Choose the target connection from the *Select Connection Information* dropdown*.
+3. Choose whether you are building a list-based or property-based cohort integration:
       - **List-based cohort integration**: A list-based cohort integration works best if a cohort is represented as a list of user identifiers in the target system. A call to a list creation API is needed on the first sync, then subsequent calls to add API and remove API are made to keep the list membership up to date.
-      - **Property-based cohort integration**: A property-based cohort integration works best with systems that represent cohort membership as a custom user property, such as a boolean flag or a tag. Amplitude invokes the update API when cohort membership changes to update the user property accordingly. While no list creation API is needed, some manual steps may be required to create the customer user property.
+      - **Property-based cohort integration**: A property-based cohort integration works best with systems that represent cohort membership as a custom user property, such as a boolean flag or a tag. Amplitude invokes the update API when cohort membership changes to update the user property. Although you don't need to use the list creation API, some manual steps may be required to create the customer user property.
+4. Click **Next** to configure the destination.
 
 ## Configuration
 
@@ -53,9 +51,9 @@ Click **Custom Headers**,  choose from the following:
 
 ### Create custom fields
 
-These fields collect and replace the `$variable` declared in the payloads in the API calls, and build the modal customers use to enable your integration.
+These fields collect and replace the `$variable` declared in the payloads in the API calls, and build the modal customers use to enable your integration. Fields you add here are required fields when your users set up the integration.
 
-- **Field Type**: You can specify what field type is required (String, Single Select, Button Group)
+- **Field Type**: You can specify the field type (String, Single Select, Button Group)
 - **Field variable name used in the payload**: By default, this matches your authentication choice. For example, if you choose Bearer Token as the authentication method, it's "bearer_token."
 - **Display name**: The name your users see in the setup modal for your integration. By default, this matches your authentication choice. For example, if you choose Bearer Token as the authentication method, it has a placeholder display name called "Bearer Token."
 - **Add New Custom Field**: If you need to add another identifier required for the payload, you can add custom fields such as String, Single Select, and Button Group.
@@ -129,7 +127,7 @@ Add error status code and error messages for every endpoint so that end users ca
 Expand **Error Classifications**, and click **Add New Error** to add more status codes. Amplitude recommends including as many status codes and sub error codes (1) as you need to. These codes and messages make debugging much faster for your end users.
 { .annotate }
 
-1. Sub error codes are recommended if need to use the same status code for multiple errors.
+1. Amplitude recommends using sub error codes if you use the same status code for multiple errors.
 
 Here are some common examples of status codes that most partners include:
 
@@ -168,7 +166,7 @@ The add users API is called every time a cohort syncs from Amplitude to your app
 <figcaption>Configure the add user call by selecting an endpoint, and adding a payload, a value for `$items`, and setting a batch max for the API. </figcaption>
 </figure>
 
-- **URL Endpoint**: There is a `$listId` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: "https://your.domain/lists/$listId/add".
+- **URL Endpoint**: There is a `$list_Id` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: "https://your.domain/lists/$listId/add".
 - **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of _An array of items that replaces the $items variable in the payload_ 
 This `$items` variable is usually the identifier for every user in a cohort. For example, there are 20 new users to add to your existing cohort. The Batch object contains a collection (a list of 20 users) so these 20 objects are sent to your endpoint. Your payload might look something like this: 
 
@@ -242,13 +240,13 @@ Check the variables table to make sure all variables are accounted for and resol
 
 - **DECLARED**: All declared variables in the "Authentication calls, Custom Fields and Mapping Fields section"
 - **USED**:  All variables that are used either in the list users endpoint, add users endpoint, and remove users endpoint.
-- **PRE-DEFINED**: There are some pre-defined variables that Amplitude replaces values for accordingly.
+- **PRE-DEFINED**: There are some pre-defined variables that Amplitude replaces values for.
 
 Check your headers and payloads and when ready, click **Test Endpoint** to send a test API call to the predefined endpoint. You can also see the response/error for easy debugging.
 
 ![screenshot of the test endpoint screen](../assets/images/partners/partner-test-list-creation-endpoint.png)
 
-After you click **Test Endpoint**, you should get a success response. Retrieve the `$list_id` here and then we use the `$list_id` for the "Add Users Endpoint".
+After you click **Test Endpoint**, you should get a success response. Retrieve the `$list_id` here and then Amplitude uses the `$list_id` for the "Add Users Endpoint".
 
 The `{listId: $list_id}` is the expected response for list creation API call. To change the structure, change the _Path to List ID in the response_ value in the list creation configuration.
 
