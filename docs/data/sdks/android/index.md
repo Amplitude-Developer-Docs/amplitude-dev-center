@@ -12,12 +12,11 @@ This is the official documentation for the Amplitude Analytics Android SDK.
 !!!deprecated "Legacy SDK"
     This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [Android Kotlin SDK](../android-kotlin) which supports plugins, SDK integrations, and more.
 
-!!!info "SDK Resources"
-    - [Android SDK Reference :material-book:](http://amplitude.github.io/Amplitude-Android/)
-    - [Android SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Android)
-    - [Android SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Android/releases)
+!!!info "Android SDK Resources (Legacy)"
+    [:material-github: Github](https://github.com/amplitude/Amplitude-Android) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Android/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-Android)
 
 --8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for Android](./ampli.md).
 
 ## Install
 
