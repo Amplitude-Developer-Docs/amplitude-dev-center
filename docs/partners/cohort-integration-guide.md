@@ -167,7 +167,7 @@ The add users API is called every time a cohort syncs from Amplitude to your app
 </figure>
 
 - **URL Endpoint**: There is a `$list_Id` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: "https://your.domain/lists/$listId/add".
-- **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of _An array of items that replaces the $items variable in the payload_ 
+- **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of *An array of items that replaces the $items variable in the payload* 
 This `$items` variable is usually the identifier for every user in a cohort. For example, there are 20 new users to add to your existing cohort. The Batch object contains a collection (a list of 20 users) so these 20 objects are sent to your endpoint. Your payload might look something like this: 
 
     ```json
@@ -201,7 +201,7 @@ The remove users API is called every time a cohort syncs from Amplitude to your 
 </figure>
 
 - **URL Endpoint**: There is a `$listId` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: "https://your.domain/lists/$listId/remove".
-- **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of _An array of items that replaces the $items variable in the payload_ 
+- **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of *An array of items that replaces the $items variable in the payload* 
 This `$items` variable is usually the identifier for every user in a cohort. For example, there are 20 new users to remove from your existing cohort. The Batch object contains a collection (a list of 20 users) so these 20 objects are sent to your endpoint. Your payload might look something like this: 
 
     ```json
@@ -248,7 +248,7 @@ Check your headers and payloads and when ready, click **Test Endpoint** to send 
 
 After you click **Test Endpoint**, you should get a success response. Retrieve the `$list_id` here and then Amplitude uses the `$list_id` for the "Add Users Endpoint".
 
-The `{listId: $list_id}` is the expected response for list creation API call. To change the structure, change the _Path to List ID in the response_ value in the list creation configuration.
+The `{listId: $list_id}` is the expected response for list creation API call. To change the structure, change the *Path to List ID in the response* value in the list creation configuration.
 
 Use the `$list_id` you retrieved to test the add to add users and remove users endpoints.
 

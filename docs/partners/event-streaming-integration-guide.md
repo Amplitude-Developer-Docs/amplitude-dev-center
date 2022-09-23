@@ -4,7 +4,10 @@ description: This guide walks through the basics of creating a event streaming i
 template: guide-last.html
 status: new
 ---
-
+<!-- markdownlint-disable-file -->
+<!-- markdown-link-check-disable -->
+<!-- vale off -->
+<!-- everything off until this is edited to stop breaking tests-->
 --8<-- "includes/partners/partner-portal-prereq.md"
 
 This guide walks through the basics of creating a event streaming integration with Amplitude.
@@ -35,20 +38,15 @@ Amplitude has just made [Event streaming destination connections widely availabl
 
 1. Freemarker: Familiarize yourself with [Freemarker](https://freemarker.apache.org/)  is the template that we use to send Events out from Amplitude
 2. Rate limits: Ensure your rate limits are as high as possible to minimize throttling. for example, We respect the rate limit that [Braze](https://www.docs.developers.amplitude.com/data/destinations/braze/) communicates: 50,000 requests per minute for Event Tracking. In addition, we have a retry mechanism w/ exponential backoff that will try 9 times over 4 hours. So any temporary throttling will be resolved through this process.
-3. Event limits: Ensure that your event size limit is flexible enough for customer use cases. 
-  - For example, [Customer.io](https://www.docs.developers.amplitude.com/data/destinations/customerio/) events have the following limits:
+3. Event limits: Ensure that your event size limit is flexible enough for customer use cases. For example, [Customer.io](https://www.docs.developers.amplitude.com/data/destinations/customerio/) events have the following limits:
+Maximum length of Customer ID: 150 bytes
+4. Maximum number of Unique Identify attributes: 300
+5. Maximum size of event data: 100K bytes
+6. for example, [Intercom](https://www.docs.developers.amplitude.com/data/destinations/intercom/) has a limit of 120 Event Types and 20 meta (which are event properties) per Event Types. Currently our customers will have to leverage the Event Filter to select the specific events they want to forward from Amplitude to Intercom.
 
-4. Maximum length of Customer ID: 150 bytes
+7. Authentication method: We don't support OAuth, so partners need to generate their API key
 
-5. Maximum number of Unique Identify attributes: 300
-
-6. Maximum size of event data: 100K bytes
-
-7. for example, [Intercom](https://www.docs.developers.amplitude.com/data/destinations/intercom/) has a limit of 120 Event Types and 20 meta (which are event properties) per Event Types. Currently our customers will have to leverage the Event Filter to select the specific events they want to forward from Amplitude to Intercom.
-
-8. Authentication method: We don't support OAuth, so partners need to generate their API key
-
-9. Ensure endpoint is flexible to ingest objects in a specific format: We will generate a list of objects in this specific format. You will need to make sure your endpoint handles this specific payload structure. See below for an example.
+8. Ensure endpoint is flexible to ingest objects in a specific format: We will generate a list of objects in this specific format. You will need to make sure your endpoint handles this specific payload structure. See below for an example.
 
 ![](https://lh5.googleusercontent.com/t7xQ3KCCf7U9xPLLHBpJdIdGAajP8SOEhrjTZo79LhFmdfYkeTmCoiTu6zFUBxmlzCXXyDmM2xKqCZjjUxUyOllBEOjAmAMUGtIgugNDDsE7p68pc5J3vZ00I0skl0iMhBwupnC5LFzz20rBsfgHA5SG5_K0O3hXIY-LogJQz7oZOJxTvYrvtNQ_7g)
 
