@@ -19,8 +19,7 @@ theme:
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
-  features:
-    - content.tooltips #enables enhanced tooltips
+    
 
   # Static files
   static_templates:
@@ -35,6 +34,7 @@ theme:
   features:
     #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
     - content.code.annotate
+    - content.tooltips #enables enhanced tooltips
     - content.tabs.link
     # - header.autohide
     # - navigation.expand
@@ -64,7 +64,8 @@ extra_javascript:
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too.
 plugins:
   - search
-  - git-revision-date
+  - git-revision-date # enables the git revision date functionality
+  #- glightbox # leave this commented out -- it enables image lightboxing but it also increases build time by 30 seconds so you don't want it messing with you locally. This plugin is enabled on insiders.
 
 # Extensions
 markdown_extensions:
@@ -373,9 +374,12 @@ nav:
       - Userflow: data/destinations/userflow-cohort.md
 - Partners:
   - partners/index.md
-  - Overview: partners/index.md
   - partners/sending-cohorts.md
-  - Integration Portal: partners/integration-portal.md
+  - Create Integrations: 
+      - Integration Portal: partners/integration-portal.md
+      - Event Ingestion Integration: partners/event-ingestion-integration-guide.md
+      - Event Streaming Integration: partners/event-streaming-integration-guide.md
+      - Cohort Syncing Integration: partners/cohort-integration-guide.md
 - Resources:
   - all-resources.md
 

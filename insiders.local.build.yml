@@ -7,13 +7,15 @@ plugins:
   - search
   - tags #insiders
   - git-revision-date
-  - glightbox # enables image light box
+  #- glightbox Leave this commented out for local builds -- super SLOW plugin. If you need to test lightbox functionality, use insiders.mkdocs.yml instead.
   - social: #insiders
       cards_color:
         fill: "#1E61F0"
         text: "#FFFFFF"
       cards_font: IBM Plex Sans
 
+
+# glightbox significantly increases time to build, so use this config file for building locally with insiders. 
 
 # Long explanation for this extra doc. 
 # In order to use config inheritance, everything must use the alternative syntax (key:value vs lists)
