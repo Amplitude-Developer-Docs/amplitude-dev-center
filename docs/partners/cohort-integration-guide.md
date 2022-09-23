@@ -110,7 +110,7 @@ You need to call three different APIs for a list-based integration. The first on
 <figcaption>Configure the list creation call by selecting an endpoint, and adding a payload </figcaption>
 </figure>
 
-- **URL Endpoint**: This is the endpoint that you'll define. for example, https://api.yourapp.com/list. Choose which method to use in the call.
+- **URL Endpoint**: This is the endpoint that you'll define. for example, `https://api.yourapp.com/list`. Choose which method to use in the call.
 - **API payload that will be sent to the destination**: Customize and define this payload to fit your needs.
 - **Path to List ID in the response**: N/A
 
@@ -139,11 +139,9 @@ Here are some common examples of status codes that most partners include:
 
 Amplitude highly suggests giving a clear Failure Reason (Description) and Error Message in case cohort sync fails. Clear messages drastically improve your end user's experience and can help deflect support issues and frustration.
 
-See example below for an example within Amplitude web app that shows what happens when a user syncs a cohort but has the wrong API key.
-
 !!!example "API Key error"
 
-    In this example, a user can navigate to the cohort dashboard panel to investigate the errors in more detail after the cohort export to ModuleApps failed. The user is able to quickly understand that the error is due to an API key.
+    In this example, a user has added the wrong API key. The user can navigate to the cohort dashboard panel to investigate the errors in more detail after the cohort export to ModuleApps failed. The user is able to quickly understand that the error is due to an API key.
 
     ![screenshot of the cohort dashboard panel](../assets/images/partners/partner-api-error-example.png)
 
@@ -166,7 +164,7 @@ The add users API is called every time a cohort syncs from Amplitude to your app
 <figcaption>Configure the add user call by selecting an endpoint, and adding a payload, a value for `$items`, and setting a batch max for the API. </figcaption>
 </figure>
 
-- **URL Endpoint**: There is a `$list_Id` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: "https://your.domain/lists/$listId/add".
+- **URL Endpoint**: There is a `$list_Id` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: `https://your.domain/lists/$listId/add`.
 - **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of *An array of items that replaces the $items variable in the payload* 
 This `$items` variable is usually the identifier for every user in a cohort. For example, there are 20 new users to add to your existing cohort. The Batch object contains a collection (a list of 20 users) so these 20 objects are sent to your endpoint. Your payload might look something like this: 
 
@@ -200,7 +198,7 @@ The remove users API is called every time a cohort syncs from Amplitude to your 
 <figcaption>Configure the remove user call by selecting an endpoint, and adding a payload, a value for `$items`, and setting a batch max for the API. </figcaption>
 </figure>
 
-- **URL Endpoint**: There is a `$listId` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: "https://your.domain/lists/$listId/remove".
+- **URL Endpoint**: There is a `$listId` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: `https://your.domain/lists/$listId/remove`.
 - **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of *An array of items that replaces the $items variable in the payload* 
 This `$items` variable is usually the identifier for every user in a cohort. For example, there are 20 new users to remove from your existing cohort. The Batch object contains a collection (a list of 20 users) so these 20 objects are sent to your endpoint. Your payload might look something like this: 
 

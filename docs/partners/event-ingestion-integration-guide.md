@@ -7,7 +7,7 @@ template: guide.html
 
 --8<-- "includes/partners/partner-portal-prereq.md"
 
-This guide walks through the basics of creating an event ingestion integration in Amplitude. This guide doesn't cover any steps to building your integration or sending events to Amplitude. For information about how to send events to Amplitude see the [HTTP v2 API](../analytics/apis/http-v2-api) documentation.
+This guide walks through the basics of creating an event ingestion integration in Amplitude. This guide doesn't cover any steps to building your integration or sending events to Amplitude. For information about how to send events to Amplitude see the [HTTP v2 API](../../analytics/apis/http-v2-api) documentation.
 
 --8<-- "includes/partners/partner-portal-connection-info.md"
 
@@ -27,7 +27,7 @@ Notice that this page is divided into two sections:
 **Right Panel**: The *Preview Data Source Setup Page* section provides a preview of what your setup instructions look like for a user.
 
 1. From the Integration Portal page (**Settings > Developer Portal**), click **Add New Source**.
-2. The Display Name is set in the Connection Information section. To change this name, edit your [connection information](#connection-information).
+2. The Display Name is controlled by the Connection Information section.
 3. Enter a subtitle. This appears under the title when the user sets up the integration. 
 
     !!!example "Example subtitles"
@@ -42,7 +42,7 @@ Notice that this page is divided into two sections:
 
         Navigate to **Data Sources** and click **I want to import data into Amplitude**. From there, you can click any integration tile to see their setup instructions.
   
-5. In **Additional Resources**, add a link to your documentation. For example: *See the Amplitude [documentation](docs.developers.amplitude.com) for additional details and instructions.*
+5. In **Additional Resources**, add a link to your documentation. For example: *See the Amplitude [documentation](https://docs.developers.amplitude.com) for additional details and instructions.*
 6. When finished, click **Next** to go to the testing tab.
 
 ## Test and submit the integration
