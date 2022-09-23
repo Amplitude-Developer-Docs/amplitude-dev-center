@@ -58,7 +58,7 @@ Initialize Ampli in your code. The `Load()` method accepts configuration option 
 
 ```Go
 import (
-	"<your-module-name>/ampli"
+    "<your-module-name>/ampli"
 )
 
 
@@ -100,6 +100,7 @@ ampli.Instance.Identify(
     amplitude.EventOptions{},
 )
 ```
+
 Optional properties can be set by `SetOptional()`. For example your tracking plan only contains a optional user property called `role`. 
 
 ```Go
