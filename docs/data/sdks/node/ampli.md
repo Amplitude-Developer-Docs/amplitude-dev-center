@@ -8,10 +8,8 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!info "Ampli Resources"
-    - [Node.js Javascript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp)
-    - [Node.js Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp)
-    - [Next.js Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app)
+!!!info "Ampli Node Resources (Legacy)"
+    [:material-language-typescript: Ampli Node TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp) · [:material-nodejs: Ampli Node JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp) · [:material-page-next: Ampli NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 !!!note "Deprecated Itly runtime"
     This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.

@@ -9,9 +9,8 @@ Amplitude Data supports tracking analytics events from JRE programs written in J
 In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan.
 The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!info "Ampli Resources"
-    - [JRE Java Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp)
-    - [JRE Kotlin Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp)
+!!!info "Ampli JRE Resources"
+    [:material-language-kotlin: Ampli JRE Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp) · [:material-language-java: Ampli JRE Java Example](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 !!!note "Deprecated Itly runtime"
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.

@@ -8,9 +8,8 @@ Amplitude Data supports tracking analytics events from Python apps (Python 3.6 o
 
 The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for auto code completion.
 
-!!!info "Ampli Resources"
-    - [Python Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/python/simple/v1)
-    - [Django Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/python/django/v1)
+!!!info "Ampli Python Resources"
+    [:material-language-python: Ampli Python Example](https://github.com/amplitude/ampli-examples/tree/main/python/simple/v1) · [:material-open-source-initiative: Ampli Django Example](https://github.com/amplitude/ampli-examples/tree/main/python/django/v1) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 !!!note "Deprecated Itly runtime"
     This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrating-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python.md)**.

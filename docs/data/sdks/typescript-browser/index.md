@@ -13,6 +13,7 @@ The TypeScript Browser SDK lets you send events to Amplitude. This library is op
     [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for Browser](./ampli.md).
 
 ## Getting started
 
