@@ -9,12 +9,11 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
-!!!info "SDK Resources"
-    - [iOS SDK Reference :material-book:](http://amplitude.github.io/Amplitude-iOS/)
-    - [iOS SDK Repository :material-github:](https://github.com/amplitude/Amplitude-iOS)
-    - [iOS SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-iOS/releases)
+!!!info "iOS SDK Resources"
+    [:material-github: Github](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
 
 --8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for iOS](./ampli.md).
 
 ## Install 
 

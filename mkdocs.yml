@@ -19,7 +19,7 @@ theme:
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
-    
+
 
   # Static files
   static_templates:
@@ -94,7 +94,7 @@ markdown_extensions:
   - pymdownx.highlight: # Enables code block syntax highlighting
       #anchor_linenums: true
       use_pygments: true
-  - pymdownx.inlinehilite 
+  - pymdownx.inlinehilite
   - pymdownx.keys # Enables inline key display
   - pymdownx.mark #
   - pymdownx.snippets # Enables snippets (content reuse)
@@ -225,8 +225,8 @@ nav:
       - Quick Start: data/sdks/index.md
       - Browser:
         - data/sdks/typescript-browser/index.md
-        - data/sdks/typescript-browser/migration.md
         - Ampli Codegen: data/sdks/typescript-browser/ampli.md
+        - Migration Guide: data/sdks/typescript-browser/migration.md
       - Node.js (Beta):
         - data/sdks/typescript-node/index.md
         - Ampli Codegen (Beta): data/sdks/typescript-node/ampli.md
@@ -251,9 +251,9 @@ nav:
         - data/sdks/unity/index.md
       - Unreal:
         - data/sdks/unreal/index.md
-      - GO:
+      - Go (Beta):
         - data/sdks/go/index.md
-        - Ampli Codegen: data/sdks/go/ampli.md
+        - Ampli Codegen (Beta): data/sdks/go/ampli.md
       - Legacy:
         - Browser:
           - data/sdks/javascript/index.md
@@ -375,7 +375,7 @@ nav:
       - Userflow: data/destinations/userflow-cohort.md
 - Partners:
   - partners/index.md
-  - Integrate with Amplitude: 
+  - Integrate with Amplitude:
     - partners/integration-portal.md
     - Event Ingestion Integration: partners/event-ingestion-integration-guide.md
     - Cohort Syncing Integration: partners/cohort-integration-guide.md

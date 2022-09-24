@@ -7,11 +7,8 @@ Amplitude Data supports tracking analytics events from React Native apps written
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
---8<-- "includes/closed-beta.md"
-
-!!!info "Ampli Resources"
-    - [React Native TypeScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v2/AmpliApp)
-    - [React Native JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v2/AmpliApp)
+!!!beta "Ampli React Native Resources"
+    [:material-language-typescript: Ampli TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v2/AmpliApp) · [:material-nodejs: Ampli JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v2/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 

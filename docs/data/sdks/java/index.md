@@ -1,6 +1,6 @@
 ---
-title: Java SDK
-description: The Amplitude Java SDK installation and quick start guide. 
+title: JRE Java SDK
+description: The Amplitude JRE Java SDK installation and quick start guide. 
 icon: fontawesome/brands/java
 ---
 
@@ -9,11 +9,11 @@ icon: fontawesome/brands/java
 
 This is the documentation for the Amplitude Analytics Java SDK. Note that this is not the Android SDK.
 
-!!!info "SDK Resources"
-    - [Java SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Java)
-    - [Java SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Java/releases)
+!!!info "JRE SDK Resources"
+    [:material-github: Github](https://github.com/amplitude/Amplitude-Java) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Java/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for JRE](./ampli.md).
 
 ## SDK installation
 

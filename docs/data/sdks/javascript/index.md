@@ -12,12 +12,13 @@ This is the official documentation for the Amplitude Analytics JavaScript SDK.
 !!!deprecated "Legacy SDK"
     This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [TypeScript Browser SDK](../typescript-browser/) which supports plugins and more.
 
-!!!info "SDK Resources"
+!!!info "Browser SDK Resources (Legacy)"
     - [JavaScript Browser SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
     - [JavaScript Browser SDK Repository :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
     - [JavaScript Browser SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for Browser](./ampli.md).
 
 ## Install
 

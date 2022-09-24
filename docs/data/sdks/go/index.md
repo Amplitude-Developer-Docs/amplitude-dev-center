@@ -1,15 +1,16 @@
 ---
-title: Go SDK (Alpha)
+title: Go SDK (Beta)
 description: The Amplitude Go SDK installation and quick start guide.
 icon: simple/go
 ---
 
-!!!alpha "Alpha SDK Resources"
+The Go SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/analytics-go).
+
+!!!beta "Go SDK Resources (Beta)"
     [:material-github: Github](https://github.com/amplitude/analytics-go) · [:material-code-tags-check: Releases](https://github.com/amplitude/analytics-go/releases) · [:material-book: API Reference](https://pkg.go.dev/github.com/amplitude/analytics-go/amplitude)
 
---8<-- "includes/no-ampli.md"
-
-The Go SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/analytics-go).
+--8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for Go](./ampli.md).
 
 ## Getting Started
 
@@ -33,7 +34,7 @@ Initialization is necessary before any instrumentation is done. The API key for 
 package main
 
 import (
-  "github.com/amplitude/analytics-go/amplitude"
+    "github.com/amplitude/analytics-go/amplitude"
 )
 
 func main() {
@@ -70,18 +71,21 @@ Events represent how users interact with your application. For example, "Button 
 // Track a basic event
 // EventOne of UserID and DeviceID is required as well as EventType
 client.Track(amplitude.Event{
-  EventType:    "Button Clicked",
-  EventOptions: amplitude.EventOptions{UserID: "user-id"},
+  UserID:    "user-id",
+  EventType: "Button Clicked",
 })
 
 // Track events with optional properties
 client.Track(amplitude.Event{
+  UserID:    "user-id",
   EventType: "Button Clicked",
-  EventOptions: amplitude.EventOptions{
-    UserID:   "user-id",
-    DeviceID: "device-id",
+  EventProperties: map[string]interface{}{
+    "name":       "Checkout",
+    "a property": "a value",
   },
-  EventProperties: map[string]interface{}{"source": "notification"},
+  EventOptions: amplitude.EventOptions{
+    Price: 1.99,
+  },
 })
 ```
 
@@ -197,10 +201,10 @@ When setting groups, you will need to define a groupType and groupName(s). In th
 
 ```Go
 // set group with single group name
-client.SetGroup("org-id", []string{"15"}, amplitude.EventOptions{UserID: "user-d"})
+client.SetGroup("org-id", []string{"15"}, amplitude.EventOptions{UserID: "user-id"})
 
 // set group with multiple group names
-client.SetGroup("org-id", []string{"15", "21"}, amplitude.EventOptions{UserID: "user-d"})
+client.SetGroup("org-id", []string{"15", "21"}, amplitude.EventOptions{UserID: "user-id"})
 ```
 
 Event level groups are set by `Groups` attribute of events
@@ -208,8 +212,8 @@ Event level groups are set by `Groups` attribute of events
 ```Go
 // set groups when initial an Event struct
 event := amplitude.Event{
+    UserID:          "user-id",
     EventType:       "event-type",
-    EventOptions:    amplitude.EventOptions{UserID: "user-id"},
     Groups: map[string][]string{"org-id": []string{"15", "21"}},
   }
 
@@ -230,7 +234,7 @@ The `GroupIdentify()` method accepts a group type and group name string paramete
 ```Go
 identifyObj := amplitude.Identify{}
 identifyObj.Set("local", "en-us")
-client.GroupIdentify("org-id", []string{"15"}, identifyObj, amplitude.EventOptions{UserID: "user-id"})
+client.GroupIdentify("org-id", []string{"15"}, identifyObj)
 ```
 
 ### Revenue Tracking
@@ -244,7 +248,7 @@ revenueObj := amplitude.Revenue{
     Price:       3.99,
     Quantity:    3,
     ProductID:   "com.company.productID",
-  }
+}
 client.Revenue(revenueObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
@@ -355,8 +359,9 @@ package main
 import (
   "bytes"
   "encoding/json"
-  "github.com/amplitude/analytics-go/amplitude"
   "net/http"
+  
+  "github.com/amplitude/analytics-go/amplitude"
 )
 
 type myDestinationPlugin struct {
@@ -412,10 +417,8 @@ func main() {
   })
 
   client.Track(amplitude.Event{
+    UserID: "user-id",
     EventType: "Button Clicked",
-    EventOptions: amplitude.EventOptions{
-      UserID: "user-id",
-    },
   })
 }
 ```

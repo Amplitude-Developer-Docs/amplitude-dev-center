@@ -8,11 +8,11 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
  code completion and compile-time checks.
 
---8<-- "includes/closed-beta.md"
+!!!beta "Ampli Node Resources (Beta)"
+    [:material-language-typescript: Ampli TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v2/AmpliApp) · [:material-nodejs: Ampli JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v2/AmpliApp) · [:material-page-next: Ampli NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
-!!!info "Ampli Resources"
-    - [Node TypeScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v2/AmpliApp)
-    - [Node JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v2/AmpliApp)
+--8<-- "includes/ampli-vs-amplitude.md"
+    Click here for more documentation on [Ampli for Node](./ampli.md).
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 

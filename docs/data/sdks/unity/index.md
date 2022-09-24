@@ -9,9 +9,8 @@ icon: simple/unity
 
 The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher.
 
-!!!info "SDK Resources"
-    - [Unity SDK Repository :material-github:](https://github.com/amplitude/unity-plugin)
-    - [Unity SDK Releases :material-code-tags-check:](https://github.com/amplitude/unity-plugin/releases)
+!!!info "Unity SDK Resources"
+    [:material-github: Github](https://github.com/amplitude/unity-plugin) · [:material-code-tags-check: Releases](https://github.com/amplitude/unity-plugin/releases) · [:material-book: API Reference](https://github.com/amplitude/unity-plugin)
 
 --8<-- "includes/no-ampli.md"
 
