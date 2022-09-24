@@ -61,7 +61,6 @@ import (
     "<your-module-name>/ampli"
 )
 
-
 ampli.Instance.Load(ampli.LoadOptions{
     Environment: ampli.EnvironmentProduction,
 })
