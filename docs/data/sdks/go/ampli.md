@@ -1,5 +1,5 @@
 ---
-title: Go Ampli Wrapper (Alpha)
+title: Go Ampli Wrapper (Beta)
 description:  Learn how to install and use the Amplitude Data Ampli Wrapper for the Go runtimes.
 ---
 
@@ -7,7 +7,7 @@ Amplitude Data supports tracking analytics events from Go apps. The generated tr
 
 The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for auto code completion.
 
-!!!alpha "Go Ampli Resources (Alpha)"
+!!!alpha "Go Ampli Resources (Beta)"
     [:material-github: Examples](https://github.com/amplitude/ampli-examples/tree/main/go/simple/v2) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 ## Install
