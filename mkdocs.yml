@@ -251,9 +251,9 @@ nav:
         - data/sdks/unity/index.md
       - Unreal:
         - data/sdks/unreal/index.md
-      - Go (Alpha):
+      - Go (Beta):
         - data/sdks/go/index.md
-        - Ampli Codegen (Alpha): data/sdks/go/ampli.md
+        - Ampli Codegen (Beta): data/sdks/go/ampli.md
       - Legacy:
         - Browser:
           - data/sdks/javascript/index.md

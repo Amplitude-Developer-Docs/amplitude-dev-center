@@ -10,7 +10,7 @@ icon: fontawesome/brands/java
 This is the documentation for the Amplitude Analytics Java SDK. Note that this is not the Android SDK.
 
 !!!info "JRE SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-Java) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Java/release)
+    [:material-github: Github](https://github.com/amplitude/Amplitude-Java) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Java/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for JRE](./ampli.md).

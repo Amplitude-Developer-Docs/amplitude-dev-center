@@ -1,12 +1,12 @@
 ---
-title: Go SDK (Alpha)
+title: Go SDK (Beta)
 description: The Amplitude Go SDK installation and quick start guide.
 icon: simple/go
 ---
 
 The Go SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/analytics-go).
 
-!!!alpha "Go SDK Resources (Alpha)"
+!!!beta "Go SDK Resources (Beta)"
     [:material-github: Github](https://github.com/amplitude/analytics-go) · [:material-code-tags-check: Releases](https://github.com/amplitude/analytics-go/releases) · [:material-book: API Reference](https://pkg.go.dev/github.com/amplitude/analytics-go/amplitude)
 
 --8<-- "includes/ampli-vs-amplitude.md"
