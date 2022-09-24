@@ -71,16 +71,16 @@ Events represent how users interact with your application. For example, "Button 
 // Track a basic event
 // EventOne of UserID and DeviceID is required as well as EventType
 client.Track(amplitude.Event{
-    UserID: "user-id",
-    EventType:    "Button Clicked",
+  UserID:    "user-id",
+  EventType: "Button Clicked",
 })
 
 // Track events with optional properties
 client.Track(amplitude.Event{
-  UserID:   "user-id",
+  UserID:    "user-id",
   EventType: "Button Clicked",
   EventProperties: map[string]interface{}{
-    "name": "Checkout",
+    "name":       "Checkout",
     "a property": "a value",
   },
   EventOptions: amplitude.EventOptions{
