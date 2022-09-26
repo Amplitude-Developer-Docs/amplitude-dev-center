@@ -11,6 +11,7 @@
 - :branch: [Branch](../data/sources/branch.md)
 - :braze: [Braze](../data/sources/braze.md)
 - :census: [Census](../data/sources/census.md)
+- :chameleon: [Chameleon](../data/sources/chameleon.md)
 - :clevertap: [CleverTap](../data/sources/clevertap.md)
 - :convizit: [Convizit](../data/sources/convizit.md)
 - :csv: [CSV](../data/sources/lookup-table.md)
