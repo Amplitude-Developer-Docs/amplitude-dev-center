@@ -63,4 +63,64 @@ Amplitude has just made [Event streaming destination connections widely availabl
 
 This is an example of what a built-out setup modal would look like in Amplitude once you've finalized your configuration. This would be part of the user's setup process when setting up your Event Streaming destination. Note this example shown is using our [Braze Event streaming destination](https://www.docs.developers.amplitude.com/data/destinations/braze/#considerations).
 
+## Integration setup
+The first step is to configure the integration tile that appears on the Destinations page in Amplitude after your integration is validated. 
+1. From the Integration Portal page (Settings > Developer Portal), click Add New Destination.
+2. Choose Event Streaming under Select Destination Type.
+
+## Configuration
+The configuration page has two sections.  
+- The **Configuration** section on the left is where you configure your payload and what you expect to receive from Amplitude.
+- The **Preview Integration** section summarizes your configurations, including your setup modal screen for your integration, parameters, and payload.
+
+## Select Connection Information
+You must add connection information before you can configure the specifics of your integration.
+1. In Amplitude, navigate to Settings > Developer Portal.
+2. Click Add Connection Info.
+3. Enter the connection info:
+- Display Name: The display name of the integration. This is the name that appears in the Integration Catalog and on your integration tile.
+- Category: Choose a category. The Integration Catalog uses the category in filters.
+- Summary: A brief overview of your product.
+- Full Description: Detailed description of your integration. Include some common use cases so users understand why they should use the integration.
+- Integration Logo: Upload your integration logo in PNG format.
+
+## Create Parameters
+This section allows you to define the parameters that can be used in the url, headers and event body below. See this Braze Integration for an example where they
+- **Parameter Display Name:** This is fully customizable, so use something descriptive as this will be the display name in Amplitude. For example, REST API Endpoint & REST API Key.
+
+## Customize Events Payload
+- **URL Endpoint:** Depending on your endpoint, you can choose between the following methods PUT, POST or PATCH.
+- **REST API Headers:** You can customize the type of API Headers to suit your use case. Examples include:
+  - **Authorization:** Contains the authentication credentials for HTTP authentication.
+  - **Content-Type:** Tells the client what media type (e.g., application/json, application/javascript, etc.) a response is sent in. This is an important header field that helps the client know how to process the response body correctly.
+  - **WWW-Authenticate:** The server may send this as an initial response if it needs some form of authentication before responding with the actual resource being requested. Often following this header is the response code 401, which means “unauthorized”.
+  - **Accept-Charset:** This header is set with the request and tells the server which character sets (e.g., UTF-8, ISO-8859-1, Windows-1251, etc.) are acceptable by the client.
+  - **Cache-Control:** The cache policy defined by the server for this response, a cached response can be stored by the client and re-used till the time defined by the Cache-Control header.
+
+- **Header Display Name & Header Value:** This is fully customizable, so use something descriptive. This is fully customizable, so use something descriptive as it will help us to understand what each Header is for. E.g. API Key. This does not contribute anything towards the payload below.
+
+## Event Body Editor
+This section is a Freemarker template that allows you to construct the payload that will be sent to your destination. 
+- **Input:** This object includes the event being forwarded and its fields, and is also enriched with the user’s other events and user properties.
+  - Recommendation: the input fields are not guaranteed and heavily relied on the way each customer instrument their events. We suggest keeping the input fields usage to minimum and just use the most common ones such as: user_id, event_type, event_time.
+
+- **MappedProperties:** A key-value pair of event/user properties that the customer might want to forward to your destination. For example, they may be tracking a property `email: example@example.com` and may want to forward that to your platform. These properties will only be forwarded if the user selects them in the UI under “Specify event properties to send”
+
+## Preview & Test
+1) Before submitting your configuration for review, test the mock payload that you expect to receive from Amplitude. On the right side of the configuration page, follow these steps to preview and test your configuration. 
+
+- Configure the test integration instance:
+  1. **API Endpoint:** https://localhost:3000
+  2. **REST API Key:** Enter the API key from the Amplitude project.
+
+- **Note:** If you would like to disable “Specify event properties to be sent (optional)”, please send an email to integrations@amplitude.com and we can disable it for you as this is controlled by a feature flag.
+
+2) Copy the CURL command and paste it into your Command Line Interface (CLI).
+
+3) If you see any errors, please check the parameters table to make sure all declared parameters are used.
+- **DECLARED:** All declared parameters in the “Create Parameters” section.
+- **USED:** All parameters that are used either in the url, headers and event body below.
+
+## Submit
+After you have finalized your testing, click Submit to submit your integration to the Amplitude team. The review process should take about one week. When Amplitude approves you integration, you'll get notified via email and be able to see your integration tile in the Destination section of Amplitude.
 
