@@ -380,7 +380,7 @@ nav:
     - partners/integration-portal.md
     - Event Ingestion Integration: partners/event-ingestion-integration-guide.md
     - Cohort Syncing Integration: partners/cohort-integration-guide.md
-    # - Event Streaming Integration: partners/event-streaming-integration-guide.md
+    - Event Streaming Integration: partners/event-streaming-integration-guide.md
 
   - partners/sending-cohorts.md
 
