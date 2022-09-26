@@ -29,6 +29,7 @@ Copy the Amplitude API key for your project. There are no other setup steps in A
 1. Log in to your Chameleon dashboard.
 2. Navigate to **Integrations** > **Amplitude**, and then click **Configure**.
 3. Click **Edit project** under the Connect to your Amplitude account tile.
+<!-- markdown-link-check-disable-next-line -->
 4. Click **Connect Amplitude** on the [Amplitude Dashboard](https://app.chameleon.io/integrations/amplitude) to open the connection modal.
 5. Enter the API Key and Secret Key.
 6. Click **Connect**.
