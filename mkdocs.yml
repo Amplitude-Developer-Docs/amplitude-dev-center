@@ -302,6 +302,7 @@ nav:
       - Kochava: data/sources/kochava.md
       - Leanplum: data/sources/leanplum.md
       - Mailchimp: data/sources/mailchimp.md
+      - MetaRouter: data/sources/metarouter.md
       - mParticle: data/sources/mparticle.md
       - OneSignal: data/sources/onesignal.md
       - Optimizely: data/sources/optimizely.md
