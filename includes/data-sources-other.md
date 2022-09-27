@@ -14,6 +14,7 @@
 - :chameleon: [Chameleon](../data/sources/chameleon.md)
 - :clevertap: [CleverTap](../data/sources/clevertap.md)
 - :convizit: [Convizit](../data/sources/convizit.md)
+- :cordial: [Cordial](../data/sources/cordial.md)
 - :csv: [CSV](../data/sources/lookup-table.md)
 - :datazoom: [Datazoom](../data/sources/datazoom.md)
 - :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
