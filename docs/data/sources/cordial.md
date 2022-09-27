@@ -16,8 +16,7 @@ Cordial streams real time customer behavior and profile data to Amplitude to hel
 
 ### Amplitude setup
 
-1. Ensure the HTTP API source is created for Cordial.
-2. Copy the Amplitude API key for your project. There are no other setup steps in Amplitude.
+Copy the Amplitude API key for your project. There are no other setup steps in Amplitude.
 
 ### Cordial setup
 
