@@ -39,3 +39,9 @@ For detailed instructions, see the documentation for the destination you want to
 <!-- This content is used in several places. Make changes to includes/data-destinations--cohorts.md -->
 
 --8<-- "includes/data-destinations-cohorts.md"
+
+### User Profile
+
+<!-- This content is used in several places. Make changes to includes/data-destinations-user-profile-api.md -->
+
+--8<-- "includes/data-destinations-user-profile-api.md"
