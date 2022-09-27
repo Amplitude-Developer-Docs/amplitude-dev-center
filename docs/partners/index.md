@@ -14,5 +14,5 @@ Welcome to Amplitude Partner documentation. Building an integration with Amplitu
 |[Receiving Behavioral Cohorts](../partners/sending-cohorts)| Create and update lists of users or user properties. |
 |[Integration Portal](../partners/integration-portal) | Learn about how to get your integration listed in Amplitude.|
 |[Event Ingestion Integration Guide](../partners/event-ingestion-integration-guide)|Learn how to configure your event ingestion integration in the Amplitude Integration Portal.|
-|Event Streaming Integration Guide|Coming soon!|
+|Event Streaming Integration Guide|../partners/event-streaming-integration-guide)|Learn how to configure your event streaming integration in the Amplitude Integration Portal.
 |[Cohort Sync Integration Guide](../partners/cohort-integration-guide)|Learn how to configure your cohort syncing integration in the Amplitude Integration Portal.|
