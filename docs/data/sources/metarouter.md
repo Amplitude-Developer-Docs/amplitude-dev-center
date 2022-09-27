@@ -1,6 +1,7 @@
 ---
 title: Import MetaRouter Events
 descriptions: Send Amplitude the highest-quality data possible with MetaRouter's server-side, first-party data streaming platform. 
+status: new
 ---
 
 !!!beta
