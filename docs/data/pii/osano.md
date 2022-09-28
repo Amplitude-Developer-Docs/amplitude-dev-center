@@ -6,7 +6,7 @@ status: new
 
 [Osano](https://www.osano.com/) is an easy-to-use data privacy platform that instantly helps your website become compliant with laws such as GDPR and CCPA. Osano monitors all the vendors you share data with so you don't have to.
 
-Osano connects to Amplitude via a one-click integration. Osano then discovers and automatically classifies the personal data stored in Amplitude. After discovery and classification are finished, you can quickly search against Amplitude and all other connected data stores in response to subject rights requests.
+Osano connects to Amplitude via a one-click integration. Osano then discovers and automatically classifies the personal data stored in Amplitude. After discovery and classification are finished, you can include Amplitude in searches related to subject rights requests.
 
 !!!info
 
@@ -36,4 +36,4 @@ See the [Osano documentation](https://docs.osano.com/data-field-classificaiton-c
 8. Select a **Data Store Owner** from the dropdown menu.
 9. Save when finished.
 
-When you save, Amplitude and Osano immediately begin snycing to detect PII. Manage this information from Osano.
+When you save, Amplitude and Osano immediately begin syncing to detect PII. Manage this information from Osano.
