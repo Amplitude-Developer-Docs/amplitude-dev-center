@@ -132,3 +132,4 @@ discoverability
 [Ss]lugify
 Freemarker
 MetaRouter
+Osano

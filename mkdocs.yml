@@ -375,6 +375,9 @@ nav:
       - Statsig: data/destinations/statsig-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Userflow: data/destinations/userflow-cohort.md
+  - Privacy and PII:
+    - Overview: data/pii.md
+    - Osano: data/pii/osano.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

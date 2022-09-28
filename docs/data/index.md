@@ -35,13 +35,13 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     [:octicons-arrow-right-24: Validate your data](../data/debugger)
 
-- :material-help:{ .lg .middle } __Get more resources__
+- :material-help:{ .lg .middle } __Manage PII__
 
     ---
 
-    Explore more resources for Amplitude Data.
+    Use tools to manage Personally Identifiable Information (PII) in Amplitude
 
-    [:octicons-arrow-right-24: Resources](#more-resources)
+    [:octicons-arrow-right-24: Manage PII](../data/pii)
 
 </div>
 
