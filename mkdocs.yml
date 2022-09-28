@@ -380,6 +380,7 @@ nav:
       - Moveable Ink: data/destinations/moveable-ink-profile-api.md
   - Privacy and PII:
     - Overview: data/pii.md
+    - DataGrail: data/pii/datagrail.md
     - Osano: data/pii/osano.md
 - Partners:
   - partners/index.md

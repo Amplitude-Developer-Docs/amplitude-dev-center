@@ -2,5 +2,7 @@
 
 <div class="grid cards" markdown>
 
+- :datagrail:[DataGrail](../data/pii/datagrail.md)
 - :osano: [Osano](../data/pii/osano.md)
+
 </div>
