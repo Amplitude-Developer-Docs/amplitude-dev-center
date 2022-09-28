@@ -378,6 +378,9 @@ nav:
       - Userflow: data/destinations/userflow-cohort.md
     - Profile API:
       - Moveable Ink: data/destinations/moveable-ink-profile-api.md
+  - Privacy and PII:
+    - Overview: data/pii.md
+    - Osano: data/pii/osano.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
