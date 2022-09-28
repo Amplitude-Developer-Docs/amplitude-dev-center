@@ -1,10 +1,10 @@
 ---
-title: Manage PII with Osano
+title: Manage Personal Data with Osano
 description: Connect Osano and Amplitude to automatically classify personal data stored in Amplitude.
 status: new
 ---
 
-[Osano](https://www.osano.com/) is an easy-to-use data privacy platform that instantly helps your website become compliant with laws such as GDPR and CCPA. Osano monitors all the vendors you share data with so you don't have to.
+[Osano](https://www.osano.com/) is an easy-to-use data privacy platform that helps you keep your website compliant with laws such as GDPR and CCPA. Osano monitors all the vendors you share data with so you don't have to.
 
 Osano connects to Amplitude via a one-click integration. Osano then discovers and automatically classifies the personal data stored in Amplitude. After discovery and classification are finished, you can include Amplitude in searches related to subject rights requests.
 
@@ -37,3 +37,5 @@ See the [Osano documentation](https://docs.osano.com/data-field-classificaiton-c
 9. Save when finished.
 
 When you save, Amplitude and Osano immediately begin syncing to detect PII. Manage this information from Osano.
+
+--8<-- "includes/abbreviations.md"
