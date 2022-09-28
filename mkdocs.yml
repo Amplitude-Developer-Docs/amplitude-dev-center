@@ -290,6 +290,7 @@ nav:
       - Chameleon: data/sources/chameleon.md
       - CleverTap: data/sources/clevertap.md
       - Convizit: data/sources/convizit.md
+      - Cordial: data/sources/cordial.md
       - CSV: data/sources/lookup-table.md
       - Datazoom: data/sources/datazoom.md
       - Facebook Ads: data/sources/facebook-ads.md
