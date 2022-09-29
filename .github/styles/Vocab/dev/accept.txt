@@ -133,3 +133,4 @@ discoverability
 Freemarker
 MetaRouter
 Osano
+Talon\.\One
