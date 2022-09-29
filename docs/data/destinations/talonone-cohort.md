@@ -1,6 +1,7 @@
 ---
 title: Send Cohorts to Talon.One
 description: The Talon.One integration lets you send audiences from Amplitude to Talon.One to create more personalized promotional campaigns.
+status: new
 ---
 
 --8<-- "includes/talonone-cohort.md"
