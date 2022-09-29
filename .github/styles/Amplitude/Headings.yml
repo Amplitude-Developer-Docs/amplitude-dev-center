@@ -45,4 +45,5 @@ exceptions:
   - Plugin.execute
   - Lookup
   - Explorer
+  - DataGrail
   - convertToAmplitudeFunc
