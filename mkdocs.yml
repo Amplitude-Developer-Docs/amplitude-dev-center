@@ -374,6 +374,7 @@ nav:
       - Split: data/destinations/split-cohort.md
       - Segment: data/destinations/segment-cohort.md
       - Statsig: data/destinations/statsig-cohort.md
+      - Talon.One: data/destinations/talonone-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Userflow: data/destinations/userflow-cohort.md
     - Profile API:
