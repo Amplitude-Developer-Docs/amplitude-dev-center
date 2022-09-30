@@ -563,7 +563,7 @@ Amplitude can capture the initial UTM parameters and referrer information for ea
 - `initial_gclid`
 - `initial_fbclid`
 
-Capture these parameters by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFclid`, and `includeGclid` to `true`.
+Capture these parameters by setting the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFbclid`, and `includeGclid` to `true`.
 
 !!!note
     Initial attribution information for users can change if they're merged with another user.
@@ -582,7 +582,7 @@ Amplitude captures where a user came from for each of their sessions by setting 
 - `gclid`
 - `fbclid`
 
-TO use this, set the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFclid`, and `includeGclid` to `true`.
+TO use this, set the JavaScript SDK configuration options `includeReferrer`, `includeUtm`, `includeFbclid`, and `includeGclid` to `true`.
  By default, the SDK saves values only at the start of the session, so if a user triggers some flow that causes them to land on the site again with a different set of UTM parameters within the same session,
   the second set isn't saved.
 
