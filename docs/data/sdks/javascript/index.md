@@ -771,9 +771,9 @@ You can track anonymous behavior across two different domains. Amplitude identif
 Users who start on Site 1 and then navigate to Site 2 must have the device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then needs to initialize the SDK with the device ID.
  The SDK can parse the URL parameter automatically if `deviceIdFromUrlParam` is enabled.
 
-- From Site 1, grab the device ID from `amplitude.getInstance().options.deviceId`.
-- Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?amp_device_id=device_id_from_site_1`)
-- Initialize the Amplitude SDK on Site 2 with `amplitude.init('API_KEY', null, {deviceIdFromUrlParam: true})`.
+1. From Site 1, grab the device ID from `amplitude.getInstance().options.deviceId`.
+2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?amp_device_id=device_id_from_site_1`)
+3. Initialize the Amplitude SDK on Site 2 with `amplitude.init('API_KEY', null, {deviceIdFromUrlParam: true})`.
 
 ### Tracking UTM parameters, referrer, and gclid (JavaScript)
 
