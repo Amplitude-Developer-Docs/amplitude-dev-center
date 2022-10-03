@@ -105,7 +105,9 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed: # Enables content tabs
-      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.tasklist: # Enables task lists
       custom_checkbox: true
   - pymdownx.tilde # enables strikthrough (<del> tags) and subscripts https://facelessuser.github.io/pymdown-extensions/extensions/tilde/
