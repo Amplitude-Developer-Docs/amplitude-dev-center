@@ -630,6 +630,12 @@ If you set `logAttributionCapturedEvent` to `true` in your JavaScript SDK config
 
 Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the [demo app](https://github.com/amplitude/GTM-Web-Demo) on GitHub for instructions on how to set it up.
 
+Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
+
+!!!tip
+
+    It's best practice to use a custom instance name to avoid a naming collision.
+
 ## Advanced topics
 
 ### Dynamic configuration
