@@ -4,9 +4,9 @@ description: Use Amplitude Data with your continuous integration (CI) workflow.
 template: guide.html
 ---
 
-Amplitude Data works best when integrated into your continuous integration (CI) workflow, running continuously alongside your test suite. We integrate with all common CI providers and can be configured for custom environments.
+Amplitude Data works best when integrated into your continuous integration (CI) workflow, running continuously alongside your test suite. Amplitude Data integrates with all common CI providers and you can configure it for custom environments.
 
-After you've added Amplitude Data to your CI environment, Amplitude Data will verify your analytics against every build.
+After you've added Amplitude Data to your CI environment, Amplitude Data verifies your analytics against every build.
 
 !!!note
 
@@ -14,7 +14,7 @@ After you've added Amplitude Data to your CI environment, Amplitude Data will ve
 
 ### Step 1: Create an API token
 
-Create an [API token](https://data.amplitude.com/settings/api-tokens) in your account or set up another account to be used for CI. Ampli uses this token for authentication when running inside CI to update your tracking plan's implementation status.
+Create an [API token](https://data.amplitude.com/settings/api-tokens) in your account. Ampli uses this token for authentication when running inside CI to update your tracking plan's implementation status.
 
 !!!warning
 
@@ -38,11 +38,11 @@ Read the documentation for your CI service to get step-by-step instructions:
 
 ### Step 3: Prepare your project
 
-By now, you've run `ampli pull` and `ampli status` in your project's root folder. The folder contains an `ampli.json` file with metadatata about the current state of the Itly SDK in your project. When you run `ampli status`, on your local machine or soon in CI, Ampli will verify your analytics against this file.
+By now, you've run `ampli pull` and `ampli status` in your project's root folder. The folder contains an `ampli.json` file with metadata about the current state of the Itly SDK in your project. When you run `ampli status`, on your local machine or soon in CI, Ampli verifies your analytics against this file.
 
 For non-JavaScript and non-TypeScript projects, this is all the configuration that's needed.
 
-Optionally, for JavaScript and TypeScript projects, you may decide to install Ampli locally as a dev dependency. Installing Ampli locally in the project's node_modules folder simplifies installation and usage of Ampli for your team and CI environment. There are two steps to this.
+Optionally, for JavaScript and TypeScript projects, you may decide to install Ampli locally as a dev dependency. Installing Ampli locally in the project's `node_modules` folder simplifies installation and usage of Ampli for your team and CI environment. There are two steps to this.
 
 #### Install Ampli as a dev dependency
 
@@ -50,7 +50,7 @@ To install Ampli locally, run `npm install @amplitude/ampli -D`.
 
 ### Step 4: Run Ampli in CI
 
-To integrate Ampli with your CI system, modify your CI configuration to run [`ampli status`](cli.md#ampli-status) as part of the build process. We've made it easy by creating [Docker Containers](https://hub.docker.com/u/amplitudeinc) that you can use which include dependencies. Some runtimes have their own containers:
+To integrate Ampli with your CI system, change your CI configuration to run [`ampli status`](cli.md#ampli-status) as part of the build process. Amplitude has made it easy by creating [Docker Containers](https://hub.docker.com/u/amplitudeinc) that you can use which include dependencies. Some runtimes have their own containers:
 
 - `amplitudeinc/ampli`
 - `amplitudeinc/ampli-swift`

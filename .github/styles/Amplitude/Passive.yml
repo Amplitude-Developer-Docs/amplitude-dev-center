@@ -190,3 +190,6 @@ exceptions:
   - deprecated
   - initialized
   - exposed
+  - merged
+  - approved
+  - reviewed

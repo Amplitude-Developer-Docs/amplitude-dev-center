@@ -47,3 +47,7 @@ exceptions:
   - Explorer
   - DataGrail
   - convertToAmplitudeFunc
+  - Bitbucket
+  - Circle CI
+  - Ampli Wrapper
+  - GitHub Actions
