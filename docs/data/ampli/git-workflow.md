@@ -260,7 +260,7 @@ After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-n
 
     If you run `ampli pull` on a merged version it will update the `ampli.json` and Ampli Wrapper to contain the associated version main that was created by the merged branch. If you want to get the latest version of `main` you can run `ampli pull` a second time.
 
-## Github Actions
+## GitHub Actions
 
 ### Initial Setup
 
@@ -366,7 +366,7 @@ Yes, the generated code from Ampli as well as ampli.json should be checked into 
 
 ### Do I need to manually resolve git conflicts in the Ampli generated code and ampli.json?
 
-No, if you have git conflicts in any Ampli related files (Ampli generated code or ampli.json), run `ampli pull` and the Ampli CLI will take care of resolving the conflicts automatically.
+No, if you have git conflicts in any Ampli related files (Ampli generated code or ampli.json), run `ampli pull` and the Ampli CLI takes care of resolving the conflicts automatically.
 
 ### The ampli.json on my git main branch is pointing to an Ampli branch that has already been merged, is that expected?
 
