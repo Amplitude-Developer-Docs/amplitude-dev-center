@@ -8,7 +8,7 @@ If you already have analytics implemented in your product and want to migrate, A
 
 ## Considerations
 
-- The `context` parameter isn't supported in Ampli. This was originally based on per Source Templates which is a feature that is deprecated. To add additional data on each event you can do so by creating a Middleware like below that will set "contextProp=true" on all events.
+- The `context` parameter isn't supported in Ampli. This was originally based on per Source Templates which is a deprecated feature. To add more data on each event you can do so by creating a Middleware that sets `contextProp=true` on all events.
 
     ```js
     export const contextMiddleware:Middleware = (payload, next) => {
@@ -16,7 +16,7 @@ If you already have analytics implemented in your product and want to migrate, A
         ...payload.event.event_properties,    contextProp: true,  };  next(payload);};
     ```
 
-- The `validation` parameter isn't supported in Ampli. This flag previously enabled/disabled local schema validation in the SDK. The new Ampli SDKs no longer do local schema validation and instead rely on backend validation on our servers which can be viewed on the Event "sparklines" in the Events page in Data.
+- The `validation` parameter isn't supported in Ampli. Before, this flag enabled and disabled local schema validation in the SDK. The new Ampli SDKs no longer do local schema validation and instead rely on backend validation on Amplitude servers which you can view on the Event "sparklines" in the Events page in Data.
 
 ## Migrate events 
 

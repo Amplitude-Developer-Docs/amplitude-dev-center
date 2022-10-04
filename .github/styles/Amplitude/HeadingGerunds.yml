@@ -13,3 +13,5 @@ exceptions:
   - Timing
   - streaming
   - syncing
+  - Filtering
+  - filtering

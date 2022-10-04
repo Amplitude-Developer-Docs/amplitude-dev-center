@@ -4,7 +4,7 @@ description: Ampli is Amplitude Data's command line app. It works hand-in-hand w
 template: guide.html
 ---
 
-Ampli is Amplitude's command line app. It works hand-in-hand with the Amplitude Data web app and enables developers to quickly and correctly instrument tracking code in their apps.
+Ampli is Amplitude's command line app. It works hand-in-hand with the Amplitude Data web app and enables developers to correctly instrument tracking code in their apps.
 
 ## Set up Ampli
 
@@ -164,7 +164,7 @@ scans your source files, locate all calls to the Ampli tracking library, and
 let you know which events you're tracking, and which aren't instrumented yet.
 
 Include `-u` to update your company's tracking plan in Amplitude Data and share the latest analytics implementation status with your team. Your teammates can tell when events were first implemented, the last time they've
-been detected in the source code, and where exactly in the code they are tracked.
+been detected in the source code, and where exactly in the code they're tracked.
 
 If you're integrating Ampli into CI, there are typically two pipelines you'll want to run `ampli status` in:
 

@@ -6,7 +6,7 @@ template: guide.html
 ---
 
 !!!note
-    Middleware is only supported in Ampli legacy. If you are on the latest Ampli this functionality has been replaced by **[Plugins](../plugin/)**.
+    Middleware is only supported in Ampli legacy. **[Plugins](../plugin/)** replaced middleware in the latest Ampli version.
 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event.
  This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
@@ -25,7 +25,7 @@ To invoke the next middleware in the queue, use the `next` function.
 Add middleware to Ampli via `ampli.client.addEventMiddleware()`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
 
 !!!note
-    In Amplitude's Browser SDKs, Middleware is added directly via `ampli` instead of `ampli.client`. To add Middleware in these
+    In Amplitude's Browser SDKs, add Middleware directly via `ampli` instead of `ampli.client`. To add Middleware in these
     SDKs you should use `ampli.addEventMiddlware()`.
 
 ```js
@@ -51,7 +51,7 @@ ampli.client.addEventMiddleware(filteringMiddleware)
 
 ## Middleware examples
 
-### Modifying events
+### Modify events
 
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
@@ -63,7 +63,7 @@ ampli.client.addEventMiddleware((payload, next) => {
 });
 ```
 
-### Enriching events
+### Enrich events
 
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
@@ -86,7 +86,7 @@ ampli.client.addEventMiddleware((payload, next) => {
 });
 ```
 
-### Forwarding data to other services, but not Amplitude
+### Forward data to other services, but not Amplitude
 
 ```js
 import amplitude from 'amplitude/sdk'
@@ -104,7 +104,7 @@ ampli.client.addEventMiddleware((payload, next) => {
 });
 ```
 
-### Using client-side validation
+### Use client-side validation
 
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
