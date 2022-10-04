@@ -133,4 +133,5 @@ discoverability
 Freemarker
 MetaRouter
 Osano
-Talon\.\One
+Talon\.One
+autogenerates
