@@ -632,7 +632,9 @@ Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the
 
 Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
 
-*Tip: it is always suggested to have a custom instance name to avoid naming collision.*
+!!!tip
+
+    It's best practice to use a custom instance name to avoid a naming collision.
 
 ## Advanced topics
 
