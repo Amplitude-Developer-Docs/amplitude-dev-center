@@ -50,3 +50,4 @@ exceptions:
   - Bitbucket
   - Circle CI
   - Ampli Wrapper
+  - GitHub Actions

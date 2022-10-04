@@ -56,7 +56,7 @@ If later you would like to change branches you have a couple of options.
 
 #### `ampli checkout [my-branch-name]`
 
-The provided branch is pulled down from Data to your Ampli Wrapper. If you don't provide a branch name, you're prompted
+The provided branch is pulled down from Data to your Ampli Wrapper. If you don't specify a branch name, you're prompted
 to select one from a list of active branches in your tracking plan.
 
 ```bash
@@ -139,7 +139,7 @@ We recommend running ampli pull to update to the latest tracking plan.
 
 The `--is-merged` flag checks the current Branch and Version in your `ampli.json`. If the exact Version of the Branch was merged into Ampli main it succeeds, otherwise it exits with error code 1. It always return success for the Ampli `main` branch.
 
-For the example branch structure, `is-merged` would return success for `b1@3`, `b2@5`, `main@3`, `main@2`, `main@1`.
+For the [branch structure example](#example-branch-structure),, `is-merged` would return success for `b1@3`, `b2@5`, `main@3`, `main@2`, `main@1`.
 
 ### Check if current Ampli branch is on the latest version
 
@@ -156,7 +156,7 @@ ampli status --is-latest
 
 The `--is-latest` flag checks the Branch and Version in the `ampli.json`. If the Version is the last one published for the Branch it succeeds, otherwise it exits with error code 1.
 
-For the branch structure in the example, `is-latest` would return success for `b2@5`, `b3@4`, `main@3`.
+For the [branch structure example](#example-branch-structure), `is-latest` would return success for `b2@5`, `b3@4`, `main@3`.
 
 !!!note
 
@@ -166,7 +166,7 @@ For the branch structure in the example, `is-latest` would return success for `b
 
 The `--is-latest-if-not-on-default-branch` works the same as `is-latest` but also returns success for any version of the Ampli `main` branch. This is useful for CI integrations where you don't want to enforce using the latest version on the main branch.
 
-For the branch structure above, `is-latest-if-not-on-default-branch` would return success for `b2@5` , `b3@4`, `main@3`, `main@2`, `main@1`.
+For the [branch structure example](#example-branch-structure), `is-latest-if-not-on-default-branch` would return success for `b2@5` , `b3@4`, `main@3`, `main@2`, `main@1`.
 
 ### Combine checks
 
@@ -196,18 +196,19 @@ Here are some common errors and solutions for the ampli status command.
 
 #### `is-merged` error
 
-* This means you are currently on an un-merged Ampli branch.
-* Log into Data and check your tracking plan has been reviewed and approved.
-* You may need to "Refresh" your Data branch before being able to merge. If so make sure to run `ampli pull` again to
+This means you are currently on an un-merged Ampli branch. To fix this error: 
+
+1. Log into Data and check to make sure your tracking plan has been reviewed and approved.
+2. You may need to "Refresh" your Data branch before being able to merge. If so make sure to run `ampli pull` again to
 get the latest updates.
-* Merge your Data branch.
+Merge your Data branch.
 
 #### `is-latest` error
 
 * This means you aren't on the latest version of your Data branch.
 * Run `ampli pull` to update your local project.
 
-### Enforcing branch coordination
+### Enforce branch coordination
 
 `ampli status --is-merged --is-latest`
 
@@ -223,9 +224,9 @@ We recommend running ampli pull to update to the latest tracking plan.
 ✔ You are on the latest version of feature-branch-name
 ```
 
-You can ensure that your Ampli and Git branches stay in sync with the ampli status command.
+You can make sure that your Ampli and Git branches stay in sync with the ampli status command.
 
-Before merging your Git branch with implementation changes you should verify that both is-merged and is-latest checks pass successfully. This can be done as a single command `ampli status --is-merged --is-latest`.
+Before merging your Git branch with implementation changes you should verify that both is-merged and is-latest checks pass successfully. You can do this with a single command `ampli status --is-merged --is-latest`.
 
 !!!info
 
@@ -233,19 +234,19 @@ Before merging your Git branch with implementation changes you should verify tha
 
 ## CI workflows
 
-Branch status checks can be added in CI to ensure the best practices are enforced.
+Add branch status checks in CI to make sure that code follows best practices.
 
 Amplitude recommends adding new status checks to all your PR workflows. In addition to `ampli status -u`* you should add also add a call to `ampli status --is-merged`.
 
-You can combine these into a single command, but for CI it can be useful to keep them separate to see if the implementation checks succeed independently from the branch checks.
+You can combine these into a single command, but for CI it can be useful to keep them separate. This helps you to see if the implementation checks succeed independently from the branch checks.
 
 * In PR workflows Amplitude recommends using `--skip-update-on-default-branch` when calling `--update` or `-u`.
 
-### Using `is-latest` in CI
+### Use `is-latest` in CI
 
-Using `is-latest` in CI workflows isn't necessary but can be used for stricter enforcement.
+Although it's not required, use `is-latest` in CI workflows for stricter enforcement.
 
-If `is-latest` is used in a multi-team environment or on a tracking plan with multiple Sources it can require additional steps to keep the merge checks in a passing state. Changes merged into to the `main` tracking plan by other teams or on other Sources cause future runs of `is-latest` to fail in your project as it's no longer on the latest version.
+If you use  `is-latest` in a multi-team environment or on a tracking plan with multiple Sources it can require extra steps to keep the merge checks in a passing state. Changes merged into to the `main` tracking plan by other teams or on other Sources cause future runs of `is-latest` to fail in your project. This is because it's no longer on the latest version.
 
 In this case you can explicitly "lock" the tracking plan to a specific version on the `main` branch and using `--is-latest-if-not-on-default-branch`.
 
@@ -254,7 +255,7 @@ This means any time an "external" change happens to the tracking plan you must f
 1. Run `ampli pull` to update the `ampli.json` to be on the `main` Branch.
 2. Commit changes to Git branch.
 
-After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-not-on-default-branch` pass. This is useful you want to keep the current version fixed regardless of new tracking plan changes.
+After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-not-on-default-branch` pass. This is useful to keep the current version fixed regardless of new tracking plan changes.
 
 !!!info
 
@@ -262,7 +263,7 @@ After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-n
 
 ## GitHub Actions
 
-### Initial Setup
+### Initial setup
 
 1. Add `ampli-implementation-check.yml` and `ampli-merge-check.yml` to your `.github/workflows` directory.
 
@@ -304,11 +305,11 @@ After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-n
 
 2. If your Ampli project is in a subdirectory, you may need to set the correct working-directory in your Actions. See GitHub documentation [here](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
 
-3. Create a API token in Data. This can be done from `Settings => API Tokens => Create Token`
+3. Create a API token in Data. Do this from `Settings => API Tokens => Create Token`.
 
     ![screenshot of a creating API token](../../assets/images/data-create-api-token.png)
 
-4. Add the API token to your Repository secrets as `AMPLI_TOKEN`. This can be done from
+4. Add the API token to your Repository secrets as `AMPLI_TOKEN`. You can do this from
 `Settings => Secrets => Actions => New repository secret`
 
     ![screenshot of a adding API token as secret in GitHub](../../assets/images/data-add-api-token-secret-github.png)
@@ -320,12 +321,12 @@ After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-n
 1. During development the "Ampli Merge Check" in GitHub fails continuously until the corresponding branch is merged in Data. This is expected and ensures that your code stays in sync with the tracking plan.
     ![screenshot of a failing GitHub action](../../assets/images/data-pr-workflow-fail.png)
 
-2. Start by implementing the latest changes to your tracking plan. This is verified by the "Ampli Implementation Check".
+2. Start by implementing the latest changes to your tracking plan. The Ampli Implementation Check verifies this.
 
     ![screenshot of verified implementation check in GitHub](../../assets/images/data-ampli-implementation-check.png)
 
 3. After all other checks have passed except the "Ampli Merge Check", you are ready to get approval in GitHub.
-4. After your GitHub PR is approved, you can go to <https://data.amplitude.com> and merge your Data branch. This is done under "Home" after selecting the branch in the left-hand dropdown.
+4. After your GitHub PR is approved, you can go to <https://data.amplitude.com> and merge your Data branch. Do this under **Home** after selecting the branch in the left-hand dropdown.
 
     !!!caution
         If your Data branch is out of date with the main tracking plan you may need to "Refresh" before you can merge. This applies the latest changes from main to your Data branch. If you "Refresh" your branch it's important to also pull the latest changes in both Git and Ampli.
@@ -358,6 +359,7 @@ High-level setup:
 
 See the [GitHub Actions](#github-actions) instructions for inspiration.
 
+<!--vale off-->
 ## FAQs
 
 ### Should the Ampli generated code and the ampli.json file be checked into git?
@@ -375,3 +377,4 @@ Yes, that's expected! The Ampli CLI uses this information to verify that the Amp
 ### Do I need to run ampli pull -b main before merging my Git branch?
 
 Not anymore! If you were using an earlier version of Ampli make sure to update to Ampli CLI 1.9.0+ and pull the latest version of your Ampli Wrapper. After that you'll never need to run ampli pull -b main again.
+<--! vale on-->
