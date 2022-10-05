@@ -37,5 +37,6 @@
 - :talonone: [Talon.One](../data/destinations/talonone-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
 - :userflow: [Userflow](../data/destinations/userflow-cohort.md)
+- :userlist: [Userlist](../data/destinations/userlist-cohort.md)
 
 </div>

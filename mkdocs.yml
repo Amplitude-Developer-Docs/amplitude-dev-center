@@ -377,6 +377,7 @@ nav:
       - Talon.One: data/destinations/talonone-cohort.md
       - TikTok: data/destinations/tiktok-cohort.md
       - Userflow: data/destinations/userflow-cohort.md
+      - Userlist: data/destinations/userlist-cohort.md
     - Profile API:
       - Moveable Ink: data/destinations/moveable-ink-profile-api.md
   - Privacy and PII:
