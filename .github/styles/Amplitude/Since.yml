@@ -5,3 +5,5 @@ level: suggestion
 tokens:
   - since
   - Since
+exceptions:
+  - since(?!\ epoch)

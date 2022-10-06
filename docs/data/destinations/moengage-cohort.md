@@ -3,7 +3,7 @@ title: Send Cohorts to MoEngage
 description: Send Amplitude cohorts to MoEngage to tailor your email, SMS, push, and in-product messaging.
 ---
 
-Amplitude's MoEngage integration allows you to send hyper-targeted behavioral audiences from Amplitude to MoEngage, which you can then use to drive precisely tailored email, SMS, push, and in-product messaging.
+Amplitude's MoEngage integration allows you to send hyper-targeted behavioral audiences from Amplitude to MoEngage. With MoEngage, you can use Amplitude cohorts to drive precisely tailored email, SMS, push, and in-product messaging.
 
 ## Considerations
 

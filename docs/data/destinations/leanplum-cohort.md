@@ -42,4 +42,4 @@ For more information on setting up this integration, see [Leanplum's documentati
 3. Select the sync cadence.
 4. Save your work.
    
-Allow up to 30 minutes for the audience and the users in it to populate in your Audiences dashboard in Leanplum. Audiences synced from Amplitude will have a "Amplitude:" prefix. 
+Allow up to 30 minutes for the audience and the users in it to populate in your Audiences dashboard in Leanplum. Audiences synced from Amplitude have a "Amplitude:" prefix. 

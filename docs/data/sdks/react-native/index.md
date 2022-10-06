@@ -403,7 +403,7 @@ Users may wish to opt out of tracking entirely, which means no events and no rec
 React Native SDK allows users to configure their apps to use [dynamic configuration](../../dynamic-configuration.md). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
-- If you have users in Mainland China, we recommend that you use dynamic configuration.
+- If you have users in Mainland China, Amplitude recommends that you use dynamic configuration.
 - By default, this feature is off. You must explicitly enable it to use it.
 - By default, this feature returns the server URL for Amplitude's US servers. If you need to send data to Amplitude's EU servers, please use `setServerZone` to set it to EU zone.
 

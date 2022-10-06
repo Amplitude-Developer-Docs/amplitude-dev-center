@@ -193,3 +193,8 @@ exceptions:
   - merged
   - approved
   - reviewed
+  - uploaded
+  - exported
+  - verified
+  - synced
+  

@@ -22,7 +22,7 @@ The TikTok Ads integration allows you to send audiences from Amplitude to TikTok
     - Phone Number[^1]
 - This integration must be enabled on a per-project basis.
 - TikTok Ads requires SHA256 encryption. If your amplitude key isn't encrypted, Amplitude applies SHA256 when syncing cohort data. 
-- You can't change the Tiktok Key after you save the integration. If you need to use a different key, disconnect the integration in Amplitude and set it up again.
+- You can't change the TikTok Key after you save the integration. If you need to use a different key, disconnect the integration in Amplitude and set it up again.
 
 [^1]: Currently in testing. See [TikTok's documentation](https://ads.tiktok.com/marketing_api/docs?id=1701890985340929) for more information.
 
@@ -49,6 +49,6 @@ To sync your first cohort, follow these steps:
 3. Choose the account you want to sync to.
 4. Choose the sync cadence..[^2]
 5. When finished, save your work.
-[^2]: If you're not sure which selection is best, we recommend setting up automated recurring syncs for any essential cohorts. Use one-time syncs for work on individual projects.
+[^2]: If you're not sure which selection is best, Amplitude recommends setting up automated recurring syncs for any essential cohorts. Use one-time syncs for work on individual projects.
 
 In [TikTok Ads Manager](https://ads.tiktok.com/i18n/dashboard) the cohort appears under **Assets → Audiences**. It can take TikTok Ads up to 12 hours to populate the sync. If the cohort is less than 1000 users, it's marked as *unavailable* on TikTok Ads. In this case, disconnect the TikTok Ads integration in Amplitude, change the mapping and cohort definition to restart the cohort sync.

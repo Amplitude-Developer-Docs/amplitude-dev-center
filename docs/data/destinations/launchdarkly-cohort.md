@@ -34,7 +34,7 @@ To set up this integration, you first need an access token and client-side ID fr
 
 ## Send a cohort
 
-After LaunchDarkly is connected to Amplitude, you can sync any Amplitude cohort to it.
+After you connect LaunchDarkly to Amplitude, you can sync any Amplitude cohort to it.
 
 1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose LaunchDarkly.
 2. Choose the API target. This is the name you gave the integration in Amplitude.

@@ -5,7 +5,7 @@ description: Amplitude's Appcues integration allows you to send finely-targeted 
 
 --8<-- "includes/editions-growth-and-enterprise.md"
 
-Amplitude's Appcues integration allows you to send finely-targeted behavioral audiences from Amplitude to Appcues, where you can use them to power tailored in-product onboarding tutorials, tooltips, announcements, promotions, and surveys.
+Amplitude's Appcues integration allows you to send finely targeted behavioral audiences from Amplitude to Appcues. You can then use them to power tailored in-product onboarding tutorials, tooltips, announcements, promotions, and surveys.
 
 ## Considerations
 
@@ -16,7 +16,7 @@ Amplitude's Appcues integration allows you to send finely-targeted behavioral au
 
 1. In Amplitude, navigate to **Data Destinations**, then find **Appcues - Cohort**.
 2. Enter your Appcues account ID. You can find your account ID by following [these instructions](https://docs.appcues.com/article/254-http-api).
-3. Select the Amplitude user property you want to map to the Appcues `User ID` field. This property should match the `User ID` field.
+3. Select the Amplitude user property to map to the Appcues `User ID` field. This property should match the `User ID` field.
 4. Save your work.
 
 ## Send a cohort
@@ -24,7 +24,7 @@ Amplitude's Appcues integration allows you to send finely-targeted behavioral au
 To sync a cohort between Amplitude and Appcues, follow these steps:
 
 1. Open your cohort and select the API target to sync to.
-2. Specify the custom field that you want to sync to. Appcues automatically creates this field the first time your cohort syncs. The field name can't contain any quote characters.
-3. Specify whether you want to run a one-time sync, or whether you want the sync to occur on a scheduled basis.
+2. Specify the custom field to sync to. Appcues automatically creates this field the first time your cohort syncs. The field name can't contain any quote characters.
+3. Specify whether to run a one-time sync, or whether you want the sync to occur on a scheduled basis.
 
 In Appcues, the cohort appears as a user property. Its name matches the one you provided for the custom field. It's set to `true` if a user is in the cohort at the time of sync, and `false` if they're not.

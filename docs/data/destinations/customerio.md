@@ -15,7 +15,7 @@ Amplitude Data's Customer.io integration lets you stream your Amplitude event da
 
 Keep these things in mind when sending events to [Customer.io:](http://customer.io/)
 
-- Amplitude matches the `user_id`to the `id` within Customer.io to associated events. If user with that `id` does not exist within Customer.io, a new user will be created. Make sure that the Amplitude `user_id` field matches the Customer.io `id` field to avoid user duplication.
+- Amplitude matches the `user_id`to the `id` within Customer.io to associated events. If user with that `id` doesn't exist within Customer.io, a user is created. Make sure that the Amplitude `user_id` field matches the Customer.io `id` field to avoid user duplication.
 - Relevant limits for Customer.io events are:
   - Maximum length of Customer ID: 150 bytes
   - Maximum number of Unique Identify attributes: 300
@@ -44,5 +44,5 @@ To configure an Event Streaming integration from Amplitude to Customer.io, you n
 1. In Amplitude, navigate to **Data Destinations**, then find **Customer.io - Event Stream**.
 2. Enter a sync name, then click **Create Sync**.
 3. Click **Edit**, then paste your Customer.io Site ID and API keys.
-4. Use the _Send events_ filter to select the events you want to send. You can send all events, but we recommend choosing the most important ones.
+4. Use the _Send events_ filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones.
 5. When finished, enable the destination and save.

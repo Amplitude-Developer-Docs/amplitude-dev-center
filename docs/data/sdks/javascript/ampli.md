@@ -68,7 +68,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
     ```
 
 !!!note
-    Note: when using Ampli in the browser, we recommend loading `amplitude-js` as a module rather than as a JS snippet.
+    Note: when using Ampli in the browser, Amplitude recommends loading `amplitude-js` as a module rather than as a JS snippet.
 
 ### Pull the SDK into your project
 

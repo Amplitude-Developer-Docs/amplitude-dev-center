@@ -40,5 +40,5 @@ There are no other setup steps in AppsFlyer.
 1. In Amplitude, navigate to **Data Destinations**, then find **AppsFlyer - Event Stream**.
 2. Enter a sync name, then click **Create Sync**.
 3. Click **Edit**, then paste your AppsFlyer App ID and REST API key.
-4. Use the _Send events_ filter to select the events you want to send. You can send all events, but we recommend choosing the most important ones.
+4. Use the _Send events_ filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
 5. When finished, enable the destination and save.
