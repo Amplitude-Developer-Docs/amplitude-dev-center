@@ -30,4 +30,4 @@ After you have exported the cohort, you can see the cohort in the [List](https:
 - "Properties about someone" → `isActive `sets to be `is true `with type `Boolean`.
 - "If someone is in or not in a list" → Person `is `in `Choose a list `→ chooses a list from the dropdown list.
 
-After that, you create a segment with active users in the cohort, which can be used for events that follow.
+After that, you create a segment with active users in the cohort to use for events that follow.

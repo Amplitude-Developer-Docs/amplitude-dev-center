@@ -55,7 +55,7 @@ Leanplum
 Mailchimp
 Marketo
 md
-Monitor
+[Mm]onitor
 monorepo
 monorepos
 mParticle
@@ -136,3 +136,11 @@ Osano
 Talon\.One
 autogenerates
 Netlify
+Airship's
+tooltips
+Dev
+[Aa]nonymized
+Datacenter
+Userlist
+onesignal.com
+omnichannel

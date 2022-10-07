@@ -43,7 +43,7 @@ Amplitude's data structure includes [events, event properties, user properties]
 
 !!!tip "Data Taxonomy Playbook"
 
-    Our [Data Taxonomy Playbook](https://help.amplitude.com/hc/en-us/articles/115000465251-Data-Taxonomy-Playbook) can help you understand more about the Amplitude schema, and we recommend reading it before continuing. 
+    Our [Data Taxonomy Playbook](https://help.amplitude.com/hc/en-us/articles/115000465251-Data-Taxonomy-Playbook) can help you understand more about the Amplitude schema, and Amplitude recommends reading it before continuing. 
 
 ### Naming conventions for events
 

@@ -16,9 +16,8 @@ This integration lets you sync cohorts from Amplitude to Userlist. Now you can t
 
 ## Considerations
 
-- This integration is only available for customers who have paid plans with Amplitude.
 - You must enable this integration in each Amplitude project you want to use it in.
-- You will also need to have a paid Userlist plan to enable this integration.
+- You need a paid Userlist plan to enable this integration.
 
 ## Setup
 

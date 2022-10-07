@@ -16,7 +16,7 @@ The pre-targeting steps may determine the evaluated variant prior to targeting s
 A flag may be active or inactive. Inactive flags will never return a variant as a result of evaluation.
 
 !!!info "Best Practice"
-    For simple on/off flags, we recommend using the [all users segment](#all-users-segment) allocation set to either 100% or 0% rather than using the activation toggle to control traffic. The activation toggle should be used to sunset a feature that has been been fully rolled out or rolled back after the flag's instrumentation has been removed.
+    For simple on/off flags, Amplitude recommends using the [all users segment](#all-users-segment) allocation set to either 100% or 0% rather than using the activation toggle to control traffic. The activation toggle should be used to sunset a feature that has been been fully rolled out or rolled back after the flag's instrumentation has been removed.
 
 ### Individual inclusions
 

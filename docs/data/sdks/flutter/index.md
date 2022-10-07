@@ -352,7 +352,7 @@ Amplitude.getInstance().setOptOut(false);
 Flutter SDK lets users configure their apps to use [dynamic configuration](../../dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
-- If you have users in Mainland China, we recommend that you use dynamic configuration.
+- If you have users in Mainland China, Amplitude recommends that you use dynamic configuration.
 - By default, this feature is off. You must explicitly enable it to use it.
 - By default, this feature returns server URLs for Amplitude's US servers. If you need to send data to Amplitude's EU servers,  use `setServerZone` to set it to EU zone.
 

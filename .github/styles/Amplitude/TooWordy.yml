@@ -1,7 +1,7 @@
 extends: existence
 message: "'%s' is too wordy. Use a simpler word."
 ignorecase: true
-level: warning
+level: suggestion
 tokens:
   - a number of
   - abundance
@@ -201,4 +201,3 @@ tokens:
   - with respect to
   - with the exception of
   - witnessed
-  - you want to 

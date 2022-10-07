@@ -419,7 +419,7 @@ client.setOptOut(true); //No events will be tracked for this user
 Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
-- If you have users in Mainland China, we recommend that you use dynamic configuration.
+- If you have users in Mainland China, Amplitude recommends that you use dynamic configuration.
 - By default, this feature is off. You must explicitly enabled it to use it.
 - By default, this feature returns server URLs for Amplitude's US servers, if you need to send data to Amplitude's EU servers, please use `setServerZone` to set it to EU zone.
 

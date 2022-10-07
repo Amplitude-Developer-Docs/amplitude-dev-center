@@ -149,7 +149,7 @@ The property we pass over for cohort members is set to `true` when a user become
 
 ## Testing
 
-In order to test, we recommend creating a mock payload that you would expect to receive from Amplitude. For cohort integrations, the typical payload structure is as follows:
+In order to test, Amplitude recommends creating a mock payload that you would expect to receive from Amplitude. For cohort integrations, the typical payload structure is as follows:
 
 ```bash
 curl --location --request POST 'https://app.staging-01.TEST_COMPANY_NAME.com/api/v1/integration/amplitude/cohort \

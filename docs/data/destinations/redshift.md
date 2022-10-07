@@ -3,11 +3,11 @@ title: Redshift Export (Beta)
 description: Upload your Amplitude event data to your Redshift account with recurring exports. 
 ---
 
-Upload your Amplitude event data into your Redshift account. You can set up recurring syncs through the Amplitude UI, as well as manually initiate a sync of your historical data.
+Upload your Amplitude event data into your Redshift account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.
 
 ## Set up a recurring data export to Redshift
 
-Creating a recurring data export is a simple, three-step process you can handle yourself. Each sync will complete within five to ten minutes, you will be able to monitor the status of each job.
+Creating a recurring data export is a simple, three-step process you can handle yourself. Each sync completes within five to ten minutes, can you can monitor the status of each job.
 
 To set up a recurring export of your Amplitude data to Redshift, follow these steps:
 
@@ -21,9 +21,9 @@ To set up a recurring export of your Amplitude data to Redshift, follow these st
 4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Redshift Credentials For Amplitude* section, enter the following information:
 
-     - **User**: The Redshift user account that Amplitude will use to connect to your Redshift instance.
-     - **Password**: The password associated with the User.
-     - **Database**: The database where the data will be exported to and stored. We recommend dedicating a database for Amplitude data.
+     - **User**: The Redshift user account that Amplitude uses to connect to your Redshift instance.
+     - **Password**: The password associated with the user.
+     - **Database**: The database where the data should be exported to and stored. Amplitude recommends dedicating a database for Amplitude data.
      - **Cluster Host Address**: This is the address of the endpoint of the cluster that hosts your database.
      - **Port**: The port of the Cluster Host Address.  This may only contain digits. The default value is 5439.
 
@@ -31,8 +31,8 @@ To set up a recurring export of your Amplitude data to Redshift, follow these st
 
         These credentials are case-sensitive, so keep that in mind.
 
-6. Next to the credentials section, Amplitude dynamically creates the query it will use to create Redshift objects. To copy it to the clipboard, click **Copy**. You can now paste it into the Redshift CLI.
-7. Click **Next**. Amplitude will try to upload test data using the credentials you entered. If the upload is successful, click **Finish**.
+6. Next to the credentials section, Amplitude dynamically creates the query it uses to create Redshift objects. To copy it to the clipboard, click **Copy**. You can now paste it into the Redshift CLI.
+7. Click **Next**. Amplitude attempts to upload test data using the credentials you entered. If the upload is successful, click **Finish**.
 
 All future events are automatically sent to Redshift.
 
@@ -46,21 +46,21 @@ To export your historical data from Amplitude into Redshift, navigate to the *B
 
 This process can take anywhere from a single day to several weeks, depending on your data volume, warehouse size, cluster count, network bandwidth, and number of concurrent historical data exports you currently have, among other factors.
 
-## Redshift Export Format
+## Redshift export format
 
-The **Event** table schema will include the following columns:
+The **Event** table schema includes the following columns:
 
 | <div class="big-column">Column</div>| Type | Description |
 |---|---|---|
-| `Adid` | String | (Android) Google Play Services advertising ID (AdID). Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
-| `amplitude_event_type` | VARCHAR(1677721) | Amplitude specific identifiers based on events Amplitude generates. This is a legacy field so event_type should suffice for all queries  |
+| `Adid` | String | (Android) Google Play Services advertising ID (ADID). Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
+| `amplitude_event_type` | VARCHAR(1677721) | Amplitude specific identifiers based on events Amplitude generates. This is a legacy field so `event_type` should suffice for all queries  |
 | `amplitude_id` | BIGNUMERIC | The original Amplitude ID for the user. Use this field to automatically handle merged users. Example: 2234540891 |
 | `app` | INT64 | Project ID found in your project's Settings page. Example: 123456 |
 | `city` | STRING | City | “San Francisco” |
 | `client_event_time` | TIMESTAMP | Local timestamp (UTC) of when the device logged the event. Example: `2015-08-10T12:00:00.000000` |
 | `client_upload_time` | TIMESTAMP | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
 | `country` | STRING | Country. Example: "United States" |
-| `data` | STRING | Dictionary where certain fields such as first_event and merged_amplitude_id are stored |   |
+| `data` | STRING | Dictionary where certain fields such as `first_event` and `merged_amplitude_id` are stored |   |
 | `device_brand` | STRING | Device brand. Example: Apple |
 | `device_carrier` | STRING | Device Carrier. Example: Verizon |
 | `device_family` | STRING | Device family. Example: Apple iPhone |
@@ -71,7 +71,7 @@ The **Event** table schema will include the following columns:
 | `dma` | STRING | Designated marketing area (DMA). Example; San Francisco-Oakland-San Jose, CA |
 | `event_id` | INT64 | A counter that distinguishes events. Example: 1 |
 | `event_properties` | STRING |    |
-| `event_time` | TIMESTAMP | Amplitude timestamp (UTC) which is the client_event_time adjusted by the difference between server_received_time and client_upload_time, specifically: event_time = client_event_time + (server_received_time - client_upload_time)   Amplitude uses this timestamp is used to organize events on Amplitude charts. NOTE: If the difference between server_received_time and client_upload_time is less than 60 seconds, the event_time will not be adjusted and will equal the client_event_time. Example: `2015-08-10T12:00:00.000000` |
+| `event_time` | TIMESTAMP | Amplitude timestamp (UTC) which is the `client_event_time` adjusted by the difference between `server_received_time` and `client_upload_time`, specifically: `event_time` = `client_event_time` + (`server_received_time` - `client_upload_time`)   Amplitude uses this timestamp to organize events on Amplitude charts. NOTE: If the difference between `server_received_time` and `client_upload_time` is less than 60 seconds, the `event_time` isn't adjusted and is equal to the `client_event_time`. Example: `2015-08-10T12:00:00.000000` |
 | `followed_an_identify` | BOOL | True if there was an identify event between this current SDK event and the last SDK event seen. Example: `True` |
 | `group_properties` | STRING |    |
 | `groups` | STRING | Group types. See the Accounts documentation for more information.   |
@@ -82,7 +82,7 @@ The **Event** table schema will include the following columns:
 | `library` | STRING |     |
 | `location_lat` | FLOAT64 | Latitude. Example: 12.3456789 |
 | `location_lng` | FLOAT64 | Longitude. Example: -123.4567890 |
-| `os_name` | STRING | OS name. Example: ios |
+| `os_name` | STRING | OS name. Example: `ios` |
 | `os_version` | STRING | OS version. | 1.0 |
 | `paying` | STRING | True if the user has ever logged any revenue, otherwise (none).   Note: The property value can be modified via the Identify API. Example: true |
 | `platform` | STRING |    |
@@ -90,11 +90,11 @@ The **Event** table schema will include the following columns:
 | `region` | STRING | Region. Example: California |
 | `sample_rate` | BIGNUMERIC |    |
 | `server_received_time` | TIMESTAMP |    |
-| `server_upload_time` | TIMESTAMP | Amplitude timestamp (UTC) of when our servers received the event. Example:  `2015-08-10T12:00:00.000000` |
+| `server_upload_time` | TIMESTAMP | Amplitude timestamp (UTC) of when Amplitude servers received the event. Example:  `2015-08-10T12:00:00.000000` |
 | `session_id` | BIGNUMERIC | The session start time in milliseconds since epoch. Example: 1396381378123 |
 | `start_version` | STRING | App version the user was first tracked on. Example: 1.0.0 |
-| `user_creation_time` | TIMESTAMP | Event_time (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
-| `user_id` | STRING | A readable ID specified by you. Should be something that will not change; for that reason, using the user's email address is not recommended.  |
+| `user_creation_time` | TIMESTAMP | `event_time` (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
+| `user_id` | STRING | A readable ID specified by you. Should be something that won't change; for that reason, using the user's email address isn't recommended.  |
 | `user_properties` | STRING |    |
 | `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
 | `version_name` | STRING | The app version. Example: 1.0.0 |

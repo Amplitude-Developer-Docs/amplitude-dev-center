@@ -31,8 +31,8 @@ To find these values:
 1. Open the [Google Analytics home page](https://analytics.google.com/analytics/web). 
 2. Click the **gear icon** to open Admin, then select **Data Streams**. 
 3. Pick the data stream to stream the Amplitude events to.
-   - `Measurement ID` can be found on the top right corner.
-   - `Measurement Protocol API secret` can be found under the `Additional Settings` section, by opening `Measurement Protocol API secrets` . Here a new API secret can be created that should be specific to this use case, and can be managed and removed independently the others. Copy the value in the `Secret value` column of the appropriate row.
+   - `Measurement ID` is available on the top right corner.
+   - `Measurement Protocol API secret` is available under the `Additional Settings` section, by opening `Measurement Protocol API secrets` . You can create a new API secret that's specific to this use case, that you can manage and remove independently the others. Copy the value in the `Secret value` column of the appropriate row.
 
 There are no setup steps in G4A.
 
@@ -41,5 +41,5 @@ There are no setup steps in G4A.
 1. In Amplitude, navigate to **Data Destinations**, then find **Google Analytics 4 - Event Stream**.
 2. Enter a sync name, then click **Create Sync**.
 3. Click **Edit**, then paste your Measurement ID and Measurement Protocol API secret.
-4. Use the _Send events_ filter to select the events you want to send. You can send all events, but we recommend choosing the most important ones.
+4. Use the _Send events_ filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones.
 5. When finished, enable the destination and save.

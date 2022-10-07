@@ -857,7 +857,7 @@ The iOS SDK lets you configure your apps to use [dynamic configuration](../../dy
  To use, enable the `useDynamicConfig` flag.
 
 - If you have your own proxy server and use `apiEndPoint` API, leave dynamic configuration off.
-- If you have users in China Mainland, then we recommend using dynamic configuration.
+- If you have users in China Mainland, then Amplitude recommends using dynamic configuration.
 - By default, this feature returns server URL of Amplitude's US servers, if you need to send data to Amplitude's EU servers, use `setServerZone` to set it to EU zone.
 
 === "Objective-C"

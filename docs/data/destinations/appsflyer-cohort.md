@@ -58,7 +58,7 @@ Copy the app ID from your AppsFlyer dashboard.
 
 Follow these steps to sync any of your Amplitude cohorts to your AppsFlyer destinations:
 
-1. From the Cohorts page in Amplitude, click the cohort for which you want to create an AppsFlyer audience, or create a cohort.
+1. From the Cohorts page in Amplitude, click the cohort to sync to AppsFlyer, or create a cohort.
 2. Click **Sync**.
 3. Select **AppsFlyer**, then click **Next**.
 4. From the *Select an API target to sync to list*, select your AppsFlyer destination.

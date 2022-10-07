@@ -31,5 +31,5 @@ To configure an Event Streaming integration from Amplitude to Iterable, you need
 1. In Amplitude, navigate to **Data Destinations**, then find **Iterable - Event Stream**.
 2. Enter a sync name, then click **Create Sync**.
 3. Click **Edit**, then paste your API Key.
-4. Use the _Send events_ filter to select the events you want to send. You can send all events, but we recommend choosing the most important ones. 
+4. Use the _Send events_ filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones. 
 5. When finished, enable the destination and save.

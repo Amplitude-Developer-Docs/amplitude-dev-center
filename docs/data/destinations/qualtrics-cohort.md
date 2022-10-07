@@ -21,9 +21,9 @@ You need to complete setup simultaneously in Amplitude and Qualtrics.
 
 1. In Amplitude, navigate to **Data Destinations**, then find **Qualtrics - Cohort**.
 2. Click **Connect to Qualtrics** and follow the directions on the Qualtrics site to authorize Amplitude to send cohorts to Qualtrics.
-3. In a separate window, log in to your Qualtrics XM account.
+3. In a separate window, log in to your Qualtrics XM account.<!--vale off-->
 4. Click the profile icon. From the *My Account* menu, select **Account Settings**.
-5. On the *Qualtrics IDs* tab under *Directories*, find *Default Directory* and copy the ID (it starts with `POOL_`).
+5. On the *Qualtrics IDs* tab under *Directories*, find *Default Directory* and copy the ID (it starts with `POOL_`).<!--vale on-->
 6. In Amplitude, paste this ID into the *Directory ID* field.
 7. In Qualtrics, locate *Datacenter ID* (under *User*) and copy the ID, a short string of lowercase-alphanumeric characters.
 8. Back in Amplitude, paste the ID into the *Datacenter ID* field.

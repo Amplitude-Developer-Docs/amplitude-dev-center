@@ -10,7 +10,7 @@ Amplitude Data's Kinesis Data Firehose integration lets you stream your Amplitud
 - You need an AWS account.
 - Amplitude sends the `user_id`, `event_name`, and `created_at`  along with all user, group, and event properties to Firehouse streams.
 - The data Amplitude posts in Firehose is the same JSON as documented in the [Amplitude Export API](https://www.docs.developers.amplitude.com/analytics/apis/export-api/#response).
-- This destination supports Identify Forwarding. Anytime you make an Identify call to Amplitude, we forward that user information. See [Identify documentation](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) for more information.
+- This destination supports Identify Forwarding. Anytime you make an Identify call to Amplitude, Amplitude forwards that user information. See [Identify documentation](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) for more information.
 - Role Name should be entered in the following format: `arn:aws:iam::{your aws account id}:role/{role name}` 
 
 ## Setup
@@ -82,5 +82,5 @@ Create a Kinesis Firehose destination in Amplitude.
 1. In Amplitude, navigate to **Data Destinations** then find **Kinesis Firehose - Event Stream**.
 2. Enter a sync name, then click **Create Sync**.
 3. Click **Edit**, then enter your AWS region, stream name, and role name (ARN) you created during Kinesis Firehouse setup.
-4. Use the _Send events_ filter to select the events you want to send. You can send all events, but we recommend choosing the most important ones. 
+4. Use the _Send events_ filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones. 
 5. When finished, enable the destination and save.

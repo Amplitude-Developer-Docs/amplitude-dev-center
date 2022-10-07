@@ -1047,7 +1047,7 @@ Second, add the following code in your root activity's `onCreate` life cycle.
 Android SDK lets you configure your apps to use [dynamic configuration](../../dynamic-configuration.md). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, leave dynamic configuration off.
-- If you have users in China Mainland, then we recommend using dynamic configuration.
+- If you have users in China Mainland, then Amplitude recommends using dynamic configuration.
 - By default, this feature returns server URL of Amplitude's US servers, if you need to send data to Amplitude's EU servers, use `setServerZone` to set it to EU zone.
 
  To use, set `setUseDynamicConfig` to `true`.

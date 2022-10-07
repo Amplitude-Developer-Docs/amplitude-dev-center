@@ -40,9 +40,9 @@ To set up the integration, you'll need to collect some information from your Spl
 
 ## Export cohorts into Split
 
-After Split is connected to Amplitude, you can sync any Amplitude cohort to it.
+After you connect Split and Amplitude, you can sync any Amplitude cohort to it.
 
-1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose Split.
+1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose **Split**.
 2. Choose the API target.
 3. Select the sync cadence.
 4. Save your work.
