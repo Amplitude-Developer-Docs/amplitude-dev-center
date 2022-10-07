@@ -5,7 +5,9 @@ description: Amplitude's Lookup Table integration lets you import your own data 
 
 Amplitude's Lookup Table integration lets you import your own data and map it to ingested properties to have an enhanced set of properties.
 
---8<-- "includes/closed-beta.md"
+!!!beta "This feature is in closed beta"
+
+    This feature is in closed beta. Customers with an Enterprise plan or the Govern add-on can contact their Amplitude Customer Service Manager or Account Executive to get access.
 
 ## Setup
 
