@@ -316,15 +316,15 @@ You can adjust the time window for which sessions are extended.
 
     ```kotlin
     amplitude = Amplitude(
-            Configuration(
-                apiKey = AMPLITUDE_API_KEY,
-                context = applicationContext,
-                minTimeBetweenSessionsMillis = 10000
-            )
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            minTimeBetweenSessionsMillis = 10000
         )
+    )
     ```
 
-By default, Amplitude will auto send the '[Amplitude] Start Session' and '[Amplitude] End Session'. Even though these events aren't sent, sessions are still tracked by using `session_id`.
+By default, Amplitude will auto send the '[Amplitude] Start Session' and '[Amplitude] End Session' events. Even though these events aren't sent, sessions are still tracked by using `session_id`.
 You can also disable those session events.
 
 === "Java"
@@ -339,15 +339,15 @@ You can also disable those session events.
 
     ```kotlin
     amplitude = Amplitude(
-            Configuration(
-                apiKey = AMPLITUDE_API_KEY,
-                context = applicationContext,
-                trackingSessionEvents = false
-            )
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            trackingSessionEvents = false
         )
+    )
     ```
 
-You can use the helper method getSessionId to get the value of the current sessionId.
+You can use the helper method `getSessionId` to get the value of the current `sessionId`.
 
 === "Java"
 
@@ -361,13 +361,28 @@ You can use the helper method getSessionId to get the value of the current sessi
     val sessionId = amplitude.sessionId;
     ```
 
-!!!note
-    For Android API level 14 and above, a new session is created when the app comes back into the foreground after being in the background for five or more minutes or when the last event was logged
-     (whichever occurred last).
-     Otherwise, the background event logged is part of the current session.
-      Note that you can define your own session expiration time by calling setMinTimeBetweenSessionsMillis(timeout), where the timeout input is in milliseconds.
+You can define your own session expiration time. The default session experation time is 30 minutes.
 
-    For Android API level 13 and below, foreground tracking is not available so a new session is automatically started when an event is logged 30 minutes or more after the last logged event. If another event is logged within 30 minutes, it will extend the current session. Note that you can define your own session expiration time here as well by calling setSessionTimeoutMillis(timeout), where the timeout input is in milliseconds. Also note that enableForegroundTracking(getApplication) is still safe to call for Android API level 13 and below even though it's not available.
+=== "Java"
+
+    ```java
+    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setMinTimeBetweenSessionsMillis(10000);
+        return Unit.INSTANCE;
+    });
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            minTimeBetweenSessionsMillis = 10000
+        )
+    )
+    ```
 
 ### Set custom user ID
 
@@ -451,14 +466,14 @@ Before initializing the SDK with your apiKey, create a `TrackingOptions` insta
 === "Java"
 
     ```java
-        TrackingOptions trackingOptions = new TrackingOptions();
-        trackingOptions.disableCity().disableIpAddress().disableLatLng();
+    TrackingOptions trackingOptions = new TrackingOptions();
+    trackingOptions.disableCity().disableIpAddress().disableLatLng();
 
-        // init instance
-        amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
-            configuration.setTrackingOptions(trackingOptions);
-            return Unit.INSTANCE;
-        });
+    // init instance
+    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setTrackingOptions(trackingOptions);
+        return Unit.INSTANCE;
+    });
     ```
 
 === "Kotlin"
@@ -466,11 +481,11 @@ Before initializing the SDK with your apiKey, create a `TrackingOptions` insta
     ```kotlin
     val trackingOptions = TrackingOptions()
     trackingOptions.disableCity().disableIpAddress().disableLatLng()
-        amplitude = Amplitude(
-            Configuration(
-                apiKey = AMPLITUDE_API_KEY,
-                context = applicationContext,
-                trackingOptions = trackingOptions
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            trackingOptions = trackingOptions
         )
     )
     ```
@@ -497,7 +512,7 @@ Tracking for each field can be individually controlled, and has a corresponding 
 
 !!!note
 
-    The `TrackingOptions` only prevents default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project with existing data that you would like to stop collecting the default properties for, please get help in the [Amplitude Community](https://community.amplitude.com/). Note that the existing data **is not** deleted.
+    Using `TrackingOptions` only prevents default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project with existing data that you want to stop collecting the default properties for, get help in the [Amplitude Community](https://community.amplitude.com/). Disabling tracking doesn't delete any existing data in your project.
 
 ### COPPA control
 
@@ -510,7 +525,6 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
         configuration.setEnableCoppaControl(true); //Disables ADID, city, IP, and location tracking
         return Unit.INSTANCE;
     });
-    client.enableCoppaControl();
     ```
 
 === "Kotlin"
@@ -609,10 +623,9 @@ App set ID is a unique identifier for each app install on a device. App set ID i
 
     ```java
     amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
-        configuration.setuseAppSetIdForDeviceId(true);
+        configuration.setUseAppSetIdForDeviceId(true);
         return Unit.INSTANCE;
     });
-    client.enableCoppaControl();
     ```
 
 === "Kotlin"
@@ -640,7 +653,6 @@ By default, Amplitude can use Android location service (if available) to add the
         configuration.setLocationListening(true);
         return Unit.INSTANCE;
     });
-    client.enableCoppaControl();
     ```
 
 === "Kotlin"
