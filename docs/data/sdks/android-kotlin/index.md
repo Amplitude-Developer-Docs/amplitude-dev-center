@@ -293,3 +293,494 @@ amplitude.add(
     new SegmentDestinationPlugin(this, SEGMENT_WRITE_KEY)
 )
 ```
+
+## Advanced Topic
+
+### User sessions
+
+A session on Android is a period of time that a user has the app in the foreground.
+
+Amplitude groups events together by session. Events that are logged within the same session have the same `session_id`. Sessions are handled automatically so you don't have to manually call `startSession()` or `endSession()`.
+
+You can adjust the time window for which sessions are extended.
+
+=== "Java"
+
+    ```
+    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setMinTimeBetweenSessionsMillis(1000);
+        return Unit.INSTANCE;
+    });
+    ```
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+            Configuration(
+                apiKey = AMPLITUDE_API_KEY,
+                context = applicationContext,
+                minTimeBetweenSessionsMillis = 10000
+            )
+        )
+    ```
+
+By default, Amplitude will auto send the '[Amplitude] Start Session' and '[Amplitude] End Session'. Even though these events aren't sent, sessions are still tracked by using `session_id`.
+You can also disable those session events.
+
+=== "Java"
+
+    ```
+    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setTrackingSessionEvents(false);
+        return Unit.INSTANCE;
+    });
+    ```
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+            Configuration(
+                apiKey = AMPLITUDE_API_KEY,
+                context = applicationContext,
+                trackingSessionEvents = false
+            )
+        )
+    ```
+
+You can use the helper method getSessionId to get the value of the current sessionId.
+
+=== "Java"
+
+    ```java
+    long sessionId = amplitude.getSessionId();
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    val sessionId = amplitude.sessionId;
+    ```
+
+!!!note
+    For Android API level 14 and above, a new session is created when the app comes back into the foreground after being in the background for five or more minutes or when the last event was logged
+     (whichever occurred last).
+     Otherwise, the background event logged is part of the current session.
+      Note that you can define your own session expiration time by calling setMinTimeBetweenSessionsMillis(timeout), where the timeout input is in milliseconds.
+
+    For Android API level 13 and below, foreground tracking is not available so a new session is automatically started when an event is logged 30 minutes or more after the last logged event. If another event is logged within 30 minutes, it will extend the current session. Note that you can define your own session expiration time here as well by calling setSessionTimeoutMillis(timeout), where the timeout input is in milliseconds. Also note that enableForegroundTracking(getApplication) is still safe to call for Android API level 13 and below even though it's not available.
+
+### Set custom user ID
+
+If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+
+=== "Java"
+
+    ```java
+    amplitude.setUserId("USER_ID");
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude.setUserId("USER_ID");
+    ```
+
+Don't assign users a user ID that could change, because each unique user ID is a unique user in Amplitude. Learn more about how Amplitude tracks unique users in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude).
+
+### Log level
+
+You can control the level of logs that print to the developer console.
+
+- 'INFO': Shows informative messages about events.
+- 'WARN': Shows error messages and warnings. This level logs issues that might be a problem and cause some oddities in the data. For example, this level would display a warning for properties with null values.
+- 'ERROR': Shows error messages only.
+- 'DISABLE': Suppresses all log messages.
+- 'DEBUG': Shows error messages, warnings, and informative messages that may be useful for debugging.
+
+Set the log level by calling `setLogLevel` with the level you want.
+
+=== "Java"
+
+    ```java
+    amplitude.getLogger().setLogMode(Logger.LogMode.DEBUG);
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude.logger.logMode = Logger.LogMode.DEBUG
+    ```
+
+### Logged out and anonymous users
+
+--8<-- "includes/logged-out-and-anonymous-users.md"
+
+=== "Java"
+
+    ```java
+    amplitude.reset();
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude.reset()
+    ```
+
+### Disable tracking
+
+By default the Android SDK tracks several user properties such as `carrier`, `city`, `country`, `ip_address`, `language`, and `platform`.
+Use the provided `TrackingOptions` interface to customize and toggle individual fields.
+
+To use the `TrackingOptions` interface, import the class.
+
+=== "Java"
+
+    ```java
+    import com.amplitude.android.TrackingOptions
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    import com.amplitude.android.TrackingOptions
+    ```
+
+Before initializing the SDK with your apiKey, create a `TrackingOptions` instance with your configuration and set it on the SDK instance.
+
+=== "Java"
+
+    ```java
+        TrackingOptions trackingOptions = new TrackingOptions();
+        trackingOptions.disableCity().disableIpAddress().disableLatLng();
+
+        // init instance
+        amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+            configuration.setTrackingOptions(trackingOptions);
+            return Unit.INSTANCE;
+        });
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    val trackingOptions = TrackingOptions()
+    trackingOptions.disableCity().disableIpAddress().disableLatLng()
+        amplitude = Amplitude(
+            Configuration(
+                apiKey = AMPLITUDE_API_KEY,
+                context = applicationContext,
+                trackingOptions = trackingOptions
+        )
+    )
+    ```
+
+Tracking for each field can be individually controlled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
+
+| <div class="big-column">Method</div> | Description |
+| --- | --- |
+| `disableAdid()` | Disable tracking of Google ADID |
+| `disableCarrier()` | Disable tracking of device's carrier |
+| `disableCity()` | Disable tracking of user's city |
+| `disableCountry()` | Disable tracking of user's country |
+| `disableDeviceBrand()` | Disable tracking of device brand |
+| `disableDeviceModel()` | Disable tracking of device model |
+| `disableDma()` | Disable tracking of user's designated market area (DMA). |
+| `disableIpAddress()` | Disable tracking of user's IP address |
+| `disableLanguage()` | Disable tracking of device's language |
+| `disableLatLng()` | Disable tracking of user's current latitude and longitude coordinates |
+| `disableOsName()` | Disable tracking of device's OS Name |
+| `disableOsVersion()` | Disable tracking of device's OS Version |
+| `disablePlatform()` | Disable tracking of device's platform |
+| `disableRegion()` | Disable tracking of user's region. |
+| `disableVersionName()` | Disable tracking of your app's version name |
+
+!!!note
+
+    The `TrackingOptions` only prevents default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project with existing data that you would like to stop collecting the default properties for, please get help in the [Amplitude Community](https://community.amplitude.com/). Note that the existing data **is not** deleted.
+
+### COPPA control
+
+COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking can all be enabled or disabled at one time. Apps that ask for information from children under 13 years of age must comply with COPPA.
+
+=== "Java"
+
+    ```java
+    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setEnableCoppaControl(true); //Disables ADID, city, IP, and location tracking
+        return Unit.INSTANCE;
+    });
+    client.enableCoppaControl();
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            enableCoppaControl = true //Disables ADID, city, IP, and location tracking
+        )
+    )
+    ```
+
+### Advertiser ID
+
+Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
+ [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (such as ad campaign, app store search).
+ Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV or device ID when IDFA isn't available.
+
+Follow these steps to use Android Ad ID.
+
+!!!warning "Google Ad ID and Tracking Warning"
+
+    As of April 1, 2022, Google allows users to opt out of Ad ID tracking. Ad ID may return null or error. You can use am alternative ID called [App Set ID](#app-set-id), which is unique to every app install on a device. [Learn more](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en)
+
+1. Add `play-services-ads` as a dependency.
+
+    ```bash
+    dependencies {
+      implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    }
+    ```
+
+2. `AD_MANAGER_APP` Permission
+If you use Google Mobile Ads SDK version 17.0.0 or higher, you need to add `AD_MANAGER_APP` to `AndroidManifest.xml`.
+
+    ```xml
+    <manifest>
+        <application>
+            <meta-data
+                android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+                android:value="true"/>
+        </application>
+    </manifest>
+    ```
+
+3. Add ProGuard exception
+
+Amplitude Android SDK uses Java Reflection to use classes in Google Play Services. For Amplitude SDKs to work in your Android application, add these exceptions to `proguard.pro` for the classes from `play-services-ads`.
+`-keep class com.google.android.gms.ads.** { *; }`
+
+#### Set advertising ID as device ID
+
+After you set up the logic to fetch the advertising ID, you can enable `useAdvertisingIdForDeviceId` to use advertising id as the device ID.
+
+=== "Java"
+
+    ```java
+    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setUseAdvertisingIdForDeviceId(true);
+        return Unit.INSTANCE;
+    });
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            useAdvertisingIdForDeviceId = true
+        )
+    )
+    ```
+
+### App set ID
+
+App set ID is a unique identifier for each app install on a device. App set ID is reset by the user manually when they uninstall the app, or after 13 months of not opening the app.
+ Google designed this as a privacy-friendly alternative to Ad ID for users who want to opt out of stronger analytics.
+
+ To use App Set ID, follow these steps.
+
+1. Add `play-services-appset` as a dependency. For versions earlier than 2.35.3, use `'com.google.android.gms:play-services-appset:16.0.0-alpha1'`
+
+    ```bash
+    dependencies {
+        implementation 'com.google.android.gms:play-services-appset:16.0.2'
+    }
+    ```
+
+2. Enable to use app set ID as Device ID.
+
+=== "Java"
+
+    ```java
+    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setuseAppSetIdForDeviceId(true);
+        return Unit.INSTANCE;
+    });
+    client.enableCoppaControl();
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            useAppSetIdForDeviceId = true
+        )
+    )
+    ```
+
+### Location tracking
+
+Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.
+
+By default, Amplitude can use Android location service (if available) to add the specific coordinates (longitude and latitude) for the location from which an event is logged. Control this behavior by enable / disable location listening during the initialization.
+
+=== "Java"
+
+    ```java
+    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setLocationListening(true);
+        return Unit.INSTANCE;
+    });
+    client.enableCoppaControl();
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            locationListening = true
+        )
+    )
+    ```
+
+!!!note "ProGuard obfuscation"
+    If you use ProGuard obfuscation, add the following exception to the file:
+    `-keep class com.google.android.gms.common.** { *; }`
+
+### Opt users out of tracking
+
+Users may wish to opt out of tracking entirely, which means Amplitude won't track any of their events or browsing history. `OptOut` provides a way to fulfill a user's requests for privacy.
+
+=== "Java"
+
+    ```java
+    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+        configuration.setOptOut(true);
+        return Unit.INSTANCE;
+    });
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            optOut = true
+        )
+    )
+    ```
+
+### Push notification events
+
+Don't send push notification events client-side via the Android SDK. Because a user must open the app to initialize the Amplitude SDK in order for the SDK to send the event, events aren't sent to the Amplitude servers until the next time the user opens the app. This can cause data delays.
+
+You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
+
+### Set log callback
+
+Implements a customize loggerProvider class from the LoggerProvider, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.
+
+=== "Java"
+
+    ```java
+    import com.amplitude.common.Logger;
+    import com.amplitude.core.LoggerProvider;
+
+    class sampleLogger implements Logger {
+        @NonNull
+        @Override
+        public LogMode getLogMode() {
+            return LogMode.DEBUG;
+        }
+
+        @Override
+        public void setLogMode(@NonNull LogMode logMode) {
+            // TODO("Handle debug message here")
+        }
+
+        @Override
+        public void debug(@NonNull String message) {
+            // TODO("Handle debug message here")
+        }
+
+        @Override
+        public void error(@NonNull String message) {
+            // TODO("Handle error message here")
+        }
+
+        @Override
+        public void info(@NonNull String message) {
+            // TODO("Handle info message here")
+        }
+
+        @Override
+        public void warn(@NonNull String message) {
+            // TODO("Handle warn message here")
+        }
+    }
+
+    class sampleLoggerProvider implements LoggerProvider {
+        @NonNull
+        @Override
+        public Logger getLogger(@NonNull com.amplitude.core.Amplitude amplitude) {
+            return new sampleLogger();
+        }
+    }
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    import com.amplitude.common.Logger
+    import com.amplitude.core.LoggerProvider
+
+    class sampleLogger : Logger {
+    override var logMode: Logger.LogMode
+        get() = Logger.LogMode.DEBUG
+        set(value) {}
+
+        override fun debug(message: String) {
+            TODO("Handle debug message here")
+        }
+
+        override fun error(message: String) {
+            TODO("Handle error message here")
+        }
+
+        override fun info(message: String) {
+            TODO("Handle info message here")
+        }
+
+        override fun warn(message: String) {
+            TODO("Handle warn message here")
+        }
+    }
+
+    class sampleLoggerProvider : LoggerProvider {
+        override fun getLogger(amplitude: com.amplitude.core.Amplitude): Logger {
+            return sampleLogger()
+        }
+    }
+
+    amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            loggerProvider = sampleLoggerProvider()
+        )
+    )
+    ```
