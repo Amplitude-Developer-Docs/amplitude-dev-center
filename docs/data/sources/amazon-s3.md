@@ -167,7 +167,7 @@ When you have your bucket details, create the Amazon S3 Import source.
 3. Complete the **Configure S3 location** section on the Set up S3 Bucket page:
 
     - **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-<customername>.` This tells Amplitude where to look for your files.
-    - **Prefix**: Location of files to be imported. This must end with “/”. For example, `dev/event-data/`.
+    - **Prefix**: Prefix of files to be imported. If it's a folder, prefix must end with "/". For example, dev/event-data/. For root folder, leave it as empty.
     - **AWS Role ARN**. Required.
     - **AWS External ID**. Required.
 
