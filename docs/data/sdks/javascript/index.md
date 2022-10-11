@@ -10,7 +10,7 @@ icon: simple/javascript
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
 !!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [TypeScript Browser SDK](../typescript-browser/) which supports plugins and more.
+    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [TypeScript Browser SDK](../typescript-browser/) which supports plugins and more. See the [Migration Guide](../../sdks/typescript-browser/migration) for more help.
 
 !!!info "Browser SDK Resources (Legacy)"
     - [JavaScript Browser SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
