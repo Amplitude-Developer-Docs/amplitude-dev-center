@@ -68,7 +68,7 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 ##### Web Attribution Enrichment Plugin
 
-You need to download webAtributionPlugin. Add add the plugin before call init method. Learn More about [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution)
+You need to download `plugin-web-attribution-browser` package and add the `webAttributionPlugin` before call init method. Learn More about [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution)
 
 === "npm"
 
@@ -83,14 +83,14 @@ You need to download webAtributionPlugin. Add add the plugin before call init me
     ```
 
 ```ts
-  add(webAttributionPlugin(client, attribution));
+add(webAttributionPlugin(client, attribution));
 
-  init('API_KEY', configuration);
+init('API_KEY', configuration);
 ```
 
 ##### Page View Enrichment Plugin
 
-You need to download pageViewPlugin. Add add the plugin before call init method. Learn More about [Page View Plugin](../marketing-analytics-browser/#page-view).
+You need to download `plugin-page-view-tracking-browser` and add the `pageViewTrackingPlugin` before call init method. Learn More about [Page View Plugin](../marketing-analytics-browser/#page-view).
 
 === "npm"
 
@@ -104,9 +104,9 @@ You need to download pageViewPlugin. Add add the plugin before call init method.
     ```
 
 ```ts
-  add(pageViewTrackingPlugin(client, pageViewTrackingOptions));
+add(pageViewTrackingPlugin(client, pageViewTrackingOptions));
 
-  init('API_KEY', configuration);
+init('API_KEY', configuration);
 ```
 
 !!!note
