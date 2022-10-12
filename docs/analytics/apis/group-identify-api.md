@@ -35,7 +35,7 @@ Set or update group properties.
 `https://api2.amplitude.com/groupidentify`
 
 ```bash
-POST /groupidentify?api_key={{api-key}}&identification={"group_properties":{"org csm":"Lucas","org plan":"Enterprise","org owner":"Luis"},"group_value":"1234","group_type":"org id"} HTTP/1.1
+POST /groupidentify?api_key={{api-key}}&identification={"group_properties":{"org csm":"Lucas","org plan":"Enterprise","org owner":"Luis"},"group type":"group value","org id":"12345678"} HTTP/1.1
 Host: api2.amplitude.com
 ```
 
@@ -51,7 +51,7 @@ Host: api2.amplitude.com
 | <div class="big-column">Key</div>  | Description | Example |
 | ---  | --- | --- |
 | `group_type` | String. Group type. | "org name", "org id" |
-| `group_value` |String. One specific value of the `group_type`.  <br> | `"group_type":"org id","group_value":"12345678"` or `"group_type":"account name","group_value":"Acme Corp"` |
+| `group_value` |String. One specific value of the `group_type`.  <br> | `"group_type":"org id","group_value":"12345678"` or `"group_type":"account name","group_value":"Acme Corp"`. Ex.`"org id":"12345678", "account name":"Acme Corp"` 
 | `group_properties` |String. A dictionary of key-value pairs that represent data tied to the group. Each distinct value appears as a group segment on the Amplitude dashboard.  <br> You can store property values in an array, and date values are transformed into string values. See the next table for supported operations. | `{"arr": "10000", "cs": \["Justin", "Ben"\], "renewal_date": “01/01/2018" }` |
 
 `group_properties` supports these operations:
