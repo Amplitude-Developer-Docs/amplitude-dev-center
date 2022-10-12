@@ -66,7 +66,7 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
 
-#### Web Attribution Enrichment Plugin
+##### Web Attribution Enrichment Plugin
 
 You need to download webAtributionPlugin. Add add the plugin before call init method. Learn More about [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution)
 
@@ -90,7 +90,7 @@ You need to download webAtributionPlugin. Add add the plugin before call init me
 
 ##### Page View Enrichment Plugin
 
-You need to download pageViewPlugin. Add add the plugin before call init method. Learn More about [Page View Plugin](../marketing-analytics-browser/#page-view)
+You need to download pageViewPlugin. Add add the plugin before call init method. Learn More about [Page View Plugin](../marketing-analytics-browser/#page-view).
 
 === "npm"
 
@@ -109,8 +109,8 @@ You need to download pageViewPlugin. Add add the plugin before call init method.
   init('API_KEY', configuration);
 ```
 
-!!!notes: If you need both web attribution plugin and page view plugin, please use the Marketing Analytics Browser instead. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
->>>>>>> eea3c47 (feat: add marketing analytics browser and restructure)
+!!!note
+    If you need both web attribution plugin and page view plugin, please use the Marketing Analytics Browser instead. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
 
 ## Advanced topics
 

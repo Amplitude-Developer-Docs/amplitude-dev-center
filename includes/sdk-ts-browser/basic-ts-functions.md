@@ -455,7 +455,7 @@ init('API_KEY');
 add(new MyDestinationPlugin('https://custom.domain.com'));
 ```
 
-##### Enrichment type plugin
+#### Enrichment type plugin
 
 Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
