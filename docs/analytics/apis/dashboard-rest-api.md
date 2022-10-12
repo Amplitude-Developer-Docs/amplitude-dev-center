@@ -96,26 +96,31 @@ The event parameter can include these keys:
 
 ```json
 {
-    "event_type": "CompletedProfile",
-    "filters": [
-        {
-            "subprop_type": "event",
-            "subprop_key": "EmailVerified",
-            "subprop_op": "is",
-            "subprop_value": ["true"]
-        },
-        {
-            "subprop_type": "user",
-            "subprop_key": "gp:SignUpDate",
-            "subprop_op": "is",
-            "subprop_value": ["2021-08-18"]
-        },
-    "group_by": [
-        {
-            "type": "user",
-            "value": "platform"
-        }
-    ]
+  "event_type": "CompletedProfile",
+  "filters": [
+    {
+      "subprop_type": "event",
+      "subprop_key": "EmailVerified",
+      "subprop_op": "is",
+      "subprop_value": [
+        "true"
+      ]
+    },
+    {
+      "subprop_type": "user",
+      "subprop_key": "gp:SignUpDate",
+      "subprop_op": "is",
+      "subprop_value": [
+        "2021-08-18"
+      ]
+    }
+  ],
+  "group_by": [
+    {
+      "type": "user",
+      "value": "platform"
+    }
+  ]
 }
 ```
 
