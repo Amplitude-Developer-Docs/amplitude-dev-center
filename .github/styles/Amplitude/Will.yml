@@ -1,6 +1,6 @@
 extends: existence
 message: "Future tense! Avoid using '%s'."
 ignorecase: true
-level: warning
+level: suggestion
 tokens:
   - will

@@ -26,7 +26,7 @@ go get https://github.com/amplitude/analytics-go
 
 ### Initializing SDK
 
-Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required to construct a Config struct. Use that Config struct to initialize a client struct which implements Client interface. It can be used across requests after it is initialized. See the example in next Configuration section. 
+Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required to construct a Config struct. Use that Config struct to initialize a client struct which implements Client interface. You can use it across requests after it's initialized. See examples in the next section. 
 
 ### Configuration
 
@@ -107,7 +107,7 @@ identifyObj := amplitude.Identify{}
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Identify.Set
+#### `Identify.Set`
 
 This method sets the value of a user property. For example, you can set a role property of a user.
 
@@ -117,7 +117,7 @@ identifyObj.Set("location", "LAX")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Identify.SetOnce
+#### `Identify.SetOnce`
 
 This method sets the value of a user property only once. Subsequent calls using `SetOnce()` will be ignored. For example, you can set an initial login method for a user and since only the initial value is tracked, `SetOnce()` ignores subsequent calls.
 
@@ -127,9 +127,9 @@ identifyObj.SetOnce("initial-location", "SFO")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Identify.Add
+#### `Identify.Add`
 
-This method increments a user property by some numerical value. If the user property does not have a value set yet, it will be initialized to 0 before being incremented.  For example, you can track a user's travel count.
+This method increments a user property by some numerical value. If the user property does not have a value set yet, it will be initialized to 0 before being incremented. For example, you can track a user's travel count.
 
 ```Go
 identifyObj := amplitude.Identify{}
@@ -137,11 +137,11 @@ identifyObj.Add("travel-count", 1)
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Arrays in User Properties
+#### Arrays in user properties
 
 Arrays can be used as user properties. You can directly set arrays or use `Prepend()`, `Append()`, `PreInsert()` and `PostInsert()` to generate an array.
 
-#### Identify.Prepend
+#### `Identify.Prepend`
 
 This method prepends a value or values to a user property array. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are prepended.
 
@@ -151,7 +151,7 @@ identifyObj.Prepend("visited-locations", "LAX")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Identify.Append
+#### `Identify.Append`
 
 This method appends a value or values to a user property array. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are appended.
 
@@ -161,7 +161,7 @@ identifyObj.Append("visited-locations", "SFO")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Identify.PreInsert
+#### `Identify.PreInsert`
 
 This method pre-inserts a value or values to a user property, if it does not exist in the user property yet. Pre-insert means inserting the value(s) at the beginning of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
 
@@ -171,7 +171,7 @@ identifyObj.PreInsert("unique-locations", "LAX")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Identify.PostInsert
+#### `Identify.PostInsert`
 
 This method post-inserts a value or values to a user property, if it does not exist in the user property yet. Post-insert means inserting the value(s) at the end of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
 
@@ -181,7 +181,7 @@ identifyObj.PostInsert("unique-locations", "SFO")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-#### Identify.Remove
+#### `Identify.Remove`
 
 This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value(s) from the given list. If the item does not exist in the user property, it will be no operation.
 
@@ -191,13 +191,13 @@ identifyObj.Remove("unique-locations", "JFK")
 client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 ```
 
-### User Groups
+### User groups
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Amplitude supports assigning users to groups and performing queries such as Count by Distinct on those groups. An example would be if you want to group your users based on what organization they are in by using an 'orgId'. You can designate Joe to be in 'orgId' '10' while Sue is in 'orgId' '15'. When performing a query in our Event Segmentation chart, you can then select "..performed by" 'orgId' to query the number of different organizations that have performed a specific event. As long as at least one member of that group has performed the specific event, that group will be included in the count.
+Amplitude supports assigning users to groups and performing queries such as Count by Distinct on those groups. An example would be if you want to group your users based on what organization they're in by using an 'orgId'. You can designate Joe to be in 'orgId' '10' while Sue is in 'orgId' '15'. When performing a query in Amplitude's Event Segmentation chart, you can then select "..performed by" 'orgId' to query the number of different organizations that have performed a specific event. As long as at least one member of that group has performed the specific event, that group will be included in the count.
 
-When setting groups, you will need to define a groupType and groupName(s). In the above example, 'orgId' is the groupType and the values '10' and '15' are groupName(s). Another example of a groupType could be 'sport' with groupName(s) like 'tennis' and 'baseball'. You can use `SetGroup()` to designate which groups a user belongs to. Note: This will also set the 'groupType:groupName' as a user property. This will overwrite any existing groupName value set for that user's groupType, as well as the corresponding user property value. `groupType` is a string and `groupName` is an array of strings to indicate a user being in one group or in multiple groups (for example, if Joe is in 'orgId' '10' and '16', then the groupName would be '[10, 16]'). Here is what your code might look like.
+When setting groups, you need to define a `groupType` and `groupName`. In the above example, 'orgId' is the `groupType` and each value, '10' and '15', is a `groupName`. Another example of a `groupType` could be 'sport' with `groupName` values like 'tennis' and 'baseball'. You can use `SetGroup()` to designate which groups a user belongs to. Note: This also sets the `groupType:groupName` as a user property. This overwrites any existing `groupName` value set for that user's `groupType`, as well as the corresponding user property value. `groupType` is a string and `groupName` is an array of strings to show that a user being in one group or in multiple groups (for example, if Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like.
 
 ```Go
 // set group with single group name
@@ -223,7 +223,7 @@ event.Groups["Sport"] = []string{"soccer"}
 client.Track(event)
 ```
 
-### Group Properties
+### Group properties
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 

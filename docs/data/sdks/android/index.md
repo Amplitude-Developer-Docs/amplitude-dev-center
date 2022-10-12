@@ -13,7 +13,7 @@ This is the official documentation for the Amplitude Analytics Android SDK.
     This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [Android Kotlin SDK](../android-kotlin) which supports plugins, SDK integrations, and more.
 
 !!!info "Android SDK Resources (Legacy)"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-Android) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Android/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-Android)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Android) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Android/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-Android)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Android](./ampli.md).
@@ -25,8 +25,8 @@ This is the official documentation for the Amplitude Analytics Android SDK.
 !!!tip
 
     We recommend using Android Studio as an IDE and Gradle to manage dependencies.
-
-1. In the `build.gradle` file, add these dependencies. OkHttp is needed for our SDK.
+<!--vale off-->
+1. In the `build.gradle` file, add these dependencies. The SDK requires OkHttp.
 
     ```bash
     dependencies {
@@ -39,7 +39,7 @@ This is the official documentation for the Amplitude Analytics Android SDK.
 3. To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file:
     `<uses-permission android:name="android.permission.INTERNET" />`
 4. For Android 6.0 (Marshmallow) and higher, explicitly add the `READ_PHONE_STATE` permission to fetch phone related information. `<uses-permission android:name="android.permission.READ_PHONE_STATE" />`
-
+<!--vale on-->
 After you've installed the SDK and its dependencies, import Amplitude into any file that uses it.
 
 === "Java"
@@ -111,11 +111,11 @@ The following functions make up the core of the Amplitude Analytics Android SDK.
 
 ### Initialize
 
-You must initialize the SDK before you can instrument. The API key for your Amplitude project is required. We recommend adding this in `onCreate(...)` of your Activity class.
+You must initialize the SDK before you can instrument. The API key for your Amplitude project is required. Amplitude recommends adding this in `onCreate(...)` of your Activity class.
 
 You can use the Android SDK anywhere after it's initialized in an Android application.
 
-For accurate session tracking, `enableForegroundTracking(getApplication())` is required. It's disabled by default.
+Accurate session tracking requires that you enable `enableForegroundTracking(getApplication())`. It's disabled by default.
 
 === "Java"
 
@@ -133,7 +133,7 @@ For accurate session tracking, `enableForegroundTracking(getApplication())` is
       .enableForegroundTracking(application)
     ```
 
-`Amplitude.getInstance(String name)` can take a name that holds settings. This instance is now linked to the name and can be retrieved somewhere else.
+`Amplitude.getInstance(String name)` can take a name that holds settings. This instance is now linked to the name and you can retrieve it somewhere else.
 
 === "Java"
 
@@ -276,11 +276,11 @@ To force the SDK to upload unsent events, the use the method `uploadEvents`.
 #### Set user properties
 
 Identify is for setting the user properties of a particular user without sending any event.
- The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties.
- The operations are declared via a provided Identify interface. You can chain together multiple operations in a single Identify object.
+ The SDK supports these operations on individual user properties: `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove`. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object.
   The Identify object is passed to the Amplitude client to send to the server.
 
 !!!note
+
     If the Identify call is sent after the event, the results of operations is visible immediately in the dashboard user's profile area, but it doesn't appear in chart result until another event is sent after the Identify call. The identify call only affects events going forward.
      [Learn more in the Help Center](https://help.amplitude.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
@@ -320,7 +320,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     val identify = Identify().set("color", "green")
     ```
 
-##### setOnce
+##### `setOnce`
 
 `setOnce` sets the value of a user property one time. Later calls using `setOnce` are ignored.
 
@@ -336,7 +336,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     val identify = Identify().setOnce("color", "green")
     ```
 
-##### add
+##### `add`
 
 `add` increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to 0 before being incremented.
 
@@ -357,7 +357,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
     identify.add("annual_revenue", 100) //100
     ```
 
-#### Setting multiple user properties
+#### Set multiple user properties
 
 `logEvent()` method allows you to set the user properties along with event logging. You can use `setUserProperties` as a shorthand to set multiple user properties at one time.
  This method is a wrapper around `Identify.set`.
@@ -392,7 +392,7 @@ You can handle the identity of a user using the identify methods. Proper use of 
 
 #### Arrays in user properties
 
-Arrays can be used as user properties. You can directly set arrays or use `append` (see section below this one) to generate an array.
+You can use arrays as user properties. You can directly set arrays or use `append` to generate an array.
 
 === "Java"
 
@@ -496,7 +496,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
     client.clearUserProperties();
     ```
 
-##### unset
+##### `unset`
 
 `unset` unsets and removes a user property.
 
@@ -527,8 +527,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
     Amplitude.getInstance().setGroup("orgID", new JSONArray().put("10").put("16"));  // list values
     ```
 
-You can also use `logEventWithGroups` to set event-level groups, meaning the group designation only applies for the specific event being logged
- and doesn't persist on the user unless you explicitly set it with `setGroup`:
+You can also use `logEventWithGroups` to set event-level groups. This means that the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with `setGroup`:
 
 === "Java"
 
@@ -713,12 +712,12 @@ After a successful purchase transaction, add the purchase data and receipt signa
 #### Amazon Store revenue verification
 
 For purchases on the Amazon store, you first need to set up Amazon as a data source in Amplitude.
-
+<!--vale off -->
 1. In Amplitude, navigate to the **Data Sources** page.
 2. Click **I want to import data into Amplitude**, then select **Amazon**.
 3. Paste your Amazon Developer Shared Secret in the box and save. 
-
- After a successful purchase, send the purchase token (For Amazon IAP 2.0 use receipt ID) as the 'receipt' and the User ID as the 'receiptSignature':
+<!--vale on-->
+ After a successful purchase, send the purchase token (For Amazon IAP 2.0 use receipt ID) as the `receipt` and the User ID as the `receiptSignature`:
 
 === "Java"
 
@@ -759,7 +758,7 @@ By default, '[Amplitude] Start Session' and '[Amplitude] End Session' events are
 
     ```
 
-You can also log events as out-of-session. Out-of-session events have a `session_id` of `-1` and are not considered part of the current session, meaning they do not extend the current session.
+You can also log events as out-of-session. Out-of-session events have a `session_id` of `-1` and aren't considered part of the current session, meaning they don't extend the current session.
  This might be useful if you are logging events triggered by push notifications, for example. You can log events as out-of-session by setting the input parameter `outOfSession` to true when calling `logEvent()`.
 
 === "Java"
@@ -771,7 +770,7 @@ You can also log events as out-of-session. Out-of-session events have a `sessio
     client.logEvent("event type", eventProperties, true);
     ```
 
-You can also log identify events as out-of-session, which is useful if you are updating user properties in the background and don't want to start a new session. You can do this by setting the input parameter outOfSession to true when calling `identify()`.
+You can also log identify events as out-of-session. This is useful if you are updating user properties in the background and don't want to start a new session. You can do this by setting the input parameter outOfSession to true when calling `identify()`.
 
 === "Java"
 
@@ -789,7 +788,7 @@ You may also manually start a new session with its own ID.
     client.startNewSessionIfNeeded(sessionId);
     ```
 
-You can use the helper method getSessionId to get the value of the current sessionId.
+You can use the helper method `getSessionId` to get the value of the current `sessionId`.
 
 === "Java"
 
@@ -798,7 +797,7 @@ You can use the helper method getSessionId to get the value of the current sessi
     ```
 
 !!!note
-    For Android API level 14 and above, a new session is created when the app comes back into the foreground after being in the background for five or more minutes or when the last event was logged
+    For Android API level 14 and higher, a new session is created when the app comes back into the foreground after being in the background for five or more minutes or when the last event was logged
      (whichever occurred last).
      Otherwise, the background event logged is part of the current session.
       Note that you can define your own session expiration time by calling setMinTimeBetweenSessionsMillis(timeout), where the timeout input is in milliseconds.
@@ -1010,7 +1009,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude won't trac
 
 ### Push notification events
 
-Don't send push notification events client-side via the Android SDK. Because a user must open the app to initialize the Amplitude SDK in order for the SDK to send the event, events aren't sent to the Amplitude servers until the next time the user opens the app. This can cause data delays.
+Don't send push notification events client-side via the Android SDK. Because a user must open the app to initialize the Amplitude SDK to send the event, events aren't sent to Amplitude until the next time they open the app. This can cause data delays.
 
 You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
 
@@ -1084,7 +1083,7 @@ The Amplitude Android SDK allows the app to set a callback (version 2.32.2+). Cr
 ### Middleware
 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event.
- This pattern is flexible and can be used to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
+ This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
 
 Each middleware is a simple interface with a run method:
 
@@ -1092,7 +1091,7 @@ Each middleware is a simple interface with a run method:
 void run(MiddlewarePayload payload, MiddlewareNext next);
 ```
 
-The `payload` contains the `event` being sent and an optional `extra` that allows you to pass custom data to your own middleware implementations.
+The `payload` contains the `event` and an optional `extra` that allows you to pass custom data to your own middleware implementations.
 
 To invoke the next middleware in the queue, use the `next` function. You must call `next.run(payload)` to continue the middleware chain.
  If a middleware doesn't call `next`, then the event processing stop executing after the current middleware completes.

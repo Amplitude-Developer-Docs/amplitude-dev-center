@@ -96,7 +96,6 @@ swap:
   prioritize: rank
   procure: buy
   provide: give|offer
-  purchase: buy
   relocate: move
   solicit: request
   state-of-the-art: latest
