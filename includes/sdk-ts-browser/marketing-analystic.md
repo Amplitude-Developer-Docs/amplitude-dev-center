@@ -11,13 +11,14 @@ Amplitude SDK collects attribution data by default. Amplitude supports automatic
 UTM (Urchin Traffic Monitor) parameters are useful for analyzing the effectiveness of different ad campaigns and referring sites. UTM parameters are case-sensitive, so they're treated as different values when the capitalization varies.
 
 There are five different standard UTM parameters:
-<!-- vale off-->
-- `utm_source`: This identifies which website sent the traffic (for example, Google, Facebook)
-- `utm_medium`: This identifies the link type used (for example, banner, button, email)
-- `utm_campaign`: This identifies a specific campaign used (for example, "summer_sale")
-- `utm_term`: This identifies paid search terms used (for example, product+analytics)
-- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example, bannerlink, textlink)
-<!-- vale on-->
+
+|Name|Description|
+|-|-|
+|`utm_source`| This identifies which website sent the traffic (for example, Google, Facebook) |
+|`utm_medium`| This identifies a specific campaign used (for example, "summer_sale") |
+|`utm_campaign`| This identifies a specific campaign used (for example, "summer_sale") |
+|`utm_term`| This identifies paid search terms used (for example, product+analytics) |
+|`utm_content` | This identifies what brought the user to the site and is commonly used for A/B testing (for example, bannerlink, textlink) |
 
 Here is an example URL with UTM parameters:
 
@@ -29,8 +30,10 @@ https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_
 
 Referrer is the URL of the page that linked to the destination page. Amplitude tracks the following parameters:
 
-- `referrer`: The last page the user was on (for example, `https://amplitude.com/behavioral-analytics-platform?ref=nav`). 
-- `referring_domain`: The domain that the user was last on (for example, `https://amplitude.com`)
+|Name|Description|
+|-|-|
+|`referrer`| The last page the user was on (for example, `https://amplitude.com/behavioral-analytics-platform?ref=nav`) |
+|`referring_domain`| The domain that the user was last on (for example, `https://amplitude.com`) |
 
 Referrer is an empty string (`''`) if the user navigated to the destination page directly.
 
@@ -38,15 +41,17 @@ Referrer is an empty string (`''`) if the user navigated to the destination page
 
 Click IDs are campaign identifiers included as URL parameters. These IDs are used by Ad platforms to identify the campaign and other attributes. While Amplitude doesn't have access to further campaign attributes associated to Click IDs, Amplitude can track Click ID values specified below.
 
-- GCLID, Google Click Identifier from URL parameters
-- FCLID, Facebook Click Identifier from URL parameters
-- DCLID, Google campaign manager Click Identifier
-- GBRAID, Google Click Identifier for iOS device from Web to App
-- WBRAID, Google Click Identifier for iOS device from App to Web
-- KO_CLICK_ID, Kochava Click Identifier from URL parameters
-- MSCLKID, Mircrosoft Click Identifier
-- TTCLID, TikTok Click Identifier
-- TWCLID, Twitter Click Identifier from URL parameter
+|Name|Description|
+|-|-|
+|`GCLID`| Google Click Identifier from URL parameters |
+|`FCLID`| Facebook Click Identifier from URL parameters |
+|`DCLID`| Google campaign manager Click Identifier |
+|`GBRAID`| Google Click Identifier for iOS device from Web to App |
+|`WBRAID`| Google Click Identifier for iOS device from App to Web |
+|`KO_CLICK_ID`| Kochava Click Identifier from URL parameters |
+|`MSCLKID`| Mircrosoft Click Identifier |
+|`TTCLID`| TikTok Click Identifier |
+|`TWCLID`| Twitter Click Identifier from URL parameter |
 
 #### First-touch attribution
 
@@ -104,9 +109,9 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-#### Exclude the referrers from the given domain
+#### Exclude the referrers from specific domain
 
-You can configure Amplitude to opt out of collection of attribution data for a given a list of referrers.
+You can configure Amplitude to opt out of collection of attribution data for a given list of referrers.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -116,7 +121,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-#### Reset the session on a new Campaign
+#### Reset the session on a new campaign
 
 You can configure Amplitude to reset the session on a new campaign. Do this by setting `attribution.resetSessionOnNewCampaign` to `true`. By default `attribution.resetSessionOnNewCampaign` is set to `false`.
 
@@ -142,7 +147,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Page view
 
-Page view tracking is enable by default. But you are able to configurate it to fire a page view event when attribution information changes. Or with a simple boolean callback the customer can specify to limit event volume on the page view tracking.
+Page view tracking is enable by default. You are able to configurate it to fire a page view event when attribution information changed. Or passing a simple boolean callback, the customer can specify to limit event volume on the page view tracking.
 
 #### Track the page view event when the attribution changed
 
@@ -159,9 +164,9 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-#### Track the page view event based on specific critiria
+#### Track the page view event based on specific criteria
 
-You are able to pass a customized functions to track the page view event on specific critiria
+You are able to pass a customized functions to track the page view event on specific criteria
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
@@ -176,9 +181,9 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-#### Track the page view event for changes to history
+#### Track the page view event for changes on page history
 
-You can set the `trackHistoryChanges` to `pathOnly` to only track the changes on path. By default, all page url will be considered into the page view changes.
+You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page url will be considered into the page view changes.
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
