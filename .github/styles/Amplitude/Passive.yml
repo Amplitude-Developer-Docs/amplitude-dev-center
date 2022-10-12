@@ -199,4 +199,5 @@ exceptions:
   - synced
   - required
   - incremented
+  - throttled
   

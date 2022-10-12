@@ -4,17 +4,18 @@ description: Documentation for Amplitude Data's JRE Ampli Wrapper.
 ---
 
 
-Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
+Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and higher).
 
 In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan.
 The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
 !!!info "Ampli JRE Resources"
+<!--vale off-->
     [:material-language-kotlin: Ampli JRE Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp) · [:material-language-java: Ampli JRE Java Example](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
-
+<!-- vale on-->
 !!!note "Deprecated Itly runtime"
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-jre-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/jre.md)**.
+     If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-jre-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/jre.md)**.
 
 ## Installation
 
@@ -232,7 +233,7 @@ To track an event, call the event's corresponding function. Every event in your 
 The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1),
  like `price`, `quantity` and `revenue`. The `extra` argument lets you pass data to middleware.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.`
+For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.`
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields
@@ -334,7 +335,7 @@ Events Tracked: 2 missed, 3 total
 
 Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
 
-## Migrating from an Itly JRE Runtime
+## Migrate from an Itly JRE Runtime
 
 Migrate from an Itly JRE runtime to Ampli by following these steps.
 

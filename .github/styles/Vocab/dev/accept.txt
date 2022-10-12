@@ -148,3 +148,13 @@ omnichannel
 unsets
 desugaring
 Bitcode
+[Cc]onfig
+bool
+preprocessor
+threadspool
+sendBeacon
+UUIDs
+RequireJS
+logEvent
+HttpOnly
+SameSite

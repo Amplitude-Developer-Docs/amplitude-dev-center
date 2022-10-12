@@ -1,4 +1,4 @@
---- 
+---
 title: iOS SDK
 description: The Amplitude iOS SDK installation and quick start guide. 
 icon: simple/ios
@@ -10,7 +10,7 @@ icon: simple/ios
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
 !!!info "iOS SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for iOS](./ampli.md).
@@ -103,7 +103,9 @@ The following functions make up the core of the Amplitude Analytics iOS SDK.
 
 ### Initialize
 
-You must initialize the SDK before you can instrument. The API key for your Amplitude project is required. Usually, you can initialize the SDK in the `application:didFinishLaunchingWithOptions:` method of your `YourAppAppDelegate.m` file.
+You must initialize the SDK before you can instrument. The API key for your Amplitude project is required.
+
+Usually, you can initialize the SDK in the `application:didFinishLaunchingWithOptions:` method of your `YourAppAppDelegate.m` file.
 
 === "Objective-C"
 
@@ -501,7 +503,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
                 Amplitude.instance().setGroup("sport", groupName: NSArray(objects: "tennis", "soccer"))
         ```
 
-You can also use `logEventWithGroups` to set event-level groups, meaning the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with setGroup:
+You can also use `logEventWithGroups` to set event-level groups, meaning the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with `setGroup`:
 
 === "Objective-C"
 
@@ -546,12 +548,12 @@ The `groupIdentifyWithGroupType` method accepts a group type string parameter 
     Amplitude.instance().groupIdentifyWithGroupType("plan", groupName:NSString(string:"enterprise"), groupIdentify:identify)
     ```
 
-An optional `outOfSession` boolean input can be supplied as fourth argument to `groupIdentifyWithGroupType`
+You can add an optional `outOfSession` boolean input as a fourth argument to `groupIdentifyWithGroupType`
 
 ### Track revenue
 
 Instances of `AMPRevenue` stores revenue transactions and defines special revenue properties (such as `revenueType`) used in Amplitude's Event Segmentation and Revenue LTV charts. Each instance is passed to `Amplitude.logRevenueV2`.
- This allows us to automatically display data relevant to revenue in Amplitude.
+ This allows Amplitude to automatically display data relevant to revenue.
 
 To track revenue from a user, call `logRevenueV2` each time a user generates revenue. Here is an example:
 
@@ -584,8 +586,9 @@ You can't change the default names given to these client-side revenue events in 
 
 Each revenue event has fields available, and each field has a corresponding set method (such as `price` and `setPrice`). See the [API docs for `AMPRevenue`](http://amplitude.github.io/Amplitude-iOS/Classes/AMPRevenue.html#//api/name/productId) for a full list of fields.
 
-Like `logEvent`, event properties can also be attached for each call to `logRevenueV2` . However, these event properties will only appear in the [Event Segmentation](https://help.amplitude.com/hc/en-us/articles/230290208-Amplitude-2-0-Event-Segmentation) chart and not in the Revenue charts.
+Like `logEvent`, you can attach event properties for each call to `logRevenueV2` . However, these event properties only appear in the [Event Segmentation](https://help.amplitude.com/hc/en-us/articles/230290208-Amplitude-2-0-Event-Segmentation) chart and not in the Revenue charts.
 
+<!-- vale Vale.Spelling = NO-->
 | <div class="big-column">Name</div>  | Description  |
 | --- | --- |
 | `productId` | Optional. NSString. An identifier for the product. Amplitude recommends something like the "Google Play Store product ID". Defaults to `null`. |
@@ -595,6 +598,7 @@ Like `logEvent`, event properties can also be attached for each call to `logRe
 | `receipt`  | Optional, but required for revenue verification. NSData. Defaults to `null` |
 | `receiptSignature` | Optional, but required for revenue verification. Defaults to `null`. |
 | `eventProperties`| Optional. NSDictionary. An object of event properties to include in the revenue event. Defaults to `null`. |
+<!-- vale Vale.Spelling = YES -->
 
 !!!info
 
@@ -640,7 +644,7 @@ You can also log events as out-of-session. Out-of-session events have a `session
     Amplitude.instance().logEvent("Push Notification", withEventProperties: nil, outOfSession: true)
     ```
 
-You can also log identify events as out-of-session, which is useful if you are updating user properties in the background and don't want to start a new session. Do this by setting the input parameter `outOfSession` to `true` when calling `identify`.
+You can also log identify events as out-of-session. This is useful if you are updating user properties in the background and don't want to start a new session. Do this by setting the input parameter `outOfSession` to `true` when calling `identify`.
 
 === "Objective-C"
 
@@ -657,7 +661,7 @@ You can also log identify events as out-of-session, which is useful if you are u
     Amplitude.instance().identify(identify, outOfSession: true)
     ```
 
-You can use the helper method getSessionId to get the value of the current sessionId.
+You can use the helper method getSessionId to get the value of the current `sessionId`.
 
 === "Objective-C"
 
@@ -814,7 +818,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 
 Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
  [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (such as ad campaign, app store search).
- Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device ID, or an email login system as alternatives when IDFA isn't available.
+ Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider using IDFV, device ID, or an email login system when IDFA isn't available.
 
 === "Objective-C"
 
@@ -877,7 +881,7 @@ The iOS SDK lets you configure your apps to use [dynamic configuration](../../dy
 SSL Pinning is a technique used in the client side to avoid man-in-the-middle attack by validating the server certificates again after SSL handshaking. Only use SSL pinning if you have a specific reason to do so. Contact Support before you ship any products with SSL pinning enabled.
 
 If you installed the SDK using CocoaPods, you must enable the preprocessor macro via your Podfile by adding this post install hook:
-
+<!-- vale off-->
 ```text title="PodFile"
 post_install do |installer_representation|
    installer_representation.pods_project.targets.each do |target|
@@ -887,7 +891,7 @@ post_install do |installer_representation|
    end
 end
 ```
-
+<!--vale on-->
 If you installed the SDK directly from the source or Swift Package Manager, you can enable SSL pinning by adding the following preprocessor macro. See this [StackOverflow post](https://stackoverflow.com/questions/26928622/add-preprocessor-macro-to-a-target-in-xcode-6) to see how to add preprocessor macro.
 
 ```bash title="xCode Settings"

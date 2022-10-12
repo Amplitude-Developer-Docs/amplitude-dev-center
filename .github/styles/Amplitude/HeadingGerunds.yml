@@ -23,3 +23,7 @@ exceptions:
   - advertising
   - Advertising
   - Troubleshooting
+  - logging
+  - flushing
+  - batching
+  - exiting
