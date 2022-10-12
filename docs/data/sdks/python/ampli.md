@@ -4,7 +4,7 @@ description:  Learn how to install and use the Amplitude Data Ampli Wrapper for 
 ---
 
 
-Amplitude Data supports tracking analytics events from Python apps (Python 3.6 or above). The generated tracking library is packaged as a python package.
+Amplitude Data supports tracking analytics events from Python apps (Python 3.6 or higher). The generated tracking library is packaged as a python package.
 
 The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for auto code completion.
 
@@ -12,7 +12,7 @@ The tracking library exposes a type-safe function for every event in your team�
     [:material-language-python: Ampli Python Example](https://github.com/amplitude/ampli-examples/tree/main/python/simple/v1) · [:material-open-source-initiative: Ampli Django Example](https://github.com/amplitude/ampli-examples/tree/main/python/django/v1) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 !!!note "Deprecated Itly runtime"
-    This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrating-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python.md)**.
+    This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrate-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python.md)**.
 
 ## Install
 
@@ -91,7 +91,7 @@ Call `identify()` to identify a user in your app and associate all future events
 
 Just as Ampli creates types for events and their properties, it creates types for user properties.
 
-The `identify()` function accepts a string user_id, an Identify event instance, and an optional EventOptions.
+The `identify()` function accepts a string `user_id`, an Identify event instance, and an optional `EventOptions`.
 
 For example your tracking plan contains a user property called `role`. The property's type is a string.
 
@@ -113,7 +113,7 @@ Call `group_identify()` to identify a group in your app and set/update group pro
 
 Just as Ampli creates types for events and their properties, it creates types for group properties.
 
-The `group_identify()` function accepts a string group_type, a string group_name, an Group event instance, and an optional EventOptions.
+The `group_identify()` function accepts a string `group_type`, a string `group_name`, an Group event instance, and an optional `EventOptions`.
 
 For example your tracking plan contains a group `sport:football` has a property called `total_member`. The property's type is a int.
 
@@ -121,7 +121,7 @@ For example your tracking plan contains a group `sport:football` has a property 
 ampli.group_identify("sport", "football", Group(total_member=23))
 ```
 
-### Set Group
+### Set group
 
 Call `set_group()` to associate a user with their group (for example, their department or company). The `set_group()` function accept `user_id` `group_type`, `group_name` and an optional EventOptions.
 
@@ -145,7 +145,7 @@ ampli.event_name("user_id", EventName(...), EventOptions(...))
 
 The optional `EventOptions` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument), like `device_id`.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
+For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
 ```python
 ampli.song_played('user_id', SongPlayed(
@@ -232,7 +232,7 @@ Events Tracked: 1 missed, 2 total
 
 Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
 
-## Migrating from an Itly Python runtime
+## Migrate from an Itly Python runtime
 
 Migrate from an Itly Python runtime to Ampli by following these steps.
 
@@ -260,7 +260,7 @@ Migrate from an Itly Python runtime to Ampli by following these steps.
     ```
 
 6. Check your Ampli Wrapper path.
-    `ampli pull` prints the location of where the new SDK was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+    `ampli pull` prints the download location of the new SDK. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 
 7. Find and replace:
 

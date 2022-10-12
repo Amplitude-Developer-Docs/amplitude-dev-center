@@ -10,7 +10,7 @@ icon: simple/typescript
 The TypeScript Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 !!!info "Browser SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
@@ -111,6 +111,7 @@ User properties are details like device details, user preferences, or language t
 Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
 
 !!!note 
+
     If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they won't appear in chart results until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
 #### Set a user property
@@ -274,7 +275,7 @@ The preferred method of tracking revenue for a user is to use `revenue()` in con
 
 <!--vale on-->
 
-To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
+To track revenue from a user, call revenue each time a user generates revenue. For example, a user purchased 3 units of a product at $3.99.
 
 ```ts
 import { Revenue, revenue } from '@amplitude/analytics-browser';
@@ -464,11 +465,11 @@ remove(plugin.name);
 
 #### Create your custom plugin
 
-#### Plugin.setup
+#### `Plugin.setup`
 
 This method contains logic for preparing the plugin for use and has config as a parameter. The expected return value is undefined. A typical use for this method, is to copy configuration from config or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.add()`.
 
-#### Plugin.execute
+#### `Plugin.execute`
 
 This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event. If used as a destination type plugin, the expected return value is undefined. This method is called for each event that's instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
 
@@ -580,7 +581,7 @@ Users who start on Site 1 and then navigate to Site 2 must have the device ID ge
 2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?deviceId=device_id_from_site_1`)
 3. Initialize the Amplitude SDK on Site 2 with `init('API_KEY', null)`.
 
-If the `deviceId` is not provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
+If the `deviceId` isn't provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
 
 ### Web attribution
 
