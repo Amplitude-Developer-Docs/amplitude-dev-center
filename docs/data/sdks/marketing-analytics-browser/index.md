@@ -59,14 +59,21 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 ### Configuration
 
---8<-- "docs/data/sdks/ts-browser/shared-configurations.md"
+#### Basic options
+
+--8<-- "includes/sdk-ts-browser/shared-configurations.md"
+
+#### Attribution and tracking options
+
+|<div class="big-column">Name  </div>    | Value|Description|
+|----|----|----|
 |`trackingOptions`| Optional. `TrackingOptions` | [Learn more about tracking options](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#optional-tracking/). |
 |`attribution.disabled`| Optional. `boolean` | Disable the attribution tracking, attribution is enabled by default |
-|`attribution.excludeReferrers`|  Optional. `string[]` | Exclude the attribution traccking for the provided referrers string |
-|`attribution.initialEmptyValue`| Optional. `string` | Reset the sessionId on a new campaign, Default value is `EMPTY` |
-|`attribution.resetSessionOnNewCampaign`| Optional. `boolean` | Reset the sessionId on a new campaign, will not create a new session for new campaign by default |
-|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean` | `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a trackOn functions|
-|`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all` | Track the page view only on the path changes, track `all` url changes by default|
+|`attribution.excludeReferrers`|  Optional. `string[]` | Exclude the attribution tracking for the provided referrers string |
+|`attribution.initialEmptyValue`| Optional. `string` | Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
+|`attribution.resetSessionOnNewCampaign`| Optional. `boolean` | Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default |
+|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean` | `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
+|`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all` | Track the page view only on the path changes, track `all` URL changes by default|
 
 --8<-- "includes/sdk-ts-browser/basic-ts-functions.md"
 
@@ -88,6 +95,6 @@ Users who start on Site 1 and then navigate to Site 2 must have the device ID ge
 2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?deviceId=device_id_from_site_1`)
 3. Initialize the Amplitude SDK on Site 2 with `init('API_KEY', null)`.
 
-If the `deviceId` is not provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
+If the `deviceId` isn't provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
 
 --8<-- "includes/abbreviations.md"

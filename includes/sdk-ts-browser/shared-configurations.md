@@ -1,4 +1,4 @@
-|Name|Value|Description|
+|<div class="big-column">Name</div>|Value|Description|
 |-|-|-|
 |`flushIntervalMillis`| Optional. `number` | The amount of time the event queue will be uploaded to the server. The default is 1 seconds.|
 |`flushMaxRetries`| Optional. `number` | The max retry limits. The default is 5.|
