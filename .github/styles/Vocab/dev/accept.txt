@@ -158,3 +158,5 @@ RequireJS
 logEvent
 HttpOnly
 SameSite
+Glog
+async

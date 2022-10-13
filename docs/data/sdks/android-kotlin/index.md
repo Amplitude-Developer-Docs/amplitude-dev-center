@@ -361,7 +361,7 @@ You can use the helper method `getSessionId` to get the value of the current `se
     val sessionId = amplitude.sessionId;
     ```
 
-You can define your own session expiration time. The default session experation time is 30 minutes.
+You can define your own session expiration time. The default session expiration time is 30 minutes.
 
 === "Java"
 
@@ -704,7 +704,7 @@ You can use [mobile marketing automation partners](https://amplitude.com/integra
 
 ### Set log callback
 
-Implements a customize loggerProvider class from the LoggerProvider, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.
+Implements a customized `loggerProvider` class from the LoggerProvider, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.
 
 === "Java"
 

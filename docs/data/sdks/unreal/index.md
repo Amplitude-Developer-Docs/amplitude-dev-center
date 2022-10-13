@@ -9,7 +9,7 @@ icon: simple/unrealengine
     The Amplitude Analytics Unreal Engine SDK is in beta and currently supports projects targeting iOS, MacOS, or tvOS.
 
 !!!info "Unreal SDK Resources (Beta)"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-Unreal) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Unreal/releases) · [:material-code-tags-check: Tags](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0) · [:material-book: API Reference](https://github.com/amplitude/Amplitude-Unreal)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Unreal) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Unreal/releases) · [:material-code-tags-check: Tags](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0) · [:material-book: API Reference](https://github.com/amplitude/Amplitude-Unreal)
 
 --8<-- "includes/no-ampli.md"
 
@@ -56,7 +56,7 @@ In any file that involves instrumentation, you should include the necessary Unre
 
 The API of Amplitude Unreal follows the [analytics provider interface](https://docs.unrealengine.com/en-US/API/Runtime/Analytics/Interfaces/IAnalyticsProvider/index.html) defined by the Unreal Engine.
 
-### Logging basic events
+### Log basic events
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -68,7 +68,7 @@ FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game started
 FAnalytics::Get().GetDefaultConfiguredProvider()->EndSession();
 ```
 
-### Logging events with properties
+### Log events with properties
 
 Events can contain properties. Properties give context about the event taken.
 
@@ -79,7 +79,7 @@ AppendedAttributes.Emplace(TEXT("Test Event Prop key2"), TEXT("Test Event value2
 FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
 ```
 
-### Setting user properties
+### Set user properties
 
 User properties help you understand your users at the time they performed some action within your app.
 
@@ -91,7 +91,7 @@ FAnalytics::Get().GetDefaultConfiguredProvider()->SetGender(TEXT("Test gender"))
 FAnalytics::Get().GetDefaultConfiguredProvider()->SetAge(TEXT(27));
 ```
 
-### Setting custom user IDs
+### Set custom user IDs
 
 If your app has its own login system that you want to track users with, use `SetUserId` to set a custom user ID.
 
