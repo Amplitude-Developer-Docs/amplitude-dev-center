@@ -30,7 +30,13 @@ Install the Experiment JavaScript Client SDK.
 === "Script Tag"
 
     ```html
-    <script src="https://unpkg.com/@amplitude/experiment-js-client@<VERSION>/dist/experiment.umd.js"></script>
+    <script src="https://unpkg.com/@amplitude/experiment-js-client@1.5.6/dist/experiment.umd.js"></script>
+    <script>
+        // TODO: Replace DEPLOYMENT_KEY with your own deployment, use
+        // initializeWithAmplitudeAnalytics() to set up an integration
+        // with the Amplitude analytics SDK.
+        window.experiment = Experiment.Experiment.initialize('DEPLOYMENT_KEY');
+    </script>
     ```
 
 !!!tip "Quick Start"
@@ -106,7 +112,7 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
     **Supported Versions**
 
-    | Analytics SDK Version | Experiment SDK Version |
+    | Legacy Analytics SDK Version | Experiment SDK Version |
     | --- | --- |
     | `8.18.1+` | `1.4.1+` |
 
