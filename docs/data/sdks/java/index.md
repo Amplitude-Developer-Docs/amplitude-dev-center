@@ -7,10 +7,10 @@ icon: fontawesome/brands/java
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/java-sdk)
 
-This is the documentation for the Amplitude Analytics Java SDK. Note that this is not the Android SDK.
+This is the documentation for the **Amplitude Analytics Java SDK**, not the Android SDK.
 
 !!!info "JRE SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-Java) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Java/releases)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Java) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Java/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for JRE](./ampli.md).
@@ -30,7 +30,7 @@ dependencies {
 
 ### Download (alternative)
 
-Download the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases) and add it to the project's buildpath. See instructions for your IDE.
+Download the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases) and add it to the project's build path. See instructions for your IDE.
 
 ## EU data residency
 
@@ -44,7 +44,7 @@ amplitude.setServerUrl("https://api.eu.amplitude.com/2/httpapi");
 
 ## Usage and examples
 
-### Importing
+### Import
 
 Import Amplitude into any file that uses it. Amplitude uses the open source `JSONObject` library to conveniently create JSON key-value objects.
 
@@ -55,7 +55,7 @@ import org.json.JSONObject;
 
 ### Initialization
 
-Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required.
+You must initialize the SDK before any events are instrumented. The API key for your Amplitude project is required.
 
 ```java
 Amplitude client = Amplitude.getInstance();
@@ -71,7 +71,7 @@ client.init("YOUR_API_KEY");
 
 ### Configure batching behavior
 
-To support high performance environments, our SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUpdloadThreshfold` and `setEventUploadPeriodMillis`.
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUpdloadThreshfold` and `setEventUploadPeriodMillis`.
 
 ```java
 Amplitude client = Amplitude.getInstance();
@@ -91,7 +91,7 @@ client.flushEvents();
 ```
 
 For customers who want to send large batches of data at a time, for example through scheduled jobs, rather than in a continuous real-time stream, Amplitude provides the batch mode.
- Both the regular mode and the batch mode use the same events upload threshold and flush time intervals, but the batch mode allows larger payload size(20MB) and has higher throttling limit.
+ Both the regular mode and the batch mode use the same events upload threshold and flush time intervals. The batch mode allows larger payload size (20MB) and has a higher throttling limit.
   Due to the higher rate of data that's permitted by this mode, data sent by batch mode may be delayed based on load. You can see a usage example in [this project](https://github.com/amplitude/Amplitude-Java/blob/main/src/demo/java/com/demo/amplitude/LocalUploadDemo.java) on GitHub.
 
 ```java
@@ -102,9 +102,9 @@ client.useBatchMode(true);
 client.useBatchMode(false);
 ```
 
-## Config custom http proxy
+## Config custom HTTP proxy
 
-New in version 1.9.0. Set and unset custom proxy for http requests.
+New in version 1.9.0. Set and unset custom proxy for HTTP requests.
 
 ```java
 // Set proxy for http requests
@@ -130,9 +130,9 @@ client.setLogger(new AmplitudeLog() {
 });
 ```
 
-## Config events flusing thread timeout
+## Config events flushing thread timeout
 
-New in version 1.10.0. Set events flusing thread timeout in milliseconds. If set to a positive long integer, events flushing tasks will timeout and trigger callbacks for those events.
+New in version 1.10.0. Set events flushing thread timeout in milliseconds. If set to a positive long integer, events flushing tasks time out and trigger callbacks for those events.
 
 ```java
 client.setFlushTimeout(2000L); // 2 seconds
@@ -140,13 +140,13 @@ client.setFlushTimeout(2000L); // 2 seconds
 
 ## Shutdown client and release resource
 
-New in version 1.10.0. Stops the Amplitude client from accepting new events and shuts down the threadspool gracefully. Events in the buffer will trigger callbacks. A new instance is created and returned if you call Amplitude.getInstance(INSTANCE_NAME) with the same instance name.
+New in version 1.10.0. Stops the Amplitude client from accepting new events and shuts down the threadspool. Events in the buffer trigger callbacks. A new instance is created and returned if you call `Amplitude.getInstance(INSTANCE_NAME)` with the same instance name.
 
 ```java
 client.shutdown();
 ```
 
-## Sending events
+## Send events
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -278,7 +278,7 @@ The `payload` contains the `event` being sent as well as an optional `extra
 To invoke the next middleware in the queue, use the `next` function. You must call `next.run(payload)` to continue the middleware chain.
  If a middleware doesn't call `next`, then the event processing stop executing after the current middleware completes.
 
-Middleware is added to Amplitude via `client.addEventMiddleware`. You can add as many middleware as you like. Each middleware runs in the order in which it was added.
+Add middleware to Amplitude via `client.addEventMiddleware`. You can add as many middleware as you like. Each middleware runs in the order in which it was added.
 
 You can find examples for [Java](https://github.com/amplitude/ampli-examples/blob/main/jre/java/AmpliApp/src/main/java/org/example/LoggingMiddleware.java) and [Kotlin](https://github.com/amplitude/ampli-examples/blob/main/jre/kotlin/AmpliApp/src/main/kotlin/LoggingMiddleware.kt).
 

@@ -96,11 +96,9 @@ swap:
   prioritize: rank
   procure: buy
   provide: give|offer
-  purchase: buy
   relocate: move
   solicit: request
   state-of-the-art: latest
-  subsequent: later|next
   substantial: large
   sufficient: enough
   terminate: end

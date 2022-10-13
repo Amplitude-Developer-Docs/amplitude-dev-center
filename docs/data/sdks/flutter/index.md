@@ -9,7 +9,7 @@ icon: simple/flutter
 This is the official documentation for the Amplitude Analytics Flutter SDK.
 
 !!!info "Flutter SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-Flutter) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Flutter/releases) · [:material-book: API Reference](https://pub.dev/documentation/amplitude_flutter/latest/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Flutter) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Flutter/releases) · [:material-book: API Reference](https://pub.dev/documentation/amplitude_flutter/latest/)
 
 --8<-- "includes/no-ampli.md"
 
@@ -78,7 +78,7 @@ Amplitude.getInstance().setServerZone("EU");
 Amplitude.getInstance().setServerUrl("https://api.eu.amplitude.com")
 ```
 
-### Sending events
+### Send events
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -98,7 +98,7 @@ Events can also contain properties. They provide context about the event taken. 
 Amplitude.getInstance().logEvent('BUTTON_CLICKED', {"Hover Time": "100ms"});
 ```
 
-#### Flush Events
+#### Flush events
 
 Events are typically stored in a buffer and flushed periodically. This behavior is configurable. You can also flush events manually
 
@@ -119,7 +119,7 @@ import 'package:amplitude_flutter/identify.dart';
 
     Don't track any user data that may be against your privacy terms.
 
-#### Setting a user property
+#### Set a user property
 
 #### `set`
 
@@ -176,7 +176,7 @@ final Identify identify = Identify()
 Amplitude.getInstance().identify(identify);
 ```
 
-### Setting multiple user properties
+### Set multiple user properties
 
 You can use `setUserProperties` as a shorthand to set multiple user properties at one time. This method is a wrapper around `Identify.set` and `identify`.
 
@@ -190,7 +190,7 @@ Amplitude.getInstance().setUserProperties(userProperties);
 
 ### Arrays in user properties
 
-Arrays can be used as user properties. You can directly set arrays or use append to generate an array.
+You can use arrays as user properties. You can directly set arrays or use append to generate an array.
 
 ```dart
 const colors = ["rose", "gold"];
@@ -217,9 +217,9 @@ final Identify identify = Identify()
 Amplitude.getInstance().identify(identify);
 ```
 
-### Removing user properties
+### Remove user properties
 
-#### Clearing all user properties
+#### Clear all user properties
 
 `clearUserProperties` clears all the current user's user properties.
 

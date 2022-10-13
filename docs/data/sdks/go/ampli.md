@@ -154,7 +154,7 @@ ampli.Instance.GroupIdentify(
 )
 ```
 
-### Set Group
+### Set group
 
 Call `SetGroup()` to associate a user with their group (for example, their department or company). The `SetGroup()` function accept `userID` `groupType`, `groupName` and EventOptions.
 
@@ -178,7 +178,7 @@ ampli.Instance.EventName("user_id", NewEventName(...), EventOptions(...))
 
 `EventOptions` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument), like `DeviceID`.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
+For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
 ```Go
 ampli.Instance.SongPlayed("user_id", SongPlayed().Builder()

@@ -12,7 +12,7 @@ In Swift and Objective-C, the tracking library exposes a type-safe function for 
     [:material-language-swift: Ampli Swift Example](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/AmpliSwiftSampleApp) · [:material-language-c: Ampli Objective-C Example](https://github.com/amplitude/ampli-examples/tree/main/ios/objective-c/AmpliObjectiveCSampleApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 !!!note "Deprecated Itly runtime"
-    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/ios.md)**.
+    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/ios.md)**.
 
 ## Installation
 
@@ -191,9 +191,9 @@ Amplitude supports assigning users to groups and performing queries, such as Cou
 For example, you want to group your users based on what organization they're in by using an 'orgId'. Joe is in 'orgId' '10', and Sue is in 'orgId' '15'. Sue and Joe both perform a certain event. You can query their organizations in the Event Segmentation Chart.
 
 When setting groups, define a `groupType` and `groupName`. In the previous example, 'orgId' is the `groupType` and '10' and '15' are the values for `groupName`. Another example of a `groupType` could be 'sport' with `groupName` values like 'tennis' and 'baseball'.
-
- Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
-
+<!-- vale off-->
+ Setting a group also sets the groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+<!--vale on-->
  Your code might look like this:
 
 === "Swift"
@@ -232,7 +232,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 !!! note
     EventOptions are set via generic track and aren't exposed on the strongly typed event methods such as `Ampli.instance.songPlayed(songId: 'id', songFavorited: true)`.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
+For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
 
@@ -279,7 +279,7 @@ Ampli also generates a class for each event.
     ];
     ```
 
-All event objects can be sent using the generic track method.
+You can send all Even objects using the generic track method.
 
 === "Swift"
 
@@ -325,7 +325,7 @@ Events Tracked: 2 missed, 3 total
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
-## Migrating from an Itly iOS runtime
+## Migrate from an Itly iOS runtime
 
 Migrate from an Itly iOS runtime to Ampli by following these steps.
 

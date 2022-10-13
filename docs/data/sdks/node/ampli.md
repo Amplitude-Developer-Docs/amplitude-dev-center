@@ -4,7 +4,7 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 ---
 
 
-Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
+Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -12,7 +12,7 @@ The tracking library exposes a function for every event in your team’s trackin
     [:material-language-typescript: Ampli Node TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp) · [:material-nodejs: Ampli Node JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp) · [:material-page-next: Ampli NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 !!!note "Deprecated Itly runtime"
-    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
+    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
 
 --8<-- "includes/beta-not-supported.md"
 
@@ -124,11 +124,11 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 
 | <div class="big-column">Option</div> | Type              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |--------------------------------------|-------------------| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disabled`                           | Boolean           | optional | Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper will be no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
-| `environment`                        | String            | optional | Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
-| `client.apiKey`                      | String            | optional |Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-| `client.instance`                    | AmplitudeClient   | optional | Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-| `client.options`                     | Amplitude.Options | optional | Overrides the default configuration for the AmplitudeClient.|
+| `disabled`                           | `Boolean`           | optional | Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
+| `environment`                        | `String`            | optional | Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
+| `client.apiKey`                      | `String`            | optional |Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+| `client.instance`                    | `AmplitudeClient`   | optional | Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+| `client.options`                     | `Amplitude.Options` | optional | Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
 
@@ -250,7 +250,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 The `extra` argument lets you pass data to middleware.
 
-For example, your tracking plan contains an event called Song Played. The SDK generates the `songPlayed` function for the event, using camelcase to make it valid JavaScript. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
+For example, your tracking plan contains an event called Song Played. The SDK generates the `songPlayed` function for the event, using camel case to make it valid JavaScript. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
 
@@ -349,7 +349,7 @@ Events Tracked: 2 missed, 3 total
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
-## Migrating from an Itly runtime
+## Migrate from an Itly runtime
 
 Migrate from an Itly Node.js runtime to Ampli by following these steps.
 

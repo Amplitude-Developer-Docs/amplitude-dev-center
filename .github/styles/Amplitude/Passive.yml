@@ -197,4 +197,7 @@ exceptions:
   - exported
   - verified
   - synced
+  - required
+  - incremented
+  - throttled
   

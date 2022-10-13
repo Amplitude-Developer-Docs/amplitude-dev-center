@@ -239,7 +239,7 @@ amplitude.getInstance().identify(identify2);
 
 ##### `setOnce`
 
-`setOnce` sets the value of a user property one time. Later calls using `setOnce` are ignored.
+`setOnce` sets the value of a user property one time. Subsequent calls using `setOnce` are ignored.
 
 ```js
 var identify = new amplitude.Identify().setOnce('key1', 'value1');
@@ -430,7 +430,7 @@ amplitude.getInstance().regenerateDeviceId();
 
 ## Session tracking
 
-Events triggered within 30 minutes of each other are counted towards the current session.
+Events triggered within 30 minutes of each other count towards the current session.
  The time of the first event marks the start time of a session and the last event triggered marks the end time of a session.
   You can change the session timeout window via the SDK configuration option field `sessionTimeout`.
 
@@ -497,7 +497,7 @@ While Amplitude’s JavaScript SDK doesn't collect web attribution data by defau
 Amplitude supports automatically tracking the following through the SDK configuration options:
 
 - The 5 standard UTM parameters from the user's browser cookie or URL parameters by using `includeUtm`.
-- The referring URL and domain from includeReferrer.
+- The referring URL and domain from `includeReferrer`.
 - Google Click Identifier from URL parameters through `includeGclid`.
 - Facebook Click Identifier from URL parameters through `includeFbclid`.  
 
@@ -510,9 +510,9 @@ There are five different standard UTM parameters:
 
 - `utm_source`: This identifies which website sent the traffic (for example: Google, Facebook).
 - `utm_medium`: This identifies the link type that was used (for example: banner, button, email).
-- `utm_campaign`: This identifies a specific campaign used (for example: summer_sale).
+- `utm_campaign`: This identifies a specific campaign used (for example: "summer_sale").
 - `utm_term`: This identifies paid search terms used (for example:  product+analytics).
-- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: bannerlink, textlink).
+- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: "bannerlink", "textlink").
 
 Here is an example URL:
 
@@ -712,7 +712,7 @@ Disable cookies created by the SDK with the `disableCookies` option. When you 
 #### SameSite
 
 The JavaScript SDK defaults to setting the SameSite option on its cookies to `None`. This can be overridden with the `sameSiteCookie` option.
- `Lax` is recommended unless there are instances where you have third party sites that `POST` forms to your site.
+ Amplitude recommends using `Lax` unless there are instances where you have third party sites that `POST` forms to your site.
 
 #### HttpOnly cookies
 
@@ -786,7 +786,7 @@ Users who start on Site 1 and then navigate to Site 2 must have the device ID ge
 Amplitude supports automatically tracking:
 
 - Standard UTM parameters from the user's cookie or URL parameters when the configuration option `includeUtm` is set to true during initialization.
-- The referring URL when the configuration option includeReferrer is set to true during initialization.
+- The referring URL when the configuration option `includeReferrer` is set to true during initialization.
 - `gclid` (Google Click ID) from URL parameters when the configuration option includeGclid is set to true during initialization.
 
 If tracking is enabled, then the SDK sets the values as user properties (for example,  `referrer` or `utm_source`) one time per session. This called last touch attribution.
@@ -803,9 +803,9 @@ If tracking is enabled, then the SDK sets the values as user properties (for exa
      if a users session expires, the SDK maps the user's Referrer and UTM Parameters to existing values.
     To reset those values to null upon instantiating a new session, set `unsetParamsReferrerOnNewSession` to `true`.
 
-### Callbacks for logEvent, identify, and redirect
+### Callbacks for `logEvent`, `identify`, and `redirect`
 
-You can pass a callback function to `logEvent` and identify, which gets called after receiving a response from the server.
+You can pass a callback function to `logEvent` and `identify`, which gets called after receiving a response from the server.
 This is useful if timing may cause an event to not be captured before the browser navigates away from a webpage.
  Putting the navigation in a callback to the `logEvent` method guarantees the event is captured before the navigation occurs. Here is a logEvent example:
 
@@ -837,7 +837,7 @@ You can also use this to track outbound links to your website. For example, you 
 <a href="javascript:trackClickLinkA();">Link A</a>
 ```
 
-Then, you would define a function that'scalled when the link is clicked like this:
+Then, you would define a function that's called when the link is clicked like this:
 
 ```js
 var trackClickLinkA = function() {
@@ -910,8 +910,7 @@ amplitude.getInstance().logEvent('send event with http');
 
 #### Use sendBeacon only when exiting page
 
-The JavaScript SDK provides a convenient callback function that's called only when the user exits the page,
- and automatically switches the transport to 'beacon' for any logs sent in the callback. This callback is called `onExitPage` and is passed into the SDK on initialization, like so:
+The JavaScript SDK provides a convenient callback function that's called only when the user exits the page. It automatically switches the transport to 'beacon' for any logs sent in the callback. This callback is called `onExitPage` and is passed into the SDK on initialization, like so:
 
 ```js
 var exitCallback = function {

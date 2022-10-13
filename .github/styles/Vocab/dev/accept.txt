@@ -144,3 +144,17 @@ Datacenter
 Userlist
 onesignal.com
 omnichannel
+[Uu]nset
+unsets
+desugaring
+Bitcode
+[Cc]onfig
+bool
+preprocessor
+threadspool
+sendBeacon
+UUIDs
+RequireJS
+logEvent
+HttpOnly
+SameSite

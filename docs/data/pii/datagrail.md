@@ -33,6 +33,6 @@ For more details on this, see the help documentation while logged in to DataGrai
 4. Enter the API Key and Secret Key.
 5. Click **Save Connection** to complete the setup.
 
-Your Amplitude integration is now active. Your DataGrail Customer Success Manager will proactively guide you through any remaining steps to launch your Privacy program. Contact DataGrail's support team (<support@datagrail.io>) with questions.
+Your Amplitude integration is now active. Your DataGrail Customer Success Manager will guide you through any remaining steps to launch your Privacy program. Contact DataGrail's support team (<support@datagrail.io>) with questions.
 
 --8<-- "includes/abbreviations.md"
