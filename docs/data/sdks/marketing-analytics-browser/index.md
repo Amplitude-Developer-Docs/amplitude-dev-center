@@ -7,7 +7,7 @@ icon: simple/typescript
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fmarketing-analytics-browser.svg)
 
-The Marketing Analytics Browser SDK extends the Browser SDK to identify users/events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
+The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
 
 !!!info "Marketing Analytics Browser SDK Resources"
     [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
@@ -77,7 +77,7 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 --8<-- "includes/sdk-ts-browser/basic-ts-functions.md"
 
---8<-- "includes/sdk-ts-browser/marketing-analystic.md"
+--8<-- "includes/sdk-ts-browser/marketing-analytics.md"
 
 ## Advanced topics
 
