@@ -112,6 +112,8 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
 
     **Supported Versions**
 
+    All versions of the next-generation [Amplitude analytics Browser](../../data/sdks/typescript-browser/index.md) support this integration.
+
     | Legacy Analytics SDK Version | Experiment SDK Version |
     | --- | --- |
     | `8.18.1+` | `1.4.1+` |
