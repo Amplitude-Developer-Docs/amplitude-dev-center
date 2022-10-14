@@ -67,7 +67,7 @@ The configuration page has two sections.  
 - The **Configuration** section on the left is where you configure your payload and what you expect to receive from Amplitude.
 - The **Preview Integration** section summarizes your configurations, including your setup modal screen for your integration, parameters, and payload.
 
-![screenshot of the configuration page](../assets/images/partners/partner-event-streaming-configuration.png)
+![screenshot of the configuration page](../assets/images/partners/partner-configuration.png)
 
 ## Select connection information
 
@@ -77,11 +77,11 @@ You must add connection information before you can configure the specifics of yo
 2. Click **Add Connection Info**.
 3. Enter the connection info:
 
-      - Display Name: The display name of the integration. This is the name that appears in the Integration Catalog and on your integration tile.
-      - Category: Choose a category. The Integration Catalog uses the category in filters.
-      - Summary: A brief overview of your product.
-      - Full Description: Detailed description of your integration. Include some common use cases so users understand why they should use the integration.
-      - Integration Logo: Upload your integration logo in PNG format.
+      - **Display Name:** The display name of the integration. This is the name that appears in the Integration Catalog and on your integration tile.
+      - **Category:** Choose a category. The Integration Catalog uses the category in filters.
+      - **Summary:** A brief overview of your product.
+      - **Full Description:** Detailed description of your integration. Include some common use cases so users understand why they should use the integration.
+      - **Integration Logo:** Upload your integration logo in PNG format.
 
 ## Create parameters
 
@@ -93,7 +93,7 @@ This section allows you to define the parameters that can be used in the URL, he
 
 Use the Customize Events Payload section to customize what's included in your payload.
 
-  ![screenshot of the events payload screen](../assets/images/partners/partner-customize-events-payload.png){ width="500" }
+  ![screenshot of the events payload screen](../assets/images/partners/partner-event-body-editor-v2.png){ width="500" }
 
 - **URL Endpoint:** Depending on your endpoint, you can choose between the following methods PUT, POST or PATCH.
 - **REST API Headers:** You can customize the API headers type to suit your use case. Some examples include:
@@ -102,7 +102,7 @@ Use the Customize Events Payload section to customize what's included in your pa
     - **WWW-Authenticate:** The server may send this as an initial response if it needs some form of authentication before responding with the actual requested resource. Often following this header is the response code 401, which means “unauthorized”.
     - **Accept-Charset:** This header is set with the request and tells the server which character sets (for example, UTF-8, ISO-8859-1, Windows-1251, etc.) are acceptable by the client.
     - **Cache-Control:** The cache policy defined by the server for this response, the client stores a cached response and reuses it until the time defined by the Cache-Control header.
-- **Header Display Name & Header Value:** This is fully customizable, so use something descriptive. For example, "API Key". This isn't included in the payload.
+- **Header Key & Header Value:** This is fully customizable, so use something descriptive. For example, "API Key". This isn't included in the payload.
 
 ### Example payload structure
 
@@ -135,15 +135,18 @@ This section is a Freemarker template that allows you to construct the payload t
 ## Preview and test
 
 1. Before submitting your configuration for review, test the mock payload that you expect to receive from Amplitude. On the right side of the configuration page, follow these steps to preview and test your configuration. 
-    Configure the test integration instance:
+    Configure the test integration instance and hit **Save**:
       - **API Endpoint:** `https://localhost:3000`
       - **REST API Key:** Enter the API key from the Amplitude project.
 
     !!!note
 
         If you would like to disable *Specify event properties to be sent (optional)*, send an email to integrations@amplitude.com.
+           
+![screenshot of the event test payload page](../assets/images/partners/partner-test-tvent-payload.png)
 
-2. Copy test payload CURL command and paste it into your Command Line Interface (CLI).
+     
+2. Click on the **Test Payload** to generate a CURL command. Copy and paste this CURL command into your Command Line Interface (CLI).
 3. If you see any errors, check the parameters table to make sure all declared parameters are used.
 
       - **DECLARED:** All declared parameters in the *Create Parameters* section.
