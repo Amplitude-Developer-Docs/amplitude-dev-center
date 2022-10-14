@@ -9,7 +9,7 @@ icon: simple/react
 The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 !!!beta "React Native SDK Resources (Beta)"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for React Native](../typescript-react-native/ampli.md).
@@ -18,7 +18,7 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 
 ### Installation
 
-To get started with using Amplitude React Native SDK, install the package to your project via NPM. You must also install `@react-native-async-storage/async-storage` for the SDK to work properly.
+To get started with using Amplitude React Native SDK, install the package to your project via NPM. You must also install `@react-native-async-storage/async-storage` for the SDK to work as expected.
 
 !!!tip "Web and Expo Support"
     This SDK can be used for react-native apps built for web or built using [Expo](https://expo.dev/) (Expo Go not yet supported).
@@ -54,11 +54,11 @@ pod install
 ## Usage
 
 !!!info "Web vs Mobile"
-    The configuration of the SDK is shared across web and mobile platforms, but many of these options simply don't apply when running the SDK on native platforms (e.g. iOS, Android). For example, the when the SDK is run on web, the identity is stored in the browser cookie by default, whereas on native platforms identity is stored in async storage.
+    The configuration of the SDK is shared across web and mobile platforms, but many of these options simply don't apply when running the SDK on native platforms (for example iOS, Android). For example, the when the SDK is run on web, the identity is stored in the browser cookie by default, whereas on native platforms identity is stored in async storage.
 
-### Initializing SDK
+### Initialize the SDK
 
-Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required. Optionally, a user ID and config object can be passed in this call. The SDK can be used anywhere after it is initialized anywhere in an application.
+Initialization is necessary before any instrumentation is done. The API key for your Amplitude project is required. Optionally, a user ID and config object can be passed in this call. The SDK can be used anywhere after it's initialized anywhere in an application.
 
 ```ts
 import { init } from '@amplitude/analytics-react-native';
@@ -113,10 +113,10 @@ track('Button Clicked', eventProperties);
 
 User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
 
-Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. The operations are declared via a provided Identify interface. Multiple operations can be chained together in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
+Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. The operations are declared via a provided Identify interface. You can chain multiple operations together in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
 
 !!!note 
-    If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user’s profile area, but it will not appear in chart result until another event is sent after the Identify call. So the identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
+    If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user’s profile area, but it won't appear in chart result until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
 #### Setting a user property
 
@@ -157,7 +157,7 @@ identify(identifyObj);
 
 #### Identify.add
 
-This method increments a user property by some numerical value. If the user property does not have a value set yet, it will be initialized to 0 before being incremented. For example, you can track a user's travel count.
+This method increments a user property by some numerical value. If the user property doesn't have a value set yet, it will be initialized to 0 before being incremented. For example, you can track a user's travel count.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -170,11 +170,11 @@ identify(identifyObj);
 
 #### Arrays in user properties
 
-Arrays can be used as user properties. You can directly set arrays or use prepend, append, preInsert and postInsert to generate an array.
+Arrays can be used as user properties. You can directly set arrays or use `prepend`, `append`, `preInsert` and `postInsert` to generate an array.
 
-#### Identify.prepend
+#### `Identify.prepend`
 
-This method prepends a value or values to a user property array. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are prepended.
+This method prepends a value or values to a user property array. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are prepended.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -185,9 +185,9 @@ identifyObj.prepend('visited-locations', 'LAX');
 identify(identifyObj);
 ```
 
-#### Identify.append
+#### `Identify.append`
 
-This method appends a value or values to a user property array. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are prepended.
+This method appends a value or values to a user property array. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are prepended.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -198,9 +198,9 @@ identifyObj.append('visited-locations', 'SFO');
 identify(identifyObj);
 ```
 
-#### Identify.preInsert
+#### `Identify.preInsert`
 
-This method pre-inserts a value or values to a user property, if it does not exist in the user property yet. Pre-insert means inserting the value(s) at the beginning of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -213,7 +213,7 @@ identify(identifyObj);
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it does not exist in the user property yet. Post-insert means inserting the value(s) at the end of a given list. If the user property does not have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -226,7 +226,7 @@ identify(identifyObj);
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value(s) from the given list. If the item does not exist in the user property, it will be no operation.
+This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the item doesn't exist in the user property, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -274,7 +274,7 @@ groupIdentify(groupType, groupName, identify);
 
 ### Revenue tracking
 
-The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances will store each revenue transaction and allow you to define several special revenue properties (such as 'revenueType', 'productIdentifier', etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
+The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances will store each revenue transaction and allow you to define several special revenue properties (such as "revenueType", "productIdentifier", etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
 To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
 
@@ -293,10 +293,10 @@ revenue(event);
 
 |Name | Description |
 |-----|-------|
-|`product_id` | Optional. String. An identifier for the product. We recommend something like the Google Play Store product ID. Defaults to null. |
+|`product_id` | Optional. String. An identifier for the product. Amplitude recommends something like the Google Play Store product ID. Defaults to null. |
 |`quantity` | Required. Int. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1|
 |`price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to null. |
-|`revenue_type` | Optional, but required for revenue verification. String. The type of revenue (e.g. tax, refund, income).  Defaults to null.|
+|`revenue_type` | Optional, but required for revenue verification. String. The revenue type (for example tax, refund, income).  Defaults to null.|
 |`receipt`| Optional. String. The receipt identifier of the revenue. Defaults to null|
 |`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
 |`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
@@ -361,7 +361,7 @@ setDeviceId(uuid());
 `reset` is a shortcut to anonymize users after they log out, by:
 
 - setting `userId` to `undefined`
-- setting `deviceId` to a new uuid value
+- setting `deviceId` to a new UUID value
 
 With an undefined `userId` and a completely new `deviceId`, the current user would appear as a brand new user in dashboard.
 
@@ -383,7 +383,7 @@ setOptOut(true);
 
 No events are saved or sent to the server while `setOptOut` is enabled, and the setting persists across page loads. 
 
-Reenable logging by setting `setOptOut` to `false`.
+Re-enable logging by setting `setOptOut` to `false`.
 
 ```ts
 import { setOptOut } from '@amplitude/analytics-react-native';
@@ -476,13 +476,13 @@ This method contains logic for preparing the plugin for use and has config as a 
 
 #### Plugin.execute
 
-This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is undefined. This method is called for each event, including Identify, GroupIdentify and Revenue events, that is instrumented using the client interface.
+This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event; while if used as a destination type plugin, the expected return value is undefined. This method is called for each event, including Identify, GroupIdentify and Revenue events, that's instrumented using the client interface.
 
 #### Plugin examples
 
 ##### Enrichment type plugin
 
-Here's an example of a plugin that modifies each event that is instrumented by adding an increment integer to `event_id` property of an event starting from 100.
+Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
 ```ts
 import { init, add } from '@amplitude/analytics-node';
@@ -519,7 +519,7 @@ add(new AddEventIdPlugin());
 
 #### Destination Type Plugin
 
-Here's an example of a plugin that sends each event that is instrumented to a target server URL using your preferred HTTP client.
+Here's an example of a plugin that sends each instrumented event to a target server URL using your preferred HTTP client.
 
 ```ts
 import { init, add } from '@amplitude/analytics-node';

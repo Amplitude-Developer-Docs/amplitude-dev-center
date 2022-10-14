@@ -3,7 +3,7 @@ title: React Native Ampli Wrapper
 description: The Ampli Wrapper - React Native Installation & Quick Start guide.
 ---
 
-Amplitude Data supports tracking analytics events from React Native apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
+Amplitude Data supports tracking analytics events from React Native apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
 The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
@@ -87,11 +87,11 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 
 | <div class ="big-column">Option</div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |---------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disabled`                            | Optional. Boolean. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
-| `environment`                         | Optional. String. Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
-| `client.apiKey`                       | Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-| `client.instance`                     | Optional. AmpltitudeClient. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-| `client.configuration`                | Optional. Amplitude.Config. Overrides the default configuration for the AmplitudeClient.|
+| `disabled`                            | Optional. `Boolean`. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
+| `environment`                         | Optional. `String`. Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
+| `client.apiKey`                       | Optional. `String`. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+| `client.instance`                     | Optional. `AmpltitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+| `client.configuration`                | Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
 
@@ -161,8 +161,9 @@ Call `setGroup()` to associate a user with their group (for example, their depar
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
-
- Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+<!-- vale off-->
+ Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing `groupName` value set for that user's `groupType`, and the corresponding user property value. `groupType` is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+ <!--vale on-->
 
  Your code might look like this:
 
