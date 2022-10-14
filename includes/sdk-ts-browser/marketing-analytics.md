@@ -179,7 +179,6 @@ init(API_KEY, 'user@amplitude.com', {
 
 If you have a single page app that uses a [history](https://developer.mozilla.org/en-US/docs/Web/API/History) based router such as react-router, you can enable `trackHistoryChanges` to send Page View events when users navigate between pages.
 Possible values for `trackHistoryChanges`:
-
 |Name|Description|
 |-|-|
 |`all`| All pushes and pops from history will send a page view. |
