@@ -76,9 +76,9 @@ Amplitude captures the initial attribution data at the start of the first sessio
 
 #### Multi-touch attribution
 
-Amplitude captures the attribution data at the start of each session, and tracks some values as user properties. For campaign-related traffic where the URL or browser cookies include these values, the properties are set as user identity. For organic or direct traffic, these properties may not be available. Therefore, these user properties are unset from user identity.
+Amplitude captures the attribution data at the start of each session, and sets those values as user properties. For organic or direct traffic, these properties may not be available. Therefore, these user properties are unset from user identity.
 
-For every new campaign, we capture the changes regardless of the state of the user session. You can configure `resetSessionOnNewCampaign` to `ture` to reset the session on every new campaign. The default behavior won't reset session on new campaign.
+For every new campaign (when new attribution data is seen), we capture the changes regardless of the state of the user session. You can configure `resetSessionOnNewCampaign` to `true` to reset the session on every new campaign. The default behavior is to not reset the session on new campaign.
 
 Amplitude tracks the following as user properties:
 
@@ -102,7 +102,7 @@ Amplitude tracks the following as user properties:
 For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If you prefer a different initial value, set `attriubtion.initialEmptyValue` to any string value.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
     initialEmptyValue: "none",
   }
@@ -114,7 +114,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 You can configure Amplitude to opt out of collection of attribution data for a given list of referrers.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
     excludeReferrers: ['www.test.com'],
   }
@@ -126,7 +126,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 You can configure Amplitude to reset the session on a new campaign. Do this by setting `attribution.resetSessionOnNewCampaign` to `true`. By default `attribution.resetSessionOnNewCampaign` is set to `false`.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
     resetSessionOnNewCampaign: true,
   }
@@ -138,7 +138,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 You can configure Amplitude to opt out of automatic collection of attribution data. Do this by setting `attribution.disabled` to `true`. By default `attribution.disabled` is set to `false`.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
     disabled: true,
   }
@@ -147,17 +147,14 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Page view
 
-You are able to configurate how the page view event get tracked. You can configure to fire a page view event when attribution information changed. Or specify the callback function to return a boolean to limit event volume on the page view tracking.
+Enable page view tracking by setting pageViewTracking to `true`. You can alternately set pageViewTracking to an object to pass additional options (see below). By default, enabling page view tracking sends a Page View event to your project each time a user views a new page.
 
 #### Track the page view event when the attribution changed
 
-A page view event will be send along with the attribution properties when the attribution changed.
+Set the `trackOn` option to `'attribution'` to _only_ send Page View events when attribution information changes.
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
-  attribution: {
-    trackPageViews: true,
-  },
   pageViewTracking: {
     trackOn: 'attribution',
   }
@@ -166,13 +163,10 @@ init(API_KEY, 'user@amplitude.com', {
 
 #### Track the page view event based on specific criteria
 
-You are able to pass a customized functions to track the page view event on specific criteria
+`trackOn` can also be set to a function callback to fully customize when a Page View event will be sent.
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
-  attribution: {
-    trackPageViews: true,
-  },
   pageViewTracking: {
     trackOn: () => {
       return window.location.pathname === '/landing_page'
@@ -181,17 +175,22 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-#### Track the page view event for changes on page history
+#### Single Page App Page View tracking
+
+If you have a single page app that uses a [history](https://developer.mozilla.org/en-US/docs/Web/API/History) based router such as react-router, you can enable `trackHistoryChanges` to send Page View events when users navigate between pages.
+Possible values for `trackHistoryChanges`:
+
+|Name|Description|
+|-|-|
+|`all`| All pushes and pops from history will send a page view. |
+|`pathOnly`| Page Views will be sent if the [url pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname) changes. This prevents changes to the querystring or hash from sending events. |
 
 You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page url will be considered into the page view changes.
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
-  attribution: {
-    trackPageViews: true,
-  },
   pageViewTracking: {
-    trackHistoryChanges: 'pathOnly' // or 'all' by default
+    trackHistoryChanges: 'pathOnly' // or 'all'
   }
 });
 ```
