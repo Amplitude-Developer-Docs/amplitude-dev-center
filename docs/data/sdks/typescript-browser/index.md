@@ -13,8 +13,8 @@ The TypeScript Browser SDK lets you send events to Amplitude. This library is op
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 !!!note "Typescript Broswer SDK versus the Marketing Analytics Browser"
-    The TypeScript Browser SDK is our recommended SDK for most users. It's functionality can easy be extended through the use of plugins.
-    However, if you want web attribution and page view tracking without any additional setup and please use Marketing Analytics Browser instead. It extends the Typescript Browser SDK with build in web attribution and page view tracking. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
+    Amplitude recommends the TypeScript Browser SDK for most users. You can extend its functionality using plugins.
+    However, if you want web attribution and page view tracking without extra setup, use the Marketing Analytics Browser instead. It extends the Typescript Browser SDK with built-in web attribution and page view tracking. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
@@ -530,12 +530,12 @@ add(webAttributionPlugin(client, attribution));
 init('API_KEY', configuration);
 ```
 
-Please check the avaiable configuration [here](../marketing-analytics-browser/#configuration).
-Learn more about what [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution) support.
+See the [configuration options](../marketing-analytics-browser/#configuration).
+Learn more about what the [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution) supports.
 
 ##### Page View Enrichment Plugin
 
-You need to download `plugin-page-view-tracking-browser` and add the `pageViewTrackingPlugin` before call init method.
+You need to download `plugin-page-view-tracking-browser` and add the `pageViewTrackingPlugin` before calling the init method.
 
 === "npm"
 
@@ -554,8 +554,8 @@ add(pageViewTrackingPlugin(client, pageViewTrackingOptions));
 init('API_KEY', configuration);
 ```
 
-Please check the avaiable configuration [here](../marketing-analytics-browser/#configuration).
-Learn more about what [Page View Plugin](../marketing-analytics-browser/#page-view) support.
+See the [configuration options](../marketing-analytics-browser/#configuration).
+Learn more about what the [Page View Plugin](../marketing-analytics-browser/#page-view) supports.
 
 ## Advanced topics
 

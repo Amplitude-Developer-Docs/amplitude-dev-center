@@ -55,7 +55,7 @@ The marketing analytics browser has the same functionalities as the typescript b
 
 ### Configuration
 
-Beside the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK also provide options to configure web attribution and page view tracking.
+In addition to the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK also has options to configure web attribution and page view tracking.
 
 |<div class="big-column">Name  </div>    | Value|Description|
 |----|----|----|
