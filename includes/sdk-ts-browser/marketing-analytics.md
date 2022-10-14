@@ -1,6 +1,6 @@
 ### Web attribution
 
-Amplitude SDK collects attribution data by default. Amplitude supports automatically tracking the following attribution parameters:
+With web attribution tracking, Amplitude supports automatically tracking the following attribution parameters:
 
 - The 5 standard UTM parameters from the user's browser cookie or URL parameters
 - The referring URL and domain
@@ -147,7 +147,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Page view
 
-Page view tracking is enable by default. You are able to configurate it to fire a page view event when attribution information changed. Or passing a simple boolean callback, the customer can specify to limit event volume on the page view tracking.
+You are able to configurate how the page view event get tracked. You can configure to fire a page view event when attribution information changed. Or specify the callback function to return a boolean to limit event volume on the page view tracking.
 
 #### Track the page view event when the attribution changed
 

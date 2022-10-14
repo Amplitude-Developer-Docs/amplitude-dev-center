@@ -28,3 +28,4 @@
 |`userId`| Optional. `number` | ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. |
 |`optOut`| Optional. `boolean` | If optOut the current event sending. The default is `false`. |
 |`transport`| Optional. `TransportType.XHR` or `TransportType.SendBeacon` or `TransportType.Fetch`| Set the transport type. |
+|`config.trackingOptions`| Optional. `TrackingOptions` | [Learn more about tracking options](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/). |

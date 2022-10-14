@@ -13,7 +13,7 @@ The Marketing Analytics Browser SDK extends the Browser SDK to identify users an
     [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
 
 !!!note "Marketing Analytics Browser versus the Typescript Broswer SDK"
-    Marketing Analytics Browser SDK extend the Typescript Broswer SDK but with tracking web attribution and tracking page view support.
+    The Marketing Analytics Browser SDK extends the Typescript Browser SDK with automatically web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionalities please check the [Typescript Browser](../typescript-browser).
 
 ## Getting started
 
@@ -51,23 +51,14 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 ## Usage
 
-### Initialize the SDK
-
---8<-- "includes/sdk-httpv2-notice.md"
-
---8<-- "includes/sdk-ts-browser/init.md"
+The marketing analytics browser has the same functionalities as the typescript browser SDK. For the basic usage, please check [here](../typescript-browser/).
 
 ### Configuration
 
-#### Basic options
-
---8<-- "includes/sdk-ts-browser/shared-configurations.md"
-
-#### Attribution and tracking options
+Beside the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK also provide options to configure web attribution and page view tracking.
 
 |<div class="big-column">Name  </div>    | Value|Description|
 |----|----|----|
-|`trackingOptions`| Optional. `TrackingOptions` | [Learn more about tracking options](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#optional-tracking/). |
 |`attribution.disabled`| Optional. `boolean` | Disable the attribution tracking, attribution is enabled by default |
 |`attribution.excludeReferrers`|  Optional. `string[]` | Exclude the attribution tracking for the provided referrers string |
 |`attribution.initialEmptyValue`| Optional. `string` | Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
@@ -75,26 +66,4 @@ amplitude.init("YOUR_API_KEY_HERE");
 |`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean` | `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
 |`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all` | Track the page view only on the path changes, track `all` URL changes by default|
 
---8<-- "includes/sdk-ts-browser/basic-ts-functions.md"
-
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
-
-## Advanced topics
-
-### Cross domain tracking
-
-You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
-
-- Site 1: `www.example.com`
-- Site 2: `www.example.org`
-
-Users who start on Site 1 and then navigate to Site 2 must have the device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then needs to initialize the SDK with the device ID.
- The SDK can parse the URL parameter automatically if `deviceId` is in the URL query parameters.
-
-1. From Site 1, grab the device ID from `getDeviceId()`.
-2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?deviceId=device_id_from_site_1`)
-3. Initialize the Amplitude SDK on Site 2 with `init('API_KEY', null)`.
-
-If the `deviceId` isn't provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
-
---8<-- "includes/abbreviations.md"
