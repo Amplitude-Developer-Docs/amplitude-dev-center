@@ -48,7 +48,6 @@ This guide walks through the basics of creating your own Event Streaming tile in
 4. **Authentication method:** Amplitude doesn't support OAuth, so partners need to generate their API key.
 5. **Make sure the endpoint is flexible to ingest objects in a specific format:** Amplitude generates a list of objects in this specific format. You need to make sure your endpoint handles this specific payload structure. See the next section for a payload example.
 
-
 ## Integration setup
 
 The first step is to configure the integration tile that appears on the Destinations page in Amplitude. 
@@ -143,9 +142,8 @@ This section is a Freemarker template that allows you to construct the payload t
 
         If you would like to disable *Specify event properties to be sent (optional)*, send an email to integrations@amplitude.com.
            
-![screenshot of the event test payload page](../assets/images/partners/partner-test-tvent-payload.png)
+    ![screenshot of the event test payload page](../assets/images/partners/partner-test-tvent-payload.png)
 
-     
 2. Click on the **Test Payload** to generate a CURL command. Copy and paste this CURL command into your Command Line Interface (CLI).
 3. If you see any errors, check the parameters table to make sure all declared parameters are used.
 
