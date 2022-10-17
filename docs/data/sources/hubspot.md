@@ -37,9 +37,9 @@ This table shows you which events are sent per channel.
 
 |HubSpot Event|Amplitude Event|Description|
 |---|----|----|
-|SENT|[HubSpot] EMAIL_SENT|The message was sent to and received by our delivery provider, which has queued it for further handling.|
+|SENT|[HubSpot] EMAIL_SENT|The message was sent to and received by the delivery provider, which has queued it for further handling.|
 |DROPPED|[HubSpot] EMAIL_DROPPED|The message was rejected, either by HubSpot or by the delivery provider, and no attempt will be made to deliver the message.|
-|PROCESSED|[HubSpot] EMAIL_PROCESSED|The message has been received by our delivery provider, which has indicated it will attempt to deliver the message to the recipient's email server.|
+|PROCESSED|[HubSpot] EMAIL_PROCESSED|The message has been received by the delivery provider, which has indicated it will attempt to deliver the message to the recipient's email server.|
 |DELIVERED|[HubSpot] EMAIL_DELIVERED|The recipient's email server has accepted the message and the message has been successfully delivered to the recipient.|
 |DEFERRED|[HubSpot] EMAIL_DEFERRED|The recipient's email server has temporarily rejected the message, and subsequent attempts will be made to deliver the message.|
 |BOUNCE|[HubSpot] EMAIL_BOUNCE|The recipient's email server couldn't or wouldn't accept the message, and no further attempts will be made to deliver the message.|
@@ -55,8 +55,8 @@ List of user properties that Amplitude tracks:
 - city
 - region
 - country
-- os_name
-- os_version
+- `os_name`
+- `os_version`
 
 ## Rename events
 
@@ -83,7 +83,7 @@ Example Use Case: A marketing manager wants to analyze the performance of an ema
 Here are the following steps that you can take to analyze your email campaign:
 
 1. Copy the Internal HubSpot ID from HubSpot. Each Internal HubSpot ID is unique and is associated with a particular email.
-2. Next, go into Amplitude to create a funnel chart and filter by specific events to analyze the conversion rates. For example: Email_Delivered → Email_Open.
+2. Next, go into Amplitude to create a funnel chart and filter by specific events to analyze the conversion rates. For example: `Email_Delivered` → `Email_Open`.
 3. Based on the funnel, you can create a specific cohort for re-targeting purposes. For example,  users who opened the email.
 
 Users can create a Funnel chart to see the conversion rate/email open rate or create a cohort to see how many people performed an "action" for a given email.

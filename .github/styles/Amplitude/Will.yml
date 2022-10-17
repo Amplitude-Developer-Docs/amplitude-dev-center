@@ -2,7 +2,8 @@ extends: existence
 message: "Future tense! Avoid using '%s'."
 ignorecase: true
 level: suggestion
-tokens:
-  - will
-exceptions: 
-  - will(?!\ only\ receive)
+raw:
+  - "(going to( |\n|[[:punct:]])[a-zA-Z]*|"
+  - "will( |\n|[[:punct:]])[a-zA-Z]*|"
+  - "won't( |\n|[[:punct:]])[a-zA-Z]*|"
+  - "[a-zA-Z]*'ll( |\n|[[:punct:]])[a-zA-Z]*)"

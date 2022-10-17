@@ -3,7 +3,7 @@ title: Google Cloud Storage (GCS) Import
 description: Import event or user properties into your Amplitude projects from a Google Cloud Storage (GCS) bucket.
 ---
 
-Amplitude's GCS Import feature lets you import event or user properties into your Amplitude projects from an GCS bucket. This article helps you quickly configure this data source within Amplitude.
+Amplitude's GCS Import feature lets you import event or user properties into your Amplitude projects from an GCS bucket. This article helps you configure this data source within Amplitude.
 
 --8<-- "includes/editions-all-editions.md"
 
@@ -20,14 +20,14 @@ Amplitude's GCS Import feature lets you import event or user properties into you
 Before you start, make sure you’ve taken care of some prerequisites.
 
 - Make sure you have admin permissions for your Amplitude org.
-- Make sure you have a GCS service account with the appopriate permissions. [Learn more](#create-a-gcs-service-account-and-set-permissions).
+- Make sure you have a GCS service account with the appropriate permissions. [Learn more](#create-a-gcs-service-account-and-set-permissions).
 - Make sure that a project exists to receive the data. If not, create a new project.
 - Make sure your GCS bucket has data files ready to be ingested. They must conform to the mappings that you outline in your converter file.
 - Make sure the data in your GCS bucket follows the format outlined in [Amplitude's HTTP API v2 spec](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument).
 
 ### Create a GCS service account and set permissions
 
-If you haven't already, please [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This will allow Amplitude to export your data to your Google Cloud project.
+If you haven't already, [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This allows Amplitude to export your data to your Google Cloud project.
 
 After you create a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
@@ -43,17 +43,17 @@ Keep in mind that the export process requires, at a minimum, the following permi
 - `storage.objects.delete`
 - `storage.objects.list`
 
-## Add a new GCS Source
+## Add a new GCS source
 
 To add a new GCS data source for Amplitude to draw data from, follow these steps:
 
 1. In Amplitude, navigate to *Data Sources* and select the desired project from the dropdown menu. Then click **I want to import data into Amplitude.**
-2. Select *GCS*. If this source doesn't appear in your list, please contact the Amplitude team.
+2. Select *GCS*. If this source doesn't appear in your list, contact the Amplitude team.
 3. Upload your Service Account Key file. This gives Amplitude the permissions to pull data from your GCS bucket. You can find the permissions you need to give to the GCS Service Account[here](https://help.amplitude.com/hc/en-us/articles/360061685151#create-a-gcs-service-account-and-set-permissions).
 4. After you've uploaded the Service Account Key file, enter the bucket name and folder where the data resides.
-5. Click **Next** to test the credentials. If all your information checks out, Amplitude will display a success message. Click *Next >* to continue the process.
-6. In the *Enable Data Source* panel, name your data source and give it a description. (You can edit this information later, via *Settings*.) Then click *Save Source*. Amplitude will confirm you've created and enabled your source.
-7. Click *Finish* to go back to the list of data sources. If you've already configured the converter, the data import will start momentarily. Otherwise, it's time to create your data converter.
+5. Click **Next** to test the credentials. If all your information checks out, Amplitude displays a success message. Click *Next >* to continue the process.
+6. In the *Enable Data Source* panel, name your data source and give it a description. (You can edit this information later, via *Settings*.) Then click *Save Source*. Amplitude confirms that you've created and enabled your source.
+7. Click *Finish* to go back to the list of data sources. If you've already configured the converter, the data import starts in a few moments. Otherwise, it's time to create your data converter.
 
 ## Create the converter configuration
 
@@ -67,25 +67,27 @@ The final step in setting up Amplitude's GCS ingestion source is creating the co
 The converter file tells Amplitude how to process the ingested files. Create it in two steps: first, configure the compression type, file name, and escape characters for your files.
  Then use JSON to describe the rules your converter follows.
 
-### Guided Converter Creation
+### Guided converter creation
 
-Customers can now create converters via Amplitude's new **Guided** Converter creation interface. This allows customers to map and/or transform fields easily, removing the need to manually write a JSON configuration file. Behind the scenes, the UI compiles down to the existing JSON configuration language used at Amplitude.
+You can create converters via Amplitude's new guided converter creation interface. This lets you map and transform fields visually, removing the need to manually write a JSON configuration file. Behind the scenes, the UI compiles down to the existing JSON configuration language used at Amplitude.
 
-First, let's look at the different data types you can import: **Event**, **User Property** and **Group Property** data.
+First, take a look at the different data types you can import: **Event**, **User Property** and **Group Property** data.
 
 ![Screenshot of converter mapping](../../assets/images/converter-mapping.png)
 
-**Note: We recommend selecting preview in step 1 of the Data Converter, where you see a sample source record before moving to the next step.**
+!!!note
+
+    Amplitude recommends selecting preview in step 1 of the Data Converter, where you see a sample source record before moving to the next step.
 
 ![Screenshot of the converter file settings ](../../assets/images/converter-file-setting.png)
 
-Once you have selected a particular field, you can choose to transform the field in your database. You can do this by clicking on “Transform “ shown below and choosing the kind of transformation you would like to apply. You can find a short description for each transformation.
+After you have selected a particular field, you can choose to transform the field in your database. You can do this by clicking on "Transform" and choosing the kind of transformation you would like to apply. You can find a short description for each transformation.
 
 ![Screenshot of the converter mapping](../../assets/images/converter-mapping-2.png)
 
-Once you select a field, you can open the transformation modal and choose from a variety of Transformations.
+After you select a field, you can open the transformation modal and choose from a variety of Transformations.
 
-![Screenshot of tranformations menu](../../assets/images/converter-transformations.png)
+![Screenshot of transformations menu](../../assets/images/converter-transformations.png)
 
 Depending on the transformation you select, you may be prompted to include additional fields. 
 
@@ -93,13 +95,13 @@ Depending on the transformation you select, you may be prompted to include addit
 
 After you have all the fields needed for the transformation, you can save it. These can be updated as and when your requirements change.
 
-Although Amplitude needs certain fields to bring data in, we also support additional fields which you can include by selecting the “Add Mapping” button. Here we support 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
+Although Amplitude needs certain fields to bring data in, it also supports extra fields which you can include by clicking the “Add Mapping” button. Here, Amplitude supports 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
 
 After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview will auto update as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data will be imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
 
 ![Screenshot of a converter preview](../../assets/images/converter-preview.png)
 
-The converter language describes extraction of a value given a JSON element. This is specified by a SOURCE_DESCRIPTION, which includes:
+The converter language describes extraction of a value given a JSON element. Specify this using a SOURCE_DESCRIPTION, which includes:
 
 - BASIC_PATH
 - LIST_OPERATOR

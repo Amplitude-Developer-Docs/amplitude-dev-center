@@ -3,7 +3,7 @@ title: Import Branch Attribution Data
 description: Integrate Amplitude with Branch's attribution tools to measure the value of your marketing channels and product features to identify sources with the best user retention and engagement.
 ---
 
-This integration combines Amplitude's analytics with Branch's attribution tools into one unified system. With it, you can share all user data in real-time and allow non-technical product and marketing team members to measure the value of your marketing channels and product features to identify sources with the best user retention and engagement.
+This integration combines Amplitude's analytics with Branch's attribution tools into one unified system. With it, you can share all user data in real-time and help non-technical team members measure the value of your marketing channels and product features to identify sources with the best user retention and engagement.
 
 !!!note
 

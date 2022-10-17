@@ -140,7 +140,7 @@ Airship's
 tooltips
 Dev
 [Aa]nonymized
-Datacenter
+[Dd]atacenter
 Userlist
 onesignal.com
 omnichannel
@@ -160,3 +160,16 @@ HttpOnly
 SameSite
 Glog
 async
+Adjust's
+incrementality
+deeplinking
+Datazoom
+Hightouch
+postback
+geofencing
+Rudderstack
+Millis
+Survicate
+Survicate's
+Shopify
+Bronto

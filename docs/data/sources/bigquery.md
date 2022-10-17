@@ -1,6 +1,6 @@
---- 
-title: BigQuery Import
-description: With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project. 
+---
+title: Import BigQuery Data into Amplitude
+description: With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project.
 ---
 
 --8<-- "includes/alpha-release.md"
@@ -20,7 +20,7 @@ With Amplitude's BigQuery integration, you can ingest BigQuery data directly int
 To get started with importing from BigQuery, you need to take care of a few prerequisites.
 
 - You need a table (or tables) in BigQuery. This is where you want to import data from.
-- Create a GCS bucket. We recommend one dedicated to this purpose. The ingestion process must offload data to a GCS bucket before ingesting it into Amplitude. This is due to BigQuery's limited export options.
+- Create a GCS bucket. Amplitude recommends one dedicated to this purpose. The ingestion process must offload data to a GCS bucket before ingesting it into Amplitude. This is due to BigQuery's limited export options.
 - Create a Service Account with permissions granted for the bucket and tables you want to ingest, then get the service account key. The Service Account must have the following roles granted to it:
     - **BigQuery**:
         - BigQuery Job User at the project level.
@@ -52,7 +52,7 @@ To add BigQuery as a data source in your Amplitude project, follow these steps.
 
 If you have any issues or questions while following this flow, contact the Amplitude team.
 
-## Mandatory Data fields
+## Mandatory data fields
 
 You must include the mandatory fields for the data type when creating the SQL query. These tables outline the mandatory and optional fields for each data type. You can include other columns beyond those listed here.
 
@@ -76,17 +76,17 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `user_properties` | Yes | VARIANT (JSON Object) |
 | `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
 
-## BigQuery SQL Helper
+## BigQuery SQL helper
 
 ### Properties fields
 
-Many Amplitude features are powered by "properties" fields, which are composed of property keys and property values. The most common of these properties fields are event_properties and user_properties.
+Many Amplitude features are powered by "properties" fields, which are composed of property keys and property values. The most common of these properties fields are `event_properties` and `user_properties`.
 
-In order for these sets of keys and values to be properly ingested into Amplitude, they must be exported from BigQuery as raw JSON, not as JSON strings. BigQuery doesn't have great support for JSON, but the following describes how to make sure your data is exported from BigQuery and imported to Amplitude without errors.
+In order for these sets of keys and values to be correctly ingested into Amplitude, they must be exported from BigQuery as raw JSON, not as JSON strings. BigQuery doesn't have great support for JSON, but the following describes how to make sure your data is exported from BigQuery and imported to Amplitude without errors.
 
 The properties fields must be sourced from columns with a [STRUCT](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct_type) type. The struct type is the type of field that represents a key-value structure and is exported from BigQuery in raw JSON format.
 
-If your source table doesn't have the event or user properties organized in a struct type column, you can create it in your select SQL. For example, if your event properties are all flattened into their own columns, you can compose your event_properties into a struct like so:
+If your source table doesn't have the event or user properties organized in a struct type column, you can create it in your select SQL. For example, if your event properties are all flattened into their own columns, you can compose your `event_properties` into a struct like so:
 
 ```sql
 SELECT STRUCT(
@@ -110,7 +110,7 @@ If you have your event or user properties formatted as JSON as a string field, y
 
 You can extract values from your JSON String field, though, to use in your properties STRUCT. Use the [JSON_EXTRACT_SCALAR](https://cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#json_extract_scalar) function to access the values in your string as follows. If your EVENT_PROPERTIES column in the table contains a JSON String like:
 
-`"{\"record count\":\"50\",\"region\":\"eu-central-1\"}"` which is displayed in BigQuery UI like `{"record count":"50","region":"eu-central-1"})`, then you can extract the values from the JSON String like this:
+`"{\"record count\":\"50\",\"region\":\"eu-central-1\"}"` which is shown in the BigQuery UI like `{"record count":"50","region":"eu-central-1"})`, then you can extract the values from the JSON String like this:
 
 ```sql
 SELECT STRUCT(

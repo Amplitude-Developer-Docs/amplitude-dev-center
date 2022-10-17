@@ -1,4 +1,4 @@
---- 
+---
 title: Import Datazoom Video Events
 description: Use this integration to send raw, standardized Datazoom video events to Amplitude. 
 ---
@@ -23,9 +23,9 @@ Copy the Amplitude API key for your project. There are no other setup steps in A
 
 ### Datazoom setup
 
-See the [Datazoom documentation](https://help.datazoom.io/hc/en-us/articles/360046468532-Amplitude) for additional details and instructions.
+See the [Datazoom documentation](https://help.datazoom.io/hc/en-us/articles/360046468532-Amplitude) for more details and instructions.
 
-1. In DataZoom, navigate to **Settings**.
+1. In Datazoom, navigate to **Settings**.
 2. Create an Amplitude Connector in your [Datazoom account](https://app.datazoom.io/signup). 
 3. Enter your Amplitude API Key and name the Connector to save it.
 4. Add the new Amplitude Connector to a [Data Pipe with an active Data Collector](https://help.datazoom.io/hc/en-us/articles/360015525691-How-to-configure-a-Data-Pipe).

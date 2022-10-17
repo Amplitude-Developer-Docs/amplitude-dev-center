@@ -3,7 +3,7 @@ title: Import Segment Data
 description: By tracking events and users via Segment's API and libraries, you can send your product's data to all of your analytics and marketing platforms, with minimal instrumentation code.
 ---
 
-With Segment, you can manage data and integrations with services across your Growth, Product, and Marketing stack. By tracking events and users via Segment's API and libraries, you can send your product's data to all of your analytics and marketing platforms, with minimal instrumentation. They offer support for most platforms, including iOS, Android, JavaScript, Node.js, PHP, and more.
+With Segment, you can manage data and integrations with services across your Growth, Product, and Marketing stack. By tracking events and users via Segment's API and libraries, you can send your product's data to all your analytics and marketing platforms, with minimal instrumentation. They offer support for most platforms, including iOS, Android, JavaScript, Node.js, PHP, and more.
 
 This guide complements [Segment's integration documentation](https://segment.com/docs/integrations/amplitude/). It provides additional details on the different types of Segment integrations you can use, how they affect your data in Amplitude, and instructions for setting up the integrations.
 
@@ -52,7 +52,7 @@ Without Amplitude's SDKs, you have to map user properties such as device type an
 
 Follow [Segment's Analytics.js quickstart guide](https://segment.com/docs/sources/website/analytics.js/quickstart/#step-1-copy-the-snippet) and paste the snippet onto your website. Don't forget to put your Segment write key in the snippet.
 
-You are now ready to use `track` and `identify` to track users. Analytics.js also automatically installs Amplitude's JS SDK onto your website, so you can access our JS SDK directly.
+You are now ready to use `track` and `identify` to track users. Analytics.js also automatically installs Amplitude's JavaScript SDK onto your website, so you can access the JavaScript SDK directly.
 
 !!!tip
     See the [JavaScript SDK documentation](../sdks/javascript) for all capabilities provided directly by the JavaScript SDK.
@@ -124,7 +124,7 @@ Segment and Amplitude use slightly different terms to describe the same concepts
 | --- | --- | --- |
 | `track` (with properties) | `logEvent` (with properties) | Logs an event with the specified event properties. |
 | track with property "revenue" | `logRevenueV2` | Logs a revenue event to record a revenue amount. |
-| `identify` with traits | `setUserId`, `setUserProperties` | Assigns a userId and set any traits as user properties. |
+| `identify` with traits | `setUserId`, `setUserProperties` | Assigns a `userId` and set any traits as user properties. |
 | `screen` / page with name | `logEvent "Viewed" + name` | Logs an event "Viewed [page]" where [page] is the name provided. |
 | `alias` | `usermap` | UserId aliasing lets you merge two users together that would otherwise have different User IDs tracked in Amplitude. |
 | `group` | `setGroup` (with GroupName) | Lets you designate user groups. |

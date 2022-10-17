@@ -21,7 +21,7 @@ Copy your Amplitude project's API Key and secret. There are no other setup steps
 
 1. Go to Admin settings, click **Integrations**, select your workspace, and navigate to the marketplace. 
 2. Find Amplitude and click **Add**.
-3. Select the environment(s) from where you would like data sent and then select how you want to map Split traffic types to Amplitude identities. You can select either `user_id` or `device_id`.
+3. Select the environments from where you would like data sent and then select how you want to map Split traffic types to Amplitude identities. You can select either `user_id` or `device_id`.
 4. Split impressions are shown as `get_treatment` in Amplitude by default. You can customize this event name, with a limit of 1,024 characters.
 5. Paste your Amplitude API key and secret.
 6. Save your work. 

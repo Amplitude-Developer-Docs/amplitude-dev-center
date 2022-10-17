@@ -9,7 +9,7 @@ This integration is available to all customers who have access to Optimizely's C
 
 ## Before you begin
 
-Be sure you have the most recent Amplitude Browser SDK implemented. Also, you **must** place the Amplitude snippet above the Optimizely snippet.
+Be sure you have the most recent Amplitude Browser SDK implemented. Also, you **must** place the Amplitude snippet before the Optimizely snippet.
 
 ## Set up and use the integration
 

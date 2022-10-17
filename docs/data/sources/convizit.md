@@ -4,8 +4,9 @@ description: Import detailed event data from Convizit.
 ---
 
 [Convizit](https://convizit.com/) captures every click on every on-page element and sends this data directly into Amplitude, with the events already named, structured, and enriched with relevant properties. Convizit's direct integration with Amplitude allows you realize the full potential of the platform within days of deployment, with zero manual effort required.
-
+<!-- vale off-->
 For any issues with the Convizit event source, contact Convizit's support team at <support@convizit.com>
+<!-- vale on-->
 
 ## Considerations
 

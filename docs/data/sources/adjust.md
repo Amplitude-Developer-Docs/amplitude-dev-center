@@ -3,7 +3,7 @@ title: Import Adjust Attribution Data
 description: Integrate Amplitude Analytics with Adjusts's attribution tools to see where users are coming from and which are your best-performing sources.
 ---
 
-This integration combines Amplitude's analytics with Adjust's attribution tools into one unified system. Use this integration to share all user data in real-time and allow non-technical product and marketing team members to see where your users are coming from, and which are your highest performing sources.
+This integration combines Amplitude's analytics with Adjust's attribution tools into one unified system. Use this integration to share all user data in real-time and help non-technical team members see where your users are coming from, and identify your highest-performing sources.
 
 !!!note
 
