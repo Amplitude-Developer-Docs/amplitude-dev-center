@@ -147,8 +147,14 @@ init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Page view
 
-Enable page view tracking by setting pageViewTracking to `true`. You can alternately set pageViewTracking to an object to pass additional options (see below). By default, enabling page view tracking sends a Page View event to your project each time a user views a new page.
+Enable page view tracking by setting pageViewTracking to `true`. The page view event will be fire when the page loads.
+```ts
+init(API_KEY, 'user@amplitude.com', {
+  pageViewTracking: true
+});
+```
 
+You can alternately set pageViewTracking to an object to pass additional options.
 #### Track the page view event when the attribution changed
 
 Set the `trackOn` option to `'attribution'` to _only_ send Page View events when attribution information changes.
