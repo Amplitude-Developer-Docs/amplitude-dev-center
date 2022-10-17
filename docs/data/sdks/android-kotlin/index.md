@@ -302,11 +302,11 @@ A session on Android is a period of time that a user has the app in the foregrou
 
 Amplitude groups events together by session. Events that are logged within the same session have the same `session_id`. Sessions are handled automatically so you don't have to manually call `startSession()` or `endSession()`.
 
-You can adjust the time window for which sessions are extended.
+You can adjust the time window for which sessions are extended.  The default session expiration time is 30 minutes.
 
 === "Java"
 
-    ```
+    ```java
     amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
         configuration.setMinTimeBetweenSessionsMillis(1000);
         return Unit.INSTANCE;
