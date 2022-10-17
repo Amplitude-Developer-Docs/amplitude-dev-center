@@ -62,7 +62,7 @@ The body parameter is required. It's the deletion request object listing the `us
 | `requester` | The internal user who requested the deletion. This is useful for auditing. |
 | `ignore_invalid_id` | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project. |
 | `delete_from_org` | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`. |
-| `include_mapped_user_ids` | When `true`, each valid `user_id` from `user_ids` request parameter will be included in a corresponding object of `amplitude_ids` respons array. |
+| `include_mapped_user_ids` | When `true`, each valid `user_id` from `user_ids` will be included in a corresponding object of `amplitude_ids` response array. |
 
 ### Example request
 
