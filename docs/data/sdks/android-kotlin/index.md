@@ -82,7 +82,7 @@ You can configure the server zone when initializing the client for sending data 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```kotlin
-amplitude.track("test event properties", mutableMapOf<String, Any?>("test" to "test event property value"))
+amplitude.track("Button Clicked", mutableMapOf<String, Any?>("my event property" to "test event property value"))
 ```
 
 ### `identify`
