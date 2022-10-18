@@ -70,6 +70,7 @@ exceptions:
   - Adjust
   - Amazon S3
   - BigQuery SQL
+  - BigQuery
   - Branch
   - About Radar
   - RevenueCat

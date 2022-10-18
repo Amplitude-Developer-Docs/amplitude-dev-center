@@ -8,9 +8,9 @@ status: new
 
     This integration is in open beta, and is still in active development. If you have any feedback to help improve this destination and or its documentation, [contact the Cordial support team](https://cordial.com/contact-us/).
 
-Cordial is a customer engagement and data platform built to unify real-time data from anywhere in a brand's technology stack, so they can engage with their customers in more personalized ways across email, SMS, mobile app, and more.
+Cordial is a customer engagement and data platform that unifies real-time data from anywhere in a brand's technology stack. Cordial enables you to engage with your customers in more personalized ways across email, SMS, mobile app, and more.
 
-Cordial streams real time customer behavior and profile data to Amplitude to help clients better understand a 360 degree view of their customer's engagement with their brand across all channel touch points. Cordial also activate messaging to cohorts that are created and discovered using Amplitude as a tool for intelligent targeting.
+Cordial streams real-time customer behavior and profile data to Amplitude to help you get a 360-degree view of your customer's brand engagement across all channel touch points.
 
 ## Setup
 

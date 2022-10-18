@@ -31,7 +31,7 @@ If you haven't already, [create a service account](https://cloud.google.com/iam/
 
 After you create a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
-Add this service account as a member to the bucket you'd like to export data to and give this member the **storage admin** role to make sure Amplitude has the necessary permissions to export the data to your bucket.
+Add this service account as a member to the bucket you'd like to export data to. Make sure to give this member the **storage admin** role to make sure Amplitude has the necessary permissions to export the data to your bucket.
 
 You can also create your own role, if you prefer.
 
@@ -89,15 +89,15 @@ After you select a field, you can open the transformation modal and choose from 
 
 ![Screenshot of transformations menu](../../assets/images/converter-transformations.png)
 
-Depending on the transformation you select, you may be prompted to include additional fields. 
+Depending on the transformation you select, you may be prompted to include more fields. 
 
 ![Screenshot of transformations details](../../assets/images/converter-transformations-2.png)
 
-After you have all the fields needed for the transformation, you can save it. These can be updated as and when your requirements change.
+After you have all the fields needed for the transformation, you can save it. You can update these if your requirements change.
 
 Although Amplitude needs certain fields to bring data in, it also supports extra fields which you can include by clicking the “Add Mapping” button. Here, Amplitude supports 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
 
-After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview will auto update as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data will be imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
+After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview automatically updates as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data is imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
 
 ![Screenshot of a converter preview](../../assets/images/converter-preview.png)
 

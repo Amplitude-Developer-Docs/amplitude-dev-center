@@ -43,12 +43,12 @@ To add BigQuery as a data source in your Amplitude project, follow these steps.
 5. After you confirm your credentials, click **Next** to select data. You have several configuration options to choose from here:
     - Type of data: This tells Amplitude whether you're ingesting event data or user property data.
     - Type of import:
-          - Full Sync: Amplitude periodically imports the entire dataset, regardless of whether the data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
+          - Full Sync: Amplitude periodically imports the entire dataset, regardless of whether the data is already imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
           - Time-based: Amplitude periodically ingests the most recent rows in the data, as determined by the provided Timestamp column. The first import ingests all available data, and later imports ingest any data with timestamps after the time of the most recent import. To use this option, include the timestamp column in the output of your SQL statement.
     - Frequency: Choose from several scheduling options ranging from five minutes to one month (when this is selected, ingestion happens on the first of the month).
     - SQL query: This is the code for the query Amplitude uses to ingest the right data.
-6. After you've set your configuration options, click **Test SQL** to see how the data is coming through from your BigQuery instance. If there are any errors, they'll appear under the Test SQL button.
-7. If there are no errors, click **Finish**. You'll see a notification indicating you've successfully enabled the new BigQuery source. You'll also be redirected to the Sources listing page, where you'll see the newly created BigQuery source.
+6. After you've set your configuration options, click **Test SQL** to see how the data is coming through from your BigQuery instance. If there are any errors, they appear under the Test SQL button.
+7. If there are no errors, click **Finish**. You get a notification indicating you've successfully enabled the new BigQuery source. Finally, you're redirected to the Sources listing page, where you can see the newly created BigQuery source.
 
 If you have any issues or questions while following this flow, contact the Amplitude team.
 
@@ -84,7 +84,7 @@ Many Amplitude features are powered by "properties" fields, which are composed o
 
 In order for these sets of keys and values to be correctly ingested into Amplitude, they must be exported from BigQuery as raw JSON, not as JSON strings. BigQuery doesn't have great support for JSON, but the following describes how to make sure your data is exported from BigQuery and imported to Amplitude without errors.
 
-The properties fields must be sourced from columns with a [STRUCT](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct_type) type. The struct type is the type of field that represents a key-value structure and is exported from BigQuery in raw JSON format.
+The properties fields are sourced from columns with a [STRUCT](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct_type) type. The struct type is the field type that represents a key-value structure and is exported from BigQuery in raw JSON format.
 
 If your source table doesn't have the event or user properties organized in a struct type column, you can create it in your select SQL. For example, if your event properties are all flattened into their own columns, you can compose your `event_properties` into a struct like so:
 
@@ -106,7 +106,7 @@ FROM your_table;
 
 ### Properties from a JSON string field
 
-If you have your event or user properties formatted as JSON as a string field, you still must reconstruct the properties field in the select SQL as a STRUCT. BigQuery exports String fields as String even if the contents are JSON. These are rejected by Amplitude's event validation.
+If you have your event or user properties formatted as JSON as a string field, you still must reconstruct the properties field in the select SQL as a STRUCT. BigQuery exports String fields as String even if the contents are JSON. Amplitude's event validation rejects these.
 
 You can extract values from your JSON String field, though, to use in your properties STRUCT. Use the [JSON_EXTRACT_SCALAR](https://cloud.google.com/bigquery/docs/reference/standard-sql/json_functions#json_extract_scalar) function to access the values in your string as follows. If your EVENT_PROPERTIES column in the table contains a JSON String like:
 

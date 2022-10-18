@@ -41,7 +41,7 @@ For more technical users familiar with Amplitude, here are the specific fields t
 |`user_properties`|An array of key:value pairs when available: `customerId`, `GoogleId`, `FacebookId`|
 |`plan.source`| Equal to "Convizit" (allows identifying and segmenting Convizit-delivered data in Amplitude reports and analyses)|
 
-These fields are provided by default, but can be removed upon request: 
+These fields are available by default. They can be removed upon request: 
 
 |Field| Description|
 |---|------|
@@ -50,5 +50,5 @@ These fields are provided by default, but can be removed upon request: 
 |`os_version`|The version of the mobile operating system or browser|
 |`device_brand`|The brand of the user's device|
 |`ip`|The user's IP address|
-|`country`|Automatically populated by Amplitude if IP address is supplied.|
+|`country`|Automatically populated by Amplitude if IP address is available.|
 |`region`|City.|

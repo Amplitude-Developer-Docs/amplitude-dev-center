@@ -31,5 +31,5 @@ See the [Datazoom documentation](https://help.datazoom.io/hc/en-us/articles/3600
 4. Add the new Amplitude Connector to a [Data Pipe with an active Data Collector](https://help.datazoom.io/hc/en-us/articles/360015525691-How-to-configure-a-Data-Pipe).
 5. Follow the prompts to configure your connector.
     - Sampling Rate - select the percentage of sessions that you would like to have delivered to your Connector destination.
-    - Redirect Standard Fields - Select this if you would like Datazoom to redirect Amplitude's standard fields to custom user properties. For example, if checked the `City` data point is mapped to a user custom property named `dz_city` 
+    - Redirect Standard Fields - Select this if you would like Datazoom to redirect Amplitude's standard fields to custom user properties. For example, if checked the `City` data point maps to a user custom property named `dz_city` 
 6. Click **Save Changes** to complete setup.

@@ -1,6 +1,6 @@
 extends: substitution
 message: "Consider using '%s' instead of '%s'."
-ignorecase: true
+ignorecase: false
 level: suggestion
 action:
   name: replace
@@ -36,7 +36,6 @@ swap:
   ascertain: discover|find out
   assistance: help
   attain: meet
-  attempt: try
   belated: late
   bestow: give
   cease: stop|end
@@ -105,3 +104,5 @@ swap:
   transmit: send
   utilization: use
   utilize: use
+exceptions:
+  - Additional Properties

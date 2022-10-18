@@ -32,7 +32,7 @@ To integrate Amplitude with Adobe Analytics, follow these steps:
 2. Click **I want to import data into Amplitude**, then click **Adobe Analytics**.
 3. Follow the on-screen instructions. 
 4. On the *Enable Data Source* tab, enter a name and description for this data source, and confirm your event mapping preferences.
-5. When you're done, click **Save Source**. Then click **Finish**. I am 
+5. When you're done, click **Save Source**. Then click **Finish**.
 
 You should now see Adobe Analytics in your list of data sources. 
 
