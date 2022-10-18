@@ -13,7 +13,6 @@ The Marketing Analytics Browser SDK extends the Browser SDK to identify users an
 
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
 
-
 !!!note "Marketing Analytics Browser versus the Typescript Broswer SDK"
 
     The Marketing Analytics Browser SDK extends the Typescript Browser SDK with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Typescript Browser](../typescript-browser).
