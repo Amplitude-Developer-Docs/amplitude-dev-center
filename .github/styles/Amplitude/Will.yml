@@ -4,5 +4,3 @@ ignorecase: true
 level: suggestion
 tokens:
   - will
-exceptions: 
-  - will(?!\ only\ receive)

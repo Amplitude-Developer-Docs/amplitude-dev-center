@@ -161,3 +161,4 @@ SameSite
 Glog
 async
 Snapchat
+querystring
