@@ -59,13 +59,13 @@ The marketing analytics browser has the same functionalities as the TypeScript B
 
 In addition to the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
 
-|<div class="big-column">Name</div>    | Value|Description|
-|----|----|----|
-|`attribution.disabled`| Optional. `boolean` | Disable the attribution tracking, attribution is enabled by default |
-|`attribution.excludeReferrers`|  Optional. `string[]` | Exclude the attribution tracking for the provided referrers string |
-|`attribution.initialEmptyValue`| Optional. `string` | Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
-|`attribution.resetSessionOnNewCampaign`| Optional. `boolean` | Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default |
-|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean` | `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
-|`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all` | Track the page view only on the path changes, track `all` URL changes by default|
+|<div class="big-column">Name</div>| Description|
+|---|----|
+|`attribution.disabled`| Optional. `boolean`. Disable the attribution tracking, attribution is enabled by default |
+|`attribution.excludeReferrers`|  Optional. `string[]`. Exclude the attribution tracking for the provided referrers string |
+|`attribution.initialEmptyValue`| Optional. `string`. Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
+|`attribution.resetSessionOnNewCampaign`| Optional. `boolean`. Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default |
+|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
+|`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all`. Track the page view only on the path changes, track `all` URL changes by default|
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"

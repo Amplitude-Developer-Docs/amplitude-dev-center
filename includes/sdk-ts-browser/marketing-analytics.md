@@ -12,7 +12,7 @@ UTM (Urchin Traffic Monitor) parameters are useful for analyzing the effectivene
 
 There are five different standard UTM parameters:
 
-|Name|Description|
+|<div class="med-column">Name</div>|Description|
 |-|-|
 |`utm_source`| This identifies which website sent the traffic (for example, Google, Facebook) |
 |`utm_medium`| This identifies a specific campaign used (for example, "summer_sale") |
@@ -30,7 +30,7 @@ https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_
 
 Referrer is the URL of the page that linked to the destination page. Amplitude tracks the following parameters:
 
-|Name|Description|
+|<div class="big-column">Name</div>|Description|
 |-|-|
 |`referrer`| The last page the user was on (for example, `https://amplitude.com/behavioral-analytics-platform?ref=nav`) |
 |`referring_domain`| The domain that the user was last on (for example, `https://amplitude.com`) |
@@ -41,7 +41,7 @@ Referrer is an empty string (`''`) if the user navigated to the destination page
 
 Click IDs are campaign identifiers included as URL parameters. Ad platforms use these IDs to identify the campaign and other attributes. While Amplitude doesn't have access to further campaign attributes associated to Click IDs, Amplitude can track Click ID values specified in the following table.
 
-|Name|Description|
+|<div class="med-column">Name</div>|Description|
 |-|-|
 |`GCLID`| Google Click Identifier from URL parameters |
 |`FCLID`| Facebook Click Identifier from URL parameters |
@@ -147,18 +147,18 @@ init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Page view
 
-Enable page view tracking by setting pageViewTracking to `true`. The page view event will be fire when the page loads.
+Enable page view tracking by setting `pageViewTracking` to `true`. The page view event is fired when the page loads.
 ```ts
 init(API_KEY, 'user@amplitude.com', {
   pageViewTracking: true
 });
 ```
 
-You can alternately set pageViewTracking to an object to pass more options.
+You can set `pageViewTracking` to an object to pass more options.
 
 #### Track the page view event when the attribution changed
 
-Set the `trackOn` option to `'attribution'` to _only_ send Page View events when attribution information changes.
+Set the `trackOn` option to `'attribution'` to send Page View events _only_ when attribution information changes.
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
@@ -186,10 +186,11 @@ init(API_KEY, 'user@amplitude.com', {
 
 If you have a single page app that uses a [history](https://developer.mozilla.org/en-US/docs/Web/API/History) based router such as react-router, you can enable `trackHistoryChanges` to send Page View events when users navigate between pages.
 Possible values for `trackHistoryChanges`:
-|Name|Description|
-|-|-|
-|`all`| All pushes and pops from history will send a page view. |
-|`pathOnly`| Page Views will be sent if the [URL pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname) changes. This prevents changes to the querystring or hash from sending events. |
+
+|<div class="med-column">Name</div>|Description|
+|---|---|
+|`all`| All pushes and pops from history send a page view. |
+|`pathOnly`| Page Views are sent if the [URL pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname) changes. This prevents changes to the querystring or hash from sending events. |
 
 You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page URL is considered into the page view changes.
 
