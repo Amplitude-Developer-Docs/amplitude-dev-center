@@ -4,9 +4,9 @@ ignorecase: true
 level: suggestion
 nonword: true
 tokens:
+  - \bI'm\b
   - (?:^|\s)I\s
   - (?:^|\s)I,\s
-  - \bI'm\b
   - \bme\b
   - \bmy\b
   - \bmine\b
