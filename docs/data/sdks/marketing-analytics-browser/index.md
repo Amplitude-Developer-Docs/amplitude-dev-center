@@ -10,10 +10,13 @@ icon: simple/typescript
 The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
 
 !!!info "Marketing Analytics Browser SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
 
-!!!note "Marketing Analytics Browser versus the Typescript Browser SDK"
-    The Marketing Analytics Browser SDK extends the Typescript Browser SDK with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionalities please check the [Typescript Browser](../typescript-browser).
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
+
+
+!!!note "Marketing Analytics Browser versus the Typescript Broswer SDK"
+
+    The Marketing Analytics Browser SDK extends the Typescript Browser SDK with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Typescript Browser](../typescript-browser).
 
 ## Getting started
 
@@ -51,19 +54,19 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 ## Usage
 
-The marketing analytics browser has the same functionalities as the typescript browser SDK. For the basic usage, please check [here](../typescript-browser/).
+The marketing analytics browser has the same functionalities as the TypeScript Browser SDK. For the basic usage, check out the [Browser SDK docs](../typescript-browser/).
 
 ### Configuration
 
-In addition to the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK also has options to configure web attribution and page view tracking.
+In addition to the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
 
-|<div class="big-column">Name  </div>    | Value|Description|
-|----|----|----|
-|`attribution.disabled`| Optional. `boolean` | Disable the attribution tracking, attribution is enabled by default |
-|`attribution.excludeReferrers`|  Optional. `string[]` | Exclude the attribution tracking for the provided referrers string |
-|`attribution.initialEmptyValue`| Optional. `string` | Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
-|`attribution.resetSessionOnNewCampaign`| Optional. `boolean` | Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default |
-|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean` | `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
-|`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all` | Track the page view only on the path changes, track `all` URL changes by default|
+|<div class="big-column">Name</div>| Description|
+|---|----|
+|`attribution.disabled`| Optional. `boolean`. Disable the attribution tracking, attribution is enabled by default |
+|`attribution.excludeReferrers`|  Optional. `string[]`. Exclude the attribution tracking for the provided referrers string |
+|`attribution.initialEmptyValue`| Optional. `string`. Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
+|`attribution.resetSessionOnNewCampaign`| Optional. `boolean`. Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default |
+|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
+|`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all`. Track the page view only on the path changes, track `all` URL changes by default|
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
