@@ -160,3 +160,4 @@ HttpOnly
 SameSite
 Glog
 async
+Snapchat
