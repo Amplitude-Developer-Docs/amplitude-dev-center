@@ -1,7 +1,7 @@
 |<div class="big-column">Name</div>|Value|Description|
 |-|-|-|
-|`flushIntervalMillis`| Optional. `number` | The amount of time the event queue will be uploaded to the server. The default is 1 seconds.|
-|`flushMaxRetries`| Optional. `number` | The max retry limits. The default is 5.|
+|`flushIntervalMillis`| Optional. `number` | The amount of time waiting to upload the event to the server. . The default is 1 second.|
+|`flushMaxRetries`| Optional. `number` | The max retry limits. The default is 5 times.|
 |`flushQueueSize`| Optional. `number` |  The maximum number of events that can be stored locally before forcing an upload. The default is 30 events. |
 |`logLevel`| Optional. `LogLevel.None` or `LogLevel.Error` or `LogLevel.Warn` or `LogLevel.Verbose` | The log level.|
 |`loggerProvider`| Optional. `Logger` | Implements a customize loggerProvider class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.|
