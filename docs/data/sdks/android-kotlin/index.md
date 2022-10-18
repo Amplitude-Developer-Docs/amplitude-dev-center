@@ -49,7 +49,8 @@ import com.amplitude.android.Amplitude;
 val amplitude = Amplitude(
   Configuration(
     apiKey = AMPLITUDE_API_KEY,
-    context = applicationContext
+    context = applicationContext,
+    minIdLength = 3 // Optional. Sets minimum length for user and device ID (Default: 5)
   )
 )
 ```
