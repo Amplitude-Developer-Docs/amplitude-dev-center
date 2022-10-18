@@ -200,4 +200,7 @@ exceptions:
   - required
   - incremented
   - throttled
+  - composed
+  - imported
+  - compressed
   

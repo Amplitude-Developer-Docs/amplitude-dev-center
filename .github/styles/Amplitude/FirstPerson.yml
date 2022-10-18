@@ -3,10 +3,5 @@ message: "Use first person (such as '%s') sparingly."
 ignorecase: true
 level: suggestion
 nonword: true
-tokens:
-  - (?:^|\s)I\s
-  - (?:^|\s)I,\s
-  - \bI'm\b
-  - \bme\b
-  - \bmy\b
-  - \bmine\b
+raw:
+  - (?:^|\s)I\s(?!want)
