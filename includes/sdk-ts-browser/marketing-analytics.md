@@ -18,7 +18,7 @@ There are five different standard UTM parameters:
 |`utm_medium`| This identifies a specific campaign used (for example, "summer_sale") |
 |`utm_campaign`| This identifies a specific campaign used (for example, "summer_sale") |
 |`utm_term`| This identifies paid search terms used (for example, product+analytics) |
-|`utm_content` | This identifies what brought the user to the site and is commonly used for A/B testing (for example, bannerlink, textlink) |
+|`utm_content` | This identifies what brought the user to the site and is commonly used for A/B testing (for example, "bannerlink", "textlink") |
 
 Here is an example URL with UTM parameters:
 
@@ -39,7 +39,7 @@ Referrer is an empty string (`''`) if the user navigated to the destination page
 
 #### Click ID parameters
 
-Click IDs are campaign identifiers included as URL parameters. These IDs are used by Ad platforms to identify the campaign and other attributes. While Amplitude doesn't have access to further campaign attributes associated to Click IDs, Amplitude can track Click ID values specified below.
+Click IDs are campaign identifiers included as URL parameters. Ad platforms use these IDs to identify the campaign and other attributes. While Amplitude doesn't have access to further campaign attributes associated to Click IDs, Amplitude can track Click ID values specified in the following table.
 
 |Name|Description|
 |-|-|
@@ -49,7 +49,7 @@ Click IDs are campaign identifiers included as URL parameters. These IDs are use
 |`GBRAID`| Google Click Identifier for iOS device from Web to App |
 |`WBRAID`| Google Click Identifier for iOS device from App to Web |
 |`KO_CLICK_ID`| Kochava Click Identifier from URL parameters |
-|`MSCLKID`| Mircrosoft Click Identifier |
+|`MSCLKID`| Microsoft Click Identifier |
 |`TTCLID`| TikTok Click Identifier |
 |`TWCLID`| Twitter Click Identifier from URL parameter |
 
@@ -78,7 +78,7 @@ Amplitude captures the initial attribution data at the start of the first sessio
 
 Amplitude captures the attribution data at the start of each session, and sets those values as user properties. For organic or direct traffic, these properties may not be available. Therefore, these user properties are unset from user identity.
 
-For every new campaign (when new attribution data is seen), we capture the changes regardless of the state of the user session. You can configure `resetSessionOnNewCampaign` to `true` to reset the session on every new campaign. The default behavior is to not reset the session on new campaign.
+For every new campaign (when new attribution data is seen), Amplitude captures the changes regardless of the state of the user session. You can configure `resetSessionOnNewCampaign` to `true` to reset the session on every new campaign. The default behavior is to not reset the session on new campaign.
 
 Amplitude tracks the following as user properties:
 
@@ -154,7 +154,8 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-You can alternately set pageViewTracking to an object to pass additional options.
+You can alternately set pageViewTracking to an object to pass more options.
+
 #### Track the page view event when the attribution changed
 
 Set the `trackOn` option to `'attribution'` to _only_ send Page View events when attribution information changes.
@@ -169,7 +170,7 @@ init(API_KEY, 'user@amplitude.com', {
 
 #### Track the page view event based on specific criteria
 
-`trackOn` can also be set to a function callback to fully customize when a Page View event will be sent.
+`trackOn` can also be set to a function callback to fully customize when a Page View event is sent.
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
@@ -181,16 +182,16 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-#### Single Page App Page View tracking
+#### Single page app page view tracking
 
 If you have a single page app that uses a [history](https://developer.mozilla.org/en-US/docs/Web/API/History) based router such as react-router, you can enable `trackHistoryChanges` to send Page View events when users navigate between pages.
 Possible values for `trackHistoryChanges`:
 |Name|Description|
 |-|-|
 |`all`| All pushes and pops from history will send a page view. |
-|`pathOnly`| Page Views will be sent if the [url pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname) changes. This prevents changes to the querystring or hash from sending events. |
+|`pathOnly`| Page Views will be sent if the [URL pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname) changes. This prevents changes to the querystring or hash from sending events. |
 
-You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page url will be considered into the page view changes.
+You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page URL is considered into the page view changes.
 
 ```ts
 init(API_KEY, 'user@amplitude.com', {
