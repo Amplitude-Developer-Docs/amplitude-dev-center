@@ -49,7 +49,8 @@ import com.amplitude.android.Amplitude;
 val amplitude = Amplitude(
   Configuration(
     apiKey = AMPLITUDE_API_KEY,
-    context = applicationContext
+    context = applicationContext,
+    minIdLength = 3 // Optional. Sets minimum length for user and device ID (Default: 5)
   )
 )
 ```
@@ -82,7 +83,7 @@ You can configure the server zone when initializing the client for sending data 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```kotlin
-amplitude.track("test event properties", mutableMapOf<String, Any?>("test" to "test event property value"))
+amplitude.track("Button Clicked", mutableMapOf<String, Any?>("my event property" to "test event property value"))
 ```
 
 ### `identify`
@@ -302,11 +303,11 @@ A session on Android is a period of time that a user has the app in the foregrou
 
 Amplitude groups events together by session. Events that are logged within the same session have the same `session_id`. Sessions are handled automatically so you don't have to manually call `startSession()` or `endSession()`.
 
-You can adjust the time window for which sessions are extended.
+You can adjust the time window for which sessions are extended.  The default session expiration time is 30 minutes.
 
 === "Java"
 
-    ```
+    ```java
     amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
         configuration.setMinTimeBetweenSessionsMillis(1000);
         return Unit.INSTANCE;

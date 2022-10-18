@@ -62,6 +62,7 @@ The body parameter is required. It's the deletion request object listing the `us
 | `requester` | The internal user who requested the deletion. This is useful for auditing. |
 | `ignore_invalid_id` | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project. |
 | `delete_from_org` | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`. |
+| `include_mapped_user_ids` | When `true`, each valid `user_id` from `user_ids` will be included in a corresponding object of `amplitude_ids` response array. |
 
 ### Example request
 
@@ -304,6 +305,15 @@ The response for a POST request contains these fields:
 | `status` | The status of the deletion job. |
 | `amplitude_ids` and `user_ids` | List of the Amplitude IDs to delete. |
 | `app` | The project or app ID. Included when the deletion request is for multiple projects. |
+
+The `amplitude_ids` key contains these fields:
+
+| <div class="big-column">Name</div> | Description |
+| --- | --- |
+| `amplitude_id` | The Amplitude ID of the user to be deleted. |
+| `requester` | The person who requested the Amplitude ID to be deleted. |
+| `requested_on_day` | The day this deletion was requested. |
+| `user_id` | The corresponding User ID. Included when `include_mapped_user_ids` is `true` and the `amplitude_id` is mapped from one of `user_ids`. |
 
 ## Get deletion jobs
 

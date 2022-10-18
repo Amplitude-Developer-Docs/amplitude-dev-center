@@ -174,3 +174,4 @@ Survicate's
 Shopify
 Bronto
 BOOL
+querystring
