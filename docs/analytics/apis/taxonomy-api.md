@@ -382,12 +382,14 @@ A successful request returns a `200 OK` status with a JSON body:
     "success": true,
     "data": [
         {
-            "id": 412931,
-            "name": "Attribution"
+            "event_type": "Attribution",
+            "category": "Attribution Events".
+            "description": null
         },
         {
-            "id": 412941,
-            "name": "Conversion"
+            "event_type": "Converstion",
+            "category": "Conversion Events".
+            "description": "This event is fired when a user converts."
         }
     ]
 }
