@@ -3,7 +3,7 @@ title: Import Airbridge Events
 description: Import attribution information, events, and event and user properties from Airbridge in just a few clicks.
 ---
 
-[Airbridge](https://www.airbridge.io) is a mobile measurement (MMP) solution that provides best-in-class measurement services including web and app universal attribution and multi-touch attribution (MTA) and incrementality to measure true marketing effectiveness.
+[Airbridge](https://www.airbridge.io) is a mobile measurement (MMP) solution that provides best-in-class measurement services. Services include web and app universal attribution and multi-touch attribution (MTA) and incrementality to measure true marketing effectiveness.
 
 You can send attribution data, events, event properties and user properties from Airbridge to Amplitude to further analyze the user behaviors down the funnel. 
 

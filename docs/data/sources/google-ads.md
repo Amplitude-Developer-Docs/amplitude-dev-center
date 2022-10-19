@@ -35,6 +35,6 @@ In Amplitude, navigate to **Data Sources**, then find **Google Ad** in the **I w
 ![Google Login Image](../../assets/images/marketing-analytics/google-login.png)
 2. Enter the Google Ads Customer ID for the ad account you want to import data from.
 ![Google Enter Account ID](../../assets/images/marketing-analytics/google-enter-info.png)
-3. If you don't have direct access to the account, enter the `Manager ID` that you authorized access on which can view this ad account.  Otherwise, just leave the field as blank.
+3. If you don't have direct access to the account, enter the `Manager ID` that you authorized access on which can view this ad account. Otherwise, just leave the field as blank.
 4. [Optional] Import past data for a given period.
 ![Google Historical Backfill](../../assets/images/marketing-analytics/google-past-data.png)

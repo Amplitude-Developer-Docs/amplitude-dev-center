@@ -1,6 +1,6 @@
 ---
-title: Typescript Browser
-description: The Amplitude Typescript SDK Installation & Quick Start guide.
+title: TypeScript Browser
+description: The Amplitude TypeScript SDK Installation & Quick Start guide.
 icon: simple/typescript
 ---
 
@@ -12,9 +12,9 @@ The TypeScript Browser SDK lets you send events to Amplitude. This library is op
 !!!info "Browser SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
-!!!note "Typescript Broswer SDK versus the Marketing Analytics Browser"
+!!!note "TypeScript Browser SDK versus the Marketing Analytics Browser"
     Amplitude recommends the TypeScript Browser SDK for most users. You can extend its functionality using plugins.
-    However, if you want web attribution and page view tracking without extra setup, use the Marketing Analytics Browser instead. It extends the Typescript Browser SDK with built-in web attribution and page view tracking. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
+    However, if you want web attribution and page view tracking without extra setup, use the Marketing Analytics Browser SDK instead. It extends the TypeScript Browser SDK with built-in web attribution and page view tracking. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
@@ -113,7 +113,7 @@ const identifyObj = new Identify();
 identify(identifyObj);
 ```
 
-### Identify.set
+#### Identify.set
 
 This method sets the value of a user property. For example, you can set a role property of a user.
 
@@ -410,17 +410,17 @@ remove(plugin.name);
 
 #### Create your custom plugin
 
-#### Plugin.setup
+##### Plugin.setup
 
 This method contains logic for preparing the plugin for use and has config as a parameter. The expected return value is undefined. A typical use for this method, is to copy configuration from config or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.add()`.
 
-#### Plugin.execute
+##### Plugin.execute
 
 This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event. If used as a destination type plugin, the expected return value is undefined. This method is called for each event that's instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
 
 #### Plugin examples
 
-#### Destination type plugin
+##### Destination type plugin
 
 Here's an example of a plugin that sends each event that's instrumented to a target server URL using your preferred HTTP client.
 
@@ -472,7 +472,7 @@ init('API_KEY');
 add(new MyDestinationPlugin('https://custom.domain.com'));
 ```
 
-#### Enrichment type plugin
+##### Enrichment type plugin
 
 Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 

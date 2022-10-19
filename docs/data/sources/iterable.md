@@ -3,7 +3,7 @@ title: Import Iterable Data
 description: Import Iterable campaign metrics to better understand how your users engage across all your channels. 
 ---
 
-Iterable is the growth marketing platform that enables brands to create, execute and optimize campaigns to power world-class customer engagement across email, push, SMS, in-app and more, with unparalleled data flexibility.
+Iterable is the growth marketing platform that enables brands to create, execute, and optimize campaigns to power customer engagement across email, push, SMS, in-app and more.
 
 Amplitude's integration with Iterable enables you to automatically ingest Iterable's campaign metrics into your Amplitude projects. Use them to better understand how users engage across all channels, and how this engagement affects usage down-funnel in your product. 
 
@@ -17,11 +17,11 @@ Amplitude's integration with Iterable enables you to automatically ingest Iterab
 ## Considerations
 
 - If you are in the European Union, be sure you are working within the eu.amplitude.com domain, instead of amplitude.com.
-- In this integration, Amplitude's `user_id` value maps to Iterable's `userId`. If these values don't match, events aren't be sent to the correct user profile on Amplitude. Null `userId` values are also ignored, which means that anonymous user events aren't sent.
+- In this integration, Amplitude's `user_id` value maps to Iterable's `userId`. If these values don't match, events aren't sent to the correct user profile on Amplitude. Null `userId` values are also ignored, which means that anonymous user events aren't sent.
 
 ## Setup
 
-This guide is complementary to Iterable's instructions, which can be found [here](https://support.iterable.com/hc/en-us/articles/360018679032-Integrating-Amplitude-with-Iterable).
+This guide is complementary to [Iterable's instructions](https://support.iterable.com/hc/en-us/articles/360018679032-Integrating-Amplitude-with-Iterable).
 
 ### Amplitude setup
 
@@ -35,4 +35,4 @@ Find and copy your Amplitude project's API key by navigating to **Settings > Pro
 4. Within the webhook you just created, scroll all the way to the right and click **EDIT**.
 5. Check all the engagement events that you want Iterable to send to Amplitude automatically. Then check **Enabled** to begin sending events.
 
-After this setup has been completed, your Iterable instance sends new engagement events to your Amplitude project.
+After you've completed setup, your Iterable instance sends new engagement events to your Amplitude project.
