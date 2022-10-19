@@ -144,7 +144,7 @@ This section is a Freemarker template that allows you to construct the payload t
            
     ![screenshot of the event test payload page](../assets/images/partners/partner-test-tvent-payload.png)
 
-2. Click on the **Test Payload** to generate a CURL command. Copy and paste this CURL command into your Command Line Interface (CLI).
+2. Click the **Test Payload** to generate a cURL command. Copy and paste this cURL command into your Command Line Interface (CLI).
 3. If you see any errors, check the parameters table to make sure all declared parameters are used.
 
       - **DECLARED:** All declared parameters in the *Create Parameters* section.
