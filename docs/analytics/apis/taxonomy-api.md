@@ -424,9 +424,7 @@ A successful request returns a `200 OK` status and a JSON body with the event ty
     "success": true,
     "data": {
         "event_type": "ce:Event 2",
-        "category": {
-            "name": "Attribution"
-        },
+        "category": "Attribution",
         "description": null
     }
 }
