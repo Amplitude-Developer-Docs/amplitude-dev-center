@@ -175,3 +175,4 @@ Shopify
 Bronto
 BOOL
 querystring
+stringified
