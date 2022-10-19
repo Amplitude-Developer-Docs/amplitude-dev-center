@@ -286,6 +286,22 @@ all(): Variants
 
 ---
 
+### Clear
+
+Clear all [variants](../general/data-model.md#variants) in the cache and storage.
+
+```js
+clear() : void
+```
+
+You can call `clear` after user logout to clear the variants in cach and storage.
+
+```js
+experiment.clear();
+```
+
+---
+
 ### Exposure
 
 Manually track an [exposure event](../general/exposure-tracking.md#exposure-event) for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
