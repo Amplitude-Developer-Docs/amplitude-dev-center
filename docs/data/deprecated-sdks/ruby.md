@@ -8,6 +8,7 @@ search:
 
 <!-- markdownlint-disable -->
 <!-- markdown-link-check-disable -->
+<!-- vale off -->
 
 !!!deprecated "Deprecated SDK"
     This SDK is deprecated and these docs are no longer maintained.

@@ -264,10 +264,11 @@ After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-n
 ## GitHub Actions
 
 ### Initial setup
-
+<!-- vale Vale.Spelling = NO-->
 1. Add `ampli-implementation-check.yml` and `ampli-merge-check.yml` to your `.github/workflows` directory.
 
     ```yaml title="ampli-implementation-check.yml"
+    
     name: Ampli Implementation Check
     on: pull_request
 
@@ -302,7 +303,7 @@ After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-n
           - name: Check the Data branch is merged before merging the Git branch
             run: ampli status --is-merged -t ${{secrets.AMPLI_TOKEN}}
     ```
-
+    <!-- vale Vale.Spelling = YES-->
 2. If your Ampli project is in a subdirectory, you may need to set the correct working-directory in your Actions. See GitHub documentation [here](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
 
 3. Create a API token in Data. Do this from `Settings => API Tokens => Create Token`.

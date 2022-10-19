@@ -7,4 +7,5 @@ raw:
   - "will( |\n|[[:punct:]])[a-zA-Z]*|"
   - "won't( |\n|[[:punct:]])[a-zA-Z]*|"
   - "[a-zA-Z]*'ll( |\n|[[:punct:]])[a-zA-Z]*)"
-
+exceptions:
+  - "will only"
