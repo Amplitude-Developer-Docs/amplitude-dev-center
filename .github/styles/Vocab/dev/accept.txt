@@ -160,6 +160,7 @@ HttpOnly
 SameSite
 Glog
 async
+Snapchat
 Adjust's
 incrementality
 deeplinking
