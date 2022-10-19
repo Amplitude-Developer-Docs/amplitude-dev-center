@@ -134,7 +134,7 @@ This section is a Freemarker template that allows you to construct the payload t
 ## Preview and test
 
 1. Before submitting your configuration for review, test the mock payload that you expect to receive from Amplitude. On the right side of the configuration page, follow these steps to preview and test your configuration. 
-    Configure the test integration instance and hit **Save**:
+    Configure the test integration instance and click **Save**:
       - **API Endpoint:** `https://localhost:3000`
       - **REST API Key:** Enter the API key from the Amplitude project.
 
