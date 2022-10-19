@@ -294,7 +294,7 @@ func clear()
 
 You can call `clear` after user logout to clear the variants in cach and storage.
 
-```java
+```swift
 experiment.clear()
 ```
 
