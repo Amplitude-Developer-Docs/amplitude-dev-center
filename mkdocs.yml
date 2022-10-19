@@ -278,7 +278,7 @@ nav:
       - Google Cloud Storage: data/sources/google-cloud-storage.md
       - Converter Configuration: data/converter-configuration-reference.md
     - Warehouse:
-      - BigQuery: data/sources/bigquery.md
+      #- BigQuery: data/sources/bigquery.md
       - Snowflake: data/sources/snowflake.md
     - Other Sources:
       - Adjust: data/sources/adjust.md
@@ -345,6 +345,7 @@ nav:
       - Kinesis: data/destinations/kinesis-data-stream.md
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
       - Meta Pixel: data/destinations/meta-pixel.md
+      - Statsig: data/destinations/statsig.md
     - Cohorts:
       - Airship: data/destinations/airship-cohort.md
       - Amazon S3: data/destinations/amazon-s3-cohort.md

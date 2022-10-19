@@ -1,9 +1,13 @@
 ---
 title: Import BigQuery Data into Amplitude
 description: With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project.
+search:
+  exclude: true
 ---
 
---8<-- "includes/alpha-release.md"
+!!!alpha "This feature is in closed alpha release"
+
+    This feature is in closed alpha release, and is invite-only.
 
 --8<-- "includes/editions-all-editions.md"
 

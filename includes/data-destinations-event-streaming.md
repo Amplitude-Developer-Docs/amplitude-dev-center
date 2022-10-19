@@ -12,5 +12,6 @@
 - :intercom: [Intercom](../data/destinations/intercom.md)
 - :iterable: [Iterable](../data/destinations/iterable.md)
 - :meta: [Meta Pixel](../data/destinations/meta-pixel.md)
+- :statsig: [Statsig](../data/destionations/statsig.md)
 
 </div>
