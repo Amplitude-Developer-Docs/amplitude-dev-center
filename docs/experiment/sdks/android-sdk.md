@@ -472,6 +472,7 @@ fun clear()
 ```
 
 You can call `clear` after user logout to clear the variants in cach and storage.
+
 === "Java"
 
     ```java
