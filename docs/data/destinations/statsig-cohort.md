@@ -1,6 +1,7 @@
 ---
 title: Send Cohorts to Statsig
 description: Amplitude Data's Statsig integration lets you target Amplitude cohorts with Statsig experiments.
+status: new
 ---
 
 --8<-- "includes/open-beta.md"
