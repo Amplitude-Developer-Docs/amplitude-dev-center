@@ -410,8 +410,8 @@ For Gradle Version lower than v7.3.3, We recommend to use the Amplitude Flutter 
 
 |<div class="med-column">Amplitude Flutter</div>|Gradle|Android Gradle Plugin|Kotlin Gradle Plugin|
 |-|-|-|-|
-| `^3.10.1` | `6.1.1` | `4.0.1` | `1.3.40` |
-| `^3.11.0` | `7.3.3` | `4.0.1` | `1.7.10` |
+| `3.10.1` | `6.1.1` | `4.0.1` | `1.3.40` |
+| `3.11.+` | `7.3.3` | `4.0.1` | `1.7.10` |
 
 ## Troubleshooting
 
