@@ -291,7 +291,7 @@ all(): Variants
 Clear all [variants](../general/data-model.md#variants) in the cache and storage.
 
 ```js
-clear() : void
+clear(): void
 ```
 
 You can call `clear` after user logout to clear the variants in cach and storage.
