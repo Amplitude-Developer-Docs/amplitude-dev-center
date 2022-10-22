@@ -403,6 +403,17 @@ Append the following Amplitude-JavaScript snippet into `web/index.html` in you
 </script>
 ```
 
+## Compatibility Matrix
+
+The following matrix lists the minimum support for Amplitude Flutter SDK version.
+For Gradle Version lower than v6.7.1, we recommend to use the Amplitude Flutter v3.10.0.
+
+|<div class="med-column">Amplitude Flutter</div>|Gradle|Android Gradle Plugin|Kotlin Gradle Plugin|
+|-|-|-|-|
+| `3.11.+` | `6.7.1` | `3.6.4` | `1.7.10` |
+
+Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle), [Gradle compatibility](https://docs.gradle.org/current/userguide/compatibility.html#kotlin), and [Kotlin compatibility](https://kotlinlang.org/docs/whatsnew17.html#bumping-minimum-supported-versions).
+
 ## Troubleshooting
 
 If you have issues turning on Bitcode in iOS follow Flutter's [documentation](https://github.com/flutter/flutter/wiki/Creating-an-iOS-Bitcode-enabled-app)
