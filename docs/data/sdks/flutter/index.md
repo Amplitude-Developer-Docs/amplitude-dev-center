@@ -405,13 +405,13 @@ Append the following Amplitude-JavaScript snippet into `web/index.html` in you
 
 ## Compatibility Matrix
 
-The following matrix lists which version of Gradle and plugins are compatibility with which Amplitude_Flutter.
-For Gradle Version lower than v7.3.3, We recommend to use the Amplitude Flutter v3.10.1.
+The following matrix lists the minimum support for Amplitude Flutter SDK version.
+For Gradle Version lower than v6.7.1, we recommend to use the Amplitude Flutter v3.10.1.
 
 |<div class="med-column">Amplitude Flutter</div>|Gradle|Android Gradle Plugin|Kotlin Gradle Plugin|
 |-|-|-|-|
-| `3.10.1` | `6.1.1` | `4.0.1` | `1.3.40` |
-| `3.11.+` | `7.3.3` | `4.0.1` | `1.7.10` |
+| `3.11.+` | `6.7.1` | `3.6.4` | `1.7.10` |
+Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle), [Gradle compatibility](https://docs.gradle.org/current/userguide/compatibility.html#kotlin), and [Kotlin compatibility](https://kotlinlang.org/docs/whatsnew17.html#bumping-minimum-supported-versions).
 
 ## Troubleshooting
 
