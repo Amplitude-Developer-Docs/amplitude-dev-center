@@ -91,7 +91,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
 3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Use the entire example code that follows, but be sure to update **{{}}** in highlighted text.
 
     - **{{bucket_name}}**: the s3 bucket name where your data will be imported from.
-    - **{{prefix}}**: the folder in s3 bucket above where your data lives, for example `/folder1`. For root folder, leave it as empty.
+    - **{{prefix}}**: the prefix of files that you want to import, for example `/prefix`. For folders, make sure prefix ends with `/`. But for root folder, keep prefix as empty.
 
     ```json hl_lines="16 30 41"
     {
@@ -109,7 +109,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
           "Condition":{
             "StringLike":{
               "s3:prefix":[
-                "{{prefix}}/*"
+                "{{prefix}}*"
               ]
             }
           }
@@ -122,7 +122,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
             "s3:List*"
           ],
           "Resource":[
-            "arn:aws:s3:::{{bucket_name}}{{prefix}}/*"
+            "arn:aws:s3:::{{bucket_name}}{{prefix}}*"
           ]
         },
         {
