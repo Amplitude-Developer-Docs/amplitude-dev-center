@@ -383,12 +383,16 @@ A successful request returns a `200 OK` status with a JSON body:
     "data": [
         {
             "event_type": "Attribution",
-            "category": "Attribution Events".
+            "category": {
+                "name": "Attribution Events"
+            },
             "description": null
         },
         {
             "event_type": "Converstion",
-            "category": "Conversion Events".
+            "category": {
+                "name": "Conversion Events"
+            },
             "description": "This event is fired when a user converts."
         }
     ]
@@ -426,7 +430,9 @@ A successful request returns a `200 OK` status and a JSON body with the event ty
     "success": true,
     "data": {
         "event_type": "ce:Event 2",
-        "category": "Attribution",
+        "category": {
+            "name": "Conversion Events"
+        },
         "description": null
     }
 }
