@@ -45,6 +45,7 @@ Here is how Amplitude determines each variable in the formula:
 - Number of conditions: This is the number of segments plus the number of conditions within the segments applied to the chart you are looking at. Each group by counts as 4 segments.
 
 ???example "Simple query cost example"
+
     This configuration generates a cost of 10 because in has one segment (by Any Users, cost of one), one condition (Language = English, cost of one), and two group by values (Country and Platform, cost of four each) applied. Filters on events don't count in this section.
     ![screenshot of an event with one segment, one condition, and two group by values](/../../assets/images/dashboard-api-query-cost-example.png)
 
@@ -128,7 +129,7 @@ The event parameter can include these keys:
 
 | Name| Description|
 |------|----------|
-|`prop`| Required. The name of the property to filter on. For behavioral cohorts, the name of the property is `userdata_cohort`. <br>Example ("XYXxxzz" is the identifier from the Behavioral Cohort's URL, https://analytics.amplitude.com/org_name/cohort/**XYXxxzz**.)<br>`s=\[\{"prop":"userdata_cohort","op":"is","values":\["XYXxxzz"\]\}\]`|
+|`prop`| Required. The name of the property to filter on. For behavioral cohorts, the name of the property is "userdata_cohort". <br>Example ("XYXxxzz" is the identifier from the Behavioral Cohort's URL, https://analytics.amplitude.com/org_name/cohort/**XYXxxzz**.)<br>`s=\[\{"prop":"userdata_cohort","op":"is","values":\["XYXxxzz"\]\}\]`|
 |`op` |Required. The operator for filtering on specific property values. Allowed values are `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.|
 |`values`| Required. A list of values to filter the segment by. If you are segmenting by a cohort, the value is the cohort ID, found in URL of the cohort in the web app (for example, "5mjbq8w").|
 

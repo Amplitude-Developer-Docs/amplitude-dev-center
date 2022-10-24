@@ -325,6 +325,7 @@ Retrieves a list of deletion jobs scheduled in a time range; this time range sho
 If the request returns no values, then no jobs are scheduled for that time range. Note: The largest permitted time range is six months.
 
 ### Example request
+<!--vale off-->
 
 === "cURL"
     ```bash
@@ -451,7 +452,7 @@ If the request returns no values, then no jobs are scheduled for that time range
         // ...
     }
     ```
-
+<!--vale on-->
 ### Query parameters
 
 |Name|Description|

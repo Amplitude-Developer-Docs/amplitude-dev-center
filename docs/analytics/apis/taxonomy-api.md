@@ -200,7 +200,7 @@ Update the name of an event category.
 `PUT https://amplitude.com/api/2/taxonomy/category/:category_id`
 
 #### Example request
-
+<!--vale off-->
 ```bash hl_lines="7"
 PUT /api/2/taxonomy/category/412941 HTTP/1.1
 Host: amplitude.com
@@ -210,7 +210,7 @@ Content-Length: 23
 
 category_name=Converted
 ```
-
+<!--vale on-->
 ##### Path variables
 
 |<div class="big-column">Name</div>| Description|

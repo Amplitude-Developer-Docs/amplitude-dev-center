@@ -59,7 +59,7 @@ If you need to get data for 40 users per hour, you can spend `14400 / 40 = 360` 
 - Request result expires in 2 days.
 - Users with more than 100k events per month aren't supported.
 
-### Example Client Implementation
+### Example client implementation
 
 ```python
 

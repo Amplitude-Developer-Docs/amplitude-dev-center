@@ -19,7 +19,7 @@ Use the Behavioral Cohorts API to list all your cohorts in Amplitude, export a c
 ## Considerations
 
 - For Growth and Enterprise plans, the Behavioral Cohorts Download API has a limit of 500 requests per month.
-- Export size for cohorts is limited to 10 million users.
+- The limit for cohort export size is 10 million users.
 - There's a concurrency limit of 5 requests across cohort downloads and the Dashboard REST API.
 - Cohort Download uses an asynchronous API. Getting a cohort happens in three steps:
   1. Request a single cohort.
@@ -105,7 +105,7 @@ Requesting a single cohort returns 202 response code with the following JSON obj
 }
 ```
 
-If your authorization or the cohort_id is invalid, the request returns an error.
+If your authorization or the `cohort_id` is invalid, the request returns an error.
 
 ## Get request status
 
@@ -256,7 +256,7 @@ Perform incremental update (add / remove) to existing cohort membership.
 
 | Parameter | Description |
 | --- | --- |
-| `cohort_id` | Required. String. The ID of an existing cohort. This will update the membership for the specified cohort with the IDs being uploaded in this request. |
+| `cohort_id` | Required. String. The ID of an existing cohort. This updates the membership for the specified cohort with the IDs being uploaded in this request. |
 | `count_group` | Optional. String. The count group of the given IDs. This must be the same as the cohort’s existing count group. `Count_group` defaults to User. |
 | `memberships` | Required. List of [membership json](https://developers.amplitude.com/docs/behavioral-cohorts-api#membershipjson) An array of JSON objects identifying IDs to add or remove. |
 | `skip_invalid_ids` | Optional. Boolean. Setting this parameter to `false` ends the request without updating cohort membership if the request has invalid IDs. Setting `skip_invalid_ids` to `true` skips invalid IDs while applying the remaining valid ids. Default is `true`. |
@@ -266,7 +266,7 @@ Perform incremental update (add / remove) to existing cohort membership.
 | Parameter | Description |
 | --- | --- |
 | `ids` | Required. String\[\]. List of IDs to add or remove. |
-| `id_type` | Required. String. The kind of ID sent in the `ids` field. Valid options are: *\- BY_ID* *\- BY_NAME* For User count_group, BY_ID is amplitude ID and BY_NAME is user ID. For any other count_group, BY_ID is group ID and BY_NAME is group name. |
+| `id_type` | Required. String. The kind of ID sent in the `ids` field. Valid options are: *\- BY_ID* *\- BY_NAME* For User `count_group`, BY_ID is amplitude ID and BY_NAME is user ID. For any other `count_group`, `BY_ID` is group ID and `BY_NAME` is group name. |
 | `operation` | Required. String. The operation to apply on `ids` field. Valid options are: `ADD` and `REMOVE` |
 
 ### Update cohort success response fields
@@ -274,7 +274,7 @@ Perform incremental update (add / remove) to existing cohort membership.
 | Parameter | Description |
 | --- | --- |
 | `cohort_id` | String. The ID of an existing cohort for which the membership information was updated. |
-| `memberships_result` | List of [memberships_result json](https://developers.amplitude.com/docs/behavioral-cohorts-api#membershipresultjson). An array of JSON objects identifying result of membership update (add or remove) operation. |
+| `memberships_result` | List of `[memberships_result` json](https://developers.amplitude.com/docs/behavioral-cohorts-api#membershipresultjson). An array of JSON objects identifying result of membership update (add or remove) operation. |
 
 ### Response `memberships_result` JSON
 

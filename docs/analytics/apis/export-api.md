@@ -18,7 +18,7 @@ The Export API lets you export your project's event data.
 
 ## Considerations
 
-- The specified date range refers to the time the event data was uploaded to Amplitude servers (see server_upload_time). The Export API returns events timestamped in UTC. Data is available to export at a minimum within 2 hours of when the servers received it. For example, data sent between 8 and 9 PM begins loading at 9 PM and is available via the Export API at 11 PM. Note that there is no delay in platform reporting. Only exports are delayed.
+- The specified date range refers to the time the event data was uploaded to Amplitude servers (see `server_upload_time`). The Export API returns events timestamped in UTC. Data is available to export at a minimum within 2 hours of when the servers received it. For example, data sent between 8 and 9 PM begins loading at 9 PM and is available via the Export API at 11 PM. Note that there is no delay in platform reporting. Only exports are delayed.
 - Export API isn't supported for a cross-project view because the view doesn’t own any data. To export all the data in the view, you would need to call the Export API on the underlying projects that actually ingested the data.
 - Size limit is 4GB. If the size exceeds 4GB, the request returns a 400 response. In this case, choose a smaller time range to export the data. In cases where an hour's worth of data exceeds 4GB, use the [Amazon S3 export](https://help.amplitude.com/hc/en-us/articles/360044561111-Amazon-S3-Amplitude-Integration).
 - To export a whole day, Use T00 to T23. The max time range you can query at once is 365 days.
@@ -45,7 +45,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 The response is a zipped archive of JSON files. Depending on data volume, there can be several files per hour. The API returns a 404 response is there is no data for the time range you requested.
 
 !!! note
-    Events prior to November 12, 2014 are grouped by day, instead of by the hour.
+    Events before November 12, 2014 are grouped by day, instead of by the hour.
 
 ### Response schema
 

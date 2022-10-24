@@ -47,7 +47,7 @@ The example in this guide uses [NGINX](https://nginx.org/en/) to build a proxy s
 
 First, install NGINX for local development. Then, configure NGINX to proxy requests on a particular URL to Amplitude.
  Here is an example `nginx.conf` file that proxies requests from the `/amplitude` route to `api2.amplitude.com`:
-
+<!-- vale off -->
 ``` title="nginx.conf"
 worker_processes  1;
 
@@ -78,7 +78,7 @@ http {
     }
 }
 ```
-
+<!-- vale on -->
 ### Validation and deployment
 
 After you create the configuration file, you can start and test your proxy. Using the Amplitude HTTP API, send the requests to your endpoint instead of Amplitude's endpoint.

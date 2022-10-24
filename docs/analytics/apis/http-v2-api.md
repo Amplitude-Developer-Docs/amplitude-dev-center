@@ -378,7 +378,7 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 | `event_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data to be sent along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `user_properties` | Optional. Object. A dictionary of key-value pairs that represent additional data tied to the user. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `groups` | Optional. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/1150017655322). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. You can track up to 5 unique group types and 10 total group values. Any groups past that threshold aren't tracked.|
-|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties are not synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.| 
+|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties aren't synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.| 
 | `app_version` | Optional. String. The current version of your application. |
 | `platform` | Optional. String. Platform of the device. |
 | `os_name` | Optional. String. The name of the mobile operating system or browser that the user is using. |
@@ -399,21 +399,21 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 | `revenueType` | Optional. String. The type of revenue for the item purchased. You must send a price and quantity or revenue with this field. |
 | `location_lat` | Optional. Float. The current Latitude of the user. |
 | `location_lng` | Optional. Float. The current Longitude of the user. |
-| `ip` | Optional. String. The IP address of the user. Use `$remote` to use the IP address on the upload request. Amplitude uses the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude can drop the location and IP address from events after they reach our servers. Contact the Support team to configure this. |
+| `ip` | Optional. String. The IP address of the user. Use `$remote` to use the IP address on the upload request. Amplitude uses the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude can drop the location and IP address from events after they reach Amplitude servers. Contact the Support team to configure this. |
 | `idfa`[^2] | Optional. String. (iOS) Identifier for Advertiser. |
 | `idfv` | Optional. String. (iOS) Identifier for Vendor. |
 | `adid`[^2] | Optional. String. (Android) Google Play Services advertising ID |
 | `android_id` | Optional. String. (Android) Android ID (not the advertising ID) |
-| `event_id` | Optional. Integer. (Optional) An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultaneously. |
+| `event_id` | Optional. Integer. (Optional) An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. Amplitude recommends you send an `event_id`, increasing over time, especially if you expect events to occur simultaneously. |
 | `session_id` | Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A `session_id` of -1 is the same as no `session_id` specified. |
-| `insert_id` | Optional. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with the same `device_id` and `insert_id` within the past 7 days. We recommend generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time. |
+| `insert_id` | Optional. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with the same `device_id` and `insert_id` within the past 7 days. Amplitude recommends generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time. |
 | `plan` | Optional. Object. Tracking plan properties. Amplitude supports only branch, source, version properties. |
 | `plan.branch` | Optional. String. The tracking plan branch name. For example: "main". |
 | `plan.source` | Optional. String. The tracking plan source. For example: "web". |
 | `plan.version` | Optional. String. The tracking plan version. For example: "1", "15". |
 
 [^1]:
-    `[Amplitude] Country`, `[Amplitude] City`, `[Amplitude] Region`, and `[Amplitude] DMA` are user properties pulled using GeoIP. We use MaxMind's database, which is widely accepted as the most reliable digital mapping source, to look up location information from the user's IP address.
+    `[Amplitude] Country`, `[Amplitude] City`, `[Amplitude] Region`, and `[Amplitude] DMA` are user properties pulled using GeoIP. Amplitude uses MaxMind's database, which is widely accepted as the most reliable digital mapping source, to look up location information from the user's IP address.
      For any HTTP API events, if GeoIP information is unavailable, then Amplitude pulls the information from the `location_lat` and `location_lng` keys if those keys are populated. If the location properties are manually set, then Amplitude doesn't change that property.
 [^2]:
     These values appear as `null` in Amplitude. For privacy reasons, Amplitude processes the attribution information, but strips the values before saving the event in the system.
@@ -424,9 +424,9 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 | --- | --- |
 | `min_id_length` | Optional. Integer. Overrides the default minimum length of 5 for `user_id` & `device_id` fields. |
 
-## Response Format
+## Response format
 
-We recommend that you implement retry logic and send an `insert_id` (used for deduplication of the same event) in your events.
+It's best practice to implement retry logic and send an `insert_id` (used for deduplication of the same event) in your events.
  This prevents lost events or duplicated events if the API is unavailable or a request fails.
 
 ### 200 Response SuccessSummary
@@ -450,7 +450,7 @@ We recommend that you implement retry logic and send an `insert_id` (used for de
 | `code`    | Integer. 200 success code |
 | `events_ingested`    | Integer. The number of events ingested from the upload request. |
 | `payload_size_bytes`    | Integer. The size of the upload request payload in bytes. |
-| `server_upload_time`  | Long. The time in milliseconds since epoch (Unix Timestamp) that our event servers accepted the upload request. |
+| `server_upload_time`  | Long. The time in milliseconds since epoch (Unix Timestamp) that Amplitude's event servers accepted the upload request. |
 
 ### 400 Response InvalidRequestError
 
@@ -530,7 +530,7 @@ Possible reasons for an invalid request:
 | `events_with_invalid_fields`  | Object. A map from field names to an array of indexes into the events array indicating which events have invalid values for those fields |
 | `events_with_missing_fields`  |  Object. A map from field names to an array of indexes into the events array indicating which events are missing those required fields |
 
-#### Properties (SilencedDeviceId)
+#### Properties (SilencedDeviceID)
 
 | <div class="big-column">Name</div>  | Description |
 | --- |--- |
@@ -541,7 +541,7 @@ Possible reasons for an invalid request:
 | `silenced_devices` | [string]. Array of `device_id`s that have been silenced by Amplitude. |
 | `silenced_events` | [integer]. Array of indexes in the events array indicating events whose device_id got silenced. |
 | `throttled_devices` | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
-| `throttled_events` | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
+| `throttled_events` | [integer]. Array of indexes in the events array indicating events whose `user_id` or `device_id` got throttled |
 
 ### 413 Response PayloadTooLargeError
 
