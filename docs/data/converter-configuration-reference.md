@@ -1,9 +1,17 @@
 ---
 title: Converter Configuration Reference
-description: This reference covers examples and operators for the Amazon S3 Import converter configuration. 
+description: This reference covers examples and operators for the Amazon S3 abd GCS Import converter configuration. 
 ---
 
 This reference covers examples and operators for the Amazon S3 Import and GCS converter configuration. Read the [S3 guide](./sources/amazon-s3.md) or the [GCS guide](./sources/google-cloud-storage.md) for more information.
+
+## Considerations
+
+### `$skip_user_properties_sync`
+
+Because many cloud storage source imports are batch uploads of historical data, it may not make sense to sync the latest user properties for historical events. Because of this, `$skip_user_properties_sync` is set to `true` by default. If you want to include user properties with your events, you must set it to `false` in the converter. 
+
+For more information about `$skip_user_properties_sync`, see [the Data Backfill Guide](../analytics/data-backfill-guide.md#skip-user-properties-sync)
 
 ## convertToAmplitudeFunc
 
