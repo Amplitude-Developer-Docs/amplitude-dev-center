@@ -9,7 +9,7 @@ Official documentation for Amplitude Experiment's server-side Go SDK implementat
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/amplitude/experiment-go-server?sort=semver)
 
 !!!info "SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/experiment-go-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-go-server/releases)
+    [:material-github: GitHub](https://github.com/amplitude/experiment-go-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-go-server/releases)
 
 This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
@@ -103,7 +103,7 @@ func (c *Client) Fetch(user *experiment.User) (map[string]experiment.Variant, er
 
 | Parameter  | Requirement | Description |
 | --- | --- | --- |
-| `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
+| `user` | required | The [user](../general/data-model.md#users) to remote fetch variants for. |
 
 ```go
 user := &experiment.User{
@@ -190,7 +190,7 @@ go get github.com/amplitude/experiment-go-server
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 !!!warning "Server Deployment Key"
-    You must [initialize](#initialize-1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+    You must [initialize](#initialize-1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key to get access to local evaluation flag configs.
 
 ```go
 func Initialize(apiKey string, config *Config) *Client
@@ -218,7 +218,7 @@ The SDK client can be configured on initialization.
 
 ### Start
 
-Start the local evaluation client, pre-fetching local local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
+Start the local evaluation client, pre-fetching local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
 
 ```go
 func (c *Client) Start() error

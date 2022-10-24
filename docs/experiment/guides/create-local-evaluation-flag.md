@@ -14,7 +14,7 @@ Guide to creating a local evaluation flag, or migrating an existing remote evalu
 2. Within your new experiment, set your server-side deployment, configure the allocation (for example, target 100% of users), and activate your flag.
 
 !!!done
-    Your local evaluation experiment has been set up and is ready to  using a [local evaluation sdk](../general/evaluation/local-evaluation.md#sdks).
+    Your local evaluation experiment has been set up and is ready to  using a [local evaluation SDK](../general/evaluation/local-evaluation.md#sdks).
 
 ## Migrate an existing remote flag to local evaluation
 

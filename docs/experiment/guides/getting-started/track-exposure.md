@@ -4,11 +4,11 @@ description: How to track an exposure event for the variant which a user has bee
 template: guide-last.html
 ---
 
-[Exposure tracking](../../general/exposure-tracking.md) plays a key role in tracking if and when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags which don't require analysis; however, it is essential when running experiment. Accurate exposure tracking is crucial for reliable results.
+[Exposure tracking](../../general/exposure-tracking.md) is essential to tracking if and when a user has actually viewed the variable experience from your feature flag. Exposure tracking may be considered optional for feature flags which don't require analysis; however, it's essential when running experiment. Accurate exposure tracking is crucial for reliable results.
 
 ### Analytics REST API
 
-To keep things simple, we're going to `curl` an [exposure event](../../general/exposure-tracking.md#exposure-event) to amplitude using the [Analytics REST API v2.0](../../../analytics/apis/http-v2-api.md).
+To keep things simple, this example is going to `curl` an [exposure event](../../general/exposure-tracking.md#exposure-event) to Amplitude using the [Analytics REST API v2.0](../../../analytics/apis/http-v2-api.md).
 
 --8<-- "includes/experiment-interactive-exposure-table.md"
 

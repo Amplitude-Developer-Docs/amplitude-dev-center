@@ -4,7 +4,7 @@ description: How to fetch flag and experiment variants for a user using various 
 template: guide.html
 ---
 
-To evaluate a user for you flag you'll want to **fetch** variants from our [remote evaluation](../../general/evaluation/remote-evaluation.md) servers. You can fetch variants for a user using either the [Evaluation REST API](../../apis/evaluation-api.md) or one of our [SDKs](../../index.md#sdks).
+To evaluate a user for you flag you'll want to **fetch** variants from Experiment's [remote evaluation](../../general/evaluation/remote-evaluation.md) servers. You can fetch variants for a user using either the [Evaluation REST API](../../apis/evaluation-api.md) or one of the [SDKs](../../index.md#sdks).
 
 ### Evaluation REST API
 
