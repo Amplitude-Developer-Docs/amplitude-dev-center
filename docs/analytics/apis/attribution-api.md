@@ -20,24 +20,24 @@ The Attribution API is for sending attribution campaign events (identified by `
 
 - When Amplitude can't match attribution events to an existing user, they're held for up to 72 hours for potential user matching. If an event isn't logged for a matching user within 72 hours of receiving the attribution data, then the **attribution data is dropped**.
 - For most of Amplitude's partners, attribution is matched to Amplitude users/events via the Advertising ID (IDFA, IDFV, or ADID). Therefore, you must send the Advertising ID for attribution requests and you must set the `idfa`, `idfv`, and `adid` fields in Amplitude as the Advertising ID. 
-- If you are using the iOS SDK or Android SDK, you can enable tracking of the Advertising ID by following the instructions [here](/../../data/sdks/ios/#advertiser-id). If you are using a JavaScript SDK or React Native, these don't have the functionality to collect Advertising ID automatically due to Google's and Apple's privacy rules around advertising ID and web tracking. You have to send the Advertising ID through the HTTP API endpoint so that Amplitude can match attribution data/events. See keys in our [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) doc.
+- If you are using the iOS SDK or Android SDK, you can enable tracking of the Advertising ID by following the instructions [here](/../data/sdks/ios/#advertiser-id). If you are using a JavaScript SDK or React Native, these don't have the functionality to collect Advertising ID automatically due to Google's and Apple's privacy rules around advertising ID and web tracking. You have to send the Advertising ID through the HTTP API endpoint so that Amplitude can match attribution data/events. See keys in the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) doc.
 
 ## Differences between HTTP API and Attribution API
 
 The HTTP API is for sending event data to Amplitude. These events must have a user ID or a device ID, and are ingested immediately.
-The Attribution API, on the other hand, is for sending attribution campaign events (identified by IDFA, IDFV, or ADID) that contain attribution information. The big difference between this and the HTTP API is that if we can't match the user when an attribution event is received, it's held for up to 72 hours. If we receive regular events with user information that matches the attribution events, the attribution events will be ingested into Amplitude. Otherwise, they will be discarded. This allows attribution information to be sent without worrying about polluting Amplitude with events from people who never actually use the app.
+The Attribution API is for sending attribution campaign events (identified by IDFA, IDFV, or ADID) that contain attribution information. The big difference between this and the HTTP API is that if Amplitude can't match the user when an attribution event is received, it's held for up to 72 hours. If Amplitude receives regular events with user information that matches the attribution events, the attribution events are ingested into Amplitude. Otherwise, they're discarded. This allows you to send attribution information without worrying about polluting Amplitude with events from people who never actually use the app.
 
-## Send an Attribution Event
+## Send an attribution event
 
 Send a POST request to https://api2.amplitude.com/attribution with two arguments: `api_key` and `event`.
 
-### Required Arguments
-
+### Required arguments
+<!-- vale off-->
 |Name| Description  | Example|
 |---|---|---|
 |`api_key`| Required. The project's API key. | `{{api_key}}`|
 |`event`| Required. A request parameter representing the event, in JSON format.| `{"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}`|
-
+<!-- vale on-->
 !!! example "Attribution Examples"
 
     === "iOS Attribution"
@@ -58,7 +58,7 @@ Send a POST request to https://api2.amplitude.com/attribution with two arguments
         Host: api2.amplitude.com
         ```
 
-#### Event Argument Keys
+#### Event argument keys
 
 These keys are available for the Event argument.
 
@@ -70,7 +70,7 @@ These keys are available for the Event argument.
 | `adid`           | Required for Android. String. The Google ADID, or Amazon Advertising ID for Amazon devices.                                          | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
 | `android_id`       | Optional. String. (Android) The Android ID                                                                                           | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
 | `user_properties`  | Optional. Dictionary. A dictionary of attribution properties prefixed with brackets `[YOUR COMPANY]`.                                | `{"[YOUR COMPANY] media source": "Facebook"}`            |
-| `time`             | Optional. Long. Timestamp of the event in milliseconds since epoch.                                                                  | 1396381378123, will be set to the upload time by default |
+| `time`             | Optional. Long. Timestamp of the event in milliseconds since epoch.                                                                  | 1396381378123. It's set to the upload time by default |
 
 ## Responses
 

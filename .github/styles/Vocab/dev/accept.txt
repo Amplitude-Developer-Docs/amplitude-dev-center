@@ -178,3 +178,14 @@ BOOL
 querystring
 stringified
 XYXxxzz
+queryable
+SuccessSummary
+InvalidRequestError
+userIDs
+SilencedDeviceID
+PayloadTooLargeError
+TooManyRequestsForDeviceError
+userdata_cohort
+renewal_date
+event_id
+givenName
