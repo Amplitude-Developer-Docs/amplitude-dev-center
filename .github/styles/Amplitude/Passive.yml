@@ -203,4 +203,6 @@ exceptions:
   - composed
   - imported
   - compressed
-  
+  - supported
+  - ignored
+  - represented  

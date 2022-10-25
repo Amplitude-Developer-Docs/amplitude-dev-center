@@ -197,3 +197,4 @@ canonicalized
 initializer
 backoff
 bundler
+timeHistogramConfigBin
