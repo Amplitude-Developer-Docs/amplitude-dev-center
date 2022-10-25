@@ -155,6 +155,10 @@ The event parameter can include these keys:
 Get JSON results from any saved chart via chart ID.
 `GET https://amplitude.com/api/3/chart/chart_id/query`
 
+### Export data tables
+
+You can use the Dashboard REST API to export data from data tables. Just query any Data Table chart type, and don't include start or end dates in the query.  
+
 ### Example request
 
 --8<-- "includes/postman.md"
