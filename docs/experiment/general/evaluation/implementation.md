@@ -16,7 +16,7 @@ The pre-targeting steps may determine the evaluated variant prior to targeting s
 A flag may be active or inactive. Inactive flags will never return a variant as a result of evaluation.
 
 !!!info "Best Practice"
-    For simple on/off flags, Amplitude recommends using the [all users segment](#all-users-segment) allocation set to either 100% or 0% rather than using the activation toggle to control traffic. The activation toggle should be used to sunset a feature that has been been fully rolled out or rolled back after the flag's instrumentation has been removed.
+    For simple on/off flags, Amplitude recommends using the [all users segment](#all-users-segment) allocation set to either 100% or 0% rather than using the activation toggle to control traffic. The activation toggle should be used to sunset a feature that has been fully rolled out or rolled back after the flag's instrumentation has been removed.
 
 ### Individual inclusions
 
@@ -27,7 +27,7 @@ Inclusions allow you to force bucket specific users (identified by either their 
 !!!warning
     Sticky bucketing should be used with care. Even if sticky bucketing is disabled, [consistent bucketing](#consistent-bucketing) means that  users will still be bucketed into the same variant given that the user and targeting rules remain static. Changing targeting rules on an active flag with sticky bucketing enabled may cause a [sample ratio mismatch (SRM)](../../guides/troubleshooting/sample-ratio-mismatch.md), which may skew experiment results.
 
-If sticky bucketing is enabled, a user will always get evaluated to the same previously bucketed variant, regardless of the current targeting. Sticky bucketing does not apply if the user has not been bucketed into a variant.
+If sticky bucketing is enabled, a user will always get evaluated to the same previously bucketed variant, regardless of the current targeting. Sticky bucketing doesn't apply if the user hasn't been bucketed into a variant.
 
 ## Targeting segments
 
@@ -38,7 +38,7 @@ A [flag or experiment](../data-model.md#flags-and-experiments) may have `0-n` ta
 
 ## All users segment
 
-The all users segment captures all users who do not match a [targeting segment](#targeting-segments) (if any are added). Users are bucketed into a variant (or no variant) via [consistent bucketing](#consistent-bucketing) based on the configured allocation percentage and variant distribution weights.
+The all users segment captures all users who don't match a [targeting segment](#targeting-segments) (if any are added). Users are bucketed into a variant (or no variant) via [consistent bucketing](#consistent-bucketing) based on the configured allocation percentage and variant distribution weights.
 
 ## Consistent bucketing
 
@@ -46,7 +46,7 @@ Amplitude Experiment's bucketing is consistent based on the user, bucketing key,
 
 | <div class='med-big-column'> Input </div> | Description |
 | --- | --- |
-| Bucketing Key | The key which determines which user property value to use as the bucketing value. The bucketing value is what is actually used as input to the [hashing](#hashing) function. |
+| Bucketing Key | The key which determines which user property value to use as the bucketing value. The bucketing value is what's actually used as input to the [hashing](#hashing) function. |
 | Bucketing Salt | A string which is concatenated to the bucketing value before [hashing](#hashing). The bucketing salt is randomly generated when the flag or experiment is created and used indefinitely unless explicitly updated. |
 | Allocation | The percentage of all users included in the segment who should receive a variant. Used in the [allocation bucketing](#allocation-bucketing) step. |
 | Variant Weights | A weight given for each variant. Applied only to the percentage included by the allocation percentage. Used in the [variant bucketing](#variant-bucketing) step. |

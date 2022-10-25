@@ -4,6 +4,7 @@ description: Official documentation for Amplitude Experiment's Client-side React
 icon: simple/react
 ---
 <!-- markdown-link-check-disable -->
+<!-- vale off-->
 
 !!!warning
     This SDK is legacy and will only continue to receive bug fixes until it is eventually deprecated. We recommend upgrading to `v1.0.0+` which supports SDK integrations, React Native Web, Expo, and more.

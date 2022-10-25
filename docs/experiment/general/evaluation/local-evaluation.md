@@ -8,13 +8,13 @@ Server-side local evaluation runs [evaluation logic](./implementation.md) on you
 ![Client-side local evaluation experimentation diagram.](../../../assets/images/experiment/server-side-local-overview.drawio.svg)
 
 !!!warning "Exposure Tracking"
-    **Local evaluation does not automatically set experiment user properties**. If you use local evaluation and you want to run experiments where success metrics are analyzed, you will need to implement [exposure tracking](../exposure-tracking.md) (generally done on the client-side).
+    **Local evaluation doesn't automatically set experiment user properties**. If you use local evaluation and you want to run experiments where success metrics are analyzed, you will need to implement [exposure tracking](../exposure-tracking.md) (generally done on the client-side).
 
     To more easily track exposures on the client-side, [bootstrap](../../sdks/javascript-sdk.md#bootstrapping) the client-side SDK with the variants evaluated server-side and utilize [automatic exposure tracking](../exposure-tracking.md#automatic-exposure-tracking) using one of the [analytics SDK integrations](../../sdks/javascript-sdk.md#integrations).
 
 ## Targeting Capabilities
 
-Because local evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics is not supported. That said, local evaluation allows you to perform consistent bucketing with target segments, which is sufficient in many cases.
+Because local evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics isn't supported. That said, local evaluation allows you to perform consistent bucketing with target segments, which is often sufficient.
 
 | <div class='big-column'>Feature</div> | Remote Evaluation | Local Evaluation |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ Local evaluation is just [evaluation](./implementation.md)--a function which tak
 The only non-local part of local evaluation is getting flag configurations from Amplitude Experiment, but this can happen at an interval, and flags can be cached in-memory on the server-side for zero latency access.
 
 !!!tip "Edge Evaluation"
-    The local evaluation Node.js SDK can be run in edge worker/functions which support javascript and a distributed store. Contact your representative or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to learn more.
+    The local evaluation Node.js SDK can be run in edge worker/functions which support JavaScript and a distributed store. Contact your representative or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to learn more.
 
 ## SDKs
 

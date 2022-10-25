@@ -29,7 +29,7 @@ Install both the JavaScript Server SDK and JavaScript Client SDKs.
 
 ## Initialize the Server SDK
 
-On server startup, you should run initialize the Server SDK. To distinguish from the Client SDK `Experiment` object, we have aliased the `Experiment` object from the Server SDK as `ExperimentServer` here.
+On server startup, you should run initialize the Server SDK. To distinguish from the Client SDK `Experiment` object, Experiment has aliased the `Experiment` object from the Server SDK as `ExperimentServer` here.
 
 ```js
 let ExperimentServer;
@@ -44,9 +44,9 @@ if (typeof window === 'undefined') {
 export { ExperimentServer };
 ```
 
-## Fetch Variants on Request
+## Fetch variants on request
 
-On each request, fetch variants using the server side SDK. The result is a plain javascript object mapping feature keys to variant values. You should store the result where your rendering code can access it in both server side and client side contexts.
+On each request, fetch variants using the server side SDK. The result is a plain JavaScript object mapping feature keys to variant values. You should store the result where your rendering code can access it in both server side and client side contexts.
 
 ```js
 const allFlags = await experimentServer.fetch({
@@ -59,7 +59,7 @@ global.appProps = { flags: allFlags };
 
 ## Initialize the Client SDK on Render
 
-At the start of your server side render, initialize the Client SDK with the fetched variants. Here you will need to instantiate a `ExperimentClient` that is accessible in the render scope (for example, a React ContextProvider). If we are in the server side context, we should create a new `ExperimentClient` every time. If we are in the client side, we should create a new `ExperimentClient` if one does not already exist.
+At the start of your server side render, initialize the Client SDK with the fetched variants. Here you need to instantiate a `ExperimentClient` that's accessible in the render scope (for example, a React ContextProvider). If you are in the server side context, create a new `ExperimentClient` every time. If you are in the client side, you should create a new `ExperimentClient` if one doesn't already exist.
 
 ```js
 import { ExperimentClient } from '@amplitude/experiment-js-client';
@@ -91,9 +91,9 @@ const isServerSide = typeof window === 'undefined';
 // be sure to use a provider or store the ExperimentClient so that it is accessible in the render scope
 ```
 
-## Get Variants on Render
+## Get variants on render
 
-Once the Client SDK is initialized, you can fetch the flag status in any component.
+After the Client SDK is initialized, you can fetch the flag status in any component.
 
 ```js
 // experimentClient should be the same ExperimentClient instance that was instantiated in the previous step

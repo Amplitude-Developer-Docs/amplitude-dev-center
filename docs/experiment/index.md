@@ -70,10 +70,10 @@ Client-side SDKs work in a single-user context. Server-side SDKs work in a multi
 | [Management API (Beta)](https://developers.experiment.amplitude.com/reference/management-api) | Manage or list flags and experiments within your organization. |
 
 ## System overview
-
+<!-- vale Amplitude.Contractions = NO-->
 When it comes to feature flag delivery and experimentation, one size does _not_ fit all. Amplitude Experiment is built for flexibility to fit in with any architecture and a variety of needs.
-
-That said, we can generally split experimentation and feature-flagging systems into [client-side](#client-side) and [server-side](#server-side) architectures.
+<!-- vale Amplitude.Contractions = YES-->
+That said, you can generally split experimentation and feature-flagging systems into [client-side](#client-side) and [server-side](#server-side) architectures.
 
 ### Client-side
 

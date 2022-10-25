@@ -9,7 +9,7 @@ Official documentation for Amplitude Experiment's server-side Ruby SDK implement
 [![Gem Version](https://badge.fury.io/rb/amplitude-experiment.svg)](https://badge.fury.io/rb/amplitude-experiment)
 
 !!!info "SDK Resources"
-     [:material-github: Github](https://github.com/amplitude/experiment-ruby-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ruby-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ruby-server/)
+     [:material-github: GitHub](https://github.com/amplitude/experiment-ruby-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ruby-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ruby-server/)
 
 This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
@@ -87,7 +87,7 @@ initialize_remote(apiKey, config = nil) : Client
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!info "Timeout & Retry Configuration"
-     Please configure the timeout and retry options to best fit your performance requirements.
+     Configure the timeout and retry options to best fit your performance requirements.
     ```ruby
     experiment = AmplitudeExperiment.initialize_remote('<DEPLOYMENT_KEY>', AmplitudeExperiment::RemoteEvaluationConfig.new)
     ```
@@ -118,7 +118,7 @@ fetch(user: AmplitudeExperiment::User) : Variants
 
 | Parameter  | Requirement | Description |
 | --- | --- | --- |
-| `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
+| `user` | required | The [user](../general/data-model.md#users) to remote fetch variants for. |
 
 ```ruby
 user = AmplitudeExperiment::User.new(
@@ -144,7 +144,7 @@ unless variant.nil?
 end
 ```
 
-### Fetch Async
+### Fetch async
 
 The fetch method is synchronous. To fetch asynchronously, you can use `fetch_async` method
 
@@ -154,7 +154,7 @@ fetch_async(user: AmplitudeExperiment::User, &callback)
 
 | Parameter  | Requirement | Description                                                                                           |
 |------------|-------------|-------------------------------------------------------------------------------------------------------|
-| `user`     | required    | The user [user](../general/data-model.md#users) to remote fetch variants for.                         |
+| `user`     | required    | The [user](../general/data-model.md#users) to remote fetch variants for.                         |
 | `callback` | optional    | The callback to handle the variants. Callback takes two arguments: User object and returned Variants. |
 
 ```ruby
@@ -252,7 +252,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 !!!warning "Server Deployment Key"
-    You must [initialize](#initialize_1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+    You must [initialize](#initialize_1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key to get access to local evaluation flag configs.
 
 ```ruby
 AmplitudeExperiment.initialize_local(api_key)
@@ -323,7 +323,7 @@ end
 
 ## Accessing Amplitude cookies
 
-If you're using the Amplitude Analytics SDK on the client-side, the Ruby server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client has not yet generated a Device ID.
+If you're using the Amplitude Analytics SDK on the client-side, the Ruby server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client hasn't yet generated a Device ID.
 
 ```ruby
 require 'amplitude-experiment'

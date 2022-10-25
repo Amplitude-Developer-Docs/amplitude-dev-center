@@ -32,7 +32,7 @@ The header must be: `Authorization: Bearer <management-api-key>`.
 
 ## Conventions
 
-### Status Codes
+### Status codes
 
 The API uses meaningful status codes to communicate the result of requests.
 
@@ -41,11 +41,11 @@ The API uses meaningful status codes to communicate the result of requests.
 | 200 | Success! |
 | 400 | Input is missing or invalid |
 | 401 | Invalid or revoked API key |
-| 403 | API key does not have access to the specified environment |
+| 403 | API key doesn't have access to the specified environment |
 
 ### Cursors
 
-Endpoints that list resources such as `/experiments/list` will only return a limited number of items per request. In order to fetch the next page of items the `nextCursor` value returned from the first request must be passed as the `cursor` parameter of the next request. In this way multiple requests can be chained together to fetch the total set of items.
+Endpoints that list resources such as `/experiments/list` will only return a limited number of items per request. To fetch the next page of items, the `nextCursor` value returned from the first request must be passed as the `cursor` parameter of the next request. In this way multiple requests can be chained together to fetch the total set of items.
 
 ------
 
@@ -158,7 +158,7 @@ Create a new experiment.
 |`description`| Optional | string | Description for the experiment.|
 |`variants`| Optional | object array | Array of [`variants`](#variants). |
 |`bucketingKey`| Optional | string | The user property to bucket the user by. |
-|`rolloutWeights`| Optional | object | Rollout weights for non-targeted users. The object should be a mapping from variant key to rollout weight as an integer e.g. `{ "control": 1, "treatment": 1 }`. |
+|`rolloutWeights`| Optional | object | Rollout weights for non-targeted users. The object should be a mapping from variant key to rollout weight as an integer. For example: `{ "control": 1, "treatment": 1 }`. |
 |`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. |
 |`stickyBucketing`| Optional | boolean | If true, the experiment will use [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
 |`deployments`| Optional | string array | Array of deployments that the experiment should be assigned to. |
@@ -183,7 +183,7 @@ The `targetSegments` field contains these objects.
 |`name`|Optional | string | The segment name. |
 |`conditions`| Required | object array | Array of [`conditions`](#conditions). |
 |`percentage`| Optional | number | The allocation percentage for users who match a condition. |
-|`rolloutWeights`| Optional | object | A map from variant key to rollout weight e.g. `{ "control": 1, "treatment": 1 }`. |
+|`rolloutWeights`| Optional | object | A map from variant key to rollout weight. For example: `{ "control": 1, "treatment": 1 }`. |
 
 #### `conditions`
 
@@ -289,7 +289,7 @@ Update the rollout weights for an experiment.
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`rolloutWeights`| Required | object |A map from variant key to rollout weight e.g. `{"control": 1,"treatment":1}`. |
+|`rolloutWeights`| Required | object |A map from variant key to rollout weight. For example:  `{"control": 1,"treatment":1}`. |
 
 !!!example "Example cURL"
     ```bash

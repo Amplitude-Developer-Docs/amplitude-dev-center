@@ -189,3 +189,11 @@ userdata_cohort
 renewal_date
 event_id
 givenName
+user_properties
+[Rr]ollout
+[Cc]anonicalization
+canonicalizes
+canonicalized
+initializer
+backoff
+bundler

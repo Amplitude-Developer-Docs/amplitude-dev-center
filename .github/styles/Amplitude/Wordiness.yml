@@ -6,9 +6,7 @@ action:
   name: replace
 swap:
   (?:give|gave) rise to: lead to
-  (?:previous|prior) to: before
   a (?:large)? majority of: most
-  a (?:large)? number of: many
   a myriad of: myriad
   adversely impact: hurt
   all across: across
@@ -27,7 +25,6 @@ swap:
   are in agreement: agree
   as a matter of fact: in fact
   as a means of: to
-  as a result of: because of
   as of yet: yet
   as per: per
   at a later date: later
@@ -113,6 +110,7 @@ swap:
   this is a subject that: this subject
   time (?:frame|period): time
   under the provisions of: under
+  utilize: use
   until such time as: until
   whether or not: whether
   with regard to: regarding
