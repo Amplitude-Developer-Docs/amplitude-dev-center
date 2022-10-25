@@ -26,6 +26,7 @@
 - :leanplum: [Leanplum](../data/sources/leanplum.md)
 - :mailchimp: [Mailchimp](../data/sources/mailchimp.md)
 - :metarouter: [MetaRouter](../data/sources/metarouter.md)
+- :moengage: [MoEngage](../data/sources/moengage.md)
 - :mparticle: [mParticle](../data/sources/mparticle.md)
 - :onesignal: [OneSignal](../data/sources/onesignal.md)
 - :optimizely: [Optimizely](../data/sources/optimizely.md)
