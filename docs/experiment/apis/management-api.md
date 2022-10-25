@@ -32,7 +32,7 @@ The header must be: `Authorization: Bearer <management-api-key>`.
 
 ## Conventions
 
-### Status Codes
+### Status codes
 
 The API uses meaningful status codes to communicate the result of requests.
 
@@ -158,7 +158,7 @@ Create a new experiment.
 |`description`| Optional | string | Description for the experiment.|
 |`variants`| Optional | object array | Array of [`variants`](#variants). |
 |`bucketingKey`| Optional | string | The user property to bucket the user by. |
-|`rolloutWeights`| Optional | object | Rollout weights for non-targeted users. The object should be a mapping from variant key to rollout weight as an integer e.g. `{ "control": 1, "treatment": 1 }`. |
+|`rolloutWeights`| Optional | object | Rollout weights for non-targeted users. The object should be a mapping from variant key to rollout weight as an integer. For example: `{ "control": 1, "treatment": 1 }`. |
 |`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. |
 |`stickyBucketing`| Optional | boolean | If true, the experiment will use [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
 |`deployments`| Optional | string array | Array of deployments that the experiment should be assigned to. |
@@ -183,7 +183,7 @@ The `targetSegments` field contains these objects.
 |`name`|Optional | string | The segment name. |
 |`conditions`| Required | object array | Array of [`conditions`](#conditions). |
 |`percentage`| Optional | number | The allocation percentage for users who match a condition. |
-|`rolloutWeights`| Optional | object | A map from variant key to rollout weight e.g. `{ "control": 1, "treatment": 1 }`. |
+|`rolloutWeights`| Optional | object | A map from variant key to rollout weight. For example: `{ "control": 1, "treatment": 1 }`. |
 
 #### `conditions`
 

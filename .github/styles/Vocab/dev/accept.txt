@@ -196,3 +196,4 @@ canonicalizes
 canonicalized
 initializer
 backoff
+bundler
