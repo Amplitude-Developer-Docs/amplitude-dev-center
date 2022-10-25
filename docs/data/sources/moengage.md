@@ -6,9 +6,9 @@ status: new
 
 MoEngage is an insights-led customer engagement platform for the customer-obsessed marketers and product owners. This integration allows you to ingest campaign data from MoEngage for further analysis.
 
-!!!info
+!!!info "This integration is maintained by MoEngage"
 
-    This integration is maintained by MoEngage. Contact the [MoEngage team](https://www.moengage.com/contact-us/) with any questions about this integration.
+    Contact the [MoEngage team](https://www.moengage.com/contact-us/) with any questions about this integration.
 
 ## Considerations
 
