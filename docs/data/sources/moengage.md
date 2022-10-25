@@ -1,6 +1,6 @@
 ---
 title: Import MoEngage Events into Amplitude
-description: WOrds
+description: Add this integration to import campaign data from MoEngage into Amplitude for further analysis.
 status: new
 ---
 
