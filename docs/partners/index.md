@@ -2,7 +2,7 @@
 title: Amplitude Partner Hub
 description: Get started building an integration with Amplitude Data. 
 ---
-
+<!-- vale Amplitude.We = NO-->
 Welcome to Amplitude Partner documentation. Building an integration with Amplitude is an easy way to deliver better business outcomes for our joint customers. To build integrations, become a Technology Partner.
 
 [Become a Technology Partner](https://info.amplitude.com/technology-partners){ .md-button .md-button--primary }

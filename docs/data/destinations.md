@@ -40,7 +40,7 @@ For detailed instructions, see the documentation for the destination you want to
 
 --8<-- "includes/data-destinations-cohorts.md"
 
-### User Profile
+### User profile
 
 <!-- This content is used in several places. Make changes to includes/data-destinations-user-profile-api.md -->
 
