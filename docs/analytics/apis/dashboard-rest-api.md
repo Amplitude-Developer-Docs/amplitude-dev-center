@@ -165,6 +165,10 @@ Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}}
 ```
 
+### Export data tables
+
+You can use the Dashboard REST API to export data from data tables. Just query any Data Table chart type, and don't include start or end dates in the query.  
+
 ### Path variables
 
 |Name|Description|
