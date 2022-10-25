@@ -1,20 +1,20 @@
 ---
-title: TypeScript Browser
-description: The Amplitude TypeScript SDK Installation & Quick Start guide.
+title: Browser
+description: The Amplitude Browser SDK Installation & Quick Start guide.
 icon: simple/typescript
 ---
 
 
 ![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)
 
-The TypeScript Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
+The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 !!!info "Browser SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
-!!!note "TypeScript Browser SDK versus the Marketing Analytics Browser"
-    Amplitude recommends the TypeScript Browser SDK for most users. You can extend its functionality using plugins.
-    However, if you want web attribution and page view tracking without extra setup, use the Marketing Analytics Browser SDK instead. It extends the TypeScript Browser SDK with built-in web attribution and page view tracking. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
+!!!note "Browser SDK versus the Marketing Analytics Browser"
+    Amplitude recommends the Browser SDK for most users. You can extend its functionality using plugins.
+    However, if you want web attribution and page view tracking without extra setup, use the Marketing Analytics Browser SDK instead. It extends the Browser SDK with built-in web attribution and page view tracking. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
@@ -23,7 +23,7 @@ The TypeScript Browser SDK lets you send events to Amplitude. This library is op
 
 ### Installation
 
-To get started with using TypeScript Browser SDK, install the package in your project via NPM or script loader.
+To get started with using Browser SDK, install the package in your project via NPM or script loader.
 
 #### Install as Node package
 
