@@ -20,7 +20,7 @@ This method also lets you watch jobs.
 
 To set up a recurring export of your Amplitude data to Snowflake, follow these steps:
 
-!!!info "Required user permissions
+!!!info "Required user permissions"
 
     You need admin privileges in Amplitude, as well as a role that allows you to enable resources in Snowflake.
 
