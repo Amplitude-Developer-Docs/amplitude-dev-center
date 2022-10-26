@@ -76,3 +76,4 @@ exceptions:
   - RevenueCat
   - Client SDK on Render
   - Server SDK
+  - FreeMarker Templating Language
