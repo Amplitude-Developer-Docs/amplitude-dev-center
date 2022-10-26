@@ -79,3 +79,4 @@ exceptions:
   - Limit Ad Tracking
   - Service Unavailable
   - Server Error 500, 502, 504
+  - Lookup Table

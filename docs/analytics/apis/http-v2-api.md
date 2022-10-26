@@ -536,9 +536,9 @@ Possible reasons for an invalid request:
 | --- |--- |
 | `code`  | Integer. 400 error code |
 | `error` | String. Error description. |
-| `eps_threshold` |Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
+| `eps_threshold` |Integer. Your app's current events per second threshold. If you exceed this rate your requests are throttled. |
 | `exceeded_daily_quota_devices` | Object. A map from device_id to its current number of daily events, for all devices that exceed the app's daily event quota. |
-| `silenced_devices` | [string]. Array of `device_id`s that have been silenced by Amplitude. |
+| `silenced_devices` | [string]. Array of `device_id`s that Amplitude has silenced. |
 | `silenced_events` | [integer]. Array of indexes in the events array indicating events whose device_id got silenced. |
 | `throttled_devices` | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
 | `throttled_events` | [integer]. Array of indexes in the events array indicating events whose `user_id` or `device_id` got throttled |
@@ -601,7 +601,7 @@ Possible reasons for an invalid request:
 
 ### Server Error 500, 502, 504
 
-500, 502, and 504  [Server Error](https://tools.ietf.org/html/rfc2616#section-10.5.1). Amplitude encountered an error while handling the request. A request with this response may not have been accepted by Amplitude. If you retry the request, the events could be duplicated. To avoid duplication, send an `insert_id` in your requests.
+500, 502, and 504  [Server Error](https://tools.ietf.org/html/rfc2616#section-10.5.1). Amplitude encountered an error while handling the request. A request with this response may not have been accepted by Amplitude. If you retry the request, it could duplicate the events. To avoid duplication, send an `insert_id` in your requests.
 
 ### 503 Service Unavailable
 

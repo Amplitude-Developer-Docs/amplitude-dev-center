@@ -26,7 +26,7 @@ All throttling and status code guidance from Amplitude's [HTTP V2 API](../apis/h
 - Updates don't appear Redshift because they don't count as events.
 - Because these calls aren't counted as events, this API has no effect on "active user" or "new user" definitions.
 - Because these calls aren't counted as events, Identify API calls don't add to your monthly event count in Amplitude.
-- If you change the `user_id` field from an existing value, then a new Amplitude user is created. Amplitude doesn't create a new Amplitude user if the current value of `user_id` is null.
+- If you change the `user_id` field from an existing value, then Amplitude creates a new user. Amplitude doesn't create a new Amplitude user if the current value of `user_id` is null.
 
 ## Example request
 
@@ -93,10 +93,10 @@ The `user_properties` field supports these operations:
     `{"$set": {"cohort": "Test A"}, "$setOnce": {"startDate": "2015-10-01"}, "$add": {"friendCount": 3}, "$append": {"interests": "Music"}, "$prepend":{"sports": "Tennis"}, "$unset": {"oldProperty": "-"}}`
 
 [^1]:
-    These fields (`platform`, `os_name`, `os_version`, `device_brand`, `device_manufacturer`, `device_model`, and `carrier`) must be updated together. Setting any of these fields resets all the other property values to null if aren't explicitly set on the same identify call. All property values otherwise persist to later events if the values aren't changed to a different string or if all values are passed as null. Amplitude tries to use `device_brand`, `device_manufacturer`, and `device_model` to map the corresponding device type.
+    You must update the fields (`platform`, `os_name`, `os_version`, `device_brand`, `device_manufacturer`, `device_model`, and `carrier`) together. Setting any of these fields resets all the other property values to null if aren't explicitly set on the same identify call. All property values otherwise persist to later events if the values aren't changed to a different string or if all values are passed as null. Amplitude tries to use `device_brand`, `device_manufacturer`, and `device_model` to map the corresponding device type.
 
 [^2]:
-    These fields (`country`, `region`, `city`, `DMA`) must all be updated together. Setting any of these fields automatically resets the others if they aren't also explicitly set on the same identify call.
+    You must update the fields (`country`, `region`, `city`, `DMA`) together. Setting any of these fields automatically resets the others if they aren't also explicitly set on the same identify call.
 
 ## Status codes
 
