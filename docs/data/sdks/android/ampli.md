@@ -29,14 +29,14 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "Java"
 
     ```bash
-    implementation 'com.amplitude:android-sdk:2.35.2'
+    implementation 'com.amplitude:android-sdk:2.38.3'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
 === "Kotlin"
 
     ```bash
-    implementation 'com.amplitude:android-sdk:2.35.2'
+    implementation 'com.amplitude:android-sdk:2.38.3'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
