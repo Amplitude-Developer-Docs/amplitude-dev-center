@@ -84,3 +84,4 @@ exceptions:
   - Kinesis 
   - IAM
   - Movable Ink
+  - FreeMarker Templating Language

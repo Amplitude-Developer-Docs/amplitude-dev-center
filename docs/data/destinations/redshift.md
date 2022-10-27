@@ -1,5 +1,5 @@
 ---
-title: Redshift Export (Beta)
+title: Redshift Export
 description: Upload your Amplitude event data to your Redshift account with recurring exports. 
 ---
 

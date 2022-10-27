@@ -68,7 +68,7 @@ Conversion rules in `convertToAmplitudeFunc` instructs the how the ingestion ser
 }
 ```
 
-Values in the event come from the fields specified by `convertToAmplitudeFunc`. For example, the value "watch tv" in field "event_type" comes from field "action" in ingested data files. Because `event_type` value isn’t `["value":"$identify"]` or `["value":"$groupIdentify"]`, Amplitude ingests events in a way like it ingests events via the HTTP V2 API.
+Values in the event come from the fields specified by `convertToAmplitudeFunc`. For example, the value "watch tv" in field "event_type" comes from field "action" in ingested data files. Because `event_type` value isn’t `["value":"$identify"]` or `["value":"$groupidentify"]`, Amplitude ingests events in a way like it ingests events via the HTTP V2 API.
 
 ## Operators
 
