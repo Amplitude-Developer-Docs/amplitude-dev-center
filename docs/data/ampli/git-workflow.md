@@ -319,7 +319,7 @@ After the `ampli.json` is on the `main` branch future calls to `--is-latest-if-n
 
 ### PR workflow
 
-1. During development the "Ampli Merge Check" in GitHub fails continuously until the corresponding branch is merged in Data. This is expected and ensures that your code stays in sync with the tracking plan.
+1. During development the "Ampli Merge Check" in GitHub fails continuously until the corresponding branch is merged in Data. This behavior ensures that your code stays in sync with the tracking plan.
     ![screenshot of a failing GitHub action](../../assets/images/data-pr-workflow-fail.png)
 
 2. Start by implementing the latest changes to your tracking plan. The Ampli Implementation Check verifies this.

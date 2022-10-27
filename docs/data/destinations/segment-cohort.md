@@ -34,7 +34,7 @@ Send Amplitude behavioral cohorts to Segment to use with your ad networks, marke
 
 ## Send a cohort
 
-Amplitude sends cohort data to Segment by triggering an identify call for each user in the cohort being synced with that appears as `<cohort_name> (<cohort_id>)` with `True` or `False` as the value, depending on whether the given user satisfies the cohort's membership criteria at that time.
+Amplitude sends cohort data to Segment by triggering an identify call for each user in the syncing cohort. This appears as `<cohort_name> (<cohort_id>)` with `True` or `False` as the value, depending on whether the given user satisfies the cohort's membership criteria at that time.
 
 1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose Segment.
 2. Choose the API target. This is the name you gave the integration in Amplitude.

@@ -22,7 +22,7 @@ Create an [API token](https://data.amplitude.com/settings/api-tokens) in your ac
 
 ### Step 2: Configure a CI environment variable
 
-Create an environment variable in your CI service called `ITLY_KEY` and set it to the API token you created. You'll use this environment variable to pass the token to `ampli status` when it runs inside CI.
+Create an environment variable in your CI service called `ITLY_KEY` and set it to the API token you created. Use this environment variable to pass the token to `ampli status` when it runs inside CI.
 
 For example, this is what the [Netlify](https://docs.netlify.com/configure-builds/environment-variables/) environment variables screen would look like.
 

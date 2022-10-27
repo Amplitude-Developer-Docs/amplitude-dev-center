@@ -55,7 +55,7 @@ To sync your first cohort, follow these steps:
 1. In Amplitude, open the cohort you want to sync.
 2. Click Sync and choose Snapchat Ads.
 3. Choose the account you want to sync to.
-4. If you have added a new Snapchat Ads accounts after connecting Amplitude, you will need to reconnect to Snapchat Ads in destinations to see them here.
+4. If you have added a new Snapchat Ads accounts after connecting Amplitude, you need to reconnect to Snapchat Ads in destinations to see them here.
 5. Choose the sync cadence. [^1]
 6. When finished, save your work.
 

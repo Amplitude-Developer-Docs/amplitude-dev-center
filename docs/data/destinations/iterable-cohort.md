@@ -38,4 +38,4 @@ Copy your Iterable API key. You can find this in Iterable under **Integrations >
 4. Select the sync cadence.
 5. Save when finished.
 
-You can now find the synced behavioral cohort under Iterable's user list. The cohort's name is prefixed with `[Amplitude]`.
+You can now find the synced behavioral cohort under Iterable's user list. The cohort's name has the `[Amplitude]` prefix.

@@ -81,3 +81,6 @@ exceptions:
   - Server Error 500, 502, 504
   - Lookup Table
   - Lookup Tables
+  - Kinesis 
+  - IAM
+  - Movable Ink

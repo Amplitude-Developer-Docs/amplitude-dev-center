@@ -15,7 +15,7 @@ Amplitude Data's Kinesis Data Stream integration lets you stream your Amplitude 
 ## Setup
 
 ### Kinesis setup
-
+<!-- vale Amplitude.Headings = NO-->
 #### 1. Create a Kinesis stream
 
 Create a [Kinesis stream](https://docs.aws.amazon.com/streams/latest/dev/introduction.html "https://docs.aws.amazon.com/streams/latest/dev/introduction.html") in the AWS console.
@@ -73,7 +73,7 @@ Create an [IAM role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_cr
       2. Select the **Attach Policies** option, and select the new policy.
 
 Make note of the role ARN, stream region, and stream name. You need these to set up the destination in Amplitude. 
-
+<!-- vale Amplitude.Headings = ON-->
 ### Amplitude setup
 
 Create a Kinesis destination in Amplitude.

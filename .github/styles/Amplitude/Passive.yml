@@ -206,3 +206,9 @@ exceptions:
   - supported
   - ignored
   - represented  
+  - expected behavior
+  - removed
+  - used
+  - authorized
+  - rounded
+  - redirected

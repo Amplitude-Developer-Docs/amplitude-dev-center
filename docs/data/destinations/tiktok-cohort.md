@@ -31,8 +31,8 @@ The TikTok Ads integration allows you to send audiences from Amplitude to TikTok
 ### Amplitude setup
 
 1. In Amplitude, navigate to **Data Destinations**, then find **TikTok Ads - Cohort**.
-2. Click **Connect to TikTok Ads**. You'll be redirected to TikTok Ads to authenticate.
-3. In the TikTok permissions modal, make sure **Audience Management** is selected, then click **Confirm**. You'll be redirected back to Amplitude.
+2. Click **Connect to TikTok Ads**. You're redirected to TikTok Ads to authenticate.
+3. In the TikTok permissions modal, select **Audience Management**, then click **Confirm**. You're redirected back to Amplitude.
 4. Back in Amplitude, map your TikTok and Amplitude users. TikTok Ads supports four keys:
    - Email: Matches on user email address.[^1]
    - Phone Number: Matches on user phone number.[^1]

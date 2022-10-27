@@ -39,4 +39,4 @@ description: Send Amplitude cohorts to Customer.io for use in automated messagin
 5. Set the sync cadence.
 6. When finished, click **Sync**.
   
-After you have exported the cohort, you can see the cohort in the [Segments](https://customer.io/docs/segments/ "https://customer.io/docs/segments/") section of the Customer.io platform. You can use segments as recipient lists, campaign triggers, filters, conversion goals and more. Whenever you need to reference a subset of the people in your workspace, you'll use a segment.
+After you have exported the cohort, you can see the cohort in the [Segments](https://customer.io/docs/segments/ "https://customer.io/docs/segments/") section of the Customer.io platform. You can use segments as recipient lists, campaign triggers, filters, conversion goals and more. Whenever you need to reference a subset of the people in your workspace, you use a segment.

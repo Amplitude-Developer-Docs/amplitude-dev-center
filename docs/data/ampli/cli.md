@@ -166,12 +166,12 @@ let you know which events you're tracking, and which aren't instrumented yet.
 Include `-u` to update your company's tracking plan in Amplitude Data and share the latest analytics implementation status with your team. Your teammates can tell when events were first implemented, the last time they've
 been detected in the source code, and where exactly in the code they're tracked.
 
-If you're integrating Ampli into CI, there are typically two pipelines you'll want to run `ampli status` in:
+If you're integrating Ampli into CI, there are typically two pipelines you want to run `ampli status` in:
 
 1. Your production branch pipeline that runs when pull/merge requests get merged into your main/default branch (typically main). To make sure the code there is correct and from Amplitude Data's **main** branch, run `ampli status -u -b main`. If the Amplitude Data branch instrumented in your source code isn't **main**, the command fails; otherwise, it updates the **main** branch's tracking plan.
 2. Your pull/merge request pipeline that runs when a pull/merge request is created for a branch. To verify instrumentation in this generic case, run `ampli status -u --skip-update-on-default-branch`. The command verifies against the current branch and only updates the tracking plan instrumentation status for branches other than **main**. This keeps status of events in development out of the main tracking plan.
 
-`ampli status` passes and returns an exit code of 0 if all events are tracked as expected, or fails and returns the number of events that aren't.
+If all events are tracked, then `ampli status` passes and returns an exit code of 0. Otherwise, it fails and returns the number of events that aren't tracked.
 
 <!-- ### `itly export`
 Download a tracking plan from your workspace.

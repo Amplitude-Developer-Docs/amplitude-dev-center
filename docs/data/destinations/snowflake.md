@@ -30,11 +30,11 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
 4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Snowflake Credentials For Amplitude* section, enter the following information:
 
-      - **Account Name**: This is the account name on your Snowflake account. It's the first part of your Snowflake URL, before 'snowflakecomputing.com'
+      - **Account Name**: This is the account name on your Snowflake account. It's the first part of your Snowflake URL, before 'snowflakecomputing.com'.
       - **Warehouse**: The warehouse Amplitude uses to load the data. Ideally, this should be a warehouse dedicated to loading Amplitude data to prevent other Snowflake operations aren't disrupted.
-      - **Database**: The database where the data should be stored. Similarly, this database should also be dedicated specifically to Amplitude data.
+      - **Database**: The database where the data should be stored. Dedicate this database specifically to Amplitude data.
       - **Username**: The username Amplitude uses to connect to the Snowflake account.
-      - **Password**: The password associate with the username
+      - **Password**: The password associate with the username.
 
     !!!warning
 
@@ -53,8 +53,7 @@ To export your historical data from Amplitude into Snowflake, navigate to the in
 
 ![a screenshot of the Snowflake export data modal](../../assets/images/integrations-snowflake-export-export-data.png)
 
-This process can take anywhere from a single day to several weeks, depending on your data volume, warehouse size, cluster count, network bandwidth, and number of concurrent historical data exports you 
-currently have, among other factors.
+This process can take anywhere from a single day to several weeks. It depends on your data volume, warehouse size, cluster count, network bandwidth, and number of concurrent historical data exports you currently have, among other factors.
 
 ## Reduce your Snowflake computation costs
 

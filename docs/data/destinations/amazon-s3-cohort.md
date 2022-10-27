@@ -34,7 +34,7 @@ Set up this integration to send cohorts to an Amazon S3 bucket. This enables you
 
 ## Send a cohort
 
-After the S3 bucket is connected to Amplitude, you can sync any cohort to that bucket. To do so, follow these steps:
+After you connect the S3 bucket to Amplitude, you can sync any cohort to that bucket. To do so, follow these steps:
 
 1. From the Cohorts page in Amplitude, click the cohort to send, or create a cohort.
 2. Click **Sync**.
@@ -48,13 +48,13 @@ After the S3 bucket is connected to Amplitude, you can sync any cohort to that b
 
 ## Cohorts in S3
 
-Your cohort is synced as a CSV to the bucket you specified. Within the folder, you'll see a list of CSV files.
+Your cohort is synced as a CSV to the bucket you specified. Within the folder, there is a list of CSV files.
 
 Each sync generates three CSV files: 
 
 - One with users who **entered** the cohort since the last sync.
 - One with users who **exited** the cohort since the last sync.
-- One containing the users that existed in the cohort at the time of the last sync. This way, you'll always have a complete historical log of S3 cohort membership.
+- One containing the users that existed in the cohort at the time of the last sync. This way, you always have a complete historical log of S3 cohort membership.
 
 The CSV files all use this naming convention:
 
