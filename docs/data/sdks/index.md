@@ -1,6 +1,6 @@
 ---
 title: Amplitude SDK Quickstart Guide
-description: Use this guide to get started with the Amplitude SDKs. 
+description: Use this guide to get started with the Amplitude SDKs.
 hide: 
   - toc
 status: new
@@ -11,7 +11,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target langua
 
 === "Browser"
 
-    The TypeScript Browser SDK lets you send events to Amplitude. See the full documentation at [Typescript Browser](../sdks/typescript-browser/).
+    The Browser SDK lets you send events to Amplitude. See the full documentation at [Browser SDK](../sdks/typescript-browser/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library)

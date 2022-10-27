@@ -225,8 +225,6 @@ nav:
       - Quick Start: data/sdks/index.md
       - Browser:
         - data/sdks/typescript-browser/index.md
-        - Typescript Browser:
-          - data/sdks/typescript-browser/index.md
         - Marketing Analytics Browser:
           - data/sdks/marketing-analytics-browser/index.md
         - Ampli Codegen: data/sdks/typescript-browser/ampli.md
