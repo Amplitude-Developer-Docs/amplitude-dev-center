@@ -6,6 +6,8 @@ status: new
 
 Amplitude Data's Webhook integration lets you stream your Amplitude event data to custom webhooks.
 
+--8<-- "includes/closed-beta.md"
+
 ## Setup
 
 ### Webhook setup
