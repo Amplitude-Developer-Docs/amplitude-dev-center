@@ -11,7 +11,7 @@ description: Send Amplitude events to Statsig to help find more meaningful data 
 
 !!!info "Other Amplitude + Statsig Integrations"
 
-    This integration streams Amplitude events to Statsig. Amplitude offers other integrations with Statsig: [Send Cohorts to Statsig](https://www.docs.developers.amplitude.com/data/destinations/statsig-cohort/?h=stat)
+    This integration streams Amplitude events to Statsig. Amplitude offers other integrations with Statsig: [Send Cohorts to Statsig](../../destinations/statsig-cohort)
  
 ## Considerations
 
