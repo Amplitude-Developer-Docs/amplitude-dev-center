@@ -40,4 +40,5 @@ exceptions:
   - existing
   - Bootstrapping
   - existing
+  - Throttling
   - Templating

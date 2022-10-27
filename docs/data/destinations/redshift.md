@@ -84,7 +84,7 @@ The **Event** table schema includes the following columns:
 | `location_lng` | FLOAT64 | Longitude. Example: -123.4567890 |
 | `os_name` | STRING | OS name. Example: `ios` |
 | `os_version` | STRING | OS version. | 1.0 |
-| `paying` | STRING | True if the user has ever logged any revenue, otherwise (none).   Note: The property value can be modified via the Identify API. Example: true |
+| `paying` | STRING | True if the user has ever logged any revenue, otherwise (none). Note: The property value can be modified via the Identify API. Example: true |
 | `platform` | STRING |    |
 | `processed_time` | TIMESTAMP |    |
 | `region` | STRING | Region. Example: California |
@@ -94,7 +94,7 @@ The **Event** table schema includes the following columns:
 | `session_id` | BIGNUMERIC | The session start time in milliseconds since epoch. Example: 1396381378123 |
 | `start_version` | STRING | App version the user was first tracked on. Example: 1.0.0 |
 | `user_creation_time` | TIMESTAMP | `event_time` (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
-| `user_id` | STRING | A readable ID specified by you. Should be something that won't change; for that reason, using the user's email address isn't recommended.  |
+| `user_id` | STRING | A readable ID specified by you. This should be something that doesn't change; for that reason, using the user's email address isn't recommended.  |
 | `user_properties` | STRING |    |
 | `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
 | `version_name` | STRING | The app version. Example: 1.0.0 |

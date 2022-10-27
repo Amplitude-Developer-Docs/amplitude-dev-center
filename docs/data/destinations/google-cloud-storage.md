@@ -63,7 +63,7 @@ File names have the following syntax, where the time represents when the data wa
 
 `projectID_yyyy-MM-dd_H#partitionInteger.json.gz`
 
-For example, the first partition of data uploaded to this project, on Jan 25, 2020, between 5 PM and 6 PM UTC, is found in the file:
+For example, the first partition of data uploaded to this project, on Jan 25, 2020, between 5 PM and 6 PM UTC, is in the file:
 
 `187520_2020-01-25_17#1.json.gz`
 
@@ -131,7 +131,7 @@ File names have the following syntax, where the time represents when the data wa
 
 `-OrgID_yyyy-MM-dd_H.json.gz`
 
-For example, data uploaded to this project, on Jan 25, 2020, between 5 PM and 6 PM UTC, is found in the file:
+For example, data uploaded to this project, on Jan 25, 2020, between 5 PM and 6 PM UTC, is in the file:
 
 `-189524_2020-01-25_17.json.gz`
 

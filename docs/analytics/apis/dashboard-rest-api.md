@@ -20,7 +20,7 @@ You can get data that's displayed on the dashboard graphs in JSON format via the
 
 - You may have to URL encode special characters in the names of event types, event properties, and user properties. For example, encode `Play Song` as `Play%20Song`. Use the [W3Schools encoding reference](http://www.w3schools.com/tags/ref_urlencode.asp) for help.
 - Some examples in this article use backslash syntax to escape characters when using cURL. If you aren't using cURL, then don't encode your request with backslash escape characters.
-- The Dashboard REST API is based on your project's time zone in Amplitude.
+- The Dashboard REST API time zone is the same as your Amplitude project's time zone.
 
 ### Rate limits
 
@@ -261,7 +261,7 @@ Host: amplitude.com
 
 To take advantage of custom binning, you must specify `timeHistogramConfigBinMin`, `timeHistogramConfigBinMax`, and `timeHistogramConfigBinTimeUnit`. When `timeHistogramConfigBinSize` isn't specified, Amplitude tries to find the best bin sizing. For example, if you have `timeHistogramConfigBinMin=0`, `timeHistogramConfigBinMax=10`, and `timeHistogramConfigBinTimeUnit=minutes`, there is no guarantee for the final number of bins or bin bounds. If `timeHistogramConfigBinSize=1` is specified, then there are 10 bins, and each bin size equals a minute.
 
-When combined `timeHistogramConfigBin` parameters are invalid/missing, Amplitude defaults to use default bins that are chosen because they approximate certain behaviors such as bounce rate. These bins are (in milliseconds): `[0, 3000), [3000, 10,000), [10,000, 30,000), [30,000, 60,000), [60,000, 180,000), [180,000, 600,000), [600,000, 1,800,000), [1,800,000, 3,600,000), [3,600,000, 86,400,000)`.
+When combined `timeHistogramConfigBin` parameters are invalid or missing, Amplitude defaults to default bins that account for certain behaviors such as bounce rate. These bins are (in milliseconds): `[0, 3000), [3000, 10,000), [10,000, 30,000), [30,000, 60,000), [60,000, 180,000), [180,000, 600,000), [600,000, 1,800,000), [1,800,000, 3,600,000), [3,600,000, 86,400,000)`.
 
 Session lengths have a max length of 1 day (86,400,000 ms).
 
@@ -512,7 +512,7 @@ Remember that you may have to URL encode special characters in the names of even
 | `s`  | Optional. Segment definitions (default: none). [Full description](#shared-query-parameters). |
 | `g` | Optional. Include up to two. The property to group by. Defaults to none. [Full description](#event-format). |
 | `limit` | Optional. The number of Group By values returned (default: 100). The limit is 1000. |
-| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you will need to pass in the formula here (for example, `UNIQUES(A)/UNIQUES(B)`). |
+| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you need to pass in the formula here (for example, `UNIQUES(A)/UNIQUES(B)`). |
 | `rollingWindow` | Required to use a rolling window. To include a rolling window, pass in the number of days/weeks/months with which to compute a rolling window over.  |
 | `rollingAverage` | Required to use a rolling average. To include a rolling average, pass in the number of days/weeks/months with which to compute a rolling average over.|
 
@@ -891,12 +891,12 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 ### Response
 
 Returns a response containing JSON objects with this schema:
-
+<!-- vale Amplitude.Ellipses = NO-->
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
 | `seriesLabels` | An array of labels, one for each group. |
 | `series` | A JSON object containing two keys.<br>**dates** - An array of formatted string dates, one for each date in the specified range (in descending order). <br>**values** - A JSON object with one key for each date, where each value is a JSON object with keys `r1d`, `r2d`, ..., `r90d` for the n-day metric values, and the keys `count`, `paid`, and `total_amount`, which indicate the total number of users, number of paid users, and amount paid by the users for the group. |
-
+<!-- vale Amplitude.Ellipses = YES-->
 ```json
 {
     "data": {

@@ -41,11 +41,11 @@ There are three common errors users can run into while setting up the Facebook i
 
 - *Solution*: Accept the terms of service. You need to have Admin/Manager permissions on Amplitude and have the appropriate permissions on Facebook to accept the terms and services in the pop-up module.
 
-**Facebook didn't connect to Business Manager.** For security reasons, Facebook requires ad accounts to be associated with Business Manager. This integration doesn't work unless you've enabled Business Manager for your ad account.
+**Facebook didn't connect to Business Manager.** For security reasons, Facebook requires that ad accounts are associated with Business Manager. This integration doesn't work unless you've enabled Business Manager for your ad account.
 
 - *Solution*: Create a [Business Manager](https://www.facebook.com/business/help/1710077379203657) for your account and associate your ad account with that Business Manager.
 
-**Facebook user lacks audience permissions.** The user who sets up the integration on Amplitude must have the appropriate permissions to access the Facebook APIs. Amplitude sends custom audiences to Facebook on behalf of that user, so if they don't have the proper permissions, Amplitude won't either.
+**Facebook user lacks audience permissions.** The user who sets up the integration on Amplitude must have the appropriate permissions to access the Facebook APIs. Amplitude sends custom audiences to Facebook on behalf of that user, so if they don't have the proper permissions, Amplitude doesn't either.
 
 - *Solution*: Grant the setup user access to use APIs. If the original setup user lost permissions, disconnect the integration and reconnect it with another user who has permissions.
 To disconnect the integration, navigate to *Sources & Destinations* --> *{Project Name}* --> *Destinations* --> *Cohort Destinations* --> *Facebook*.

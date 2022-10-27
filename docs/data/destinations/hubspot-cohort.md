@@ -45,4 +45,8 @@ Contact your CSM if you want to use this integration.
 
 After you send your Amplitude cohort to HubSpot, you can see it in the *Contacts* section of the HubSpot dashboard. Cohorts sent by Amplitude include a "amplitude_" prefix in the name. 
 
-HubSpot only ingests users for whom they have identifiers. For example, if User A, User B, and User C are in the Amplitude cohort (Cohort 1), and HubSpot only has identifiers for User A and User C, then HubSpot creates a list that includes User A and User C, and drops User B.
+HubSpot only ingests users for whom they have identifiers.
+
+!!!example
+
+     User A, User B, and User C are in the Amplitude cohort (Cohort 1). HubSpot only has identifiers for User A and User C. HubSpot creates a list that includes User A and User C, and drops User B.

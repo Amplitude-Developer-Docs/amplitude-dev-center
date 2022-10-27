@@ -19,7 +19,7 @@ Send Amplitude cohorts to Mailchimp to create targeted audiences for your email 
 
 ### Mailchimp setup
 
-[Find your Mailchimp audience ID](https://mailchimp.com/help/find-audience-id/ "https://mailchimp.com/help/find-audience-id/") for the audience you would like to use for sending events to Amplitude. If you have multiple audiences, you'll need to set up this integration for each one. If you don't have an existing audience, [create one](https://mailchimp.com/help/create-audience/ "https://mailchimp.com/help/create-audience/").
+[Find your Mailchimp audience ID](https://mailchimp.com/help/find-audience-id/ "https://mailchimp.com/help/find-audience-id/") for the audience you would like to use for sending events to Amplitude. If you have multiple audiences, you need to set up this integration for each one. If you don't have an existing audience, [create one](https://mailchimp.com/help/create-audience/ "https://mailchimp.com/help/create-audience/").
 
 ### Amplitude setup 
 

@@ -40,7 +40,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 ### Throttling errors
 
-- Each org is limited to 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
+- Amplitude orgs have a limit of 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
     - `{"error":"Number of requests per minute exceeds system limit. Contact Support if you need this limit raised"}` 
 - For batch recommendation use cases, consider rate limiting your requests so you don't go above this limit.
 - If you need this limit increased for your org, contact Support.
@@ -49,8 +49,8 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 | <div class= "big-column">Parameter</div> | Description |
 | --- | --- |
-| `user_id`[^1] | Optional, but required unless `device_id` is set. The user id (external database id) to be queried. |
-| `device_id`[^1] | Optional, but required unless `user_id` is set. The device id (anonymous id) to be queried, required unless `user_id` is set. |
+| `user_id`[^1] | Optional, but required unless `device_id` is set. The user ID (external database ID) to be queried. |
+| `device_id`[^1] | Optional, but required unless `user_id` is set. The device ID (anonymous ID) to be queried, required unless `user_id` is set. |
 | `get_recs` | Optional. Return a recommendation result for this user. Defaults to `false`.|
 | `rec_id`| Optional. Recommendations to retrieve, required if `get_recs` is true. Fetch multiple recommendations by separating the `rec_ids` with commas. |
 | `rec_type` | Optional. Overrides the default experimental control setting and `rec_type=model` returns modeled recommendations and `rec_type=random` returns random recommendations. |

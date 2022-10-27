@@ -203,4 +203,12 @@ exceptions:
   - composed
   - imported
   - compressed
-  
+  - supported
+  - ignored
+  - represented  
+  - expected behavior
+  - removed
+  - used
+  - authorized
+  - rounded
+  - redirected
