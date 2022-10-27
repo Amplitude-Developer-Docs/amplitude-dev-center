@@ -87,7 +87,7 @@ The `user_properties` field supports these operations:
 |`$remove`| Removes all instances of the values specified from the list. Can give a single value or an array of values. These should be keys in the dictionary where the values are the corresponding properties that you want to operate on.|
 
 !!!example
-    You can't mix user property operations with actual top-level user properties. Instead, include them inside the `$set` operation. If you are using one of these operators then this dictionary can contain only user property operations and can't be combined with the above format. For example. you can't do `{"$append":{"interests":"Music"}, "subscription type":"paid"}` in the same request.
+    You can't mix user property operations with actual top-level user properties. Instead, include them inside the `$set` operation. If you are using one of these operators then this dictionary can contain only user property operations and you can't combine it with the above format. For example. you can't do `{"$append":{"interests":"Music"}, "subscription type":"paid"}` in the same request.
 
     Instead, do this:
     `{"$set": {"cohort": "Test A"}, "$setOnce": {"startDate": "2015-10-01"}, "$add": {"friendCount": 3}, "$append": {"interests": "Music"}, "$prepend":{"sports": "Tennis"}, "$unset": {"oldProperty": "-"}}`
