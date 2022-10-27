@@ -1,7 +1,7 @@
 ---
 title: Send Events to Webhooks
-description: words
-status: Use this integration to stream Amplitude event data to your custom webhooks.
+description: Use this integration to stream Amplitude event data to your custom webhooks.
+status: new
 ---
 
 Amplitude Data's Webhook integration lets you stream your Amplitude event data to custom webhooks.
