@@ -46,7 +46,7 @@ Amplitude uses [Apache FreeMarker](https://freemarker.apache.org/ "https://freem
       "name" : "${input.event_type}",
       "time" : "${input.event_time}",
       "properties" : {
-            "email" : "${input.user_properties.email!}
+            "email" : "${input.user_properties.email!}"
       }
 }
 ```
