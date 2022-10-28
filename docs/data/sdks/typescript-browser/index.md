@@ -525,7 +525,11 @@ You need to download `plugin-web-attribution-browser` package and add the `webAt
     ```
 
 ```ts
-add(webAttributionPlugin(client, attribution));
+import * as client from '@amplitude/analytics-browser';
+import { add, init } from '@amplitude/analytics-browser';
+import { webAttributionPlugin } from '@amplitude/plugin-web-attribution-browser';
+
+add(webAttributionPlugin(client, attributionOptions));
 
 init('API_KEY', configuration);
 ```
@@ -549,6 +553,10 @@ You need to download `plugin-page-view-tracking-browser` and add the `pageViewTr
     ```
 
 ```ts
+import * as client from '@amplitude/analytics-browser';
+import { add, init } from '@amplitude/analytics-browser';
+import { pageViewTrackingPlugin } from '@amplitude/plugin-page-view-tracking-browser';
+
 add(pageViewTrackingPlugin(client, pageViewTrackingOptions));
 
 init('API_KEY', configuration);
