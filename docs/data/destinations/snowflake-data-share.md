@@ -6,7 +6,11 @@ status: new
 
 Get access to your Amplitude events via Snowflake's Data Share product.
 
-Amplitude supports [Snowflake’s Data Share](https://docs.snowflake.com/en/user-guide/data-sharing-intro.html) integration to give customers access to their event data that lives within Amplitude. Secure Data Sharing enables sharing selected objects in a database in your account with other Snowflake accounts. Amplitude’s integration currently supports sharing a Raw Events table and a Merged ID table. Note: Amplitude's Snowflake Data Share Export is a paid add on to your Amplitude contract
+Amplitude supports [Snowflake’s Data Share](https://docs.snowflake.com/en/user-guide/data-sharing-intro.html) integration to give customers access to their event data that lives within Amplitude. Amplitude’s integration currently supports sharing a Raw Events table and a Merged ID table. 
+
+!!!info "Add on feature"
+
+    Amplitude's Snowflake Data Share Export is a paid add on to your Amplitude contract.
 
 ## Setup
 
