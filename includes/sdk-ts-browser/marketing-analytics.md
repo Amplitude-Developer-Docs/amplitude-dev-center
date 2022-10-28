@@ -44,7 +44,7 @@ Click IDs are campaign identifiers included as URL parameters. Ad platforms use 
 |<div class="med-column">Name</div>|Description|
 |-|-|
 |`GCLID`| Google Click Identifier from URL parameters |
-|`FCLID`| Facebook Click Identifier from URL parameters |
+|`FBCLID`| Facebook Click Identifier from URL parameters |
 |`DCLID`| Google campaign manager Click Identifier |
 |`GBRAID`| Google Click Identifier for iOS device from Web to App |
 |`WBRAID`| Google Click Identifier for iOS device from App to Web |
