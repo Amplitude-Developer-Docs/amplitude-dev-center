@@ -199,3 +199,4 @@ backoff
 bundler
 timeHistogramConfigBin
 FreeMarker
+Fivetran
