@@ -18,7 +18,7 @@ After the Share is set up between Amplitude and your Snowflake cluster, Amplitud
 
 !!!warning "Backfilling data has an additional cost"
     
-    Contact your Amplitude account team for pricing.
+    Contact your Amplitude Account Manager for pricing.
 
 ## Remove Data Share from Amplitude
 
