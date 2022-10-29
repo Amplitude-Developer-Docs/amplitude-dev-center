@@ -18,8 +18,6 @@ The tracking library exposes a function for every event in your team’s trackin
 
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
-
 ### Install the Ampli CLI
 
 If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
@@ -387,7 +385,7 @@ Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node
 
     In the web app open the **Sources** page and select the NodeJS Source you want to update. In the modal, change the runtime from `TypeScript (Legacy)` to `TypeScript` or `JavaScript (Legacy)` to `JavaScript`.
 
-2. Go to the **Implementation** page, then select the updated Source for detailed setup and usage instructions.
+2. Follow steps on this page for detailed setup and usage instructions.
 
 3. Remove legacy dependencies from your project.
 
@@ -403,6 +401,4 @@ Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node
 
 6. Find and replace.
 
-    Middleware is no longer supported. It has been replaced by a new Plugin architecture. Migrating from Middleware to a Plugin is easy.
-
-7. See more details on your **Implementation** page in the web app.
+    Middleware is no longer support. It has been replaced by a new Plugin architecture. Migrating from Middleware to a Plugin is easy.

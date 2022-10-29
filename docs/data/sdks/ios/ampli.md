@@ -16,8 +16,6 @@ In Swift and Objective-C, the tracking library exposes a type-safe function for 
 
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Iteratively workspace.
-
 ### Install the Ampli CLI
 
 If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).

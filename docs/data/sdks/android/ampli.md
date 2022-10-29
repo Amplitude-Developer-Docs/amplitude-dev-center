@@ -16,8 +16,6 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
 
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
-
 ### Install the Ampli CLI
 
 If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).

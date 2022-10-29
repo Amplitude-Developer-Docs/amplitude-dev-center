@@ -19,8 +19,6 @@ The function’s arguments correspond to the event’s properties and are strong
 
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
-
 ### Install the Ampli CLI
 
 If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
