@@ -5,18 +5,45 @@ description: Upload your Amplitude event data to your Redshift account with recu
 
 Upload your Amplitude event data into your Redshift account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.
 
-## Set up a recurring data export to Redshift
+## Setup
+
+### Prerequisites
+
+You need admin privileges in Amplitude, and a role that allows you to enable resources in Redshift.
+
+By default, Redshift clusters don't allow any incoming traffic.
+You must first allowlist Amplitude's IP addresses in the security group for your Redshift cluster. For more help, see the [Redshift documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-vpc-security-groups.html). 
+
+From the page for the security group associated with your Redshift cluster, add an inbound rule. For more detailed instructions, see the [Redshift Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules). 
+
+To find the security group assigned to your Redshift cluster:
+
+1. Navigate to your Redshift cluster. 
+2. Go to the **Properties** tab, and use the link for **VPC security group** under *Network and security settings*.
+
+You need to add the following information:
+
+- **Protocol**: TCP
+- **Port Range**: The number of the open port used by the data source.
+- **Source**: Custom IP (default). Add the correct IP addresses based on whether you're using EU or US Amplitude datacenters. 
+    - Amplitude US IP addresses:
+        - 52.33.3.219
+        - 35.162.216.242
+        - 52.27.10.221 
+    - Amplitude EU IP addresses:
+        - 3.124.22.25
+        - 18.157.59.125
+        - 18.192.47.195 
+- **Description**: A description for the rule. 
+
+### Set up a recurring data export to Redshift
 
 Creating a recurring data export is a simple, three-step process you can handle yourself. Each sync completes within five to ten minutes, can you can monitor the status of each job.
 
 To set up a recurring export of your Amplitude data to Redshift, follow these steps:
 
-!!!note
-
-    You will need admin privileges in Amplitude, as well as a role that allows you to enable resources in Redshift.
-
 1. Navigate to the *Data Destinations* page from the bottom of the left side panel.
-2. CLick **View all Destinations**, click the Redshift panel.
+2. Click **View all Destinations**, click the Redshift panel.
 3. Under *Export Data to Redshift*, select the data you'd like to export. You can choose *Export events ingested today and moving forward*, *Export all merged Amplitude ID*, or both.
 4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Redshift Credentials For Amplitude* section, enter the following information:
@@ -60,7 +87,7 @@ The **Event** table schema includes the following columns:
 | `client_event_time` | TIMESTAMP | Local timestamp (UTC) of when the device logged the event. Example: `2015-08-10T12:00:00.000000` |
 | `client_upload_time` | TIMESTAMP | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
 | `country` | STRING | Country. Example: "United States" |
-| `data` | STRING | Dictionary where certain fields such as `first_event` and `merged_amplitude_id` are stored |   |
+| `data` | STRING | Dictionary that stores certain fields such as `first_event` and `merged_amplitude_id`. |   |
 | `device_brand` | STRING | Device brand. Example: Apple |
 | `device_carrier` | STRING | Device Carrier. Example: Verizon |
 | `device_family` | STRING | Device family. Example: Apple iPhone |
@@ -84,7 +111,7 @@ The **Event** table schema includes the following columns:
 | `location_lng` | FLOAT64 | Longitude. Example: -123.4567890 |
 | `os_name` | STRING | OS name. Example: `ios` |
 | `os_version` | STRING | OS version. | 1.0 |
-| `paying` | STRING | True if the user has ever logged any revenue, otherwise (none). Note: The property value can be modified via the Identify API. Example: true |
+| `paying` | STRING | True if the user has ever logged any revenue, otherwise (none). You can modify The property value via the Identify API. Example: true |
 | `platform` | STRING |    |
 | `processed_time` | TIMESTAMP |    |
 | `region` | STRING | Region. Example: California |
