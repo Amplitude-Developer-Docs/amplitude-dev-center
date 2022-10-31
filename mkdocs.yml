@@ -339,6 +339,7 @@ nav:
       - Braze: data/destinations/braze.md
       - Customer.io: data/destinations/customerio.md
       - Fivetran: data/destinations/fivetran-event-forwarding.md
+      - Lantern: data/destinations/lantern-event-streaming.md
       - Pub/Sub: data/destinations/google-pub-sub.md
       - Google Analytics 4: data/destinations/google-analytics-4.md
       - Intercom: data/destinations/intercom.md
