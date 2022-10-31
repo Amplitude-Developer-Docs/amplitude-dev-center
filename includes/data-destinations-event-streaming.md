@@ -12,6 +12,7 @@
 - :google-pub-sub: [Google Pub/Sub](../data/destinations/google-pub-sub.md)
 - :intercom: [Intercom](../data/destinations/intercom.md)
 - :iterable: [Iterable](../data/destinations/iterable.md)
+- :lantern: [Lantern](../data/destinations/lantern-event-streaming.md)
 - :meta: [Meta Pixel](../data/destinations/meta-pixel.md)
 - :statsig: [Statsig](../data/destinations/statsig.md)
 - :material-webhook: [Webhooks](../data/destinations/webhooks-streaming.md)
