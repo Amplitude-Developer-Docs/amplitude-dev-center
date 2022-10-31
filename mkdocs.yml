@@ -371,6 +371,7 @@ nav:
       - Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
       - Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
       - Marketo: data/destinations/marketo-cohort.md
+      - Maze: data/destinations/maze-cohort.md
       - MoEngage: data/destinations/moengage-cohort.md
       - Netcore Cloud: data/destinations/netcore-cohort.md
       - Notivize: data/destinations/notivize-cohort.md
