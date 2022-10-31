@@ -3,6 +3,7 @@ title: Send Cohorts to Maze
 description: words
 status: Send Amplitude audineces to Maze to create more personalized campaigns.
 ---
+--8<-- "includes/editions-scholarship-growth-enterprise.md"
 
 [Maze](https://maze.co/) empowers product and marketing teams to test anything from prototypes to copy, or round up user feedback, all in one place. Collect user insights across teams and create better user experiences, together.
 
@@ -15,7 +16,6 @@ The Maze integration allows you to send audiences from Amplitude to Maze to crea
 ## Considerations
 
 - This integration must be enabled on a per-project basis within Amplitude.
-- The Maze integration is only available for Scholarship, Growth and Enterprise customers.
 - To use this integration, you must have an Amplitude user property that maps to a Maze key. Maze only supports Amplitude `user_ID`. 
 
 ## Setup
