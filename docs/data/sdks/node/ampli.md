@@ -44,8 +44,6 @@ The tracking library exposes a function for every event in your team’s trackin
 
 ## Installation
 
-These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
-
 ### Install the Ampli CLI
 
 If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
@@ -354,7 +352,7 @@ Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 Migrate from an Itly Node.js runtime to Ampli by following these steps.
 
 1. Update Source runtime. In the web app open the **Connections > Source** modal. From the dropdown, update the source to a non-`(Itly)` runtime.
-2. Go to the **Implementation** page, then select the new Source for detailed setup and usage instructions.
+2. Follow steps on this page for detailed setup and usage instructions.
 3. Remove legacy Itly dependencies from your project. This includes anything that contains `@itly`:
 
       `yarn remove @itly/sdk @itly/plugin-schema-validator @itly/plugin-amplitude-node ...`
