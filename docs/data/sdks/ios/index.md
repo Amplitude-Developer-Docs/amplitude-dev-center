@@ -65,7 +65,7 @@ After you've installed the SDK, import Amplitude into any file that uses it.
 
     === "Objective-C"
         ```obj-c
-          (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
           // Enable sending automatic session events
           [Amplitude instance].trackingSessionEvents = YES;
           // Initialize SDK
@@ -81,17 +81,17 @@ After you've installed the SDK, import Amplitude into any file that uses it.
 
     === "Swift"
         ```swift
-          func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-          // Enable sending automatic session events
-          Amplitude.instance().trackingSessionEvents = true
-          // Initialize SDK
-          Amplitude.instance().initializeApiKey("API_KEY")
-          // Set userId
-        Amplitude.instance().setUserId("userId")
-          // Send an event
-          Amplitude.instance().logEvent("app_start")
-          
-          return true
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+            // Enable sending automatic session events
+            Amplitude.instance().trackingSessionEvents = true
+            // Initialize SDK
+            Amplitude.instance().initializeApiKey("API_KEY")
+            // Set userId
+            Amplitude.instance().setUserId("userId")
+            // Send an event
+            Amplitude.instance().logEvent("app_start")
+            
+            return true
         }
         ```
 
