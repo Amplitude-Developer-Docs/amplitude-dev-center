@@ -1,13 +1,13 @@
 ---
 title: Experiment iOS SDK
 description: Official documentation for Amplitude Experiment's Client-side iOS SDK.
-icon: material/apple-ios
+icon: simple/ios
 ---
 
 Official documentation for Amplitude Experiment's Client-side iOS SDK implementation.
 
 !!!info "SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/experiment-ios-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ios-client/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ios-client/)
+    [:material-github: GitHub](https://github.com/amplitude/experiment-ios-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ios-client/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ios-client/)
 
 ## Install
 
@@ -19,15 +19,15 @@ Official documentation for Amplitude Experiment's Client-side iOS SDK implementa
 
 ![CocoaPods](https://img.shields.io/cocoapods/v/AmplitudeExperiment)
 
-**CocoaPods**
+=== "CocoaPods"
 
-```ruby
-pod 'AmplitudeExperiment', '~> <VERSION>'
-```
+    ```ruby
+    pod 'AmplitudeExperiment', '~> <VERSION>'
+    ```
 
-**Swift package manager**
+=== "Swift package manager"
 
-* Package URL: `https://github.com/amplitude/experiment-ios-client`
+    * Package URL: `https://github.com/amplitude/experiment-ios-client`
 
 !!!tip "Quick Start"
 
@@ -66,6 +66,7 @@ pod 'AmplitudeExperiment', '~> <VERSION>'
 The following functions make up the core of the Experiment client-side SDK.
 
 ---
+
 ### Initialize
 
 The SDK client should be initialized in your application on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
@@ -80,7 +81,6 @@ func initialize(apiKey: String, config: ExperimentConfig) -> ExperimentClient
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 The initializer returns a singleton instance, so subsequent initializations for the same instance name will always return the initial instance. To create multiple instances, use the `instanceName` [configuration](#configuration).
-
 
 ```swift
 let experiment = Experiment.initialize(
@@ -115,7 +115,6 @@ If you use either Amplitude or Segment Analytics SDKs to track events into Ampli
     | Analytics SDK Version | Experiment SDK Version |
     | --- | --- |
     | `8.8.0+` | `1.6.0+` |
-
 
 ???segment "Segment Integration"
 
@@ -167,11 +166,11 @@ The SDK client can be configured once on initialization.
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `debug` | Enable additional debug logging within the SDK. Should be set to false in production builds. | `false` |
-    | `fallbackVariant` | The default variant to fall back if a variant for the provided key does not exist. | `{}` |
+    | `fallbackVariant` | The default variant to fall back if a variant for the provided key doesn't exist. | `{}` |
     | `initialVariants` | An initial set of variants to access. This field is valuable for bootstrapping the client SDK with values rendered by the server using server-side rendering (SSR). | `{}` |
     | `serverUrl` | The host to fetch variants from. | `https://api.lab.amplitude.com` |
     | `fetchTimeoutMillis` | The timeout for fetching variants in milliseconds. | `10000` |
-    | `retryFetchOnFailure` | Whether or not to retry variant fetches in the background if the request does not succeed. | `true` |
+    | `retryFetchOnFailure` | Whether to retry variant fetches in the background if the request doesn't succeed. | `true` |
     | `automaticExposureTracking` | If true, calling [`variant()`](#variant) will track an exposure event through the configured `exposureTrackingProvider`. If no exposure tracking provider is set, this configuration option does nothing.  | `true` |
     | `automaticFetchOnAmplitudeIdentityChange` | Only matters if you use the `initializeWithAmplitudeAnalytics` initialization function to seamlessly integrate with the Amplitude Analytics SDK. If `true` any change to the user ID, device ID or user properties from analytics will trigger the experiment SDK to fetch variants and update it's cache. | `false` |
     | `userProvider` | An interface used to provide the user object to `fetch()` when called. See [Experiment User](https://developers.experiment.amplitude.com/docs/experiment-user#user-providers) for more information. | `null` |
@@ -179,6 +178,7 @@ The SDK client can be configured once on initialization.
     | `instanceName` | Custom instance name for experiment SDK instance. **The value of this field is case-sensitive.** | `null` |
 
 ---
+
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -192,7 +192,7 @@ func fetch(user: ExperimentUser?, completion: ((ExperimentClient, Error?) -> Voi
 | `user` | optional | Explicit [user](../general/data-model.md#users) information to pass with the request to evaluate. This user information is merged with user information provided from [integrations](#integrations) via the [user provider](#user-provider), preferring properties passed explicitly to `fetch()` over provided properties. |
 | `completion` | optional | Callback when the variant fetch (success or failure). If the fetch request fails, the error is returned in the second parameter of this callback. |
 
-We recommend calling `fetch()` during application start up so that the user gets the most up-to-date variants for the application session. Furthermore, you'll need to wait for the fetch request to return a result before rendering the user experience in order to avoid the interface "flickering".
+Amplitude Experiment recommends calling `fetch()` during application start up so that the user gets the most up-to-date variants for the application session. Furthermore, you'll need to wait for the fetch request to return a result before rendering the user experience to avoid the interface "flickering".
 
 ```swift
 let user = ExperimentUserBuilder()
@@ -211,15 +211,15 @@ experiment.fetch(user: nil, completion: nil)
 ```
 
 ???tip "Fetch When User Identity Changes"
-    If you want the most up-to-date variants for the user, it is recommended that you call `fetch()` whenever the user state changes in a meaningful way. For example, if the user logs in and receives a user ID, or has a user property set which may effect flag or experiment targeting rules.
+    If you want the most up-to-date variants for the user, it's recommended that you call `fetch()` whenever the user state changes in a meaningful way. For example, if the user logs in and receives a user ID, or has a user property set which may effect flag or experiment targeting rules.
 
-    In the case of **user properties**, we recommend passing new user properties explicitly to `fetch()` instead of relying on user enrichment prior to [remote evaluation](../general/evaluation/remote-evaluation.md). This is because user properties that are synced remotely through a separate system have no timing guarantees with respect to `fetch()`--i.e. a race.
-
+    In the case of **user properties**, Amplitude recommends passing new user properties explicitly to `fetch()` instead of relying on user enrichment prior to [remote evaluation](../general/evaluation/remote-evaluation.md). This is because user properties that are synced remotely through a separate system have no timing guarantees with respect to `fetch()`--i.e. a race.
 
 !!!info "Timeout & Retries"
     If `fetch()` times out (default 10 seconds) or fails for any reason, the SDK client will return and retry in the background with back-off. You may configure the timeout or disable retries in the [configuration options](#configuration) when the SDK client is initialized.
 
 ---
+
 ### Variant
 
 Access a [variant](../general/data-model.md#variants) for a [flag or experiment](../general/data-model.md#flags-and-experiments) from the SDK client's local store.
@@ -261,7 +261,7 @@ if variant.value == "on" {
     }
     ```
 
-A `null` variant `value` means that the user has not been bucketed into a variant. You may use the built in **fallback** parameter to provide a variant to return if the store does not contain a variant for the given flag key.
+A `null` variant `value` means that the user hasn't been bucketed into a variant. You may use the built in **fallback** parameter to provide a variant to return if the store doesn't contain a variant for the given flag key.
 
 ```swift
 let variant = experiment.variant("<FLAG_KEY>", fallback: Variant("control"))
@@ -273,6 +273,7 @@ if variant.value == "control" {
 ```
 
 ---
+
 ### All
 
 Access all [variants](../general/data-model.md#variants) stored by the SDK client.
@@ -282,6 +283,23 @@ func all() -> [String:Variant]
 ```
 
 ---
+
+### Clear
+
+Clear all [variants](../general/data-model.md#variants) in the cache and storage.
+
+```swift
+func clear()
+```
+
+You can call `clear` after user logout to clear the variants in cache and storage.
+
+```swift
+experiment.clear()
+```
+
+---
+
 ### Exposure
 
 Manually track an [exposure event](../general/exposure-tracking.md#exposure-event) for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.
@@ -308,24 +326,25 @@ if variant.value == "control" {
 ```
 
 ---
+
 ## Providers
 
 !!!tip "Integrations"
-    If you use Amplitude or Segment analytics SDKs along side the Experiment Client SDK, we recommend you use an [integration](#integrations) instead of implementing custom providers.
+    If you use Amplitude or Segment analytics SDKs along side the Experiment Client SDK, Amplitude recommends you use an [integration](#integrations) instead of implementing custom providers.
 
 Provider implementations enable a more streamlined developer experience by making it easier to manage user identity and track exposures events.
 
 ### User provider
 
-The user provider is used by the SDK client to access the most up-to-date user information only when it's needed (i.e. when [`fetch()`](#fetch) is called). This provider is optional, but helps if you have a user information store already set up in your application. This way, you don't need to manage two separate user info stores in parallel, which may result in a divergent user state if the application user store is updated and experiment is not (or via versa).
-
+The user provider is used by the SDK client to access the most up-to-date user information only when it's needed (for example: when [`fetch()`](#fetch) is called). This provider is optional, but helps if you have a user information store already set up in your application. This way, you don't need to manage two separate user info stores in parallel, which may result in a divergent user state if the application user store is updated and experiment isn't (or via versa).
+<!-- vale off-->
 ```swift title="ExperimentUserProvider"
 protocol ExperimentUserProvider {
     func getUser() -> ExperimentUser
 }
 ```
-
-To utilize your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
+<!-- vale on-->
+To use your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
 
 ```swift
 let config = ExperimentConfigBuilder()

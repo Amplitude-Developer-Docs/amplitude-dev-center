@@ -6,19 +6,15 @@ description: The User Management API in Amplitude provides a programmatic soluti
 The User Management API in Amplitude provides a programmatic solution to provisioning and
  group management through a public API. This enables administrators to manage their organizations at scale and integrate the provisioning process with other tools, including Identity Providers.
 
-This guide provides detailed documentation on the specific routes supported by Amplitude's
- implementation of the
-  [System for Cross-domain Identity Management (SCIM) 2.0 Standard](http://www.simplecloud.info/#Specification), with specific attention to any details useful for debugging issues with a SCIM integration.
+This guide provides detailed documentation on the specific routes supported by Amplitude's implementation of the [System for Cross-domain Identity Management (SCIM) 2.0 Standard](http://www.simplecloud.info/#Specification). This guide pays specific attention to any details useful for debugging issues with a SCIM integration.
 
-For a guide detailing how to **integrate** the SCIM API with an Identity Provider like Okta or JumpCloud, or how to enable the SCIM API for an organization, please see the [Help Center Guide](https://help.amplitude.com/hc/en-us/articles/360058399851).
+For help integrating the SCIM API with an Identity Provider like Okta or JumpCloud, or help enabling the SCIM API for an Amplitude organization, see the [Help Center Guide](https://help.amplitude.com/hc/en-us/articles/360058399851).
 
 --8<-- "includes/postman.md"
 
 ## Authorization
 
-Authorize by sending a Bearer Token in the Authorization Header.
- The token should equal the key that's generated on the Access and SSO page in
-  the Settings Tab of Amplitude (see the [Help Center Guide](https://help.amplitude.com/hc/en-us/articles/360058399851) for a detailed guide on how to find and save this key).
+Authorize by sending a Bearer Token in the Authorization Header. The token should equal the key that's generated on the Access and SSO page in the Settings Tab of Amplitude. See the [Help Center Guide](https://help.amplitude.com/hc/en-us/articles/360058399851) for a detailed guide on how to find and save this key.
 
 Example request header:
 
@@ -37,18 +33,18 @@ The Base URL of the SCIM API is `https://core.amplitude.com/scim/1/`, and all ro
 
 Although the route includes "1", this doesn't mean that Amplitude implements the SCIM 1.1 Standard. This is to denote the Amplitude version of this implementation, future-proofing for new iterations of the API that introduce breaking changes without disrupting service for current consumers.
 
-### API Usage Limits
+### API usage limits
 
-The SCIM API supports 100 requests per minute per organization. This restriction can be lifted for burst requests on a per-request basis. Please contact the support team or a customer success manager for more information.
+The SCIM API supports 100 requests per minute per organization. Amplitude can lift this restriction for burst requests on a per-request basis. Contact the support team or a customer success manager for more information.
 
-## User Routes
+## User routes
 
 This section details routes and information that deal with user management.
 
 !!!note "Important notes about users"
     - Users are defined as active within Amplitude regardless of whether they have accepted the invitation and
      have logged in once to the organization within Amplitude. This prevents Identity Providers from resending invitations to invited and pending users.
-    - The SCIM API sends users who are created through the POST route an email invitation to complete sign up.
+    - The SCIM API sends users created through the POST route an email invitation to complete sign up.
 
 ### Supported user fields
 
@@ -59,8 +55,8 @@ Amplitude supports the following fields in the core User Schema:
 | `userName` | Primary user email address. |
 | `id` | Primary user email address. |
 | `emails` | Amplitude supports one email address per user currently. |
-| `name.givenName` | Prepended to familyName to create the display name. |
-| `name.familyName` | appended to givenName to create display name within Amplitude. |
+| `name.givenName` | Prepended to `familyName` to create the display name. |
+| `name.familyName` | appended to `givenName` to create display name within Amplitude. |
 | `active` | True for pending and joined users. |
 
 ### `GET /Users`
@@ -222,7 +218,7 @@ Setting the `active` schema field to `false` in the request body removes the use
 
 #### Example requests
 
-=== "Update givenName"
+=== "Update `givenName`"
 
     In this example, update the user's given name. 
 
@@ -314,7 +310,7 @@ A successful delete request returns a `204 No Content` response.
 !!!info
     Permission groups are available in Enterprise accounts.
 
-This section details the requests available for Permission Group related API's. Amplitude supports all core fields of the Group Schema, with users within groups returned with the fields listed in [supported user fields](#supported-user-fields).
+This section details the requests available for Permission Group related APIs. Amplitude supports all core fields of the Group Schema, with users within groups returned with the fields listed in [supported user fields](#supported-user-fields).
 
 ### Group route methods
 
@@ -327,6 +323,7 @@ Returns all active groups.
 #### Example request
 
 ```bash
+
 GET /scim/1/Groups HTTP/1.1
 Host: core.amplitude.com
 Authorization: Bearer {{scim-token}}

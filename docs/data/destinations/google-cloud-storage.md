@@ -3,9 +3,8 @@ title: Send Amplitude Event Data to Google Cloud Storage
 description: Export Amplitude event data and merged user data to your Google Cloud Storage (GCS) account.
 ---
 
-Amplitude users can now export Amplitude event data and merged user data to their Google Cloud Storage (GCS) account. Google Cloud's bucket policies allow you to easily manage and programmatically export this data into a Google Cloud bucket. Using the Amplitude UI, you can set up recurring syncs as frequently as once per hour.
-
---8<-- "includes/editions-all-paid-editions.md"
+Amplitude users can now export Amplitude event data and merged user data to their Google Cloud Storage (GCS) account. Google Cloud's bucket policies allow you to manage and programmatically export this data into a Google Cloud bucket. Using the Amplitude UI, you can set up recurring syncs as often as once per hour. 
+--8<-- "includes/editions-all-editions.md"
 
 !!!note "Other Amplitude + Google Cloud Storage Integrations"
 
@@ -15,11 +14,11 @@ Amplitude users can now export Amplitude event data and merged user data to thei
 
 ## Create a GCS service account and set permissions
 
-If you haven't already, please [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This allows Amplitude to export your data to your Google Cloud project.
+If you haven't already, [create a service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for Amplitude within the Google Cloud console. This allows Amplitude to export your data to your Google Cloud project.
 
 After you create a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
-Add this service account as a member to the bucket you'd like to export data to and give this member the **storage admin** role to ensure Amplitude has the necessary permissions to export the data to your bucket.
+Add this service account as a member to the bucket you'd like to export data to. Give this member the **storage admin** role to make sure Amplitude has the necessary permissions to export the data to your bucket.
 
 You can also create your own role, if you prefer.
 
@@ -50,9 +49,9 @@ To set up a recurring export of your Amplitude data to GCS, follow these steps:
 4. Review the Event table and Merge IDs table schemas and click **Next**. 
 5. In the *Google Cloud Credentials For Amplitude* section, upload the Service Account Key file. This file must be in JSON format.
 6. After the account service key is uploaded, fill out the Google Cloud bucket details in the *Google Cloud Bucket Details* section.
-7. Click **Next**. Amplitude attempts a test upload to ensure the entered credentials work. If the upload is successful, click **Finish** to complete the GCS destination configuration and activation.
+7. Click **Next**. Amplitude attempts a test upload to check that the entered credentials work. If the upload is successful, click **Finish** to complete the GCS destination configuration and activation.
 
-All future events/merged users are automatically be sent to GCS. Amplitude exports files to your GCS account every hour.
+All future events/merged users are automatically sent to GCS. Amplitude exports files to your GCS account every hour.
 
 ## Exported data format
 
@@ -64,7 +63,7 @@ File names have the following syntax, where the time represents when the data wa
 
 `projectID_yyyy-MM-dd_H#partitionInteger.json.gz`
 
-For example, the first partition of data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, is found in the file:
+For example, the first partition of data uploaded to this project, on Jan 25, 2020, between 5 PM and 6 PM UTC, is in the file:
 
 `187520_2020-01-25_17#1.json.gz`
 
@@ -132,7 +131,7 @@ File names have the following syntax, where the time represents when the data wa
 
 `-OrgID_yyyy-MM-dd_H.json.gz`
 
-For example, data uploaded to this project, on Jan 25, 2020, between 5pm and 6pm UTC, is found in the file:
+For example, data uploaded to this project, on Jan 25, 2020, between 5 PM and 6 PM UTC, is in the file:
 
 `-189524_2020-01-25_17.json.gz`
 

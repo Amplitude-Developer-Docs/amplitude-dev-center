@@ -1,0 +1,44 @@
+extends: existence
+message: "Don't use gerunds in headings."
+level: suggestion
+scope: heading
+raw:
+  - \w+ing\b
+exceptions: 
+  - Tracking
+  - tracking
+  - Getting
+  - Naming
+  - preexisting
+  - Timing
+  - streaming
+  - syncing
+  - Filtering
+  - filtering
+  - recurring
+  - Recurring
+  - Marketing
+  - marketing
+  - pinning
+  - advertising
+  - Advertising
+  - Troubleshooting
+  - troubleshooting
+  - logging
+  - flushing
+  - batching
+  - exiting
+  - JSON
+  - String
+  - string
+  - Missing
+  - missing
+  - targeting
+  - Targeting
+  - Bucketing
+  - bucketing
+  - existing
+  - Bootstrapping
+  - existing
+  - Throttling
+  - Templating

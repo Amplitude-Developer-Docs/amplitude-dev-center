@@ -23,7 +23,7 @@ You can edit planned events and properties, and not events and properties that a
 
 - You may have to URL encode special characters in the names of event types, event properties, and user properties.
  For example, encode `Play Song` as `Play%20Song`. Use the [W3Schools](http://www.w3schools.com/tags/ref_urlencode.asp) encoding reference.
-- Events or properties must be planned in the schema before you can delete them via this API.
+- You must plan events or properties in the schema before you can delete them via this API.
 
 ## Limits
 
@@ -200,7 +200,7 @@ Update the name of an event category.
 `PUT https://amplitude.com/api/2/taxonomy/category/:category_id`
 
 #### Example request
-
+<!--vale off-->
 ```bash hl_lines="7"
 PUT /api/2/taxonomy/category/412941 HTTP/1.1
 Host: amplitude.com
@@ -210,7 +210,7 @@ Content-Length: 23
 
 category_name=Converted
 ```
-
+<!--vale on-->
 ##### Path variables
 
 |<div class="big-column">Name</div>| Description|
@@ -382,12 +382,18 @@ A successful request returns a `200 OK` status with a JSON body:
     "success": true,
     "data": [
         {
-            "id": 412931,
-            "name": "Attribution"
+            "event_type": "Attribution",
+            "category": {
+                "name": "Attribution Events"
+            },
+            "description": null
         },
         {
-            "id": 412941,
-            "name": "Conversion"
+            "event_type": "Converstion",
+            "category": {
+                "name": "Conversion Events"
+            },
+            "description": "This event is fired when a user converts."
         }
     ]
 }
@@ -425,7 +431,7 @@ A successful request returns a `200 OK` status and a JSON body with the event ty
     "data": {
         "event_type": "ce:Event 2",
         "category": {
-            "name": "Attribution"
+            "name": "Conversion Events"
         },
         "description": null
     }

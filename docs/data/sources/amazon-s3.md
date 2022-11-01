@@ -6,7 +6,7 @@ description: Use Amplitude's Amazon S3 Import to import event, group properties,
 With Amplitude’s Amazon S3 Import, you can import event, group properties, or user properties into your Amplitude projects from an AWS S3 bucket.
  Use Amazon S3 Import to backfill large amounts of existing data, connect existing data pipelines to Amplitude, and ingest large volumes of data where you need high throughput and latency is less sensitive.
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 !!!note "Other Amplitude + Amazon S3 Integrations"
 
@@ -18,7 +18,7 @@ With Amplitude’s Amazon S3 Import, you can import event, group properties, or 
 During setup, you configure conversion rules to control how events are instrumented.
  After Amazon S3 Import is set up and enabled, Amplitude's ingestion service continuously discovers data files in S3 buckets and then converts and ingest events.
 
-Amazon S3 Import setup is broken into four main phases:
+Amazon S3 Import setup has four main phases:
 
 1. Examine your existing dataset.
 2. Add a new Amazon S3 Import source in Amplitude.
@@ -33,7 +33,7 @@ Before you start, make sure you’ve taken care of some prerequisites.
 
 - Make sure you have admin permissions for your Amplitude org.
 - Make sure that a project exists to receive the data. If not, create a new project.
-- Make sure your S3 bucket has data files ready to be ingested. They must conform to the mappings that you outline in your converter file.
+- Make sure your S3 bucket has data files ready for Amplitude to ingest. They must conform to the mappings that you outline in your converter file.
 
 Before you can ingest data, review your dataset and consider best practices. Make sure your dataset contains the data you want to ingest, and any required fields.
 
@@ -65,8 +65,8 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
 1. Create a new IAM role, for example: `AmplitudeReadRole`.
 2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy, using the following example. Update **{{}}** in highlighted text. 
 
-    * **{{amplitude_account}}**: `358203115967` for Amplitude US data center. `202493300829` for Amplitude EU data center. 
-    * **{{external_id}}**: unique identifiers used when assuming roles. Example can be `vzup2dfp-5gj9-8gxh-5294-sd9wsncks7dc`.
+    - **{{amplitude_account}}**: `358203115967` for Amplitude US data center. `202493300829` for Amplitude EU data center. 
+    - **{{external_id}}**: unique identifiers used when assuming roles. Example can be `vzup2dfp-5gj9-8gxh-5294-sd9wsncks7dc`.
 
     ``` json hl_lines="7 12"
     {
@@ -88,10 +88,10 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
     }
     ```
 
-3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Use the entire example code below, but be sure to update **{{}}** in highlighted text.
+3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Use the entire example code that follows, but be sure to update **{{}}** in highlighted text.
 
-    * **{{bucket_name}}**: the s3 bucket name where your data will be imported from.
-    * **{{prefix}}**: the folder in s3 bucket above where your data lives, for example `/folder1`. For root folder, leave it as empty.
+    - **{{bucket_name}}**: the s3 bucket name where your data will be imported from.
+    - **{{prefix}}**: the prefix of files that you want to import, for example `/prefix`. For folders, make sure prefix ends with `/`. But for root folder, keep prefix as empty.
 
     ```json hl_lines="16 30 41"
     {
@@ -109,7 +109,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
           "Condition":{
             "StringLike":{
               "s3:prefix":[
-                "{{prefix}}/*"
+                "{{prefix}}*"
               ]
             }
           }
@@ -122,7 +122,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
             "s3:List*"
           ],
           "Resource":[
-            "arn:aws:s3:::{{bucket_name}}{{prefix}}/*"
+            "arn:aws:s3:::{{bucket_name}}{{prefix}}*"
           ]
         },
         {
@@ -142,7 +142,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
    
 4. Go to **Permissions** for the role. Attach the policy created in step3 to the role.
 
-### Create Amazon S3 Import source
+### Create Amazon S3 import source
 
 In Amplitude, create the S3 Import source.
 
@@ -166,10 +166,10 @@ When you have your bucket details, create the Amazon S3 Import source.
 
 3. Complete the **Configure S3 location** section on the Set up S3 Bucket page:
 
-    * **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-<customername>.` This tells Amplitude where to look for your files.
-    * **Prefix**: Location of files to be imported. This must end with “/”. For example, `dev/event-data/`.
-    * **AWS Role ARN**. Required.
-    * **AWS External ID**. Required.
+    - **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-<customername>.` This tells Amplitude where to look for your files.
+    - **Prefix**: Prefix of files to be imported. If it's a folder, prefix must end with "/". For example, dev/event-data/. For root folder, leave it as empty.
+    - **AWS Role ARN**. Required.
+    - **AWS External ID**. Required.
 
 4. Optional: enable **S3 Event Notification**. See [Manage Event Notifications](#optional-manage-event-notifications) for more information.
 
@@ -186,7 +186,7 @@ Amplitude continuously scans buckets to discover new files as they're added. Dat
 Event Notification lets the Amplitude ingestion service discover data in your S3 bucket faster.
  Compared to the current approach of scanning buckets, it discovers new data based on notifications published by S3. This feature reduces the time it takes to find new data.
 
-Use this feature if you want to achieve near real-time import with Amplitude Amazon S3 import. Usually, new data files are discovered within 30 seconds.
+Use this feature if you want to achieve near real-time import with Amplitude Amazon S3 import. Usually, Amplitude discovers new data files within 30 seconds.
 
 #### Considerations
 
@@ -207,6 +207,40 @@ Your converter configuration gives the S3 vacuum this information:
 - The file’s format. For example: CSV (with a particular delimiter), or lines of JSON objects.
 - How to map each row from the file to an Amplitude event.
 
+### Guided converter creation
+
+You can create converters via Amplitude's new guided converter creation interface. This lets you map and transform fields visually, removing the need to manually write a JSON configuration file. Behind the scenes, the UI compiles down to the existing JSON configuration language used at Amplitude.
+
+First, note the different data types you can import: **Event**, **User Property** and **Group Property** data.
+
+![Screenshot of the converter mapping](../../assets/images/converter-mapping.png)
+
+**Note: Amplitude recommends selecting preview in step 1 of the Data Converter, where you see a sample source record before moving to the next step.**
+
+![Screenshot of the converter file settings](../../assets/images/converter-file-setting.png)
+
+After you have selected a particular field, you can choose to transform the field in your database. You can do this by clicking on “Transform “ shown below and choosing the kind of transformation you would like to apply. You can find a short description for each transformation.
+
+![Screenshot of the converter mapping screen](../../assets/images/converter-mapping-2.png)
+
+After you select a field, you can open the transformation modal and choose from a variety of Transformations.
+
+![Screenshot of the transformation menu](../../assets/images/converter-transformations.png)
+
+Depending on the transformation you select, you may be prompted to include more fields. 
+
+![Screenshot of a transformation's details](../../assets/images/converter-transformations-2.png)
+
+After you have all the fields needed for the transformation, you can save it. These can be updated as and when your requirements change.
+
+While Amplitude needs certain fields to bring data in, it also supports additional fields which you can include by clicking the **Add Mapping** button. Here Amplitude supports 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
+
+After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview will auto update as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data is imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
+
+![Screenshot of a converter preview](../../assets/images/converter-preview.png)
+
+### Manual converter creation
+
 The converter file tells Amplitude how to process the ingested files. Create it in two steps: first, configure the compression type, file name, and escape characters for your files.
  Then use JSON to describe the rules your converter follows.
 
@@ -220,7 +254,7 @@ The converter language describes extraction of a value given a JSON element. Thi
 
     See the [Converter Configuration reference](/data/converter-configuration-reference) for more help.
 
-<!--See a collection of[example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md) to get inspired. -->
+<!--See a collection of [example converters on GitHub](https://github.com/Amplitude-Developer-Docs/flexible-ingestion-examples/blob/main/README.md) to get inspired. -->
 
 ### Configure converter in Amplitude
 
@@ -234,7 +268,7 @@ The converter language describes extraction of a value given a JSON element. Thi
 
     If you add new fields or change the source data format, you need to update your converter configuration. Note that the updated converter only applies to files `discovered_after_converter` updates are saved.
 
-## Enable the Source
+## Enable the source
 
 After you’ve created the S3 Import source and the converter configuration, you must enable the source to begin importing data.
 

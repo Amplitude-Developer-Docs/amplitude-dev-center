@@ -7,7 +7,7 @@ Use the Identify API to set the User ID for a particular Device ID or update use
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/auth-api-key.md"
+--8<-- "includes/auth-api-key-query-param.md"
 
 ## Endpoints
 
@@ -22,11 +22,11 @@ Use the Identify API to set the User ID for a particular Device ID or update use
 - Updates aren't retroactive, and only apply to future events.
 - Amplitude throttles requests for `device_ids` or `user_ids` that exceed a certain threshold of events per second. When Amplitude throttles a request, the request returns a HTTP status code 429. Pause sending events for any devices in that request for 15 seconds before retrying. Continue retrying until you no longer receive status code 429. If the same `user_id` is sending events from multiple devices simultaneously, then all the devices would be throttled. 
 All throttling and status code guidance from Amplitude's [HTTP V2 API](../apis/http-v2-api.md) applies to the Identify API.
-- Amplitude compares dates as strings, so we recommend that you use the ISO 8601 format (`YYYY-MM-DDTHH:mm:ss`). This lets you perform date comparisons in the web app. For example,  '2016-01-31' > '2016-01-01'). This also applies to datetime values like '2017-08-07T10:09:08' > '2017-08-07T01:07:00'.
+- Amplitude compares dates as strings, so Amplitude recommends that you use the ISO 8601 format (`YYYY-MM-DDTHH:mm:ss`). This lets you perform date comparisons in the web app. For example,  '2016-01-31' > '2016-01-01'). This also applies to datetime values like '2017-08-07T10:09:08' > '2017-08-07T01:07:00'.
 - Updates don't appear Redshift because they don't count as events.
 - Because these calls aren't counted as events, this API has no effect on "active user" or "new user" definitions.
 - Because these calls aren't counted as events, Identify API calls don't add to your monthly event count in Amplitude.
-- If you change the `user_id` field from an existing value, then a new Amplitude user is created. Amplitude doesn't create a new Amplitude user if the current value of `user_id` is null.
+- If you change the `user_id` field from an existing value, then Amplitude creates a new user. Amplitude doesn't create a new Amplitude user if the current value of `user_id` is null.
 
 ## Example request
 
@@ -87,16 +87,16 @@ The `user_properties` field supports these operations:
 |`$remove`| Removes all instances of the values specified from the list. Can give a single value or an array of values. These should be keys in the dictionary where the values are the corresponding properties that you want to operate on.|
 
 !!!example
-    You can't mix user property operations with actual top-level user properties. Instead, include them inside the `$set` operation. If you are using one of these operators then this dictionary can contain only user property operations and can't be combined with the above format. For example. you can't do `{"$append":{"interests":"Music"}, "subscription type":"paid"}` in the same request.
+    You can't mix user property operations with actual top-level user properties. Instead, include them inside the `$set` operation. If you are using one of these operators then this dictionary can contain only user property operations and you can't combine it with the above format. For example. you can't do `{"$append":{"interests":"Music"}, "subscription type":"paid"}` in the same request.
 
     Instead, do this:
     `{"$set": {"cohort": "Test A"}, "$setOnce": {"startDate": "2015-10-01"}, "$add": {"friendCount": 3}, "$append": {"interests": "Music"}, "$prepend":{"sports": "Tennis"}, "$unset": {"oldProperty": "-"}}`
 
 [^1]:
-    These fields (`platform`, `os_name`, `os_version`, `device_brand`, `device_manufacturer`, `device_model`, and `carrier`) must be updated together. Setting any of these fields resets all the other property values to null if aren't explicitly set on the same identify call. All property values otherwise persist to later events if the values aren't changed to a different string or if all values are passed as null. Amplitude tries to use `device_brand`, `device_manufacturer`, and `device_model` to map the corresponding device type.
+    You must update the fields (`platform`, `os_name`, `os_version`, `device_brand`, `device_manufacturer`, `device_model`, and `carrier`) together. Setting any of these fields resets all the other property values to null if aren't explicitly set on the same identify call. All property values otherwise persist to later events if the values aren't changed to a different string or if all values are passed as null. Amplitude tries to use `device_brand`, `device_manufacturer`, and `device_model` to map the corresponding device type.
 
 [^2]:
-    These fields (`country`, `region`, `city`, `DMA`) must all be updated together. Setting any of these fields automatically resets the others if they aren't also explicitly set on the same identify call.
+    You must update the fields (`country`, `region`, `city`, `DMA`) together. Setting any of these fields automatically resets the others if they aren't also explicitly set on the same identify call.
 
 ## Status codes
 

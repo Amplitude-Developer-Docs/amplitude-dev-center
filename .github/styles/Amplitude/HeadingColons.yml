@@ -1,0 +1,7 @@
+extends: existence
+message: "Capitalize '%s'."
+nonword: true
+level: suggestion
+scope: heading
+tokens:
+  - ':\s[a-z]'

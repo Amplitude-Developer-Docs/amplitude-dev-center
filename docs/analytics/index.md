@@ -10,23 +10,23 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
 <div class="grid cards" markdown>
 
--   :material-book-open-variant:{ .lg .middle } __Getting started__
+- :material-book-open-variant:{ .lg .middle } __Getting started__
 
     ---
 
     Learn the basics of Amplitude Analytics.
 
-    [:octicons-arrow-right-24: Understand the basics](what-is-amplitude)
+    [:octicons-arrow-right-24: Understand the basics](../analytics/what-is-amplitude)
 
--   :material-code-braces:{ .lg .middle } __Instrument analytics__
+- :material-code-braces:{ .lg .middle } __Instrument analytics__
 
     ---
 
     Send data to Amplitude.
 
-    [:octicons-arrow-right-24: See the SDKs](/data/sources#sdks)
+    [:octicons-arrow-right-24: See the SDKs](../data/sources#sdks)
 
--   :material-file-code-outline:{ .lg .middle } __Analytics APIs__
+- :material-file-code-outline:{ .lg .middle } __Analytics APIs__
 
     ---
 
@@ -34,7 +34,7 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
     [:octicons-arrow-right-24: See the APIs](#api-references)
 
--   :material-help:{ .lg .middle } __Get more resources__
+- :material-help:{ .lg .middle } __Get more resources__
 
     ---
 
@@ -63,9 +63,9 @@ Guide to getting started with Amplitude Analytics.
 - Testing & Debugging: "https://foo"
 - Sending Data to Destinations: "https://foo" -->
 
-## API References
+## API references
 
-Amplitude Analytics has several APIs that let you easily extend Amplitude.
+Amplitude Analytics has several APIs that let you extend Amplitude.
 !!!tip
 
     See the Amplitude Analytics Postman Collection for example requests and responses.

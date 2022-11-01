@@ -8,7 +8,7 @@ description: Send Amplitude cohorts to Netcore Cloud to deliuver AI-powered cust
 
     The Netcore Cloud integration is in open beta and is in active development. If you have any feedback to help improve Netcore Cloud destination or have suggestions for their documentation, please [contact the Netcore Cloud support team](mailto:helpdesk@netcorecloud.com).
 
-[Netcore Cloud](https://netcorecloud.com/) offers a full-stack of martech solutions that help product and growth marketers deliver AI-powered intelligent customer experiences across all touchpoints of the user's journey.
+[Netcore Cloud](https://netcorecloud.com/) offers a full-stack of marketing technology solutions that help product and growth marketers deliver AI-powered intelligent customer experiences across all touchpoints of the user's journey.
 
 This integration lets you sync cohorts from Amplitude to Netcore Cloud's Customer Engagement (CE) & Experience Platform.
 

@@ -7,11 +7,60 @@ plugins:
   - search
   - tags #insiders
   - git-revision-date
+  - glightbox # enables image light box
   - social: #insiders
       cards_color:
         fill: "#1E61F0"
         text: "#FFFFFF"
       cards_font: IBM Plex Sans
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret # Enables super scripts
+  - pymdownx.details # Enables collapsible admonitions
+  - pymdownx.emoji: # Enables all sorts of emoji support
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.highlight: # Enables code block syntax highlighting
+      #anchor_linenums: true
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys # Enables inline key display
+  - pymdownx.mark #
+  - pymdownx.snippets # Enables snippets (content reuse)
+  - pymdownx.smartsymbols
+  - pymdownx.superfences: # Enables more nestable codeblocks
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed: # Enables content tabs
+      alternate_style: true 
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+       kwds:
+          case: lower
+  - pymdownx.tasklist: # Enables task lists
+      custom_checkbox: true
+  - pymdownx.tilde # enables strikthrough (<del> tags) and subscripts https://facelessuser.github.io/pymdown-extensions/extensions/tilde/
+
 
 
 # Long explanation for this extra doc. 

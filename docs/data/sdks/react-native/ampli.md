@@ -4,10 +4,15 @@ description: Learn how to install and use the Amplitude Data Ampli Wrapper for t
 ---
 
 
-Amplitude Data supports tracking analytics events from React Native apps written in JavaScript (ES6 and above) and TypeScript (2.1 and above). The generated tracking library is packaged as a CJS module.
+Amplitude Data supports tracking analytics events from React Native apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
- code completion and compile-time checks.
+The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+
+!!!info "Ampli Resources"
+    - [React Native JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v1/AmpliApp)
+    - [React Native Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v1/AmpliApp)
+
+--8<-- "includes/beta-not-supported.md"
 
 ??? tip "Enable real-time type checking for JavaScript"
     Because JavaScript isn't a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc.
@@ -42,7 +47,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -119,11 +124,11 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 
 | <div class ="big-column">Option</div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |---------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disabled`                            | Optional. Boolean. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
-| `environment`                         | Optional. String. Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
-| `client.apiKey`                       |Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-| `client.instance`                     | Optional. AmpltitudeClient. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-| `client.options`                      | Optional. Amplitude.Config. Overrides the default configuration for the AmplitudeClient.|
+| `disabled`                            | Optional. `Boolean`. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
+| `environment`                         | Optional. `String`. Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
+| `client.apiKey`                       |Optional. `String`. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+| `client.instance`                     | Optional. `AmpltitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+| `client.options`                      | Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
 
@@ -193,8 +198,9 @@ Call `setGroup()` to associate a user with their group (for example, their depar
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
-
- Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+<!-- vale off -->
+ Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing `groupName` value set for that user's `groupType`, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+ <!-- vale on-->
 
  Your code might look like this:
 
@@ -232,11 +238,11 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 The `extra` argument lets you pass data to middleware.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
+For example, in the following code snippets, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
- The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](#middleware).
+ The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../ampli/middleware.md).
 
 === "TypeScript"
 
@@ -328,4 +334,4 @@ The output displays status and indicates what events are missing.
 Events Tracked: 2 missed, 3 total
 ```
 
-Learn more about [`ampli status`](/data/using-the-ampli-cli.md#ampli-status).
+Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).

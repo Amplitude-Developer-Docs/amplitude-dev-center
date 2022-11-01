@@ -3,16 +3,16 @@ title: Android Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
 ---
 
-!!!note
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-previous-version)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](browser)**.
-
 Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
 In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!tip
-
-    See example apps that use the Android Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/android).
+<!--vale off-->
+!!!info "Ampli Android Resources (Legacy)"
+    [:material-language-kotlin: Ampli Android Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp) · [:material-language-java: Ampli Android Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+<!--vale on-->
+!!!note "Deprecated Itly runtime"
+    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.
 
 ## Installation
 
@@ -20,7 +20,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -29,14 +29,14 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "Java"
 
     ```bash
-    implementation 'com.amplitude:android-sdk:2.35.2'
+    implementation 'com.amplitude:android-sdk:2.38.3'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
 === "Kotlin"
 
     ```bash
-    implementation 'com.amplitude:android-sdk:2.35.2'
+    implementation 'com.amplitude:android-sdk:2.38.3'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
@@ -114,7 +114,7 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 | <div class ="big-column">Arg</div> | Description |
 |-|-|
-| `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your team's tracking plan.|
+| `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one source template associated with your team's tracking plan.|
 | `LoadOptions` | Optional. Specifies configuration options for the Ampli Wrapper.|
 |`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the wrapper detects an invalid event, it logs an error but stills let the event through. In development, the wrapper throws an exception to alert you that something is wrong.|
@@ -149,7 +149,6 @@ For example your tracking plan contains a user property called `userProp`. The p
     ```
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
-
 
 === "Java"
 
@@ -194,8 +193,9 @@ Call `setGroup()` to associate a user with their group (for example, their depar
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
-
- Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing groupName value set for that user's groupType, and the corresponding user property value. groupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+<!--vale off-->
+ Setting a group also sets the 'groupType:groupName' as a user property, and overwrites any existing `groupName` value set for that user's groupType, and the corresponding user property value. `groupType` is a string, and `groupName` can be either a string or an array of strings to show that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+ <!--vale on-->
 
  Your code might look like this:
 
@@ -229,10 +229,9 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `deviceID`. The `extra` argument lets you pass data to middleware.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
+For example, in the following code snippets, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
- The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](#middleware).
-
+ The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../ampli/middleware.md).
 
 === "Java"
 
@@ -293,7 +292,7 @@ Send event objects using the generic track method.
     );
     ```
 
-##  Verify implementation status
+## Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
@@ -306,6 +305,7 @@ To update the implementation status in your tracking plan use the `--update` fla
 ```bash
 ampli status -u
 ```
+
 The output displays status and indicates what events are missing.
 
 ```bash
@@ -318,8 +318,7 @@ Events Tracked: 2 missed, 3 total
 
 Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
 
-
-## Migrating from an Itly Android runtime
+## Migrate from an Itly Android runtime
 
 Migrate from an Itly Android runtime to Ampli by following these steps.
 
@@ -350,7 +349,7 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
     ```
 
 4. Check your Ampli Wrapper path.
-    `ampli pull` prints the location of where the new wrapper was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+    `ampli pull` prints the new wrapper's location. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 
 5. Find and replace:
 

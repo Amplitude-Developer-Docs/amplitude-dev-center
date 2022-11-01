@@ -5,7 +5,6 @@ description: Apphud can send subscription events into Amplitude to help enrich y
 
 --8<-- "includes/open-beta.md"
 
-
 Apphud can send subscription events into Amplitude to help enrich your Amplitude user profiles with subscriptions revenue. This is useful for seeing all events and revenue that occur for your app even if it’s not active for a period of time. 
 
 ## About Apphud
@@ -25,7 +24,7 @@ Apphud can send subscription events into Amplitude to help enrich your Amplitude
 Before you can add this integration, you must do the following: 
 
 - Add the [Apphud SDK](https://docs.apphud.com/getting-started/sdk-integration#configure-apphud-sdk).
-- Add the [Amplitude SDK](/data/sources/#sdks).
+- Add the [Amplitude SDK](../sources/#sdks).
 - Match the user IDs between Apphud and Amplitude. See the [Apphud documentation](https://docs.apphud.com/integrations/analytics/amplitude#match-user-ids) for help with this step. 
 
 ### Amplitude setup

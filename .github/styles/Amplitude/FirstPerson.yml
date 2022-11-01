@@ -1,0 +1,7 @@
+extends: existence
+message: "Use first person (such as '%s') sparingly."
+ignorecase: true
+level: suggestion
+nonword: true
+raw:
+  - (?:^|\s)I\s(?!want)

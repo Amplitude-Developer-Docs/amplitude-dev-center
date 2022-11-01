@@ -14,11 +14,10 @@ Sync Intercom event data to Amplitude so that you can better engage your users b
     - [Send Amplitude Cohorts to Intercom](/data/destinations/intercom-cohort)
     - [Send Amplitude Event Data to Intercom](/data/destinations/intercom)
 
-
 ## Considerations
 
 - You need both an Amplitude and an Intercom account.
-- The user IDs in Intercom and Amplitude must be the same for each user in order for this integration to work. If the Intercom user ID doesn't match Amplitude's user ID for the same user, Amplitude interprets the user as new. If there is no Intercom user ID at all, the events are dropped.
+- The user IDs in Intercom and Amplitude must be the same for each user in order for this integration to work. If the Intercom user ID doesn't match Amplitude's user ID for the same user, Amplitude interprets the user as new. If there is no Intercom user ID at all, Amplitude drops the events.
 - This integration must be enabled on a per-project basis.
 
 ## Setup
@@ -32,7 +31,7 @@ To set up the integration to send event data from Intercom to Amplitude, follow 
 5. Intercom automatically redirects you back to Amplitude, where you see the *Connect Intercom* page.
 6. You are now ready to send Intercom events to Amplitude. After Amplitude receives events from Intercom, there is a notification on the *Listen to Event* tab. Click **Finish**. Intercom appears on the Data Sources page, with a status of "Connected."
 
-After you finish setup, events are automatically streamed into Amplitude. Event names are prefixed with "[Intercom]."
+After you finish setup, events are automatically streamed into Amplitude. Event names have the prefix "[Intercom]".
 
 Amplitude supports the following Intercom events, also known as **topics**:
 

@@ -25,9 +25,9 @@ Sending data through a self-owned proxy service gives you better control of the 
 - Easier debugging, filtering, and blocking of events.
 - Anonymizing end-users. For example, remove originating IP address, location, userID, and more.
 
-## Proxy Services and the JavaScript Snippet
+## Proxy services and the JavaScript snippet
 
-Although it's possible to build a proxy that supports the loading of the Amplitude JavaScript Snippet, we recommend that you bundle Amplitude into your production builds using the [npm distribution](https://www.npmjs.com/package/amplitude-js).
+You can build a proxy that supports the loading of the Amplitude JavaScript Snippet, but Amplitude recommends that you bundle Amplitude into your production builds using the [npm distribution](https://www.npmjs.com/package/amplitude-js).
 
 ## Available services on major cloud providers
 
@@ -47,7 +47,7 @@ The example in this guide uses [NGINX](https://nginx.org/en/) to build a proxy s
 
 First, install NGINX for local development. Then, configure NGINX to proxy requests on a particular URL to Amplitude.
  Here is an example `nginx.conf` file that proxies requests from the `/amplitude` route to `api2.amplitude.com`:
-
+<!-- vale off -->
 ``` title="nginx.conf"
 worker_processes  1;
 
@@ -78,13 +78,13 @@ http {
     }
 }
 ```
-
+<!-- vale on -->
 ### Validation and deployment
 
 After you create the configuration file, you can start and test your proxy. Using the Amplitude HTTP API, send the requests to your endpoint instead of Amplitude's endpoint.
 
 !!!info
-    The HTTP API uses a slightly different endpoint from our SDKs, so to test, you need to temporarily set `proxy_pass` to `https://api2.amplitude.com/2/httpapi/`.
+    The HTTP API uses a slightly different endpoint from the SDKs, so to test, you need to temporarily set `proxy_pass` to `https://api2.amplitude.com/2/httpapi/`.
 
 Here is an example curl command that would test your reverse proxy:
 
@@ -95,12 +95,12 @@ curl --data 'api_key=API_Key' --data-urlencode 'event=[{"user_id":"12345", "even
 This call should return a `200` response code. In the web app, confirm that Amplitude received the event using User Lookup.
  After confirming that the proxy works locally, you can deploy the configuration to a production server. See the [NGINX deployment guides](https://docs.nginx.com/nginx/deployment-guides/) for more help.
 
-### Configuring the SDKs to work with alternate endpoints
+### Configure the SDKs to work with alternate endpoints
 
 After the proxy is working correctly, configure the SDK. Amplitude’s SDKs are open source code that you can change. The SDKs already have built-in options to send events to your defined server endpoint.
 
 !!!note
-    The SDK's don't point at the same API endpoint as the HTTP API V2, but rather a special endpoint for its custom payloads. Send them instead to `https://api2.amplitude.com/`.
+    The SDK's don't point to the same API endpoint as the HTTP API V2, but rather a special endpoint for its custom payloads. Send them instead to `https://api2.amplitude.com/`.
 
 - JavaScript(Web): Set the `apiEndpoint` option when initializing the SDK.
 - iOS/Android: Use the `setServerUrl` function to configure the server URL.

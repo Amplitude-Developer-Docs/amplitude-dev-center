@@ -8,7 +8,7 @@ SendGrid is a cloud-based customer communication platform that drives engagement
 ## Considerations
 
 - If you are in the European Union, be sure you are working within the `eu.amplitude.com domain`, not `amplitude.com`.
-- By default, SendGrid sends events with the email address as the user ID. If you use a different key, then attach a `unique_arg` to all of your email events called `amp_user_id` and assign the Amplitude user ID to that value. This makes sure that Amplitude sends events using that value as the user ID.
+- By default, SendGrid sends events with the email address as the user ID. If you use a different key, then attach a `unique_arg` to all your email events called `amp_user_id` and assign the Amplitude user ID to that value. This makes sure that Amplitude sends events using that value as the user ID.
 
 ## Setup
 

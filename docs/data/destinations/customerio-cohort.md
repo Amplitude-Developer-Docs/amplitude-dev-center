@@ -14,6 +14,7 @@ description: Send Amplitude cohorts to Customer.io for use in automated messagin
 - This integration is only available for customers who have paid plans with Amplitude. 
 - The users in your cohort must exist in Customer.io before the sync from Amplitude. Users that don't exist in Customer.io are ignored and not shown in the sync.
 - You must enable this integration in each Amplitude project you want to use it in. 
+- To use this integration for EU datacenters, specify the EU region during setup.
 
 ## Setup
 
@@ -39,4 +40,4 @@ description: Send Amplitude cohorts to Customer.io for use in automated messagin
 5. Set the sync cadence.
 6. When finished, click **Sync**.
   
-After you have exported the cohort, you can see the cohort in the [Segments](https://customer.io/docs/segments/ "https://customer.io/docs/segments/") section of the Customer.io platform. You can use segments as recipient lists, campaign triggers, filters, conversion goals and more. Whenever you need to reference a subset of the people in your workspace, you'll use a segment.
+After you have exported the cohort, you can see the cohort in the [Segments](https://customer.io/docs/segments/ "https://customer.io/docs/segments/") section of the Customer.io platform. You can use segments as recipient lists, campaign triggers, filters, conversion goals and more. Whenever you need to reference a subset of the people in your workspace, you use a segment.

@@ -7,7 +7,10 @@ search:
 ---
 
 <!-- markdownlint-disable -->
-!!!warning "Deprecated SDK"
+<!-- markdown-link-check-disable -->
+<!-- vale off-->
+
+!!!deprecated "Deprecated SDK"
     This SDK is deprecated and these docs are no longer maintained.
 
 Amplitude Data supports tracking analytics events from .NET (Standard 1.3 and Standard 2.0) apps written in C# (6 and above).

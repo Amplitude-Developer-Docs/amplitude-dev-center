@@ -51,7 +51,7 @@ The endpoint `/api/2/deletions/users` has a rate limit of 1 HTTP request per sec
 
 Add a user for deletion using a JSON body. Specify up to 100 users at a time. You can use mix of Amplitude IDs and User IDs.
 
-### JSON Body Parameter
+### JSON body parameter
 
 The body parameter is required. It's the deletion request object listing the `user_ids` and `amplitude_ids` for the users to delete.
 
@@ -62,6 +62,7 @@ The body parameter is required. It's the deletion request object listing the `us
 | `requester` | The internal user who requested the deletion. This is useful for auditing. |
 | `ignore_invalid_id` | When `true`, the job ignores invalid user IDs. Invalid user IDs are users that don't exist in the project. |
 | `delete_from_org` | Delete user from the entire org instead of a single project. This feature is available in orgs with the Portfolio feature enabled. Requests must be by `user_ids`. Values can be either `True` or `False`. Defaults to `False`. |
+| `include_mapped_user_ids` | When `true`, each valid `user_id` from `user_ids` is included in a corresponding object of `amplitude_ids` response array. |
 
 ### Example request
 
@@ -305,16 +306,26 @@ The response for a POST request contains these fields:
 | `amplitude_ids` and `user_ids` | List of the Amplitude IDs to delete. |
 | `app` | The project or app ID. Included when the deletion request is for multiple projects. |
 
+The `amplitude_ids` key contains these fields:
+
+| <div class="big-column">Name</div> | Description |
+| --- | --- |
+| `amplitude_id` | The Amplitude ID of the user to be deleted. |
+| `requester` | The person who requested the Amplitude ID to be deleted. |
+| `requested_on_day` | The day this deletion was requested. |
+| `user_id` | The corresponding User ID. Included when `include_mapped_user_ids` is `true` and the `amplitude_id` is mapped from one of `user_ids`. |
+
 ## Get deletion jobs
 
 `/api/2/deletions/users?start_day=YYYY-MM-DD&end_day=YYYY-MM-DD`
 
-Retrieves a list of deletion jobs scheduled in a time range; this time range should include the date you made the request on plus 30 days. For example, you made a deletion request on August 1st, 2018.
+Retrieves a list of deletion jobs scheduled in a time range. The time range should include the date you made the request on plus 30 days. For example, you made a deletion request on August 1st, 2018.
  Your deletion request should have `start_day = 2018-08-01` and `end_day = 2018-08-31`.
 
 If the request returns no values, then no jobs are scheduled for that time range. Note: The largest permitted time range is six months.
 
 ### Example request
+<!--vale off-->
 
 === "cURL"
     ```bash
@@ -441,7 +452,7 @@ If the request returns no values, then no jobs are scheduled for that time range
         // ...
     }
     ```
-
+<!--vale on-->
 ### Query parameters
 
 |Name|Description|
@@ -456,9 +467,9 @@ The success response for a `GET` request contains these fields:
 | <div class="big-column">Property</div> | Description |
 | --- | --- |
 | `day` | The day the deletion job is scheduled to begin. |
-| `status` | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and can be modified. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. It can't be modified.  <br>  <br>**Done**: The job has finished running. It can't be modified. |
+| `status` | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and you can modify it. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. You can't modify it.  <br>  <br>**Done**: The job has finished running. You can't modify it. |
 | `amplitude_ids` | List of the Amplitude Ids of users to delete. |
-| `app` | Project/app id. Appears if the deletion is applied to more than one project. |
+| `app` | Project or app ID. Appears if the deletion is applied to more than one project. |
 
 The `amplitude_ids` key contains these fields:
 

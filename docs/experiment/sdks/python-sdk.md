@@ -1,7 +1,7 @@
 ---
 title: Experiment Python SDK (Beta)
 description: Official documentation for Amplitude Experiment's server-side Python SDK implementation.
-icon: material/language-python
+icon: simple/python
 ---
 
 Official documentation for Amplitude Experiment's server-side Python SDK implementation.
@@ -9,7 +9,7 @@ Official documentation for Amplitude Experiment's server-side Python SDK impleme
 [![PyPI version](https://badge.fury.io/py/amplitude-experiment.svg)](https://badge.fury.io/py/amplitude-experiment)
 
 !!!info "SDK Resources"
-     [:material-github: Github](https://github.com/amplitude/experiment-python-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-python-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-python-server/)
+     [:material-github: GitHub](https://github.com/amplitude/experiment-python-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-python-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-python-server/)
 
 This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
@@ -33,7 +33,6 @@ Install the Python Server SDK with pip.
     ```bash
     pip install amplitude-experiment
     ```
-
 
 !!!tip "Quick Start"
 
@@ -80,7 +79,7 @@ Experiment.initialize_remote(api_key, config = None) : RemoteEvaluationClient
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!info "Timeout & Retry Configuration"
-    Please configure the timeout and retry options to best fit your performance requirements.
+    Configure the timeout and retry options to best fit your performance requirements.
     ```python
     experiment = Experiment.initialize_remote('<DEPLOYMENT_KEY>', Config())
     ```
@@ -101,8 +100,6 @@ The SDK client can be configured on initialization.
     | `fetch_retry_backoff_scalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetch_retry_timeout_millis` | The request timeout for retrying variant fetches. | `10000` |
 
-
-
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -113,7 +110,7 @@ fetch(user: User) : Variants
 
 | Parameter  | Requirement | Description |
 | --- | --- | --- |
-| `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
+| `user` | required | The [user](../general/data-model.md#users) to remote fetch variants for. |
 
 ```python
 user = User(
@@ -137,16 +134,17 @@ if variant:
         # Flag is off
 ```
 
-### Fetch Async
+### Fetch async
 
 The fetch method is synchronous. To fetch asynchronously, you can use `fetch_async` method
+
 ```python
 fetch_async(user: User, callback)
 ```
 
 | Parameter  | Requirement | Description                                                                   |
 |------------|-------------|-------------------------------------------------------------------------------|
-| `user`     | required    | The user [user](../general/data-model.md#users) to remote fetch variants for. |
+| `user`     | required    | The [user](../general/data-model.md#users) to remote fetch variants for. |
 | `callback` | optional    | The callback to handle the variants.                                          |
 
 ```python
@@ -194,7 +192,6 @@ Install the Python Server SDK with pip.
     pip install amplitude-experiment
     ```
 
-
 !!!tip "Quick Start"
 
     1. [Initialize the local evaluation client.](#initialize_1)
@@ -206,17 +203,17 @@ Install the Python Server SDK with pip.
     experiment = Experiment.initialize_local(api_key)
 
     # (2) Start the local evaluation client.
-	experiment.start()
+  experiment.start()
 
     # (3) Evaluate a user.
-	user = User(
+  user = User(
         device_id="abcdefg",
         user_id="user@company.com",
         user_properties={
             'premium': True
         }
     )
-	variants = experiment.evaluate(user)
+  variants = experiment.evaluate(user)
     ```
 
 ### Initialize
@@ -224,7 +221,7 @@ Install the Python Server SDK with pip.
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 !!!warning "Server Deployment Key"
-    You must [initialize](#initialize_1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+    You must [initialize](#initialize_1) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in to get access to local evaluation flag configs.
 
 ```python
 Experiment.initialize_local(api_key, config = None) : LocalEvaluationClient
@@ -295,9 +292,9 @@ else:
     # Flag is off
 ```
 
-## Accessing Amplitude cookies
+## Access Amplitude cookies
 
-If you're using the Amplitude Analytics SDK on the client-side, the Python server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client has not yet generated a Device ID.
+If you're using the Amplitude Analytics SDK on the client-side, the Python server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client hasn't yet generated a Device ID.
 
 ```python
 import uuid

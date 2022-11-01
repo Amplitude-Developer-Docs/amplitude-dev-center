@@ -2,6 +2,7 @@
 title: Remote Evaluation
 description: Detailed information about Amplitude Experiment's remote evaluation architecture, limitations, and tradeoffs.
 ---
+<!-- markdownlint-disable MD036 -->
 
 Remote evaluation involves making a request to Amplitude Experiment's evaluation servers to fetch variants for a [user](../data-model.md#users). Remote evaluation is the default way to evaluate users on client-side apps, but may also be used from a server-side environment.
 
@@ -53,7 +54,7 @@ The following fields are resolved via IP geolocation:
 
 #### Canonicalization
 
-Remote evaluation canonicalizes inputs to make it easier to segment users by platform, OS, lanugage, country, etc, even if the devices report slightly different values. Canonicalization transforms various known device, language, and country inputs into canonical values which remain consistent even if the client reports different values.
+Remote evaluation canonicalizes inputs to make it easier to segment users by platform, OS, language, country, etc, even if the devices report slightly different values. Canonicalization transforms various known device, language, and country inputs into canonical values which remain consistent even if the client reports different values.
 
 The following fields are canonicalized on remote evaluation:
 
@@ -78,14 +79,14 @@ The following fields are canonicalized on remote evaluation:
 Remote evaluation gets the user's cohort membership from analytics which enables targeting by cohorts in [targeting segments](./implementation.md#targeting-segments).
 
 !!!warning "Hourly Cohort Sync"
-    Dynamic cohorts are synced hourly. Therefore, only use cohort targeting if the bucketing is not time sensitive. Time sensitive user targeting should use user properties passed explicitly to the remote fetch request.
+    Dynamic cohorts are synced hourly. Therefore, only use cohort targeting if the bucketing isn't time sensitive. Time sensitive user targeting should use user properties passed explicitly to the remote fetch request.
 
 ## SDKs
 
 Remote evaluation is supported by all SDKs, client-side and server-side.
 
 ### Client-side
-
+<!-- vale off-->
 <div class="grid cards" markdown>
 -   [:material-language-javascript:{ .lg .middle } __JavaScript__](../../sdks/javascript-sdk.md)
 -   [:material-apple-ios:{ .lg .middle } __iOS__](../../sdks/ios-sdk.md)

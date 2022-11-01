@@ -15,7 +15,7 @@ With Amplitude's Split integration, you can export your Amplitude cohorts and us
 
 ### Split setup
 
-To set up the integration, you'll need to collect some information from your Split dashboard first. 
+To set up the integration, you need to collect some information from your Split dashboard first. 
 
 1. From your Split dashboard, select your account of choice and click **Admin Settings**.
 2. From within admin settings, navigate to the *API Keys* tab and click **Add API Key**. Make sure to set the key type to *Admin*. After it's created, copy the key.
@@ -40,12 +40,12 @@ To set up the integration, you'll need to collect some information from your Spl
 
 ## Export cohorts into Split
 
-After Split is connected to Amplitude, you can sync any Amplitude cohort to it.
+After you connect Split and Amplitude, you can sync any Amplitude cohort to it.
 
-1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose Split.
+1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose **Split**.
 2. Choose the API target.
-1. Select the sync cadence.
-2. Save your work.
+3. Select the sync cadence.
+4. Save your work.
 
 !!!note
 

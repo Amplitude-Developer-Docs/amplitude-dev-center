@@ -1,8 +1,10 @@
 ---
 title: Experiment React Native SDK
 description: Official documentation for Amplitude Experiment's Client-side React Native SDK.
-icon: material/react
+icon: simple/react
 ---
+<!-- markdown-link-check-disable -->
+<!-- vale off-->
 
 !!!warning
     This SDK is legacy and will only continue to receive bug fixes until it is eventually deprecated. We recommend upgrading to `v1.0.0+` which supports SDK integrations, React Native Web, Expo, and more.
@@ -70,6 +72,7 @@ The following functions make up the core of the Experiment client-side SDK.
     Native SDKs are used under-the-hood, so you need to `await` the result of all functions.
 
 ---
+
 ### Initialize
 
 The SDK client should be initialized in your application on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
@@ -132,6 +135,7 @@ The SDK client can be configured once on initialization.
     | `instanceName` | Custom instance name for experiment SDK instance. **The value of this field is case-sensitive.** | `null` |
 
 ---
+
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -166,13 +170,13 @@ await Experiment.fetch();
 ???tip "Fetch When User Identity Changes"
     If you want the most up-to-date variants for the user, it is recommended that you call `fetch()` whenever the user state changes in a meaningful way. For example, if the user logs in and receives a user ID, or has a user property set which may effect flag or experiment targeting rules.
 
-    In the case of **user properties**, we recommend passing new user properties explicitly to `fetch()` instead of relying on user enrichment prior to [remote evaluation](../general/evaluation/remote-evaluation.md). This is because user properties that are synced remotely through a separate system have no timing guarantees with respect to `fetch()`--i.e. a race.
-
+    In the case of **user properties**, Amplitude recommends passing new user properties explicitly to `fetch()` instead of relying on user enrichment prior to [remote evaluation](../general/evaluation/remote-evaluation.md). This is because user properties that are synced remotely through a separate system have no timing guarantees with respect to `fetch()`--i.e. a race.
 
 !!!info "Timeout & Retries"
     If `fetch()` times out (default 10 seconds) or fails for any reason, the SDK client will return and retry in the background with back-off. You may configure the timeout or disable retries in the [configuration options](#configuration) when the SDK client is initialized.
 
 ---
+
 ### Variant
 
 Access a [variant](../general/data-model.md#variants) for a [flag or experiment](../general/data-model.md#flags-and-experiments) from the SDK client's local store.
@@ -226,6 +230,7 @@ if (variant === 'control') {
 ```
 
 ---
+
 ### All
 
 Access all [variants](../general/data-model.md#variants) stored by the SDK client.
@@ -235,6 +240,7 @@ all(): Promise<Variants>
 ```
 
 ---
+
 ### Exposure
 
 Manually track an [exposure event](../general/exposure-tracking.md#exposure-event) for the current variant of the given flag key through configured [integration](#integrations) or custom [exposure tracking provider](#exposure-tracking-provider). Generally used in conjunction with setting the `automaticExposureTracking` [configuration](#configuration) optional to `false`.

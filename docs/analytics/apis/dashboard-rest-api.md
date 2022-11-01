@@ -7,7 +7,7 @@ You can get data that's displayed on the dashboard graphs in JSON format via the
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/authb-basic.md"
+--8<-- "includes/auth-basic.md"
 
 ## Endpoints
 
@@ -20,7 +20,7 @@ You can get data that's displayed on the dashboard graphs in JSON format via the
 
 - You may have to URL encode special characters in the names of event types, event properties, and user properties. For example, encode `Play Song` as `Play%20Song`. Use the [W3Schools encoding reference](http://www.w3schools.com/tags/ref_urlencode.asp) for help.
 - Some examples in this article use backslash syntax to escape characters when using cURL. If you aren't using cURL, then don't encode your request with backslash escape characters.
-- The Dashboard REST API is based on your project's time zone in Amplitude.
+- The Dashboard REST API time zone is the same as your Amplitude project's time zone.
 
 ### Rate limits
 
@@ -45,6 +45,7 @@ Here is how Amplitude determines each variable in the formula:
 - Number of conditions: This is the number of segments plus the number of conditions within the segments applied to the chart you are looking at. Each group by counts as 4 segments.
 
 ???example "Simple query cost example"
+
     This configuration generates a cost of 10 because in has one segment (by Any Users, cost of one), one condition (Language = English, cost of one), and two group by values (Country and Platform, cost of four each) applied. Filters on events don't count in this section.
     ![screenshot of an event with one segment, one condition, and two group by values](/../../assets/images/dashboard-api-query-cost-example.png)
 
@@ -89,33 +90,38 @@ The event parameter can include these keys:
 | <div class ="big-column">Name</div>| Description|
 |-----|------------|
 |`event_type`| Required. The event type.<br> For custom events, prefix the name with `ce:`. For example: "ce:name"). <br> For '[Amplitude] Any Active Event', use `_active`.<br> For '[Amplitude] Any Event', use `_all`. <br> For '[Amplitude] Revenue', use `revenue_amount`. <br> For '[Amplitude] Revenue (Verified)', use `verified_revenue`. <br>For '[Amplitude] Revenue (Unverified)', use `unverified_revenue`.|
-|`filters` | Optional. A list of property filters. Each filter is a JSON object with the following keys: <br>`subprop_type` Required. Either "event" or "user", indicating that the property is either an event or user property, respectively. <br> `subprop_key` Required. The name of the property to filter on. Note: For non-Amplitude, custom user properties, prepend the user property name with "gp:". "gp:" isn't needed for event properties.<br>`subprop_op` Required. The operator for filtering on specific property values, either `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.<br>`subprop_value`: Required. A list of values to filter the event property by.|
+|`filters` | Optional. A list of property filters. Each filter is a JSON object with the following keys: <br>`subprop_type` Required. Either "event" or "user", indicating that the property is either an event or user property, respectively. <br> `subprop_key` Required. The name of the property to filter on. Note: For non-Amplitude, custom user properties, prepend the user property name with `gp:`. `gp:` isn't needed for event properties.<br>`subprop_op` Required. The operator for filtering on specific property values, either `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.<br>`subprop_value`: Required. A list of values to filter the event property by.|
 |`group_by` | Optional. A list of properties to group by (at most 2). Each group by is a JSON object with these keys:<br> `type` (required) - Either "event" or "user", indicating that the property is either an event or user property, respectively. <br>`value` (required) - The name of the property to group by.|
 
 #### Event format example
 
 ```json
 {
-    "event_type": "CompletedProfile",
-    "filters": [
-        {
-            "subprop_type": "event",
-            "subprop_key": "EmailVerified",
-            "subprop_op": "is",
-            "subprop_value": ["true"]
-        },
-        {
-            "subprop_type": "user",
-            "subprop_key": "gp:SignUpDate",
-            "subprop_op": "is",
-            "subprop_value": ["2021-08-18"]
-        },
-    "group_by": [
-        {
-            "type": "user",
-            "value": "platform"
-        }
-    ]
+  "event_type": "CompletedProfile",
+  "filters": [
+    {
+      "subprop_type": "event",
+      "subprop_key": "EmailVerified",
+      "subprop_op": "is",
+      "subprop_value": [
+        "true"
+      ]
+    },
+    {
+      "subprop_type": "user",
+      "subprop_key": "gp:SignUpDate",
+      "subprop_op": "is",
+      "subprop_value": [
+        "2021-08-18"
+      ]
+    }
+  ],
+  "group_by": [
+    {
+      "type": "user",
+      "value": "platform"
+    }
+  ]
 }
 ```
 
@@ -123,7 +129,7 @@ The event parameter can include these keys:
 
 | Name| Description|
 |------|----------|
-|`prop`| Required. The name of the property to filter on. For behavioral cohorts, the name of the property is `userdata_cohort`. <br>Example ("XYXxxzz" is the identifier from the Behavioral Cohort's URL, https://analytics.amplitude.com/org_name/cohort/**XYXxxzz**.)<br>`s=\[\{"prop":"userdata_cohort","op":"is","values":\["XYXxxzz"\]\}\]`|
+|`prop`| Required. The name of the property to filter on. For behavioral cohorts, the name of the property is "userdata_cohort". <br>Example ("XYXxxzz" is the identifier from the Behavioral Cohort's URL, https://analytics.amplitude.com/org_name/cohort/**XYXxxzz**.)<br>`s=\[\{"prop":"userdata_cohort","op":"is","values":\["XYXxxzz"\]\}\]`|
 |`op` |Required. The operator for filtering on specific property values. Allowed values are `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `set is`, or `set is not`.|
 |`values`| Required. A list of values to filter the segment by. If you are segmenting by a cohort, the value is the cohort ID, found in URL of the cohort in the web app (for example, "5mjbq8w").|
 
@@ -148,6 +154,10 @@ The event parameter can include these keys:
 
 Get JSON results from any saved chart via chart ID.
 `GET https://amplitude.com/api/3/chart/chart_id/query`
+
+### Export data tables
+
+You can use the Dashboard REST API to export data from data tables. Just query any Data Table chart type, and don't include start or end dates in the query.  
 
 ### Example request
 
@@ -251,7 +261,7 @@ Host: amplitude.com
 
 To take advantage of custom binning, you must specify `timeHistogramConfigBinMin`, `timeHistogramConfigBinMax`, and `timeHistogramConfigBinTimeUnit`. When `timeHistogramConfigBinSize` isn't specified, Amplitude tries to find the best bin sizing. For example, if you have `timeHistogramConfigBinMin=0`, `timeHistogramConfigBinMax=10`, and `timeHistogramConfigBinTimeUnit=minutes`, there is no guarantee for the final number of bins or bin bounds. If `timeHistogramConfigBinSize=1` is specified, then there are 10 bins, and each bin size equals a minute.
 
-When combined `timeHistogramConfigBin` parameters are invalid/missing, Amplitude defaults to use default bins that are chosen because they approximate certain behaviors such as bounce rate. These bins are (in milliseconds): `[0, 3000), [3000, 10,000), [10,000, 30,000), [30,000, 60,000), [60,000, 180,000), [180,000, 600,000), [600,000, 1,800,000), [1,800,000, 3,600,000), [3,600,000, 86,400,000)`.
+When combined `timeHistogramConfigBin` parameters are invalid or missing, Amplitude defaults to default bins that account for certain behaviors such as bounce rate. These bins are (in milliseconds): `[0, 3000), [3000, 10,000), [10,000, 30,000), [30,000, 60,000), [60,000, 180,000), [180,000, 600,000), [600,000, 1,800,000), [1,800,000, 3,600,000), [3,600,000, 86,400,000)`.
 
 Session lengths have a max length of 1 day (86,400,000 ms).
 
@@ -502,7 +512,7 @@ Remember that you may have to URL encode special characters in the names of even
 | `s`  | Optional. Segment definitions (default: none). [Full description](#shared-query-parameters). |
 | `g` | Optional. Include up to two. The property to group by. Defaults to none. [Full description](#event-format). |
 | `limit` | Optional. The number of Group By values returned (default: 100). The limit is 1000. |
-| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you will need to pass in the formula here (e.g. "UNIQUES(A)/UNIQUES(B)"). |
+| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you need to pass in the formula here (for example, `UNIQUES(A)/UNIQUES(B)`). |
 | `rollingWindow` | Required to use a rolling window. To include a rolling window, pass in the number of days/weeks/months with which to compute a rolling window over.  |
 | `rollingAverage` | Required to use a rolling average. To include a rolling average, pass in the number of days/weeks/months with which to compute a rolling average over.|
 
@@ -716,7 +726,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | `user` | Required. Amplitude ID of the user. |
 | `offset`  | Optional. Zero-indexed offset to start returning events from. |
 | `limit` | Optional. Number of events to return (up to 1000). Note that more events may be returned so that there are no partial sessions. Defaults to 1000. |
-| `direction` | Optional. "earliest" to include the user's eariest event or "latest" to includs the most recent. Defaults to "latest". |
+| `direction` | Optional. "earliest" to include the user's earliest event or "latest" to includes the most recent. Defaults to "latest". |
 
 ### Response
 
@@ -881,12 +891,12 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 ### Response
 
 Returns a response containing JSON objects with this schema:
-
+<!-- vale Amplitude.Ellipses = NO-->
 | <div class="big-column">Attribute</div> | Description |
 | --- | --- |
 | `seriesLabels` | An array of labels, one for each group. |
 | `series` | A JSON object containing two keys.<br>**dates** - An array of formatted string dates, one for each date in the specified range (in descending order). <br>**values** - A JSON object with one key for each date, where each value is a JSON object with keys `r1d`, `r2d`, ..., `r90d` for the n-day metric values, and the keys `count`, `paid`, and `total_amount`, which indicate the total number of users, number of paid users, and amount paid by the users for the group. |
-
+<!-- vale Amplitude.Ellipses = YES-->
 ```json
 {
     "data": {

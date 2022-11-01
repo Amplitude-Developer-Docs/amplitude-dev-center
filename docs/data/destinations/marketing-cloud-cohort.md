@@ -1,7 +1,12 @@
 ---
-title: Send Cohorts to Marketing Cloud
+title: Send Cohorts to Marketing Cloud (v1)
 description: Send Amplitude cohorts to Salesforce Marketing Cloud. 
 ---
+<!-- vale off-->
+
+!!!tip "Improved v2 integration is now in beta"
+
+    Amplitude has released an improved version of this integration. Learn more in [Send Cohorts to Salesforce Marketing Cloud (v2)](../marketing-cloud-cohort-v2)
 
 This integration combines Amplitude's analytics with Salesforce Marketing Cloud. You can export [Behavioral Cohorts](https://help.amplitude.com/hc/en-us/articles/231881448-Amplitude-2-0-Behavioral-Cohorts) from Amplitude to Salesforce Marketing Cloud so that you can better engage your users. 
 
@@ -17,13 +22,12 @@ Salesforce Marketing Cloud provides marketing engagement automation that allows 
 - Cohort information can be synced to existing Salesforce contacts, as long as they share the same value for the "Contact Key" attribute as the Amplitude contact key.
 - Amplitude can't sync other user properties to Marketing Cloud. Let us know if you have a use case that requires this functionality.
 
-
 ## Setup 
 
 ### Prerequisites
 
 - The Salesforce Marketing Cloud / Amplitude integration is only available for Growth and Enterprise customers (allows on-demand sync only). 
-- Scheduled syncs are available to customers who have purchased [Amplitude Recommend](https://help.amplitude.com/hc/en-us/articles/360028552471#syncs). 
+- Scheduled syncs are available to customers who have purchased [Amplitude Audiences](https://help.amplitude.com/hc/en-us/articles/360028552471#syncs). 
 - Anonymized UUID as identifiers in both Amplitude and Salesforce Marketing Cloud work for this integration so you don't have to send email / PII to Amplitude.
 
 ### Marketing Cloud setup

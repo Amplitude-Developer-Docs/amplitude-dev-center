@@ -3,24 +3,24 @@ title: Getting Started with Amplitude
 description: Read this guide to understand the basics of getting started with Amplitude instrumentation.
 ---
 
-This article is meant for developers, and complements the [Amplitude Quick Start Guide](https://help.amplitude.com/hc/en-us/sections/201146908-Amplitude-Quick-Start-Guide), which walks through the Amplitude data structure and explains which data you should send to Amplitude.
+This article is for developers, and complements the [Amplitude Quick Start Guide](https://help.amplitude.com/hc/en-us/sections/201146908-Amplitude-Quick-Start-Guide), which walks through the Amplitude data structure and explains which data you should send to Amplitude.
 
 In this article, you'll find technical best practices for getting up and running with Amplitude.
 
 ## Instrumentation best practices
 
-Before getting into the details, let's go over some recommended best practices for instrumenting Amplitude:
+Before getting into the details, here are some recommended best practices for instrumenting Amplitude:
 
-- **Always test your instrumentation:** We highly recommend having a testing project for every production project in your organization. This gives you a reliable way to test your instrumentation before sending production data to Amplitude
-- **Amplitude can't retroactively modify historical data**, so if your instrumentation is wrong, the data you collect can't be cleaned up later on. See [this video](https://help.amplitude.com/hc/en-us/articles/115001574688-How-to-Validate-Your-Event-Data-in-Amplitude) on QA-ing your event data in Amplitude to learn more. 
+- **Always test your instrumentation:** Amplitude recommends having a testing project for every production project in your organization. This gives you a reliable way to test your instrumentation before sending production data to Amplitude
+- **Amplitude can't retroactively change historical data**, so if your instrumentation is wrong, you can't clean up the data you collect later. See [this video](https://help.amplitude.com/hc/en-us/articles/115001574688-How-to-Validate-Your-Event-Data-in-Amplitude) on QA-ing your event data in Amplitude to learn more. 
 - **Set up at least two Amplitude projects:** One for your development or staging environment, one for your production environment. This keeps testing data separate from production data. 
 - **Send the right keys:** If you are sending data server-side via the HTTP API, be sure to send a `session_id `and `insert_id `with each event. See [this article on ingesting data](https://help.amplitude.com/hc/en-us/articles/204771828#optional-keys) for more information on these important keys.
 
 ## How Amplitude receives data
 
-Data can be sent to Amplitude client-side, server-side, or through a third party:
+You can send data to Amplitude client-side, server-side, or through a third party:
 
-- Amplitude has native **client-side** SDKs for [JavaScript](https://help.amplitude.com/hc/en-us/articles/115001361248), [Android](https://help.amplitude.com/hc/en-us/articles/115002935588-Android-SDK-Installation), and [iOS](https://help.amplitude.com/hc/en-us/articles/115002278527-iOS-SDK-Installation). These native SDKs track the user properties listed [here](https://help.amplitude.com/hc/en-us/articles/215562387-Appendix-Amplitude-User-Property-Definitions) and the [session ID](https://help.amplitude.com/hc/en-us/articles/115002323627#session-id) for each event for you automatically. The SDKs are open source and can be found in Amplitude's [GitHub repository](https://github.com/amplitude).
+- Amplitude has native **client-side** SDKs for [JavaScript](https://help.amplitude.com/hc/en-us/articles/115001361248), [Android](https://help.amplitude.com/hc/en-us/articles/115002935588-Android-SDK-Installation), and [iOS](https://help.amplitude.com/hc/en-us/articles/115002278527-iOS-SDK-Installation). These native SDKs track the user properties listed [here](https://help.amplitude.com/hc/en-us/articles/215562387-Appendix-Amplitude-User-Property-Definitions) and the [session ID](https://help.amplitude.com/hc/en-us/articles/115002323627#session-id) for each event for you automatically. The SDKs are open source and are available in Amplitude's [GitHub repository](https://github.com/amplitude).
     There is also a [Unity](https://help.amplitude.com/hc/en-us/articles/115002991968-Unity-Plugin-Installation) plugin, for use with Unity apps.
 - If you'd rather go **server-side**, the [HTTP API](../analytics/apis/http-v2-api) enables you to send data directly from your server to the Amplitude endpoint.
 - You can also choose to send data via a **third party** like [Segment](https://segment.com/), [mParticle](https://www.mparticle.com/), or [Tealium](https://tealium.com/). 
@@ -35,7 +35,7 @@ Amplitude has many APIs you can use in conjunction with the platform:
 - [Export API](../analytics/apis/export-api): Export all raw event data
 - [Behavioral Cohorts API](../analytics/apis/behavioral-cohorts-api): Export [behavioral cohorts](https://help.amplitude.com/hc/en-us/articles/231881448-Amplitude-2-0-Behavioral-Cohorts). 
 
-See all of the [API references](../analytics/#api-references). 
+See all the [API references](../analytics/#api-references). 
 
 ## Amplitude schema
 
@@ -43,11 +43,11 @@ Amplitude's data structure includes [events, event properties, user properties]
 
 !!!tip "Data Taxonomy Playbook"
 
-    Our [Data Taxonomy Playbook](https://help.amplitude.com/hc/en-us/articles/115000465251-Data-Taxonomy-Playbook) can help you understand more about the Amplitude schema, and we recommend reading it before continuing. 
+    Our [Data Taxonomy Playbook](https://help.amplitude.com/hc/en-us/articles/115000465251-Data-Taxonomy-Playbook) can help you understand more about the Amplitude schema, and Amplitude recommends reading it before continuing. 
 
 ### Naming conventions for events
 
-After you instrument an event, the name of that event type can never be changed in the raw data. For example, in v1.0 of your app, a developer instruments the following event type:
+After you instrument an event, you can never change the name of that event type in the raw data. For example, in v1.0 of your app, a developer instruments the following event type:
 
 `Amplitude.getInstance().logEvent('Play song');`
 
@@ -55,11 +55,11 @@ Later on, in v2.0 of your app, a developer instruments this event type:
 
 `Amplitude.getInstance().logEvent('play song');`
 
-Strings passed to Amplitude are case-sensitive, and so Amplitude interprets these two event types as completely separate events. **Make sure** your event names follow a consistent syntax during instrumentation. For more information, see this [section](https://help.amplitude.com/hc/en-us/articles/115000465251#how-should-i-name-my-events) in the Data Taxonomy Playbook.
+Strings passed to Amplitude are case-sensitive, and so Amplitude interprets these two event types as separate events. **Make sure** your event names follow a consistent syntax during instrumentation. For more information, see this [section](https://help.amplitude.com/hc/en-us/articles/115000465251#how-should-i-name-my-events) in the Data Taxonomy Playbook.
 
 This also applies to [event properties](https://help.amplitude.com/hc/en-us/articles/115000465251#event-properties).
 
-### Instrumenting user properties
+### Instrument user properties
 
 [User properties](https://help.amplitude.com/hc/en-us/articles/115002380567) are attributes specific to individual users. Examples of user properties include location, language, account type, money spent, or player type.
 
@@ -78,7 +78,7 @@ Amplitude SDKs include several user property operations you can use to update us
 
 You can also use the [Identify API](../analytics/apis/identify-api) to update the values of a user's user properties without having to send another event. The new values are applied to the next event sent organically by that user. 
 
-### Instrumenting group types
+### Instrument group types
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
@@ -88,7 +88,7 @@ To use Amplitude's [account-level reporting](https://help.amplitude.com/hc/en-u
 
 Amplitude tracks unique users through a system of user IDs, device IDs, and Amplitude IDs. To learn more, check out this article on [tracking unique users](https://help.amplitude.com/hc/en-us/articles/115003135607-Tracking-Unique-Users).
 
-In Amplitude, a session is a single continuous period of time a user is active within your product. Session IDs are sent with every event, enabling Amplitude to track them. To find out more about how this works, see our Help Center article on [tracking sessions in Amplitude](https://help.amplitude.com/hc/en-us/articles/115002323627-Tracking-Sessions).
+In Amplitude, a session is a single continuous period of time a user is active within your product. Session IDs are sent with every event, enabling Amplitude to track them. To find out more about how this works, see the Help Center article on [tracking sessions in Amplitude](https://help.amplitude.com/hc/en-us/articles/115002323627-Tracking-Sessions).
 
 ## Popular SDK configuration options
 
@@ -96,19 +96,19 @@ This section details some Amplitude SDK configuration options that are popularly
 
 - **`minTimeBetweenSessions` (iOS/Android):** The minimum time your app must be backgrounded before a new session begins.
 - **`sessionTimeout` (Web):** The minimum time between events that must elapse before a new session begins.
-- **`batchEvents`:** This is enabled by default for our mobile SDKs and is optional for Web.
+- **`batchEvents`:** This is enabled by default for mobile SDKs and is optional for Web.
 - **`eventUploadPeriodMillis`:** If batchEvents is enabled, this denotes the time between event batch uploads.
 - **`eventUploadThreshold`:** If batchEvents is enabled, this sets the minimum number of events per batch.
 - **`optOut`:** When enabled, opts the current user out of tracking.
 - **`offline`:** Prevents the sending of events.
 - **`saveEvents`:** This is enabled by default for all the SDKs, and allows the SDK to save unsent events onto the device.
-- **`savedMaxCount`:** The maximum number of unsent events to be saved on a device. The default is 1000. 
+- **`savedMaxCount`:** The maximum number of unsent events that are saved on a device. The default is 1000. 
 
 ## Backfilling data
 
 You may want to consider backfilling data if:
 
-1. **You wish to analyze historic data in Amplitude.** See the [Data Backfill Guide](../analytics/data-backfill-guide) for detailed instructions on backfilling your data into Amplitude.
+1. **You wish to analyze historic data in Amplitude.** See the [Data Backfill Guide](../analytics/data-backfill-guide) for detailed instructions on backfilling data into Amplitude.
 2. **Your product already has existing users**. You want to accurately reflect when these [users were new](https://help.amplitude.com/hc/en-us/articles/360052734691#h_01EQFSJ5YFEGM5TKTY4XS5J2DY) in Amplitude.
 
 ## Resources

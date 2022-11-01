@@ -10,3 +10,6 @@
 *[IDFV]: Identifier for Vendors
 *[IDFA]: Identifier for Advertiser
 *[DMA]: Designated Market Area
+*[PII]: Personally Identifiable Information
+*[CJS]: CommonJS
+*[PII]: Personally Identifiable Information

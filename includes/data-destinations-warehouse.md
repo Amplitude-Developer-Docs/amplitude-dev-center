@@ -5,5 +5,6 @@
 - :redshift: [Amazon RedShift](../data/destinations/redshift.md)
 - :bigquery: [Google BigQuery](../data/destinations/bigquery.md)
 - :snowflake: [Snowflake](../data/destinations/snowflake.md)
+- :snowflake: [Snowflake Data Share](../data/destinations/snowflake-data-share.md)
 
 </div>

@@ -1,0 +1,9 @@
+extends: existence
+message: " Do you mean after or when? '%s' is hard to translate."
+ignorecase: true
+level: suggestion
+tokens:
+  - Once
+  - once
+exceptions: 
+  - once(?!\ per)

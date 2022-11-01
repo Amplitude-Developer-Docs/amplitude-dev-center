@@ -1,13 +1,13 @@
 ---
 title: Experiment Node.js SDK
 description: Official documentation for Amplitude Experiment's server-side Node.js SDK implementation.
-icon: fontawesome/brands/node-js
+icon: simple/nodedotjs
 ---
 
 Official documentation for Amplitude Experiment's server-side Node.js SDK implementation.
 
 !!!info "SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
+    [:material-github: GitHub](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
 
 This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
@@ -86,7 +86,7 @@ initializeRemote(apiKey: string, config?: RemoteEvaluationConfig): RemoteEvaluat
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!warning "Timeout & Retry Configuration"
-    **The default timeout and retry configuration options are too high for most server environments**. Please configure the timeout and retry options to best fit your performance requirements. If [remote evaluation performance](../general/performance-and-caching.md#remote-evaluation) is too slow, consider using [local evaluation](#local-evaluation).
+    **The default timeout and retry configuration options are too high for most server environments**. Configure the timeout and retry options to best fit your performance requirements. If [remote evaluation performance](../general/performance-and-caching.md#remote-evaluation) is too slow, consider using [local evaluation](#local-evaluation).
 
 ```js
 const experiment = Experiment.initializeRemote('<DEPLOYMENT_KEY>', config: {
@@ -113,8 +113,6 @@ The SDK client can be configured on initialization.
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetchRetryTimeoutMillis` | The request timeout for retrying variant fetches. | `10000` |
 
-
-
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -125,7 +123,7 @@ fetch(user: ExperimentUser): Promise<Variants>
 
 | Parameter  | Requirement | Description |
 | --- | --- | --- |
-| `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
+| `user` | required | The [user](../general/data-model.md#users) to remote fetch variants for. |
 
 ```js
 const user = {
@@ -195,7 +193,7 @@ Install the Node.js Server SDK with `npm` or `yarn`.
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 !!!warning "Server Deployment Key"
-    You must [initialize](#initialize-local) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+    You must [initialize](#initialize-local) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key to get access to local evaluation flag configs.
 
 ```js
 initializeLocal(apiKey: string, config?: LocalEvaluationConfig): LocalEvaluationClient
@@ -224,7 +222,7 @@ The SDK client can be configured on initialization.
 
 ### Start
 
-Start the local evaluation client, pre-fetching local local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
+Start the local evaluation client, pre-fetching local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
 
 ```js
 start(): Promise<void>
@@ -265,7 +263,7 @@ const specificVariants = await experiment.evaluate(user, [
 
 ## Accessing Amplitude cookies
 
-If you're using the Amplitude Analytics SDK on the client-side, the Node.js server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client has not yet generated a Device ID.
+If you're using the Amplitude Analytics SDK on the client-side, the Node.js server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client hasn't yet generated a Device ID.
 
 ```js
 import { AmplitudeCookie } from '@amplitude/experiment-node-server';

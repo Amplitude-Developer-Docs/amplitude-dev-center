@@ -5,6 +5,11 @@ search:
 ---
 
 <!-- markdownlint-disable -->
+<!-- markdown-link-check-disable -->
+<!-- vale off-->
+
+!!!deprecated "Deprecated SDK"
+    This SDK is deprecated and these docs are no longer maintained. Migrate to the [Java SDK (Ampli)](/data/sdks/java/ampli/).
 
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and above).
 

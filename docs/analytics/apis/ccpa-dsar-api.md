@@ -59,9 +59,10 @@ If you need to get data for 40 users per hour, you can spend `14400 / 40 = 360` 
 - Request result expires in 2 days.
 - Users with more than 100k events per month aren't supported.
 
-### Example Client Implementation
+### Example client implementation
 
-``` python
+```python
+
 base_url = 'https://amplitude.com/api/2/dsar/requests'
 payload = {
   "amplitudeId": AMPLITUDE_ID,
@@ -85,7 +86,6 @@ for url in response.get('urls'):
     filename = f'{AMPLITUDE_ID}-{index}.gz'
     with open(f'{OUTPUT_DIR}/{filename}','wb') as f:
         f.write(r.content)
-
 ```
 
 ## Create data request

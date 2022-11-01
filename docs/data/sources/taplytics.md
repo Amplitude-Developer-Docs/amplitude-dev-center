@@ -13,7 +13,7 @@ By integrating [Taplytics](https://taplytics.com/)' mobile A/B testing and expe
 
 Taplytics provides cross-platform A/B testing solutions, and this integration exports Taplytics experiment data to Amplitude.
 
-When the Taplytics SDK is installed alongside Amplitude, your existing and future analytics events are sent to both Amplitude and Taplytics. Measure the impact of your Taplytics experiments by segmenting your Amplitude funnels, retention, and so on, by variations your users were exposed to.
+When the Taplytics SDK is installed alongside Amplitude, your existing and future analytics events are sent to both Amplitude and Taplytics. Measure the impact of your Taplytics experiments by segmenting your Amplitude funnels, retention, and more by variations your users were exposed to.
 
 ## Set up and use the integration
 

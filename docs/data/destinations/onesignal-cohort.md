@@ -19,8 +19,8 @@ For more information on how to set up and use this integration, see [OneSignal'
 
 - This integration is only available for customers who have paid plans with both OneSignal and Amplitude.
 - You must enable this integration for each Amplitude project you want to use it in.
-- This integration doesn't support anonymous users. You'll have to set a user ID for each user to identify them between Amplitude and OneSignal. From OneSignal, you can use the [external id](https://documentation.onesignal.com/docs/external-user-ids) to do this. 
-- The Amplitude Integration is available with OneSignal Growth package and higher tiers. Contact support@onesignal.com with any questions.
+- This integration doesn't support anonymous users. You have to set a user ID for each user to identify them between Amplitude and OneSignal. From OneSignal, you can use the [external id](https://documentation.onesignal.com/docs/external-user-ids) to do this. 
+- The Amplitude Integration is available with OneSignal Growth package and higher tiers. Contact <a href="mailto:support@onesignal.com">OneSignal Support</a> with any questions.
 
 ## Setup
 

@@ -2,10 +2,10 @@
 title: Batch Event Upload API
 description: The Batch Event Upload API lets you upload large amounts of event data.
 ---
-
+<!-- markdownlint-disable-file MD037 -->
 The Batch Event Upload API lets you upload large amounts of event data.
 
-The event JSON format follows our [HTTP API format](https://developers.amplitude.com/docs/http-api-v2), and has the same requirements (each event must have an event type, and so on).
+The event JSON format follows the [HTTP API format](https://developers.amplitude.com/docs/http-api-v2), and has the same requirements.
 
 --8<-- "includes/postman.md"
 
@@ -20,7 +20,7 @@ The event JSON format follows our [HTTP API format](https://developers.amplitude
 
 ## Considerations
 
-- After a request is accepted, the events in the batch are queryable within 15 minutes.
+- After Amplitude has accepted a request, the events in the batch are queryable within 15 minutes.
 - The JSON serialized payload must not exceed 20MB in size.
 - To prevent instrumentation issues, device IDs and user IDs must be strings with a length of 5 characters or more. If an event has a device or user ID that's too short, the ID value is dropped from the event. If an event doesn't have a user or device ID, it may cause the API to reject the upload with a 400 error. You can change the minimum ID length using the `options` property.
 - Each API key can send up to 1000 events per second for any individual device ID or user ID. If you exceed that rate, the API rejects the upload, and gives a 429 response. Check the response summary for more information.
@@ -64,6 +64,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Node"
+
     ```js
     const request = require('node-fetch');
     const inputBody = '{
@@ -149,6 +150,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Ruby"
+
     ```ruby
     require 'rest-client'
     require 'json'
@@ -166,6 +168,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Python"
+
     ```python
     import requests
     headers = {
@@ -181,6 +184,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Java"
+
     ```java
     URL obj = new URL("https://api2.amplitude.com/batch");
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -198,6 +202,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "Go"
+
     ```go
     package main
 
@@ -234,6 +239,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 ##### Example body
 
 ```json
+
 {
   "api_key": "my_amplitude_api_key",
   "events": [
@@ -314,17 +320,17 @@ These properties belong to the request's body.
 
 These properties belong to the `events` object.
 
-|<div class='big-column'>    Name   </div>|                                                                                                                                                                                         Description                                                                                                                                                                                                    |
+|<div class='big-column'> Name </div>|                                                                                                                                                                                         Description                                                                                                                                                                                                    |
 |:-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |       `user_id`       |                                                                                                                                        Required. String. A readable ID specified by you. Must have a minimum length of 5 characters. <br>Required unless device_id is present.                                                                                                                                        |
-|      `device_id`      |                                                                                            Required. String. A device-specific identifier, such as the Identifier for Vendor on iOS. Required unless user_id is present. If a device_id is not sent with the event, it will be set to a hashed version of the user_id.                                                                                            |
-|     `event_type`      |                                                                 Required. String. A unique identifier for your event.  <br>Note: `$identify` and `$groupidentify` are predefined for identification and group identification. More information about the two operations can be found in the descriptions of "user_properties" and "group_properties".                                                                  |
-|        `time`         |                                                                                                                              Optional. Long. The timestamp of the event in milliseconds since epoch. If time is not sent with the event, it will be set to the request upload time.                                                                                                                               |
-|  `event_properties`   |                                                                                Optional. Object. A dictionary of key-value pairs that represent additional data to be sent along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers.                                                                                |
-|   `user_properties`   |                        Optional. Object. A dictionary of key-value pairs that represent additional data tied to the user. You can store property values in an array. Date values are transformed into string values. In addition, user property operations (`$set`,` $setOnce`, `$add`, `$append`, `$unset`) are supported when `event_type` is `$identify`. Object depth may not exceed 40 layers.                         |
-|       `groups`        |                        Optional. Object. This feature is available only to customers who have purchased the Accounts add-on. This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. Note: You can only track up to 5 unique group types and 10 total groups. Any groups past that threshold will not be tracked.                         |
+|      `device_id`      |                                                                                            Required. String. A device-specific identifier, such as the Identifier for Vendor on iOS. Required unless `user_id` is present. If a `device_id` isn't sent with the event, it's set to a hashed version of the `user_id`.                                                                                            |
+|     `event_type`      |                                                                 Required. String. A unique identifier for your event.  <br>Note: `$identify` and `$groupidentify` are predefined for identification and group identification. More information about the two operations is in the description of "user_properties" and "group_properties".                                                                  |
+|        `time`         |                                                                                                                              Optional. Long. The timestamp of the event in milliseconds since epoch. If time isn't sent with the event, it's set to the request upload time.                                                                                                                               |
+|  `event_properties`   |                                                                                Optional. Object. A dictionary of key-value pairs that represent properties sent along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers.                                                                                |
+|   `user_properties`   |                        Optional. Object. A dictionary of key-value pairs that represent data tied to the user. You can store property values in an array. Date values are transformed into string values. User property operations (`$set`,` $setOnce`, `$add`, `$append`, `$unset`) are supported when `event_type` is `$identify`. Object depth may not exceed 40 layers.                         |
+|       `groups`        |                        Optional. Object. This feature is available only to customers who have purchased the Accounts add-on. This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. Note: You can only track up to 5 unique group types and 10 total groups. Any groups past that threshold aren't tracked.                         |
 |  `group_properties`   | Optional. Object. This feature is available only to customers who have purchased the Accounts add-on. When "event_type" is `$groupidentify`, the field is a dictionary of key-value pairs that represent properties tied to the groups listed in the "groups" field. The field is ignored for other event types. Group property operations (`$set`, `$setOnce`, `$add`, `$append`, `$unset`) are also supported. |
-|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties are not synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.|
+|`$skip_user_properties_sync`|Optional. Boolean. When `true` user properties aren't synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.|
 |     `app_version`     |                                                                                                                                                                            Optional. String. The current version of your application.                                                                                                                                                                             |
 |      `platform`       |                                                                                                                                                                                     Optional. String. Platform of the device.                                                                                                                                                                                     |
 |       `os_name`       |                                                                                                                                                           Optional. String. The name of the mobile operating system or browser that the user is using.                                                                                                                                                            |
@@ -338,25 +344,25 @@ These properties belong to the `events` object.
 |        `city`        |                                                                                                                                                                                  Optional. String. The current city of the user.                                                                                                                                                                                  |
 |         `dma`         |                                                                                                                                                                         Optional. String. The current Designated Market Area of the user.                                                                                                                                                                         |
 |      `language`       |                                                                                                                                                                                  Optional. String. The language set by the user.                                                                                                                                                                                  |
-|        `price`        |                                                                                                                          Optional. Float. The price of the item purchased. Required for revenue data if the revenue field is not sent. You can use negative values to indicate refunds.                                                                                                                           |
+|        `price`        |                                                                                                                          Optional. Float. The price of the item purchased. Required for revenue data if the revenue field isn't sent. You can use negative values to indicate refunds.                                                                                                                           |
 |      `quantity`       |                                                                                                                                                              Optional. Integer. The quantity of the item purchased. Defaults to 1 if not specified.                                                                                                                                                               |
-|       `revenue`       |                                                                                                  Optional. Float. Revenue = price quantity. If you send all 3 fields of price, quantity, and revenue, then (price quantity) will be used as the revenue value. You can use negative values to indicate refunds.                                                                                                   |
+|       `revenue`       |                                                                                                  Optional. Float. Revenue = (price * quantity). If you send all 3 fields of price, quantity, and revenue, then (price *  quantity) is used as the revenue value. You can use negative values to identify refunds.                                                                                                   |
 |      `productId`      |                                                                                                                                              Optional. String. An identifier for the item purchased. You must send a price and quantity or revenue with this field.                                                                                                                                               |
 |     `revenueType`     |                                                                                                                                           Optional. String. The type of revenue for the item purchased. You must send a price and quantity or revenue with this field.                                                                                                                                            |
 |    `location_lat`     |                                                                                                                                                                                Optional. Float. The current Latitude of the user.                                                                                                                                                                                 |
 |    `location_lng`     |                                                                                                                                                                                Optional. Float. The current Longitude of the user.                                                                                                                                                                                |
-|         `ip`          |     Optional. String. The IP address of the user. Use "$remote" to use the IP address on the upload request. We will use the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude has the ability to drop the location and IP address from events once it reaches our servers. You can submit a request to our platform specialist team here to configure this for you.     |
+|         `ip`          |     Optional. String. The IP address of the user. Use "$remote" to use the IP address on the upload request. Amplitude uses the IP address to reverse lookup a user's location (city, country, region, and DMA). Amplitude can drop the location and IP address from events once it reaches Amplitude servers. You can submit a request to Amplitude Support to configure this for you.     |
 |        `idfa`         |                                                                                                                                                                                Optional. String. (iOS) Identifier for Advertiser.                                                                                                                                                                                 |
 |        `idfv`         |                                                                                                                                                                                  Optional. String. (iOS) Identifier for Vendor.                                                                                                                                                                                   |
 |        `adid`         |                                                                                                                                                                          Optional. String. (Android) Google Play Services advertising ID                                                                                                                                                                          |
 |     `android_id`      |                                                                                                                                                                          Optional. String. (Android) Android ID (not the advertising ID)                                                                                                                                                                          |
-|      `event_id`       |                                                                                      Optional. Integer. An incrementing counter to distinguish events with the same user_id and timestamp from each other. We recommend you send an event_id, increasing over time, especially if you expect events to occur simultanenously.                                                                                      |
-|     `session_id`      |                                                                                            Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A session_id of -1 is the same as no session_id specified.                                                                                             |
-|      `insert_id`      |                                                               Optional. String. A unique identifier for the event. We will deduplicate subsequent events sent with an `insert_id` we have already seen before within the past 7 days. We recommend generation a UUID or using some combination of device_id, user_id, event_type, event_id, and time.                                                               |
-|        `plan`         |                                                                                                                                                         Optional. Object. Tracking plan properties. Only branch, source, version properties are accepted                                                                                                                                                          |
-|     `plan.branch`     |                                                                                                                                                                            Optional. String. The tracking plan branch name e.g. "main"                                                                                                                                                                            |
-|     `plan.source`     |                                                                                                                                                                               Optional. String. The tracking plan source e.g. "web"                                                                                                                                                                               |
-|    `plan.version`     |                                                                                                                                                                            Optional. String. The tracking plan version e.g. "1", "15"                                                                                                                                                                             |
+|      `event_id`       |                                                                                      Optional. Integer. An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. Amplitude recommends that you send an `event_id`, increasing over time, especially if you expect events to occur simultaneously.                                                                                      |
+|     `session_id`      |                                                                                            Optional. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A `session_id` of -1 is the same as no `session_id` specified.                                                                                             |
+|      `insert_id`      |                                                               Optional. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with an `insert_id` that has been seen within the past 7 days. Amplitiude recommends generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time.                                                               |
+|        `plan`         |                                                                                                                                                         Optional. Object. Tracking plan properties. Amplitude accepts only branch, source, version properties.                                                                                                                                                          |
+|     `plan.branch`     |                                                                                                                                                                            Optional. String. The tracking plan branch name. For example: "main"                                                                                                                                                                            |
+|     `plan.source`     |                                                                                                                                                                               Optional. String. The tracking plan source. For example: "web"                                                                                                                                                                               |
+|    `plan.version`     |                                                                                                                                                                            Optional. String. The tracking plan version. For example: "1", "15"                                                                                                                                                                             |
 
 #### Option properties
 
@@ -364,7 +370,7 @@ These properties belong to the `options` object.
 
 |<div class="big-column">Name</div>| Description|
 |----|------------|
-|`min_id_length`|Optional. Integer. Sets the minimum permitted length for user_id & device_id fields. Default is five. |
+|`min_id_length`|Optional. Integer. Sets the minimum permitted length for `user_id` and `device_id` fields. Default is five. |
 
 ## Responses
 
@@ -375,26 +381,26 @@ These properties belong to the `options` object.
 | 413 | [Payload Too Large](https://tools.ietf.org/html/rfc7231#section-6.5.11) | Payload size is too big (request size exceeds 20MB). Split your events array payload in half and try again. |
 | 429 | [Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4) | Too many requests for a user or device. Amplitude throttles requests for users and devices that exceed 1000 events per second or 500,000 events per day. |
 
-### SuccessSummary
+### SuccessSummary <!-- vale off -->
 
 ```json
+
 {
   "code": 200,
   "events_ingested": 50,
   "payload_size_bytes": 50,
   "server_upload_time": 1396381378123
 }
-
 ```
 
-#### Success Summary Properties
+#### Success summary properties
 
 | Name |  Description |
 | --- |--- |
 | code | Integer. 200 success code |
 | events_ingested |  Integer. The number of events ingested from the upload request. |
 | payload_size_bytes |  Integer. The size of the upload request payload in bytes. |
-| server_upload_time | Integer. The time in milliseconds since epoch (Unix Timestamp) that our event servers accepted the upload request. |
+| server_upload_time | Integer. The time in milliseconds since epoch (Unix Timestamp) that Amplitude's event servers accepted the upload request. |
 
 ### InvalidRequestError
 
@@ -421,9 +427,9 @@ These properties belong to the `options` object.
 
 ```
 
-#### InvalidRequestError Properties
+#### InvalidRequestError properties
 
-| Name |  Description |
+| <div class="big-column">Name</div> |  Description |
 | --- | --- |
 | code  | 400 error code. |
 | error |  String. Error description |
@@ -486,7 +492,7 @@ These properties belong to the `options` object.
 }
 
 ```
-
+<!--vale on-->
 #### PayloadTooLargeError properties
 
 | Name | Description |
@@ -528,27 +534,29 @@ These properties belong to the `options` object.
 | --- |-- |
 | `code` | Integer. 429 error code |
 | `error` | String. Error description. |
-| `eps_threshold` | Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
-| `throttled_devices` | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
-| `throttled_users` | Object. A map from user_id to their current events per second rate, for all users that exceed the app's current threshold |
-| `throttled_events` | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
+| `eps_threshold` | Integer. Your app's current events per second threshold. If you exceed this rate your requests are throttled. |
+| `throttled_devices` | Object. A map from `device_id` to its current events per second rate, for all devices that exceed the app's current threshold. |
+| `throttled_users` | Object. A map from `user_id` to their current events per second rate, for all users that exceed the app's current threshold |
+| `throttled_events` | [integer]. Array of indexes in the events array indicating events whose `user_id` or `device_id` got throttled |
 
 #### Code 429 explained
 
-When a request is rejected with a 429 status, it means that a device or user in that request was throttled. Details about which can be found in the error response data. Logging the response lets you investigate which users or devices were the cause of throttling.
+Amplitude rejects a request with a 429 status, it means that a device or user in that request was throttled. The error response has the details, so logging the response lets you investigate which users or devices were the cause of throttling.
 
-Because `device_id` and `user_id` are the attributes that determine throttling, partitioning work on one of these attributes will help isolate throttling to a specific partition of work. This way partitions which are not being throttled can still make progress while the throttled partitions are blocked by throttling.
+Because `device_id` and `user_id` are the attributes that trigger throttling, partitioning work on one of these attributes helps isolate throttling to a specific partition of work. This way partitions which aren't being throttled can still make progress.
 
 ##### EPDS and EPUS
 
-Amplitude measures the rate of events for each deviceid and each userid for a project, and refer to those rates as *events per device second* (**EPDS**) and *events per user second* (**EPUS**) respectively. These values are both averaged over a period of 30 seconds.
+Amplitude measures the rate of events for each deviceID and each userID for a project. Those rates are called *events per device second* (**EPDS**) and *events per user second* (**EPUS**), respectively. These values are both averaged over a period of 30 seconds.
 
-For example, to reach an EPDS limit of 1000 requires that a device sends 30,000 events in a 30-second period for the device to be throttled and receive HTTP status 429.
+!!!example
+
+    To reach an EPDS limit of 1000, a device must send 30,000 events in a 30-second period. This causes the device to be throttled and responds with a HTTP status 429.
 
 In general, your app shouldn't measure EPDS or EPUS itself. Send requests to Amplitude as fast as possible. When you receive a 429, wait for a short period (for example, 15 seconds) before trying to send that request again.
 
 ##### Daily limit
 
-In addition to the per-second limit, there is daily limit to prevent against spam and abuse. This limit is rarely exceeded. Events starts counting toward the daily limit after Amplitude determines that a user/device is spamming the system. After the threshold is reached, a daily limit of 500,000 events uploaded per rolling 24 hours is enforced. The 24 hour rolling period applies in one-hour intervals. The daily limit applies for each deviceid and each user_id for a project.
+In addition to the per-second limit, there is daily limit to prevent against spam and abuse. This limit is hard to exceed. Events starts counting toward the daily limit after Amplitude determines that a user/device is spamming the system. After a project reaches the limit, Amplitude enforces a daily limit of 500,000 events uploaded per rolling 24 hours. The 24 hour rolling period applies in one-hour intervals. The daily limit applies for each deviceID and each `user_id` for a project.
 
-The daily limit is independent of the EPDS/EPUS. Once a user or device has hit the 500,000 event daily limit for a particular project, any batches uploaded containing the user or device is rejected. In those cases, the request returns a 429 response with a body indicating “exceeded_daily_quota_users” or “exceeded_daily_quota_devices” with list of deviceIds and userIds. Retry the batch when there are less than 500,000 events uploaded for a user or device in the previous 24 hour period.
+The daily limit is independent of the EPDS/EPUS. After a user or device has hit the 500,000 event daily limit for a particular project, Amplitude rejects batches that contain the user or device ID. In those cases, the request returns a 429 response with a body indicating "exceeded_daily_quota_users" or "exceeded_daily_quota_devices" with list of deviceIDs and userIDs. Retry the batch when there are less than 500,000 events uploaded for a user or device in the previous 24 hour period.

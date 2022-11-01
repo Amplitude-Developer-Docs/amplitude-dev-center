@@ -7,7 +7,7 @@ icon: material/language-java
 Official documentation for Amplitude Experiment's server-side JVM SDK implementation. This SDK may be used in **either Java or Kotlin** server-side implementations.
 
 !!!info "SDK Resources"
-    [:material-github: Github](https://github.com/amplitude/experiment-jvm-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-jvm-server/releases)
+    [:material-github: GitHub](https://github.com/amplitude/experiment-jvm-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-jvm-server/releases)
 
 This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
@@ -22,7 +22,7 @@ Implements fetching variants for a user via [remote evaluation](../general/evalu
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server.svg?label=Maven%20Central)
 
-Install the JVM Server SDK using gradle.
+Install the JVM Server SDK using Gradle.
 
 === "Groovy"
 
@@ -174,7 +174,7 @@ Fetches variants for a [user](../general/data-model.md#users) and returns the re
 
 | Parameter  | Requirement | Description |
 | --- | --- | --- |
-| `user` | required | The user [user](../general/data-model.md#users) to remote fetch variants for. |
+| `user` | required | The [user](../general/data-model.md#users) to remote fetch variants for. |
 
 === "Kotlin"
 
@@ -244,7 +244,7 @@ Implements evaluating variants for a user via [local evaluation](../general/eval
 
 ![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server.svg?label=Maven%20Central)
 
-Install the JVM Server SDK using gradle.
+Install the JVM Server SDK using Gradle.
 
 === "Groovy"
 
@@ -305,7 +305,7 @@ Install the JVM Server SDK using gradle.
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
 
 !!!warning "Server Deployment Key"
-    You must [initialize](#initialize-local) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key in order to get access to local evaluation flag configs.
+    You must [initialize](#initialize-local) the local evaluation client with a server [deployment](../general/data-model.md#deployments) key to get access to local evaluation flag configs.
 
 === "Kotlin"
 
@@ -348,7 +348,7 @@ The SDK client can be configured on initialization.
 
 ### Start
 
-Start the local evaluation client, pre-fetching local local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
+Start the local evaluation client, pre-fetching local evaluation mode flag configs for [evaluation](#evaluate) and starting the flag config poller at the [configured](#configuration) interval.
 
 === "Kotlin"
 
@@ -362,7 +362,7 @@ Start the local evaluation client, pre-fetching local local evaluation mode flag
     public void start();
     ```
 
-You should wait for `start()` to return before calling [`evaluate()`](#evaluate) in order to ensure that flag configs are available for use in evaluation.
+You should wait for `start()` to return before calling [`evaluate()`](#evaluate) to ensure that flag configs are available for use in evaluation.
 
 ### Evaluate
 
@@ -385,7 +385,6 @@ Executes the [evaluation logic](../general/evaluation/implementation.md) using t
 | --- | --- | --- |
 | `user` | required | The [user](../general/data-model.md#users) to evaluate. |
 | `flagKeys` | optional | Specific flags or experiments to evaluate. If empty, all flags and experiments are evaluated. |
-
 
 === "Kotlin"
 

@@ -1,7 +1,0 @@
-extends: existence
-message: " Do you mean after or when? '%s' is hard to translate."
-ignorecase: true
-level: warning
-tokens:
-  - Once
-  - once

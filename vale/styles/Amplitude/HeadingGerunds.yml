@@ -1,7 +1,0 @@
-extends: existence
-message: "Don't use gerunds in headings."
-level: warning
-scope: heading
-raw:
-  - ing$
-  - (?!track)

@@ -7,7 +7,7 @@ nav: hide
 !!!beta "Amplitude Data is in Beta"
      Amplitude Data must be enabled on your account. Contact Support to request access.
 
-Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, and Destinations receive data from Amplitude. The data that you send to Amplitude can be used for Analytics, Experiment, and Audiences. 
+Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, and Destinations receive data from Amplitude. You can use the data that you send to Amplitude for Analytics, Experiment, and Audiences. 
 
 <div class="grid cards" markdown>
 
@@ -17,7 +17,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Capture customer data in Amplitude. 
 
-    [:octicons-arrow-right-24: See the sources](/data/sources/)
+    [:octicons-arrow-right-24: See the sources](../data/sources/)
 
 - :material-export:{ .lg .middle } __Configure destinations__
 
@@ -25,7 +25,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Send your data to third-party tools.
 
-    [:octicons-arrow-right-24: See the destinations](/data/destinations/)
+    [:octicons-arrow-right-24: See the destinations](../data/destinations/)
   
 - :material-bug-check:{ .lg .middle } __Validate your data__
 
@@ -33,15 +33,15 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
     Detect issues and improve data quality.
 
-    [:octicons-arrow-right-24: Validate your data](/data/debugger)
+    [:octicons-arrow-right-24: Validate your data](../data/debugger)
 
-- :material-help:{ .lg .middle } __Get more resources__
+- :material-help:{ .lg .middle } __Manage Privacy and PII__
 
     ---
 
-    Explore more resources for Amplitude Data.
+    Use tools to manage user privacy and Personally Identifiable Information (PII) in Amplitude
 
-    [:octicons-arrow-right-24: Resources](#more-resources)
+    [:octicons-arrow-right-24: Manage Privacy and PII](../data/pii)
 
 </div>
 
@@ -49,10 +49,10 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 
 Get started with Amplitude Data in a few steps.
 
-1. [Configure sources](/data/sources)
-2. [Instrument analytics](/data/ampli)
-3. [Validate your data](/data/debugger)
-4. [Configure destinations](/data/destinations)
+1. [Configure sources](../data/sources)
+2. [Instrument analytics](../data/ampli)
+3. [Validate your data](../data/debugger)
+4. [Configure destinations](../data/destinations)
 
 ## More resources
 

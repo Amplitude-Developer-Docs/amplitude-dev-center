@@ -6,7 +6,7 @@ description: Set up a recurring or one-time export of Amplitude event data to Bi
 
 !!!beta "This feature is in beta"
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 You can set up recurring syncs of your Amplitude event data to BigQuery through the Amplitude UI,  or manually start a sync of your historical data. This article outlines the process for connecting your Amplitude and BigQuery accounts, and then syncing your data.
 
@@ -27,6 +27,7 @@ To get started with exporting to BigQuery, you need the following:
    - A [custom role](https://cloud.google.com/iam/docs/creating-custom-roles#creating_a_custom_role) that has the following permissions enabled:
      - `bigquery.transfers.get`
      - `bigquery.transfers.update`
+     - `bigquery.datasets.update`
 
 After you've created a service account, generate and download the service account key file and upload it to Amplitude. **Make sure you export Amplitude's account key in JSON format**.
 
@@ -48,7 +49,7 @@ All future events or merged users are automatically sent to BigQuery. Amplitude 
 ### Event table schema
 
 The **Event** table schema includes the following columns:
-
+<!-- vale off-->
 | <div class="big-column">Column</div>| Type | Description |
 |---|---|---|
 | `Adid` | String | (Android) Google Play Services advertising ID (ADID). Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
@@ -59,7 +60,7 @@ The **Event** table schema includes the following columns:
 | `client_event_time` | TIMESTAMP | Local timestamp (UTC) of when the device logged the event. Example: `2015-08-10T12:00:00.000000` |
 | `client_upload_time` | TIMESTAMP | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
 | `country` | STRING | Country. Example: "United States" |
-| `data` | STRING | Dictionary where certain fields such as first_event and merged_amplitude_id are stored |   |
+| `data` | STRING | Dictionary where certain fields such as `first_event` and `merged_amplitude_id` are stored |   |
 | `device_brand` | STRING | Device brand. Example: Apple |
 | `device_carrier` | STRING | Device Carrier. Example: Verizon |
 | `device_family` | STRING | Device family. Example: Apple iPhone |
@@ -81,7 +82,7 @@ The **Event** table schema includes the following columns:
 | `library` | STRING |     |
 | `location_lat` | FLOAT64 | Latitude. Example: 12.3456789 |
 | `location_lng` | FLOAT64 | Longitude. Example: -123.4567890 |
-| `os_name` | STRING | OS name. Example: ios |
+| `os_name` | STRING | OS name. Example: `ios` |
 | `os_version` | STRING | OS version. | 1.0 |
 | `paying` | STRING | True if the user has ever logged any revenue, otherwise (none).   Note: The property value can be modified via the Identify API. Example: true |
 | `platform` | STRING |    |
@@ -97,7 +98,7 @@ The **Event** table schema includes the following columns:
 | `user_properties` | STRING |    |
 | `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
 | `version_name` | STRING | The app version. Example: 1.0.0 |
-
+<!-- vale on-->
 ### Merged User table schema
 
 The Merged User table schema contains the following:  

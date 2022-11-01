@@ -19,9 +19,9 @@ To set up this integration, you need the following:
 
 In Amplitude, navigate to **Data Sources**, then find **Facebook Ad** in the **I want to import data into Amplitude** tab.
 
-![Facebook Add Source](../../assets/images/marketing-analytics/add-sources.png)
+![Facebook Add Source](../../assets/images/marketing-analytics/add-sources.png) 
 
-!!! note 
+!!! note
     This integration must be enabled on a per-project basis.
 
 1. Log in to Facebook and grant Amplitude permission in the consent form.

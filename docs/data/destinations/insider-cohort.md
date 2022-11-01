@@ -36,7 +36,7 @@ Get an API key from the Insider platform. If you don't have one, create one.
 
 ## Send a cohort
 
-After Insider is connected to Amplitude, you can sync any Amplitude cohort to it.
+After you've connected Insider and Amplitude, you can send an Amplitude cohort.
 
 1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose Insider.
 2. Choose the API target.

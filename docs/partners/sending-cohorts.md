@@ -145,11 +145,11 @@ POST https://your.domain/lists/$listId/remove
 - **404**: Invalid User ID
 - **429**: Throttling/rate limiting
 
-The property we pass over for cohort members is set to `true` when a user becomes part of the cohort and it is set to `false` when a user leaves the cohort.
+The property Amplitude passes over for cohort members is set to `true` when a user becomes part of the cohort and it's set to `false` when a user leaves the cohort.
 
 ## Testing
 
-In order to test, we recommend creating a mock payload that you would expect to receive from Amplitude. For cohort integrations, the typical payload structure is as follows:
+To test, Amplitude recommends creating a mock payload that you would expect to receive from Amplitude. For cohort integrations, the typical payload structure is as follows:
 
 ```bash
 curl --location --request POST 'https://app.staging-01.TEST_COMPANY_NAME.com/api/v1/integration/amplitude/cohort \

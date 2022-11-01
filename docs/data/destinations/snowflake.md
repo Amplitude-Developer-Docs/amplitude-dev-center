@@ -5,7 +5,7 @@ description: Upload your Amplitude event data to your Snowflake account with rec
 
 Load your Amplitude event data into your Snowflake account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.
 
---8<-- "includes/editions-all-paid-editions.md"
+--8<-- "includes/editions-all-editions.md"
 
 !!!note "Other Amplitude + Snowflake integrations"
 
@@ -20,7 +20,7 @@ This method also lets you watch jobs.
 
 To set up a recurring export of your Amplitude data to Snowflake, follow these steps:
 
-!!!info "Required user permissions
+!!!info "Required user permissions"
 
     You need admin privileges in Amplitude, as well as a role that allows you to enable resources in Snowflake.
 
@@ -30,11 +30,11 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
 4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Snowflake Credentials For Amplitude* section, enter the following information:
 
-      - **Account Name**: This is the account name on your Snowflake account. It's the first part of your Snowflake URL, before 'snowflakecomputing.com'
+      - **Account Name**: This is the account name on your Snowflake account. It's the first part of your Snowflake URL, before 'snowflakecomputing.com'.
       - **Warehouse**: The warehouse Amplitude uses to load the data. Ideally, this should be a warehouse dedicated to loading Amplitude data to prevent other Snowflake operations aren't disrupted.
-      - **Database**: The database where the data should be stored. Similarly, this database should also be dedicated specifically to Amplitude data.
+      - **Database**: The database where the data should be stored. Dedicate this database specifically to Amplitude data.
       - **Username**: The username Amplitude uses to connect to the Snowflake account.
-      - **Password**: The password associate with the username
+      - **Password**: The password associate with the username.
 
     !!!warning
 
@@ -42,7 +42,7 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
         
 6. Click **Next**. Amplitude attempts to upload test data using the credentials you entered. If the upload is successful, click **Finish**.
 
-All future events are automatically be sent to Snowflake.
+All future events are automatically sent to Snowflake.
 
 From here, Amplitude generates micro-batch files at five-minute intervals and loads them to customer-owned Snowflake accounts directly every 10 minutes. 
 You are able to see the data in your Snowflake accounts within 20 minutes after Amplitude receives the events.
@@ -53,10 +53,9 @@ To export your historical data from Amplitude into Snowflake, navigate to the in
 
 ![a screenshot of the Snowflake export data modal](../../assets/images/integrations-snowflake-export-export-data.png)
 
-This process can take anywhere from a single day to several weeks, depending on your data volume, warehouse size, cluster count, network bandwidth, and number of concurrent historical data exports you 
-currently have, among other factors.
+This process can take anywhere from a single day to several weeks. It depends on your data volume, warehouse size, cluster count, network bandwidth, and number of concurrent historical data exports you currently have, among other factors.
 
-## Reducing your Snowflake computation costs
+## Reduce your Snowflake computation costs
 
 If you are looking to reduce the Snowflake computation costs when receiving data from Amplitude, try these methods:
 
@@ -64,7 +63,7 @@ If you are looking to reduce the Snowflake computation costs when receiving data
 
     The effectiveness of these recommendations will depend on the frequency with which you export to your Snowflake instance.
 
-- Modify warehouse **size** and **number of clusters**. For shorter export cadences (15 to 30 minutes), try starting with xsmall or small. Then upgrade as needed.
+- Modify warehouse **size** and **number of clusters**. For shorter export cadences (15 to 30 minutes), try starting with `xsmall` or `small`. Then upgrade as needed.
 - When backfilling data into Snowflake, start with a small warehouse and upgrade as needed.
 - You can also try reducing the auto suspend time to 60s. This option might not be available within the Snowflake UI, but can be manually set via direct Snowflake query.
 
@@ -73,18 +72,18 @@ If you are looking to reduce the Snowflake computation costs when receiving data
 ### Event table schema
 
 The **Event** table schema includes the following columns:
-
+<!--vale off -->
 | <div class="big-column">Column</div>| Type | Description |
 |---|---|---|
 | `Adid` | String | (Android) Google Play Services advertising ID (ADID). Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
-| `amplitude_event_type` | VARCHAR(1677721) | Amplitude specific identifiers based on events Amplitude generates. This is a legacy field so event_type should suffice for all queries  |
+| `amplitude_event_type` | VARCHAR(1677721) | Amplitude specific identifiers based on events Amplitude generates. This is a legacy field so `event_type` should suffice for all queries  |
 | `amplitude_id` | BIGNUMERIC | The original Amplitude ID for the user. Use this field to automatically handle merged users. Example: 2234540891 |
 | `app` | INT64 | Project ID found in your project's Settings page. Example: 123456 |
 | `city` | STRING | City. Example: “San Francisco” |
 | `client_event_time` | TIMESTAMP | Local timestamp (UTC) of when the device logged the event. Example: `2015-08-10T12:00:00.000000` |
 | `client_upload_time` | TIMESTAMP | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
 | `country` | STRING | Country. Example: "United States" |
-| `data` | VARIANT | Dictionary where certain fields such as first_event and merged_amplitude_id are stored |   |
+| `data` | VARIANT | Dictionary where certain fields such as `first_event` and `merged_amplitude_id` are stored |   |
 | `device_brand` | STRING | Device brand. Example: Apple |
 | `device_carrier` | STRING | Device Carrier. Example: Verizon |
 | `device_family` | STRING | Device family. Example: Apple iPhone |
@@ -117,11 +116,13 @@ The **Event** table schema includes the following columns:
 | `server_upload_time` | TIMESTAMP | Amplitude timestamp (UTC) of when Amplitude servers received the event. Example:  `2015-08-10T12:00:00.000000` |
 | `session_id` | BIGNUMERIC | The session start time in milliseconds since epoch. Example: 1396381378123 |
 | `start_version` | STRING | App version the user was first tracked on. Example: 1.0.0 |
-| `user_creation_time` | TIMESTAMP | Event_time (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
+| `user_creation_time` | TIMESTAMP | `event_time` (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
 | `user_id` | STRING | A readable ID specified by you. Should be something that doesn't change; for that reason, using the user's email address isn't recommended.  |
 | `user_properties` | VARIANT |    |
 | `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
 | `version_name` | STRING | The app version. Example: 1.0.0 |
+
+<!-- vale on-->
 
 ### Merged User table schema
 

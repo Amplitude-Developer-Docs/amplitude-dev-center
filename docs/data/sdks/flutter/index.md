@@ -1,17 +1,15 @@
 ---
 title: Flutter SDK
 description: The Amplitude Flutter SDK installation and quick start guide. 
-icon: flutter
+icon: simple/flutter
 ---
 
 ![pub package](https://img.shields.io/pub/v/amplitude_flutter.svg)
 
 This is the official documentation for the Amplitude Analytics Flutter SDK.
 
-!!!info "SDK Resources"
-    - [Flutter SDK Reference :material-book:](https://pub.dev/documentation/amplitude_flutter/latest/)
-    - [Flutter SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Flutter)
-    - [Flutter SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Flutter/releases)
+!!!info "Flutter SDK Resources"
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Flutter) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Flutter/releases) · [:material-book: API Reference](https://pub.dev/documentation/amplitude_flutter/latest/)
 
 --8<-- "includes/no-ampli.md"
 
@@ -80,7 +78,7 @@ Amplitude.getInstance().setServerZone("EU");
 Amplitude.getInstance().setServerUrl("https://api.eu.amplitude.com")
 ```
 
-### Sending events
+### Send events
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -100,7 +98,7 @@ Events can also contain properties. They provide context about the event taken. 
 Amplitude.getInstance().logEvent('BUTTON_CLICKED', {"Hover Time": "100ms"});
 ```
 
-#### Flush Events
+#### Flush events
 
 Events are typically stored in a buffer and flushed periodically. This behavior is configurable. You can also flush events manually
 
@@ -121,7 +119,7 @@ import 'package:amplitude_flutter/identify.dart';
 
     Don't track any user data that may be against your privacy terms.
 
-#### Setting a user property
+#### Set a user property
 
 #### `set`
 
@@ -178,7 +176,7 @@ final Identify identify = Identify()
 Amplitude.getInstance().identify(identify);
 ```
 
-### Setting multiple user properties
+### Set multiple user properties
 
 You can use `setUserProperties` as a shorthand to set multiple user properties at one time. This method is a wrapper around `Identify.set` and `identify`.
 
@@ -192,7 +190,7 @@ Amplitude.getInstance().setUserProperties(userProperties);
 
 ### Arrays in user properties
 
-Arrays can be used as user properties. You can directly set arrays or use append to generate an array.
+You can use arrays as user properties. You can directly set arrays or use append to generate an array.
 
 ```dart
 const colors = ["rose", "gold"];
@@ -219,9 +217,9 @@ final Identify identify = Identify()
 Amplitude.getInstance().identify(identify);
 ```
 
-### Removing user properties
+### Remove user properties
 
-#### Clearing all user properties
+#### Clear all user properties
 
 `clearUserProperties` clears all the current user's user properties.
 
@@ -336,7 +334,7 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
 
  Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA isn't available.
 
-See [iOS Advertising ID](ios/#advertising-id) or the [Android Advertising ID](android-kotlin/#advertiser-id) for more information.
+See [iOS Advertising ID](../ios/#advertising-id) or the [Android Advertising ID](../android-kotlin/#advertiser-id) for more information.
 
 ### Opt out of tracking
 
@@ -351,10 +349,10 @@ Amplitude.getInstance().setOptOut(false);
 
 ### Dynamic configuration
 
-Flutter SDK lets users configure their apps to use [dynamic configuration](data/dynamic-configuration/). This feature will find the best server URL automatically based on app users' location.
+Flutter SDK lets users configure their apps to use [dynamic configuration](../../dynamic-configuration). This feature finds the best server URL automatically based on app users' location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
-- If you have users in Mainland China, we recommend that you use dynamic configuration.
+- If you have users in Mainland China, Amplitude recommends that you use dynamic configuration.
 - By default, this feature is off. You must explicitly enable it to use it.
 - By default, this feature returns server URLs for Amplitude's US servers. If you need to send data to Amplitude's EU servers,  use `setServerZone` to set it to EU zone.
 
@@ -362,7 +360,7 @@ Flutter SDK lets users configure their apps to use [dynamic configuration](data
 Amplitude.getInstance().setUseDynamicConfig(true);
 ```
 
-### Flutter veb support
+### Flutter web support
 
 Flutter web support delivers the same experiences on the web as on mobile. Amplitude-Flutter starts to support flutter web from v3.8.0.
 
@@ -404,6 +402,17 @@ Append the following Amplitude-JavaScript snippet into `web/index.html` in you
     }return n._iq[e]};e.amplitude=n})(window,document);
 </script>
 ```
+
+## Compatibility Matrix
+
+The following matrix lists the minimum support for Amplitude Flutter SDK version.
+For Gradle Version lower than v6.7.1, use Amplitude Flutter v3.10.0.
+
+|<div class="med-column">Amplitude Flutter</div>|Gradle|Android Gradle Plugin|Kotlin Gradle Plugin|
+|-|-|-|-|
+| `3.11.+` | `6.7.1` | `3.6.4` | `1.7.10` |
+
+Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle), [Gradle compatibility](https://docs.gradle.org/current/userguide/compatibility.html#kotlin), and [Kotlin compatibility](https://kotlinlang.org/docs/whatsnew17.html#bumping-minimum-supported-versions).
 
 ## Troubleshooting
 

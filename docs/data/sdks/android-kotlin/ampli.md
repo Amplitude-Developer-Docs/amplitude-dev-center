@@ -3,16 +3,15 @@ title: Android Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
 ---
 
-!!!note
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrating-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/deprecated-sdks/android/)**.
 
 Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
 In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
-!!!tip
-
-    See example apps that use the Android Java and Kotlin runtimes on [GitHub](https://github.com/amplitude/ampli-examples/tree/main/android).
+<!--vale off-->
+!!!info "Ampli Android Resources"
+    [:material-language-kotlin: Ampli Android Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v2/AmpliApp) · [:material-language-java: Ampli Android Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v2/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+<!-- vale on-->
 
 ## Installation
 
@@ -20,7 +19,7 @@ These instructions are also available from the **Implementation** page of your A
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](/data/ampli).
+If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
 
 ### Install dependencies
 
@@ -29,19 +28,18 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "Java"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:1.0.0'
+    implementation 'com.amplitude:analytics-android:1.0+'
     ```
 
 === "Kotlin"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:1.0.0'
+    implementation 'com.amplitude:analytics-android:1.0+'
     ```
 
 !!!note
 
     If you're not already requesting the [INTERNET permission](https://developer.android.com/reference/android/Manifest.permission#INTERNET), add `<uses-permission android:name="android.permission.INTERNET" />` to your AndroidManifest.xml.
-
 
 ### Pull the Wrapper into your project
 
@@ -113,7 +111,7 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 | <div class ="big-column">Arg</div> | Description |
 |-|-|
-| `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your team's tracking plan.|
+| `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one source template associated with your team's tracking plan.|
 | `LoadOptions` | Optional. Specifies configuration options for the Ampli Wrapper.|
 |`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the Wrapper detects an invalid event, it logs an error but stills let the event through. In development, the Wrapper throws an exception to alert you that something is wrong.|
@@ -150,11 +148,10 @@ For example your tracking plan contains a user property called `userProp`. The p
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
 
-
 === "Java"
 
     ```java
-	EventOptions eventOptions =  new EventOptions();
+    EventOptions eventOptions = new EventOptions();
     eventOptions.setDeviceId("deviceId");
 
     Ampli.getInstance().identify(
@@ -167,7 +164,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 === "Kotlin"
 
     ```kotlin
-	var eventOptions = EventOptions();
+    val eventOptions = EventOptions();
     eventOptions.deviceId = "device-id";
 
     ampli.identify(
@@ -185,10 +182,9 @@ Call `groupIdentify()` to identify a group in your app and set/update group prop
 
 Just as Ampli creates types for events and their properties, it creates types for group properties.
 
-The `groupIdentify()` function accepts a string group_type, a string group_name, an Group event instance, and an optional EventOptions.
+The `groupIdentify()` function accepts a string `group_type`, a string `group_name`, an Group event instance, and an optional EventOptions.
 
 For example your tracking plan contains a group `test group:android-java-ampli` has a property called `requiredBoolean` with a boolean type.
-
 
 === "Java"
 
@@ -225,7 +221,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 --8<-- "includes/groups-intro-paragraph.md"
 
- GroupType is a string, and groupName can be either a string or an array of strings to indicate that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
+ GroupType is a string, and `groupName` can be either a string or an array of strings to show that a user is in multiple groups. For example, if Joe is in 'orgId' '10' and '20', then the `groupName` is '[10, 20]').
 
  Your code might look like this:
 
@@ -259,8 +255,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `options` argument allows you to pass [Amplitude fields](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/#properties-1), like `deviceID`.
 
-For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
-
+For example, in the following code snippets, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
 === "Java"
 
@@ -337,54 +332,54 @@ First you need to define your plugin. Destination Plugin example:
 
     ```java
     public class SegmentDestinationPlugin extends DestinationPlugin {
-    	android.content.Context context;
-    	Analytics analytics;
-    	String SEGMENT_API_KEY;
-    	public SegmentDestinationPlugin(android.content.Context appContext, String segmentAPIKey) {
-        	this.context = appContext;
-        	this.SEGMENT_WRITE_KEY = segmentWriteKey;
-    	}
-    	@Override
-     	public void setup(Amplitude amplitude) {
-        	super.setup(amplitude);
-        	analytics = new Analytics.Builder(this.context, SEGMENT_API_KEY)
+        android.content.Context context;
+        Analytics analytics;
+        String SEGMENT_API_KEY;
+        public SegmentDestinationPlugin(android.content.Context appContext, String segmentAPIKey) {
+            this.context = appContext;
+            this.SEGMENT_WRITE_KEY = segmentWriteKey;
+        }
+        @Override
+        public void setup(Amplitude amplitude) {
+            super.setup(amplitude);
+            analytics = new Analytics.Builder(this.context, SEGMENT_API_KEY)
                 .build();
-
-       	 	Analytics.setSingletonInstance(analytics);
-    	}
-
-    	@Override
-    	public BaseEvent track(BaseEvent event) {
-        	Properties properties = new Properties();
-        	for (Map.Entry<String,Object> entry : event.getEventProperties().entrySet()) {
-            	properties.putValue(entry.getKey(),entry.getValue());
-        	}
-        	analytics.track(event.eventType, properties);
-        	return event;
-    	}
-	}
+            
+            Analytics.setSingletonInstance(analytics);
+        }
+        
+        @Override
+        public BaseEvent track(BaseEvent event) {
+            Properties properties = new Properties();
+            for (Map.Entry<String,Object> entry : event.getEventProperties().entrySet()) {
+             properties.putValue(entry.getKey(),entry.getValue());
+            }
+            analytics.track(event.eventType, properties);
+            return event;
+        }
+    }
     ```
 
 === "Kotlin"
 
     ```kotlin
     class SegmentDestinationPlugin(appContext: Context, segmentApiKey: String) : DestinationPlugin() {
-    	var analytics: Analytics? = null;
-    	val context: Context = appContext;
-    	init {
-        	analytics = Analytics.Builder(appContext, segmentApiKey).build()
-    	}
-
-    	override fun track(event: BaseEvent): BaseEvent {
-        	val eventProperties =  Properties();
-        	event.eventProperties?.forEach { entry -> entry.value?.let {
-            	eventProperties.put(entry.key,
+        var analytics: Analytics? = null;
+        val context: Context = appContext;
+        init {
+            analytics = Analytics.Builder(appContext, segmentApiKey).build()
+        }
+        
+        override fun track(event: BaseEvent): BaseEvent {
+            val eventProperties =  Properties();
+            event.eventProperties?.forEach { entry -> entry.value?.let {
+             eventProperties.put(entry.key,
                 it)
-        	} }
-
-        	analytics?.track(event.eventType, eventProperties);
-        	return event
-    	}
+            } }
+            
+            analytics?.track(event.eventType, eventProperties);
+            return event
+        }
     }
     ```
 
@@ -393,21 +388,20 @@ Add your plugin after init Ampli.
 === "Java"
 
     ```java
-	Ampli.getInstance().getClient().add(
-		new YourDestinationPlugin(this, DESTINATION_API_KEY)
-	);
-
+     Ampli.getInstance().getClient().add(
+        new YourDestinationPlugin(this, DESTINATION_API_KEY)
+     );
     ```
 
 === "Kotlin"
 
     ```kotlin
     ampli.client?.add(
-		YourDestinationPlugin(this, DESTINATION_API_KEY)
-	)
+        YourDestinationPlugin(this, DESTINATION_API_KEY)
+     )
     ```
 
-##  Verify implementation status
+## Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
@@ -420,6 +414,7 @@ To update the implementation status in your tracking plan use the `--update` fla
 ```bash
 ampli status -u
 ```
+
 The output displays status and indicates what events are missing.
 
 ```bash
@@ -432,8 +427,7 @@ Events Tracked: 1 missed, 2 total
 
 Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
 
-
-## Migrating from an Itly Android runtime
+## Migrate from an Itly Android runtime
 
 Migrate from an Itly Android runtime to Ampli by following these steps.
 
@@ -462,7 +456,7 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
     ```
 
 4. Check your Ampli Wrapper path.
-    `ampli pull` prints the location of where the new wrapper was downloaded. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
+    `ampli pull` prints the location of the new wrapper. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
 
 5. Find and replace:
 

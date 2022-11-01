@@ -7,7 +7,7 @@ description: Use this integration to send Amplitude cohorts to Cordial lists.
     
     This integration is in open beta, and is still in active development. If you have any feedback to help improve this destination and or its documentation, [contact the Cordial support team](https://cordial.com/contact-us/).
 
-[Cordial](https://cordial.com/) is a customer engagement and data platform that unifies real-time data from anywhere in your technology stack, so you can engage with your customers in more personalized ways across email, SMS, mobile app, and more.
+[Cordial](https://cordial.com/) is a customer engagement and data platform that unifies real-time data from anywhere in your technology stack. With it, you can engage with your customers in more personalized ways across email, SMS, mobile app, and more.
 
 This cohort integration allows you to sync users from Amplitude cohorts to Cordial lists. Using lists along with other contact data in Cordial, you can create dynamic segments of contacts for sending messages, searching contacts, and filtering analytics reports.
 
@@ -23,13 +23,13 @@ This cohort integration allows you to sync users from Amplitude cohorts to Cordi
 1. In Amplitude, navigate to **Data Destinations**, then find **Cordial - Cohort**.
 2. Enter Name and Cordial API Key.
 3. Reach out to your Cordial CSM to get your Amplitude service URL and paste it into the Endpoint field.
-4. Enter the name of your contact identifier in Cordial into the Contact identifier name field. Users are identified by this key in Cordial. For example, "email".
-5. In the Contact identifier mapping dropdown, select a user property name. The value is passed as the value for the contact identifier.
+4. Enter the name of your contact identifier in Cordial into the Contact identifier name field. This key identifies users in Cordial. For example, "email".
+5. In the Contact identifier mapping dropdown, select a user property name. This value is used for the contact identifier.
 6. Save the destination.
 
 ## Send a cohort
 
-1. In Amplitude, open the cohort you want to export. 
+1. In Amplitude, open the cohort to sync. 
 2. Click **Sync**, and choose Cordial.
 3. Select the destination.
 4. Select the sync frequency you need.

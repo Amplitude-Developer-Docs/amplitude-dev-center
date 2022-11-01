@@ -1,0 +1,74 @@
+{
+
+	"ignorePatterns": [
+	  {
+		"pattern": "^https://developer.android.com/reference/android/Manifest.permission"
+	  },
+	  {
+		"pattern": "https://help.amplitude.com/hc"
+	  },
+	  {
+		"pattern": "^https://api2.amplitude.com"
+	  },
+	  {
+		"pattern": "^https://api."
+	  },
+	  {
+		"pattern": "^https://amplitude.com/api"
+	  },
+	  {
+		"pattern": "^https://analytics.eu.amplitude.com/api"
+	  },
+	  {
+		"pattern": "assets/images/"
+	  },
+	  {
+		"pattern": "https://core.amplitude.com/scim/1/"
+	  },
+		{
+		"pattern": "https://developer.android.com"
+		},
+		{
+		"pattern": "https://badge.fury.io"
+		},
+		{
+		"pattern": "https://forum.unity.com"
+		},
+		{
+
+		"pattern": "https://badge.fury.io"
+
+		},
+
+    {
+    "pattern": "#initialize_1"
+    },
+
+    {
+    "pattern": "#configuration_1"
+    },
+
+    {
+    "pattern": "/../data/sdks/ios/#advertiser-id"
+    }
+
+	],
+
+  "replacementPatterns": [
+    {
+      "pattern": "^../",
+      "replacement": "https://docs.developers.amplitude.com/"
+    },
+    {
+      "pattern": "^data/",
+      "replacement": "https://docs.developers.amplitude.com/data"
+    },
+    {
+      "pattern": "^experiment/",
+      "replacement": "https://docs.developers.amplitude.com/experiment/"
+    }
+  ],
+
+  "aliveStatusCodes": [200, 206, 403]
+
+}

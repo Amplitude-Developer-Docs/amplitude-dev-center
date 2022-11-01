@@ -1,4 +1,4 @@
-# Dev Docs PR
+# Amplitude Developer Docs PR
 
 
 ## Description

@@ -7,8 +7,10 @@ search:
 ---
 
 <!-- markdownlint-disable -->
+<!-- markdown-link-check-disable -->
+<!-- vale off-->
 
-!!!warning "Deprecated SDK"
+!!!deprecated "Deprecated SDK"
     This SDK is deprecated and these docs are no longer maintained. Migrate to the [iOS SDK (Ampli)](/data/sdks/ios/ampli/).
 
 

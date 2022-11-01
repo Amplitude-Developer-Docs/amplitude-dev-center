@@ -1,4 +1,6 @@
 <!-- markdownlint-disable-file -->
+<!-- markdown-link-check-disable -->
+<!-- vale off -->
 
 # Formatting Cheatsheet
 
@@ -33,6 +35,7 @@ Admonition types we use:
 - **tip**: a tip or trick that makes using the product easier. For example: quickstarts, helpful settings. 
 - **alpha**: Custom. Used for alpha notices.
 - **beta**: Custom. Used for beta notices.
+- **deprecated**: Custom. Used for deprecation notices.
 
 
 To make a block collapsible, use `???` instead of `!!!`
@@ -296,3 +299,27 @@ Markdown tables are fairly straightforward.
 Accessibility note: Don't use markdown tables for formatting, only for tabular data. Also, avoid merging cells. [Learn more about table accessibility](https://www.w3.org/WAI/tutorials/tables/ "https://www.w3.org/WAI/tutorials/tables/")
 
 [Learn more](https://squidfunk.github.io/mkdocs-material/reference/data-tables/ "https://squidfunk.github.io/mkdocs-material/reference/data-tables/")
+
+Tooltips
+-------
+
+Tooltips display plain text when you hover over an element. Use them with links or icons, never with headings or bare text. Tooltips can be added to data tables, and are a great alternative for annotations (which aren't supported in tables), or where a footnote doesn't make sense. 
+
+### Link tooltips
+
+Add a title in double quotes after the link. 
+
+```txt
+[Hover me](https://example.com "I'm a tooltip!")
+```
+
+### Icon tooltips
+
+Add a tooltip to an info icon: 
+
+```text
+:material-information-outline:{ title="Important information" }
+```
+
+
+[Learn more](https://squidfunk.github.io/mkdocs-material/reference/tooltips)

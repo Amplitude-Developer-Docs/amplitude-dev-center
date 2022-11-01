@@ -1,7 +1,7 @@
 ---
 title: Unity SDK
 description: The Amplitude Unity SDK installation and quick start guide.
-icon: material/unity
+icon: simple/unity
 ---
 
 
@@ -9,15 +9,14 @@ icon: material/unity
 
 The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher.
 
-!!!info "SDK Resources"
-    - [Unity SDK Repository :material-github:](https://github.com/amplitude/unity-plugin)
-    - [Unity SDK Releases :material-code-tags-check:](https://github.com/amplitude/unity-plugin/releases)
+!!!info "Unity SDK Resources"
+    [:material-github: GitHub](https://github.com/amplitude/unity-plugin) · [:material-code-tags-check: Releases](https://github.com/amplitude/unity-plugin/releases) · [:material-book: API Reference](https://github.com/amplitude/unity-plugin)
 
 --8<-- "includes/no-ampli.md"
 
 !!!tip "Supported Platforms"
 
-    Unity SDK does not support pure desktop or Editor
+    Unity SDK doesn't support pure desktop or Editor
 
     Remember to test your apps using the `Build Settings` for either Android or iOS, which links to their respective devices or emulators.
 
@@ -36,25 +35,26 @@ The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amp
 1. Download the latest [`amplitude-unity.unitypackage`](https://github.com/amplitude/unity-plugin/releases) from GitHub releases.
 2. Double click `amplitude-unity.unitypackage` to import the package into your Unity project.
 
-### [Android] Add obfuscation exception
+### Android: Add obfuscation exception
 
-Add this line in your Proguard rules file - proguard.pro.
+Add this line in your ProGuard rules file - `proguard.pro`.
 
+<!--vale Amplitude.Spacing = NO-->
 ```bash title="proguard.pro"
 -keep class com.amplitude.unity.plugins.AmplitudePlugin { *; }
 ```
-
+<!--vale Amplitude.Spacing = YES-->
 ### Carrier information (optional)
 
 Please refer to [this](https://developers.amplitude.com/docs/ios#carrier-information).
 
-### 4. [Android] Dependencies management
+### 4. Android: Dependencies management
 
 Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrain).
 
 If by any chance you have OkHttp included in your project, feel free to choose not to include OkHttp and its related dependencies by unchecking them.
 
-### [Android] Using `unity-jar-resolver`
+### Android: Using `unity-jar-resolver`
 
 Some users use `unity-jar-resolver` themselves. When they force resolve dependencies, it cleans up Amplitude-related jars. In this case, declare those dependencies in your `*Dependencies.xml` file.
 
@@ -75,9 +75,9 @@ Add Amplitude's native dependencies under `androidPackage` tag.
 
 ```
 
-### [Android] API compatibility
+### Android: API compatibility
 
-Amplitude SDK depends on the OkHttp library. Since OkHttp v3.13 requires minimum version to be Android 5.0, Android Lollipop (API 21). [Read details here](https://developer.squareup.com/blog/okhttp-3-13-requires-android-5/).
+Amplitude SDK depends on the OkHttp library.  OkHttp v3.13 requires the minimum version to be Android 5.0, Android Lollipop (API 21). [Read details here](https://developer.squareup.com/blog/okhttp-3-13-requires-android-5/).
 
 Amplitude doesn't restrict which OkHttp version to use. For API 19, 20 (Android KitKat) to work, downgrade the OkHttp version to be lower than 3.13.
 
@@ -92,7 +92,7 @@ If you use google dependency resolver, update the dependency version for OkHttp 
 
 ### iOS Xcode troubleshooting
 
-If Xcode doesn't let you use a simulator or device, it's because the Unity project must be configured to use either the Device SDK (real life devices) or the Simulator SDK (emulator).
+If Xcode doesn't let you use a simulator or device, it's because you must configure the Unity project to use either the Device SDK (real life devices) or the Simulator SDK (emulator).
  To change the settings for the build, select `Unity > Edit > Project Settings... > Player > iOS Tab`, open the dropdown menu Other Settings, scroll to **Configuration**, and select either value needed for the Target SDK field.
 
 ## Usage and examples
@@ -121,7 +121,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ## EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](data/dynamic-configuration/) as well.
+ The server zone configuration supports [dynamic configuration](../dynamic-configuration/) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 
@@ -138,7 +138,7 @@ amplitude.setServerZone(AmplitudeServerZone.EU);
 amplitude.setServerUrl("https://api.eu.amplitude.com");
 ```
 
-### Sending events
+### Send events
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -177,7 +177,7 @@ Identify is for setting the user properties of a particular user without sending
 
     If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user's profile area, but it will not appear in chart result until another event is sent after the Identify call. So the identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
-#### Managing user identity
+#### Manage user identity
 
 You can handle the identity of a user using the identify methods. Proper use of these methods can connect events to the correct user as they move across devices, browsers, and other platforms.
  Send an identify call containing those user property operation to Amplitude to tie a user's events with specific user properties.
@@ -209,7 +209,7 @@ values.Add("Key A", "Value A");
 amplitude.addUserPropertyDict("user_facts", values);
 ```
 
-### Setting multiple user properties
+### Set multiple user properties
 
 `logEvent()` method lets you set the user properties along with event logging. You can use `setUserProperties` as a shorthand to set multiple user properties at once. This method is a wrapper around `Identify.set`.
 
@@ -239,7 +239,7 @@ amplitude.setUserProperty("stringArray", new string[]{"replace", "existing", "st
 amplitude.appendUserProperty("stringArray", new string[]{ "append", "more", "strings" });
 ```
 
-##### Clearing user properties
+##### Clear user properties
 
 `clearUserProperties` method is for clearing all user properties at one time.
 
@@ -274,7 +274,7 @@ amplitude.unsetUserProperty("property_name_to_unset");
     Amplitude.getInstance().setGroup("sport", new JSONArray().put("tennis").put("soccer"));  // list values
     ```
 
-You can also use `logEventWithGroups` to set event-level groups, meaning the group designation only applies for the specific event being logged and does not persist on the user unless you explicitly set it with `setGroup`:
+You can also use `logEventWithGroups` to set event-level groups, meaning the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with `setGroup`:
 
 ```c#
 JSONObjecteventProperties=newJSONObject().put("key", "value");
@@ -292,14 +292,14 @@ Calling `logRevenue` generates up to 2 different event types in the platform:
 - '[Amplitude] Revenue': This event is logged for all revenue events, regardless of whether verification is turned on.
 - '[Amplitude] Revenue (Verified/Unverified)': These revenue events will contain the actual '$revenue' property.
 
-You can't change the default names given to these client-side revenue events in the raw data but you do have the option to modify the [display name](https://help.amplitude.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see our documentation [here](https://help.amplitude.com/hc/en-us/articles/115003116888).
+You can't change the default names given to these client-side revenue events in the raw data but you do have the option to modify the [display name](https://help.amplitude.com/hc/en-us/articles/235649848#events). To learn more about tracking revenue, see the documentation [here](https://help.amplitude.com/hc/en-us/articles/115003116888).
 
 | <div class="big-column">Name</div>  | Description  |
 | --- | --- |
 | `productId` | Optional. String. An identifier for the product. Amplitude recommends something like the "Google Play Store product ID". Defaults to `null`. |
 | `quantity`| Required. Integer. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1. |
 | `price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to `null`.|
-| `revenueType` | Optional, but required for revenue verification. String. The type of revenue (e.g. tax, refund, income). Defaults to `null`. |
+| `revenueType` | Optional, but required for revenue verification. String. The type of revenue (for example, tax, refund, income). Defaults to `null`. |
 | `eventProperties`| Optional. Object. An object of event properties to include in the revenue event. Defaults to `null`. |
 
 !!!info
@@ -363,8 +363,8 @@ client.logEvent("event out of session", eventProps, outOfSession);
 
 ### Advertising ID
 
-Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. Because it's unique to every person and not just their devices, IDFA is useful for mobile attribution. [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (e.g. ad campaign, app store search).
- Mobile apps need permission to ask for IDFA, and apps targeted to children cannot track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA is not available.
+Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. Because it's unique to every person and not just their devices, IDFA is useful for mobile attribution. [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (for example, ad campaign, app store search).
+ Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV, device id, or an email login system as alternatives when IDFA isn't available.
 
 #### iOS setup
 
@@ -372,9 +372,9 @@ See setup instructions in [Unity iOS IDFA and GPS Setup](#ios-idfa-and-gps-setu
 
 #### Android setup
 
-See setup instructions in the [Android SDK](android-kotlin/#advertiser-id).
+See setup instructions in the [Android SDK](../android-kotlin/#advertiser-id).
 
-### Location Tracking
+### Location tracking
 
 For location tracking, Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.
  Amplitude can access the Android location service (if possible) to add the specific coordinates (longitude and latitude) where an event is logged.
@@ -417,12 +417,12 @@ client.setOptOut(true); //No events will be tracked for this user
 
 ### Dynamic configuration
 
-Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
+Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
-- If you have users in Mainland China, we recommend that you use dynamic configuration.
+- If you have users in Mainland China, Amplitude recommends that you use dynamic configuration.
 - By default, this feature is off. You must explicitly enabled it to use it.
-- By default, this feature returns server URLs for Amplitude's US servers, if you need to send data to Amplitude's EU servers, please use `setServerZone` to set it to EU zone.
+- By default, this feature returns server URLs for Amplitude's US servers, if you need to send data to Amplitude's EU servers, use `setServerZone` to set it to EU zone.
 
 ```c#
 amplitude.setUseDynamicConfig(true);
@@ -435,14 +435,14 @@ This section walks through the process to give Unity SDK users access to IDFA (a
 ### Considerations
 
 - This functionality wasn't included in the Unity SDK because the Apple App Store flags any app that uses IDFA code, even if the code is disabled or sourced from a third-party SDK developer like Amplitude.
-- Consider alternatives to IDFA. Do not assume users will enable IDFA tracking; opt-in systems engage less. Use device id, IDFV, or pass your own app's email login system as a custom user property.
+- Consider alternatives to IDFA. Don't assume users will enable IDFA tracking; opt-in systems engage less. Use device id, IDFV, or pass your own app's email login system as a custom user property.
 - You can edit the Objective-C iOS logic to fetch IDFA and GPS data. However, the current code was written to handle permissions, and accurately update the IDFA and GPS data within the SDK when the app user gives permissions.
 
 ### Setup
 
 !!!note  "iOS App Store compliance"
 
-   If an app is subject to COPPA because it is aimed toward children, the app cannot contain any IDFA or GPS tracking code whatsoever. This is why the IDFA and GPS code is packaged separately and requires this setup.
+   If an app is subject to COPPA because it's aimed toward children, the app can't contain any IDFA or GPS tracking code. This is why the IDFA and GPS code requires additional setup.
 
 First, take the [two files](https://github.com/amplitude/unity-plugin/tree/main/IdfaIOS) `unity-plugin/IdfaIOS/CustomIdfa.m` and `unity-plugin/IdfaIOS/CustomGPS.m` and place them into `Assets/Scripts`.
  You may place the file wherever, but check all the `#import` statements lead to correct paths.
@@ -483,23 +483,23 @@ amplitude.init("e7177d872ff62c0356c973848c7bffba"); //API key
 These functions prompt the iOS user to accept or reject permissions for GPS location tracking, as well as IDFA tracking.
 
 Furthermore, your Unity app needs two special configurations.\
-For location, please navigate to `Unity > Edit > Project Settings...`. The menu in the first image below will pop up. Select `Player`, then click the `iOS` tab. Click `Other Settings`, and scroll until the field `Location Usage Description`. Type a sentence that prompts the user for GPS tracking permissions into the textbox.
+For location, navigate to `Unity > Edit > Project Settings...`. The menu in the first image below will pop up. Select `Player`, then click the `iOS` tab. Click `Other Settings`, and scroll until the field `Location Usage Description`. Type a sentence that prompts the user for GPS tracking permissions into the text box.
 
-![](../../assets/images/analytics-unity-player.png)
-![](../../assets/images/analytics-unity-player-2.png)
+![screenshot of unity player](/assets/images/analytics-unity-player.png)
+![screenshot of unity player](/assets/images/analytics-unity-player-2.png)
 
 !!!note "Xcode Simulator"
 
-   IDFA tracking permissions can generally only be tested reliably on real life phones.
+    IDFA tracking permissions can generally only be tested reliably on real life phones.
 
 For IDFA, the file `Info.plist` has to be edited according to Apple's specifications. This can be done with a Unity script with [guidance from this Unity post](https://forum.unity.com/threads/how-can-you-add-items-to-the-xcode-project-targets-info-plist-using-the-xcodeapi.330574/).
 
-Also, when the app is compiled into iOS and launches into xcode, find the top-level file `Info.plist`. Click the plus symbol next to any key value pair. Use the xcode editor to find the key `Privacy - Tracking Usage Description`, ensure the Type is String, and type a prompt to ask for tracking permission in the Value field.
+Also, when the app is compiled into iOS and launches into Xcode, find the top-level file `Info.plist`. Click the plus symbol next to any key value pair. Use the Xcode editor to find the key `Privacy - Tracking Usage Description`, make sure the Type is String, and type a prompt to ask for tracking permission in the Value field.
 
-![](../../assets/images/analytics-unity-value-field.png)
+![screenshot of the value field](/assets/images/analytics-unity-value-field.png)
 
 ## Report issues
 
-If you have any problems with the SDK, create [create a GitHub issue](https://github.com/amplitude/unity-plugin/issues/new).
+If you have any problems with the SDK, [create a GitHub issue](https://github.com/amplitude/unity-plugin/issues/new).
 
 --8<-- "includes/abbreviations.md"

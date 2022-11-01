@@ -29,14 +29,14 @@ Set up this integration to send cohorts to an Amazon S3 bucket. This enables you
 
 1. In the Amazon S3 console, go to the S3 bucket and navigate to **Permissions → Bucket Policy.** Paste the Amplitude bucket policy into the Amazon S3 console.
 2. Optionally, you can also set the following two parameters for your buckets:
-    -  **Require suffix** When set, this allows users to append a string at the end of every file exported to S3.
-    -   **User property:** You can select a single user property to be synced along with each user as an extra column in each file exported.
+    - **Require suffix**: When set, this allows users to append a string at the end of every file exported to S3.
+    - **User property**: You can select a single user property to sync along with each user as an extra column in each file exported.
 
 ## Send a cohort
 
-After the S3 bucket is connected to Amplitude, you can sync any cohort to that bucket. To do so, follow these steps:
+After you connect the S3 bucket to Amplitude, you can sync any cohort to that bucket. To do so, follow these steps:
 
-1. From the Cohorts page in Amplitude, click the cohort you want to send, or create a cohort.
+1. From the Cohorts page in Amplitude, click the cohort to send, or create a cohort.
 2. Click **Sync**.
 3. Select **Amazon S3**, then click **Next**.
 4. Select the S3 location. This is what you named the bucket when setting up the integration.
@@ -48,13 +48,13 @@ After the S3 bucket is connected to Amplitude, you can sync any cohort to that b
 
 ## Cohorts in S3
 
-Your cohort is synced as a CSV to the bucket you specified. Within the folder, you'll see a list of CSVs.
+Your cohort is synced as a CSV to the bucket you specified. Within the folder, there is a list of CSV files.
 
 Each sync generates three CSV files: 
 
 - One with users who **entered** the cohort since the last sync.
 - One with users who **exited** the cohort since the last sync.
-- One containing the users that existed in the cohort at the time of the last sync. This way, you'll always have a complete historical log of S3 cohort membership.
+- One containing the users that existed in the cohort at the time of the last sync. This way, you always have a complete historical log of S3 cohort membership.
 
 The CSV files all use this naming convention:
 
@@ -62,11 +62,11 @@ The CSV files all use this naming convention:
 
 Where:
 
-- `path` : The optional folder prefix on the path the file will be written to.
-- `cohortID` : The unique identifier for your cohort. You can find this number in the URL for your cohort in Amplitude.
+- `path` : The optional folder prefix on the path the file should be written to.
+- `cohortID` : The unique identifier for your cohort. You can find this number in the URL of your cohort in Amplitude.
 - `YYYY-MM-DDTHH-SS` : The timestamp when the cohort was synced.
 - `difftype` : This describes which of the three user groups the CSV file contains. Acceptable values are `entering` , `exiting` , or `existing`.
-- `routingkey`: The optional string suffix entered previously.
+- `routingkey`: The optional string suffix entered before.
 
 The timestamp in the CSV name refers to the day/time the cohort was synced. If you have an hourly/daily scheduled sync, Amplitude creates a new file for every sync with the full list of users who qualify in that cohort at that time. You can keep a historic log of audience membership.
 

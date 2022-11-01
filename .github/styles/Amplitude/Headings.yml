@@ -1,0 +1,88 @@
+extends: capitalization
+message: "'%s' should use sentence-style capitalization."
+level: suggestion
+scope: heading
+match: $sentence
+indicators:
+  - ':'
+exceptions:
+  - Azure
+  - Audiences
+  - CLI
+  - Code
+  - Cosmos
+  - Docker
+  - Emmet
+  - I
+  - Node
+  - Kubernetes
+  - Linux
+  - macOS
+  - Marketplace
+  - MongoDB
+  - REPL
+  - Studio
+  - TypeScript
+  - URLs
+  - Visual
+  - VS
+  - Windows
+  - API
+  - Amplitude
+  - Recommend 
+  - Experiment
+  - Middleware
+  - ID
+  - IDs 
+  - Identify.setOnce
+  - Identify.add
+  - Identify.set
+  - Identify.append
+  - Identify.preInsert
+  - Identify.postInsert
+  - Identify.remove
+  - Plugin.setup
+  - Plugin.execute
+  - Lookup
+  - Explorer
+  - DataGrail
+  - convertToAmplitudeFunc
+  - Bitbucket
+  - Circle CI
+  - Ampli Wrapper
+  - GitHub Actions
+  - AppsFlyer
+  - Customer.io
+  - Google Pub/Sub
+  - Marketing Cloud
+  - MoEngage
+  - Moveable Ink
+  - Netcore Cloud
+  - Merged User
+  - Snowflake
+  - Split
+  - Amazon Store
+  - Group Identify
+  - iOS
+  - Advertising ID
+  - Google Tag Manager
+  - Unity Package Manager
+  - Adjust
+  - Amazon S3
+  - BigQuery SQL
+  - BigQuery
+  - Branch
+  - About Radar
+  - RevenueCat
+  - Client SDK on Render
+  - Server SDK
+  - Limit Ad Tracking
+  - Service Unavailable
+  - Server Error 500, 502, 504
+  - Lookup Table
+  - Lookup Tables
+  - Kinesis 
+  - IAM
+  - Movable Ink
+  - FreeMarker Templating Language
+  - Data Share

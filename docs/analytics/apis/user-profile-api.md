@@ -5,9 +5,9 @@ description: The User Profile API serves Amplitude User Profiles, which includes
 
 The User Profile API serves Amplitude user profiles, which include user properties, computed user properties, a list of cohort IDs of cohorts that the user is in, and recommendations.
 
-!!!note "Some features require Amplitude Recommend"
+!!!note "Some features require Amplitude Audiences"
 
-    To get cohort IDs or recommendation IDs, you must have a plan with Recommend. 
+    To get cohort IDs or recommendation IDs, you must have a plan with Audiences. 
 
 --8<-- "includes/postman.md"
 
@@ -17,7 +17,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 | Region | Endpoint |
 | --- | --- |
-| Standard Server | <https://profile-api.amplitude.com/v1/userprofile> |
+| Standard Server | `https://profile-api.amplitude.com/v1/userprofile` |
 
 ## Considerations
 
@@ -39,8 +39,9 @@ The User Profile API serves Amplitude user profiles, which include user properti
 - If an insecure HTTP request is sent, it's redirected to the HTTPs endpoint (HTTPS 301) with an HTML body - the Location header contains the proper protocol and URL.
 
 ### Throttling errors
-- Each org is limited to 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
-    - `{"error":"Number of requests per minute exceeds system limit. Please contact support if you need this limit raised"}` 
+
+- Amplitude orgs have a limit of 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
+    - `{"error":"Number of requests per minute exceeds system limit. Contact Support if you need this limit raised"}` 
 - For batch recommendation use cases, consider rate limiting your requests so you don't go above this limit.
 - If you need this limit increased for your org, contact Support.
 
@@ -48,10 +49,10 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 | <div class= "big-column">Parameter</div> | Description |
 | --- | --- |
-| `user_id`[^1] | Optional, but required unless `device_id` is set. The user id (external database id) to be queried. |
-| `device_id`[^1] | Optional, but required unless `user_id` is set. The device id (anonymous id) to be queried, required unless `user_id` is set. |
+| `user_id`[^1] | Optional, but required unless `device_id` is set. The user ID (external database ID) to be queried. |
+| `device_id`[^1] | Optional, but required unless `user_id` is set. The device ID (anonymous ID) to be queried, required unless `user_id` is set. |
 | `get_recs` | Optional. Return a recommendation result for this user. Defaults to `false`.|
-| `rec_id`| Optional. Recommendation(s) to retrieve, required if `get_recs` is true. Fetch multiple recommendations by separating the `rec_ids` with commas. |
+| `rec_id`| Optional. Recommendations to retrieve, required if `get_recs` is true. Fetch multiple recommendations by separating the `rec_ids` with commas. |
 | `rec_type` | Optional. Overrides the default experimental control setting and `rec_type=model` returns modeled recommendations and `rec_type=random` returns random recommendations. |
 | `get_amp_props`| Optional. Return a full set of user properties for this user, not including computations. Defaults to `false`. |
 | `get_cohort_ids`| Optional. Return a list of all the cohort IDs that this user is a part of that have been set up to be tracked. By default cohort membership isn't tracked for users for any cohort. Defaults to `false`.|
@@ -67,7 +68,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
 Retrieve a single recommendation by ID.
 
@@ -121,7 +122,7 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
 Retrieves multiple recommendations for a user.
 
@@ -238,7 +239,7 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
 Computations convert events into a new user property you can use to segment your users.
 
@@ -275,9 +276,9 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
-Retrieves a single computation by ID. Find the computation ID by navigating to the computation in the Recommend web app and copying the ID at the end of the URL. The ID is bold in this example:
+Retrieves a single computation by ID. Find the computation ID by navigating to the computation in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example:
 
 <recommend.amplitude.com/org/00000/computations/**t14bqib**>
 
@@ -309,9 +310,9 @@ Authorization: Api-Key INSERT SECRET KEY
 
 !!!note
 
-    This feature is available in accounts with Amplitude Recommend.
+    This feature is available in accounts with Amplitude Audiences.
 
-When you create a prediction in Amplitude Recommend, you can sync the prediction score to the Profile API. A prediction propensity is the probability that a user will perform a predicted action.
+When you create a prediction in Amplitude Audiences, you can sync the prediction score to the Profile API. A prediction propensity is the probability that a user will perform a predicted action.
 
 To fetch a user's prediction propensity, send a request that includes a `prediction_id` and `propensity_type`. The propensity type can be either the raw score or a percentile.
 
@@ -319,7 +320,7 @@ Percentile is useful to understand users in comparison to each other. For exampl
 
 Score is the raw propensity score.
 
-Find the `prediction_id` by navigating to the prediction in the Recommend web app and copying the ID at the end of the URL. The ID is bold in this example:
+Find the `prediction_id` by navigating to the prediction in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example:
 
 recommend.amplitude.com/0000/predictions/**0x10x**
 
