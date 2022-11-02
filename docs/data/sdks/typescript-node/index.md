@@ -2,6 +2,8 @@
 title: Node.js SDK
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
 icon: simple/nodedotjs
+search:
+  boost: 2
 ---
 
 
