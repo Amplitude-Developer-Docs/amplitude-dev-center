@@ -453,7 +453,7 @@ Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying 
 The `add` method adds a plugin to Amplitude. Plugins can help processing and sending events.
 
 ```typescript
-import { add } from '@amplitude/analytics-browser';
+import { add } from '@amplitude/analytics-react-native';
 
 add(new Plugin());
 ```
@@ -463,7 +463,7 @@ add(new Plugin());
 The `remove` method removes the given plugin name from the client instance if it exists.
 
 ```typescript
-import { remove } from '@amplitude/analytics-browser';
+import { remove } from '@amplitude/analytics-react-native';
 
 remove(plugin.name);
 ```
@@ -485,7 +485,7 @@ This method contains the logic for processing events and has event as parameter.
 Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
 ```ts
-import { init, add } from '@amplitude/analytics-node';
+import { init, add } from '@amplitude/analytics-react-native';
 import { ReactNativeConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
 
 export class AddEventIdPlugin implements EnrichmentPlugin {
@@ -522,7 +522,7 @@ add(new AddEventIdPlugin());
 Here's an example of a plugin that sends each instrumented event to a target server URL using your preferred HTTP client.
 
 ```ts
-import { init, add } from '@amplitude/analytics-node';
+import { init, add } from '@amplitude/analytics-react-native';
 import { ReactNativeConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
 
 export class MyDestinationPlugin implements DestinationPlugin {
@@ -565,9 +565,39 @@ export class MyDestinationPlugin implements DestinationPlugin {
     };
   }
 }
-    
+
 init('API_KEY');
 add(new MyDestinationPlugin('https://custom.domain.com'));
+```
+
+## Advanced topics
+
+### Logging
+
+You can control the level of logs printed to the developer console.
+
+- 'None': Suppresses all log messages.
+- 'Error': Shows error messages only.
+- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` is not explicitly specified.
+- 'Verbose': Shows informative messages.
+- 'Debug': Shows error messages, warnings, and informative messages that may be useful for debugging, including the function context information for all SDK public method invocations. This logging mode is only suggested to be used in development phases.
+
+Set the log level by configuring the `logLevel` with the level you want.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  logLevel: amplitude.Types.LogLevel.Debug,
+});
+```
+
+The default logger outputs logs to the developer console. You can also provide your own logger implementation based on the `Logger` interface for any customization purpose, e.g., collecting any error messages from the SDK in a production environment.
+
+Set the logger by configuring the `loggerProvider` with your own implementation.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  loggerProvider: new MyLogger(),
+});
 ```
 
 --8<-- "includes/abbreviations.md"
