@@ -18,7 +18,7 @@ Keep these things in mind when sending events to Lantern.
 
 - You must enable this integration in each Amplitude project you want to use it in.
 - You must have a paid Lantern plan.
-- Amplitude matches the `user_id` to the Lantern `analytics_id`  to associate events.s
+- Amplitude matches the `user_id` to the Lantern `analytics_id`  to associate events.
 - Relevant limits for Lantern events are:
     - Maximum event size of data: 64 bytes
     - Maximum size of event data: 4250K bytes (4.25MB)
