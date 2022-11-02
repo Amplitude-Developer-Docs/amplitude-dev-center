@@ -1,5 +1,5 @@
 ---
-title: Node.js SDK
+title: Node.js SDK (Legacy)
 description: The Amplitude Node.js SDK installation and quick start guide.
 icon: simple/nodedotjs
 ---

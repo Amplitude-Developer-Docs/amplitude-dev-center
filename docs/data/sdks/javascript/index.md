@@ -1,5 +1,5 @@
 ---
-title: JavaScript SDK
+title: JavaScript SDK (Legacy)
 description: The Amplitude JavaScript SDK installation and quick start guide.
 icon: simple/javascript
 ---
