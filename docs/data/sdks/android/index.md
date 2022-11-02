@@ -1,5 +1,5 @@
 ---
-title: Android SDK
+title: Android SDK (Legacy)
 description: The Amplitude Android SDK installation and quick start guide.
 icon: simple/android
 ---

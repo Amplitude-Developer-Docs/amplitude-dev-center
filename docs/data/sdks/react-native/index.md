@@ -1,5 +1,5 @@
 ---
-title: React Native SDK
+title: React Native SDK (Legacy)
 description: The Amplitude React Native SDK installation and quick start guide.
 icon: simple/react
 ---
