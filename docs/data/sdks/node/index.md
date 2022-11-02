@@ -16,7 +16,7 @@ The Node SDK provides:
 - Retry handling mechanisms to handle when a network request fails, or a payload is throttled or invalid.
 - Useful utilities and typing help debug instrumentation issues.
 
-By default, the Node SDK uses the [HTTP API V2](../analytics/apis/http-v2-api/).
+By default, the Node SDK uses the [HTTP API V2](../../../analytics/apis/http-v2-api).
 
 !!!deprecated "Legacy SDK"
     This is a legacy SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for Node.js](../typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
