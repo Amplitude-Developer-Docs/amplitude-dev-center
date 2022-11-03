@@ -166,8 +166,6 @@ For earlier versions, you need to configure the `apiEndpoint` property after ini
 
 ### Send events
 
---8<-- "includes/sdk-httpv2-notice.md"
-
 #### Basic events
 
 Events represent user interactions with your app. For example, “Button Clicked” may be an action you want to track.

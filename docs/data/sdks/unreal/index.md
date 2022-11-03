@@ -58,8 +58,6 @@ The API of Amplitude Unreal follows the [analytics provider interface](https://
 
 ### Log basic events
 
---8<-- "includes/sdk-httpv2-notice.md"
-
 Events represent how users interact with your app. For example, "Game Started" may be an action you want to note.
 
 ```c++
