@@ -92,3 +92,15 @@ Another common case is simple overlooked implementation error. For example, we'v
 * Inconsistent capitalization, especially with UUIDs.
     * `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
     * `15A4F7E9-DB4E-4C57-82C7-E57A2995803A`
+
+## Removing users who variant jumped
+
+Generally, when doing analysis you want to be careful when removing data as you may bias your results. It is better to understand why users have variant jumped and if you can fix any implementation bugs, so this does not happen again in any subsequent experiments. If you feel you have a legitimate reason for removing users who variant jumped you can follow these steps:
+
+1. Go to the Monitor tab and click "Open in Analytics"
+2. Make a cohort of the users who variant jumped by selecting the bar for users who jumped variants and click "Create Cohort"
+3. Click "Save Cohort"
+4. Go to the Analyze tab and click "Open in Analytics"
+5. In the second sister, add a where cohort != `<cohort name>` for all variants
+
+If you have more than two variants, you will need to make multiple cohorts of users who variant jumped and filter out each one of them. 
