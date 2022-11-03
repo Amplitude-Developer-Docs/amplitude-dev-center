@@ -1,6 +1,7 @@
 ---
 title: Amplitude SDK Quickstart Guide
 description: Use this guide to get started with the Amplitude SDKs.
+icon: material/clock-fast
 hide: 
   - toc
 status: new

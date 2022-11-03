@@ -118,6 +118,7 @@ extra:
   postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
   getting_started_guide: https://docs.developers.amplitude.com/getting-started
+  sdk_quickstart: https://www.docs.developers.amplitude.com/data/sdks/
   more_resources: all-resources
   status:
     new: Recently added
@@ -222,7 +223,8 @@ nav:
       - data/ampli/plugin.md
       - data/ampli/migration.md
     - SDKs:
-      - Quick Start: data/sdks/index.md
+      - data/sdks/index.md
+      - Quickstart Guide: data/sdks/index.md
       - Browser:
         - data/sdks/typescript-browser/index.md
         - Marketing Analytics Browser:
