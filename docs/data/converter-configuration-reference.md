@@ -147,6 +147,9 @@ The following Operators return a JsonPrimitive of type Integer, barring the `add
 |--------------|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | N/A          | As syntactic sugar, Amplitude converts an object to a "dict" LIST_OPERATOR | **Note**: the following two descriptions are equivalent:   {"key1": SOURCE_DESCRIPTION,"key2", SOURCE_DESCRIPTION,…}   \["dict","key1", SOURCE_DESCRIPTION,"key2", SOURCE_DESCRIPTION,...] |
 
+### User property operations
+
+The converter supports the same user property operators as the Identify API. See [the Identify documentation](../../analytics/apis/identify-api#user_properties-supported-operations) for details.
 <!-- vale on-->
 
 <!-- ## Converter configuration examples
