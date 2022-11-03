@@ -93,14 +93,14 @@ Another common case is simple overlooked implementation error. For example, we'v
     * `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
     * `15A4F7E9-DB4E-4C57-82C7-E57A2995803A`
 
-## Removing users who variant jumped
+## Removing users who variant jumped from experiment analysis
 
-Generally, when doing analysis you want to be careful when removing data as you may bias your results. It is better to understand why users have variant jumped and if you can fix any implementation bugs, so this does not happen again in any subsequent experiments. If you feel you have a legitimate reason for removing users who variant jumped you can follow these steps:
+Generally, when doing analysis you want to be careful when removing data as you may introduce bias in your results. It's better to understand the cause of variant jumping and fix any implementation bugs so this does not happen again in future  experiments. If you feel you have a legitimate reason for removing users who jumped variants, you can follow these steps:
 
-1. Go to the Monitor tab and click "Open in Analytics"
-2. Make a cohort of the users who variant jumped by selecting the bar for users who jumped variants and click "Create Cohort"
-3. Click "Save Cohort"
-4. Go to the Analyze tab and click "Open in Analytics"
-5. In the component for the user segments, add a where cohort != `<cohort name>` for all variants
+1. Go to the Monitor tab and click "Open in Analytics" on one of the variant jumping charts.
+2. Click the user segment for users who jumped variants and select "Create Cohort" then save the cohort.
+3. Repeat steps 1 & 2 for each variant.
+3. Go to the Analyze tab and click "Open in Analytics"
+4. In the component for the user segments, add `where cohort != <cohort name>` for each variant
 
-If you have more than two variants, you will need to make multiple cohorts of users who variant jumped and filter out each one of them. 
+If you have more than two variants, you will need to make multiple cohorts of users who variant jumped and filter out each one of them.
