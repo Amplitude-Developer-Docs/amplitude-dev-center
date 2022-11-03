@@ -55,19 +55,19 @@ Variant jumping caused by anonymous identity merging may occur due to bucketing 
 To combat this type of variant jumping, consider bucketing by:
 
 * User ID: If you're only targeting user who are logged in, and have a user ID.
-* Device ID: If you're only targeting anonymous users (e.g. sign up experiment).
+* Device ID: If you're only targeting anonymous users. For example, a sign up experiment.
 
 ## Abnormal variant jumping
 
-Abnormal variant jumping is unexpected variant jumping that can't be explained by any [normal means](#normal-variant-jumping). Abnormal variant jumping can be tough to track down, however almost all abnormal variant jumping is caused by some for of identity mismatch: **when the user identity used in assignment is different from the identity used to track the exposure.** In short, abnormal variant jumping is almost always due to an inconsistency in implementation.
+Abnormal variant jumping is unexpected variant jumping that can't be explained by any [normal means](#normal-variant-jumping). Abnormal variant jumping can be tough to track down, however almost all abnormal variant jumping is caused by some form of identity mismatch: **when the user identity used in assignment is different from the identity used to track the exposure.** In short, abnormal variant jumping is almost always due to an inconsistency in implementation.
 
-The following examples are by no means exhaustive, but should hopefully get you thinking about the use of identity in your system with respect to Amplitude Experiment.
+The following examples aren't exhaustive, but should get you thinking about the use of identity in your system with respect to Amplitude Experiment.
 
 ### Multiple logged in accounts on a single device
 
-Consider this timeline for a user with multiple accounts for your app on a single device.
+Consider this timeline for a person with multiple user accounts (U1 and U2), for your app on a single device.
 
-1. Open app with user U1 and fetch variants, assigned `treatment` for `experiment-1`.
+1. Open app as user U1 and fetch variants, assigned `treatment` for `experiment-1`.
 2. Exposure to `experiment-1` variant `treatment` for U1.
 3. Log out of U1, and into U2, fetching variants asynchronously on log in.
 4. Prior fetch for U2 resolving, exposure to `experiment-1` variant `treatment` for U2.
