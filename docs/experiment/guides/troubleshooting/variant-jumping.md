@@ -52,9 +52,10 @@ Variant jumping caused by anonymous identity merging may occur due to bucketing 
 
  Identifying this type of variant jumping is easy by identifying the the assignment event where the user jumped between variants, and comparing the value of the Amplitude ID for both events. If the Amplitude ID is different on the two events, then there then it is very likely that anonymous identity merging was the cause.
 
- !!!tip "To combat this type of variant jumping, consider bucketing by:"
-    * User ID: If you're only targeting user who are logged in, and have a user ID.
-    * Device ID: If you're only targeting anonymous users (e.g. sign up experiment).
+To combat this type of variant jumping, consider bucketing by:
+
+* User ID: If you're only targeting user who are logged in, and have a user ID.
+* Device ID: If you're only targeting anonymous users (e.g. sign up experiment).
 
 ## Abnormal variant jumping
 
@@ -86,9 +87,8 @@ For example, you may be sending events through a proxy or CDP which obfuscates o
 Another common case is simple overlooked implementation error. For example, we've seen the following cases cause variant jumping:
 
 * Additional characters in the ID. For example Extra quotes around the actual identity.
-    - `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
-    - `"15a4f7e9-db4e-4c57-82c7-e57a2995803a"`
+    * `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
+    * `"15a4f7e9-db4e-4c57-82c7-e57a2995803a"`
 * Inconsistent capitalization, especially with UUIDs.
-    - `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
-    - `15A4F7E9-DB4E-4C57-82C7-E57A2995803A`
-
+    * `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
+    * `15A4F7E9-DB4E-4C57-82C7-E57A2995803A`
