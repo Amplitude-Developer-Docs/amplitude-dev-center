@@ -100,7 +100,7 @@ Generally, when doing analysis you want to be careful when removing data as you 
 1. Go to the Monitor tab and click "Open in Analytics" on one of the variant jumping charts.
 2. Click the user segment for users who jumped variants and select "Create Cohort" then save the cohort.
 3. Repeat steps 1 & 2 for each variant.
-3. Go to the Analyze tab and click "Open in Analytics"
-4. In the component for the user segments, add `where cohort != <cohort name>` for each variant
+4. Go to the Analyze tab and click "Open in Analytics"
+5. In the component for the user segments, add `where cohort != <cohort name>` for each variant
 
 If you have more than two variants, you will need to make multiple cohorts of users who variant jumped and filter out each one of them.
