@@ -19,7 +19,7 @@ The best way to debug variant jumping is by identifying a user that has jumped v
 
 Important things to note when debugging a user timeline include:
 
-1. Did you introduce any [targeting changes](#targeting-changes) while your flag/experiment was active? Could the timing of this change have effected the variant assigned to this user?
+1. Did you introduce any [targeting changes](#targeting-changes) while your flag/experiment was active? Could the timing of this change have effected the variant assigned to this user? Check the flag/experiment version history by clicking on the version number.
 2. What is the bucketing key used in the flag/experiment? Does the value for this property change between assignments/exposures for this user?
 3. Does the user seem have "missing" exposures or assignment events? If so the "missing" event may have been sent for a "different" user.
 4. Does an assignment not have a user property that is expected? If so, double check the server upload timestamp of the assignment event vs surrounding active events. You may notice that events sent from the client are actually uploaded and received after the assignment event, even if the client order is different.
@@ -52,11 +52,13 @@ Variant jumping caused by anonymous identity merging may occur due to bucketing 
 
  Identifying this type of variant jumping is easy by identifying the the assignment event where the user jumped between variants, and comparing the value of the Amplitude ID for both events. If the Amplitude ID is different on the two events, then there then it is very likely that anonymous identity merging was the cause.
 
- To combat this type of variant jumping, consider bucketing by user ID. Note that bucking by user ID may not be possible if you expect that users in the experiment will be anonymous.
+ !!!tip "To combat this type of variant jumping, consider bucketing by:"
+    * User ID: If you're only targeting user who are logged in, and have a user ID.
+    * Device ID: If you're only targeting anonymous users (e.g. sign up experiment).
 
 ## Abnormal variant jumping
 
-Abnormal variant jumping is unexpected variant jumping that can't be explained by any [normal means](#normal-variant-jumping) Abnormal variant jumping can be tough to track down, however almost all abnormal variant jumping is caused by some for of identity mismatch: **when the user identity used in assignment is different from the identity used to track the exposure.** In short, abnormal variant jumping is almost always due to an inconsistency in implementation.
+Abnormal variant jumping is unexpected variant jumping that can't be explained by any [normal means](#normal-variant-jumping). Abnormal variant jumping can be tough to track down, however almost all abnormal variant jumping is caused by some for of identity mismatch: **when the user identity used in assignment is different from the identity used to track the exposure.** In short, abnormal variant jumping is almost always due to an inconsistency in implementation.
 
 The following examples are by no means exhaustive, but should hopefully get you thinking about the use of identity in your system with respect to Amplitude Experiment.
 
