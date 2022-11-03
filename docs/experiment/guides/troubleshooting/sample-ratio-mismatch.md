@@ -45,7 +45,7 @@ If the analysis time window and the time the experiment was receiving traffic ar
 
 ## Variant jumping
 
-Variant jumping describes when a user moves from one variant to another, sometimes multiple times. Variant jumping makes it difficult to attribute the metric to a specific variant. Amplitude Experiment's built-in diagnostics in the **Monitor** tab has charts to make it easy to track the percentage of users jumping between variants. 
+[Variant jumping](./variant-jumping.md) describes when a user moves from one variant to another, sometimes multiple times. Variant jumping makes it difficult to attribute the metric to a specific variant. Amplitude Experiment's built-in diagnostics in the **Monitor** tab has charts to make it easy to track the percentage of users jumping between variants. 
 
 If there is variant jumping, is it because of anonymous users (people logging in and out frequently) or changing device IDs? You can see this by looking at the [User Stream](https://help.amplitude.com/hc/en-us/articles/229313067-Look-up-event-data-for-individual-users).
 
