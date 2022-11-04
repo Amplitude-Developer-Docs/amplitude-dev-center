@@ -537,6 +537,18 @@ init('API_KEY', configuration);
 See the [configuration options](../marketing-analytics-browser/#configuration).
 Learn more about what the [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution) supports.
 
+###### Differences from base SDK
+
+Enabling the Attribution plugin overwrites the default attribution tracking behavior of the SDK.
+
+The SDK’s built in attribution tracking only tracks attribution at the start of sessions. This mean if a user re-enters the site through a new campaign channel (such as direct or an ad) in the middle of a session, this new channel isn't recorded.
+
+If the `trackNewCampaigns` option is set to `true`, the campaigns are tracked, and the user’s session is reset when a new campaign is detected.
+
+The Attribution plugin tracks all campaigns, regardless of whether the user is at the start of a session.
+
+Set the `resetSessionOnNewCampaign` option to `true` to cause the user’s session to be reset when a new campaign is detected. The session isn't reset in the case where the referrer is just a different subdomain of your site.
+
 ##### Page View Enrichment Plugin
 
 You need to download `plugin-page-view-tracking-browser` and add the `pageViewTrackingPlugin` before calling the init method.
@@ -564,6 +576,12 @@ init('API_KEY', configuration);
 
 See the [configuration options](../marketing-analytics-browser/#configuration).
 Learn more about what the [Page View Plugin](../marketing-analytics-browser/#page-view) supports.
+
+###### Differences from base SDK
+
+The base SDK sends Page View events when a user’s campaign is tracked if the `attribution.trackPageViews` option is set to `true`.
+
+The page view plugin sends a Page View event on each page a user visits by default. It also offers a number of options to customize this behavior.
 
 ## Advanced topics
 
