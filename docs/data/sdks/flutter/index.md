@@ -80,8 +80,6 @@ Amplitude.getInstance().setServerUrl("https://api.eu.amplitude.com")
 
 ### Send events
 
---8<-- "includes/sdk-httpv2-notice.md"
-
 #### Basic events
 
 Events represent how users interact with your application. For example, "button clicked" may be an action you want to track.
