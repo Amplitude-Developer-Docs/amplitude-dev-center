@@ -541,7 +541,7 @@ Learn more about what the [Web Attribution Plugin](../marketing-analytics-browse
 
 Enabling the Attribution plugin overwrites the default attribution tracking behavior of the SDK.
 
-The SDK’s built in attribution tracking only tracks attribution at the start of sessions. This mean if a user re-enters the site through a new campaign channel (such as direct or an ad) in the middle of a session, this new channel will not be recorded.
+The SDK’s built in attribution tracking only tracks attribution at the start of sessions. This mean if a user re-enters the site through a new campaign channel (such as direct or an ad) in the middle of a session, this new channel isn't recorded.
 
 If the trackNewCampaigns option is set to true, the campaigns will be tracked, and the user’s session will be reset when a new campaign is detected.
 
