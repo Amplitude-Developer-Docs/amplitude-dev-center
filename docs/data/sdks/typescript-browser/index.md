@@ -547,7 +547,7 @@ If the trackNewCampaigns option is set to true, the campaigns will be tracked, a
 
 The Attribution plugin tracks all campaigns, irrespective of whether the user is at the start of a session.
 
-The resetSessionOnNewCampaign option can be set to true to cause the user’s session to be reset when a new campaign is detected. The session won’t be reset in the case where the referrer is just a different subdomain of the implementer’s site.
+Set the `resetSessionOnNewCampaign` option to `true` to cause the user’s session to be reset when a new campaign is detected. The session isn't reset in the case where the referrer is just a different subdomain of the implementer’s site.
 
 ##### Page View Enrichment Plugin
 
