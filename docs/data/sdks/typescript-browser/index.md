@@ -581,7 +581,7 @@ Learn more about what the [Page View Plugin](../marketing-analytics-browser/#pag
 
 The base SDK sends Page View events when a user’s campaign is tracked if the `attribution.trackPageViews` option is set to `true`.
 
-The page view plugin will send a Page View event on each page a user visits by default. It also offers a number of options to customize this behavior.
+The page view plugin sends a Page View event on each page a user visits by default. It also offers a number of options to customize this behavior.
 
 ## Advanced topics
 
