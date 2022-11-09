@@ -1,5 +1,5 @@
 ---
-title: Google Ads (Beta)
+title: Import Google Ads Data (Beta)
 description: Amplitude Data's Google Ads integration lets you import your Google Ad spend, click, and impression data in just a few steps.
 ---
 
@@ -38,3 +38,5 @@ In Amplitude, navigate to **Data Sources**, then find **Google Ad** in the **I w
 3. If you don't have direct access to the account, enter the `Manager ID` that you authorized access on which can view this ad account. Otherwise, just leave the field as blank.
 4. [Optional] Import past data for a given period.
 ![Google Historical Backfill](../../assets/images/marketing-analytics/google-past-data.png)
+
+For more information on how you can use the data from this integration in Amplitude, see [this blog post](https://amplitude.com/blog/ad-network-integration).

@@ -1,5 +1,5 @@
 ---
-title: Facebook Ads (Beta)
+title: Import Facebook Ads Data (Beta)
 description: Amplitude Data's Facebook Ads integration lets you import your Facebook Ad spend, click and impression data with just a few clicks.
 ---
 
@@ -30,3 +30,5 @@ In Amplitude, navigate to **Data Sources**, then find **Facebook Ad** in the **I
 ![Facebook Enter Account ID](../../assets/images/marketing-analytics/facebook-enter-info.png)
 3. [Optional] Import past data for a given period.
 ![Facebook Historical Backfill](../../assets/images/marketing-analytics/facebook-past-data.png)
+
+For more information on how you can use the data from this integration in Amplitude, see [this blog post](https://amplitude.com/blog/ad-network-integration).
