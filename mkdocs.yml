@@ -32,7 +32,7 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
-    #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
+    - announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
     - content.code.annotate
     - content.tooltips #enables enhanced tooltips
     - content.tabs.link
