@@ -16,6 +16,17 @@ You can set up recurring syncs of your Amplitude event data to BigQuery through 
 
     - [Import data from BigQuery](/data/sources/bigquery)
 
+## Considerations 
+
+- To help save usage costs for your queries, Amplitude partitions the events table by the date of `event_time`. See the [BigQuery docs](https://cloud.google.com/bigquery/docs/partitioned-tables) for more information about table partitioning. 
+- It's possible to export duplicate events, especially if you backfill already-exported data. To help with this, Amplitude creates a table function within the provided dataset named `deduplicated_<appid>`. This table function provides a deduplicated view of the data.
+  
+    !!!example "Deduplicate table function example"
+
+        ```sql
+        SELECT * FROM `testProject.testDataset.deduplicated_EVENTS_12345`('2022-01-01', '2022-02-10');
+        ```
+
 ## Prerequisites
 
 To get started with exporting to BigQuery, you need the following:
