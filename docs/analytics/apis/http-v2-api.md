@@ -65,7 +65,7 @@ You must send the `time` parameter in each event as millisecond since epoch. Any
 
 ### Event deduplication
 
-It's highly recommended that you send an `insert_id` for each event to prevent sending duplicate events to Amplitude. Amplitude ignores subsequent events sent with the same `insert_id` within the past 7 days.
+It's highly recommended that you send an `insert_id` for each event to prevent sending duplicate events to Amplitude. Amplitude ignores subsequent events sent with the same `insert_id` on the same `device_id` (if the event has a `device_id` value) in each app within the past 7 days.
 
 ### Device IDs and User IDs minimum length
 
