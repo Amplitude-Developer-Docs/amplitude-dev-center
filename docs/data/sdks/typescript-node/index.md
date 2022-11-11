@@ -303,6 +303,14 @@ import { flush } from '@amplitude/analytics-node';
 flush();
 ```
 
+By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
+
+```typescript
+await init(AMPLITUDE_API_KEY).promise;
+track('Button Clicked');
+await flush().promise;
+```
+
 ### Opt users out of tracking
 
 You can turn off logging for a given user by setting `setOptOut` to `true`.
@@ -370,11 +378,11 @@ remove(plugin.name);
 
 #### Create your custom plugin
 
-#### `Plugin.setup
+#### Plugin.setup
 
 This method contains logic for preparing the plugin for use and has config as a parameter. The expected return value is undefined. A typical use for this method, is to copy configuration from config or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `client.add()`.
 
-#### `Plugin.execute`
+#### Plugin.execute
 
 This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event. If used as a destination type plugin, the expected return value is undefined. This method is called for each event instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
 
@@ -498,6 +506,24 @@ Set the logger by configuring the `loggerProvider` with your own implementation.
 ```ts
 amplitude.init(API_KEY, {
   loggerProvider: new MyLogger(),
+});
+```
+
+### Custom HTTP Client
+
+You can provide an implementation of `Transport` interface to the `transportProvider` configuration option for customization purpose, for example, sending requests to your proxy server with customized HTTP request headers.
+
+```ts
+import { Transport } from '@amplitude/analytics-types';
+
+class MyTransport implements Transport {
+  async send(serverUrl: string, payload: Payload): Promise<Response | null> {
+    // check example: https://github.com/amplitude/Amplitude-TypeScript/blob/main/packages/analytics-client-common/src/transports/fetch.ts
+  }
+}
+
+amplitude.init(API_KEY, {
+  transportProvider: new MyTransport(),
 });
 ```
 
