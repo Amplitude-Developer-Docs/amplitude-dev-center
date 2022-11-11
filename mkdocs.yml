@@ -169,7 +169,7 @@ nav:
   - Advanced Topics:
     - analytics/data-backfill-guide.md
     - Custom Domain Proxy: analytics/domain-proxy.md
-    - Using AMP with Amplitude: analytics/use-amp-pages.md
+    - Use AMP with Amplitude: analytics/use-amp-pages.md
 - Experiment:
   - experiment/index.md
   - Overview: experiment/index.md
