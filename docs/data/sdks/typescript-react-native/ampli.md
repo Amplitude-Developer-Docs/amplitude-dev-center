@@ -97,7 +97,7 @@ Example of initialization with `load` to override the default configuration:
 
 === "TypeScript"
 
-    ```js
+    ```typescript
     ampli.load({
       environment: 'development',
       client: {
@@ -110,7 +110,7 @@ Example of initialization with `load` to override the default configuration:
 
 === "JavaScript"
 
-    ```js
+    ```javascript
     ampli.load({
       environment: 'development',
       client: {
