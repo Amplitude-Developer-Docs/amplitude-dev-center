@@ -102,11 +102,11 @@ User properties help you understand your users at the time they performed some a
 Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. The operations are declared via a provided Identify interface. Chain together multiple operations together in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
 
 !!!note 
-    If the Identify call is sent after the event, the results of operations will be visible immediately in the dashboard user’s profile area, but it won't appear in chart result until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
+    If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area, but it don't appear in chart result until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
 #### Set a user property
 
-The Identify object provides controls over setting user properties. An Identify object must first be instantiated, then Identify methods can be called on it, and finally the client will make a call with the Identify object.
+The Identify object provides controls over setting user properties. An Identify object must first be instantiated, then Identify methods can be called on it, and finally the client makes a call with the Identify object.
 
 ```ts
 import { identify, Identify } from '@amplitude/analytics-node';
@@ -132,7 +132,7 @@ identify(identifyObj);
 
 #### Identify.setOnce
 
-This method sets the value of a user property only once. Subsequent calls using setOnce() will be ignored. For example, you can set an initial login method for a user and since only the initial value is tracked, setOnce() ignores subsequent calls.
+This method sets the value of a user property only once. Subsequent calls using `setOnce()` are ignored. For example, you can set an initial login method for a user and since only the initial value is tracked, setOnce() ignores subsequent calls.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -145,7 +145,7 @@ identify(identifyObj);
 
 #### Identify.add
 
-This method increments a user property by some numerical value. If the user property doesn't have a value set yet, it will be initialized to 0 before being incremented. For example, you can track a user's travel count.
+This method increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to 0 before being incremented. For example, you can track a user's travel count.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -162,7 +162,7 @@ Arrays can be used as user properties. You can directly set arrays or use `prepe
 
 #### Identify.prepend
 
-This method prepends a value or values to a user property array. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are prepended.
+This method prepends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -175,7 +175,7 @@ identify(identifyObj);
 
 #### Identify.append
 
-This method appends a value or values to a user property array. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are prepended.
+This method appends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -188,7 +188,7 @@ identify(identifyObj);
 
 #### Identify.preInsert
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -201,7 +201,7 @@ identify(identifyObj);
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -214,7 +214,7 @@ identify(identifyObj);
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it will be no operation.
+This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -247,7 +247,7 @@ setGroup('sport', ['soccer', 'tennis']);
 
 Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
 
-The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that will be applied to the group.
+The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that's applied to the group.
 
 ```ts
 import { Identify, groupIdentify } from '@amplitude/analytics-node';
@@ -264,7 +264,7 @@ groupIdentify(groupType, groupName, identify, {
 
 ### Revenue tracking
 
-The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances will store each revenue transaction and allow you to define several special revenue properties (such as "revenueType", "productIdentifier", etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
+The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances store each revenue transaction and allow you to define several special revenue properties (such as "revenueType", "productIdentifier", etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
 To track revenue from a user, call revenue each time a user generates revenue. For example, a customer purchased 3 units of a product at $3.99.
 
@@ -479,7 +479,7 @@ You can control the level of logs printed to the developer console.
 
 - 'None': Suppresses all log messages.
 - 'Error': Shows error messages only.
-- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` is not explicitly specified.
+- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` isn't explicitly specified.
 - 'Verbose': Shows informative messages.
 - 'Debug': Shows error messages, warnings, and informative messages that may be useful for debugging, including the function context information for all SDK public method invocations. This logging mode is only suggested to be used in development phases.
 
@@ -491,7 +491,7 @@ amplitude.init(API_KEY, {
 });
 ```
 
-The default logger outputs logs to the developer console. You can also provide your own logger implementation based on the `Logger` interface for any customization purpose, e.g., collecting any error messages from the SDK in a production environment.
+The default logger outputs logs to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
 
 Set the logger by configuring the `loggerProvider` with your own implementation.
 

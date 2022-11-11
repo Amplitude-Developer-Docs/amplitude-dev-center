@@ -42,3 +42,7 @@ exceptions:
   - existing
   - Throttling
   - Templating
+  - Logging
+  - Debugging
+  - jumping
+  - merging

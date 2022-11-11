@@ -20,16 +20,16 @@ The best way to debug variant jumping is by identifying a user that has jumped v
 Important things to note when debugging a user timeline include:
 
 1. Did you introduce any [targeting changes](#targeting-changes) while your flag/experiment was active? Could the timing of this change have effected the variant assigned to this user? Check the flag/experiment version history by clicking on the version number.
-2. What is the bucketing key used in the flag/experiment? Does the value for this property change between assignments/exposures for this user?
+2. What's the bucketing key used in the flag/experiment? Does the value for this property change between assignments/exposures for this user?
 3. Does the user seem have "missing" exposures or assignment events? If so the "missing" event may have been sent for a "different" user.
-4. Does an assignment not have a user property that is expected? If so, double check the server upload timestamp of the assignment event vs surrounding active events. You may notice that events sent from the client are actually uploaded and received after the assignment event, even if the client order is different.
+4. Does an assignment not have a user property that's expected? If so, double check the server upload timestamp of the assignment event vs surrounding active events. You may notice that events sent from the client are actually uploaded and received after the assignment event, even if the client order is different.
 
 ## Normal variant jumping
 
 Normal variant jumping may occur due to:
 
 1. [Targeting changes](#targeting-changes): changes to targeting rules while your experiment is running
-2. [Anonymous identity merging](#anonymous-identity-merging): anonymous users, bucketed by amplitude ID may receive different variants until they are eventually resolved via a matching user ID.
+2. [Anonymous identity merging](#anonymous-identity-merging): anonymous users, bucketed by amplitude ID may receive different variants until they're eventually resolved via a matching user ID.
 
 ### Targeting changes
 
@@ -42,7 +42,7 @@ Performing the following actions may cause a user to jump variants:
 5. Updating mutual exclusion
 
 !!!tip "Avoid variant jumping by enabling sticky bucketing"
-    Enabling sticky bucketing before making targeting changes will avoid variant jumping. However, sticky bucketing may cause a [sample ratio mismatch (SRM)](./sample-ratio-mismatch.md).
+    Enabling sticky bucketing before making targeting changes prevents variant jumping. However, sticky bucketing may cause a [sample ratio mismatch (SRM)](./sample-ratio-mismatch.md).
 
 ### Anonymous identity merging
 
@@ -50,7 +50,7 @@ Variant jumping caused by anonymous identity merging may occur due to bucketing 
 
 !!!info "[Learn more about Amplitude's identity resolution and merging users.](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude#h_e9913ce1-549a-4d88-a832-1f56aede581a)"
 
- Identifying this type of variant jumping is easy by identifying the the assignment event where the user jumped between variants, and comparing the value of the Amplitude ID for both events. If the Amplitude ID is different on the two events, then there then it is very likely that anonymous identity merging was the cause.
+ Identifying this type of variant jumping is easy by identifying the assignment event where the user jumped between variants, and comparing the value of the Amplitude ID for both events. If the Amplitude ID is different on the two events, then there then it's very likely that anonymous identity merging was the cause.
 
 To combat this type of variant jumping, consider bucketing by:
 
@@ -59,7 +59,7 @@ To combat this type of variant jumping, consider bucketing by:
 
 ## Abnormal variant jumping
 
-Abnormal variant jumping is unexpected variant jumping that can't be explained by any [normal means](#normal-variant-jumping). Abnormal variant jumping can be tough to track down, however almost all abnormal variant jumping is caused by some form of identity mismatch: **when the user identity used in assignment is different from the identity used to track the exposure.** In short, abnormal variant jumping is almost always due to an inconsistency in implementation.
+Abnormal variant jumping is unexpected variant jumping that can't be explained by any [normal means](#normal-variant-jumping). Abnormal variant jumping can be tough to track down, however most abnormal variant jumping is caused by some form of identity mismatch: **when the user identity used in assignment is different from the identity used to track the exposure.** In short, abnormal variant jumping is almost always due to an inconsistency in implementation.
 
 The following examples aren't exhaustive, but should get you thinking about the use of identity in your system with respect to Amplitude Experiment.
 
@@ -74,7 +74,7 @@ Consider this timeline for a person with multiple user accounts (U1 and U2), for
 5. Fetch for U2 resolves, assigned `control` for `experiment-1`.
 6. Exposure to `experiment-1` variant `control` for U2.
 
-In this case, user U2 has jumped variants, from `treatment` to `control` due to being exposed to U1's stored variant. To avoid this sort of issue, you can either wait for the fetch to resolve before rendering the user experience, or call the SDK's `clear()` method on log out to clear all stored variants from the SDK. Clearing variants wipes the SDK's variant storage, and is a way to ensure that the user is not exposed to cached variants, but does not protect the user from viewing a fallback experience before the fetch request resolves.
+In this case, user U2 has jumped variants, from `treatment` to `control` due to being exposed to U1's stored variant. To avoid this sort of issue, you can either wait for the fetch to resolve before rendering the user experience, or call the SDK's `clear()` method on log out to clear all stored variants from the SDK. Clearing variants wipes the SDK's variant storage, and is a way to ensure that the user isn't exposed to cached variants, but doesn't protect the user from viewing a fallback experience before the fetch request resolves.
 
 If you keep a consistent device ID across logins, you can easily check for this type of variant jumping by searching for different users that have the same device ID.
 
@@ -84,7 +84,7 @@ In Amplitude, the user ID and device ID properties are essential to identify you
 
 For example, you may be sending events through a proxy or CDP which obfuscates or canonicalizes IDs before sending to Amplitude. In this case, the identity used to fetch variants would be different from the identity included in the exposure events.
 
-Another common case is simple overlooked implementation error. For example, we've seen the following cases cause variant jumping:
+Another common case is simple overlooked implementation error. For example, the following cases have caused variant jumping:
 
 * Additional characters in the ID. For example Extra quotes around the actual identity.
     * `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
@@ -93,9 +93,9 @@ Another common case is simple overlooked implementation error. For example, we'v
     * `15a4f7e9-db4e-4c57-82c7-e57a2995803a`
     * `15A4F7E9-DB4E-4C57-82C7-E57A2995803A`
 
-## Removing users who variant jumped from experiment analysis
+## Remove users who variant jumped from experiment analysis
 
-Generally, when doing analysis you want to be careful when removing data as you may introduce bias in your results. It's better to understand the cause of variant jumping and fix any implementation bugs so this does not happen again in future  experiments. If you feel you have a legitimate reason for removing users who jumped variants, you can follow these steps:
+Generally, when doing analysis you want to be careful when removing data as you may introduce bias in your results. It's better to understand the cause of variant jumping and fix any implementation bugs so this doesn't happen again in future  experiments. If you feel you have a legitimate reason for removing users who jumped variants, you can follow these steps:
 
 1. Go to the Monitor tab and click "Open in Analytics" on one of the variant jumping charts.
 2. Click the user segment for users who jumped variants and select "Create Cohort" then save the cohort.
@@ -103,4 +103,4 @@ Generally, when doing analysis you want to be careful when removing data as you 
 4. Go to the Analyze tab and click "Open in Analytics"
 5. In the component for the user segments, add `where cohort != <cohort name>` for each variant
 
-If you have more than two variants, you will need to make multiple cohorts of users who variant jumped and filter out each one of them.
+If you have more than two variants, you need to make multiple cohorts of users who variant jumped and filter out each one of them.
