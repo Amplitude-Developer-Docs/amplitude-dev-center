@@ -655,7 +655,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | `se` | Required. Full event for the start action. Supports two `event_type` values: `_new` for new users, and `_active` for all users. |
 | `re` | Required. Full event for the returning action. Supports one `event_type` value: `_all` for all events and `_active` for all active events. |
 | `rm` | Optional. The retention type: bracket, rolling, or n-day. Note that rolling implies unbounded retention. Defaults to n-day, no need to call it explicitly. |
-| `rb`  | Optional, but required if `rm` is set to bracket. The days within each bracket, formatted [0,4]. For example, if your bracket was Day 0 - Day 4, the parameter value would be [0,5]. |
+| `rb`  | Optional, but required if `rm` is set to bracket. The days within each bracket, formatted [[0,4]]. For example, if your bracket was Day 0 - Day 4, the parameter value would be [[0,5]]. |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `i` | Optional. Either 1, 7, or 30 for daily, weekly, and monthly counts, respectively. Defaults to 1. |
