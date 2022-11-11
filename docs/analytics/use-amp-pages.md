@@ -148,7 +148,7 @@ You can log events by adding [triggers](https://www.ampproject.org/docs/referen
 
 Instead of a user ID, AMP generates a unique client ID that Amplitude can use for the device ID. This ID gets stored as a cookie for that AMP site.
 
-AMP does, however, have a mechanism called a "linker" for sharing the client ID to other websites that are part of the same navigation flow. This allows customers who link from their AMP site to their non-AMP site to carry over the same device ID, so that they can then identify the user ID.
+AMP has a mechanism called a "linker" for sharing the client ID to other websites that are part of the same navigation flow. This lets customers who link from their AMP site to their non-AMP site to carry over the same device ID, so that they can then identify the user ID.
 
 See the AMP documentation for [sending](https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/linker-id-forwarding.md) and [receiving](https://github.com/ampproject/amphtml/blob/master/extensions/amp-analytics/linker-id-receiving.md) the linker ID.
 
