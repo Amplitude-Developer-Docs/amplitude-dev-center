@@ -7,9 +7,11 @@ description: Create group-level properties from Salesforce fields.
 
 This integration lets you create group-level properties from [Salesforce](https://www.salesforce.com/) data by setting specific Salesforce fields as group-level properties. This can be useful when analyzing information about accounts that exist in Salesforce and are tracked in Amplitude.
 
-## About Salesforce
-
 Salesforce provides solutions that help unify marketing, sales, commerce, IT, and service. 
+
+!!!info "Salesforce Sandboxes"
+
+    This integration isn't available in Salesforce Sandboxes.
 
 ## Set up and use the integration
 
