@@ -102,7 +102,7 @@ You can log events by adding [triggers](https://www.ampproject.org/docs/referen
     </script>
     ```
 
-    To set the `page title` property, you use variable substitution to substitute in the `title` variable, as in the example above. See the [amp-analytics](https://www.ampproject.org/docs/reference/components/amp-analytics) documentation for more on [triggers](https://www.ampproject.org/docs/reference/components/amp-analytics#triggers) and [variable substitutions](https://github.com/ampproject/amphtml/blob/master/spec/amp-var-substitutions.md).
+    To set the `page title` property, you use variable substitution to substitute in the `title` variable, as in the example above. See the [amp-analytics](https://www.ampproject.org/docs/reference/components/amp-analytics) documentation for more on [triggers](https://www.ampproject.org/docs/reference/components/amp-analytics#triggers) and [variable substitutions](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-var-substitutions.md).
 
 ???example "Example: Log events with user properties and group properties (click to expand)" 
 
@@ -187,4 +187,4 @@ UTM parameters aren't automatically collected by the SDK. You can pass them expl
 ## More resources
 
 - [General AMP analytics docs](https://www.ampproject.org/docs/reference/components/amp-analytics)
-- [Available variables for customers to use for event/user properties](https://github.com/ampproject/amphtml/blob/master/spec/amp-var-substitutions.md)
+- [Available variables for customers to use for event/user properties](https://github.com/ampproject/amphtml/blob/main/docs/spec/amp-var-substitutions.md)
