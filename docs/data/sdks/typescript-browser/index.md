@@ -581,7 +581,7 @@ Learn more about what the [Page View Plugin](../marketing-analytics-browser/#pag
 
 The base SDK sends Page View events when a user’s campaign is tracked if the `attribution.trackPageViews` option is set to `true`.
 
-The page view plugin sends a Page View event on each page a user visits by default. It also offers a number of options to customize this behavior.
+The page view plugin sends a Page View event on each page a user visits by default. It also offers options to customize this behavior.
 
 ## Advanced topics
 
@@ -607,7 +607,7 @@ You can control the level of logs printed to the developer console.
 
 - 'None': Suppresses all log messages.
 - 'Error': Shows error messages only.
-- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` is not explicitly specified.
+- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` isn't explicitly specified.
 - 'Verbose': Shows informative messages.
 - 'Debug': Shows error messages, warnings, and informative messages that may be useful for debugging, including the function context information for all SDK public method invocations. This logging mode is only suggested to be used in development phases.
 
@@ -619,7 +619,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-The default logger outputs logs to the developer console. You can also provide your own logger implementation based on the `Logger` interface for any customization purpose, e.g., collecting any error messages from the SDK in a production environment.
+The default logger outputs logs to the developer console. You can also provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
 
 Set the logger by configuring the `loggerProvider` with your own implementation.
 

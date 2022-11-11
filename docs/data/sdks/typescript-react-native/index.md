@@ -14,7 +14,7 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for React Native](../typescript-react-native/ampli.md).
 
-## Getting Started
+## Getting started
 
 ### Installation
 
@@ -578,7 +578,7 @@ You can control the level of logs printed to the developer console.
 
 - 'None': Suppresses all log messages.
 - 'Error': Shows error messages only.
-- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` is not explicitly specified.
+- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` isn't explicitly specified.
 - 'Verbose': Shows informative messages.
 - 'Debug': Shows error messages, warnings, and informative messages that may be useful for debugging, including the function context information for all SDK public method invocations. This logging mode is only suggested to be used in development phases.
 
@@ -590,7 +590,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-The default logger outputs logs to the developer console. You can also provide your own logger implementation based on the `Logger` interface for any customization purpose, e.g., collecting any error messages from the SDK in a production environment.
+The default logger outputs logs to the developer console. You can also provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
 
 Set the logger by configuring the `loggerProvider` with your own implementation.
 
