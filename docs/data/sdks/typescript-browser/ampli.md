@@ -97,6 +97,34 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 | `client.instance`                     | Optional. `AmplitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 | `client.configuration`                | Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
+Example of initialization with `load` to override the default configuration:
+
+=== "TypeScript"
+
+    ```ts
+    ampli.load({
+      environment: 'development',
+      client: {
+        configuration: {
+          minIdLength: 10,
+        }
+      }
+    });
+    ```
+
+=== "JavaScript"
+
+    ```js
+    ampli.load({
+      environment: 'development',
+      client: {
+        configuration: {
+          minIdLength: 10,
+        }
+      }
+    });
+    ```
+
 ### Identify
 
 Call `identify()` to identify a user in your app and associate all future events with their identity, or to set their properties.
@@ -109,7 +137,7 @@ For example, your tracking plan contains a user property called `role`. The prop
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.identify('user-id', {
       role: 'admin'
     });
@@ -127,7 +155,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.identify('user-id', {
       role: 'admin'
     }, {
@@ -154,7 +182,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.setGroup('groupType', 'groupName');
     ```
 
@@ -172,7 +200,7 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.setGroup('orgId', ['10', '20']);
     ```
 
@@ -188,7 +216,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.eventName(properties: EventNameProperties, options: EventOptions)
     ```
 
@@ -209,7 +237,7 @@ The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.songPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -233,7 +261,7 @@ Ampli also generates a class for each event.
 
 === "TypeScript"
 
-    ```js
+    ```ts
     const myEventObject = new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -253,7 +281,7 @@ Track Event objects using Ampli `track`:
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.track(new SongPlayed({
       songId: 'songId', // string,
       songFavorited: true, // boolean
@@ -277,7 +305,7 @@ First you need to define your plugin. Enrichment Plugin example:
 
 === "TypeScript"
 
-    ```js
+    ```ts
     import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
 
     export class AddEventIdPlugin implements EnrichmentPlugin {
@@ -334,7 +362,7 @@ Add your plugin after init Ampli.
 
 === "TypeScript"
 
-    ```js
+    ```ts
     ampli.client.add(new AddEventIdPlugin())
     ```
 

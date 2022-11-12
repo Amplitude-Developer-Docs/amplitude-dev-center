@@ -311,6 +311,14 @@ import { flush } from '@amplitude/analytics-react-native';
 flush();
 ```
 
+By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
+
+```typescript
+await init(AMPLITUDE_API_KEY).promise;
+track('Button Clicked');
+await flush().promise;
+```
+
 ### Custom user ID
 
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
@@ -597,6 +605,24 @@ Set the logger by configuring the `loggerProvider` with your own implementation.
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   loggerProvider: new MyLogger(),
+});
+```
+
+### Custom HTTP Client
+
+You can provide an implementation of `Transport` interface to the `transportProvider` configuration option for customization purpose, for example, sending requests to your proxy server with customized HTTP request headers.
+
+```ts
+import { Transport } from '@amplitude/analytics-types';
+
+class MyTransport implements Transport {
+  async send(serverUrl: string, payload: Payload): Promise<Response | null> {
+    // check example: https://github.com/amplitude/Amplitude-TypeScript/blob/main/packages/analytics-client-common/src/transports/fetch.ts
+  }
+}
+
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  transportProvider: new MyTransport(),
 });
 ```
 

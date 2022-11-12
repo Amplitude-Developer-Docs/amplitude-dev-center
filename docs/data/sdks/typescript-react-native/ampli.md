@@ -93,6 +93,34 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 | `client.instance`                     | Optional. `AmpltitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 | `client.configuration`                | Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
+Example of initialization with `load` to override the default configuration:
+
+=== "TypeScript"
+
+    ```typescript
+    ampli.load({
+      environment: 'development',
+      client: {
+        configuration: {
+          minIdLength: 10,
+        }
+      }
+    });
+    ```
+
+=== "JavaScript"
+
+    ```javascript
+    ampli.load({
+      environment: 'development',
+      client: {
+        configuration: {
+          minIdLength: 10,
+        }
+      }
+    });
+    ```
+
 ### Identify
 
 Call `identify()` to identify a user in your app and associate all future events with their identity, or to set their properties.
