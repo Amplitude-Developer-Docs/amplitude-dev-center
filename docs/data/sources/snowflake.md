@@ -43,7 +43,7 @@ To add Snowflake as a data source in your Amplitude project, follow these steps:
       - **Type of data**: This tells Amplitude whether you're ingesting event data, user property data, or group property data.
       - **Type of import:**
         - **Full Sync**: Amplitude periodically ingests the entire dataset, regardless of whether that data has already been imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
-        - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. In order for this to work, you must include the timestamp of when the data was loaded into Snowflake.
+        - **Time-based**: Amplitude periodically ingests the most recent rows in the data, as determined by the provided *Timestamp* column. The first import brings in all available data, and later imports ingest any data with timestamps **after the time of the most recent import**. To use this, you must include the timestamp of when the data was loaded into Snowflake. For more information on how this works, see [the time-based import](#time-based-import) section.
       - **Frequency**: Choose from several scheduling options ranging from five minutes to one month (when this is selected, ingestion happens on the first of the month).
       - **SQL query**: This is the code for the query Amplitude uses to determine which data is ingested.
 
@@ -53,6 +53,14 @@ To add Snowflake as a data source in your Amplitude project, follow these steps:
 You'll see a notification indicating you've successfully enabled the new Snowflake source. You'll also be redirected to the Sources listing page, where you'll see the newly created Snowflake source.
 
 If you have any issues or questions while following this flow, contact the Amplitude team.
+
+## Time-based import
+
+For Amplitude's time-based import option, it's best practice to use a monotonically increasing timestamp value. This value should indicate **when** the record was loaded into the source table the SQL configuration is querying from (often referred to as a "server upload time"). The warehouse import tool brings data into Amplitude is by continually updating the maximum value of the column referenced in the *Timestamp Column Name* input within the Import Config UI with each subsequent import.
+
+!!!example
+
+    Upon first import, Amplitude imports all the data returned from the query configured in the Import Config. Amplitude saves a reference of the maximum timestamp referenced in the *Timestamp Column Name*: `timestamp_1`. Upon subsequent import, Amplitude imports all data from the previously saved timestamp (`timestamp_1`), to what's now the new maximum timestamp (`timestamp_2`). After that import, Amplitude saves `timestamp_2` as the new maximum timestamp.
 
 ## Data fields
 
