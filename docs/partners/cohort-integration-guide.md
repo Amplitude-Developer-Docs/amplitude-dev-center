@@ -44,7 +44,7 @@ The first step is determining how you plan to authenticate the API call between 
 
 Click **Custom Headers**,  choose from the following:
 
-- **No authentication**: No Authentication header is needed.
+- **No authentication**: No Authentication header is required.
 - **Basic Authentication**: Use API key and API Secret (optional) as authentication headers.
 - **Authentication Header**: Authenticate with API key.
 - **Bearer Token**: User Bearer Token as an Authorization header.
@@ -110,8 +110,8 @@ You need to call three different APIs for a list-based integration. The first on
 <figcaption>Configure the list creation call by selecting an endpoint, and adding a payload </figcaption>
 </figure>
 
-- **URL Endpoint**: This is the endpoint that you'll define. for example, `https://api.yourapp.com/list`. Choose which method to use in the call.
-- **API payload that will be sent to the destination**: Customize and define this payload to fit your needs.
+- **URL Endpoint**: This is the endpoint that you define. for example, `https://api.yourapp.com/list`. Choose which method to use in the call.
+- **API payload that to send to the destination**: Customize and define this payload to fit your needs.
 - **Path to List ID in the response**: N/A
 
 !!!note "Payload editor"
@@ -165,7 +165,7 @@ The add users API is called every time a cohort syncs from Amplitude to your app
 </figure>
 
 - **URL Endpoint**: There is a `$list_Id` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: `https://your.domain/lists/$listId/add`.
-- **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of *An array of items that replaces the $items variable in the payload* 
+- **API payload that to send to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable. The contents of *An array of items that replaces the $items variable in the payload* replace this variable. 
 This `$items` variable is usually the identifier for every user in a cohort. For example, there are 20 new users to add to your existing cohort. The Batch object contains a collection (a list of 20 users) so these 20 objects are sent to your endpoint. Your payload might look something like this: 
 
     ```json
@@ -199,7 +199,7 @@ The remove users API is called every time a cohort syncs from Amplitude to your 
 </figure>
 
 - **URL Endpoint**: There is a `$listId` placeholder in the URL but it's not required. You can design your API to place this in the payload if you want, for example: `https://your.domain/lists/$listId/remove`.
-- **API payload that will be sent to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of *An array of items that replaces the $items variable in the payload* 
+- **API payload to send to the destination**: You can customize and define whether this payload is a batch. The important key here is the `$items` variable which is replaced by the contents of *An array of items that replaces the $items variable in the payload* 
 This `$items` variable is usually the identifier for every user in a cohort. For example, there are 20 new users to remove from your existing cohort. The Batch object contains a collection (a list of 20 users) so these 20 objects are sent to your endpoint. Your payload might look something like this: 
 
     ```json
@@ -221,14 +221,14 @@ This `$items` variable is usually the identifier for every user in a cohort. For
 
 Instead of creating every single status code, failure reasons, error message, and sub error code again, Amplitude recommends using the same set of error codes from your list creation endpoint. Just select **Copy errors from other endpoints** and select an endpoint you've written errors for.
 
-### Preview & Test Endpoint
+### Preview & test endpoint
 
 Before submitting your configuration for review, test the mock payload that you expect to receive from Amplitude. On the right side of the configuration page, follow these steps to preview and test your configuration.
 
 Configure the test integration instance: 
 
 1. **Provide a valid Project ID in your organization for testing**: Select your project.
-2. **Name**: Enter a name for the integration. This is just for testing this instance of the integration and won't change your integration's public name. 
+2. **Name**: Enter a name for the integration. This is just for testing this instance of the integration and doesn't change your integration's public name. 
 3. **API Key**: Enter the API key from the Amplitude project.
 4. **Key**: Choose which Amplitude User Properties to map to your target ID.
 
@@ -250,6 +250,6 @@ The `{listId: $list_id}` is the expected response for list creation API call. To
 
 Use the `$list_id` you retrieved to test the add to add users and remove users endpoints.
 
-### Submit your Integration
+### Submit your integration
 
-After you have finalized your testing, click **Submit** to submit your integration to the Amplitude team. The review process should take about one week. When Amplitude approves you integration, you'll get notified via email and be able to see your integration tile in the Destination section of Amplitude.
+After you have finalized your testing, click **Submit** to submit your integration to the Amplitude team. The review process should take about one week. When Amplitude approves you integration, you're notified via email and can see your integration tile in the Destination section of Amplitude.
