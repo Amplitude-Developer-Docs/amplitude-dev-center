@@ -15,7 +15,7 @@ Official documentation for Amplitude Experiment's Client-side React Native SDK.
 
 ![npm (tag)](https://img.shields.io/npm/v/@amplitude/experiment-react-native-client/beta)
 
-Install the Experiment JavaScript Client SDK. This library depends on `@react-native-async-storage/async-storage` which you'll also need to install.
+Install the Experiment JavaScript Client SDK. This library depends on `@react-native-async-storage/async-storage` which you also need to install.
 
 !!!info "Web and Expo Support"
     This SDK can be used for react-native apps built for web or built using [Expo](https://expo.dev/) (Expo Go not yet supported).
@@ -41,7 +41,7 @@ Install the Experiment JavaScript Client SDK. This library depends on `@react-na
     expo install @react-native-async-storage/async-storage
     ```
 
-You'll need to install the native modules to run the SDK on iOS.
+You need to install the native modules to run the SDK on iOS.
 
 ```bash
 cd ios
