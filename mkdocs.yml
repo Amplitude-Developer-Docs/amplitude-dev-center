@@ -310,6 +310,8 @@ nav:
         - Optimizely: data/sources/optimizely.md
         - Split: data/sources/split.md
         - Taplytics: data/sources/taplytics.md
+      - Lookup Tables:
+        - CSV: data/sources/lookup-table.md
       - Marketing Analytics:
         - Adobe:
           - Adobe Analytics: data/sources/adobe-analytics.md
@@ -326,7 +328,6 @@ nav:
         - Shopify: data/sources/shopify.md
       - Other:
         - Datazoom: data/sources/datazoom.md
-        - CSV: data/sources/lookup-table.md
         - Kochava: data/sources/kochava.md
       - Privacy:
         - MetaRouter: data/sources/metarouter.md
