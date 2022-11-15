@@ -897,6 +897,10 @@ Tracking for each field can be individually controlled, and has a corresponding 
 
     Using `TrackingOptions` only prevents default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project  with existing data that you want to stop collecting the default properties for, get help in the [Amplitude Community](https://community.amplitude.com/). Disabling tracking doesn't delete any existing data in your project.
 
+### Carrier 
+
+Amplitude determines the user's mobile carrier using [Android's TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager#getNetworkOperatorName()) `getNetworkOperatorName()`, which returns the current registered operator of the `tower`. 
+
 ### COPPA control
 
 COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking can all be enabled or disabled at one time. Apps that ask for information from children under 13 years of age must comply with COPPA.

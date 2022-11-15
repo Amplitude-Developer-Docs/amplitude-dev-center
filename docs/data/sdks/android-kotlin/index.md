@@ -297,7 +297,7 @@ amplitude.add(
 )
 ```
 
-## Advanced Topic
+## Advanced topics
 
 ### User sessions
 
@@ -516,6 +516,10 @@ Tracking for each field can be individually controlled, and has a corresponding 
 !!!note
 
     Using `TrackingOptions` only prevents default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project with existing data that you want to stop collecting the default properties for, get help in the [Amplitude Community](https://community.amplitude.com/). Disabling tracking doesn't delete any existing data in your project.
+
+### Carrier 
+
+Amplitude determines the user's mobile carrier using [Android's TelephonyManager](https://developer.android.com/reference/kotlin/android/telephony/TelephonyManager#getnetworkoperatorname) `getNetworkOperatorName()`, which returns the current registered operator of the `tower`.  
 
 ### COPPA control
 
