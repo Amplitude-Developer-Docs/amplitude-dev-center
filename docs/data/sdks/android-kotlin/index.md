@@ -519,7 +519,7 @@ Tracking for each field can be individually controlled, and has a corresponding 
 
 ### Carrier 
 
-Amplitude determines the user's mobile carrier using [Android's TelephonyManager](https://developer.android.com/reference/kotlin/android/telephony/TelephonyManager#getnetworkoperatorname) `getNetworkOperatorName()`, which returns the current registered operator of the `tower`.  
+Amplitude determines the user's mobile carrier using [Android's TelephonyManager](https://developer.android.com/reference/kotlin/android/telephony/TelephonyManager#getnetworkoperatorname) `networkOperatorName`, which returns the current registered operator of the `tower`.  
 
 ### COPPA control
 
