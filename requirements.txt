@@ -42,7 +42,7 @@ watchdog==2.1.6
 Werkzeug==2.0.2
 zipp==3.7.0
 cairosvg==2.5.2
-pillow==9.2.0
+pillow==9.3.0
 
 
 # Requirements for plugins
