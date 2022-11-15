@@ -9,7 +9,7 @@ Official documentation for Amplitude Experiment's server-side JVM SDK implementa
 !!!info "SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/experiment-jvm-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-jvm-server/releases)
 
-This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
+This documentation has separate sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
 * [Remote evaluation](#remote-evaluation)
 * [Local evaluation](#local-evaluation)
@@ -336,7 +336,7 @@ Initializes a [local evaluation](../general/evaluation/local-evaluation.md) clie
 
 #### Configuration
 
-The SDK client can be configured on initialization.
+You can configre the SDK client on initialization.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div> | Description | Default Value |
