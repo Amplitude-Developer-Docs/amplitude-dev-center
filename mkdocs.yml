@@ -283,51 +283,68 @@ nav:
       #- BigQuery: data/sources/bigquery.md
       - Snowflake: data/sources/snowflake.md
     - Other Sources:
-      - Adjust: data/sources/adjust.md
-      - Adobe:
-        - Adobe Analytics: data/sources/adobe-analytics.md
-        - Adobe Tag Manager: data/sources/adobe.md
-      - Airbridge: data/sources/airbridge.md
-      - Apphud: data/sources/apphud.md
-      - AppsFlyer: data/sources/appsflyer.md
-      - Branch: data/sources/branch.md
-      - Braze: data/sources/braze.md
-      - Census: data/sources/census.md
-      - Chameleon: data/sources/chameleon.md
-      - CleverTap: data/sources/clevertap.md
-      - Convizit: data/sources/convizit.md
-      - Cordial: data/sources/cordial.md
-      - CSV: data/sources/lookup-table.md
-      - Datazoom: data/sources/datazoom.md
-      - Facebook Ads: data/sources/facebook-ads.md
-      - Google Ads: data/sources/google-ads.md
-      - Google Tag Manager: data/sources/google-tag-manager.md
-      - Hightouch: data/sources/hightouch.md
-      - HubSpot: data/sources/hubspot.md
-      - Intercom: data/sources/intercom.md
-      - Iterable: data/sources/iterable.md
-      - Kochava: data/sources/kochava.md
-      - Leanplum: data/sources/leanplum.md
-      - Mailchimp: data/sources/mailchimp.md
-      - MetaRouter: data/sources/metarouter.md
-      - MoEngage: data/sources/moengage.md
-      - mParticle: data/sources/mparticle.md
-      - OneSignal: data/sources/onesignal.md
-      - Optimizely: data/sources/optimizely.md
-      - Qualtrics: data/sources/qualtrics.md
-      - Radar: data/sources/radar.md
-      - RevenueCat: data/sources/revenuecat.md
-      - Rudderstack: data/sources/rudderstack.md
-      - Salesforce: data/sources/salesforce-group.md
-      - Segment: data/sources/segment.md
-      - SendGrid: data/sources/sendgrid.md
-      - Shopify: data/sources/shopify.md
-      - Split: data/sources/split.md
-      - Singular: data/sources/singular.md
-      - Survicate: data/sources/survicate.md
-      - Taplytics: data/sources/taplytics.md
-      - Tribe: data/sources/tribe.md
-      - Userflow: data/sources/userflow.md
+      - Ad Networks:
+        - Facebook Ads: data/sources/facebook-ads.md
+        - Google Ads: data/sources/google-ads.md
+      - Attribution:
+        - Adjust: data/sources/adjust.md
+        - Airbridge: data/sources/airbridge.md
+        - AppsFlyer: data/sources/appsflyer.md
+        - Branch: data/sources/branch.md
+        - Singular: data/sources/singular.md
+      - CDP:
+        - mParticle: data/sources/mparticle.md
+        - Rudderstack: data/sources/rudderstack.md
+        - Segment: data/sources/segment.md
+      - Collaboration:
+        - Tribe: data/sources/tribe.md
+      - Customer Engagement:
+        - Chameleon: data/sources/chameleon.md
+        - CleverTap: data/sources/clevertap.md
+        - Cordial: data/sources/cordial.md
+        - Intercom: data/sources/intercom.md
+        - OneSignal: data/sources/onesignal.md
+        - Radar: data/sources/radar.md
+        - SendGrid: data/sources/sendgrid.md
+        - Userflow: data/sources/userflow.md
+      - Experimentation: 
+        - Optimizely: data/sources/optimizely.md
+        - Split: data/sources/split.md
+        - Taplytics: data/sources/taplytics.md
+      - Lookup Tables:
+        - CSV: data/sources/lookup-table.md
+      - Marketing Analytics:
+        - Adobe:
+          - Adobe Analytics: data/sources/adobe-analytics.md
+          - Adobe Tag Manager: data/sources/adobe.md
+        - Google Tag Manager: data/sources/google-tag-manager.md
+      - Marketing Automation:
+        - Braze: data/sources/braze.md
+        - HubSpot: data/sources/hubspot.md
+        - Iterable: data/sources/iterable.md
+        - Leanplum: data/sources/leanplum.md
+        - Mailchimp: data/sources/mailchimp.md
+        - MoEngage: data/sources/moengage.md
+      - Marketplace:
+        - Shopify: data/sources/shopify.md
+      - Other:
+        - Datazoom: data/sources/datazoom.md
+        - Kochava: data/sources/kochava.md
+      - Privacy:
+        - MetaRouter: data/sources/metarouter.md
+      - Qualitative Feeback:
+        - Qualtrics: data/sources/qualtrics.md
+        - Survicate: data/sources/survicate.md
+      - Reverse ETL:
+        - Census: data/sources/census.md
+        - Hightouch: data/sources/hightouch.md
+      - Sales: 
+        - Salesforce: data/sources/salesforce-group.md
+      - Subscription Management:
+        - Apphud: data/sources/apphud.md
+        - RevenueCat: data/sources/revenuecat.md
+      - Website: 
+        - Convizit: data/sources/convizit.md
   - Destinations:
     - Overview: data/destinations.md
     - Cloud Storage:
