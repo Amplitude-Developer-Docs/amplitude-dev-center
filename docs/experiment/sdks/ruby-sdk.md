@@ -94,7 +94,7 @@ initialize_remote(apiKey, config = nil) : Client
 
 #### Configuration
 
-The SDK client can be configured on initialization.
+You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
@@ -268,7 +268,7 @@ AmplitudeExperiment.initialize_local(api_key)
 
 #### Configuration
 
-The SDK client can be configured on initialization.
+You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div> | Description | Default Value |
@@ -294,7 +294,7 @@ experiment.start
 
 ### Evaluate
 
-Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). You must give evaluate a user object argument, and can you can optionally pass it an array of flag keys if only a specific subset of required flag variants are required.
 
 ```ruby
 evaluate(user, flag_keys)
@@ -321,7 +321,7 @@ else:
 end
 ```
 
-## Accessing Amplitude cookies
+## Access Amplitude cookies
 
 If you're using the Amplitude Analytics SDK on the client-side, the Ruby server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client hasn't yet generated a Device ID.
 

@@ -11,7 +11,7 @@ Official documentation for Amplitude Experiment's server-side Python SDK impleme
 !!!info "SDK Resources"
      [:material-github: GitHub](https://github.com/amplitude/experiment-python-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-python-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-python-server/)
 
-This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
+This documentation has separate sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
 * [Remote evaluation](#remote-evaluation)
 * [Local evaluation](#local-evaluation)
@@ -86,7 +86,7 @@ Experiment.initialize_remote(api_key, config = None) : RemoteEvaluationClient
 
 #### Configuration
 
-The SDK client can be configured on initialization.
+You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
@@ -237,7 +237,7 @@ Experiment.initialize_local(api_key, config = None) : LocalEvaluationClient
 
 #### Configuration
 
-The SDK client can be configured on initialization.
+You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div> | Description | Default Value |

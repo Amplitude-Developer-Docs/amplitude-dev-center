@@ -32,6 +32,7 @@ curl 'https://data-api.amplitude.com/iglu/schemas/{vendor-name}' --header 'apike
 ```
 
 Filter them by event name if required:
+
 ```bash
 curl 'https://data-api.amplitude.com/iglu/schemas/{vendor-name}/{event-name}' --header 'apikey: {your-api-key}'
 ```

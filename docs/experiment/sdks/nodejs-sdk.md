@@ -9,7 +9,7 @@ Official documentation for Amplitude Experiment's server-side Node.js SDK implem
 !!!info "SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
 
-This documentation is split into two sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
+This documentation has separate sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
 * [Remote evaluation](#remote-evaluation)
 * [Local evaluation](#local-evaluation)
@@ -209,7 +209,7 @@ initializeLocal(apiKey: string, config?: LocalEvaluationConfig): LocalEvaluation
 
 #### Configuration
 
-The SDK client can be configured on initialization.
+You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
 
@@ -236,7 +236,7 @@ await experiment.start();
 
 ### Evaluate
 
-Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). You must give evaluate a user object argument. You can optionally pass an array of flag keys if you require only a specific subset of required flag variants.
 
 ```js
 evaluate(user: ExperimentUser, flagKeys?: string[]): Promise<Variants>
@@ -261,7 +261,7 @@ const specificVariants = await experiment.evaluate(user, [
 ]);
 ```
 
-## Accessing Amplitude cookies
+## Access Amplitude cookies
 
 If you're using the Amplitude Analytics SDK on the client-side, the Node.js server SDK provides an `AmplitudeCookie` class with convenience functions for parsing and interacting with the Amplitude identity cookie. This is useful for ensuring that the Device ID on the server matches the Device ID set on the client, especially if the client hasn't yet generated a Device ID.
 

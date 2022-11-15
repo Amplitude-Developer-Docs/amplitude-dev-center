@@ -81,4 +81,4 @@ After you've configured your source information, you can test it and finally sub
 
 4. Wait for Amplitude to verify the event. 
 
-After you have finished your testing, click **Submit** to submit your integration to the Amplitude team. The review process should take about one week. When Amplitude approves you integration, you'll get notified via email and be able to see your integration tile in the Sources section of Amplitude.
+After you have finished your testing, click **Submit** to submit your integration to the Amplitude team. The review process should take about one week. When Amplitude approves your integration, you are notified via email and are able to see your integration tile in the Sources section of Amplitude.
