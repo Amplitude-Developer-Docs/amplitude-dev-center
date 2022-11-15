@@ -57,6 +57,10 @@ init(API_KEY, {
 });
 ```
 
+### Logging
+
+--8<-- "includes/sdk-ts/server-logging.md"
+
 #### EU data residency
 
 You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
@@ -127,7 +131,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.set('location', 'LAX');
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 #### Identify.setOnce
@@ -140,7 +146,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.setOnce('initial-location', 'SFO');
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 #### Identify.add
@@ -153,7 +161,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.add('travel-count', 1);
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 #### Arrays in user properties
@@ -170,7 +180,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.prepend('visited-locations', 'LAX');
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 #### Identify.append
@@ -183,7 +195,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.append('visited-locations', 'SFO');
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 #### Identify.preInsert
@@ -196,7 +210,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.preInsert('unique-locations', 'LAX');
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 #### Identify.postInsert
@@ -209,7 +225,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.postInsert('unique-locations', 'SFO');
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 #### Identify.remove
@@ -222,7 +240,9 @@ import { Identify, identify } from '@amplitude/analytics-node';
 const identifyObj = new Identify();
 identifyObj.remove('unique-locations', 'JFK')
 
-identify(identifyObj);
+identify(identifyObj, {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 ### User groups
@@ -235,10 +255,14 @@ identify(identifyObj);
 import { setGroup } from '@amplitude/analytics-node';
 
 // set group with single group name
-setGroup('orgId', '15');
+setGroup('orgId', '15', {
+  user_id: 'user@amplitude.com',
+});
 
 // set group with multiple group names
-setGroup('sport', ['soccer', 'tennis']);
+setGroup('sport', ['soccer', 'tennis'], {
+  user_id: 'user@amplitude.com',
+});
 ```
 
 ### Group properties
@@ -307,7 +331,9 @@ By default, `flush` is called automatically in an interval, if you want to flush
 
 ```typescript
 await init(AMPLITUDE_API_KEY).promise;
-track('Button Clicked');
+track('Button Clicked', undefined, {
+  user_id: 'user@amplitude.com',
+});
 await flush().promise;
 ```
 
@@ -339,13 +365,17 @@ All asynchronous API are optionally awaitable through a Promise interface. This 
 import { track } from '@amplitude/analytics-node';
 
 // Using async/await
-const results = await track('Button Clicked').promise;
+const results = await track('Button Clicked', undefined, {
+  user_id: 'user@amplitude.com',
+}).promise;
 result.event; // {...} (The final event object sent to Amplitude)
 result.code; // 200 (The HTTP response status code of the request.
 result.message; // "Event tracked successfully" (The response message)
 
 // Using promises
-track('Button Clicked').promise.then((result) => {
+track('Button Clicked', undefined, {
+  user_id: 'user@amplitude.com',
+}).promise.then((result) => {
   result.event; // {...} (The final event object sent to Amplitude)
   result.code; // 200 (The HTTP response status code of the request.
   result.message; // "Event tracked successfully" (The response message)
@@ -401,7 +431,7 @@ export class AddEventIdPlugin implements EnrichmentPlugin {
   type = PluginType.ENRICHMENT as const;
   currentId = 100;
   config?: NodeConfig;
-  
+
   /**
    * setup() is called on plugin installation
    * example: client.add(new AddEventIdPlugin());
@@ -410,7 +440,7 @@ export class AddEventIdPlugin implements EnrichmentPlugin {
      this.config = config;
      return;
   }
-   
+
   /**
    * execute() is called on each event instrumented
    * example: client.track('New Event');
@@ -480,34 +510,6 @@ add(new MyDestinationPlugin('https://custom.domain.com'));
 ```
 
 ## Advanced topics
-
-### Logging
-
-You can control the level of logs printed to the developer console.
-
-- 'None': Suppresses all log messages.
-- 'Error': Shows error messages only.
-- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` isn't explicitly specified.
-- 'Verbose': Shows informative messages.
-- 'Debug': Shows error messages, warnings, and informative messages that may be useful for debugging, including the function context information for all SDK public method invocations. This logging mode is only suggested to be used in development phases.
-
-Set the log level by configuring the `logLevel` with the level you want.
-
-```ts
-amplitude.init(API_KEY, {
-  logLevel: amplitude.Types.LogLevel.Debug,
-});
-```
-
-The default logger outputs logs to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
-
-Set the logger by configuring the `loggerProvider` with your own implementation.
-
-```ts
-amplitude.init(API_KEY, {
-  loggerProvider: new MyLogger(),
-});
-```
 
 ### Custom HTTP Client
 
