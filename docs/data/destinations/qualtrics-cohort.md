@@ -14,6 +14,7 @@ With the Qualtrics cohort export integration, you can export Amplitude user coho
 ## Considerations
 
 - In Qualtrics, your cohorts appear as `[Amplitude] <cohort name> (<cohort ID>)`, with a value of `active`. If a user doesn't exist in Qualtrics, a contact is added to the mailing list. See the [Qualtrics documentation](https://www.qualtrics.com/support/iq-directory/lists-tab/creating-mailing-lists/) for more information.
+- This integration supports only Email as a user_id mapping option.
 
 ## Setup
 
