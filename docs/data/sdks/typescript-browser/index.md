@@ -85,6 +85,8 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```ts
+import { track } from '@amplitude/analytics-browser';
+
 // Track a basic event
 track('Button Clicked');
 
@@ -109,6 +111,8 @@ Identify is for setting the user properties of a particular user without sending
 The Identify object provides controls over setting user properties. It works like this: first, instantiate an Identify object, then call Identify methods on it, and finally, the client can make a call with the Identify object.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identify(identifyObj);
 ```
@@ -118,6 +122,8 @@ identify(identifyObj);
 This method sets the value of a user property. For example, you can set a role property of a user.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.set('location', 'LAX');
 
@@ -129,6 +135,8 @@ identify(identifyObj);
 This method sets the value of a user property only one time. Subsequent calls using `setOnce()` are ignored. For example, you can set an initial login method for a user and because only the initial value is tracked, `setOnce()` ignores later calls.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.setOnce('initial-location', 'SFO');
 
@@ -140,6 +148,8 @@ identify(identifyObj);
 This method increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to 0 before it's incremented. For example, you can track a user's travel count.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.add('travel-count', 1);
 
@@ -155,6 +165,8 @@ You can use arrays as user properties. Directly set arrays or use `prepend`, `ap
 This method prepends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.prepend('visited-locations', 'LAX');
 
@@ -166,6 +178,8 @@ identify(identifyObj);
 This method appends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.append('visited-locations', 'SFO');
 
@@ -177,6 +191,8 @@ identify(identifyObj);
 This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the values at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, this method is a no-op.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.preInsert('unique-locations', 'LAX');
 
@@ -188,6 +204,8 @@ identify(identifyObj);
 This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the values at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, this method is a no-op..
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.postInsert('unique-locations', 'SFO');
 
@@ -199,6 +217,8 @@ identify(identifyObj);
 This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the user property has an existing value, this method is a no-op.
 
 ```ts
+import { identify, Identify } from '@amplitude/analytics-browser';
+
 const identifyObj = new Identify();
 identifyObj.remove('unique-locations', 'JFK')
 
@@ -212,6 +232,8 @@ identify(identifyObj);
 --8<-- "includes/groups-intro-paragraph.md"
 
 ```ts
+import { setGroup } from '@amplitude/analytics-browser';
+
 // set group with single group name
 setGroup('orgId', '15');
 
@@ -228,12 +250,14 @@ Use the Group Identify API to set or update properties of particular groups. The
 The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that's applied to the group.
 
 ```ts
+import { groupIdentify, Identify } from '@amplitude/analytics-browser';
+
 const groupType = 'plan';
 const groupName = 'enterprise';
-const event = new Identify()
+const groupIdentifyObj = new Identify()
 event.set('key1', 'value1');
 
-groupIdentify(groupType, groupName, identify);
+groupIdentify(groupType, groupName, groupIdentifyObj);
 ```
 
 ### Revenue tracking
@@ -246,6 +270,8 @@ The preferred method of tracking revenue for a user is to use `revenue()` in con
 To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
 
 ```ts
+import { revenue, Revenue } from '@amplitude/analytics-browser';
+
 const event = new Revenue()
   .setProductId('com.company.productId')
   .setPrice(3.99)
@@ -271,12 +297,16 @@ revenue(event);
 The `flush` method triggers the client to send buffered events immediately.
 
 ```typescript
+import { flush } from '@amplitude/analytics-browser';
+
 flush();
 ```
 
 By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
 
 ```typescript
+import { flush, init, track } from '@amplitude/analytics-browser';
+
 await init(AMPLITUDE_API_KEY).promise;
 track('Button Clicked');
 await flush().promise;
@@ -289,12 +319,16 @@ If your app has its own login system that you want to track users with, you can 
 TypeScript
 
 ```ts
+import { setUserId } from '@amplitude/analytics-browser';
+
 setUserId('user@amplitude.com');
 ```
 
 You can also assign the User ID as an argument to the init call.
 
 ```ts
+import { init } from '@amplitude/analytics-browser';
+
 init(API_KEY, 'user@amplitude.com');
 ```
 
@@ -305,6 +339,8 @@ You can assign a new Session ID using `setSessionId`. When setting a custom sess
 TypeScript
 
 ```ts
+import { setSessionId } from '@amplitude/analytics-browser';
+
 setSessionId(Date.now());
 ```
 
@@ -315,6 +351,7 @@ If your app has its own login system that you want to track users with, you can 
 You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. Amplitude recommends using a UUID.
 
 ```ts
+import { setDeviceId } from '@amplitude/analytics-browser';
 const { uuid } = require('uuidv4');
 
 setDeviceId(uuid());
@@ -330,6 +367,8 @@ setDeviceId(uuid());
 With an undefined `userId` and a completely new `deviceId`, the current user would appear as a brand new user in dashboard.
 
 ```ts
+import { reset } from '@amplitude/analytics-browser';
+
 reset();
 ```
 
@@ -338,6 +377,8 @@ reset();
 You can turn off logging for a given user by setting `setOptOut` to `true`.
 
 ```ts
+import { setOptOut } from '@amplitude/analytics-browser';
+
 setOptOut(true);
 ```
 
@@ -346,6 +387,8 @@ Events aren't saved or sent to the server while `setOptOut` is enabled, and the 
 Re-enable logging by setting `setOptOut` to `false`.
 
 ```ts
+import { setOptOut } from '@amplitude/analytics-browser';
+
 setOptOut(false);
 ```
 
@@ -364,7 +407,9 @@ By default, the SDK tracks these properties automatically. You can override this
 | `platform` | `true` |
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+import { init } from '@amplitude/analytics-browser';
+
+init(API_KEY, OPTIONAL_USER_ID, {
   trackingOptions: {
     deviceManufacturer: false,
     deviceModel: false,
@@ -382,6 +427,8 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
 
 ```ts
+import { track } from '@amplitude/analytics-browser';
+
 // Using async/await
 const results = await track('Button Clicked').promise;
 result.event; // {...} (The final event object sent to Amplitude)
@@ -405,6 +452,8 @@ Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying 
 The `add` method adds a plugin to Amplitude. Plugins can help processing and sending events.
 
 ```typescript
+import { add } from '@amplitude/analytics-browser';
+
 add(new Plugin());
 ```
 
@@ -413,6 +462,8 @@ add(new Plugin());
 The `remove` method removes the given plugin name from the client instance if it exists.
 
 ```typescript
+import { remove } from '@amplitude/analytics-browser';
+
 remove(plugin.name);
 ```
 
@@ -433,7 +484,7 @@ This method contains the logic for processing events and has event as parameter.
 Here's an example of a plugin that sends each event that's instrumented to a target server URL using your preferred HTTP client.
 
 ```ts
-import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+import { add, BrowserConfig, DestinationPlugin, Event, init, PluginType, Result } from '@amplitude/analytics-types';
 
 export class MyDestinationPlugin implements DestinationPlugin {
   name = 'my-destination-plugin';
@@ -485,7 +536,7 @@ add(new MyDestinationPlugin('https://custom.domain.com'));
 Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
 ```ts
-import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
+import { add, BrowserConfig, EnrichmentPlugin, Event, init, PluginType } from '@amplitude/analytics-types';
 
 export class AddEventIdPlugin implements EnrichmentPlugin {
   name = 'add-event-id';
@@ -539,7 +590,7 @@ import { webAttributionPlugin } from '@amplitude/plugin-web-attribution-browser'
 
 add(webAttributionPlugin(client, attributionOptions));
 
-init('API_KEY', configuration);
+init('API_KEY', configurationObj);
 ```
 
 See the [configuration options](../marketing-analytics-browser/#configuration).
@@ -574,12 +625,13 @@ You need to download `plugin-page-view-tracking-browser` and add the `pageViewTr
 
 ```ts
 import * as client from '@amplitude/analytics-browser';
-import { add, init } from '@amplitude/analytics-browser';
 import { pageViewTrackingPlugin } from '@amplitude/plugin-page-view-tracking-browser';
+
+const { add, init } = client;
 
 add(pageViewTrackingPlugin(client, pageViewTrackingOptions));
 
-init('API_KEY', configuration);
+init('API_KEY', configurationObj);
 ```
 
 See the [configuration options](../marketing-analytics-browser/#configuration).
@@ -622,7 +674,9 @@ You can control the level of logs printed to the developer console.
 Set the log level by configuring the `logLevel` with the level you want.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+import { init } from '@amplitude/analytics-browser';
+
+init(API_KEY, OPTIONAL_USER_ID, {
   logLevel: amplitude.Types.LogLevel.Debug,
 });
 ```
@@ -632,7 +686,9 @@ The default logger outputs logs to the developer console. You can also provide y
 Set the logger by configuring the `loggerProvider` with your own implementation.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+import { init } from '@amplitude/analytics-browser';
+
+init(API_KEY, OPTIONAL_USER_ID, {
   loggerProvider: new MyLogger(),
 });
 ```
@@ -642,6 +698,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 You can provide an implementation of `Transport` interface to the `transportProvider` configuration option for customization purpose, for example, sending requests to your proxy server with customized HTTP request headers.
 
 ```ts
+import { init } from '@amplitude/analytics-browser';
 import { Transport } from '@amplitude/analytics-types';
 
 class MyTransport implements Transport {
@@ -650,7 +707,7 @@ class MyTransport implements Transport {
   }
 }
 
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+init(API_KEY, OPTIONAL_USER_ID, {
   transportProvider: new MyTransport(),
 });
 ```
