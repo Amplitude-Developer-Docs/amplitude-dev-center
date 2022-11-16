@@ -255,7 +255,7 @@ import { groupIdentify, Identify } from '@amplitude/analytics-browser';
 const groupType = 'plan';
 const groupName = 'enterprise';
 const groupIdentifyObj = new Identify()
-event.set('key1', 'value1');
+groupIdentifyObj.set('key1', 'value1');
 
 groupIdentify(groupType, groupName, groupIdentifyObj);
 ```
