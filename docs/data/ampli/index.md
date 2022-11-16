@@ -31,7 +31,7 @@ provides autocomplete and static type checking.
  ampli.songPlayed({ title: ‘Song #1’ })
  ```
 
- The Ampli Wrapper is a light wrapper for untyped Amplitude SDKs.
+ The Ampli Wrapper is a light wrapper for untyped Amplitude SDKs. The Unreal, Unity, and Flutter SDKs aren't supported.
 
 ## Amplitude SDK
 
