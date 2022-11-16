@@ -64,8 +64,23 @@ In addition to the [basic configuration options](../typescript-browser/#configur
 |`attribution.disabled`| Optional. `boolean`. Disable the attribution tracking, attribution is enabled by default |
 |`attribution.excludeReferrers`|  Optional. `string[]`. Exclude the attribution tracking for the provided referrers string |
 |`attribution.initialEmptyValue`| Optional. `string`. Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
-|`attribution.resetSessionOnNewCampaign`| Optional. `boolean`. Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default |
+|`attribution.resetSessionOnNewCampaign`| Optional. `boolean`. Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default. |
 |`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
 |`attribution.pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all`. Track the page view only on the path changes, track `all` URL changes by default|
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
+
+## Use the Marketing Analytics SDK with Ampli
+
+To use the Marketing Analytics Browser SDK you can do the following. 
+
+1. Add the Marketing Analytics Browser SDK to your project.
+2. Create an instance of the SDK.
+3. Pass the instance into `ampli.load()`
+
+This example passes the "amplitude" instance to `ampli.load`.
+
+```ts
+amplitude.init(REACT_APP_AMPLITUDE_API_KEY, undefined, { ...DefaultConfiguration, logLevel: 3 });
+ampli.load({ client: { instance: amplitude } });
+```
