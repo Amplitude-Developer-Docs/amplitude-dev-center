@@ -70,9 +70,9 @@ In addition to the [basic configuration options](../typescript-browser/#configur
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
 
-## Use the Marketing Analytics SDK with Ampli
+### Use the Marketing Analytics SDK with Ampli
 
-To use the Marketing Analytics Browser SDK you can do the following. 
+You can use Ampli with this SDK by passing an instance of the Marketing Analytics SDK to `ampli.load()`. See the [Ampli documentation](../typescript-browser/ampli.md#load) for the Browser SDK for more details on configuration. 
 
 1. Add the Marketing Analytics Browser SDK to your project.
 2. Create an instance of the SDK.
@@ -82,5 +82,9 @@ This example passes the "amplitude" instance to `ampli.load`.
 
 ```ts
 amplitude.init(REACT_APP_AMPLITUDE_API_KEY, undefined, { ...DefaultConfiguration, logLevel: 3 });
-ampli.load({ client: { instance: amplitude } });
+ampli.load({ 
+  client: { 
+    instance: amplitude 
+  } 
+});
 ```
