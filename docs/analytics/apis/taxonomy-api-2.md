@@ -9,7 +9,8 @@ The Taxonomy API 2.0 grants clients the ability to programmatically plan their e
 
 It's a GraphQL API, if you're not familiar with GraphQL query & manipulation language check for example [GitHub GraphQL API introduction](https://docs.github.com/en/graphql/guides/introduction-to-graphql).
 
-TODO: **Note**: This document is currently in draft state. We're seeking feedback from the community as we develop this new API.
+!!!note
+    This document is currently in draft state. We're seeking feedback from the community as we develop this new API.
 
 ## Authorization
 
