@@ -9,14 +9,11 @@ The Taxonomy API 2.0 grants clients the ability to programmatically plan their e
 
 It's a GraphQL API, if you're not familiar with GraphQL query & manipulation language check for example [GitHub GraphQL API introduction](https://docs.github.com/en/graphql/guides/introduction-to-graphql).
 
+TODO: **Note**: This document is currently in draft state. We're seeking feedback from the community as we develop this new API.
+
 ## Authorization
 
-### Authorization endpoints
-
-| Region              | Endpoint                                                       |
-|---------------------|----------------------------------------------------------------|
-| Standard Server     | [https://auth.amplitude.com](https://auth.amplitude.com)       |
-| EU Residency Server | [https://auth.eu.amplitude.com](https://auth.eu.amplitude.com) |
+There are two ways to authorize your application to the Taxonomy API: using personal access tokens or OAuth access tokens.
 
 ### Personal access tokens
 
@@ -45,6 +42,14 @@ query OrgQuery {
 OAuth2 is a protocol that lets external applications request authorization to private details in a user's Amplitude Data account without accessing their password. This is preferred over Basic Authentication because tokens can be limited to specific types of data and can be revoked by users at any time.
 
 An OAuth client application uses Amplitude as an identity provider to authenticate as the user who grants access to the app. This means when a user grants an OAuth client app access, they grant permissions to all Data projects they have access to in their account, and also to any organizations they belong to. Building an OAuth client app is a good option if you are creating more complex processes than a simple script can handle. Note that OAuth Apps are applications that need to be hosted somewhere.
+
+#### Authorization endpoints
+
+| Region              | Endpoint                                                       |
+|---------------------|----------------------------------------------------------------|
+| Standard Server     | [https://auth.amplitude.com](https://auth.amplitude.com)       |
+| EU Residency Server | [https://auth.eu.amplitude.com](https://auth.eu.amplitude.com) |
+
 
 #### Register new OAuth client application
 Amplitude Data supports [OAuth 2.0 Dynamic Client Registration Protocol](https://datatracker.ietf.org/doc/html/rfc7591), it allows to create new application with POST request:
@@ -165,12 +170,14 @@ DELETE https://auth.amplitude.com/oauth2/register/{client_id}
 Authorization: Bearer <registration_access_token>
 ```
 
-#### Retrieve OAuth2 access tokens
+#### Retrieve OAuth access tokens
 
-Use any oAuth2 client libraries to implement oAuth2 Authorize Code Flow with Refresh Token. Check for example this sample application [https://www.ory.sh/docs/hydra/5min-tutorial](https://www.ory.sh/docs/hydra/5min-tutorial).
+To retrieve an OAuth access token, you'll first need to create your application as described in the previous step.
+
+You can then use any OAuth2 client library to implement the OAuth2 Authorize Code Flow with Refresh Token. One sample application for your reference is available at [https://www.ory.sh/docs/hydra/5min-tutorial](https://www.ory.sh/docs/hydra/5min-tutorial).
 
 #### OAuth2 access token usage in Taxonomy API
-OAuth2 access token should be provided along with GraphQL request in `Authorization` header with no schema, for example:
+OAuth2 access tokens should be provided along with GraphQL requests as part of the `Authorization` header with no schema, for example:
 
 ```bash
 POST https://data-api.amplitude.com/graphql HTTP/1.1
@@ -194,9 +201,9 @@ query OrgQuery {
 
 ## Limits
 
-There is a concurrent and a rate limit for the endpoint.
- The concurrent limit restricts the amount of requests you can run at the same time, while the rate limit restricts the total number of queries you can run per hour.
- The limits are per Data Project, and exceeding any of these limits returns a 429 error.
+There is a concurrent limit and a rate limit for the endpoint.
+The concurrent limit restricts the amount of requests you can run at the same time, while the rate limit restricts the total number of queries you can run per hour.
+The limits are per Data Project, and exceeding any of these limits returns a 429 error.
 
 The endpoints use a cost per query model. Here are the max costs per API Key:
 
@@ -210,11 +217,11 @@ Cost structure of each endpoint:
 
 ## Tracking plan
 
-Every tracking plan consists of one more branches and each branch consists of multiple versions. There is only default branch called `main`, create more branches if required. All versions in each branch are _published_ (and thus immutable), except one - staging version that allows modifications. To make any changes in a tracking plan, you should know _branch_ and its staging _version_ ids. To make changes accumulated in the staging version available in Amplitude Analytics, publish the version. Examples below show how to do this.
+Every tracking plan consists of one or more branches and each branch consists of multiple versions. A branch called `main` is created by default and you can always create more branches if required. All versions in each branch are _published_ and immutable except for the _staging_ version which can be modified. To make changes to a tracking plan, you'll need the ID of the branch you're making changes to and the ID of staging version on that branch. Then, to save your changes and make them available in Amplitude Analytics, you'll need to publish the staging version. Examples below show how to do this.
 
-### Get branch and its staging version ids
+### Get branch and its staging version IDs
 
-Retrieve `main` branch and its staging version ids.
+Retrieve the `main` branch's ID and its staging version's ID.
 
 #### Example query
 
@@ -222,7 +229,7 @@ Retrieve `main` branch and its staging version ids.
 query VersionQuery {
   orgs {
     id
-    workspaces (name: "Theo's Nimbus 2000") {
+    workspaces (name: "Nimbus 2000") {
       id
       branches (default: true) {
         id
@@ -264,7 +271,7 @@ A successful request returns a `200 OK` status with a JSON body:
 
 ### Publish staging version changes
 
-Publish staging version in the main branch to make them available in Amplitude Analytics. 
+Publish staging version in the main branch to make it available in Amplitude Analytics. 
 
 #### Example mutation
 
@@ -316,23 +323,23 @@ Event categories are a way to organize your event types into broad groups.
 
 ### Create event category
 
-Currently, it's not supported, instead you can assign a category directly to an event type, see correspondent [Create event type](#create-event-type) and [Update event type](#update-event-type).
+Not currently supported. You can however assign a category directly to an event type, see correspondent [Create event type](#create-event-type) and [Update event type](#update-event-type).
 
 ### Get all event categories
 
-Currently, it's not supported, instead you can retrieve event types with assigned categories, see [Get an Event Type](#get-an-event-type).
+Not currently supported. You can however retrieve event types with assigned categories, see [Get an Event Type](#get-an-event-type).
 
 ### Get event category
 
-Currently, it's not supported.
+Not currently supported.
 
 ### Update event category
 
-Currently, it's not supported, instead update the category in all associated event types, see [update event type](#update-event-type).
+Not currently supported. You can however update the category on all associated event types, see [update event type](#update-event-type).
 
 ### Delete an event category
 
-Currently, it's not supported, instead remove the category from all event types in the latest tracking plan version, see [update event type](#update-event-type).
+Not currently supported. You can however remove the category from all event types in the latest tracking plan version, see [update event type](#update-event-type).
 
 ## Event type
 
@@ -402,7 +409,7 @@ A successful request returns a `200 OK` response with a JSON body:
 
 ### Get all event types
 
-Retrieves all event types in a project.
+Retrieve all event types in a project.
 
 #### Example query
 
@@ -410,7 +417,7 @@ Retrieves all event types in a project.
 query EventQuery {
   orgs {
     id
-    workspaces (name: "Theo's Nimbus 2000") {
+    workspaces (name: "Nimbus 2000") {
       id
       branches (default: true) {
         id
@@ -472,7 +479,7 @@ A successful request returns a `200 OK` status with a JSON body:
 
 ### Get event type
 
-Get a single event type, by name.
+Get a single event type by name.
 
 #### Example query
 
@@ -480,7 +487,7 @@ Get a single event type, by name.
 query EventQuery {
   orgs {
     id
-    workspaces (name: "Theo's Nimbus 2000") {
+    workspaces (name: "Nimbus 2000") {
       id
       branches (default: true) {
         id
@@ -542,7 +549,7 @@ A successful request returns a `200 OK` status with a JSON body:
 
 ### Update event type
 
-Update one or more event type.
+Update one or more event types.
 
 #### Example mutation
 
@@ -674,7 +681,7 @@ A successful request returns a `200 OK` response with a JSON body:
 
 ### Get event properties
 
-Get all an event's properties.
+Get all properties on an event.
 
 #### Example query
 
@@ -682,7 +689,7 @@ Get all an event's properties.
 query EventQuery {
   orgs {
     id
-    workspaces (name: "Theo's Nimbus 2000") {
+    workspaces (name: "Nimbus 2000") {
       id
       branches (default: true) {
         id
@@ -776,7 +783,7 @@ Get a single event property.
 query EventQuery {
   orgs {
     id
-    workspaces (name: "Theo's Nimbus 2000") {
+    workspaces (name: "Nimbus 2000") {
       id
       branches (default: true) {
         id
@@ -860,7 +867,7 @@ A successful request returns a `200 OK` status with a JSON body:
 
 ### Update event property
 
-Update an event property. Pay attention that if the property is shared between multiple event types, the change affects them all.
+Update an event property. Note that if the property is shared by multiple event types, the change affects them all.
 
 #### Example mutation
 
@@ -998,7 +1005,7 @@ Retrieves all user properties in your account.
 query EventQuery {
   orgs {
     id
-    workspaces (name: "Theo's Nimbus 2000") {
+    workspaces (name: "Nimbus 2000") {
       id
       branches (default: true) {
         id
@@ -1072,7 +1079,7 @@ A successful request returns a `200 OK` status with a JSON body:
 
 ### Get user property
 
-Retrieves a single user property, by name.
+Retrieves a single user property by name.
 
 #### Example query
 
@@ -1080,7 +1087,7 @@ Retrieves a single user property, by name.
 query EventQuery {
   orgs {
     id
-    workspaces (name: "Theo's Nimbus 2000") {
+    workspaces (name: "Nimbus 2000") {
       id
       branches (default: true) {
         id
@@ -1192,7 +1199,7 @@ A successful request returns a `200 OK` response with a JSON body:
 
 ### Delete user property
 
-Deletes a single user property, by id.
+Delete a single user property by ID.
 
 #### Example mutation
 
