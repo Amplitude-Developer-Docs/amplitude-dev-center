@@ -181,12 +181,13 @@ The SDK client can be configured once on initialization.
 Fetches variants for a [user](../general/data-model.md#users) and store the results in the client for fast access. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
 
 ```js
-fetch(user?: ExperimentUser): Promise<Client>
+fetch(user?: ExperimentUser, options?: FetchOptions): Promise<Client>
 ```
 
-| Parameter  | Requirement | Description |
-| --- | --- | --- |
-| `user` | optional | Explicit [user](../general/data-model.md#users) information to pass with the request to evaluate. This user information is merged with user information provided from [integrations](#integrations) via the [user provider](#user-provider), preferring properties passed explicitly to `fetch()` over provided properties. |
+| Parameter | Requirement | Description                                                                                                                                                                                                                                                                                                               |
+|-----------| --- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `user`    | optional | Explicit [user](../general/data-model.md#users) information to pass with the request to evaluate. This user information is merged with user information provided from [integrations](#integrations) via the [user provider](#user-provider), preferring properties passed explicitly to `fetch()` over provided properties. |
+| `options` | optional | Explicit flag keys to fetch.|
 
 !!!beta "Account level bucketing and analysis support (v1.5.6+)"
     If your organization has purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532-Account-level-reporting-in-Amplitude) you may perform bucketing and analysis on groups rather than users. Reach out to your representative to gain access to this beta feature.
