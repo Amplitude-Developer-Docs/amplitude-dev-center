@@ -7,14 +7,14 @@ Amplitude’s app with Shopify is a smart analytics app that automates eCommerce
 
 ### Client-side (device mode) tracking
 
-During installation, the Amplitude Shopify App adds the code snippet to all pages (included in theme.liquid) on your Shopify store. The benefit of this approach is that Amplitude’s JavaScript SDK library is loaded on all pages, except for the checkout.
+During installation, the Amplitude Shopify App adds the code snippet to all pages (included in `theme.liquid`) on your Shopify store. The benefit of this approach is that Amplitude’s JavaScript SDK library is loaded on all pages, except for checkout.
 
 ### Server-side (cloud mode) tracking
 
-During the Amplitude connection setup, the app adds a set of webhooks to your Shopify store. When a customer interacts with your store these changes are relayed server-side from Shopify to Amplitude. The advantages to this approach are:
+During the Amplitude connection setup, the app adds a set of webhooks to your Shopify store. When a customer interacts with your store these changes, Shopify relays them to Amplitude server-side. The advantages to this approach are:
 
 - 100% event capture for adds to cart, checkout steps, sales.
-- Customer data (for example, email) securely relayed server-side.
+- Customer data (for example, email) is securely relayed server-side.
 - No extra scripts on the sensitive and secure checkout pages.
 - Accurate marketing attribution, even when customers use ad blockers or opt out of cookies.
 - More reliable and trustworthy than client-side events because it represents final, concluded transactions and states within Shopify.
@@ -23,15 +23,15 @@ During the Amplitude connection setup, the app adds a set of webhooks to your Sh
 
 - The Amplitude app is free to install.
 - You need an Amplitude Starter, Growth, or Enterprise plan to start sending data from your Shopify store.
-- The Shopify App was built to solve the general use cases for most Shopify stores. Amplitude has designed a generalized default taxonomy to include events and properties that most Shopify stores would be interested in tracking. 
-- Amplitude recommends leveraging the Amplitude SDKs or APIs in addition to this app if your Shopify Store has a high degree of in-built functionality or if you require instrumenting a lot of custom events outside the taxonomy list. 
+- The Shopify App aims to solve general use cases for most Shopify stores. Amplitude has designed a generalized default taxonomy to include events and properties that most Shopify stores want to track. 
+- Amplitude recommends leveraging the Amplitude SDKs or API along with this app if your Shopify Store has a high degree of in-built functionality or if you require instrumenting a lot of custom events outside the taxonomy list. 
 - All events sent by the Shopify app have the pre-header `[Shopify]` to help distinguish them from custom events.
 - Using Govern, you can change the display name and description for events, event properties, and user properties. You can also block, delete or filter out events and user properties.
-- In addition, using [Govern](https://help.amplitude.com/hc/en-us/articles/360043750992-Govern-Manage-your-Amplitude-data-at-scale), you’ll be able to manage event types, properties, and user properties from a single interface.
+- Using [Govern](https://help.amplitude.com/hc/en-us/articles/360043750992-Govern-Manage-your-Amplitude-data-at-scale), enables you to manage event types, properties, and user properties from a single interface.
 - The Amplitude App doesn't interact with other third-party Shopify apps.
-- If you have more than one Shopify store, you can use the same project and API key all them. Or, you can use a separate project for each store. If you use separate projects, and you want to analyze or generate a holistic view of how your users interact with your entire product portfolio, you will need to purchase Amplitude’s [Portfolio add-on](https://help.amplitude.com/hc/en-us/articles/360002750712-Portfolio-Conduct-cross-project-analysis-in-Amplitude).
+- If you have more than one Shopify store, you can use the same project and API key all them. Or, you can use a separate project for each store. If you use separate projects and you want to analyze or generate a holistic view of how your users interact with your entire product portfolio, you need to purchase Amplitude’s [Portfolio add-on](https://help.amplitude.com/hc/en-us/articles/360002750712-Portfolio-Conduct-cross-project-analysis-in-Amplitude).
 
-## Key Limitations
+## Key limitations
 
 - Each Shopify store uses a particular theme to shape the online store experience for merchants and their customers. Currently Amplitude's Shopify App only installs this client-side snippet code to every existing theme in a store. If you add a new theme after app installation, the Amplitude code snippet isn't added to the new theme and certain client-side events aren't forwarded from Shopify to Amplitude. 
 - Amplitude's Shopify App code isn't open source, and Amplitude isn't able to support specific customer use cases, such as custom event properties.
@@ -69,18 +69,18 @@ To support a broader range of use cases, Amplitude lets you choose which of the 
 - **Email (default)**: Recommended when other platforms use the email and can’t hash it, and you are comfortable with the privacy implications.
 - **Hashed email**: The MD5 email hash is useful if you have other marketing platforms sending traffic where you know the email of the visitor (fore example, email marketing like Bronto or Marketo), but not their Shopify customer ID.
 
-## UTM Tracking
+## UTM tracking
 
-By default, the Shopify Plugin will automatically rely on Amplitude’s JavaScript SDK to pull UTM parameters from the referring URL and include them as user properties on all the relevant events:
+By default, the Shopify Plugin uses Amplitude’s JavaScript SDK to pull UTM parameters from the referring URL and include them as user properties on all the relevant events:
 
 - `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example, `?gclid=734fsdf3`) to URLs at runtime. By setting this to `true`, the SDK capture `initial_glid` and gclid as user properties.
 - `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example, `?fbclid=392foih3`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
 - `includeUtm`: If `true`, the plugin finds the standard UTM parameters from either the URL or the browser cookie and set them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
 
-UTM parameters are captured once per session by default and occur when the user loads your site and the Amplitude SDK for the first time. When the SDK detects that it should start a new session, it will pull the UTM parameters available at the time.
- Those UTM parameters will be set as user properties that will persist for all user events going forward. However, initial UTM parameters are captured only once for each user via a `setOnce` operation.
+UTM parameters are captured once per session by default and occur when the user loads your site and the Amplitude SDK for the first time. When the SDK detects that it should start a new session, it pulls the UTM parameters available at the time.
+ Those UTM parameters are set as user properties that persist for all user events going forward. However, initial UTM parameters are captured only once for each user via a `setOnce` operation.
 
-## Cross-Domain Tracking
+## Cross-domain tracking
 
 By default, the Shopify App automatically tracks anonymous behavior across two different domains. Anonymous users are identified by their Device IDs which must be passed between the domains. For example:
 
@@ -92,7 +92,7 @@ Users who start on Site 1 and then navigate to Site 2 have their Device ID gener
 
 ## Setup
 
-### Installation Steps
+### Installation steps
 
 1. Go to the [Amplitude app](https://www.google.com/url?q=https://apps.shopify.com/amplitude?surface_detail%3Damplitude%26surface_inter_position%3D1%26surface_intra_position%3D2%26surface_type%3Dsearch&sa=D&source=docs&ust=1639610653341000&usg=AOvVaw2Z_lud4-S1WhAHoDKWdJKC) in the Shopify app store.
 2. Click **Add app** to begin the installation process.
@@ -110,9 +110,9 @@ Users who start on Site 1 and then navigate to Site 2 have their Device ID gener
     {% render 'amplitude' %}
     ```
 
-### SDK Configurations
+### SDK configurations
 
-Amplitude's JavaScript SDK powers the out-of-the-box integration with Shopify stores. This behavior can be extended with custom-defined events and SDK configurations.
+Amplitude's JavaScript SDK powers the out-of-the-box integration with Shopify stores. You can extend this behavior with custom-defined events and SDK configurations.
 
 To do this perform the following steps:
 

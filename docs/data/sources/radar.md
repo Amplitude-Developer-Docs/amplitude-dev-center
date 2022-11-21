@@ -3,7 +3,7 @@ title: Import Radar Location Data
 description: Integrate Amplitude with Radar to help understand location-based factors that affect how your users interact with your products. 
 ---
 
-Integrating Radar with Amplitude lets you share user data between platforms in real time, and helps non-technical product and marketing team members understand how these location-based factors affect the way your users interact with your product.
+Integrating Radar with Amplitude lets you share user data between platforms in real time. This integration helps non-technical product and marketing team members understand how these location-based factors affect the way your users interact with your product.
 
 ## About Radar
 

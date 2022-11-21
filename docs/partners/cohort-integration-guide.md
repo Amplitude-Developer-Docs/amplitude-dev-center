@@ -15,12 +15,12 @@ This doc uses a list-based integration in its examples. If you create a property
 
 ## Integration setup
 
-The first step is to configure the integration tile that appears on the **Destinations** page in Amplitude after your integration is validated. You also need to decide between a **List-based cohort integration** or a **Property-based cohort integration**. See this [doc](https://www.docs.developers.amplitude.com/partners/sending-cohorts/) for more information.
+The first step is to configure the integration tile that appears on the Amplitude **Destinations** page after Amplitude has validated your integration. You also need to decide between a **List-based cohort integration** or a **Property-based cohort integration**. See this [doc](https://www.docs.developers.amplitude.com/partners/sending-cohorts/) for more information.
 
 1. From the Integration Portal page (**Settings > Developer Portal**), click **Add New Destination**.
 2. Choose the target connection from the *Select Connection Information* dropdown*.
 3. Choose whether you are building a list-based or property-based cohort integration:
-      - **List-based cohort integration**: A list-based cohort integration works best if a cohort is represented as a list of user identifiers in the target system. A call to a list creation API is needed on the first sync, then subsequent calls to add API and remove API are made to keep the list membership up to date.
+      - **List-based cohort integration**: A list-based cohort integration works best if a cohort is represented as a list of user identifiers in the target system. The first sync requires a call to a list creation API, then subsequent calls to the add API and remove API keep the list membership up to date.
       - **Property-based cohort integration**: A property-based cohort integration works best with systems that represent cohort membership as a custom user property, such as a boolean flag or a tag. Amplitude invokes the update API when cohort membership changes to update the user property. Although you don't need to use the list creation API, some manual steps may be required to create the customer user property.
 4. Click **Next** to configure the destination.
 

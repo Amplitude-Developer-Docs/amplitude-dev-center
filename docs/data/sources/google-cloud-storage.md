@@ -22,7 +22,7 @@ Before you start, make sure you’ve taken care of some prerequisites.
 - Make sure you have admin permissions for your Amplitude org.
 - Make sure you have a GCS service account with the appropriate permissions. [Learn more](#create-a-gcs-service-account-and-set-permissions).
 - Make sure that a project exists to receive the data. If not, create a new project.
-- Make sure your GCS bucket has data files ready to be ingested. They must conform to the mappings that you outline in your converter file.
+- Make sure your GCS bucket has data files ready for ingestion. They must conform to the mappings that you outline in your converter file.
 - Make sure the data in your GCS bucket follows the format outlined in [Amplitude's HTTP API v2 spec](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument).
 
 ### Create a GCS service account and set permissions

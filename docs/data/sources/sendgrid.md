@@ -27,4 +27,4 @@ There are no other required setup steps in Amplitude.
 5. Toggle the Event Webhook Status to **Enabled**.
 6. Save your work. 
 
-Your selected events will now be sent to Amplitude. SendGrid event names in Amplitude are prepended with the prefix `[Sendgrid]` , and the Library is `sendgrid`.
+SendGrid sends the selected events to Amplitude. SendGrid event names in Amplitude are prepended with the prefix `[Sendgrid]` , and the Library is `sendgrid`.

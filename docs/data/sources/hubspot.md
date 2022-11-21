@@ -71,7 +71,7 @@ Using [data.amplitude.com](https://help.amplitude.com/hc/en-us/articles/36004375
 
 ## Confirm that Amplitude receives events
 
-The HubSpot source has a sync component, which means Amplitude makes requests to the HubSpot API on your behalf at a 1-hour interval to pull the latest HubSpot data in batches. You can verify this by going through the following steps:
+Amplitude makes requests to the HubSpot API on your behalf at a 1-hour interval to pull the latest HubSpot data in batches. You can verify this by going through the following steps:
 
 1. In Amplitude, navigate to the Sources page and click **HubSpot**.
 2. Navigate to the Ingestion Jobs tab to see the data history being imported from HubSpot.
