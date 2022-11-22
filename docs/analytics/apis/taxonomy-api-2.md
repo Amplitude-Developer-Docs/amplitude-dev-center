@@ -336,7 +336,7 @@ Not currently supported. You can assign a category directly to an event type. Se
 
 ### Get all event categories
 
-Not currently supported. You can retrieve event types with assigned categories. See [Get an Event Type](#get-an-event-type).
+Not currently supported. You can retrieve event types with assigned categories. See [Get an Event Type](#get-event-type).
 
 ### Get event category
 
