@@ -15,6 +15,7 @@
 - :lantern: [Lantern](../data/destinations/lantern-event-streaming.md)
 - :meta: [Meta Pixel](../data/destinations/meta-pixel.md)
 - :statsig: [Statsig](../data/destinations/statsig.md)
+- :userlist: [Userlist](../data/destinations/userlist-event-streaming.md)
 - :material-webhook: [Webhooks](../data/destinations/webhooks-streaming.md)
 
 </div>
