@@ -25,7 +25,7 @@ Keep these considerations in mind when using the User Privacy API.
 - When you make a deletion request, Amplitude emails all account admins with the deletion details.
 - Amplitude deletes all events and user properties added up until the time that job runs for each Amplitude ID in a deletion job.
 - Running a deletion job for a user doesn't block new events for that user. Amplitude accepts new events from a deleted user.
-- If Amplitude receives events for a deleted user, then the deleted user is counted as a new user.
+- If Amplitude receives events for a deleted user, then it counts the deleted user as a new user.
  Because deletion removes all user data from Amplitude servers, Amplitude doesn't recognize the new user as the deleted user.
 - To reduce resource impact and ensure high availability, Amplitude batches requests for deletions. Batch jobs are scheduled for 10-13 days after the date of the batch's first request.
  In line with GDPR article 12.3 and 17, Amplitude processes deletion requests without undue delay, within 30 days after receiving the request.
@@ -557,7 +557,7 @@ A successful request returns a response with this schema:
 | <div class="big-column">Property</div> | Description |
 | --- | --- |
 | `day` | The day the deletion job is scheduled to begin. |
-| `status` | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and can be modified. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. It can't be modified.  <br>  <br>**Done**: The job has finished running. It can't be modified. |
+| `status` | The deletion job's status.  <br>  <br>**Staging**: The job hasn't started, and you can still modify it. More deletion requests may get scheduled into this job and you can remove requests from this job.  <br>  <br>**Submitted**: The job is submitted to run. You can't modify it. <br>  <br>**Done**: The job has finished running. You can't modify it. |
 | `amplitude_ids` | List of the Amplitude Ids of users to delete. |
 
 The `amplitude_ids` key contains these fields:
