@@ -75,9 +75,9 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-### Logging
+### Debugging
 
---8<-- "includes/sdk-ts/client-logging.md"
+--8<-- "includes/sdk-ts/client-debugging.md"
 
 #### EU data residency
 

@@ -57,9 +57,9 @@ init(API_KEY, {
 });
 ```
 
-### Logging
+### Debugging
 
---8<-- "includes/sdk-ts/server-logging.md"
+--8<-- "includes/sdk-ts/server-debugging.md"
 
 #### EU data residency
 

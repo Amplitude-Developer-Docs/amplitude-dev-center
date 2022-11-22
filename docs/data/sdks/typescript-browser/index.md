@@ -61,9 +61,9 @@ amplitude.init("YOUR_API_KEY_HERE");
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
-### Logging
+### Debugging
 
---8<-- "includes/sdk-ts/client-logging.md"
+--8<-- "includes/sdk-ts/client-debugging.md"
 
 ### Configuration
 
