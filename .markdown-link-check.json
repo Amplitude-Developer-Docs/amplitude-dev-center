@@ -13,6 +13,12 @@
 	  {
 		"pattern": "^https://api."
 	  },
+    {
+    "pattern": "^https://data-api."
+    },
+    {
+    "pattern": "^https://auth."
+    },
 	  {
 		"pattern": "^https://amplitude.com/api"
 	  },
