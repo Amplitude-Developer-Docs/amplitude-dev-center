@@ -6,6 +6,7 @@ description: Send Amplitude cohorts to Productboard to filter customer feedback 
 By integrating Productboard with Amplitude, you can filter customer feedback based on cohorts created within Amplitude, and categorize the insights into themes that can inform the product roadmap. Product managers can then make better decisions about what to build and who might be most affected when you ship new features .
 
 ## Considerations
+
 - This integration is available for Growth and Enterprise customers.
 - With this integration, you can choose whether to use Amplitude User_ID, Email or both as the user identifier for matching users across Amplitude and Productboard.
 
