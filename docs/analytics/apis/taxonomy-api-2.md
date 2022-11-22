@@ -5,12 +5,12 @@ title: Taxonomy API 2.0
 description: The Taxonomy API lets you create, get, update, and delete categories, event types, event properties, and user properties.
 ---
 
-The Taxonomy API 2.0 grants clients the ability to programmatically plan their event schema in Amplitude Data.
+The Taxonomy API 2.0 lets you programmatically plan your event schema in Amplitude Data.
 
-It's a GraphQL API, if you're not familiar with GraphQL query & manipulation language check for example [GitHub GraphQL API introduction](https://docs.github.com/en/graphql/guides/introduction-to-graphql).
+It's a GraphQL API, so if you're not familiar with GraphQL query and manipulation language check out the [GitHub GraphQL API introduction](https://docs.github.com/en/graphql/guides/introduction-to-graphql).
 
 !!!note
-    This document is currently in draft state. We're seeking feedback from the community as we develop this new API.
+    This document is currently a draft. We're seeking feedback from the community as we develop this new API.
 
 ## Authorization
 
@@ -18,14 +18,19 @@ There are two ways to authorize your application to the Taxonomy API: using pers
 
 ### Personal access tokens
 
-Personal access token are an alternative to using passwords for authentication to Amplitude Data when using the Taxonomy API or Ampli CLI. Personal access tokens are intended to access Amplitude Data resources on behalf of yourself. Each token can only access specific Data projects. You can have many of them and you can revoke access to each one at any time. To access resources on behalf of an organization, or for long-lived integrations, you should use an OAuth2 client application.
+Personal access tokens (also known as API tokens) are an alternative to using passwords for authentication to Amplitude Data when using the Taxonomy API or Ampli CLI. Personal access tokens are used to access Amplitude Data resources on behalf of a user. Each token can access only a single Data project. You can have many of them and you can revoke access to each one at any time. To access resources on behalf of an organization, or for long-lived integrations, you should use an OAuth2 client application.
 
-#### Retrieve personal access token
+#### Create a personal access token
 
-Navigate to Amplitude Data's Settings page and then check API Tokens section. Click "Create Token" button in the right upper corner to generate new token. Any token issued earlier can be revoked on this page as well.
+1. Navigate to Amplitude Data's Settings page and open the **API Tokens** section.
+2. Click **Create Token** in the upper right corner. 
+3. Copy the token. You can't access the token again after you close the modal.
 
-#### Personal access token usage in Taxonomy API
-Personal access token should be provided along with GraphQL request in `Authorization` header with `Bearer` schema, for example:
+You can also revoke any issued tokens from this page. Just click the three-dot menu next to the token and select **Delete**.
+
+#### Use Personal access token in Taxonomy API
+
+Provide a personal access token along with the GraphQL request in the `Authorization` header with `Bearer` schema. For example:
 
 ```bash
 POST https://data-api.amplitude.com/graphql HTTP/1.1
@@ -40,9 +45,10 @@ query OrgQuery {
 ```
 
 ### OAuth access tokens
-OAuth2 is a protocol that lets external applications request authorization to private details in a user's Amplitude Data account without accessing their password. This is preferred over Basic Authentication because tokens can be limited to specific types of data and can be revoked by users at any time.
 
-An OAuth client application uses Amplitude as an identity provider to authenticate as the user who grants access to the app. This means when a user grants an OAuth client app access, they grant permissions to all Data projects they have access to in their account, and also to any organizations they belong to. Building an OAuth client app is a good option if you are creating more complex processes than a simple script can handle. Note that OAuth Apps are applications that need to be hosted somewhere.
+OAuth2 is a protocol that lets external applications request authorization to private details in a user's Amplitude Data account without accessing their password. This method is superior to basic authentication because you can limit tokens to specific types of data, and you can revoke them at any time.
+
+An OAuth client application uses Amplitude as an identity provider to authenticate as the user who grants access to the app. This means that when a user grants an OAuth client app access, they grant permissions to all Data projects they have access to in their account, and to any organizations they belong to. Building an OAuth client app is a good option if you are creating more complex processes than a simple script can handle. Note that OAuth apps are applications must be hosted somewhere.
 
 #### Authorization endpoints
 
@@ -51,9 +57,9 @@ An OAuth client application uses Amplitude as an identity provider to authentica
 | Standard Server     | [https://auth.amplitude.com](https://auth.amplitude.com)       |
 | EU Residency Server | [https://auth.eu.amplitude.com](https://auth.eu.amplitude.com) |
 
-
 #### Register new OAuth client application
-Amplitude Data supports [OAuth 2.0 Dynamic Client Registration Protocol](https://datatracker.ietf.org/doc/html/rfc7591), it allows to create new application with POST request:
+
+Amplitude Data supports [OAuth 2.0 Dynamic Client Registration Protocol](https://datatracker.ietf.org/doc/html/rfc7591), which lets you create a new application with POST request:
 
 `POST https://auth.amplitude.com/oauth2/register`
 
@@ -129,6 +135,7 @@ A successful request returns a `200 OK` status and a JSON body.
 ```
 
 #### Update OAuth client application
+
 Registration request returns `registration_access_token`, use it to modify application metadata when required.
 
 ##### Example request
@@ -162,6 +169,7 @@ A successful request returns a `200 OK` status and a JSON body.
 The response includes the updated OAuth2 Client. When updating the OAuth2 Client, the server responds with a new registration access token. The old one becomes invalid.
 
 #### Delete OAuth client application
+
 Registration request returns `registration_access_token`, use it to delete application when it's not in use.
 
 ##### Example request
@@ -173,12 +181,13 @@ Authorization: Bearer <registration_access_token>
 
 #### Retrieve OAuth access tokens
 
-To retrieve an OAuth access token, you'll first need to create your application as described in the previous step.
+To retrieve an OAuth access token, you first need to create your application as described in the previous step.
 
-You can then use any OAuth2 client library to implement the OAuth2 Authorize Code Flow with Refresh Token. One sample application for your reference is available at [https://www.ory.sh/docs/hydra/5min-tutorial](https://www.ory.sh/docs/hydra/5min-tutorial).
+You can then use any OAuth2 client library to implement the OAuth2 Authorize Code Flow with Refresh Token. One sample application for your reference is available [in this tutorial](https://www.ory.sh/docs/hydra/5min-tutorial).
 
 #### OAuth2 access token usage in Taxonomy API
-OAuth2 access tokens should be provided along with GraphQL requests as part of the `Authorization` header with no schema, for example:
+
+Include an OAuth2 access token with your GraphQL requests as part of the `Authorization` header with no schema. For example:
 
 ```bash
 POST https://data-api.amplitude.com/graphql HTTP/1.1
@@ -191,7 +200,6 @@ query OrgQuery {
   }
 }
 ```
-
 
 ## Endpoints
 
@@ -218,7 +226,7 @@ Cost structure of each endpoint:
 
 ## Tracking plan
 
-Every tracking plan consists of one or more branches and each branch consists of multiple versions. A branch called `main` is created by default and you can always create more branches if required. All versions in each branch are _published_ and immutable except for the _staging_ version which can be modified. To make changes to a tracking plan, you'll need the ID of the branch you're making changes to and the ID of staging version on that branch. Then, to save your changes and make them available in Amplitude Analytics, you'll need to publish the staging version. Examples below show how to do this.
+Every tracking plan consists of one or more branches and each branch consists of multiple versions. Amplitude creates a branch called `main` by default, and you can create more branches as needed. All versions in each branch are _published_ and immutable except for the _staging_ version, which you can modify. To make changes to a tracking plan, you need the ID of the branch you're making changes to and the ID of staging version on that branch. Then, to save your changes and make them available in Amplitude Analytics, you need to publish the staging version. The following examples show how to do this.
 
 ### Get branch and its staging version IDs
 
@@ -276,7 +284,7 @@ Publish staging version in the main branch to make it available in Amplitude Ana
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation PublishVersion($input: PublishVersionInput!) {
   publishVersion(input: $input) {
     id
@@ -324,11 +332,11 @@ Event categories are a way to organize your event types into broad groups.
 
 ### Create event category
 
-Not currently supported. You can however assign a category directly to an event type, see correspondent [Create event type](#create-event-type) and [Update event type](#update-event-type).
+Not currently supported. You can assign a category directly to an event type. See [Create event type](#create-event-type) and [Update event type](#update-event-type).
 
 ### Get all event categories
 
-Not currently supported. You can however retrieve event types with assigned categories, see [Get an Event Type](#get-an-event-type).
+Not currently supported. You can retrieve event types with assigned categories. See [Get an Event Type](#get-an-event-type).
 
 ### Get event category
 
@@ -336,15 +344,15 @@ Not currently supported.
 
 ### Update event category
 
-Not currently supported. You can however update the category on all associated event types, see [update event type](#update-event-type).
+Not currently supported. You can update the category on all associated event types. See [update event type](#update-event-type).
 
 ### Delete an event category
 
-Not currently supported. You can however remove the category from all event types in the latest tracking plan version, see [update event type](#update-event-type).
+Not currently supported. You can remove the category from all event types in the latest tracking plan version. See [update event type](#update-event-type).
 
 ## Event type
 
-An event is any action a user can take, like *start game* or *add to cart,* or any activity associated with a user, like in-app notifications or push notifications.
+An event is any action a user can take, like _start game_ or _add to cart,_ or any activity associated with a user, like in-app notifications or push notifications.
 
 You can use the API to manipulate event types.
 
@@ -354,7 +362,7 @@ Creates one or more event types.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation CreateEvents($input: [CreateEventInput!]!) {
   createEvents(input: $input) {
     name
@@ -484,7 +492,7 @@ Get a single event type by name.
 
 #### Example query
 
-``` graphql
+```graphql
 query EventQuery {
   orgs {
     id
@@ -554,7 +562,7 @@ Update one or more event types.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation EditEvents($input: [EditEventInput!]!) {
   editEvents(input: $input) {
     name
@@ -596,7 +604,7 @@ Delete an event type.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation DeleteEvents($input: [DeleteEventInput!]!) {
   deleteEvents(input: $input)
 }
@@ -634,7 +642,7 @@ Create an event property.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation CreateEventProperties($input: [CreateEventPropertyInput!]!) {
   createEventProperties(input: $input) {
     id
@@ -686,7 +694,7 @@ Get all properties on an event.
 
 #### Example query
 
-``` graphql
+```graphql
 query EventQuery {
   orgs {
     id
@@ -780,7 +788,7 @@ Get a single event property.
 
 #### Example query
 
-``` graphql
+```graphql
 query EventQuery {
   orgs {
     id
@@ -872,7 +880,7 @@ Update an event property. Note that if the property is shared by multiple event 
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation EditProperties($input: [EditPropertyInput!]!) {
   editProperties(input: $input) {
     id
@@ -917,7 +925,7 @@ Delete an event property.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation RemoveProperties($input: [RemovePropertyInput!]!) {
   removeProperties(input: $input)
 }
@@ -955,7 +963,7 @@ Create a user property.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation CreateUserProperties($input: [CreatePropertyInput!]!) {
   createProperties(input: $input) {
     id
@@ -1002,7 +1010,7 @@ Retrieves all user properties in your account.
 
 #### Example query
 
-``` graphql
+```graphql
 query EventQuery {
   orgs {
     id
@@ -1084,7 +1092,7 @@ Retrieves a single user property by name.
 
 #### Example query
 
-``` graphql
+```graphql
 query EventQuery {
   orgs {
     id
@@ -1159,7 +1167,7 @@ Update a user property.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation EditProperties($input: [EditPropertyInput!]!) {
   editProperties(input: $input) {
     id
@@ -1204,7 +1212,7 @@ Delete a single user property by ID.
 
 #### Example mutation
 
-``` graphql
+```graphql
 mutation RemoveProperties($input: [RemovePropertyInput!]!) {
   removeProperties(input: $input)
 }

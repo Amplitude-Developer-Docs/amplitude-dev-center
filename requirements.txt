@@ -43,7 +43,7 @@ Werkzeug==2.0.2
 zipp==3.7.0
 cairosvg==2.5.2
 pillow==9.3.0
-
+pygments-graphql-lexer==0.1.0
 
 # Requirements for plugins
 babel>=2.10.3
