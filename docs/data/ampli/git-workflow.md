@@ -56,7 +56,7 @@ If later you would like to change branches you have a couple of options.
 
 #### `ampli checkout [my-branch-name]`
 
-The provided branch is pulled down from Data to your Ampli Wrapper. If you don't specify a branch name, you're prompted
+This pulls down the specified provided branch from Data to your Ampli Wrapper. If you don't specify a branch name, you're prompted
 to select one from a list of active branches in your tracking plan.
 
 ```bash

@@ -112,7 +112,7 @@ SELECT
 FROM DATABASE_NAME.SCHEMA_NAME.TABLE_OR_VIEW_NAME
 ```
 
-### User Property example
+### User property example
 
 ```sql
 SELECT

@@ -10,7 +10,7 @@ Amplitude Data's Kinesis Data Stream integration lets you stream your Amplitude 
 - Amplitude sends the `user_id`, `event_name`, and `created_at`  along with all user, group, and event properties to Kinesis streams. 
 - The data Amplitude posts in Kinesis is the same JSON as documented in the [Amplitude Export API](https://www.docs.developers.amplitude.com/analytics/apis/export-api/#response).
 - This destination supports Identify Forwarding. Anytime you make an Identify call to Amplitude, Amplitude forwards that user information. See [Identify documentation](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) for more information.
-- Role Name should be entered in the following format: `arn:aws:iam::{your aws account id}:role/{role name}` 
+- The Role Name must have this format: `arn:aws:iam::{your aws account id}:role/{role name}` 
 
 ## Setup
 

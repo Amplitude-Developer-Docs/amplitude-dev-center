@@ -67,7 +67,7 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 - FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
 - `input` is a reserved variable that refers to the event as an object, as defined [here](https://www.docs.developers.amplitude.com/analytics/apis/export-api/).
 - `input.event_type` refers to the `event_type` field of the event.
-- `input.user_properties` refers to the user properties dictionary
-- `input.user_properties.email` refers to the `email` field in user properties
-- the `if` directive is used to check wether the `input.user_id` exists. if it doesn't, the `external_id` field is omitted from the output
-- the `!` mark in the expression after `input.user_properties.email` can be used to provide a default value if there is no such field in the `input`. If you don't add a default value, the output contains an empty string instead.
+- `input.user_properties` refers to the user properties dictionary.
+- `input.user_properties.email` refers to the `email` field in user properties.
+- the `if` directive is used to check wether the `input.user_id` exists. if it doesn't, the `external_id` field is omitted from the output.
+- the `!` mark in the expression after `input.user_properties.email` can be used to include a default value if there is no such field in the `input`. If you don't add a default value, the output contains an empty string instead.

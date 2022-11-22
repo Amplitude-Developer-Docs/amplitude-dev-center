@@ -56,7 +56,7 @@ For each Amplitude project, AWS S3 import can ingest:
 
 ## Set up Amazon S3 Import in Amplitude
 
-When your dataset is ready to be ingested, you can set up Amazon S3 Import in Amplitude.
+When your dataset is ready for ingestion, you can set up Amazon S3 Import in Amplitude.
 
 ### Give Amplitude access to your S3 bucket
 
@@ -90,7 +90,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
 
 3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Use the entire example code that follows, but be sure to update **{{}}** in highlighted text.
 
-    - **{{bucket_name}}**: the s3 bucket name where your data will be imported from.
+    - **{{bucket_name}}**: the s3 bucket name where your data is imported from.
     - **{{prefix}}**: the prefix of files that you want to import, for example `/prefix`. For folders, make sure prefix ends with `/`. But for root folder, keep prefix as empty.
 
     ```json hl_lines="16 30 41"
@@ -219,7 +219,7 @@ First, note the different data types you can import: **Event**, **User Property*
 
 ![Screenshot of the converter file settings](../../assets/images/converter-file-setting.png)
 
-After you have selected a particular field, you can choose to transform the field in your database. You can do this by clicking on “Transform “ shown below and choosing the kind of transformation you would like to apply. You can find a short description for each transformation.
+After you have selected a particular field, you can choose to transform the field in your database. You can do this by clicking **Transform** and choosing the kind of transformation you would like to apply. You can find a short description for each transformation.
 
 ![Screenshot of the converter mapping screen](../../assets/images/converter-mapping-2.png)
 
@@ -231,11 +231,11 @@ Depending on the transformation you select, you may be prompted to include more 
 
 ![Screenshot of a transformation's details](../../assets/images/converter-transformations-2.png)
 
-After you have all the fields needed for the transformation, you can save it. These can be updated as and when your requirements change.
+After you have all the fields needed for the transformation, you can save it. You can update these fields as needed when your requirements change.
 
-While Amplitude needs certain fields to bring data in, it also supports additional fields which you can include by clicking the **Add Mapping** button. Here Amplitude supports 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
+You can include more fields by clicking the **Add Mapping** button. Here Amplitude supports 4 kinds of mappings: Event properties, User Properties, Group Properties and Additional Properties. 
 
-After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview will auto update as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data is imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
+After you have added all the fields you wish to bring into Amplitude, you can view samples of this configuration in the Data Preview section. Data Preview automatically updates as you include or remove fields and properties. In Data Preview, you can look at a few sample records based on the source records along with how that data is imported into Amplitude. This ensures that you are bringing in all the data points you need into Amplitude. You can look at 10 different sample source records and their corresponding Amplitude events.
 
 ![Screenshot of a converter preview](../../assets/images/converter-preview.png)
 
@@ -244,7 +244,7 @@ After you have added all the fields you wish to bring into Amplitude, you can vi
 The converter file tells Amplitude how to process the ingested files. Create it in two steps: first, configure the compression type, file name, and escape characters for your files.
  Then use JSON to describe the rules your converter follows.
 
-The converter language describes extraction of a value given a JSON element. This is specified by a SOURCE_DESCRIPTION, which includes:
+The converter language describes extraction of a value given a JSON element. You specify this with a SOURCE_DESCRIPTION, which includes:
 
 - BASIC_PATH
 - LIST_OPERATOR

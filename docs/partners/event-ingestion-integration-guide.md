@@ -20,7 +20,7 @@ Configure the integration tile that appears on the **Sources** page in Amplitude
   <figcaption>The **Add New Source page**</figcaption>
 </figure>
 
-Notice that this page is divided into two sections:
+Notice that this page has two sections:
 
 **Left Panel**: The *Configuration* section on the left is where you create the setup instructions for your data source and configure your integration tile.
 
@@ -36,13 +36,13 @@ Notice that this page is divided into two sections:
           - If you're using RudderStack to ingest data, you can import events into Amplitude with a few simple steps.
           - If you use Split for feature flagging and experimentation, you can track data into Amplitude with a simple configuration.
 
-4. Add as many setup steps as you need, but aim for no more than 5-8. You can include images that help orient your users. Mark **Show Project API Key** to automatically pull the relevant Project API on behalf of the user. Remember that all Sources & Destinations for Amplitude are configured on the [project level](https://help.amplitude.com/hc/en-us/articles/360058073772-Create-and-manage-organizations-and-projects), not the organization level.
+4. Add as many setup steps as you need, but aim for no more than 5-8. You can include images that help orient your users. Mark **Show Project API Key** to automatically pull the relevant Project API on behalf of the user. Remember that all sources and destinations for Amplitude are configured on the [project level](https://help.amplitude.com/hc/en-us/articles/360058073772-Create-and-manage-organizations-and-projects), not the organization level.
 
     ???example "See example setup steps in Amplitude (click to expand)"
 
         Navigate to **Data Sources** and click **I want to import data into Amplitude**. From there, you can click any integration tile to see their setup instructions.
   
-5. In **Additional Resources**, add a link to your documentation. For example: *See the Amplitude [documentation](https://docs.developers.amplitude.com) for additional details and instructions.*
+5. In **Additional Resources**, add a link to your documentation. For example: *See the Amplitude [documentation](https://docs.developers.amplitude.com) for more details and instructions.*
 6. When finished, click **Next** to go to the testing tab.
 
 ## Test and submit the integration
