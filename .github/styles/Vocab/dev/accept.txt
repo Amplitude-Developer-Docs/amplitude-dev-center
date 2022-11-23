@@ -200,3 +200,5 @@ bundler
 timeHistogramConfigBin
 FreeMarker
 Fivetran
+Toplyne
+freemium

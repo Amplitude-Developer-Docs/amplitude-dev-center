@@ -369,6 +369,7 @@ nav:
       - Kinesis Firehose: data/destinations/kinesis-firehose.md
       - Meta Pixel: data/destinations/meta-pixel.md
       - Statsig: data/destinations/statsig.md
+      - Toplyne: data/destinations/toplyne.md
       - Userlist: data/destinations/userlist-event-streaming.md
       - Webhooks: data/destinations/webhooks-streaming.md
     - Cohorts:
