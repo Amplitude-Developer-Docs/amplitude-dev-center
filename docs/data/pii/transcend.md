@@ -1,5 +1,5 @@
 ---
-title: Manage PII with Transcend
+title: Manage Personal Data with Transcend
 description: Use Transcend to programmatically access and erase user device activity in Amplitude.
 status: new
 ---
