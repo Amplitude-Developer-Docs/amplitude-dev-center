@@ -20,23 +20,23 @@ For Node projects, update your dependency list in package.json.
 
 === "amplitude-js"
 
-  ```json
-  {
-    "dependencies": {
-      "amplitude-js": "^8.0.0"
+    ```json
+    {
+      "dependencies": {
+        "amplitude-js": "^8.0.0"
+      }
     }
-  }
-  ```
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```json
-  {
-    "dependencies": {
-      "@amplitude/analytics-browser": "^1.0.0"
+    ```json
+    {
+      "dependencies": {
+        "@amplitude/analytics-browser": "^1.0.0"
+      }
     }
-  }
-  ```
+    ```
 
 ## Instrumentation
 
@@ -48,19 +48,19 @@ Like all other calls, `getInstance()` has been removed. To initialize the SDK, c
 
 === "amplitude-js"
 
-  ```javascript
-  import amplitude from "amplitude-js"
+    ```javascript
+    import amplitude from "amplitude-js"
 
-  amplitude.getInstance().init(API_KEY, OPTIONAL_USER_ID, config)
-  ```
+    amplitude.getInstance().init(API_KEY, OPTIONAL_USER_ID, config)
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  import * as amplitude from "@amplitude/analytics-browser"
+    ```typescript
+    import * as amplitude from "@amplitude/analytics-browser"
 
-  amplitude.init(API_KEY, OPTIONAL_USER_ID, config)
-  ```
+    amplitude.init(API_KEY, OPTIONAL_USER_ID, config)
+    ```
 
 ### Configuration
 
@@ -128,29 +128,29 @@ The `logEvent()` API maps to `track()`.
 
 === "amplitude-js"
 
-  ```javascript
-  const eventType = "Button Clicked"
-  const eventProperties = {
-    type: "primary",
-  }
-  amplitude.getInstance().logEvent(
-    eventType,
-    eventProperties,
-  )
-  ```
+    ```javascript
+    const eventType = "Button Clicked"
+    const eventProperties = {
+      type: "primary",
+    }
+    amplitude.getInstance().logEvent(
+      eventType,
+      eventProperties,
+    )
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const eventType = "Button Clicked"
-  const eventProperties = {
-    type: "primary",
-  }
-  amplitude.track(
-    eventType,
-    eventProperties,
-  )
-  ```
+    ```typescript
+    const eventType = "Button Clicked"
+    const eventProperties = {
+      type: "primary",
+    }
+    amplitude.track(
+      eventType,
+      eventProperties,
+    )
+    ```
 
 #### `logEventWithTimestamp()`
 
@@ -158,35 +158,35 @@ The `logEventWithTimestamp()` API maps to `track()`.
 
 === "amplitude-js"
 
-  ```javascript
-  const eventType = "Button Clicked"
-  const eventProperties = {
-    type: "primary",
-  }
-  const timestamp = Date.now()
-  amplitude.getInstance().logEventWithTimestamp(
-    eventType,
-    eventProperties,
-    timestamp,
-  )
-  ```
+    ```javascript
+    const eventType = "Button Clicked"
+    const eventProperties = {
+      type: "primary",
+    }
+    const timestamp = Date.now()
+    amplitude.getInstance().logEventWithTimestamp(
+      eventType,
+      eventProperties,
+      timestamp,
+    )
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const eventType = "Button Clicked"
-  const eventProperties = {
-    type: "primary",
-  }
-  const eventOptions = {
-    time = Date.now()
-  }
-  amplitude.track(
-    eventType,
-    eventProperties,
-    eventOptions
-  )
-  ```
+    ```typescript
+    const eventType = "Button Clicked"
+    const eventProperties = {
+      type: "primary",
+    }
+    const eventOptions = {
+      time = Date.now()
+    }
+    amplitude.track(
+      eventType,
+      eventProperties,
+      eventOptions
+    )
+    ```
 
 #### `logEventWithGroups()`
 
@@ -194,38 +194,38 @@ The `logEventWithGroups()` API maps to `track()`.
 
 === "amplitude-js"
 
-  ```javascript
-  const eventType = "Button Clicked"
-  const eventProperties = {
-    type: "primary",
-  }
-  const groups = {
-    orgId: "paid",
-  }
-  amplitude.getInstance().logEventWithGroups(
-    eventType,
-    eventProperties,
-    groups,
-  )
-  ```
+    ```javascript
+    const eventType = "Button Clicked"
+    const eventProperties = {
+      type: "primary",
+    }
+    const groups = {
+      orgId: "12345",
+    }
+    amplitude.getInstance().logEventWithGroups(
+      eventType,
+      eventProperties,
+      groups,
+    )
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const event_type = "Button Clicked"
-  const event_properties = {
-    type: "primary",
-  }
-  const groups = {
-    orgId: "paid",
-  }
-  const event = {
-    event_type,
-    event_properties,
-    groups
-  }
-  amplitude.track(event)
-  ```
+    ```typescript
+    const event_type = "Button Clicked"
+    const event_properties = {
+      type: "primary",
+    }
+    const groups = {
+      orgId: "12345",
+    }
+    const event = {
+      event_type,
+      event_properties,
+      groups
+    }
+    amplitude.track(event)
+    ```
 
 #### `sendEvents()`
 
@@ -233,15 +233,15 @@ The `sendEvents()` API maps to `flush()`.
 
 === "amplitude-js"
 
-  ```javascript
-  amplitude.getInstance().sendEvents()
-  ```
+    ```javascript
+    amplitude.getInstance().sendEvents()
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  amplitude.flush()
-  ```
+    ```typescript
+    amplitude.flush()
+    ```
 
 ### Set user properties
 
@@ -253,17 +253,17 @@ Setting a user ID can be invoked on `amplitude` without calling `getInstance()`.
 
 === "amplitude-js"
 
-  ```javascript
-  const userId = "1"
-  amplitude.getInstance().setUserId(userId)
-  ```
+    ```javascript
+    const userId = "1"
+    amplitude.getInstance().setUserId(userId)
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const userId = "1"
-  amplitude.setUserId(userId)
-  ```
+    ```typescript
+    const userId = "1"
+    amplitude.setUserId(userId)
+    ```
 
 #### `setDeviceId()`
 
@@ -271,17 +271,17 @@ Setting a device ID can be invoked on `amplitude` without calling `getInstance()
 
 === "amplitude-js"
 
-  ```javascript
-  const deviceId = "1"
-  amplitude.getInstance().setDeviceId(deviceId)
-  ```
+    ```javascript
+    const deviceId = "1"
+    amplitude.getInstance().setDeviceId(deviceId)
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const deviceId = "1"
-  amplitude.setDeviceId(deviceId)
-  ```
+    ```typescript
+    const deviceId = "1"
+    amplitude.setDeviceId(deviceId)
+    ```
 
 #### `setSessionId()`
 
@@ -289,17 +289,17 @@ Set a session ID on `amplitude` without calling `getInstance()`.
 
 === "amplitude-js"
 
-  ```javascript
-  const sessionId = Date.now()
-  amplitude.getInstance().setSessionId(sessionId)
-  ```
+    ```javascript
+    const sessionId = Date.now()
+    amplitude.getInstance().setSessionId(sessionId)
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const sessionId = Date.now()
-  amplitude.setSessionId(sessionId)
-  ```
+    ```typescript
+    const sessionId = Date.now()
+    amplitude.setSessionId(sessionId)
+    ```
 
 #### `clearUserProperties()`
 
@@ -307,17 +307,17 @@ The `clearUserProperties` API has been removed, but you can now use the unified 
 
 === "amplitude-js"
 
-  ```javascript
-  amplitude.getInstance().clearUserProperties()
-  ```
+    ```javascript
+    amplitude.getInstance().clearUserProperties()
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  amplitude.identify(
-    new amplitude.Identify().identify.clearAll()
-  )
-  ```
+    ```typescript
+    amplitude.identify(
+      new amplitude.Identify().identify.clearAll()
+    )
+    ```
 
 #### `setUserProperties()`
 
@@ -325,22 +325,22 @@ The `setUserProperties` API has been removed, but you can now use the unified `i
 
 === "amplitude-js"
 
-  ```javascript
-  amplitude.getInstance().setUserProperties({
-    membership, "paid",
-    payment, "bank",
-  })
-  ```
+    ```javascript
+    amplitude.getInstance().setUserProperties({
+      membership, "paid",
+      payment, "bank",
+    })
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const identify = new amplitude.Identify()
-  identify
-    .set("membership", "paid")
-    .set("payment", "bank")
-  amplitude.identify(identify)
-  ```
+    ```typescript
+    const identify = new amplitude.Identify()
+    identify
+      .set("membership", "paid")
+      .set("payment", "bank")
+    amplitude.identify(identify)
+    ```
 
 #### `identify()`
 
@@ -348,19 +348,19 @@ You can now make an identify call on `amplitude` without calling `getInstance()`
 
 === "amplitude-js"
 
-  ```javascript
-  const identify = new amplitude.Identify()
-  identify.set("membership", "paid")
-  amplitude.getInstance().identify(identify)
-  ```
+    ```javascript
+    const identify = new amplitude.Identify()
+    identify.set("membership", "paid")
+    amplitude.getInstance().identify(identify)
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const identify = new amplitude.Identify()
-  identify.set("membership", "paid")
-  amplitude.identify(identify)
-  ```
+    ```typescript
+    const identify = new amplitude.Identify()
+    identify.set("membership", "paid")
+    amplitude.identify(identify)
+    ```
 
 ### Set group properties
 
@@ -370,19 +370,19 @@ You can now make an identify call on `amplitude` without calling `getInstance()`
 
 === "amplitude-js"
 
-  ```javascript
-  const identify = new amplitude.Identify()
-  identify.set("membership", "paid")
-  amplitude.getInstance().groupIdentify(identify)
-  ```
+    ```javascript
+    const identify = new amplitude.Identify()
+    identify.set("membership", "paid")
+    amplitude.getInstance().groupIdentify(identify)
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const identify = new amplitude.Identify()
-  identify.set("membership", "paid")
-  amplitude.groupIdentify(identify)
-  ```
+    ```typescript
+    const identify = new amplitude.Identify()
+    identify.set("membership", "paid")
+    amplitude.groupIdentify(identify)
+    ```
 
 ### Tracking revenue
 
@@ -392,23 +392,23 @@ Track revenue using `revenue()` API on `amplitude` without calling `getInstance(
 
 === "amplitude-js"
 
-  ```javascript
-  const revenue = new amplitude.Revenue()
-  revenue
-    .setProductId("productId")
-    .setPrice(10)
-  amplitude.getInstance().logRevenueV2(revenue)
-  ```
+    ```javascript
+    const revenue = new amplitude.Revenue()
+    revenue
+      .setProductId("productId")
+      .setPrice(10)
+    amplitude.getInstance().logRevenueV2(revenue)
+    ```
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  const revenue = new amplitude.Revenue()
-  revenue
-    .setProductId("productId")
-    .setPrice(10)
-  amplitude.revenue(revenue)
-  ```
+    ```typescript
+    const revenue = new amplitude.Revenue()
+    revenue
+      .setProductId("productId")
+      .setPrice(10)
+    amplitude.revenue(revenue)
+    ```
 
 ### Patterns
 
@@ -418,41 +418,41 @@ The configs `config.language`, `config.library`, `config.platform` were availabl
 
 === "@amplitude/analytics-browser"
 
-  ```ts
-  import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from "@amplitude/analytics-types"
+    ```ts
+    import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from "@amplitude/analytics-types"
 
-  export class LibraryModifierPlugin implements EnrichmentPlugin {
-    name = 'library-modifier'
-    type = PluginType.ENRICHMENT as const
+    export class LibraryModifierPlugin implements EnrichmentPlugin {
+      name = 'library-modifier'
+      type = PluginType.ENRICHMENT as const
 
-    /**
-    * setup() is called on plugin installation
-    * example: client.add(new LibraryModifierPlugin());
-    */
-    setup(config: BrowserConfig): Promise<undefined> {
-      this.config = config
+      /**
+      * setup() is called on plugin installation
+      * example: client.add(new LibraryModifierPlugin());
+      */
+      setup(config: BrowserConfig): Promise<undefined> {
+        this.config = config
+      }
+
+      /**
+      * execute() is called on each event instrumented
+      * example: client.track('New Event');
+      */
+      execute(event: Event): Promise<Event> {
+        event.library = 'my-library-name/1.0.0'
+        return Promise.resolve(event)
+      }
     }
-
-    /**
-    * execute() is called on each event instrumented
-    * example: client.track('New Event');
-    */
-    execute(event: Event): Promise<Event> {
-      event.library = 'my-library-name/1.0.0'
-      return Promise.resolve(event)
-    }
-  }
-  ```
+    ```
 
 To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  import { add } from "@amplitude/analytics-browser"
+    ```typescript
+    import { add } from "@amplitude/analytics-browser"
 
-  add(new LibraryModifierPlugin())
-  ```
+    add(new LibraryModifierPlugin())
+    ```
 
 #### Defer initialization
 
@@ -460,29 +460,29 @@ To defer initialization in `amplitude-js`, call init with `config.deferInitializ
 
 === "amplitude-js"
 
-  ```javascript
-  amplitude.getInstance().init(API_KEY, OPTIONAL_USER_ID, {
-    deferInitialization: true,
-  })
+    ```javascript
+    amplitude.getInstance().init(API_KEY, OPTIONAL_USER_ID, {
+      deferInitialization: true,
+    })
 
-  amplitude.getInstance().logEvent("Event 1")
-  amplitude.getInstance().logEvent("Event 2")
-  amplitude.getInstance().logEvent("Event 3")
+    amplitude.getInstance().logEvent("Event 1")
+    amplitude.getInstance().logEvent("Event 2")
+    amplitude.getInstance().logEvent("Event 3")
 
-  amplitude.getInstance().enableTracking()
-  ```
+    amplitude.getInstance().enableTracking()
+    ```
 
 For `@amplitude/analytics-browser`, you can call `init()` at a later time than `track()`. All `track()` calls are then processed after initialization completes.
 
 === "@amplitude/analytics-browser"
 
-  ```typescript
-  amplitude.track("Event 1")
-  amplitude.track("Event 2")
-  amplitude.track("Event 3")
+    ```typescript
+    amplitude.track("Event 1")
+    amplitude.track("Event 2")
+    amplitude.track("Event 3")
 
-  amplitude.init(API_KEY, OPTIONAL_USER_ID)
-  ```
+    amplitude.init(API_KEY, OPTIONAL_USER_ID)
+    ```
 
 #### Web attribution
 
@@ -503,26 +503,26 @@ In `amplitude-js` do this by using `onExitPage()` callback.
 
 === "amplitude-js"
 
-  ```javascript
-  amplitude.getInstance().init(API_KEY, OPTIONAL_USER_ID, {
-    onExitPage: () => {
-      amplitude.sendEvents()
-    },
-  })
-  ```
+    ```javascript
+    amplitude.getInstance().init(API_KEY, OPTIONAL_USER_ID, {
+      onExitPage: () => {
+        amplitude.sendEvents()
+      },
+    })
+    ```
 
 For `@amplitude/analytics-browser`, Amplitude recommends adding your own event listener for `pagehide` event.
 
 === "@amplitude/analytics-browser"
 
-  ```javascript
-  window.addEventListener('pagehide',
-    () => {
-      amplitude.setTransport('beacon') // Optional. Sets https transport to use `sendBeacon` API
-      amplitude.flush()
-    },
-  );
-  ```
+    ```javascript
+    window.addEventListener('pagehide',
+      () => {
+        amplitude.setTransport('beacon') // Optional. Sets https transport to use `sendBeacon` API
+        amplitude.flush()
+      },
+    );
+    ```
 
 #### Callback
 
@@ -530,12 +530,12 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 
 === "@amplitude/analytics-browser"
 
-  ```javascript
-  const result = await amplitude.track("Button Clicked").promise
-  if (result.code === 200) {
-    // success logic
-  } else {
-    // errr logic
-  }
+    ```javascript
+    const result = await amplitude.track("Button Clicked").promise
+    if (result.code === 200) {
+      // success logic
+    } else {
+      // errr logic
+    }
 
-  ```
+    ```
