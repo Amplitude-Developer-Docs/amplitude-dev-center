@@ -417,6 +417,7 @@ nav:
     - Overview: data/pii.md
     - DataGrail: data/pii/datagrail.md
     - Osano: data/pii/osano.md
+    - Transcend: data/pii/transcend.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
