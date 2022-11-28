@@ -108,7 +108,7 @@ User properties are details like device details, user preferences, or language t
 Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
 
 !!!note
-    If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they won't appear in chart results until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
+    If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they don't appear in chart results until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
 
 #### Set a user property
 
@@ -271,7 +271,7 @@ The preferred method of tracking revenue for a user is to use `revenue()` in con
 
 <!--vale on-->
 
-To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
+To track revenue from a user, call revenue each time a user generates revenue. In this example, 3 units of a product was purchased at $3.99.
 
 ```ts
 import { revenue, Revenue } from '@amplitude/analytics-browser';
@@ -571,7 +571,7 @@ init('API_KEY');
 add(new AddEventIdPlugin());
 ```
 
-##### Web Attribution Enrichment Plugin
+##### Web attribution enrichment plugin
 
 You need to download `plugin-web-attribution-browser` package and add the `webAttributionPlugin` before call init method. 
 
@@ -612,7 +612,7 @@ The Attribution plugin tracks all campaigns, regardless of whether the user is a
 
 Set the `resetSessionOnNewCampaign` option to `true` to cause the user’s session to be reset when a new campaign is detected. The session isn't reset in the case where the referrer is just a different subdomain of your site.
 
-##### Page View Enrichment Plugin
+##### Page view enrichment plugin
 
 You need to download `plugin-page-view-tracking-browser` and add the `pageViewTrackingPlugin` before calling the init method.
 
@@ -665,7 +665,7 @@ Users who start on Site 1 and then navigate to Site 2 must have the device ID ge
 
 If the `deviceId` isn't provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
 
-### Custom HTTP Client
+### Custom HTTP client
 
 You can provide an implementation of `Transport` interface to the `transportProvider` configuration option for customization purpose, for example, sending requests to your proxy server with customized HTTP request headers.
 

@@ -4,6 +4,7 @@ description: The Amplitude React Native SDK installation and quick start guide.
 icon: simple/react
 ---
 
+<!-- vale off-->
 
 ![npm version](https://badge.fury.io/js/%40amplitude%2Freact-native.svg)
 

@@ -18,7 +18,7 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
 
 ## Getting started
 
-### 1. Add dependencies
+### Step 1: Add dependencies
 
 - Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies.
 - In `build.gradle` file, add the following dependencies with the [latest version](https://search.maven.org/artifact/com.amplitude/analytics-android) of the SDK.
@@ -31,7 +31,7 @@ dependencies {
 
 - Sync project with Gradle files.
 
-### 2. Add permissions
+### Step 2: Add permissions
 <!-- vale off -->
 To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file.
 `<uses-permission android:name="android.permission.INTERNET" />`
@@ -41,7 +41,7 @@ For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE`�
 <!--vale on-->
 The SDK internally uses a few Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) or requires a minimum API level of 16.
 
-### 3. Initialization
+### Step 3: Initialization
 
 Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. You can use the Android SDK anywhere after it's initialized in an Android application.
 
@@ -327,7 +327,7 @@ You can adjust the time window for which sessions are extended. The default sess
     )
     ```
 
-By default, Amplitude will auto send the '[Amplitude] Start Session' and '[Amplitude] End Session' events. Even though these events aren't sent, sessions are still tracked by using `session_id`.
+By default, Amplitude automatically sends the '[Amplitude] Start Session' and '[Amplitude] End Session' events. Even though these events aren't sent, sessions are still tracked by using `session_id`.
 You can also disable those session events.
 
 === "Java"
@@ -680,7 +680,7 @@ By default, Amplitude can use Android location service (if available) to add the
 
 ### Opt users out of tracking
 
-Users may wish to opt out of tracking entirely, which means Amplitude won't track any of their events or browsing history. `OptOut` provides a way to fulfill a user's requests for privacy.
+Users may wish to opt out of tracking entirely, which means Amplitude doesn't track any of their events or browsing history. `OptOut` provides a way to fulfill a user's requests for privacy.
 
 === "Java"
 

@@ -216,3 +216,5 @@ exceptions:
   - instrumented
   - associated
   - ingested
+  - allocated
+  - bucketed

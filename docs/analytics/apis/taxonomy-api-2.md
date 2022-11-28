@@ -10,7 +10,8 @@ The Taxonomy API 2.0 lets you programmatically plan your event schema in Amplitu
 It's a GraphQL API, so if you're not familiar with GraphQL query and manipulation language check out the [GitHub GraphQL API introduction](https://docs.github.com/en/graphql/guides/introduction-to-graphql).
 
 !!!note
-    This document is currently a draft. We're seeking feedback from the community as we develop this new API.
+
+    This document is currently a draft. Amplitude welcomes feedback from the community as we develop this new API.
 
 ## Authorization
 

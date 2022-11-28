@@ -4,6 +4,7 @@ description: The Amplitude Android SDK installation and quick start guide.
 icon: simple/android
 ---
 
+<!-- vale off -->
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/android-sdk.svg?label=Maven%20Central&versionPrefix=2)](https://search.maven.org/search?q=g:%22com.amplitude%22%20AND%20a:%22android-sdk%22)
 

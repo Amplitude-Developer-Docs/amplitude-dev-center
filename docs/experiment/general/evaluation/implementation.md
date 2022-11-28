@@ -13,19 +13,19 @@ The pre-targeting steps may determine the evaluated variant prior to targeting s
 
 ### Activation
 
-A flag may be active or inactive. Inactive flags will never return a variant as a result of evaluation.
+A flag may be active or inactive. Inactive flags never return a variant as a result of evaluation.
 
 !!!info "Best Practice"
     For simple on/off flags, Amplitude recommends using the [all users segment](#all-users-segment) allocation set to either 100% or 0% rather than using the activation toggle to control traffic. The activation toggle should be used to sunset a feature that has been fully rolled out or rolled back after the flag's instrumentation has been removed.
 
 ### Individual inclusions
 
-Inclusions allow you to force bucket specific users (identified by either their user ID or device ID) into a variant. This feature is primarily used for development purposes; for example if I am the developer on a new multi-variate feature and I want to test each variant in my application, I can add my user or device ID to the inclusions and refresh the application.
+Inclusions allow you to force bucket specific users (identified by either their user ID or device ID) into a variant. This feature is primarily used for development purposes. For example if you are the developer on a new multi-variate feature and you want to test each variant in your application, add your user or device ID to the inclusions and refresh the application.
 
 ### Sticky bucketing
 
 !!!warning
-    Sticky bucketing should be used with care. Even if sticky bucketing is disabled, [consistent bucketing](#consistent-bucketing) means that  users will still be bucketed into the same variant given that the user and targeting rules remain static. Changing targeting rules on an active flag with sticky bucketing enabled may cause a [sample ratio mismatch (SRM)](../../guides/troubleshooting/sample-ratio-mismatch.md), which may skew experiment results.
+    Sticky bucketing should be used with care. Even if sticky bucketing is disabled, [consistent bucketing](#consistent-bucketing) means that users are still bucketed into the same variant given that the user and targeting rules remain static. Changing targeting rules on an active flag with sticky bucketing enabled may cause a [sample ratio mismatch (SRM)](../../guides/troubleshooting/sample-ratio-mismatch.md), which may skew experiment results.
 
 If sticky bucketing is enabled, a user will always get evaluated to the same previously bucketed variant, regardless of the current targeting. Sticky bucketing doesn't apply if the user hasn't been bucketed into a variant.
 
@@ -42,7 +42,7 @@ The all users segment captures all users who don't match a [targeting segment](#
 
 ## Consistent bucketing
 
-Amplitude Experiment's bucketing is consistent based on the user, bucketing key, bucketing salt, allocation percentage, and variant weights. In other words, given the same inputs, the output will remain constant.
+Amplitude Experiment's bucketing is consistent based on the user, bucketing key, bucketing salt, allocation percentage, and variant weights. In other words, given the same inputs, the output remains constant.
 
 | <div class='med-big-column'> Input </div> | Description |
 | --- | --- |
@@ -71,7 +71,7 @@ murmur3_x86_32("bucketing_salt/bucketing_value") % 100
 
 ### Variant bucketing
 
-Once a user is allocated, variant bucketing determines which variant the user should receive. Variants are associated with values between 0 and 42949672, based on their weights.
+After a user is allocated, variant bucketing determines which variant the user should receive. Variants are associated with values between 0 and 42949672, based on their weights.
 
 ```text
 floor(murmur3_x86_32("bucketing_salt/bucketing_value") / 100)

@@ -26,7 +26,7 @@ The REST API authenticates the request using your [deployment](../general/data-m
 
 A successful request returns a `200` response and a map of flag key to variants. If `flag_key` isn't provided, all flags associated with the deployment key in the authorization header are evaluated.
 
-#### Response Body
+#### Response body
 
 The response body is a JSON object keyed by the flag key. The value for a given flag key is the variant which was assigned to the user. The variant contains its identification `key` (a.k.a value) and an optional payload containing a JSON element.
 
