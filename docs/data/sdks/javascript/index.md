@@ -4,7 +4,7 @@ description: The Amplitude JavaScript SDK installation and quick start guide.
 icon: simple/javascript
 ---
 
-
+<!-- vale off-->
 [![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js)
 
 This is the official documentation for the Amplitude Analytics JavaScript SDK.

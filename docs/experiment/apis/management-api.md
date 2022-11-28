@@ -160,7 +160,7 @@ Create a new experiment.
 |`bucketingKey`| Optional | string | The user property to bucket the user by. |
 |`rolloutWeights`| Optional | object | Rollout weights for non-targeted users. The object should be a mapping from variant key to rollout weight as an integer. For example: `{ "control": 1, "treatment": 1 }`. |
 |`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. |
-|`stickyBucketing`| Optional | boolean | If true, the experiment will use [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
+|`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
 |`deployments`| Optional | string array | Array of deployments that the experiment should be assigned to. |
 
 #### `variants`

@@ -91,3 +91,5 @@ exceptions:
   - Singular
   - Taxonomy API
   - OAuth2
+  - Bad Request
+  - Unauthorized
