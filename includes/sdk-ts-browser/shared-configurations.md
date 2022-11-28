@@ -13,7 +13,7 @@
 |`serverUrl`| Optional. `string` | Sends events to a different URL other than AMPLITUDE_SERVER_URL. Used for proxy servers |
 |`serverZone`| Optional. `ServerZone.EU` or  `ServerZone.US` | Set Amplitude Server Zone, switch to zone related configuration. To send data to Amplitude's EU servers should configure to `ServerZone.EU` |
 |`storageProvider`| Optional.  `Storage<Event[]>` | Implements a custom `storageProvider` class from Storage. The default is `MemoryStorage`. |
-|`useBatch`| Optional. `boolean` | Disable the attribution tracking, attribution is enabled by default |
+|`useBatch`| Optional. `boolean` | When `true`, uses the Batch API instead of the HTTP V2 API.|
 |`appVersion`| Optional. `string` | The current version of your application. For example: "1.0.0" |
 |`deviceId`| Optional. `string` | A device-specific identifier. |
 |`cookieExpiration`| Optional. `number` | The days when the cookie expires. The default is 365 days. |
