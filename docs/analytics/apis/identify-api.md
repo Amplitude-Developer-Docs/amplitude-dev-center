@@ -7,7 +7,7 @@ Use the Identify API to set the User ID for a particular Device ID or update use
 
 --8<-- "includes/postman.md"
 
---8<-- "includes/auth-api-key-query-param.md"
+--8<-- "includes/auth-api-key-query-or-body-param.md"
 
 ## Endpoints
 
@@ -31,16 +31,21 @@ All throttling and status code guidance from Amplitude's [HTTP V2 API](../apis/h
 ## Example request
 
 ```bash
-POST /identify HTTP/1.1
-Host: api2.amplitude.com
-
-{
-    "api_key":{{api-key}},
-    "identification":[{"user_id":"77", "user_properties":{"string":"stringValue","number":2,"boolean":true,"array":["1","String","{object}"],"object":"value","long":12332312312,"float":1.23,"date":"2017-08-07T01:07:00"}}]
-}
+curl --location --request POST 'https://api2.amplitude.com/identify' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'api_key=<API-KEY>' \
+--data-urlencode 'identification=[{"user_id":"value", "user_properties":{"propertyNameToUpdate":"newValue"}}]'
 ```
 
+!!!tip "Get more examples"
+
+    See over 20 example requests for this API in the Amplitude Postman Collection.
+
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20044411-88bd70c1-9e00-483c-aaf1-2b7159f9bb2b?action=collection%2Ffork&collection-url=entityId%3D20044411-88bd70c1-9e00-483c-aaf1-2b7159f9bb2b%26entityType%3Dcollection%26workspaceId%3D2ffc735a-10a6-4f54-818e-16c87aeebcd7#?env%5BAmplitude%20API%20Environment%5D=W3sia2V5IjoiYXBpX2tleSIsInZhbHVlIjoiSU5TRVJUIEFQSSBLRVkiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiSU5TRVJUIEFQSSBLRVkiLCJzZXNzaW9uSW5kZXgiOjB9LHsia2V5Ijoic2VjcmV0X2tleSIsInZhbHVlIjoiSU5TRVJUIFNFQ1JFVCBLRVkiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiSU5TRVJUIFNFQ1JFVCBLRVkiLCJzZXNzaW9uSW5kZXgiOjF9LHsia2V5IjoiU0NJTV90b2tlbiIsInZhbHVlIjoiSU5TRVJUIFNDSU0gVE9LRU4iLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiSU5TRVJUIFNDSU0gVE9LRU4iLCJzZXNzaW9uSW5kZXgiOjJ9LHsia2V5Ijoib3JnX2FwaV9rZXkiLCJ2YWx1ZSI6IklOU0VSVCBPUkcgQVBJIEtFWSIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJzZWNyZXQiLCJzZXNzaW9uVmFsdWUiOiJJTlNFUlQgT1JHIEFQSSBLRVkiLCJzZXNzaW9uSW5kZXgiOjN9LHsia2V5Ijoib3JnX3NlY3JldF9rZXkiLCJ2YWx1ZSI6IklOU0VSVCBPUkcgU0VDUkVUIEtFWSIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJzZWNyZXQiLCJzZXNzaW9uVmFsdWUiOiJJTlNFUlQgT1JHIFNFQ1JFVCBLRVkiLCJzZXNzaW9uSW5kZXgiOjR9XQ==)
+
 ### Required parameters
+
+You can send these parameters as query parameter in a GET request. In a POST request, send them as body parameters. The body must be `form-data` or `x-www-form-urlencoded`.
 
 |<div class="big-column">Name</div>|Description|
 |---|----|
@@ -103,5 +108,6 @@ The `user_properties` field supports these operations:
 |Code|Message|
 |----|------|
 |200|Success|
+|400| Bad Request. If you get a `missing_event` message, it means the identification parameter is missing or incorrectly formatted.|
 |414|You might be using GET, which has a URL character limit. Use POST instead of GET so the data isn't passed in the URL.|
 |429|Amplitude throttles requests for `device_ids` or `user_ids` that exceed a certain threshold of events per second, and returns a 429 code.|
