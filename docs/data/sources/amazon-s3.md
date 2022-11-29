@@ -44,7 +44,8 @@ The files you want to send to Amplitude must follow some basic requirements.
 - Files contain events, with one event per line.
 - Files are uploaded approximately in the events’ chronological order.
 - Filenames are unique.
-- The file hasn’t been ingested by the S3 import already. After a file has been ingested, an S3 import source won’t process the same file again, even if it’s updated.
+- The file wasn't ingested by the S3 import yet. Once a file has been ingested by a S3 import source, the same S3 import source won’t process the file again, even if the file is updated.
+- File size shall be greater than 1MB and smaller than 1GB.
 - Files are compressed or uncompressed JSON, CSV, or parquet files.
 
 ### Limits
