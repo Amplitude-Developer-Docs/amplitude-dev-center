@@ -11,6 +11,12 @@ The User Privacy API helps you comply with end-user data deletion requests manda
 
 --8<-- "includes/auth-basic.md"
 
+!!!note "Authorization in cURL"
+
+    When using cURL, the authorization header should be Base64-encoded, not the raw `acesss_key:secret_key`. It should look something like this:
+    
+    `--header 'Authorization: Basic YWhhbWlsdG9uQGFwaWdlZS5jb206bXlwYXNzdzByZAo'`
+
 ## Endpoints
 
 | Region | Endpoint |
@@ -70,7 +76,7 @@ The body parameter is required. It's the deletion request object listing the `us
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \ # API Key:Secret Key must be Base64-encoded
     --header 'Content-Type: application/json' \
     --data-raw '{
         "amplitude_ids": [
