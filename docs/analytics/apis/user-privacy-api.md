@@ -70,7 +70,7 @@ The body parameter is required. It's the deletion request object listing the `us
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/deletions/users' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}} \ # credentials must be base64-encoded
     --header 'Content-Type: application/json' \
     --data-raw '{
         "amplitude_ids": [
@@ -93,7 +93,7 @@ The body parameter is required. It's the deletion request object listing the `us
     ```bash
     POST /api/2/deletions/users HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic {{api-key}}:{{secret-key}}
+    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-encoded
     Content-Type: application/json
     Content-Length: 238
 
@@ -209,7 +209,7 @@ The body parameter is required. It's the deletion request object listing the `us
       "requester": "employee@yourcompany.com"
     })
     headers = {
-      'Authorization': 'Basic {{api-key}}:{{secret-key}}',
+      'Authorization': 'Basic {{api-key}}:{{secret-key}}', #credentials must be base64-encoded
       'Content-Type': 'application/json'
     }
 
@@ -276,7 +276,7 @@ The body parameter is required. It's the deletion request object listing the `us
         fmt.Println(err)
         return
       }
-      req.Header.Add("Authorization", "Basic {{api-key}}:{{secret-key}}")
+      req.Header.Add("Authorization", "Basic {{api-key}}:{{secret-key}}") // credentials must be base64-encoded
       req.Header.Add("Content-Type", "application/json")
 
       res, err := client.Do(req)
@@ -332,14 +332,14 @@ If the request returns no values, then no jobs are scheduled for that time range
     # You can also use wget
     curl -X GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string \
       -H 'Accept: application/json' \
-      -U API_Key:API_Secret
+      -U API_Key:API_Secret # credentials must be base64-encoded
     ```
 
 === "HTTP"
     ```bash
     GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string HTTP/1.1
     Host: amplitude.com
-    Authorization: Basic {{api-key}}:{{secret_key}}
+    Authorization: Basic {{api-key}}:{{secret_key}} # credentials must be base64-encoded
     Accept: application/json
     ```
 === "JavaScript"
@@ -506,7 +506,7 @@ Removes the specified ID from a deletion job.
 ```bash
 DELETE /api/2/deletions/users/12345/ HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-encoded
 ```
 
 {
