@@ -150,24 +150,49 @@ The event parameter can include these keys:
 ]
 ```
 
+## Export data tables
+
+You can use the Dashboard REST API to export data from data tables. Just query any Data Table chart type, and don't include start or end dates in the query. 
+
 ## Get results from an existing chart
 
 Get JSON results from any saved chart via chart ID.
 `GET https://amplitude.com/api/3/chart/chart_id/query`
 
-### Export data tables
-
-You can use the Dashboard REST API to export data from data tables. Just query any Data Table chart type, and don't include start or end dates in the query.  
-
 ### Example request
 
---8<-- "includes/postman.md"
+=== "HTTP"
 
-```bash
-GET /api/3/chart/:chart_id/query HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+    ```bash
+    GET /api/3/chart/:chart_id/query HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/3/chart/:chart_id/query' \
+    --header 'Authorization: Basic = {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "Python"
+
+    ```python
+    import requests
+
+    url = "https://amplitude.com/api/3/chart/:chart_id/query"
+
+    payload={}
+    headers = {
+      'Authorization': 'Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+
+    print(response.text)
+
+    ```
 
 ### Path variables
 
@@ -394,7 +419,7 @@ Get the distribution of users across values of a user property in the specified 
 ```bash
 GET /api/2/composition?start=20210601&end=20210630&p=platform HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
 ```
 
 ### Query parameters
@@ -645,7 +670,7 @@ Get user retention for specific starting and returning actions.
 ```bash
 GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
 ```
 
 ### Query parameters
@@ -711,12 +736,10 @@ Get a user summary and their most (or least) recent events. Exceeding the reques
 
 ### Example request
 
---8<-- "includes/postman.md"
-
 ```bash
 GET /api/2/useractivity?user=247246881751 HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
 ```
 
 ### Query parameters
@@ -724,7 +747,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | Name | Description |
 | --- | --- |
 | `user` | Required. Amplitude ID of the user. |
-| `offset`  | Optional. Zero-indexed offset to start returning events from. |
+| `offset`  | Optional. Zero-indexed (from most recent event) offset to start returning events from. |
 | `limit` | Optional. Number of events to return (up to 1000). Note that more events may be returned so that there are no partial sessions. Defaults to 1000. |
 | `direction` | Optional. "earliest" to include the user's earliest event or "latest" to includes the most recent. Defaults to "latest". |
 
@@ -737,43 +760,120 @@ The response is a JSON object with this schema:
 | `events` | An array of JSON objects, one for each event performed by the user. |
 | `userData` | Total statistics about the user and their user properties. |
 
-```json
-{
-    "userData": {
-        "user_id": "myusername",
-        "canonical_amplitude_id": 12345,
-        "merged_amplitude_ids": [11111, 22222],
-        "num_events": 142,
-        "num_sessions": 23,
-        "usage_time": 2570259,
-        "first_used": "2015-03-14",
-        "last_used": "2015-04-22",
-        "purchases": 2,
-        "revenue": 9.98,
-        "platform": "iOS",
-        "os": "ios 8.2",
-        "version": "3.4.9",
-        "device": "Apple iPhone",
-        "device_type": "Apple iPhone 6",
-        "carrier": "AT&T",
-        "country": "United States",
-        "region": "California",
-        "city": "San Francisco",
-        "dma": "San Francisco-Oakland-San Jose, CA",
-        "language": "English",
-        "start_version": "1.2.3",
-        "device_ids": ["somedevice", "someotherdevice"],
-        "last_location": {
-            "lat": 37.133,
-            "lng": -122.241
+???example "Example JSON response (click to expand)"
+
+    ```json
+    {
+        "userData": {
+            "user_id": "myusername",
+            "canonical_amplitude_id": 12345,
+            "merged_amplitude_ids": [11111, 22222],
+            "num_events": 142,
+            "num_sessions": 23,
+            "usage_time": 2570259,
+            "first_used": "2015-03-14",
+            "last_used": "2015-04-22",
+            "purchases": 2,
+            "revenue": 9.98,
+            "platform": "iOS",
+            "os": "ios 8.2",
+            "version": "3.4.9",
+            "device": "Apple iPhone",
+            "device_type": "Apple iPhone 6",
+            "carrier": "AT&T",
+            "country": "United States",
+            "region": "California",
+            "city": "San Francisco",
+            "dma": "San Francisco-Oakland-San Jose, CA",
+            "language": "English",
+            "start_version": "1.2.3",
+            "device_ids": ["somedevice", "someotherdevice"],
+            "last_location": {
+                "lat": 37.133,
+                "lng": -122.241
+            },
+            "properties": {
+                "gender": "female"
+            }
         },
-        "properties": {
-            "gender": "female"
-        }
-    },
-    "events": [...]
-}
-```
+        "events": [...]
+    }
+    ```
+
+### Advanced user activity examples
+
+These examples show more detailed user activity requests. 
+
+???example "Get events for user with ID 123"
+
+    **Request**
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=123'
+        --header 'Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ=='
+
+        ```
+    === "HTTP"
+
+        ```bash
+
+        GET /api/2/useractivity?user=123 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ==
+        ```
+    **Response**
+
+    Returns a list of user 123's events as described in the response schema.
+
+???example "Get up to 100 events for user with ID 123, offset from the 50th event"
+
+    **Request**
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=123&offset=49&limit=100' \
+        --header 'Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ=='
+        ```
+
+    === "HTTP"
+
+        ```bash
+        GET /api/2/useractivity?user=123&offset=49&limit=100 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ==
+        ```
+
+    **Response**
+
+    Returns a list of up to 100 of user 123's events, offset from the 50th most recent event.
+
+???example "Get most recent two events for user with ID 123"
+
+    **Request**
+
+    Limits are indexed from 0, so notice that the request has a limit of `1` to return the two most recent events.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=123&limit=1' \
+        --header 'Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ=='
+        ```
+
+    === "HTTP"
+
+        ```bash
+        GET /api/2/useractivity?user=123&limit=1 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ==
+        ```
+    **Response**
+
+    Returns user 123's most recent 2 events.
 
 ## User search
 
@@ -783,13 +883,20 @@ Search for a user with a specified Amplitude ID, device ID, user ID, or user ID 
 
 ### Example request
 
---8<-- "includes/postman.md"
+=== "cURL"
 
-```bash
-GET /api/2/usersearch?user=user_id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=123' \
+    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/usersearch?user=user_id HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 ### Query parameters
 
@@ -797,7 +904,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 |----|-----------|
 |`user`|Required. Amplitude ID, Device ID, User ID, or User ID prefix.|
 
-### Returns
+### Response
 
 | Attribute | Description |
 | --- | --- |
@@ -815,6 +922,108 @@ Authorization: Basic {{api-key}}:{{secret-key}}
     "type": "match_user_or_device_id"
 }
 ```
+
+### Advanced user search examples
+
+???example "Search for user by device ID"
+
+    Search for user with the device ID `0786zXEdyOX1rS3M-P_m1d`.
+
+    **Request**
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=0786zXEdyOX1rS3M-P_m1d'
+        --header 'Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ=='
+
+        ```
+
+    === "HTTP"
+
+        ```bash
+        GET /api/2/usersearch?user=0786zXEdyOX1rS3M-P_m1d HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ==
+        ```
+
+    === "Python"
+
+        ```python
+        import requests
+
+        url = "https://amplitude.com/api/2/usersearch?user=0786zXEdyOX1rS3M-P_m1d"
+
+        payload={}
+        headers = {
+          'Authorization': 'Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ=='
+        }
+
+        response = requests.request("GET", url, headers=headers, data=payload)
+
+        print(response.text)
+        ```
+  
+    **Response**
+
+    This request returns the following: 
+
+    ```json
+    {
+        "type": "match_user_or_device_id",
+        "matches": [
+            {
+                "user_id": null,
+                "amplitude_id": 356896327775,
+                "last_device_id": "0786zXEdyOX1rS3M-P_m1d",
+                "platform": "Web",
+                "country": "United States",
+                "last_seen": "2022-02-01"
+            }
+        ]
+    }
+    ```
+
+???example "Search for user by Amplitude ID"
+
+    Search for the user with Amplitude ID `356893043036`.
+
+    **Request**
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=356893043036'
+        --header 'Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ=='
+
+        ```
+    === "HTTP"
+
+        ```bash
+
+        GET /api/2/usersearch?user=356893043036 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwOTA3MDYwNjoxMjM0NTY3ODkwMTAxMTExMQ==
+        ```
+  
+    **Response**
+
+    ```json
+    {
+        "type": "match_amplitude_id",
+        "matches": [
+            {
+                "user_id": null,
+                "amplitude_id": 356893043036,
+                "last_device_id": "XIYp6uKHkPD4dysiZHt-0p",
+                "platform": "Web",
+                "country": "United States",
+                "last_seen": "2022-02-01"
+            }
+        ]
+    }
+    ```  
 
 ## Real-time active users
 
