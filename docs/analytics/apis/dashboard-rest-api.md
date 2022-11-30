@@ -802,7 +802,7 @@ The response is a JSON object with this schema:
 
 ### Advanced user activity examples
 
-These examples show more detailed user activity requests. 
+These examples show more detailed user activity requests. Click to expand any example.
 
 ???example "Get events for user with ID 123"
 
@@ -886,7 +886,7 @@ Search for a user with a specified Amplitude ID, device ID, user ID, or user ID 
 === "cURL"
 
     ```bash
-    curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=123' \
+    curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=USER_ID' \
     --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
     ```
 
@@ -933,6 +933,8 @@ If there are no matches, the response returns a 200 response with the following 
 ```
 
 ### Advanced user search examples
+
+These examples show more detailed user search requests. Click to expand any example.
 
 ???example "Search for user by device ID"
 
