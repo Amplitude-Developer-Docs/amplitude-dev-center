@@ -923,6 +923,15 @@ Search for a user with a specified Amplitude ID, device ID, user ID, or user ID 
 }
 ```
 
+If there are no matches, the response returns a 200 response with the following body:
+
+```json
+{
+    "type": "nomatch",
+    "matches": []
+}
+```
+
 ### Advanced user search examples
 
 ???example "Search for user by device ID"
