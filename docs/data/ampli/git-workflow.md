@@ -52,6 +52,7 @@ Runtime: Browser/TypeScript
 ✔ Pulling version 74 (latest)
 ```
 <!--vale on-->
+
 If later you would like to change branches you have a couple of options.
 
 #### `ampli checkout [my-branch-name]`
@@ -187,6 +188,7 @@ ampli status --is-merged --is-latest
 ✘ ERROR Branch feature-branch-name latest version is 74. You are on 73. Run ampli pull to update.
 ```
 <!--vale on-->
+
 Here are some common errors and solutions for the ampli status command.
 
 #### Event tracking implementation error
@@ -378,4 +380,4 @@ Yes, that's expected! The Ampli CLI uses this information to verify that the Amp
 ### Do I need to run ampli pull -b main before merging my Git branch?
 
 Not anymore! If you were using an earlier version of Ampli make sure to update to Ampli CLI 1.9.0+ and pull the latest version of your Ampli Wrapper. After that you'll never need to run ampli pull -b main again.
-<--! vale on-->
+<!-- vale on-->
