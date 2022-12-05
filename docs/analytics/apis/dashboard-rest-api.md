@@ -1177,6 +1177,33 @@ Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 enco
 }
 ```
 
+### Advanced retention analysis examples
+
+???code-example "Get N Day retention for active event filtered by country, grouped by device ID"
+
+    Retrieves the daily N-Day Retention for Any Active Event with "watch_tutorial" return where the user's country is not `NL` or `US`, grouped by Device ID between August 1 and August 31.
+
+    **Request**
+
+    === "cURL"
+
+        ```bash
+
+        curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id'
+
+        ```
+    === "HTTP"
+
+        ```bash
+
+        GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        ```
+    **Response**
+
+    Returns a response as described in the schema.
+
 ## User activity
 
 Get a user summary and their most (or least) recent events. Exceeding the request limits results in 429 errors.
