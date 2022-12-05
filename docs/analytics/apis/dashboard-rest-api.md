@@ -960,7 +960,7 @@ The response includes an array with one element per group. Each element has thes
 }
 ```
 
-### Funnel analysis advanced examples
+### Advanced funnel analysis examples
 
 ???code-example "Get event funnel for a series of events in a period, in any order with a specific conversion time"
 
