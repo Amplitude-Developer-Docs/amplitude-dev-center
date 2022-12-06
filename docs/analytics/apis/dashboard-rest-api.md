@@ -538,54 +538,11 @@ Get metrics for an event with segmentation.
 
 Remember that you may have to URL encode special characters in the names of event types, event properties, and user properties. For example, encode Play Song as Play%20Song.
 
-### Query parameters
-
-| <div class="big-column"> Name</div> | Description |
-| --- | --- |
-| `e` | Required. Include up to two. A full event. [Full description](#shared-query-parameters). *Note: Currently, the Dashboard REST API supports segmentation by up to two events. If you wish to query on a second event, the parameter would be "e2".* |
-| `m` | Optional. Non-property metrics: `uniques`, `totals`, `pct_dau`, or `average`. Defaults to `uniques`. Property metrics: `histogram`, `sums`, or `value_avg`.  To use property metrics, you must include a valid group by value  in parameter `e`.  *For custom formulas: "formula" (Note: This metric only supports up to two events currently and the second event needs to have the parameter "e2").* |
-| `n`| Optional. User type, either `any` or `active`.|
-| `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
-| `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
-| `i` | Set to -300000, -3600000, 1, 7, or 30 for real-time, hourly, daily, weekly, and monthly counts, respectively. Defaults to 1. Real-time segmentation displays up to 2 days of data, hourly segmentation displays up to 7 days of data, and daily displays up to 365 days of data. |
-| `s`  | Optional. Segment definitions (default: none). [Full description](#shared-query-parameters). |
-| `g` | Optional. Include up to two. The property to group by. Defaults to none. [Full description](#event-format). |
-| `limit` | Optional. The number of Group By values returned (default: 100). The limit is 1000. |
-| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you need to pass in the formula here (for example, `UNIQUES(A)/UNIQUES(B)`). |
-| `rollingWindow` | Required to use a rolling window. To include a rolling window, pass in the number of days/weeks/months with which to compute a rolling window over.  |
-| `rollingAverage` | Required to use a rolling average. To include a rolling average, pass in the number of days/weeks/months with which to compute a rolling average over.|
-
-### Response
-
-| <div class="big-column">Attribute</div> | Description |
-| --- | --- |
-| `series` | An array with one element for each group, in the same order as "seriesLabels", where each element is itself an array that includes the value of the metric on each of the days specified in "xValues". |
-| `seriesLabels` | An array of labels, one for each group. |
-| `seriesCollapsed` | An array with one element for each group, in the same order as "seriesLabels", where each element is the value of the bar chart visualization in Event Segmentation. This value is the total unique users over a certain time interval. |
-| `xValues` | An array of (string) dates in the form "YYYY-MM-DD", one for each date in the specified range. |
-
-```json 
-{
-    "data": {
-        "series": [ 
-            [273333], [190351]
-        ],
-        "seriesLabels": ["United States", "Germany"],
-        "seriesCollapsed": [
-            [
-                {"value": 273333}
-            ],
-            [
-                {"value": 190351}
-            ],
-        "xValues": ["2014-10-01", "2014-10-02"]
-    }
-}
-```
-
-???example "Advanced event segmentation examples (click to expand)"
+???example "More examples (click to expand)"
 
     ### Advanced event segmentation examples
+
+    Open any of these examples for sample code and an explanation.
 
     ???code-example "Get any active event for period"
 
@@ -873,6 +830,51 @@ Remember that you may have to URL encode special characters in the names of even
         **Response**
 
         Returns a response following the schema described previously.
+
+### Query parameters
+
+| <div class="big-column"> Name</div> | Description |
+| --- | --- |
+| `e` | Required. Include up to two. A full event. [Full description](#shared-query-parameters). *Note: Currently, the Dashboard REST API supports segmentation by up to two events. If you wish to query on a second event, the parameter would be "e2".* |
+| `m` | Optional. Non-property metrics: `uniques`, `totals`, `pct_dau`, or `average`. Defaults to `uniques`. Property metrics: `histogram`, `sums`, or `value_avg`.  To use property metrics, you must include a valid group by value  in parameter `e`.  *For custom formulas: "formula" (Note: This metric only supports up to two events currently and the second event needs to have the parameter "e2").* |
+| `n`| Optional. User type, either `any` or `active`.|
+| `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
+| `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
+| `i` | Set to -300000, -3600000, 1, 7, or 30 for real-time, hourly, daily, weekly, and monthly counts, respectively. Defaults to 1. Real-time segmentation displays up to 2 days of data, hourly segmentation displays up to 7 days of data, and daily displays up to 365 days of data. |
+| `s`  | Optional. Segment definitions (default: none). [Full description](#shared-query-parameters). |
+| `g` | Optional. Include up to two. The property to group by. Defaults to none. [Full description](#event-format). |
+| `limit` | Optional. The number of Group By values returned (default: 100). The limit is 1000. |
+| `formula` | Optional, but required if `m` is set to `formula`. If you are using the custom formula metric, you need to pass in the formula here (for example, `UNIQUES(A)/UNIQUES(B)`). |
+| `rollingWindow` | Required to use a rolling window. To include a rolling window, pass in the number of days/weeks/months with which to compute a rolling window over.  |
+| `rollingAverage` | Required to use a rolling average. To include a rolling average, pass in the number of days/weeks/months with which to compute a rolling average over.|
+
+### Response
+
+| <div class="big-column">Attribute</div> | Description |
+| --- | --- |
+| `series` | An array with one element for each group, in the same order as "seriesLabels", where each element is itself an array that includes the value of the metric on each of the days specified in "xValues". |
+| `seriesLabels` | An array of labels, one for each group. |
+| `seriesCollapsed` | An array with one element for each group, in the same order as "seriesLabels", where each element is the value of the bar chart visualization in Event Segmentation. This value is the total unique users over a certain time interval. |
+| `xValues` | An array of (string) dates in the form "YYYY-MM-DD", one for each date in the specified range. |
+
+```json 
+{
+    "data": {
+        "series": [ 
+            [273333], [190351]
+        ],
+        "seriesLabels": ["United States", "Germany"],
+        "seriesCollapsed": [
+            [
+                {"value": 273333}
+            ],
+            [
+                {"value": 190351}
+            ],
+        "xValues": ["2014-10-01", "2014-10-02"]
+    }
+}
+```
 
 ## Funnel analysis
 
