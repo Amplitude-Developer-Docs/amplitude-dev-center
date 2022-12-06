@@ -1268,7 +1268,7 @@ Get user retention for specific starting and returning actions.
 
 ### Example request
 
-This is a basic request with only the required fields.
+This is a basic request with only the required parameters.
 
 === "cURL"
 
@@ -1301,15 +1301,91 @@ This is a basic request with only the required fields.
         === "cURL"
 
             ```bash
-
             curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id'
-
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
             ```
         === "HTTP"
 
             ```bash
-
             GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response as described in the schema.
+
+    ???code-example "Get unbounded retention for active event with another event return for a period"
+
+        Retrieves unbounded Retention for Any Active Event with "watch_tutorial" return between August 1 and August 31.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&rm=rolling'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&rm=rolling HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response as described in the schema.
+
+    ???code-example "Get weekly N-day retention for active event with another event return for a period"
+
+        Retrieves weekly N-day retention for any active event with "watch_tutorial" return between July 26 and September 5.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=7'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=7 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response as described in the schema.
+
+    ???code-example "Get monthly N-day retention for active event with another event return for a period"
+
+        Retrieves monthly N-day retention for any active event with "watch_tutorial" return between July 26 and September 5.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=30'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=30 HTTP/1.1
             Host: amplitude.com
             Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
             ```
@@ -1379,6 +1455,8 @@ Get a user summary and their most (or least) recent events. Exceeding the reques
 `GET https://amplitude.com/api/2/useractivity`
 
 ### Example request
+
+This is a basic example with only the required parameters.
 
 === "cURL"
 
@@ -1471,7 +1549,6 @@ Get a user summary and their most (or least) recent events. Exceeding the reques
         **Response**
 
         Returns user 123's most recent 2 events.
-
 
 ### Query parameters
 
