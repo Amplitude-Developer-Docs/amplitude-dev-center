@@ -5,7 +5,7 @@ description: The Dashboard REST API lets you get the data displayed on dashboard
 
 You can get data that's displayed on the dashboard graphs in JSON format via the Dashboard REST API. Learn more about dashboards in the [Amplitude Help Center](https://help.amplitude.com/hc/en-us/articles/229505188).
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-basic.md"
 
@@ -397,12 +397,77 @@ Get the number of sessions for each pre-defined length ("bucket") period during 
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request with only the required parameters.
 
-```bash
-GET /api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=minutes&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10 HTTP/1.1
-Host: amplitude.com
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/sessions/length?start=STARTDATE&end=ENDDATE'
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/sessions/length?start=20210426&end=20210905 HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced session length distribution examples
+
+    These examples show more detailed session length distribution requests. Click to expand any example.
+
+    ???code-example "Get session length distribution with custom bin for a period"
+
+        Retrieves session length distribution from 0-10 minutes for the period between April 26 and September 5. 
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+              curl --location --request GET 'https://amplitude.com/api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=minutes&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        
+        === "HTTP"
+
+            ```bash
+            GET /api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=minutes&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get session length distribution by hours with custom bin size for a period"
+
+        Retrieves session length distribution with 0 - 10 hours with bucket size 2 for the period between April 26 and September 5. 
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=days&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10&timeHistogramConfigBinSize=1'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+            GET /api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=days&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10&timeHistogramConfigBinSize=1 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
 
 ### Query parameters
 
@@ -453,13 +518,22 @@ Get the average session length (in seconds) for each day in the specified date r
 
 ### Example request
 
---8<-- "includes/postman.md"
+This request retrieves the average session length in seconds for the period between June 1 2021 and June 30 2021.
 
-```bash
-GET /api/2/sessions/average?start=20210601&end=20210630 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/sessions/average?start=20210601&end=20210630' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/sessions/average?start=20210601&end=20210630 HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 ### Query parameters
 
@@ -501,13 +575,22 @@ Get the average number of sessions per user on each day in the specified date ra
 
 ### Example request
 
---8<-- "includes/postman.md"
+This example retrieves the average number of sessions per user on each day between June 1 2021 and June 30 2021.
 
-```bash
-GET /api/2/sessions/average?start=20210601&end=20210630
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/sessions/peruser?start=&end=' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/sessions/average?start=20210601&end=20210630
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}}
+    ```
 
 ### Query parameters
 
@@ -549,13 +632,75 @@ Get the distribution of users across values of a user property in the specified 
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request. 
 
-```bash
-GET /api/2/composition?start=20210601&end=20210630&p=platform HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/composition?start=STARTDATE&end=ENDDATE&p=PROPERTY' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/composition?start=STARTDATE&end=ENDDATE&p=property HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
+    ```
+???example "More examples (click to expand)"
+
+    ### Advanced user composition examples
+
+    These examples show more detailed event segmentation requests. Click to expand any example.
+
+    ???code-example "Get user composition by property for a period"
+
+        Retrieves user composition by platform between June 1 and June 30. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/composition?start=20210601&end=20210630&p=platform'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/composition?start=20210601&end=20210630&p=platform HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get user composition by custom property event for a period"
+
+        Retrieves user composition by custom property event between June 1 and June 30. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/composition?start=20210601&end=20210630&p=gp:event'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/composition?start=20210601&end=20210630&p=gp:event HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
 
 ### Query parameters
 
