@@ -212,13 +212,148 @@ Get the number of active or new users.
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request with only the required parameters. 
 
-```bash
-GET /api/2/users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/users?start=STARTDATE&end=ENDDATE' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced user counts examples
+
+    These examples show more getting active and new user requests. Click to expand any example.
+
+    ???code-example "Get active users for a period"
+
+        Retrieves active users between January 1 2021 and September 1 2021. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users for the period, following the response schema for this API.
+
+    ???code-example "Get active users for a period, counted in an interval"
+
+        Retrieves active users between January 1 2021 and September 1 2021, counted weekly. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            ccurl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=7'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active&i=7 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users for the period grouped weekly, following the response schema for this API.
+
+    ???code-example "Get active users for a period, segmented by a property, counted in an interval"
+
+        Retrieves active users in Amsterdam between January 1 2021 and September 1 2021, counted monthly. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=30&s=[{"prop":"city","op": "is","values": ["Amsterdam"]}]'            
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active&i=30&s=[{"prop":"city","op": "is","values": ["Amsterdam"]}] HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users in Amsterdam for the period counted monthly, following the response schema for this API.
+
+    ???code-example "Get active users for a period, grouped by a property, counted in an interval"
+
+        Retrieves active users between January 1 2021 and September 1 2021, counted monthly and grouped by city. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=30&g=city'            
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users for the period grouped by city, in montly intervals, following the response schema for this API.
+
+    ???code-example "Get new users for a period"
+
+        Retrieves new users between January 1 2021 and September 1 2021. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=new'          
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=new HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns new users for the period, following the response schema for this API.
 
 ### Query parameters
 
