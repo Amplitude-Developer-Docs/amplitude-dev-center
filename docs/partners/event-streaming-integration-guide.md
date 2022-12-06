@@ -16,6 +16,7 @@ This guide walks through the basics of creating your own Event Streaming tile in
 - **Event Forwarding:**  Forwarding Amplitude Track calls to a destination is called *event forwarding*. Amplitude forwards both the 'raw' event and merged or [transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure). Amplitude also sends the `user_id`, `event_name`, and `created_at` to your destination.
 - **User Properties Types:** Amplitude sends all user, event, and group properties along with the event.
 - **Event Selective Property Forwarding:** Amplitude has fine-grain filtering options that allow you to choose which events to send based on selecting event types and property conditions.
+- **Regular User Identify Forwarding (creating and updating a user):** Enable Identify Forwarding feature for your destination. This allows the destination to send users and their properties that are created under the Identify API in real time. See the [Identify documentation](../analytics/apis/identify-api) for more information.
 
 ### Limitations
 
@@ -23,7 +24,6 @@ This guide walks through the basics of creating your own Event Streaming tile in
 - **User identifiers:** The only currently supported user identifier is the Amplitude `user_id`.
 - **Mapping fields:** You can't currently map fields.
 - **Forwarding arrays or object type properties:** You can't currently arrays or object type properties. For example, you can't forward a property called cities which is an array of cities
-- **Regular User Identify Forwarding (creating and updating a user):**  Currently, Identify calls aren't forwarded. See the [Identify documentation](../analytics/apis/identify-api) for more information.
 - **Change-based user Identify Forwarding:** Amplitude doesn't automatically generate and forward an identify event when there's a user property change during the event ingestion.
 - **Property Value Transformation:** You can't currently transform a property value or type to another value or type for example, Amplitude int `user_id` -> Destination string `user_id`, formatting such as encoding and datetime format transformations.
 - **OAuth Authentication:** Amplitude doesn't support OAuth, so partners need to generate you API key.
