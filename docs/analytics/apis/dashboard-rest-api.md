@@ -583,294 +583,296 @@ Remember that you may have to URL encode special characters in the names of even
 }
 ```
 
-### Advanced event segmentation examples
+???example "Advanced event segmentation examples (click to expand)"
 
-???code-example "Get any active event for period"
+    ### Advanced event segmentation examples
 
-    Retrieves metrics for any active event between August 1 and August 31. 
+    ???code-example "Get any active event for period"
 
-    **Request**
+        Retrieves metrics for any active event between August 1 and August 31. 
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"_active"}&start=20210801&end=20210831'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"_active"}&start=20210801&end=20210831 HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"_active"}&start=20210801&end=20210831'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"_active"}&start=20210801&end=20210831 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get two events between for period"
+        Returns a response following the schema described previously.
 
-    Retrieves metrics for the "watch_tutorial" and "transaction" events between August 1 and August 31. 
+    ???code-example "Get two events between for period"
 
-    **Request**
+        Retrieves metrics for the "watch_tutorial" and "transaction" events between August 1 and August 31. 
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210802&e2={"event_type":"transaction"}'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&e2={"event_type":"transaction"} HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210802&e2={"event_type":"transaction"}'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&e2={"event_type":"transaction"} HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get a custom event for period"
+        Returns a response following the schema described previously.
 
-    Retrieves metrics for the "My Custom Event" event between August 1 and August 31. 
+    ???code-example "Get a custom event for period"
 
-    **Request**
+        Retrieves metrics for the "My Custom Event" event between August 1 and August 31. 
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"ce:My%20Custom%20Event"}&start=20210801&end=20210831'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"ce:My%20Custom%20Event"}&start=20210801&end=20210831 HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"ce:My%20Custom%20Event"}&start=20210801&end=20210831'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"ce:My%20Custom%20Event"}&start=20210801&end=20210831 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get event totals for period"
+        Returns a response following the schema described previously.
 
-    Retrieves totals for the "watch_tutorial" event between August 1 and August 31. 
+    ???code-example "Get event totals for period"
 
-    **Request**
+        Retrieves totals for the "watch_tutorial" event between August 1 and August 31. 
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=totals'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=totals HTTP/1.1  
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=totals'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=totals HTTP/1.1  
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get event Active % for period"
+        Returns a response following the schema described previously.
 
-    Retrieves daily active user (DAU) percentage for the "watch_tutorial" event between August 1 and August 31. 
+    ???code-example "Get event Active % for period"
 
-    **Request**
+        Retrieves daily active user (DAU) percentage for the "watch_tutorial" event between August 1 and August 31. 
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=pct_dau'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=pct_dau HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=pct_dau'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=pct_dau HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get event average for period"
+        Returns a response following the schema described previously.
 
-    Retrieves averages for the "watch_tutorial" event between August 1 and August 31. 
+    ???code-example "Get event average for period"
 
-    **Request**
+        Retrieves averages for the "watch_tutorial" event between August 1 and August 31. 
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=average'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=average HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=average'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=average HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get event sum on price event property for period"
+        Returns a response following the schema described previously.
 
-    Retrieves event sum on price event property between August 1 and August 31.
+    ???code-example "Get event sum on price event property for period"
 
-    **Request**
+        Retrieves event sum on price event property between August 1 and August 31.
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get distribution of price event property in a period"
+        Returns a response following the schema described previously.
 
-    Retrieves the distribution of price event property between August 1 and August 31.
+    ???code-example "Get distribution of price event property in a period"
 
-    **Request**
+        Retrieves the distribution of price event property between August 1 and August 31.
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get weekly count of event in period"
+        Returns a response following the schema described previously.
 
-    Retrieves weekly count of "watch_tutorial" event between August 23 and September 5.
+    ???code-example "Get weekly count of event in period"
 
-    **Request**
+        Retrieves weekly count of "watch_tutorial" event between August 23 and September 5.
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&i=7'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&i=7 HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&i=7'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&i=7 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get monthly count of event grouped by property in a period"
+        Returns a response following the schema described previously.
 
-    Retrieves monthly count of "watch_tutorial" event between Aug 1st and Sept 30th, grouped by user's city. 
+    ???code-example "Get monthly count of event grouped by property in a period"
 
-    **Request**
+        Retrieves monthly count of "watch_tutorial" event between Aug 1st and Sept 30th, grouped by user's city. 
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30 HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get monthly count of event for a segment, grouped by property in a period"
+        Returns a response following the schema described previously.
 
-    Retrieves monthly count of "watch_tutorial" event grouped by city property where users OS = none between August 1 and September 30.
+    ???code-example "Get monthly count of event for a segment, grouped by property in a period"
 
-    **Request**
+        Retrieves monthly count of "watch_tutorial" event grouped by city property where users OS = none between August 1 and September 30.
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30&s=[{"prop":"os","op":"is","values":["(none)"]}]'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30&s=[{"prop":"os","op":"is","values":["(none)"]}] HTTP/1.1
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30&s=[{"prop":"os","op":"is","values":["(none)"]}]'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30&s=[{"prop":"os","op":"is","values":["(none)"]}] HTTP/1.1
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
 
-???code-example "Get count of an event, filtered by segment"
+        Returns a response following the schema described previously.
 
-    Retrieves daily count of "watch_tutorial" event where the user's Server Upload Time is greater or equal to 2021-08-17 between August 1 and September 30.
+    ???code-example "Get count of an event, filtered by segment"
 
-    **Request**
+        Retrieves daily count of "watch_tutorial" event where the user's Server Upload Time is greater or equal to 2021-08-17 between August 1 and September 30.
 
-    === "cURL"
+        **Request**
 
-        ```curl
-        curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210930&s=[{"prop":"server_upload_time","op":"greater or equal","values":["2021-08-17"]}]'
-        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
-        ```
-    === "HTTP"
+        === "cURL"
 
-        ```bash
-        GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210930&s=[{"prop":"server_upload_time","op":"greater or equal","values":["2021-08-17"]}] HTTP/1.1
-        Host: amplitude.com
-        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210930&s=[{"prop":"server_upload_time","op":"greater or equal","values":["2021-08-17"]}]'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
 
-        ```
-    **Response**
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210930&s=[{"prop":"server_upload_time","op":"greater or equal","values":["2021-08-17"]}] HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
 
-    Returns a response following the schema described previously.
+            ```
+        **Response**
+
+        Returns a response following the schema described previously.
 
 ## Funnel analysis
 
