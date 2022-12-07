@@ -5,7 +5,7 @@ description: The Dashboard REST API lets you get the data displayed on dashboard
 
 You can get data that's displayed on the dashboard graphs in JSON format via the Dashboard REST API. Learn more about dashboards in the [Amplitude Help Center](https://help.amplitude.com/hc/en-us/articles/229505188).
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-basic.md"
 
@@ -150,24 +150,49 @@ The event parameter can include these keys:
 ]
 ```
 
+## Export data tables
+
+You can use the Dashboard REST API to export data from data tables. Just query any Data Table chart type, and don't include start or end dates in the query. 
+
 ## Get results from an existing chart
 
 Get JSON results from any saved chart via chart ID.
 `GET https://amplitude.com/api/3/chart/chart_id/query`
 
-### Export data tables
-
-You can use the Dashboard REST API to export data from data tables. Just query any Data Table chart type, and don't include start or end dates in the query.  
-
 ### Example request
 
---8<-- "includes/postman.md"
+=== "HTTP"
 
-```bash
-GET /api/3/chart/:chart_id/query HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+    ```bash
+    GET /api/3/chart/:chart_id/query HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/3/chart/:chart_id/query' \
+    --header 'Authorization: Basic = {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "Python"
+
+    ```python
+    import requests
+
+    url = "https://amplitude.com/api/3/chart/:chart_id/query"
+
+    payload={}
+    headers = {
+      'Authorization': 'Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+
+    print(response.text)
+
+    ```
 
 ### Path variables
 
@@ -187,13 +212,148 @@ Get the number of active or new users.
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request with only the required parameters. 
 
-```bash
-GET /api/2/users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/users?start=STARTDATE&end=ENDDATE' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced user counts examples
+
+    These examples show more getting active and new user requests. Click to expand any example.
+
+    ???code-example "Get active users for a period"
+
+        Retrieves active users between January 1 2021 and September 1 2021. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users for the period, following the response schema for this API.
+
+    ???code-example "Get active users for a period, counted in an interval"
+
+        Retrieves active users between January 1 2021 and September 1 2021, counted weekly. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            ccurl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=7'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active&i=7 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users for the period grouped weekly, following the response schema for this API.
+
+    ???code-example "Get active users for a period, segmented by a property, counted in an interval"
+
+        Retrieves active users in Amsterdam between January 1 2021 and September 1 2021, counted monthly. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=30&s=[{"prop":"city","op": "is","values": ["Amsterdam"]}]'            
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active&i=30&s=[{"prop":"city","op": "is","values": ["Amsterdam"]}] HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users in Amsterdam for the period counted monthly, following the response schema for this API.
+
+    ???code-example "Get active users for a period, grouped by a property, counted in an interval"
+
+        Retrieves active users between January 1 2021 and September 1 2021, counted monthly and grouped by city. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=30&g=city'            
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=active&i=30&g=city HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns active users for the period grouped by city, in montly intervals, following the response schema for this API.
+
+    ???code-example "Get new users for a period"
+
+        Retrieves new users between January 1 2021 and September 1 2021. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=new'          
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/users?start=20210101&end=20210901&m=new HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns new users for the period, following the response schema for this API.
 
 ### Query parameters
 
@@ -237,12 +397,77 @@ Get the number of sessions for each pre-defined length ("bucket") period during 
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request with only the required parameters.
 
-```bash
-GET /api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=minutes&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10 HTTP/1.1
-Host: amplitude.com
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/sessions/length?start=STARTDATE&end=ENDDATE'
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/sessions/length?start=20210426&end=20210905 HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced session length distribution examples
+
+    These examples show more detailed session length distribution requests. Click to expand any example.
+
+    ???code-example "Get session length distribution with custom bin for a period"
+
+        Retrieves session length distribution from 0-10 minutes for the period between April 26 and September 5. 
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+              curl --location --request GET 'https://amplitude.com/api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=minutes&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        
+        === "HTTP"
+
+            ```bash
+            GET /api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=minutes&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get session length distribution by hours with custom bin size for a period"
+
+        Retrieves session length distribution with 0 - 10 hours with bucket size 2 for the period between April 26 and September 5. 
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=days&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10&timeHistogramConfigBinSize=1'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+            GET /api/2/sessions/length?start=20210426&end=20210905&timeHistogramConfigBinTimeUnit=days&timeHistogramConfigBinMin=0&timeHistogramConfigBinMax=10&timeHistogramConfigBinSize=1 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
 
 ### Query parameters
 
@@ -293,13 +518,22 @@ Get the average session length (in seconds) for each day in the specified date r
 
 ### Example request
 
---8<-- "includes/postman.md"
+This request retrieves the average session length in seconds for the period between June 1 2021 and June 30 2021.
 
-```bash
-GET /api/2/sessions/average?start=20210601&end=20210630 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/sessions/average?start=20210601&end=20210630' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/sessions/average?start=20210601&end=20210630 HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 ### Query parameters
 
@@ -341,13 +575,22 @@ Get the average number of sessions per user on each day in the specified date ra
 
 ### Example request
 
---8<-- "includes/postman.md"
+This example retrieves the average number of sessions per user on each day between June 1 2021 and June 30 2021.
 
-```bash
-GET /api/2/sessions/average?start=20210601&end=20210630
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/sessions/peruser?start=&end=' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/sessions/average?start=20210601&end=20210630
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}}
+    ```
 
 ### Query parameters
 
@@ -389,13 +632,75 @@ Get the distribution of users across values of a user property in the specified 
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request. 
 
-```bash
-GET /api/2/composition?start=20210601&end=20210630&p=platform HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/composition?start=STARTDATE&end=ENDDATE&p=PROPERTY' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/composition?start=STARTDATE&end=ENDDATE&p=property HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
+    ```
+???example "More examples (click to expand)"
+
+    ### Advanced user composition examples
+
+    These examples show more detailed event segmentation requests. Click to expand any example.
+
+    ???code-example "Get user composition by property for a period"
+
+        Retrieves user composition by platform between June 1 and June 30. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/composition?start=20210601&end=20210630&p=platform'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/composition?start=20210601&end=20210630&p=platform HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get user composition by custom property event for a period"
+
+        Retrieves user composition by custom property event between June 1 and June 30. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location --request GET 'https://amplitude.com/api/2/composition?start=20210601&end=20210630&p=gp:event'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/composition?start=20210601&end=20210630&p=gp:event HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
 
 ### Query parameters
 
@@ -435,13 +740,20 @@ Get the list of events with the current week's totals, uniques, and % DAU (daily
 
 ### Example request
 
---8<-- "includes/postman.md"
+=== "cURL"
 
-```bash
-GET /api/2/events/list HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/events/list' \
+    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/events/list HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 ### Response
 
@@ -489,15 +801,317 @@ Get metrics for an event with segmentation.
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request with only the required parameters.
 
-```bash
-GET /api/2/events/segmentation?e={"event_type":"_active"}&start=20210801&end=20210831&n=any HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/segmentation?e={"event_type":"YOUR%20EVENT"}&start=STARTDATE&end=DATE' \
+    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/events/segmentation?e={"event_type":"YOUR%20EVENT"}&start=STARTDATE&end=ENDDATE HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 Remember that you may have to URL encode special characters in the names of event types, event properties, and user properties. For example, encode Play Song as Play%20Song.
+
+???example "More examples (click to expand)"
+
+    ### Advanced event segmentation examples
+
+    These examples show more detailed event segmentation requests. Click to expand any example.
+
+    ???code-example "Get any active event for period"
+
+        Retrieves metrics for any active event between August 1 and August 31. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"_active"}&start=20210801&end=20210831'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"_active"}&start=20210801&end=20210831 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get two events between for period"
+
+        Retrieves metrics for the "watch_tutorial" and "transaction" events between August 1 and August 31. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210802&e2={"event_type":"transaction"}'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&e2={"event_type":"transaction"} HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get a custom event for period"
+
+        Retrieves metrics for the "My Custom Event" event between August 1 and August 31. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"ce:My%20Custom%20Event"}&start=20210801&end=20210831'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"ce:My%20Custom%20Event"}&start=20210801&end=20210831 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event totals for period"
+
+        Retrieves totals for the "watch_tutorial" event between August 1 and August 31. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=totals'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=totals HTTP/1.1  
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event Active % for period"
+
+        Retrieves daily active user (DAU) percentage for the "watch_tutorial" event between August 1 and August 31. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=pct_dau'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=pct_dau HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event average for period"
+
+        Retrieves averages for the "watch_tutorial" event between August 1 and August 31. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=average'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&m=average HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event sum on price event property for period"
+
+        Retrieves event sum on price event property between August 1 and August 31.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get distribution of price event property in a period"
+
+        Retrieves the distribution of price event property between August 1 and August 31.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"event","value":"$price"}]}&start=20210801&end=20210831&m=sums HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get weekly count of event in period"
+
+        Retrieves weekly count of "watch_tutorial" event between August 23 and September 5.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&i=7'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210831&i=7 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get monthly count of event grouped by property in a period"
+
+        Retrieves monthly count of "watch_tutorial" event between Aug 1st and Sept 30th, grouped by user's city. 
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get monthly count of event for a segment, grouped by property in a period"
+
+        Retrieves monthly count of "watch_tutorial" event grouped by city property where users OS = none between August 1 and September 30.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30&s=[{"prop":"os","op":"is","values":["(none)"]}]'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial","group_by":[{"type":"user","value":"city"}]}&start=20210801&end=20210930&i=30&s=[{"prop":"os","op":"is","values":["(none)"]}] HTTP/1.1
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get count of an event, filtered by segment"
+
+        Retrieves daily count of "watch_tutorial" event where the user's Server Upload Time is greater or equal to 2021-08-17 between August 1 and September 30.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210930&s=[{"prop":"server_upload_time","op":"greater or equal","values":["2021-08-17"]}]'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/events/segmentation?e={"event_type":"watch_tutorial"}&start=20210801&end=20210930&s=[{"prop":"server_upload_time","op":"greater or equal","values":["2021-08-17"]}] HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
 
 ### Query parameters
 
@@ -552,13 +1166,172 @@ Get funnel drop-off and conversion rates.
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request with only the required fields.
 
-```bash
-GET /api/2/funnels?e={"event_type":"Select%20Song%20or%20Video"}&e={"event_type":"Search%20Song%20or%20Video"}&e={"event_type":"Share%20Song%20or%20Video"}&start=20210801&end=20210926&mode=unordered&cs=3&limit=100 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"EVENT_1"}&e={"event_type":"EVENT_2"}&start=STARTDATE&end=ENDDATE'
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/funnels?e={"event_type":"EVENT"}&e={"event_type":"EVENT"}&e={"event_type":"EVENT"}&start=STARTDATE&end=ENDDATE HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced funnel analysis examples
+
+    These examples show more detailed funnel analysis requests. Click to expand any example.
+
+    ???code-example "Get event funnel for a series of events in a period, in any order with a specific conversion time"
+
+        Retrieves Event funnel for "event_one" -> "event_two" -> "event_three" between August 1 to September 26 in ANY ORDER with 3 second conversion time.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&e={"event_type":"event_three"}&start=20210801&end=20210926&mode=unordered&cs=3&limit=100'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&e={"event_type":"event_three"}&start=20210801&end=20210926&mode=unordered&cs=3&limit=100 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event funnel for a series of events in a period, in a specific order grouped by a property"
+
+        Retrieves event funnel for "event_one" -> "event_two" between August 1 to September 26 in THIS ORDER for new users where city is none grouped by custom event property called 'event'.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&start=20210801&end=20210926&mode=unordered&n=new&s=[{"prop":"city","op": "is","values": ["(none)"]}]&g=gp:event'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&start=20210801&end=20210926&mode=unordered&n=new&s=[{"prop":"city","op": "is","values": ["(none)"]}]&g=gp:event HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event funnel for a series of events in a period, in a specific order, filtered by property, grouped by property"
+
+        Retrieve event funnel for "event_one" -> "event_two" between August 1 and September 26 in THIS ORDER for new users where city is none, grouped by library.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&start=20210801&end=20210926&mode=unordered&n=new&s=[{"prop":"city","op": "is","values": ["(none)"]}]&g=library'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&start=20210801&end=20210926&mode=unordered&n=new&s=[{"prop":"city","op": "is","values": ["(none)"]}]&g=library HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event funnel for four events in a period"
+
+        Get Event funnel for "event_one" -> "event_two" -> "event_three" -> "event_four" between August 1 and September 26 in ANY ORDER.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&e={"event_type":"event_three"}&e={"event_type":"event_four"}&start=20210801&end=20210926&mode=unordered'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&e={"event_type":"event_three"}&e={"event_type":"event_four"}&start=20210801&end=20210926&mode=unordered HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event funnel for four events in a period, for new users, unordered"
+
+        Get Event funnel for "event_one" -> "event_two" -> "event_three" -> "event_four" between August 1 and September 26 in ANY ORDER, for new users.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&e={"event_type":"event_three"}&e={"event_type":"event_four"}&start=20210801&end=20210926&mode=unordered'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&start=20210801&end=20210926&mode=unordered&n=new&e={"event_type":"event_four"} HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
+
+    ???code-example "Get event funnel for four events in a period, for new users, ordered"
+
+        Get Event funnel for "event_one" -> "event_two" -> "event_three" -> "event_four" between August 1 and September 26 in THIS ORDER, for new users.
+
+        **Request**
+
+        === "cURL"
+
+            ```curl
+            curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&e={"event_type":"event_three"}&e={"event_type":"event_four"}&start=20210801&end=20210926&mode=ordered'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/funnels?e={"event_type":"event_one"}&e={"event_type":"event_two"}&start=20210801&end=20210926&mode=ordered&n=new&e={"event_type":"event_four"} HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+            ```
+        **Response**
+
+        Returns a response that follows the schema for this API.
 
 ### Query parameters
 
@@ -640,13 +1413,130 @@ Get user retention for specific starting and returning actions.
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic request with only the required parameters.
 
-```bash
-GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/retention?se={"event_type":"STARTEVENT"}&re={"event_type":"RETURNEVENT"}&start=STARTDATE&end=ENDDATE' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"EVENT"}&start=STARTDATE&end=ENDDATE 
+    HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced retention analysis examples
+
+    These examples show more detailed user retention analysis requests. Click to expand any example.
+
+    ???code-example "Get N Day retention for active event filtered by country, grouped by device ID"
+
+        Retrieves the daily N-Day Retention for Any Active Event with "watch_tutorial" return where the user country is not NL or US, grouped by Device ID between August 1 and August 31.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+            curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&s=[{"prop":"country","op": "is not","values": ["Netherlands", "United States"]}]&g=device_id HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response as described in the schema.
+
+    ???code-example "Get unbounded retention for active event with another event return for a period"
+
+        Retrieves unbounded Retention for Any Active Event with "watch_tutorial" return between August 1 and August 31.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&rm=rolling'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210801&end=20210831&rm=rolling HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response as described in the schema.
+
+    ???code-example "Get weekly N-day retention for active event with another event return for a period"
+
+        Retrieves weekly N-day retention for any active event with "watch_tutorial" return between July 26 and September 5.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=7'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=7 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response as described in the schema.
+
+    ???code-example "Get monthly N-day retention for active event with another event return for a period"
+
+        Retrieves monthly N-day retention for any active event with "watch_tutorial" return between July 26 and September 5.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location -g --request GET 'http://amplitude.com/api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=30'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/retention?se={"event_type":"_active"}&re={"event_type":"watch_tutorial"}&start=20210726&end=20210905&i=30 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a response as described in the schema.
 
 ### Query parameters
 
@@ -654,10 +1544,10 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | --- | --- |
 | `se` | Required. Full event for the start action. Supports two `event_type` values: `_new` for new users, and `_active` for all users. |
 | `re` | Required. Full event for the returning action. Supports one `event_type` value: `_all` for all events and `_active` for all active events. |
-| `rm` | Optional. The retention type: bracket, rolling, or n-day. Note that rolling implies unbounded retention. Defaults to n-day, no need to call it explicitly. |
-| `rb`  | Optional, but required if `rm` is set to bracket. The days within each bracket, formatted [[0,4]]. For example, if your bracket was Day 0 - Day 4, the parameter value would be [[0,5]]. |
 | `start` | Required. First date included in data series, formatted YYYYMMDD. For example, "20221001". |
 | `end` | Required. Last date included in data series, formatted YYYYMMDD. For example, "20221001". |
+| `rm` | Optional. The retention type: bracket, rolling, or n-day. Note that rolling implies unbounded retention. Defaults to n-day, no need to call it explicitly. |
+| `rb`  | Optional, but required if `rm` is set to bracket. The days within each bracket, formatted [[0,4]]. For example, if your bracket was Day 0 - Day 4, the parameter value would be [[0,5]]. |
 | `i` | Optional. Either 1, 7, or 30 for daily, weekly, and monthly counts, respectively. Defaults to 1. |
 | `s` | Optional. Segment definitions. Defaults to none. [Full description](#segment-definition). |
 | `g` | Optional. Limit: one. The property to group by. Defaults to none. [Full description](#event-format). |
@@ -711,20 +1601,106 @@ Get a user summary and their most (or least) recent events. Exceeding the reques
 
 ### Example request
 
---8<-- "includes/postman.md"
+This is a basic example with only the required parameters.
 
-```bash
-GET /api/2/useractivity?user=247246881751 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+        curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=USERID'
+        --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/useractivity?user=247246881751 HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced user activity examples
+
+    These examples show more detailed user activity requests. Click to expand any example.
+
+    ???code-example "Get events for user with ID 123"
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=123'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+
+            ```
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/useractivity?user=123 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns a list of user 123's events as described in the response schema.
+
+    ???code-example "Get up to 100 events for user with ID 123, offset from the 50th event"
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=123&offset=49&limit=100' \
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+            GET /api/2/useractivity?user=123&offset=49&limit=100 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+
+        **Response**
+
+        Returns a list of up to 100 of user 123's events, offset from the 50th most recent event.
+
+    ???code-example "Get most recent two events for user with ID 123"
+
+        **Request**
+
+        Limits are indexed from 0, so notice that the request has a limit of `1` to return the two most recent events.
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=123&limit=1' \
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+            GET /api/2/useractivity?user=123&limit=1 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        **Response**
+
+        Returns user 123's most recent 2 events.
 
 ### Query parameters
 
 | Name | Description |
 | --- | --- |
 | `user` | Required. Amplitude ID of the user. |
-| `offset`  | Optional. Zero-indexed offset to start returning events from. |
+| `offset`  | Optional. Zero-indexed (from most recent event) offset to start returning events from. |
 | `limit` | Optional. Number of events to return (up to 1000). Note that more events may be returned so that there are no partial sessions. Defaults to 1000. |
 | `direction` | Optional. "earliest" to include the user's earliest event or "latest" to includes the most recent. Defaults to "latest". |
 
@@ -737,43 +1713,45 @@ The response is a JSON object with this schema:
 | `events` | An array of JSON objects, one for each event performed by the user. |
 | `userData` | Total statistics about the user and their user properties. |
 
-```json
-{
-    "userData": {
-        "user_id": "myusername",
-        "canonical_amplitude_id": 12345,
-        "merged_amplitude_ids": [11111, 22222],
-        "num_events": 142,
-        "num_sessions": 23,
-        "usage_time": 2570259,
-        "first_used": "2015-03-14",
-        "last_used": "2015-04-22",
-        "purchases": 2,
-        "revenue": 9.98,
-        "platform": "iOS",
-        "os": "ios 8.2",
-        "version": "3.4.9",
-        "device": "Apple iPhone",
-        "device_type": "Apple iPhone 6",
-        "carrier": "AT&T",
-        "country": "United States",
-        "region": "California",
-        "city": "San Francisco",
-        "dma": "San Francisco-Oakland-San Jose, CA",
-        "language": "English",
-        "start_version": "1.2.3",
-        "device_ids": ["somedevice", "someotherdevice"],
-        "last_location": {
-            "lat": 37.133,
-            "lng": -122.241
+???code-example "Example JSON response (click to expand)"
+
+    ```json
+    {
+        "userData": {
+            "user_id": "myusername",
+            "canonical_amplitude_id": 12345,
+            "merged_amplitude_ids": [11111, 22222],
+            "num_events": 142,
+            "num_sessions": 23,
+            "usage_time": 2570259,
+            "first_used": "2015-03-14",
+            "last_used": "2015-04-22",
+            "purchases": 2,
+            "revenue": 9.98,
+            "platform": "iOS",
+            "os": "ios 8.2",
+            "version": "3.4.9",
+            "device": "Apple iPhone",
+            "device_type": "Apple iPhone 6",
+            "carrier": "AT&T",
+            "country": "United States",
+            "region": "California",
+            "city": "San Francisco",
+            "dma": "San Francisco-Oakland-San Jose, CA",
+            "language": "English",
+            "start_version": "1.2.3",
+            "device_ids": ["somedevice", "someotherdevice"],
+            "last_location": {
+                "lat": 37.133,
+                "lng": -122.241
+            },
+            "properties": {
+                "gender": "female"
+            }
         },
-        "properties": {
-            "gender": "female"
-        }
-    },
-    "events": [...]
-}
-```
+        "events": [...]
+    }
+    ```
 
 ## User search
 
@@ -783,13 +1761,126 @@ Search for a user with a specified Amplitude ID, device ID, user ID, or user ID 
 
 ### Example request
 
---8<-- "includes/postman.md"
+=== "cURL"
 
-```bash
-GET /api/2/usersearch?user=user_id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=USER_ID' \
+    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/usersearch?user=user_id HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???example "More examples (click to expand)"
+
+    ### Advanced user search examples
+
+    These examples show more detailed user search requests. Click to expand any example.
+
+    ???code-example "Search for user by device ID"
+
+        Search for user with the device ID `0786zXEdyOX1rS3M-P_m1d`.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=0786zXEdyOX1rS3M-P_m1d'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+
+            ```
+
+        === "HTTP"
+
+            ```bash
+            GET /api/2/usersearch?user=0786zXEdyOX1rS3M-P_m1d HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+
+        === "Python"
+
+            ```python
+            import requests
+
+            url = "https://amplitude.com/api/2/usersearch?user=0786zXEdyOX1rS3M-P_m1d"
+
+            payload={}
+            headers = {
+              'Authorization': 'Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            }
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+            ```
+      
+        **Response**
+
+        This request returns the following: 
+
+        ```json
+        {
+            "type": "match_user_or_device_id",
+            "matches": [
+                {
+                    "user_id": null,
+                    "amplitude_id": 356896327775,
+                    "last_device_id": "0786zXEdyOX1rS3M-P_m1d",
+                    "platform": "Web",
+                    "country": "United States",
+                    "last_seen": "2022-02-01"
+                }
+            ]
+        }
+        ```
+
+    ???code-example "Search for user by Amplitude ID"
+
+        Search for the user with Amplitude ID `356893043036`.
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+
+            curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=356893043036'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+
+            ```
+        === "HTTP"
+
+            ```bash
+
+            GET /api/2/usersearch?user=356893043036 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+      
+        **Response**
+
+        ```json
+        {
+            "type": "match_amplitude_id",
+            "matches": [
+                {
+                    "user_id": null,
+                    "amplitude_id": 356893043036,
+                    "last_device_id": "XIYp6uKHkPD4dysiZHt-0p",
+                    "platform": "Web",
+                    "country": "United States",
+                    "last_seen": "2022-02-01"
+                }
+            ]
+        }
+        ```
 
 ### Query parameters
 
@@ -797,7 +1888,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 |----|-----------|
 |`user`|Required. Amplitude ID, Device ID, User ID, or User ID prefix.|
 
-### Returns
+### Response
 
 | Attribute | Description |
 | --- | --- |
@@ -816,27 +1907,44 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 }
 ```
 
+If there are no matches, the response returns a 200 response with the following body:
+
+```json
+{
+    "type": "nomatch",
+    "matches": []
+}
+```
+
 ## Real-time active users
 
-Get active user numbers with minute granularity for the last two days.
+Get active user numbers with 5-minute granularity for the last two days.
 
 `GET https://amplitude.com/api/2/realtime`
 
 ### Example request
 
---8<-- "includes/postman.md"
+=== "cURL"
 
-```bash
-GET /api/2/realtime?i=5 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/realtime' \
+    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
 
-### Query parameters
+=== "HTTP"
+
+    ```bash
+    GET /api/2/realtime?i=5 HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+<!--### Query parameters
 
 |Name|Description|
 |----|-----------|
-|`i`| Optional. Time interval. The realtime endpoint accepts only 5. Defaults to 5.|
+|`i`| Optional. Time interval, in minutes. Currently, this endpoint accepts only `5`. Any other interval returns a 400 response.|
+-->
 
 ### Response
 
@@ -867,15 +1975,135 @@ Get the lifetime value of new users.
 
 `GET https://amplitude.com/api/2/revenue/ltv`
 
+Learn more about this chart in the [Help Center](https://help.amplitude.com/hc/en-us/articles/230680867).
+
 ### Example request
 
---8<-- "includes/postman.md"
+=== "cURL"
 
-```bash
-GET /api/2/revenue/ltv?start=20211201&end=20220301&i=30 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/revenue/ltv?start=&end=' \
+    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/revenue/ltv?start=STARTDATE&end=ENDDATE HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+???example "More examples (click to expand)"
+
+    ### Advanced revenue LTV examples
+
+    These examples show more detailed revenue LTV requests. Click to expand any example.
+
+    ???code-example "LTV aggregated weekly"
+
+        **Request**
+
+        Requests LTV between December 1 2021 and December 31 2021, aggregated weekly. 
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/2/revenue/ltv?start=20211201&end=20211231&i=7' \
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /api/2/revenue/ltv?start=20211201&end=20211231&i=7 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+        === "Go"
+
+            ```bash
+            package main
+
+            import (
+              "fmt"
+              "net/http"
+              "io/ioutil"
+            )
+
+            func main() {
+
+              url := "https://amplitude.com/api/2/revenue/ltv?start=20211201&end=20211231&i=7"
+              method := "GET"
+
+              client := &http.Client {
+              }
+              req, err := http.NewRequest(method, url, nil)
+
+              if err != nil {
+                fmt.Println(err)
+                return
+              }
+              req.Header.Add("Authorization", "Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=")
+
+              res, err := client.Do(req)
+              if err != nil {
+                fmt.Println(err)
+                return
+              }
+              defer res.Body.Close()
+
+              body, err := ioutil.ReadAll(res.Body)
+              if err != nil {
+                fmt.Println(err)
+                return
+              }
+              fmt.Println(string(body))
+            }
+            ```
+          **Response**
+
+          The response follows the response schema decribed previously.
+
+    ???code-example "LTV aggregated monthly for new paying users"
+
+        This example pulls LTV for the year, counted monthly for new paying users. 
+
+        **Request**
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/2/revenue/ltv?start=20211201&end=20221231&m=3&i=30' \
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+            GET /api/2/revenue/ltv?start=20211201&end=20221231&m=3&i=30 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+
+        === "Python"
+
+            ```python
+            import requests
+
+            url = "https://amplitude.com/api/2/revenue/ltv?start=20211201&end=20221231&m=3&i=30"
+
+            payload={}
+            headers = {
+              'Authorization': 'Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            }
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+
+            ```
+          **Response**
+
+          The response follows the response schema decribed previously. 
 
 ### Query parameters
 
@@ -897,6 +2125,7 @@ Returns a response containing JSON objects with this schema:
 | `seriesLabels` | An array of labels, one for each group. |
 | `series` | A JSON object containing two keys.<br>**dates** - An array of formatted string dates, one for each date in the specified range (in descending order). <br>**values** - A JSON object with one key for each date, where each value is a JSON object with keys `r1d`, `r2d`, ..., `r90d` for the n-day metric values, and the keys `count`, `paid`, and `total_amount`, which indicate the total number of users, number of paid users, and amount paid by the users for the group. |
 <!-- vale Amplitude.Ellipses = YES-->
+
 ```json
 {
     "data": {
