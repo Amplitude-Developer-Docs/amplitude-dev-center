@@ -9,7 +9,7 @@ search:
 
     This feature is in closed alpha release, and is invite-only.
 
---8<-- "includes/editions-all-editions.md"
+<!-- --8<-- "includes/editions-all-editions.md" -->
 
 With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project.
 
