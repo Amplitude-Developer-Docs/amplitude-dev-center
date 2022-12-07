@@ -13,12 +13,42 @@ Evaluation performance depends on what kind of evaluation is used.
 
 [Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance.
 
-<!-- TODO: tabs with different tables and values per region -->
+The following results are collected over the last 6 months using synthetic tests from remote evaluation requests made from data centers around the globe. Latency includes DNS resolution, TLS connection as well as the request response round trip.
 
-| Cache | Average | P95 | % of Requests |
-| --- | --- | --- | --- |
-| HIT | 0.15ms | <1ms | 47.17% |
-| MISS | 166.43ms | 201.00ms | 52.83% |
+=== "Global"
+
+    | Cache | Average |
+    | --- | --- |
+    | HIT | 35.9ms |
+    | MISS | 194.21ms |
+
+=== "North America"
+
+    | Cache | Average |
+    | --- | --- |
+    | HIT | 48.21ms |
+    | MISS | 100.56ms |
+
+=== "South America"
+
+    | Cache | Average |
+    | --- | --- |
+    | HIT | 18.18ms |
+    | MISS | 262.62ms |
+
+=== "Europe"
+
+    | Cache | Average |
+    | --- | --- |
+    | HIT | 31.96ms |
+    | MISS | 214.3ms |
+
+=== "Asia"
+
+    | Cache | Average |
+    | --- | --- |
+    | HIT | 28.84ms |
+    | MISS | 239.09ms |
 
 ### Local evaluation
 
@@ -36,7 +66,7 @@ The following results are for **a single flag evaluation**, and were collected o
 
 !!!info "Content Delivery Network"
     - A CDN (Content Delivery Network) refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
-    - CDN caching policy is only relevant to [remote evaluation](./evaluation/remote-evaluation.md) performance.
+    - The CDN caches variant responses for [remote evaluation](./evaluation/remote-evaluation.md) and flag configurations for [local evaluation](./evaluation/local-evaluation.md).
 
 After a response for a request has been computed and retrieved, it's cached so it can be reused to make future requests faster. Experiment uses a CDN to cache the experiments and feature flags for a user for low latency access on subsequent requests.
 
