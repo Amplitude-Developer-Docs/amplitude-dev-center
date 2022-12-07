@@ -37,12 +37,6 @@ curl --location --request POST 'https://api2.amplitude.com/identify' \
 --data-urlencode 'identification=[{"user_id":"value", "user_properties":{"propertyNameToUpdate":"newValue"}}]'
 ```
 
-!!!tip "Get more examples"
-
-    See over 20 example requests for this API in the Amplitude Postman Collection.
-
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20044411-88bd70c1-9e00-483c-aaf1-2b7159f9bb2b?action=collection%2Ffork&collection-url=entityId%3D20044411-88bd70c1-9e00-483c-aaf1-2b7159f9bb2b%26entityType%3Dcollection%26workspaceId%3D2ffc735a-10a6-4f54-818e-16c87aeebcd7#?env%5BAmplitude%20API%20Environment%5D=W3sia2V5IjoiYXBpX2tleSIsInZhbHVlIjoiSU5TRVJUIEFQSSBLRVkiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiSU5TRVJUIEFQSSBLRVkiLCJzZXNzaW9uSW5kZXgiOjB9LHsia2V5Ijoic2VjcmV0X2tleSIsInZhbHVlIjoiSU5TRVJUIFNFQ1JFVCBLRVkiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiSU5TRVJUIFNFQ1JFVCBLRVkiLCJzZXNzaW9uSW5kZXgiOjF9LHsia2V5IjoiU0NJTV90b2tlbiIsInZhbHVlIjoiSU5TRVJUIFNDSU0gVE9LRU4iLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoic2VjcmV0Iiwic2Vzc2lvblZhbHVlIjoiSU5TRVJUIFNDSU0gVE9LRU4iLCJzZXNzaW9uSW5kZXgiOjJ9LHsia2V5Ijoib3JnX2FwaV9rZXkiLCJ2YWx1ZSI6IklOU0VSVCBPUkcgQVBJIEtFWSIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJzZWNyZXQiLCJzZXNzaW9uVmFsdWUiOiJJTlNFUlQgT1JHIEFQSSBLRVkiLCJzZXNzaW9uSW5kZXgiOjN9LHsia2V5Ijoib3JnX3NlY3JldF9rZXkiLCJ2YWx1ZSI6IklOU0VSVCBPUkcgU0VDUkVUIEtFWSIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJzZWNyZXQiLCJzZXNzaW9uVmFsdWUiOiJJTlNFUlQgT1JHIFNFQ1JFVCBLRVkiLCJzZXNzaW9uSW5kZXgiOjR9XQ==)
-
 ### Required parameters
 
 You can send these parameters as query parameter in a GET request. In a POST request, send them as body parameters. The body must be `form-data` or `x-www-form-urlencoded`.
@@ -59,7 +53,7 @@ You can send these parameters as query parameter in a GET request. In a POST req
 | `user_id` | Required unless `device_id` is present. String. A UUID (unique user ID) specified by you. If you send a request with a `user_id` that's not in the Amplitude system yet, then the user tied to the `user_id` isn't marked new until their first event. |
 | `device_id` | Required unless `user_id` is present. String. A device specific identifier, such as the Identifier for Vendor (IDFV) on iOS. |
 | `user_properties` |  Dictionary. A dictionary of key-value pairs that represent data tied to the user. Each distinct value appears as a user segment on the Amplitude dashboard. Object depth may not exceed 40 layers. You can store property values in an array and date values are transformed into string values. |
-| `groups` | String. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532). A dictionary of key-value pairs that represent groups of users. Setting groups allows you to use [account-level reporting](https://help.amplitude.com/hc/en-us/articles/115001765532). You can track up to 5 unique group types and 10 total groups. |
+| `groups` | Dictionary. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532). A dictionary of key-value pairs that represent groups of users. Setting groups allows you to use [account-level reporting](https://help.amplitude.com/hc/en-us/articles/115001765532). You can track up to 5 unique group types and 10 total groups. |
 | `app_version` |String. The version of the app the user is on. |
 | `platform`[^1] |String. The platform that's sending the data. |
 | `os_name`[^1] |String. The mobile operating system or browser the user is on. |
