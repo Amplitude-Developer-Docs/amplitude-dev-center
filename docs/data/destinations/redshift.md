@@ -5,6 +5,10 @@ description: Upload your Amplitude event data to your Redshift account with recu
 
 Upload your Amplitude event data into your Redshift account. You can set up recurring syncs through the Amplitude UI, as well as manually start a sync of your historical data.
 
+## Limits
+
+- Maximum running time for a single Redshift SQL query is 12 hours.
+
 ## Setup
 
 ### Prerequisites
