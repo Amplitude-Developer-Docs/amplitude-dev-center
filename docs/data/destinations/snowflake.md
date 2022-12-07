@@ -13,6 +13,11 @@ Load your Amplitude event data into your Snowflake account. You can set up recur
 
     - [Import Snowflake Data](/data/sources/snowflake)
 
+## Limits
+
+- Maximum running time for a single Snowflake SQL query is 12 hours.
+
+
 ## Set up a recurring data export to Snowflake
 
 Creating a recurring data export is a simple, three-step process you can handle yourself. Each sync completes within five to ten minutes, though often it's much closer to real time. 
