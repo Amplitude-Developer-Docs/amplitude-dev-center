@@ -6,14 +6,13 @@ icon: simple/react
 
 Official documentation for Amplitude Experiment's Client-side React Native SDK.
 
-!!!beta "Beta SDK Resources"
-    This SDK is in beta, you may still use the [legacy SDK](react-native-sdk-legacy.md).
+!!!info "SDK Resources"
 
     [:material-github: Github](https://github.com/amplitude/experiment-react-native-client) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-react-native-client/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-react-native-client/)
 
 ## Install
 
-![npm (tag)](https://img.shields.io/npm/v/@amplitude/experiment-react-native-client/beta)
+![npm (tag)](https://img.shields.io/npm/v/@amplitude/experiment-react-native-client)
 
 Install the Experiment JavaScript Client SDK. This library depends on `@react-native-async-storage/async-storage` which you also need to install.
 
