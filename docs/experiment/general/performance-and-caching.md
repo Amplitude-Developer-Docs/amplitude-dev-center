@@ -7,13 +7,15 @@ Amplitude Experiment [evaluation](./evaluation/implementation.md) supports two m
 
 ## Performance
 
-Evaluation performance depends on what kind of evaluation is used.
+Evaluation performance depends on what kind of evaluation is used, and where the request is made from.
+
+Amplitude hosts data centers in the US and EU, in `us-west-2` and `eu-central-1` respectively. Requests geographically distant from the data center hosting your organization's Amplitude data will have higher latency than requests made closer to the origin.
 
 ### Remote evaluation
 
 [Remote evaluation](./evaluation/remote-evaluation.md) utilizes [Fastly](https://fastly.com) to [cache](#cdn-caching) evaluation results for a user. Cache hits serve variants from the edge, greatly improving performance.
 
-The following results are collected over the last 6 months using synthetic tests from remote evaluation requests made from data centers around the globe. Latency includes DNS resolution, TLS connection as well as the request response round trip.
+The following results are synthetic remote evaluation test requests to Amplitude's US data center collected over the last 6 months. Latency includes DNS resolution, TLS connection as well as the remote evaluation request response round trip.
 
 === "Global"
 
