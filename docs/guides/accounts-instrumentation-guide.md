@@ -141,20 +141,22 @@ Validate your test instrumentation using the [Taxonomy & Data QA](https://docs.g
 
 ### Group values
 
-Group values must be unique and because of this are typically numeric. Amplitude recommends that you send a group property that's human readable and clearly distinguishes the group from others so that they can segment and group by this property in Amplitude.
+Group values must be unique and because of this are typically numeric. Amplitude recommends that you send a group property that's human-readable and clearly distinguishes the group from others so you can segment and group by this property in Amplitude.
 
-Consider the following example where an "Account Name" group property is sent. You can use the "Account Name" property for a human readable version of the group value.
+!!!example "Group prop
 
-- Group Type: Company
-- Group Value: 123456789
-- Group Property:
-    - Account Name = Amplitude
+    Consider this example where an "Account Name" group property is sent. You can use the "Account Name" property for a human-readable version of the group value.
+
+    - Group Type: Company
+    - Group Value: 123456789
+    - Group Property:
+        - Account Name = Amplitude
 
 ## Salesforce integration
 
 If you use the [Salesforce integration](/../data/sources/salesforce-group/), you can set and update group properties using both the integration and the Group Identify API.
 
-- You don't need to pick just one of these options. You can use the Group Identify API to set group properties not available in Salesforce and also use the Salesforce integration to manipulate properties simultaneously.
+- You can use the Group Identify API to set group properties not available in Salesforce and also use the Salesforce integration to manipulate properties simultaneously.
 - The group value in Amplitude is the key used to sync with Salesforce. The group value in Amplitude needs to exist in Salesforce to use the integration and pull in group properties.
 - Amplitude runs a daily job (every morning UTC time) that updates all group properties whose pickup dates are the current date. When the Salesforce integration is activated, the first sync is executed the next day in the morning (UTC).
 - You can update the sync interval to the number of days you'd like, such as: daily, weekly, monthly or a specific number of days. For example, if the last update was on September 1, 2017 and the interval is 7 days, then the next pickup date is September 8, 2017. 
@@ -163,14 +165,33 @@ If you use the [Salesforce integration](/../data/sources/salesforce-group/), you
 
 Segment can also accommodate structuring groups at the event level vs. user level and the instrumentation approaches varies depending on your customers approach.
 
-### User level groups
+### Amplitude Actions
+
+!!!tip "See Segment's documentation for Amplitude (Actions)"
+
+    This content comes from Segment's documentation, and is high-level. See the [Segment documentation](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/#group-identify-user-1) for complete details on using Groups with Segment.
+
+#### User level groups
+
+To use Amplitude’s groups with Segment, you must enable the following Action settings and make sure to include the data values they need to function. These settings act as a mapping from Segment group traits to Amplitude group types and values.
+
+**“Amplitude Group Type Trait”**: This specifies what trait in your Group calls contains the Amplitude “group type”. In other words, it’s how you tell Segment which trait to use as the group type.
+**“Amplitude Group Value Trait”**: This specifies what trait in your Group calls contains the Amplitude “group value”. It’s how you tell Segment which trait to use as the group value.
+
+### Amplitude Classic
+
+!!!tip "See Segment's documentation for Amplitude (Classic)"
+
+    This content comes from Segment's documentation, and is high-level. See the [Segment documentation](https://segment.com/docs/connections/destinations/catalog/amplitude/) for complete details on using Groups with Segment.
+
+#### User level groups
 
 To enable sending user level groups, customers using Segment must first configure [group calls](https://segment.com/docs/connections/spec/group/ "https://segment.com/docs/connections/spec/group/"). If you have configured group calls, you must enable the following destination settings in Segment. These settings act as a mapping from Segment group traits to Amplitude group types and values.
 
 - **Amplitude Group Type Trait**: This specifies what trait in your Group calls contains the Amplitude "group type". In other words, it's how you tell Segment which trait to use as the group type.
 - **Amplitude Group Value Trait**: This specifies what trait in your Group calls contains the Amplitude "group value". It's how you tell Segment which trait to use as the group value.
 
-For example, if you specified `group_type` as the "Amplitude Group Type Trait", and `name` as the "Amplitude Group Value Trait", then the example group call would be structured as follows:
+For example, if you specified `group_type` as the "Amplitude Group Type Trait", and `name` as the "Amplitude Group Value Trait", then the example group call is structured as follows:
 
 ```js
 analytics.group("082108b9-f41d-486g-9d2d-b5ab68bb3d5o", {
@@ -181,9 +202,12 @@ analytics.group("082108b9-f41d-486g-9d2d-b5ab68bb3d5o", {
 });
 ```
 
-In the example, group properties are created for `group_type`, name, employees, and email.
+In the example, group properties are created for `group_type`, `name`, `employees`, and `email`.
 
-If you don't provide "Amplitude Group Type/Value Trait", or one of the traits wasn't provided in your Group call, then Segment associated the user with a group with the type "[Segment] Group" and with the value "(Group Id)". No properties are associated with that group.
+If you don't provide "Amplitude Group Type/Value Trait", or one of the traits wasn't provided in your call: 
+
+- Segment associates the user with a group with the type "[Segment] Group", with the value "(Group Id)". 
+- No properties are associated with that group.
 
 ### Event level groups
 
