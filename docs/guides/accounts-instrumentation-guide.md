@@ -63,7 +63,7 @@ The instrumentation approach you should take varies depending on whether you've 
 
 #### Approach for event level groups
 
-Amplitude recommends taking following approach for event level groups.
+Amplitude recommends taking the following approach for event level groups.
 
 <div class="grid cards" markdown>
 
@@ -91,7 +91,7 @@ Amplitude recommends taking following approach for event level groups.
 
 #### Approach for user level groups
 
-Amplitude recommends taking following approach for user level groups.
+Amplitude recommends taking the following approach for user level groups.
 
 <div class="grid cards" markdown>
 
