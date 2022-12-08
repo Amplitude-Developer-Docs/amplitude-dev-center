@@ -209,7 +209,7 @@ If you don't provide "Amplitude Group Type/Value Trait", or one of the traits wa
 - Segment associates the user with a group with the type "[Segment] Group", with the value "(Group Id)". 
 - No properties are associated with that group.
 
-### Event level groups
+#### Event level groups
 
 You can also use Segment to set event-level groups. This means the group designation only applies for the specific event you are recording, and doesn't persist on the user. Groups get specified by providing an integration-specific `groups` property with key-value pairs corresponding to the `groupType`-`groupValue` pairs you want to appear in Amplitude.
 
