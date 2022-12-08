@@ -207,7 +207,6 @@ nav:
   - REST APIs:
     - Evaluation API: experiment/apis/evaluation-api.md
     - Management API (Beta): experiment/apis/management-api.md
-
 - Data:
   - data/index.md
   - Overview: data/index.md
@@ -428,7 +427,9 @@ nav:
     - Event Streaming Integration: partners/event-streaming-integration-guide.md
 
   - partners/sending-cohorts.md
-
+- Guides:
+  - Find Your API Credentials: analytics/find-api-credentials.md
+  - Accounts Guide: guides/accounts-instrumentation-guide.md
 - Resources:
   - all-resources.md
 

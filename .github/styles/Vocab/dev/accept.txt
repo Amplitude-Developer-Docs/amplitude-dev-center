@@ -202,3 +202,5 @@ FreeMarker
 Fivetran
 Toplyne
 freemium
+KPIs
+KPI
