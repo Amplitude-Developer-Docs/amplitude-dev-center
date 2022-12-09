@@ -73,7 +73,7 @@ Amplitude recommends taking the following approach for event level groups.
 
     **Set and update group properties** via group identify calls. 
 
-    Send group identify calls server-side to the [Group Identify API](/../analytics/apis/group-identify-api) or using an SDK. 
+    Send group identify calls server-side to the [Group Identify API](../../analytics/apis/group-identify-api) or using an SDK. 
 
     Group properties persist for the group until they're explicitly updated or unset. Updates to group properties aren't retroactive. 
 
@@ -83,7 +83,7 @@ Amplitude recommends taking the following approach for event level groups.
 
     **Tie users to a group** at the time an event is sent. 
 
-    **Send events** server-side to the [HTTP V2 API](/../analytics/apis/http-v2-api) or [Batch API](/../analytics/apis/batch-event-upload-api), or using an SDK. 
+    **Send events** server-side to the [HTTP V2 API](../../analytics/apis/http-v2-api) or [Batch API](../../analytics/apis/batch-event-upload-api), or using an SDK. 
 
     The group association **doesn't** persist for the user. You must pass it with each relevant event.
 
@@ -101,7 +101,7 @@ Amplitude recommends taking the following approach for user level groups.
 
     **Tie users to a group** via identify calls. 
 
-    Send identify calls server-side to the [Identify API](/../analytics/apis/identify-api) or using an SDK. 
+    Send identify calls server-side to the [Identify API](../../analytics/apis/identify-api) or using an SDK. 
 
     The group association persists for the user until it's explicitly updated or unsets. Updates to groups aren't retroactive.
 
@@ -111,7 +111,7 @@ Amplitude recommends taking the following approach for user level groups.
 
     **Set and update group properties** via group identify calls. 
 
-    Send group identify calls server-side to the [Group Identify API](/../analytics/apis/group-identify-api) or using an SDK. 
+    Send group identify calls server-side to the [Group Identify API](../../analytics/apis/group-identify-api) or using an SDK. 
 
     Group properties persist for the group until they're explicitly updated or unset. Updates to group properties aren't retroactive. 
 
@@ -119,7 +119,7 @@ Amplitude recommends taking the following approach for user level groups.
 
     ---
 
-    **Send events** server-side to the [HTTP V2 API](/../analytics/apis/http-v2-api) or [Batch API](/../analytics/apis/batch-event-upload-api), or using an SDK. 
+    **Send events** server-side to the [HTTP V2 API](../../analytics/apis/http-v2-api) or [Batch API](../../analytics/apis/batch-event-upload-api), or using an SDK. 
 
     Users are associated with a group and group properties are assigned.
 
@@ -154,7 +154,7 @@ Group values must be unique and because of this are typically numeric. Amplitude
 
 ## Salesforce integration
 
-If you use the [Salesforce integration](/../data/sources/salesforce-group/), you can set and update group properties using both the integration and the Group Identify API.
+If you use the [Salesforce integration](../../data/sources/salesforce-group/), you can set and update group properties using both the integration and the Group Identify API.
 
 - You can use the Group Identify API to set group properties not available in Salesforce and also use the Salesforce integration to manipulate properties simultaneously.
 - The group value in Amplitude is the key used to sync with Salesforce. The group value in Amplitude needs to exist in Salesforce to use the integration and pull in group properties.
