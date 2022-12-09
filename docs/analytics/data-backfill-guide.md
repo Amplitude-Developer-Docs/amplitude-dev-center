@@ -28,7 +28,7 @@ There are a few different limits to keep in mind when backfilling data.
 
 - **Daily limit**: There is a ingestion daily limit of 500K events per device ID (and per user ID) for a project, to protect Amplitude from event spam. This limit has a 24 hours rolling window of 1 hour intervals. 
 This means that at any given time, a particular user or device can only send 500K events in the last 24 hours. If you hit this limit, you get `exceeded_daily_quota_users` or `exceeded_daily_quota_devices` in the response. See the [Batch Event Upload](../apis/batch-event-upload-api/#daily-limit) for more information.
-- **Batch limit**: Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload but Amplitude recommends not sending more than 10 events per batch. Amplitude throttles your upload if you send more than 10 events per second for a single device ID. See [Batch Event Upload](../apis/batch-event-upload-api/#code-429-explained) for more information about throttling. 
+- **Batch limit**: There is an upload limit of 100 batches per second and 1000 events per second. You can batch events into an upload but Amplitude recommends not sending more than 10 events per batch. Amplitude throttles your upload if you send more than 10 events per second for a single device ID. See [Batch Event Upload](../apis/batch-event-upload-api/#code-429-explained) for more information about throttling. However, to avoid overloading your ingestion workers, Amplitude recommends limiting backfill event upload to 300 events per second per device ID. It's possible for backfills to exceed 300 events per second if you iterate through historical data and send data as fast as possible in parallel.
 
 ## Backfill best practices
 
