@@ -171,12 +171,14 @@ Segment can also accommodate structuring groups at the event level vs. user leve
 
     This content comes from Segment's documentation, and is high-level. See the [Segment documentation](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/#group-identify-user-1) for complete details on using Groups with Segment.
 
-#### User level groups
-
 To use Amplitude’s groups with Segment, you must enable the following Action settings and make sure to include the data values they need to function. These settings act as a mapping from Segment group traits to Amplitude group types and values.
 
-**“Amplitude Group Type Trait”**: This specifies what trait in your Group calls contains the Amplitude “group type”. In other words, it’s how you tell Segment which trait to use as the group type.
-**“Amplitude Group Value Trait”**: This specifies what trait in your Group calls contains the Amplitude “group value”. It’s how you tell Segment which trait to use as the group value.
+- **“Amplitude Group Type”**: This specifies what trait in your Group calls contains the Amplitude “group type”. In other words, it’s how you tell Segment which trait to use as the group type. 
+- **“Amplitude Group Value”**: This specifies what trait in your Group calls contains the Amplitude “group value”. It’s how you tell Segment which trait to use as the group value.
+
+For event level groups, update your Track, Screen, and Page Call mappings in your Amplitude Destination to include the “Groups” key-value pair, for example `group type - group value`). For user level groups, update your Identify Call mapping to include the “Groups” key-value pair. To send group properties, update the Group Identify User mapping. 
+
+See the [Segment documentation](https://segment.com/docs/connections/destinations/catalog/actions-amplitude) for the Amplitude (Actions) Destination for full details.
 
 ### Amplitude Classic
 
