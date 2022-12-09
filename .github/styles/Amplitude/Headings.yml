@@ -93,3 +93,5 @@ exceptions:
   - OAuth2
   - Bad Request
   - Unauthorized
+  - Amplitude Classic
+  - Amplitude Actions
