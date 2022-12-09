@@ -7,6 +7,8 @@ You can import historical data to Amplitude yourself using the [Batch Event Uplo
 
 ## Considerations
 
+Review these considerations before backfilling data.
+
 - Consider keeping historical data in a separate Amplitude project without backfilling it into a live production project. 
 Keeping historical data separate makes the upload easier, and it keeps your live Amplitude data clean and focused on current and future data. 
 Typically you don't need to check historical data often, but still want it to be available. Another consideration is that historical user property values overwrite current live values during a backfill.
@@ -19,16 +21,20 @@ Typically you don't need to check historical data often, but still want it to be
 As a result, users are double counted. Because Amplitude can't delete data after it's recorded, you may have to create a new project to prevent data issues. 
 - Amplitude uses the Device ID and User ID fields to compute the Amplitude ID. Learn more in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003135607).
 - Events in the backfill count toward your monthly event volume.
-- There is a ingestion daily limit of 500K events per device ID (and per user ID) for a project, to protect Amplitude from event spam. This limit has a 24 hours rolling window of 1 hour intervals. 
-This means that at any given time, a particular user or device can only send 500K events in the last 24 hours. If you hit this limit, you get `exceeded_daily_quota_users` or `exceeded_daily_quota_devices` in the response.
+
+## Limits 
+
+There are a few different limits to keep in mind when backfilling data.
+
+- **Daily limit**: There is a ingestion daily limit of 500K events per device ID (and per user ID) for a project, to protect Amplitude from event spam. This limit has a 24 hours rolling window of 1 hour intervals. 
+This means that at any given time, a particular user or device can only send 500K events in the last 24 hours. If you hit this limit, you get `exceeded_daily_quota_users` or `exceeded_daily_quota_devices` in the response. See the [Batch Event Upload](../apis/batch-event-upload-api/#daily-limit) for more information.
+- **Batch limit**: There is an upload limit of 100 batches per second and 1000 events per second. You can batch events into an upload but Amplitude recommends not sending more than 10 events per batch. Amplitude throttles your upload if you send more than 10 events per second for a single device ID. See [Batch Event Upload](../apis/batch-event-upload-api/#code-429-explained) for more information about throttling. However, to avoid overloading your ingestion workers, Amplitude recommends limiting backfill event upload to 300 events per second per device ID. It's possible for backfills to exceed 300 events per second if you iterate through historical data and send data as fast as possible in parallel.
 
 ## Backfill best practices
 
-- Review the documentation for the [Batch API](../analytics/apis/batch-event-upload-api.md). If you exported historical data using the Export API and want use the data to backfill, 
-note that the fields exported aren't in the same format as the fields needed for import. For example, the Export API uses `$insert_id` while HTTP and Batch APIs use the format `insert_id` without the `$`).
+- Review the documentation for the [Batch API](../analytics/apis/batch-event-upload-api.md). If you exported historical data using the Export API and want use the data to backfill, note that the fields exported aren't in the same format as the fields needed for import. For example, the Export API uses `$insert_id` while HTTP and Batch APIs use the format `insert_id` without the `$`).
 - Understand which fields you want to send and map your historical data to Amplitude fields. Amplitude strongly recommends that you use the `insert_id` field to deduplicate events.
 - Because there is no way to undo an import, create a test project in Amplitude to send sample data from your backfill. Do several tests with a few days worth of data in an Amplitude test project before the final upload to the production project.
-- Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload but Amplitude recommends not sending more than 10 events per batch. Amplitude throttles your upload if you send more than 10 events per second for a single device ID. See [Batch Event Upload](../analytics/apis/batch-event-upload-api#code-429-explained) for more information about throttling. 
 
 This is Amplitude's recommendation for backfilling large amounts of data:
 
@@ -171,14 +177,10 @@ When sending data to Amplitude, you either send event data or send `identify` 
 
 Because Amplitude processes all a user's events using the same ingestion worker, Amplitude guarantees that it processes events in the order in which they're received. In essence, all the Datamonster user's events queue up in order on a single ingestion worker. If these events were instead processed in parallel across two separate workers, then it's harder to guarantee the order. For example, one worker might be faster than another. 
 
-Because a single ingestion worker processes a user's events, a user sending an abnormally high number of events in a short period would overload their assigned worker.
- For this reason, the event upload limit is 300 events per second per device ID. It's possible for backfills to exceed 300 events per second if you iterates through historical data
-  and send data as fast as possible in parallel. Amplitude keeps track of each device ID's event rate and reject events and returns a 429 throttling HTTP response code
-   if a device ID is sending too many events. If you receive a 429 in response to an event upload, the process should sleep for a few seconds and then keep retrying the upload until it succeeds. 
-   This ensures that events aren't lost in the backfill process. If you don't retry after a 429 response code, then that batch of events isn't ingested. 
+Because a single ingestion worker processes a user's events, a user sending an abnormally high number of events in a short period would overload their assigned worker. To avoid overloading your ingestion workers, Amplitude recommends limiting event upload to 300 events per second per device ID. It's possible for backfills to exceed 300 events per second if you iterate through historical data and send data as fast as possible in parallel. Amplitude keeps track of each device ID's event rate and reject events and returns a 429 throttling HTTP response code if a device ID is sending too many events. If you receive a 429 in response to an event upload, the process should sleep for a few seconds and then keep retrying the upload until it succeeds. This ensures that events aren't lost in the backfill process. If you don't retry after a 429 response code, then that batch of events isn't ingested. 
 
 ## Backfill preexisting users
 
-If you have preexisting users, then you should backfill them users to accurately mark when they were new users. Amplitude marks users new based on the timestamp of their earliest event.
+If you have preexisting users, then you should backfill the users to accurately mark when they were new users. Amplitude marks users new based on the timestamp of their earliest event.
 
 To backfill your preexisting users, use the [Batch API](https://developers.amplitude.com/docs/batch-event-upload-api). Send a "dummy event" or a signup event where the event timestamp is the actual time the user was originally created. For instance, if a user signed up on Aug 1st, 2022, the timestamp of the event you send should be Aug 1st, 2022.

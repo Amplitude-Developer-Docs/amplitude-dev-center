@@ -395,7 +395,7 @@ These properties belong to the `options` object.
 
 #### Success summary properties
 
-| Name |  Description |
+|<div class="big-column"> Name</div> |  Description |
 | --- |--- |
 | code | Integer. 200 success code |
 | events_ingested |  Integer. The number of events ingested from the upload request. |
@@ -472,7 +472,7 @@ These properties belong to the `options` object.
 
 #### SilencedDeviceID properties
 
-| Name | Description |
+| <div class="big-column">Name</div> | Description |
 | ---| --- |
 | code |  400 error code |
 | error | String. Error description. |
@@ -530,7 +530,7 @@ These properties belong to the `options` object.
 
 #### TooManyRequestsForDeviceError properties
 
-| Name |  Description |
+| <div class="big-column">Name</div> |  Description |
 | --- |-- |
 | `code` | Integer. 429 error code |
 | `error` | String. Error description. |
