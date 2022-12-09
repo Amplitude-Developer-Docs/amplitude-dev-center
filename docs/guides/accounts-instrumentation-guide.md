@@ -1,6 +1,6 @@
 ---
 title: Plan Your Accounts Instrumentation
-description: words
+description: Use this guide to plan your Accounts add on instrumentation in Amplitude.
 status: new
 ---
 
@@ -67,17 +67,7 @@ Amplitude recommends taking the following approach for event level groups.
 
 <div class="grid cards" markdown>
 
-- :material-numeric-1-circle:{ .lg .middle } **Events**
-
-    ---
-
-    **Tie users to a group** at the time an event is sent. 
-
-    **Send events** server-side to the [HTTP V2 API](/../analytics/apis/http-v2-api) or [Batch API](/../analytics/apis/batch-event-upload-api), or using an SDK. 
-
-    The group association **doesn't** persist for the user. You must pass it with each relevant event.
-
-- :material-numeric-2-circle:{ .lg .middle } **Group Identify**
+- :material-numeric-1-circle:{ .lg .middle } **Group Identify**
 
     ---
 
@@ -86,6 +76,16 @@ Amplitude recommends taking the following approach for event level groups.
     Send group identify calls server-side to the [Group Identify API](/../analytics/apis/group-identify-api) or using an SDK. 
 
     Group properties persist for the group until they're explicitly updated or unset. Updates to group properties aren't retroactive. 
+
+- :material-numeric-2-circle:{ .lg .middle } **Events**
+
+    ---
+
+    **Tie users to a group** at the time an event is sent. 
+
+    **Send events** server-side to the [HTTP V2 API](/../analytics/apis/http-v2-api) or [Batch API](/../analytics/apis/batch-event-upload-api), or using an SDK. 
+
+    The group association **doesn't** persist for the user. You must pass it with each relevant event.
 
 </div>
 
@@ -178,7 +178,7 @@ To use Amplitude’s groups with Segment, you must enable the following Action s
 
 For event level groups, update your Track, Screen, and Page Call mappings in your Amplitude Destination to include the “Groups” key-value pair, for example `group type - group value`). For user level groups, update your Identify Call mapping to include the “Groups” key-value pair. To send group properties, update the Group Identify User mapping. 
 
-See the [Segment documentation](https://segment.com/docs/connections/destinations/catalog/actions-amplitude) for the Amplitude (Actions) Destination for full details.
+See the [Segment documentation](https://segment.com/docs/connections/destinations/catalog/actions-amplitude) for the Amplitude (Actions) Destination for full instructions. 
 
 ### Amplitude Classic
 
