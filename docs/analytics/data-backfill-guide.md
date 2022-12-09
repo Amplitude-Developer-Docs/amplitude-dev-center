@@ -177,11 +177,7 @@ When sending data to Amplitude, you either send event data or send `identify` 
 
 Because Amplitude processes all a user's events using the same ingestion worker, Amplitude guarantees that it processes events in the order in which they're received. In essence, all the Datamonster user's events queue up in order on a single ingestion worker. If these events were instead processed in parallel across two separate workers, then it's harder to guarantee the order. For example, one worker might be faster than another. 
 
-Because a single ingestion worker processes a user's events, a user sending an abnormally high number of events in a short period would overload their assigned worker.
- For this reason, the event upload limit is 300 events per second per device ID. It's possible for backfills to exceed 300 events per second if you iterate through historical data
-  and send data as fast as possible in parallel. Amplitude keeps track of each device ID's event rate and reject events and returns a 429 throttling HTTP response code
-   if a device ID is sending too many events. If you receive a 429 in response to an event upload, the process should sleep for a few seconds and then keep retrying the upload until it succeeds. 
-   This ensures that events aren't lost in the backfill process. If you don't retry after a 429 response code, then that batch of events isn't ingested. 
+Because a single ingestion worker processes a user's events, a user sending an abnormally high number of events in a short period would overload their assigned worker. To avoid overloading your ingestion workers, Amplitude recommends limiting event upload to 300 events per second per device ID. It's possible for backfills to exceed 300 events per second if you iterate through historical data and send data as fast as possible in parallel. Amplitude keeps track of each device ID's event rate and reject events and returns a 429 throttling HTTP response code if a device ID is sending too many events. If you receive a 429 in response to an event upload, the process should sleep for a few seconds and then keep retrying the upload until it succeeds. This ensures that events aren't lost in the backfill process. If you don't retry after a 429 response code, then that batch of events isn't ingested. 
 
 ## Backfill preexisting users
 
