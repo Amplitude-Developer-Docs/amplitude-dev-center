@@ -307,8 +307,24 @@ Amplitidue.getInstance().trackingSessionEvents(false);
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
 
 ```dart
-Amplitude.instance().setUserId("test_user_id");
+Amplitude.getInstance().setUserId("test_user_id");
 ```
+
+### Set custom device IDs
+
+By default, device IDs are randomly generated UUIDs. You can define a custom device ID by calling `setDeviceId`.
+
+```dart
+Amplitude.getInstance().setDeviceId('test_device_id');
+```
+
+You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId().` This method can return `null` if a `deviceId` hasn't been generated yet.
+
+!!!note
+    Amplitude doesn't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
+     It's best practice to use something like a UUID.
+
+--8<-- "includes/abbreviations.md"
 
 ## Advanced topics
 
