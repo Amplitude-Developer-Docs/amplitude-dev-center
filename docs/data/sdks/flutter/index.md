@@ -310,7 +310,7 @@ If your app has its own login system that you want to track users with, you can 
 Amplitude.getInstance().setUserId("test_user_id");
 ```
 
-### Set custom device IDs
+### Set custom device ID
 
 By default, device IDs are randomly generated UUIDs. You can define a custom device ID by calling `setDeviceId`.
 
