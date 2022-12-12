@@ -91,7 +91,7 @@ The **Event** table schema includes the following columns:
 | `client_event_time` | TIMESTAMP | Local timestamp (UTC) of when the device logged the event. Example: `2015-08-10T12:00:00.000000` |
 | `client_upload_time` | TIMESTAMP | The local timestamp (UTC) of when the device uploaded the event. Example: `2015-08-10T12:00:00.000000` |
 | `country` | STRING | Country. Example: "United States" |
-| `data` | STRING | Dictionary that stores certain fields such as `first_event` and `merged_amplitude_id`. |   |
+| `data` | SUPER | Dictionary that stores certain fields such as `first_event` and `merged_amplitude_id`. |   |
 | `device_brand` | STRING | Device brand. Example: Apple |
 | `device_carrier` | STRING | Device Carrier. Example: Verizon |
 | `device_family` | STRING | Device family. Example: Apple iPhone |
@@ -101,10 +101,10 @@ The **Event** table schema includes the following columns:
 | `device_type` | STRING | Device type. Example: Apple iPhone 5s |
 | `dma` | STRING | Designated marketing area (DMA). Example; San Francisco-Oakland-San Jose, CA |
 | `event_id` | INT64 | A counter that distinguishes events. Example: 1 |
-| `event_properties` | STRING |    |
+| `event_properties` | SUPER |    |
 | `event_time` | TIMESTAMP | Amplitude timestamp (UTC) which is the `client_event_time` adjusted by the difference between `server_received_time` and `client_upload_time`, specifically: `event_time` = `client_event_time` + (`server_received_time` - `client_upload_time`)   Amplitude uses this timestamp to organize events on Amplitude charts. NOTE: If the difference between `server_received_time` and `client_upload_time` is less than 60 seconds, the `event_time` isn't adjusted and is equal to the `client_event_time`. Example: `2015-08-10T12:00:00.000000` |
 | `followed_an_identify` | BOOL | True if there was an identify event between this current SDK event and the last SDK event seen. Example: `True` |
-| `group_properties` | STRING |    |
+| `group_properties` | SUPER |    |
 | `groups` | STRING | Group types. See the Accounts documentation for more information.   |
 | `idfa` | STRING | (iOS) Identifier for Advertiser. Example: AEBE52E7-03EE-455A-B3C4-E57283966239 |
 | `ip_address` | STRING | IP address. Example: "123.11.111.11" |
@@ -126,7 +126,7 @@ The **Event** table schema includes the following columns:
 | `start_version` | STRING | App version the user was first tracked on. Example: 1.0.0 |
 | `user_creation_time` | TIMESTAMP | `event_time` (UTC) of the user's first event. Example: `2015-08-10T12:00:00.000000` |
 | `user_id` | STRING | A readable ID specified by you. This should be something that doesn't change; for that reason, using the user's email address isn't recommended.  |
-| `user_properties` | STRING |    |
+| `user_properties` | SUPER |    |
 | `uuid` | STRING | A unique identifier per row (event sent). Example: bf0b9b2a-304d-11e6-934f-22000b56058f |
 | `version_name` | STRING | The app version. Example: 1.0.0 |
 
