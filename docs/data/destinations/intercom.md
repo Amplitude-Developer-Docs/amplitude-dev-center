@@ -9,7 +9,7 @@ Amplitude Data's Intercom integration lets you stream your Amplitude event data 
 
 !!!note "Other Amplitude + Intercom integrations"
 
-    This integration streams Amplitude events to Intercom. Amplitude offers other integrations with Intercom: 
+    This integration streams Amplitude events to Intercom. Amplitude offers other integrations with Intercom:
 
     - [Send Amplitude Cohorts to Intercom](/data/destinations/intercom-cohort)
     - [Import Intercom Data](/data/sources/intercom)
@@ -18,8 +18,8 @@ Amplitude Data's Intercom integration lets you stream your Amplitude event data 
 
 Keep these considerations in mind when streaming events to Intercom.
 
-- Amplitude sends the `user_id`, `created_at`, and `event_name` to Intercom.
-- A user must exist in Intercom to send events for them. Amplitude sends the event data with the `user_id`, which Intercom uses to associate the event with an existing user within Intercom. Make sure that the Intercom `user_id` and the Amplitude `user_id` match.
+- Amplitude sends the `created_at` and `event_name` properties to Intercom.
+- A user must exist in Intercom to send events for them. Make sure that the Intercom `user_id` and the Amplitude property you choose to map to `user_id` match.
 - Intercom has a limit of 120 Event Types and 20 metadata (which are event properties) per Event Types. Be sure to select the events you want to forward to Intercom using the Event Filter while creating or editing the Event Streaming connection in Amplitude.
 - If you have Intercom configured as a Data Source in Amplitude, "[Intercom] event.created" is triggered whenever an event is created in Intercom, including through Amplitude's Event Streaming integration. If you don't want these stored in Amplitude, use [Block & Drop filters](https://help.amplitude.com/hc/en-us/articles/5078869299099-Filter-events-with-block-filters-and-drop-filters) to remove this event data from Amplitude.
 
@@ -40,11 +40,54 @@ This integration requires configuration in Intercom and Amplitude.
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations** then click **View all Destinations**.
-2. Click **Intercom - Event Stream**.
-3. Enter a sync name, then click **Create Sync**.
-4. Click **Edit**, then paste your Intercom app's access token in the **API Key** box.
-5. Use the _Send events_ filter to select the events you want to send. Intercom has a limit of 120 Event Types.
-6. When finished, enable the destination and save.
+1. In Amplitude, navigate to **Data**.
+2. On the sidebar, under **Connections**, select **Catalog**.
+3. Select the **Destinations** tab.
+4. Select **Event Streaming**.
+5. Click **Intercom - Event Streaming**.
+6. Enter a sync name, then click **Create Sync**.
 
-![screenshot of the Destination Settings ](../../assets/images/integrations-intercom-enable-destination.png)
+After you create the destination, you must configure the settings.
+
+### Configure settings
+
+1. On the **Settings** tab, click **Edit**.
+2. Enter your **API Key**.
+3. **Create & Update Users** creates users in Intercom and update the properties of existing users when an Amplitude Identify API call is made.
+      1. To create and update users, toggle Create & Update Users to Enabled.
+      2. To select user properties to send, expand the Specify user properties to send panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
+4. **Send Events** sends events ingested by Amplitude to Customer.io.
+      1. To send an event, toggle **Send Events** to **Enabled**.
+      2. Expand the **Select and filter events** panel, and select which events to send.
+      3. To select event properties to send, expand the **Specify event properties to send** panel, and select properties you want to include. Keep in mind Intercom's limit of 20 metadata types. If you don't select any properties here, Amplitude doesn't send any.
+5. Save when finished.
+
+After you configure your settings, configure your mappings.
+
+#### Configure mappings (recommended)
+
+For newer versions of the Appsflyer destination, you can map Amplitude properties to fields in Appsflyer. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
+
+1. Click the **Mappings** tab, then click **Edit**.
+2. Select an **Intercom User ID** field for your users in Intercom. The Amplitude property to map from defaults to Amplitude **User ID** (`user_id`). Your choice for an Intercom identifier are:
+    1. **External ID**
+    2. **Email**
+3. Save when finished.
+
+After you configure mappings, enable the destination.
+
+#### Enable integration
+
+The final step is enabling the destination. You must enable the destination to start streaming events.
+
+1. Navigate back to the **Settings** tab.
+2. Click **Edit**.
+3. Toggle **Status** from **Disabled** to **Enabled**.
+4. Click **Save**.
+
+## List of available mappings
+
+| Parameter Name   | Required/Recommended/Optional              | Default/Recommended Amplitude Property |
+| ---------------- | ------------------------------------------ | -------------------------------------- |
+| **External ID**  | **Required** (one of External ID or Email) | **User ID**                            |
+| **Email**        | **Required** (one of External ID or Email) | **User ID**                            |
