@@ -18,7 +18,7 @@ Amplitude Data's AppsFlyer integration lets you stream your Amplitude event data
 
 Keep these things in mind when sending events to AppsFlyer:
 
-- A user must exist in AppsFlyer to send events for them. Appsflyer requires the `appsflyer_id` corresponding to each user to be sent. Use the `Mappings` tab in the sync setup to specify which Amplitude property to map to `appsflyer_id`. We recommend also specifying a mapping for the `customer_user_id` AppsFlyer property for best accuracy.
+- A user must exist in AppsFlyer to send events for them. Appsflyer requires the `appsflyer_id` corresponding to each user to be sent. Use the `Mappings` tab in the sync setup to specify which Amplitude property to map to `appsflyer_id`. Specify a mapping for the `customer_user_id` AppsFlyer property for best accuracy.
 - Amplitude forwards all properties selected to be sent as key value pairs within `eventValue`.
 - Appsflyer recommends sending the `OS` field, as well as other device identifiers such as various ad identifiers and device ID. See the [AppFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/207034486#payload-parameters) for their recommendations on which properties to send. Use the `Mappings` tab in the sync setup to choose which properties to forward.
 
