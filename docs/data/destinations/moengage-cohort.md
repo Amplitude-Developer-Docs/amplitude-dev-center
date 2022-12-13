@@ -25,7 +25,7 @@ Amplitude's MoEngage integration allows you to send hyper-targeted behavioral au
 
 ## Send a cohort
 
-1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose Notivize.
+1. In Amplitude, open the cohort you want to export. Click **Sync**, and choose MoEngage.
 2. Choose the destination.
 3. Select the sync cadence.
 4. Save your work.
