@@ -77,7 +77,7 @@ The final step is enabling the destination. You must enable the destination to s
 3. Toggle **Status** from **Disabled** to **Enabled**.
 4. Click **Save**.
 
-## List of optional mappings
+## List of available mappings
 
 | Parameter Name        | Required/Recommended/Optional | Default/Recommended Amplitude Property |
 | --------------------- | ----------------------------- | -------------------------------------- |
