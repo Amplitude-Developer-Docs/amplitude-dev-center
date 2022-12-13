@@ -56,7 +56,7 @@ After you create the destination, you must configure the settings.
 3. **Create & Update Users** creates users in Intercom and update the properties of existing users when an Amplitude Identify API call is made.
       1. To create and update users, toggle Create & Update Users to Enabled.
       2. To select user properties to send, expand the Specify user properties to send panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
-4. **Send Events** sends events ingested by Amplitude to Customer.io.
+4. **Send Events** sends events ingested by Amplitude to Intercom.
       1. To send an event, toggle **Send Events** to **Enabled**.
       2. Expand the **Select and filter events** panel, and select which events to send.
       3. To select event properties to send, expand the **Specify event properties to send** panel, and select properties you want to include. Keep in mind Intercom's limit of 20 metadata types. If you don't select any properties here, Amplitude doesn't send any.
@@ -66,7 +66,7 @@ After you configure your settings, configure your mappings.
 
 #### Configure mappings (recommended)
 
-For newer versions of the Appsflyer destination, you can map Amplitude properties to fields in Appsflyer. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
+For newer versions of the Intercom destination, you can map Amplitude properties to fields in Intercom. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
 
 1. Click the **Mappings** tab, then click **Edit**.
 2. Select an **Intercom User ID** field for your users in Intercom. The Amplitude property to map from defaults to Amplitude **User ID** (`user_id`). Your choice for an Intercom identifier are:
