@@ -34,10 +34,21 @@ Set or update group properties.
 
 `https://api2.amplitude.com/groupidentify`
 
-```bash
-POST /groupidentify?api_key={{api-key}}&identification={"group_properties":{"org csm":"Lucas","org plan":"Enterprise","org owner":"Luis"},"group type":"group value","org id":"12345678"} HTTP/1.1
-Host: api2.amplitude.com
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request POST '<https://api2.amplitude.com/groupidentify>' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'api_key=<API_KEY>' \
+    --data-urlencode 'identification=[{"group_properties":{"org csm":"Lucas","org plan":"Enterprise","org owner":"Luis"},"group_type":"Seller","group_value":"12345678"}]'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    POST /groupidentify?api_key={{api-key}}&identification={"group_properties":{"org csm":"Lucas","org plan":"Enterprise","org owner":"Luis"},"group type":"org id","group value":"12345678"} HTTP/1.1
+    Host: api2.amplitude.com
+    ```
 
 ### Required parameters
 
