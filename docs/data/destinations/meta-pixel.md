@@ -79,23 +79,23 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name        | Required/Recommended/Optional | Default/Recommended Amplitude Property |
-| --------------------- | ----------------------------- | -------------------------------------- |
-| **External ID**       | **Required**                  | **User ID**                            |
-| Email                 | Optional                      |                                        |
-| Phone Number          | Optional                      |                                        |
-| First Name            | Optional                      |                                        |
-| Last Name             | Optional                      |                                        |
-| Date of Birth         | Optional                      |                                        |
-| Gender                | Optional                      |                                        |
-| City                  | Optional                      |                                        |
-| State                 | Optional                      |                                        |
-| Zip Code              | Optional                      |                                        |
-| Country               | Optional                      |                                        |
-| Client IP Address     | Optional                      |                                        |
-| Client User Agent     | Optional                      |                                        |
-| Click ID              | Optional                      |                                        |
-| Browser ID            | Optional                      |                                        |
-| Subscription ID       | Optional                      |                                        |
-| Facebook Login ID     | Optional                      |                                        |
-| Lead ID               | Optional                      |                                        |
+| Parameter Name    | Required              | Recommended   | Optional              | Default Amplitude Property |
+|-------------------|:---------------------:|:-------------:|:---------------------:|----------------------------|
+| **External ID**   | :octicons-check-16:   |               |                       | **User ID**                |
+| Email             |                       |               | :octicons-check-16:   |                            |
+| Phone Number      |                       |               | :octicons-check-16:   |                            |
+| First Name        |                       |               | :octicons-check-16:   |                            |
+| Last Name         |                       |               | :octicons-check-16:   |                            |
+| Date of Birth     |                       |               | :octicons-check-16:   |                            |
+| Gender            |                       |               | :octicons-check-16:   |                            |
+| City              |                       |               | :octicons-check-16:   |                            |
+| State             |                       |               | :octicons-check-16:   |                            |
+| Zip Code          |                       |               | :octicons-check-16:   |                            |
+| Country           |                       |               | :octicons-check-16:   |                            |
+| Client IP Address |                       |               | :octicons-check-16:   |                            |
+| Client User Agent |                       |               | :octicons-check-16:   |                            |
+| Click ID          |                       |               | :octicons-check-16:   |                            |
+| Browser ID        |                       |               | :octicons-check-16:   |                            |
+| Subscription ID   |                       |               | :octicons-check-16:   |                            |
+| Facebook Login ID |                       |               | :octicons-check-16:   |                            |
+| Lead ID           |                       |               | :octicons-check-16:   |                            |

@@ -86,6 +86,6 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name                  | Required/Recommended/Optional | Default/Recommended Amplitude Property |
-| ------------------------------- | ----------------------------- | -------------------------------------- |
-| **Customer.io User Identifier** | **Required**                  | **User ID**                            |
+| Parameter Name                  | Required              | Recommended | Optional | Default Amplitude Property |
+|---------------------------------|:---------------------:|-------------|----------|----------------------------|
+| **Customer.io User Identifier** | :octicons-check-16:   |             |          | **User ID**                |

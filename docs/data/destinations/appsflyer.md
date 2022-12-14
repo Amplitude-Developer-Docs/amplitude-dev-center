@@ -79,21 +79,21 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name        | Required/Recommended/Optional | Default/Recommended Amplitude Property |
-| --------------------- | ----------------------------- | -------------------------------------- |
-| **Appsflyer ID**      | **Required**                  | **User ID**                            |
-| Customer User ID      | *Recommended*                 | **User ID**                            |
-| OS                    | *Recommended*                 | **OS Version**                         |
-| Advertising ID        | *Recommended*                 |                                        |
-| Amazon AID            | *Recommended*                 |                                        |
-| IDFA                  | *Recommended*                 |                                        |
-| IDFV                  | *Recommended*                 |                                        |
-| IMEI                  | *Recommended*                 |                                        |
-| OAID                  | *Recommended*                 |                                        |
-| AF Content ID         | Optional                      |                                        |
-| AF Content Type       | Optional                      |                                        |
-| AF Currency           | Optional                      |                                        |
-| AF Revenue            | Optional                      |                                        |
-| Event Currency        | Optional                      |                                        |
-| iOS ATTrackingManager | Optional                      |                                        |
-| IP Address            | Optional                      |                                        |
+| Parameter Name        | Required              | Recommended           | Optional              | Default Amplitude Property |
+|-----------------------|:---------------------:|:---------------------:|:---------------------:|----------------------------|
+| **Appsflyer ID**      | :octicons-check-16:   |                       |                       | **User ID**                |
+| Customer User ID      |                       | :octicons-check-16:   |                       | **User ID**                |
+| OS                    |                       | :octicons-check-16:   |                       | **OS Version**             |
+| Advertising ID        |                       | :octicons-check-16:   |                       |                            |
+| Amazon AID            |                       | :octicons-check-16:   |                       |                            |
+| IDFA                  |                       | :octicons-check-16:   |                       |                            |
+| IDFV                  |                       | :octicons-check-16:   |                       |                            |
+| IMEI                  |                       | :octicons-check-16:   |                       |                            |
+| OAID                  |                       | :octicons-check-16:   |                       |                            |
+| AF Content ID         |                       |                       | :octicons-check-16:   |                            |
+| AF Content Type       |                       |                       | :octicons-check-16:   |                            |
+| AF Currency           |                       |                       | :octicons-check-16:   |                            |
+| AF Revenue            |                       |                       | :octicons-check-16:   |                            |
+| Event Currency        |                       |                       | :octicons-check-16:   |                            |
+| iOS ATTrackingManager |                       |                       | :octicons-check-16:   |                            |
+| IP Address            |                       |                       | :octicons-check-16:   |                            |
