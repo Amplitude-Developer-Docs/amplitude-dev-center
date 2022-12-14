@@ -37,7 +37,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 === "gem"
 
     ```bash
-    gem install amplitude-experiment --pre
+    gem install amplitude-experiment
     ```
 
 !!!tip "Quick Start"
@@ -210,7 +210,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 === "gem"
 
     ```bash
-    gem install amplitude-experiment --pre
+    gem install amplitude-experiment
     ```
 
 !!!tip "Quick Start"
