@@ -46,7 +46,7 @@ Set or update group properties.
 === "HTTP"
 
     ```bash
-    POST /groupidentify?api_key={{api-key}}&identification={"group_properties":{"org csm":"Lucas","org plan":"Enterprise","org owner":"Luis"},"group type":"org id","group value":"12345678"} HTTP/1.1
+    POST /groupidentify?api_key={{api-key}}&identification={"group_properties":{"org csm":"Lucas","org plan":"Enterprise","org owner":"Luis"},"group_type":"org id","group_value":"12345678"} HTTP/1.1
     Host: api2.amplitude.com
     ```
 
