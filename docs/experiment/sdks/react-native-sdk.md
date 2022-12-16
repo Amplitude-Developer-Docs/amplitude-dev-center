@@ -1,5 +1,5 @@
 ---
-title: Experiment React Native SDK (Beta)
+title: Experiment React Native SDK
 description: Official documentation for Amplitude Experiment's Client-side React Native SDK.
 icon: simple/react
 ---
@@ -22,21 +22,21 @@ Install the Experiment JavaScript Client SDK. This library depends on `@react-na
 === "npm"
 
     ```bash
-    npm install @amplitude/experiment-react-native-client@beta
+    npm install @amplitude/experiment-react-native-client
     npm install @react-native-async-storage/async-storage
     ```
 
 === "yarn"
 
     ```bash
-    yarn add @amplitude/experiment-react-native-client@beta
+    yarn add @amplitude/experiment-react-native-client
     yarn add @react-native-async-storage/async-storage
     ```
 
 === "expo"
 
     ```bash
-    expo install @amplitude/experiment-react-native-client@beta
+    expo install @amplitude/experiment-react-native-client
     expo install @react-native-async-storage/async-storage
     ```
 
