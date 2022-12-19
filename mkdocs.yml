@@ -59,6 +59,7 @@ extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js # Tablesort
   - /javascripts/tablesort.js #script for Tablesort feature
   - /javascripts/anchor-copy.js #script for copying anchor links
+  - /javascripts/statuspage.js #script for status page embed
 
 # Plugins
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too.
@@ -114,6 +115,7 @@ extra:
   support_contact: https://amplitude.com
   community: https://community.amplitude.com
   help_site: https://help.amplitude.com
+  status_page: https://status.amplitude.com/
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
