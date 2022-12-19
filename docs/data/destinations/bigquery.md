@@ -16,7 +16,7 @@ You can set up recurring syncs of your Amplitude event data to BigQuery through 
 ## Considerations 
 
 - To help save usage costs for your queries, Amplitude partitions the events table by the date of `event_time`. See the [BigQuery docs](https://cloud.google.com/bigquery/docs/partitioned-tables) for more information about table partitioning. 
-- Amplitude will run a daily integrity check for your exports. Each day, in the background, it will check the number of events exported over the last few days. If the number of events exported does not match the number of events we should have exported, it will automatically run a backfill for that date. 
+- Amplitude runs a daily integrity check for your exports. Each day, in the background, it checks the number of events exported over the last few days. If the number of events exported does not match the number of events that should have been exported, Amplitude automatically runs a backfill for that date. 
 - It's possible to export duplicate events, especially if there is a backfill for a set of already-exported data. To help with this, Amplitude creates a table function within the provided dataset named `deduplicated_<appid>`. This table function provides a deduplicated view of the data.
   
     !!!example "Deduplicate table function example"
