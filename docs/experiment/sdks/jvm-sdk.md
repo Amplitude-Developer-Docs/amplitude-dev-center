@@ -155,6 +155,9 @@ The SDK client can be configured on initialization.
     | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10000` |
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1` |
 
+!!!info "EU Data Center"
+    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
+
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -336,7 +339,7 @@ Initializes a [local evaluation](../general/evaluation/local-evaluation.md) clie
 
 #### Configuration
 
-You can configre the SDK client on initialization.
+You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div> | Description | Default Value |
@@ -345,6 +348,9 @@ You can configre the SDK client on initialization.
     | `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `flagConfigPollingIntervalMillis` | The interval to poll for updated flag configs after calling [`Start()`](#start) | `30000` |
     | `flagConfigPollerRequestTimeoutMillis` | The timeout for the request made by the flag config poller | `10000` |
+
+!!!info "EU Data Center"
+    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
 
 ### Start
 
