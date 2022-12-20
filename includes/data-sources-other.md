@@ -21,6 +21,7 @@
 - :hightouch: [Hightouch](../data/sources/hightouch.md)
 - :hubspot: [HubSpot](../data/sources/hubspot.md)
 - :intercom: [Intercom](../data/sources/intercom.md)
+- :insider: [Insider](../data/sources/insider.md)
 - :iterable: [Iterable](../data/sources/iterable.md)
 - :kochava: [Kochava](../data/sources/kochava.md)
 - :leanplum: [Leanplum](../data/sources/leanplum.md)
