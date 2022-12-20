@@ -10,7 +10,7 @@ icon: simple/ios
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
 !!!info "iOS Swift SDK Resources (Beta)"
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases)
 
 --8<-- "includes/no-ampli.md"
     To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead.
@@ -19,14 +19,14 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 
 ### Install
 
-To get started with using Browser SDK, install the package in your project via CocoaPods, Swift Package Manager or Carthage.
+Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
 
 === "CocoaPods"
 
     1. Add dependency to `Podfile`.
 
         ```bash
-        pod 'AmplitudeSwift', '~> 0.0.0'
+        pod 'AmplitudeSwift', '~> 0.2.0'
         ```
 
     2. Run `pod install` in the project directory to download dependency.
@@ -44,22 +44,26 @@ To get started with using Browser SDK, install the package in your project via C
     Add the following line to your `Cartfile`.
       
     ```bash
-    github "amplitude/Amplitude-Swift" ~> 0.0.1
+    github "amplitude/Amplitude-Swift" ~> 0.2.0
     ```
 
 
 ### Initialization
 
-Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. You can use the iOS SDK anywhere after it's initialized in an Android application.
+Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. You can use the iOS SDK anywhere after it's initialized in an iOS application.
 
 ```swift
 import Amplitude_Swift
 
-static let amplitude = Amplitude(configuration: Configuration(apiKey: "YOUR-API-KEY",
-                                logLevel: LogLevelEnum.DEBUG,
-                                trackingOptions: TrackingOptions().disableCarrier().disableTrackDMA(),
-                                flushEventsOnClose: true,
-                                minTimeBetweenSessionsMillis: 100000))
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        logLevel: LogLevelEnum.DEBUG,
+        trackingOptions: TrackingOptions().disableCarrier().disableTrackDMA(),
+        flushEventsOnClose: true,
+        minTimeBetweenSessionsMillis: 100000
+    )
+)
 ```
 
 #### EU data residency
@@ -87,9 +91,20 @@ let amplitude = Amplitude(
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```swift
-let event = BaseEvent(eventType: "Button Clicked", 
-                      eventProperties: {"my event prop key": "my event prop value"})
+let event = BaseEvent(
+    eventType: "Button Clicked", 
+    eventProperties: ["my event prop key": "my event prop value"]
+)
 amplitude.track(event: event)
+```
+
+Another way to instrument basic tracking event.
+
+```swift
+amplitude.track(
+    eventType: "Button Clicked",
+    eventProperties: ["my event prop key": "my event prop value"]
+)
 ```
 
 ### `identify`
@@ -165,8 +180,6 @@ amplitude.setUserId(userId: "user@amplitude.com")
 
 ### Custom device ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
-
 You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. Amplitude recommends using a UUID.
 
 ```swift
@@ -186,7 +199,6 @@ With an empty `userId` and a completely new `deviceId`, the current user would a
 amplitude.reset()
 ```
 
-lasjdkflksdjflajdsfllasdjflksdjalfks
 
 ## Amplitude SDK plugin
 
@@ -229,7 +241,7 @@ class EnrichmentPlugin: Plugin {
     }
 }
 
-amplitude.add(plugin: EnrichmentPlugin());
+amplitude.add(plugin: EnrichmentPlugin())
 ```
 
 #### Destination type plugin
@@ -237,34 +249,31 @@ amplitude.add(plugin: EnrichmentPlugin());
 In destination plugin, you are able to overwrite the track(), identify(), groupIdentify(), revenue(), flush() functions.
 
 ```swift
-public class TestDestinationPlugin: DestinationPlugin {
-    public var amplitude: Amplitude?
-    public let type: PluginType = .destination
-
-    public func track(event: BaseEvent) -> BaseEvent? {
+class TestDestinationPlugin: DestinationPlugin {
+    override func track(event: BaseEvent) -> BaseEvent? {
         return event
     }
 
-    public func identify(event: IdentifyEvent) -> IdentifyEvent? {
+    override func identify(event: IdentifyEvent) -> IdentifyEvent? {
         return event
     }
 
-    public func groupIdentify(event: GroupIdentifyEvent) -> GroupIdentifyEvent? {
+    override func groupIdentify(event: GroupIdentifyEvent) -> GroupIdentifyEvent? {
         return event
     }
 
-    public func revenue(event: RevenueEvent) -> RevenueEvent? {
+    override func revenue(event: RevenueEvent) -> RevenueEvent? {
         return event
     }
 
-    public func flush() {
+    override func flush() {
     }
 
-    public func setup(amplitude: Amplitude) {
+    override func setup(amplitude: Amplitude) {
         self.amplitude = amplitude
     }
 
-    public func execute(event: BaseEvent?) -> BaseEvent? {
+    override func execute(event: BaseEvent?) -> BaseEvent? {
         return event
     }
 }
@@ -281,29 +290,35 @@ Amplitude groups events together by session. Events that are logged within the s
 You can adjust the time window for which sessions are extended. The default session expiration time is 30 minutes.
 
     ```swift
-    let amplitude = Amplitude(configuration: Configuration(apiKey: "YOUR-API-KEY",
-                          minTimeBetweenSessionsMillis: 1000))
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "YOUR-API-KEY",
+            minTimeBetweenSessionsMillis: 1000
+        )
+    )
     ```
 
 By default, Amplitude automatically sends the '[Amplitude] Start Session' and '[Amplitude] End Session' events. Even though these events aren't sent, sessions are still tracked by using `session_id`.
 You can also disable those session events.
 
     ```swift
-    let amplitude = Amplitude(configuration: Configuration(apiKey: "YOUR-API-KEY",
-                         trackingSessionEvents: false))
-    ```
-
-You can use the helper method `getSessionId` to get the value of the current `sessionId`.
-
-    ```swift
-    let sessionId = amplitude.getSessionId();
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "YOUR-API-KEY",
+            trackingSessionEvents: false
+        )
+    )
     ```
 
 You can define your own session expiration time. The default session expiration time is 30 minutes.
 
     ```swift
-    let amplitude = Amplitude(configuration: Configuration(apiKey: "YOUR-API-KEY",
-                            minTimeBetweenSessionsMillis: 100000))
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "YOUR-API-KEY",
+            minTimeBetweenSessionsMillis: 100000
+        )
+    )
     ```
 
 ### Set custom user ID
@@ -320,15 +335,16 @@ Don't assign users a user ID that could change, because each unique user ID is a
 
 You can control the level of logs that print to the developer console.
 
-- 'INFO': Shows informative messages about events.
-- 'WARN': Shows error messages and warnings. This level logs issues that might be a problem and cause some oddities in the data. For example, this level would display a warning for properties with null values.
+- 'OFF': Suppresses all log messages.
 - 'ERROR': Shows error messages only.
-- 'DISABLE': Suppresses all log messages.
+- 'WARN': Shows error messages and warnings. This level logs issues that might be a problem and cause some oddities in the data. For example, this level would display a warning for properties with null values.
+- 'LOG': Shows informative messages about events.
 - 'DEBUG': Shows error messages, warnings, and informative messages that may be useful for debugging.
 
-Set the log level by calling `setLogLevel` with the level you want.
+Set the log level `logLevel` with the level you want.
 
     ```swift
+    amplitude.logger?.logLevel = LogLevelEnum.LOG.rawValue
     ```
 
 ### Logged out and anonymous users
@@ -348,8 +364,12 @@ Before initializing the SDK with your apiKey, create a `TrackingOptions` insta
     ```swift
     let trackingOptions = TrackingOptions()
     trackingOptions.disableCity().disableIpAddress().disableLatLng()
-    let amplitude = Amplitude(configuration: Configuration(apiKey: "YOUR-API-KEY",
-                                trackingOptions: trackingOptions))
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "YOUR-API-KEY",
+            trackingOptions: trackingOptions
+        )
+    )
     ```
 
 Tracking for each field can be individually controlled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
@@ -376,7 +396,7 @@ Tracking for each field can be individually controlled, and has a corresponding 
 
     Using `TrackingOptions` only prevents default properties from being tracked on newly created projects, where data has not yet been sent. If you have a project with existing data that you want to stop collecting the default properties for, get help in the [Amplitude Community](https://community.amplitude.com/). Disabling tracking doesn't delete any existing data in your project.
 
-### Carrier 
+### Carrier
 
 
 ### COPPA control
