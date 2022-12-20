@@ -5,7 +5,7 @@ icon: simple/ios
 ---
 
 
-![CocoaPods](https://img.shields.io/cocoapods/v/Amplitude)
+![CocoaPods](https://img.shields.io/cocoapods/v/AmplitudeSwift)
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
@@ -26,7 +26,7 @@ Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Packag
     1. Add dependency to `Podfile`.
 
         ```bash
-        pod 'AmplitudeSwift', '~> 0.2.0'
+        pod 'AmplitudeSwift', '~> 0.3.0'
         ```
 
     2. Run `pod install` in the project directory to download dependency.
@@ -44,7 +44,7 @@ Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Packag
     Add the following line to your `Cartfile`.
       
     ```bash
-    github "amplitude/Amplitude-Swift" ~> 0.2.0
+    github "amplitude/Amplitude-Swift" ~> 0.3.0
     ```
 
 
@@ -289,45 +289,45 @@ Amplitude groups events together by session. Events that are logged within the s
 
 You can adjust the time window for which sessions are extended. The default session expiration time is 30 minutes.
 
-    ```swift
-    let amplitude = Amplitude(
-        configuration: Configuration(
-            apiKey: "YOUR-API-KEY",
-            minTimeBetweenSessionsMillis: 1000
-        )
+```swift
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        minTimeBetweenSessionsMillis: 1000
     )
-    ```
+)
+```
 
 By default, Amplitude automatically sends the '[Amplitude] Start Session' and '[Amplitude] End Session' events. Even though these events aren't sent, sessions are still tracked by using `session_id`.
 You can also disable those session events.
 
-    ```swift
-    let amplitude = Amplitude(
-        configuration: Configuration(
-            apiKey: "YOUR-API-KEY",
-            trackingSessionEvents: false
-        )
+```swift
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        trackingSessionEvents: false
     )
-    ```
+)
+```
 
 You can define your own session expiration time. The default session expiration time is 30 minutes.
 
-    ```swift
-    let amplitude = Amplitude(
-        configuration: Configuration(
-            apiKey: "YOUR-API-KEY",
-            minTimeBetweenSessionsMillis: 100000
-        )
+```swift
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        minTimeBetweenSessionsMillis: 100000
     )
-    ```
+)
+```
 
 ### Set custom user ID
 
 If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
 
-    ```swift
-    amplitude.setUserId(userId: "USER_ID")
-    ```
+```swift
+amplitude.setUserId(userId: "USER_ID")
+```
 
 Don't assign users a user ID that could change, because each unique user ID is a unique user in Amplitude. Learn more about how Amplitude tracks unique users in the [Help Center](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude).
 
@@ -343,34 +343,34 @@ You can control the level of logs that print to the developer console.
 
 Set the log level `logLevel` with the level you want.
 
-    ```swift
-    amplitude.logger?.logLevel = LogLevelEnum.LOG.rawValue
-    ```
+```swift
+amplitude.logger?.logLevel = LogLevelEnum.LOG.rawValue
+```
 
 ### Logged out and anonymous users
 
 --8<-- "includes/logged-out-and-anonymous-users.md"
 
-    ```swift
-    amplitude.reset();
-    ```
+```swift
+amplitude.reset();
+```
 
 ### Disable tracking
 
-By default the Android SDK tracks several user properties such as `carrier`, `city`, `country`, `ip_address`, `language`, and `platform`.
+By default the iOS SDK tracks several user properties such as `carrier`, `city`, `country`, `ip_address`, `language`, and `platform`.
 Use the provided `TrackingOptions` interface to customize and toggle individual fields.
 Before initializing the SDK with your apiKey, create a `TrackingOptions` instance with your configuration and set it on the SDK instance.
 
-    ```swift
-    let trackingOptions = TrackingOptions()
-    trackingOptions.disableCity().disableIpAddress().disableLatLng()
-    let amplitude = Amplitude(
-        configuration: Configuration(
-            apiKey: "YOUR-API-KEY",
-            trackingOptions: trackingOptions
-        )
+```swift
+let trackingOptions = TrackingOptions()
+trackingOptions.disableCity().disableIpAddress().disableLatLng()
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        trackingOptions: trackingOptions
     )
-    ```
+)
+```
 
 Tracking for each field can be individually controlled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
 
@@ -398,43 +398,87 @@ Tracking for each field can be individually controlled, and has a corresponding 
 
 ### Carrier
 
+Amplitude determines the user's mobile carrier using [`CTTelephonyNetworkInfo`](https://developer.apple.com/documentation/coretelephony/cttelephonynetworkinfo), which returns the registered operator of the `sim`.
 
 ### COPPA control
 
 COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking can all be enabled or disabled at one time. Apps that ask for information from children under 13 years of age must comply with COPPA.
 
-    ```swift
-    let amplitude = Amplitude(configuration: Configuration(apiKey: "YOUR-API-KEY",
-                             enableCoppaControl: true))
-    ```
+```swift
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        enableCoppaControl: true
+    )
+)
+```
 
 ### Advertiser ID
+
+Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
+ [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (such as ad campaign, app store search).
+ Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider using IDFV, device ID, or an email login system when IDFA isn't available.
+
+To retrieve the IDFA and add it to the tracking events, you can follow this [example plugin](https://github.com/amplitude/Amplitude-Swift/blob/main/Examples/AmplitudeSwiftUIExample/AmplitudeSwiftUIExample/ExamplePlugins/IDFACollectionPlugin.swift) to implement your own plugin.
 
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.
 
-By default, Amplitude can use Android location service (if available) to add the specific coordinates (longitude and latitude) for the location from which an event is logged. Control this behavior by enable / disable location listening during the initialization.
-
-
 ### Opt users out of tracking
 
 Users may wish to opt out of tracking entirely, which means Amplitude doesn't track any of their events or browsing history. `OptOut` provides a way to fulfill a user's requests for privacy.
 
-    ```swift
-    let amplitude = Amplitude(configuration: Configuration(apiKey: "YOUR-API-KEY",
-                             optOut: true))
-    ```
+```swift
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        optOut: true
+    )
+)
+```
 
 ### Set log callback
 
 Implements a customized `loggerProvider` class from the LoggerProvider, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.
 
-    ```swift
-    ```
+```swift
+class SampleLogger: Logger {
+    typealias LogLevel = LogLevelEnum
+
+    var logLevel: Int
+
+    init(logLevel: Int = LogLevelEnum.OFF.rawValue) {
+        self.logLevel = logLevel
+    }
+
+    func error(message: String) {
+        // TODO: handle error message
+    }
+
+    func warn(message: String) {
+        // TODO: handle warn message
+    }
+
+    func log(message: String) {
+        // TODO: handle log message
+    }
+
+    func debug(message: String) {
+        // TODO: handle debug message
+    }
+}
+
+let amplitude = Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        loggerProvider: SampleLogger()
+    )
+)
+```
 
 ### More resources
 
-If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-iOS/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
+If you have any problems or issues with the SDK, [create a GitHub issue](https://github.com/amplitude/Amplitude-Swift/issues/new) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
 
 --8<-- "includes/abbreviations.md"

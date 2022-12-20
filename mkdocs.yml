@@ -238,7 +238,7 @@ nav:
       - Android:
         - data/sdks/android-kotlin/index.md
         - Ampli Codegen: data/sdks/android-kotlin/ampli.md
-      - iOS:
+      - iOS (Beta):
         - data/sdks/ios-swift/index.md
       - Java:
         - data/sdks/java/index.md
