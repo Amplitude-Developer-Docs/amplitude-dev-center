@@ -23,7 +23,7 @@ Creates an annotation with the specified parameters.
 ```bash
 POST /api/2/annotations?app_id=yourAppID&date=YYYY-MM-DD&label=yourLabel&chart_id=yourChartID&details=yourDetails HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
 ```
 
 ### Create annotation query parameters
@@ -58,7 +58,7 @@ Retrieves all chart annotations in your project.
 ```bash
 GET /api/2/annotations HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
 ```
 
 ### Get all chart annotations response
@@ -101,9 +101,9 @@ A successful response returns a list of chart annotations in the project.
 Retrieve a single chart annotation, by ID.
 
 ```bash
-GET /api/2/annotations?id=160427 HTTP/1.1
+GET /api/2/annotations?id=CHARTID HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
 ```
 
 ### Get chart annotation query parameters
