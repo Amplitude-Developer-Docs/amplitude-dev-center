@@ -113,6 +113,9 @@ The SDK client can be configured on initialization.
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetchRetryTimeoutMillis` | The request timeout for retrying variant fetches. | `10000` |
 
+!!!info "EU Data Center"
+    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
+
 ### Fetch
 
 Fetches variants for a [user](../general/data-model.md#users) and returns the results. This function [remote evaluates](../general/evaluation/remote-evaluation.md) the user for flags associated with the deployment used to initialize the SDK client.
@@ -219,6 +222,9 @@ You can configure the SDK client on initialization.
     | `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
     | `flagConfigPollingIntervalMillis` | The interval (in milliseconds) to poll for updated flag configs after calling `start()` | `30000` |
+
+!!!info "EU Data Center"
+    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
 
 ### Start
 
