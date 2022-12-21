@@ -32,7 +32,7 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
-    - announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
+    #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
     - content.code.annotate
     - content.tooltips #enables enhanced tooltips
     - content.tabs.link
@@ -403,9 +403,11 @@ nav:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API (Beta): experiment/apis/management-api.md
 - APIs:
-      - Authentication: analytics/apis/authentication.md
-      - Limits: analytics/apis/rate-limits.md
-      - Use Postman with the APIs: analytics/apis/rate-limits.md
+      - analytics/apis/index.md
+      - Find your API credentials: analytics/find-api-credentials.md
+      #- Authentication: analytics/apis/authentication.md
+      #- Limits: analytics/apis/rate-limits.md
+      #- Use Postman with the APIs: analytics/apis/rate-limits.md
       - API References:
         - Attribution: analytics/apis/attribution-api.md
         - Batch Event Upload: analytics/apis/batch-event-upload-api.md
@@ -423,6 +425,8 @@ nav:
         - Taxonomy: analytics/apis/taxonomy-api.md
         - User Privacy: analytics/apis/user-privacy-api.md
         - User Profile: analytics/apis/user-profile-api.md
+- SDKs: 
+  - https://www.docs.developers.amplitude.com/data/sdks/
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
