@@ -1,6 +1,6 @@
 ---
 title: iOS SDK (Legacy)
-description: The Amplitude iOS Swift SDK installation and quick start guide. 
+description: The Amplitude iOS SDK installation and quick start guide.
 icon: simple/ios
 ---
 
@@ -10,7 +10,7 @@ icon: simple/ios
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
 !!!info "iOS SDK Resources"
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-Swift)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for iOS](./ampli.md).
