@@ -1,11 +1,11 @@
 ---
-title: Welcome to Amplitude
-description: WORDS
+title: Welcome to the Amplitude Developer Center
+description: Amplitude gives your teams a self-service digital analytics platform to understand your users, drive conversions, and increase engagement, growth, and revenue.
 ---
 
 Amplitude gives your teams a self-service digital analytics platform to understand your users, drive conversions, and increase engagement, growth, and revenue. It helps you proactively improve data quality, discover new audiences, and sync behavioral data across your stack.
 
-The Amplitude Developer center has everything you need to instrument Amplitude. Get started by choosing a product or feature to learn more. 
+The Amplitude Developer Center has everything you need to instrument Amplitude. Get started by choosing a product or feature to learn more. 
 
 !!!tip "Not sure what you need?"
 

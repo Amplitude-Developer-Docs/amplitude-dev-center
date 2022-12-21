@@ -1,9 +1,11 @@
 ---
 title: Amplitude APIs
-description: Words
+description: Use Amplitude APIs to send and receive data, and extend Amplitude.
 ---
 
 Use Amplitude APIs to send and receive information and extend Amplitude. 
+
+## Analytics and Data APIs
 
 --8<-- "includes/postman"
 
@@ -25,3 +27,10 @@ Use Amplitude APIs to send and receive information and extend Amplitude.
 |[Taxonomy](../apis/taxonomy-api.md)|Create, get, update, and delete categories, event types, event properties, and user properties.|
 |[User Privacy](../apis/user-privacy-api.md)|Programmatically submit requests to delete all data for a set of known Amplitude IDs or User IDs.|
 |[User Profile](../apis/user-profile-api.md)|Fetch a user profile, which include user properties, computed properties, a list of cohort IDs, and recommendations.|
+
+## Experiment APIs
+
+|API|This API lets you:|
+|---|-----------|
+|[Evaluation](/../experiment/apis/evaluation-api)| Retrieve variation assignment data for users.|
+|[Management API](/../experiment/apis/management-api)| Manage feature flags and experiment configurations.|

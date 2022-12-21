@@ -24,7 +24,7 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
     Send data to Amplitude.
 
-    [:octicons-arrow-right-24: See the SDKs](../data/sources#sdks)
+    [:octicons-arrow-right-24: See the SDKs](/../data/sdks)
 
 - :material-file-code-outline:{ .lg .middle } __Analytics APIs__
 

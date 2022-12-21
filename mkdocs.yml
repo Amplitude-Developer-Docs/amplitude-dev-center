@@ -142,14 +142,14 @@ extra:
 
 # Navigation
 nav:
-- Using Amplitude: 
-  - amplitude-welcome.md
+- Documentation: 
+  - Documentation Home: amplitude-welcome.md
   - Analytics:
     - analytics/index.md
     - Overview: analytics/index.md
     - What is Amplitude Analytics?: analytics/what-is-amplitude.md
     - Debugging Analytics: "data/debugger.md"
-    - SDKs: data/sources/#sdks
+    - SDKs: /../data/sdks/
     - APIs: analytics/apis/index.md
     - Advanced Topics:
       - analytics/data-backfill-guide.md
@@ -172,7 +172,7 @@ nav:
         - data/ampli/migration.md
       - SDKs:
         - data/sdks/index.md
-        - Quickstart Guide: data/sdks/index.md
+        - Quickstart Guide: data/sdks/sdk-quickstart.md
         - Browser:
           - data/sdks/typescript-browser/index.md
           - Marketing Analytics Browser:
