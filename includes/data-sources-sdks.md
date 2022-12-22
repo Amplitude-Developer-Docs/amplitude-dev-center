@@ -4,6 +4,7 @@
 
 - :android: [Android](../data/sdks/android-kotlin/index.md)
 - :typescript: [Browser](../data/sdks/typescript-browser/index.md)
+- :material-apple-ios: [iOS Swift (Beta)](../data/sdks/ios-swift/index.md)
 - :material-apple-ios: [iOS](../data/sdks/ios/index.md)
 - :java: [Java](../data/sdks/java/index.md)
 - :node: [Node.js](../data/sdks/node/index.md)
