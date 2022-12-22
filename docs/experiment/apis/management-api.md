@@ -85,6 +85,7 @@ A successful request returns a `200 OK` response and a list of experiments encod
     ```
 
 ------
+
 ## List flags
 
 ```bash
@@ -206,6 +207,7 @@ A successful request returns a `200 OK` response and a list of experiment's vers
     ```
 
 ------
+
 ## Get experiment version details
 
 ```bash
@@ -236,6 +238,7 @@ A successful request returns a `200 OK` response and a JSON object with details 
     ```
 
 ------
+
 ## Get flag details
 
 ```bash
@@ -266,7 +269,6 @@ A successful request returns a `200 OK` response and a JSON object with the flag
 
 ------
 
-
 ## List flag versions
 
 ```bash
@@ -296,6 +298,7 @@ A successful request returns a `200 OK` response and a list of flag's versions e
     ```
 
 ------
+
 ## Get flag version details
 
 ```bash
