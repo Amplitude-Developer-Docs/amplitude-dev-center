@@ -1,5 +1,5 @@
 ---
-title: Experiment Ruby SDK (Beta)
+title: Experiment Ruby SDK
 description: Official documentation for Amplitude Experiment's server-side Ruby SDK implementation.
 icon: simple/ruby
 ---
@@ -37,7 +37,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 === "gem"
 
     ```bash
-    gem install amplitude-experiment --pre
+    gem install amplitude-experiment
     ```
 
 !!!tip "Quick Start"
@@ -107,6 +107,9 @@ You can configure the SDK client on initialization.
     | `fetch_retry_backoff_max_millis` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10000` |
     | `fetch_retry_backoff_scalar` | Scales the minimum backoff exponentially. | `1.5` |
     | `fetch_retry_timeout_millis` | The request timeout for retrying variant fetches. | `10000` |
+
+!!!info "EU Data Center"
+    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
 
 ### Fetch
 
@@ -210,7 +213,7 @@ Install the Ruby Server SDK with bundler or gem directly.
 === "gem"
 
     ```bash
-    gem install amplitude-experiment --pre
+    gem install amplitude-experiment
     ```
 
 !!!tip "Quick Start"
@@ -277,6 +280,9 @@ You can configure the SDK client on initialization.
     | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
     | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start`](#start) | `30000` |
     | `debug` | Set to `true` to enable debug logging. | `false` |
+
+!!!info "EU Data Center"
+    If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
 
 ### Start
 
