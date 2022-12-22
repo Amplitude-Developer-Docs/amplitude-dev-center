@@ -113,6 +113,7 @@ markdown_extensions:
 
 extra:
   support_contact: https://amplitude.com
+  docs_home: https://docs.developers.amplitude.com/documentation-home
   community: https://community.amplitude.com
   help_site: https://help.amplitude.com
   status_page: https://status.amplitude.com/
@@ -145,7 +146,7 @@ extra:
 # Navigation
 nav:
 - Documentation: 
-  - Documentation Home: amplitude-welcome.md
+  - Documentation Home: documentation-home.md
   - Analytics:
     - analytics/index.md
     - Overview: analytics/index.md
