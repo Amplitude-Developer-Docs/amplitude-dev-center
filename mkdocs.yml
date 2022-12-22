@@ -333,6 +333,7 @@ nav:
         - Shopify: data/sources/shopify.md
       - Other:
         - Datazoom: data/sources/datazoom.md
+        - Insider: data/sources/insider.md
         - Kochava: data/sources/kochava.md
       - Privacy:
         - MetaRouter: data/sources/metarouter.md
