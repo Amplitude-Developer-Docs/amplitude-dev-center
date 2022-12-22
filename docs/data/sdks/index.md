@@ -11,7 +11,7 @@ Use Amplitude SDKs to send event data from your apps into Amplitude.
 
 ## Experiment SDKs
 
-Learn more in the [Experiment documentation](/../experiment/)
+Learn more in the [Experiment documentation](../../experiment/)
 
 ### Experiment client-side SDKs
 
@@ -20,4 +20,3 @@ Learn more in the [Experiment documentation](/../experiment/)
 ### Experiment server-side SDKs
 
 --8<--  "includes/experiment-server-sdks.md"
-
