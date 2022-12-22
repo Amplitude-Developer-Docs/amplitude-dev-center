@@ -378,7 +378,7 @@ These properties belong to the `options` object.
 | --- | --- | --- |
 | 200 | [OK](https://tools.ietf.org/html/rfc7231#section-6.3.1) | Successful batch upload. |
 | 400 | [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) | Invalid upload request. Read the error message to fix the request. |
-| 413 | [Payload Too Large](https://tools.ietf.org/html/rfc7231#section-6.5.11) | Payload size is too big (request size exceeds 20MB). Split your events array payload in half and try again. |
+| 413 | [Payload Too Large](https://tools.ietf.org/html/rfc7231#section-6.5.11) | Payload size is too big (request size exceeds 20MB). Split your events array payload in half and try again. The maximum number of events per batch is 2000 events. |
 | 429 | [Too Many Requests](https://tools.ietf.org/html/rfc6585#section-4) | Too many requests for a user or device. Amplitude throttles requests for users and devices that exceed 1000 events per second or 500,000 events per day. |
 
 ### SuccessSummary <!-- vale off -->
