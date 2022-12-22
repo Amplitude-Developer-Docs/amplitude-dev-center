@@ -145,291 +145,284 @@ extra:
 
 # Navigation
 nav:
-- Documentation: 
-  - Documentation Home: documentation-home.md
-  - Analytics:
-    - analytics/index.md
-    - Overview: analytics/index.md
-    - What is Amplitude Analytics?: analytics/what-is-amplitude.md
-    - Debugging Analytics: "data/debugger.md"
-    - SDKs: /../data/sdks/
-    - APIs: analytics/apis/index.md
-    - Advanced Topics:
-      - analytics/data-backfill-guide.md
-      - Custom Domain Proxy: analytics/domain-proxy.md
-      - Use AMP with Amplitude: analytics/use-amp-pages.md
-  - Data:
-    - data/index.md
-    - Overview: data/index.md
-    - Getting Started: "getting-started.md"
-    - Sources:
-      - Overview: data/sources.md
-      - Ampli:
-        - data/ampli/index.md
-        - data/ampli/cli.md
-        - data/ampli/sdk.md
-        - data/ampli/integrating-with-ci.md
-        - Source Control: data/ampli/git-workflow.md
-        - data/ampli/middleware.md
-        - data/ampli/plugin.md
-        - data/ampli/migration.md
-      - SDKs:
-        - data/sdks/index.md
-        - Quickstart Guide: data/sdks/sdk-quickstart.md
+- Analytics:
+  - analytics/index.md
+  - Overview: analytics/index.md
+  - What is Amplitude?: analytics/what-is-amplitude.md
+  - Find Your API Credentials: analytics/find-api-credentials.md
+  - SDKs:
+    - SDK Catalog: data/sources/#sdks
+  - API References:
+    - Attribution: analytics/apis/attribution-api.md
+    - Batch Event Upload: analytics/apis/batch-event-upload-api.md
+    - Behavioral Cohorts: analytics/apis/behavioral-cohorts-api.md
+    - CCPA DSAR: analytics/apis/ccpa-dsar-api.md
+    - Chart Annotations: analytics/apis/chart-annotations-api.md
+    - Dashboard: analytics/apis/dashboard-rest-api.md
+    - Export: analytics/apis/export-api.md
+    - Group Identify: analytics/apis/group-identify-api.md
+    - HTTP V2: analytics/apis/http-v2-api.md
+    - Identify: analytics/apis/identify-api.md
+    - Lookup Tables: analytics/apis/lookup-tables-api.md
+    - Releases: analytics/apis/releases-api.md
+    - SCIM: analytics/apis/scim-api.md
+    - Taxonomy: analytics/apis/taxonomy-api.md
+    - User Privacy: analytics/apis/user-privacy-api.md
+    - User Profile: analytics/apis/user-profile-api.md
+  - Advanced Topics:
+    - analytics/data-backfill-guide.md
+    - Custom Domain Proxy: analytics/domain-proxy.md
+    - Use AMP with Amplitude: analytics/use-amp-pages.md
+- Experiment:
+  - experiment/index.md
+  - Overview: experiment/index.md
+  - General:
+    - experiment/general/data-model.md
+    - Evaluation:
+      - Implementation: experiment/general/evaluation/implementation.md
+      - experiment/general/evaluation/remote-evaluation.md
+      - Local Evaluation: experiment/general/evaluation/local-evaluation.md
+    - experiment/general/performance-and-caching.md
+    - experiment/general/exposure-tracking.md
+  - Guides:
+    - Getting Started:
+      - experiment/guides/getting-started/create-a-deployment.md
+      - experiment/guides/getting-started/create-a-flag.md
+      - experiment/guides/getting-started/fetch-variants.md
+      - experiment/guides/getting-started/track-exposure.md
+    - experiment/guides/server-side-rendering.md
+    - experiment/guides/create-local-evaluation-flag.md
+    - Troubleshooting:
+      - Variant Jumping: experiment/guides/troubleshooting/variant-jumping.md
+      - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
+  - SDKs:
+    - JavaScript SDK: experiment/sdks/javascript-sdk.md
+    - Android SDK: experiment/sdks/android-sdk.md
+    - iOS SDK: experiment/sdks/ios-sdk.md
+    - React Native SDK: experiment/sdks/react-native-sdk.md
+    - Node.js SDK: experiment/sdks/nodejs-sdk.md
+    - JVM SDK (Beta): experiment/sdks/jvm-sdk.md
+    - Go SDK (Beta): experiment/sdks/go-sdk.md
+    - Ruby SDK: experiment/sdks/ruby-sdk.md
+    - Python SDK (Beta): experiment/sdks/python-sdk.md
+    - Legacy:
+      - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
+  - REST APIs:
+    - Evaluation API: experiment/apis/evaluation-api.md
+    - Management API (Beta): experiment/apis/management-api.md
+- Data:
+  - data/index.md
+  - Overview: data/index.md
+  - Getting Started: "getting-started.md"
+  - Debugging Analytics: "data/debugger.md"
+  - Sources:
+    - Overview: data/sources.md
+    - Ampli:
+      - data/ampli/index.md
+      - data/ampli/cli.md
+      - data/ampli/sdk.md
+      - data/ampli/integrating-with-ci.md
+      - Source Control: data/ampli/git-workflow.md
+      - data/ampli/middleware.md
+      - data/ampli/plugin.md
+      - data/ampli/migration.md
+    - SDKs:
+      - data/sdks/index.md
+      - Quickstart Guide: data/sdks/index.md
+      - Browser:
+        - data/sdks/typescript-browser/index.md
+        - Marketing Analytics Browser:
+          - data/sdks/marketing-analytics-browser/index.md
+        - Ampli Codegen: data/sdks/typescript-browser/ampli.md
+        - Migration Guide: data/sdks/typescript-browser/migration.md
+      - Node.js:
+        - data/sdks/typescript-node/index.md
+        - Ampli Codegen: data/sdks/typescript-node/ampli.md
+      - Android:
+        - data/sdks/android-kotlin/index.md
+        - Ampli Codegen: data/sdks/android-kotlin/ampli.md
+      - iOS (Beta):
+        - data/sdks/ios-swift/index.md
+      - Java:
+        - data/sdks/java/index.md
+        - Ampli Codegen: data/sdks/java/ampli.md
+      - React Native (Beta):
+        - data/sdks/typescript-react-native/index.md
+        - Ampli Codegen (Beta): data/sdks/typescript-react-native/ampli.md
+      - Flutter:
+        - data/sdks/flutter/index.md
+      - Python:
+        - data/sdks/python/index.md
+        - Ampli Codegen: data/sdks/python/ampli.md
+      - Unity:
+        - data/sdks/unity/index.md
+      - Unreal:
+        - data/sdks/unreal/index.md
+      - Go (Beta):
+        - data/sdks/go/index.md
+        - Ampli Codegen (Beta): data/sdks/go/ampli.md
+      - Legacy:
         - Browser:
-          - data/sdks/typescript-browser/index.md
-          - Marketing Analytics Browser:
-            - data/sdks/marketing-analytics-browser/index.md
-          - Ampli Codegen: data/sdks/typescript-browser/ampli.md
-          - Migration Guide: data/sdks/typescript-browser/migration.md
-        - Node.js:
-          - data/sdks/typescript-node/index.md
-          - Ampli Codegen: data/sdks/typescript-node/ampli.md
+          - data/sdks/javascript/index.md
+          - Ampli Codegen: data/sdks/javascript/ampli.md
         - Android:
-          - data/sdks/android-kotlin/index.md
-          - Ampli Codegen: data/sdks/android-kotlin/ampli.md
+          - data/sdks/android/index.md
+          - Ampli Codegen: data/sdks/android/ampli.md
         - iOS:
           - data/sdks/ios/index.md
           - Ampli Codegen: data/sdks/ios/ampli.md
-        - Java:
-          - data/sdks/java/index.md
-          - Ampli Codegen: data/sdks/java/ampli.md
-        - React Native (Beta):
-          - data/sdks/typescript-react-native/index.md
-          - Ampli Codegen (Beta): data/sdks/typescript-react-native/ampli.md
-        - Flutter:
-          - data/sdks/flutter/index.md
-        - Python:
-          - data/sdks/python/index.md
-          - Ampli Codegen: data/sdks/python/ampli.md
-        - Unity:
-          - data/sdks/unity/index.md
-        - Unreal:
-          - data/sdks/unreal/index.md
-        - Go (Beta):
-          - data/sdks/go/index.md
-          - Ampli Codegen (Beta): data/sdks/go/ampli.md
-        - Legacy:
-          - Browser:
-            - data/sdks/javascript/index.md
-            - Ampli Codegen: data/sdks/javascript/ampli.md
-          - Android:
-            - data/sdks/android/index.md
-            - Ampli Codegen: data/sdks/android/ampli.md
-          - React Native:
-            - data/sdks/react-native/index.md
-            - Ampli Codegen: data/sdks/react-native/ampli.md
-          - Node.js:
-            - data/sdks/node/index.md
-            - Ampli Codegen: data/sdks/node/ampli.md
-        - Other Topics:
-          - data/dynamic-configuration.md
-      - Cloud Storage:
-        - Amazon S3: data/sources/amazon-s3.md
-        - Google Cloud Storage: data/sources/google-cloud-storage.md
-        - Converter Configuration: data/converter-configuration-reference.md
-      - Warehouse:
-        #- BigQuery: data/sources/bigquery.md
-        - Snowflake: data/sources/snowflake.md
-      - Other Sources:
-        - Ad Networks:
-          - Facebook Ads: data/sources/facebook-ads.md
-          - Google Ads: data/sources/google-ads.md
-        - Attribution:
-          - Adjust: data/sources/adjust.md
-          - Airbridge: data/sources/airbridge.md
-          - AppsFlyer: data/sources/appsflyer.md
-          - Branch: data/sources/branch.md
-          - Singular: data/sources/singular.md
-        - CDP:
-          - mParticle: data/sources/mparticle.md
-          - Rudderstack: data/sources/rudderstack.md
-          - Segment: data/sources/segment.md
-        - Collaboration:
-          - Tribe: data/sources/tribe.md
-        - Customer Engagement:
-          - Chameleon: data/sources/chameleon.md
-          - CleverTap: data/sources/clevertap.md
-          - Cordial: data/sources/cordial.md
-          - Intercom: data/sources/intercom.md
-          - OneSignal: data/sources/onesignal.md
-          - Radar: data/sources/radar.md
-          - SendGrid: data/sources/sendgrid.md
-          - Userflow: data/sources/userflow.md
-        - Experimentation: 
-          - Optimizely: data/sources/optimizely.md
-          - Split: data/sources/split.md
-          - Taplytics: data/sources/taplytics.md
-        - Lookup Tables:
-          - CSV: data/sources/lookup-table.md
-        - Marketing Analytics:
-          - Adobe:
-            - Adobe Analytics: data/sources/adobe-analytics.md
-            - Adobe Tag Manager: data/sources/adobe.md
-          - Google Tag Manager: data/sources/google-tag-manager.md
-        - Marketing Automation:
-          - Braze: data/sources/braze.md
-          - HubSpot: data/sources/hubspot.md
-          - Iterable: data/sources/iterable.md
-          - Leanplum: data/sources/leanplum.md
-          - Mailchimp: data/sources/mailchimp.md
-          - MoEngage: data/sources/moengage.md
-        - Marketplace:
-          - Shopify: data/sources/shopify.md
-        - Other:
-          - Datazoom: data/sources/datazoom.md
-          - Kochava: data/sources/kochava.md
-        - Privacy:
-          - MetaRouter: data/sources/metarouter.md
-        - Qualitative Feeback:
-          - Qualtrics: data/sources/qualtrics.md
-          - Survicate: data/sources/survicate.md
-        - Reverse ETL:
-          - Census: data/sources/census.md
-          - Hightouch: data/sources/hightouch.md
-        - Sales: 
-          - Salesforce: data/sources/salesforce-group.md
-        - Subscription Management:
-          - Apphud: data/sources/apphud.md
-          - RevenueCat: data/sources/revenuecat.md
-        - Website: 
-          - Convizit: data/sources/convizit.md
-    - Destinations:
-      - Overview: data/destinations.md
-      - Cloud Storage:
-        - Amazon S3: data/destinations/amazon-s3.md
-        - Google Cloud Storage: data/destinations/google-cloud-storage.md
-      - Warehouse:
-        - Redshift: data/destinations/redshift.md
-        - BigQuery: data/destinations/bigquery.md
-        - Snowflake: data/destinations/snowflake.md
-        - Snowflake Data Share: data/destinations/snowflake-data-share.md
-      - Event Streaming:
-        - AppsFlyer: data/destinations/appsflyer.md
-        - Braze: data/destinations/braze.md
-        - Customer.io: data/destinations/customerio.md
-        - Fivetran: data/destinations/fivetran-event-forwarding.md
-        - Lantern: data/destinations/lantern-event-streaming.md
-        - Pub/Sub: data/destinations/google-pub-sub.md
-        - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
-        - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
-        - Intercom: data/destinations/intercom.md
-        - Iterable: data/destinations/iterable.md
-        - Kinesis: data/destinations/kinesis-data-stream.md
-        - Kinesis Firehose: data/destinations/kinesis-firehose.md
-        - Meta Pixel: data/destinations/meta-pixel.md
-        - Statsig: data/destinations/statsig.md
-        - Toplyne: data/destinations/toplyne.md
-        - Userlist: data/destinations/userlist-event-streaming.md
-        - Webhooks: data/destinations/webhooks-streaming.md
-      - Cohorts:
-        - Airship: data/destinations/airship-cohort.md
-        - Amazon S3: data/destinations/amazon-s3-cohort.md
-        - Appcues: data/destinations/appcues-cohort.md
-        - AppsFlyer: data/destinations/appsflyer-cohort.md
-        - Braze: data/destinations/braze-cohort.md
-        - Cordial: data/destinations/cordial-cohort.md
-        - Customer.io: data/destinations/customerio-cohort.md
-        - Enterpret: data/destinations/enterpret-cohort.md
-        - Facebook Ads: data/destinations/facebook-cohort.md
-        - Google Ads: data/destinations/google-ads-cohort.md
-        - HubSpot: data/destinations/hubspot-cohort.md
-        - Infobip: data/destinations/infobip-cohort.md
-        - Intercom: data/destinations/intercom-cohort.md
-        - Insider: data/destinations/insider-cohort.md
-        - Iterable: data/destinations/iterable-cohort.md
-        - Klaviyo: data/destinations/klaviyo-cohort.md
-        - LaunchDarkly: data/destinations/launchdarkly-cohort.md
-        - Leanplum: data/destinations/leanplum-cohort.md
-        - Mailchimp: data/destinations/mailchimp-cohort.md
-        - Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
-        - Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
-        - Marketo: data/destinations/marketo-cohort.md
-        - Maze: data/destinations/maze-cohort.md
-        - MoEngage: data/destinations/moengage-cohort.md
-        - Netcore Cloud: data/destinations/netcore-cohort.md
-        - Notivize: data/destinations/notivize-cohort.md
-        - OneSignal: data/destinations/onesignal-cohort.md
-        - Productboard: data/destinations/productboard-cohort.md
-        - Qualtrics: data/destinations/qualtrics-cohort.md
-        - Sendgrid: data/destinations/sendgrid-cohort.md
-        - Split: data/destinations/split-cohort.md
-        - Segment: data/destinations/segment-cohort.md
-        - Snapchat Ads: data/destinations/snapchat-ads-cohort.md
-        - Statsig: data/destinations/statsig-cohort.md
-        - Talon.One: data/destinations/talonone-cohort.md
-        - TikTok: data/destinations/tiktok-cohort.md
-        - Userflow: data/destinations/userflow-cohort.md
-        - Userlist: data/destinations/userlist-cohort.md
-      - Profile API:
-        - Moveable Ink: data/destinations/moveable-ink-profile-api.md
-    - Privacy and PII:
-      - Overview: data/pii.md
-      - DataGrail: data/pii/datagrail.md
-      - Osano: data/pii/osano.md
-      - Transcend: data/pii/transcend.md
-  - Experiment:
-      - experiment/index.md
-      - Overview: experiment/index.md
-      - General:
-        - experiment/general/data-model.md
-        - Evaluation:
-          - Implementation: experiment/general/evaluation/implementation.md
-          - experiment/general/evaluation/remote-evaluation.md
-          - Local Evaluation: experiment/general/evaluation/local-evaluation.md
-        - experiment/general/performance-and-caching.md
-        - experiment/general/exposure-tracking.md
-      - Guides:
-        - Getting Started:
-          - experiment/guides/getting-started/create-a-deployment.md
-          - experiment/guides/getting-started/create-a-flag.md
-          - experiment/guides/getting-started/fetch-variants.md
-          - experiment/guides/getting-started/track-exposure.md
-        - experiment/guides/server-side-rendering.md
-        - experiment/guides/create-local-evaluation-flag.md
-        - Troubleshooting:
-          - Variant Jumping: experiment/guides/troubleshooting/variant-jumping.md
-          - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
-      - SDKs:
-        - JavaScript SDK: experiment/sdks/javascript-sdk.md
-        - Android SDK: experiment/sdks/android-sdk.md
-        - iOS SDK: experiment/sdks/ios-sdk.md
-        - React Native SDK: experiment/sdks/react-native-sdk.md
-        - Node.js SDK: experiment/sdks/nodejs-sdk.md
-        - JVM SDK (Beta): experiment/sdks/jvm-sdk.md
-        - Go SDK (Beta): experiment/sdks/go-sdk.md
-        - Ruby SDK (Beta): experiment/sdks/ruby-sdk.md
-        - Python SDK (Beta): experiment/sdks/python-sdk.md
-        - Legacy:
-          - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
-      - REST APIs:
-        - Evaluation API: experiment/apis/evaluation-api.md
-        - Management API (Beta): experiment/apis/management-api.md
-- APIs:
-      - analytics/apis/index.md
-      - Find your API credentials: analytics/find-api-credentials.md
-      #- Authentication: analytics/apis/authentication.md
-      #- Limits: analytics/apis/rate-limits.md
-      #- Use Postman with the APIs: analytics/apis/rate-limits.md
-      - API References:
-        - Attribution: analytics/apis/attribution-api.md
-        - Batch Event Upload: analytics/apis/batch-event-upload-api.md
-        - Behavioral Cohorts: analytics/apis/behavioral-cohorts-api.md
-        - CCPA DSAR: analytics/apis/ccpa-dsar-api.md
-        - Chart Annotations: analytics/apis/chart-annotations-api.md
-        - Dashboard: analytics/apis/dashboard-rest-api.md
-        - Export: analytics/apis/export-api.md
-        - Group Identify: analytics/apis/group-identify-api.md
-        - HTTP V2: analytics/apis/http-v2-api.md
-        - Identify: analytics/apis/identify-api.md
-        - Lookup Tables: analytics/apis/lookup-tables-api.md
-        - Releases: analytics/apis/releases-api.md
-        - SCIM: analytics/apis/scim-api.md
-        - Taxonomy: analytics/apis/taxonomy-api.md
-        - User Privacy: analytics/apis/user-privacy-api.md
-        - User Profile: analytics/apis/user-profile-api.md
-- SDKs: 
-  - https://www.docs.developers.amplitude.com/data/sdks/
+        - React Native:
+          - data/sdks/react-native/index.md
+          - Ampli Codegen: data/sdks/react-native/ampli.md
+        - Node.js:
+          - data/sdks/node/index.md
+          - Ampli Codegen: data/sdks/node/ampli.md
+      - Other Topics:
+        - data/dynamic-configuration.md
+    - Cloud Storage:
+      - Amazon S3: data/sources/amazon-s3.md
+      - Google Cloud Storage: data/sources/google-cloud-storage.md
+      - Converter Configuration: data/converter-configuration-reference.md
+    - Warehouse:
+      #- BigQuery: data/sources/bigquery.md
+      - Snowflake: data/sources/snowflake.md
+    - Other Sources:
+      - Ad Networks:
+        - Facebook Ads: data/sources/facebook-ads.md
+        - Google Ads: data/sources/google-ads.md
+      - Attribution:
+        - Adjust: data/sources/adjust.md
+        - Airbridge: data/sources/airbridge.md
+        - AppsFlyer: data/sources/appsflyer.md
+        - Branch: data/sources/branch.md
+        - Singular: data/sources/singular.md
+      - CDP:
+        - mParticle: data/sources/mparticle.md
+        - Rudderstack: data/sources/rudderstack.md
+        - Segment: data/sources/segment.md
+      - Collaboration:
+        - Tribe: data/sources/tribe.md
+      - Customer Engagement:
+        - Chameleon: data/sources/chameleon.md
+        - CleverTap: data/sources/clevertap.md
+        - Cordial: data/sources/cordial.md
+        - Intercom: data/sources/intercom.md
+        - OneSignal: data/sources/onesignal.md
+        - Radar: data/sources/radar.md
+        - SendGrid: data/sources/sendgrid.md
+        - Userflow: data/sources/userflow.md
+      - Experimentation: 
+        - Optimizely: data/sources/optimizely.md
+        - Split: data/sources/split.md
+        - Taplytics: data/sources/taplytics.md
+      - Lookup Tables:
+        - CSV: data/sources/lookup-table.md
+      - Marketing Analytics:
+        - Adobe:
+          - Adobe Analytics: data/sources/adobe-analytics.md
+          - Adobe Tag Manager: data/sources/adobe.md
+        - Google Tag Manager: data/sources/google-tag-manager.md
+      - Marketing Automation:
+        - Braze: data/sources/braze.md
+        - HubSpot: data/sources/hubspot.md
+        - Iterable: data/sources/iterable.md
+        - Leanplum: data/sources/leanplum.md
+        - Mailchimp: data/sources/mailchimp.md
+        - MoEngage: data/sources/moengage.md
+      - Marketplace:
+        - Shopify: data/sources/shopify.md
+      - Other:
+        - Datazoom: data/sources/datazoom.md
+        - Kochava: data/sources/kochava.md
+      - Privacy:
+        - MetaRouter: data/sources/metarouter.md
+      - Qualitative Feeback:
+        - Qualtrics: data/sources/qualtrics.md
+        - Survicate: data/sources/survicate.md
+      - Reverse ETL:
+        - Census: data/sources/census.md
+        - Hightouch: data/sources/hightouch.md
+      - Sales: 
+        - Salesforce: data/sources/salesforce-group.md
+      - Subscription Management:
+        - Apphud: data/sources/apphud.md
+        - RevenueCat: data/sources/revenuecat.md
+      - Website: 
+        - Convizit: data/sources/convizit.md
+  - Destinations:
+    - Overview: data/destinations.md
+    - Cloud Storage:
+      - Amazon S3: data/destinations/amazon-s3.md
+      - Google Cloud Storage: data/destinations/google-cloud-storage.md
+    - Warehouse:
+      - Redshift: data/destinations/redshift.md
+      - BigQuery: data/destinations/bigquery.md
+      - Snowflake: data/destinations/snowflake.md
+      - Snowflake Data Share: data/destinations/snowflake-data-share.md
+    - Event Streaming:
+      - AppsFlyer: data/destinations/appsflyer.md
+      - Braze: data/destinations/braze.md
+      - Customer.io: data/destinations/customerio.md
+      - Fivetran: data/destinations/fivetran-event-forwarding.md
+      - Lantern: data/destinations/lantern-event-streaming.md
+      - Pub/Sub: data/destinations/google-pub-sub.md
+      - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
+      - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
+      - Intercom: data/destinations/intercom.md
+      - Iterable: data/destinations/iterable.md
+      - Kinesis: data/destinations/kinesis-data-stream.md
+      - Kinesis Firehose: data/destinations/kinesis-firehose.md
+      - Meta Pixel: data/destinations/meta-pixel.md
+      - Statsig: data/destinations/statsig.md
+      - Toplyne: data/destinations/toplyne.md
+      - Userlist: data/destinations/userlist-event-streaming.md
+      - Webhooks: data/destinations/webhooks-streaming.md
+    - Cohorts:
+      - Airship: data/destinations/airship-cohort.md
+      - Amazon S3: data/destinations/amazon-s3-cohort.md
+      - Appcues: data/destinations/appcues-cohort.md
+      - AppsFlyer: data/destinations/appsflyer-cohort.md
+      - Braze: data/destinations/braze-cohort.md
+      - Cordial: data/destinations/cordial-cohort.md
+      - Customer.io: data/destinations/customerio-cohort.md
+      - Enterpret: data/destinations/enterpret-cohort.md
+      - Facebook Ads: data/destinations/facebook-cohort.md
+      - Google Ads: data/destinations/google-ads-cohort.md
+      - HubSpot: data/destinations/hubspot-cohort.md
+      - Infobip: data/destinations/infobip-cohort.md
+      - Intercom: data/destinations/intercom-cohort.md
+      - Insider: data/destinations/insider-cohort.md
+      - Iterable: data/destinations/iterable-cohort.md
+      - Klaviyo: data/destinations/klaviyo-cohort.md
+      - LaunchDarkly: data/destinations/launchdarkly-cohort.md
+      - Leanplum: data/destinations/leanplum-cohort.md
+      - Mailchimp: data/destinations/mailchimp-cohort.md
+      - Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
+      - Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
+      - Marketo: data/destinations/marketo-cohort.md
+      - Maze: data/destinations/maze-cohort.md
+      - MoEngage: data/destinations/moengage-cohort.md
+      - Netcore Cloud: data/destinations/netcore-cohort.md
+      - Notivize: data/destinations/notivize-cohort.md
+      - OneSignal: data/destinations/onesignal-cohort.md
+      - Productboard: data/destinations/productboard-cohort.md
+      - Qualtrics: data/destinations/qualtrics-cohort.md
+      - Sendgrid: data/destinations/sendgrid-cohort.md
+      - Split: data/destinations/split-cohort.md
+      - Segment: data/destinations/segment-cohort.md
+      - Snapchat Ads: data/destinations/snapchat-ads-cohort.md
+      - Statsig: data/destinations/statsig-cohort.md
+      - Talon.One: data/destinations/talonone-cohort.md
+      - TikTok: data/destinations/tiktok-cohort.md
+      - Userflow: data/destinations/userflow-cohort.md
+      - Userlist: data/destinations/userlist-cohort.md
+    - Profile API:
+      - Moveable Ink: data/destinations/moveable-ink-profile-api.md
+  - Privacy and PII:
+    - Overview: data/pii.md
+    - DataGrail: data/pii/datagrail.md
+    - Osano: data/pii/osano.md
+    - Transcend: data/pii/transcend.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

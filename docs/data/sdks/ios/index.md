@@ -1,6 +1,6 @@
 ---
-title: iOS SDK
-description: The Amplitude iOS SDK installation and quick start guide. 
+title: iOS SDK (Legacy)
+description: The Amplitude iOS SDK installation and quick start guide.
 icon: simple/ios
 ---
 
