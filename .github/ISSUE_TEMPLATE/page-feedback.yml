@@ -1,0 +1,27 @@
+name: Page Feedback
+description: Give us your feedback.
+title: "[Feedback]: "
+labels: ["feedback", "triage"]
+assignees:
+  - amplitude-dev-docs
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping us improve the docs!
+  - type: textarea
+    id: improvement-description
+    attributes:
+      label: What feedback do you want to give us?
+      description: Please be as specific as possible. 
+      placeholder: Add your ideas here. 
+    validations:
+      required: true
+  - type: textarea
+    id: doc-page
+    attributes:
+      label: Which page needs an update?
+      description: Add the URL of the page. 
+      placeholder: https://example.com
+    validations:
+      required: true
