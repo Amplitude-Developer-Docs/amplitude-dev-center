@@ -155,7 +155,6 @@ nav:
     - SDKs: /../data/sdks/
     - APIs: analytics/apis/index.md
     - Advanced Topics:
-      - analytics/data-backfill-guide.md
       - Custom Domain Proxy: analytics/domain-proxy.md
       - Use AMP with Amplitude: analytics/use-amp-pages.md
   - Data:
@@ -408,6 +407,9 @@ nav:
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API (Beta): experiment/apis/management-api.md
+- Guides:
+  - Accounts Guide: guides/accounts-instrumentation-guide.md
+  - Data Backfill Guide: analytics/data-backfill-guide.md
 - APIs:
       - analytics/apis/index.md
       - Find your API credentials: analytics/find-api-credentials.md
@@ -440,10 +442,7 @@ nav:
     - Event Ingestion Integration: partners/event-ingestion-integration-guide.md
     - Cohort Syncing Integration: partners/cohort-integration-guide.md
     - Event Streaming Integration: partners/event-streaming-integration-guide.md
-
   - partners/sending-cohorts.md
-- Guides:
-  - Accounts Guide: guides/accounts-instrumentation-guide.md
 - Resources:
   - all-resources.md
 
