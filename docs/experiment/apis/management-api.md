@@ -14,8 +14,14 @@ The Experiment management API can be used to programmatically create and control
 | <div class="big-column">Name</div> | Description |
 | --- | --- |
 | [List experiments](#list-experiments) | List of experiments including their configuration details. |
+| [List flags](#list-flags) | List of flags including their configuration details. |
 | [List deployments](#list-deployments) | List deployments that experiments can be assigned to. |
 | [Get experiment details](#get-experiment-details) | Get the configuration details of an experiment. |
+| [List experiment versions](#list-experiment-versions) | List all versions for an experiment. |
+| [Get experiment version details](#get-experiment-version-details) | Get a specific version for an experiment. |
+| [Get flag details](#get-flag-details) | Get the configuration details of a flag. |
+| [List flag versions](#list-flag-versions) | List all versions for a flag. |
+| [Get flag version details](#get-flag-version-details) | Get a specific version for a flag. |
 | [Create experiment](#create-experiment) | Create a new experiment. |
 | [Activate experiment](#activate-experiment) | Activate a inactive experiment. |
 | [Deactivate experiment](#deactivate-experiment) | Deactivate an active experiment. |
@@ -80,6 +86,37 @@ A successful request returns a `200 OK` response and a list of experiments encod
 
 ------
 
+## List flags
+
+```bash
+GET https://management-api.experiment.amplitude.com/flags/list
+```
+
+Fetch a list of flags including their configuration details. Results are ordered with the most recently created flags first.
+
+### Query parameters
+
+| <div class="big-column">Name</div> | Description |
+| --- | --- |
+| `limit` | The max number of flags to be returned. Capped at 1000. |
+| `cursor` | The offset to start the "page" of results from. |
+
+### Response
+
+A successful request returns a `200 OK` response and a list of flags encoded as JSON in the response body.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/flags/list?limit=1000' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
 ## List deployments
 
 ```bash
@@ -135,6 +172,158 @@ A successful request returns a `200 OK` response and a JSON object with the expe
     ```bash
     curl --request GET \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## List experiment versions
+
+```bash
+GET https://management-api.experiment.amplitude.com/experiments/{id}/versions
+```
+
+Fetch a list of all versions for an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a list of experiment's versions encoded as JSON in the response body.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/versions' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Get experiment version details
+
+```bash
+GET https://management-api.experiment.amplitude.com/experiments/{id}/versions/{versionId}
+```
+
+Fetch details of a specific version of an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`versionId`| Required. String. The version's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with details of experiment's version.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/versions/<versionId>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Get flag details
+
+```bash
+GET https://management-api.experiment.amplitude.com/flags/{id}
+```
+
+Fetch the configuration details of a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with the flag's details.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## List flag versions
+
+```bash
+GET https://management-api.experiment.amplitude.com/flags/{id}/versions
+```
+
+Fetch a list of all versions for a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a list of flag's versions encoded as JSON in the response body.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/versions' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Get flag version details
+
+```bash
+GET https://management-api.experiment.amplitude.com/flags/{id}/versions/{versionId}
+```
+
+Fetch details of a specific version of a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flags's ID.|
+|`versionId`| Required. String. The version's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with details of flag's version.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/versions/<versionId>' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```

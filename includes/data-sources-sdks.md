@@ -7,12 +7,11 @@
 - :material-apple-ios: [iOS Swift (Beta)](../../data/sdks/ios-swift/)
 - :material-apple-ios: [iOS](../../data/sdks/ios/)
 - :java: [Java](../../data/sdks/java/)
-- :node: [Node.js](../../data/sdks/node/)
-- :node: [Node.js (Beta)](../../data/sdks/typescript-node/)
+- :node: [Node.js](../../data/sdks/typescript-node/)
 - :python: [Python](../../data/sdks/python/)
 - :react: [React Native](../../data/sdks/typescript-react-native/)
 - :unity: [Unity](../../data/sdks/unity/)
 - :unreal: [Unreal](../../data/sdks/unreal/)
-- :go: [Go (Alpha)](../../data/sdks/go/index)
+- :go: [Go (Beta)](../../data/sdks/go/index)
 
 </div>
