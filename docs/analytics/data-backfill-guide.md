@@ -1,6 +1,6 @@
 ---
-title: Data Backfill Guide
-description: Understand how backfilling historical data in Amplitude works. 
+title: Import Historical Data into Amplitude
+description: Import historical data into Amplitude yourself using this guide to backfilling data. 
 ---
 
 You can import historical data to Amplitude yourself using the [Batch Event Upload API](../apis/batch-event-upload-api). 
