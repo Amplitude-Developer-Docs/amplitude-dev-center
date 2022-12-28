@@ -25,6 +25,7 @@ Use Amplitude APIs to send and receive information and extend Amplitude.
 |[Releases](../apis/releases-api.md)|Programmatically create releases in Amplitude using the Releases API. |
 |[SCIM](../apis/scim-api.md)|Provision and manage users and groups. This API uses the System for Cross-domain Identity Management (SCIM) 2.0 Standard.|
 |[Taxonomy](../apis/taxonomy-api.md)|Create, get, update, and delete categories, event types, event properties, and user properties.|
+|[User Mapping (aliasing)](../apis/aliasing-api.md)| If you use the Portfolio add-on, use this API to map and unmap users across projects to a global user ID.|
 |[User Privacy](../apis/user-privacy-api.md)|Programmatically submit requests to delete all data for a set of known Amplitude IDs or User IDs.|
 |[User Profile](../apis/user-profile-api.md)|Fetch a user profile, which include user properties, computed properties, a list of cohort IDs, and recommendations.|
 
