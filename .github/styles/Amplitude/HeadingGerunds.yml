@@ -49,3 +49,5 @@ exceptions:
   - Testing
   - staging
   - Hashing
+  - unmapping
+  - mapping
