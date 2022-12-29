@@ -56,8 +56,8 @@ After you configure your settings, configure your mappings.
 For newer versions of the Iterable destination, you can map Amplitude properties to fields in Iterable. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
 
 1. Click the **Mappings** tab, then click **Edit**.
-2. Select an **Email**. This is a unique identifier for users in Iterable. It defaults to Amplitude **Email user property** (`email`).
-3. Select a **User ID**. This is a different unique identifier for users in Iterable that you can configure. It defaults to Amplitude **User ID** (`user_id`) and is recommended to be set up.
+2. Select an **Email**. This is a unique identifier for users in Iterable.
+3. Select a **User ID**. This is a different unique identifier for users in Iterable that you can configure.
 4. Configure other optional mappings if needed.
 5. Save when finished.
 
@@ -74,9 +74,9 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name | Required              | Recommended           | Optional              | Default Amplitude Property |
-|----------------|:---------------------:|:---------------------:|:---------------------:|----------------------------|
-| **Email**      | :octicons-check-16:   |                       |                       | **Email**                  |
-| **User ID**    |                       | :octicons-check-16:   |                       | **User ID**                |
-| Campaign ID    |                       |                       | :octicons-check-16:   |                            |
-| Template ID    |                       |                       | :octicons-check-16:   |                            |
+| Parameter Name | Required              | Recommended           | Default Amplitude Property |
+|----------------|:---------------------:|:---------------------:|----------------------------|
+| **Email**      | :octicons-check-16:   |                       | **Email**                  |
+| **User ID**    |                       | :octicons-check-16:   | **User ID**                |
+| Campaign ID    |                       |                       |                            |
+| Template ID    |                       |                       |                            |

@@ -11,10 +11,9 @@ Amplitude Data's Meta Pixel integration lets you stream your Amplitude event dat
 
 Keep these things in mind when sending Amplitude data to Meta.
 
-- Amplitude uses the `external_id` user property field in Meta Pixel for user matching.
-- Amplitude allows you to customize mappings that will appear in the `user_data` array of Meta Pixel for conversion.
-- User data that's sent to MetaPixel that requires hashing will be hashed. Ensure that the data isn't already hashed.
-- Other event properties selected in the **Specify event properties to send** that Amplitude sends are stored as 'custom data'. Because of this, normal Meta conversion can't be applied to those events. You must create a custom conversion using this [Meta guide](https://www.facebook.com/business/help/2375212726097833?id=1205376682832142 "https://www.facebook.com/business/help/2375212726097833?id=1205376682832142").
+- Amplitude allows you to customize mappings that to include in the `user_data` array of Meta Pixel for conversion.
+- User data that's sent to Meta Pixel that requires hashing will be hashed. Ensure that the data isn't already hashed. See a full list of accepted parameters and whether they're hashed [in the Meta Pixel documentation](https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/customer-information-parameters/).
+- Other event properties selected in the **Specify event properties to send** that Amplitude sends are stored as `custom_data`, which can be used to define audiences within Meta Pixel. Because of this, normal Meta conversion can't be applied to those events. You must create a custom conversion using this [Meta guide](https://www.facebook.com/business/help/2375212726097833?id=1205376682832142 "https://www.facebook.com/business/help/2375212726097833?id=1205376682832142").
 - The rate limits for Pixel are determined on a per-account basis. If you have rate limiting issues, report them to your Meta CSM.
 - You must have a Meta developer account to access the events forwarded to Pixel.
 
@@ -59,10 +58,10 @@ After you configure your settings, configure your mappings.
 
 #### Configure mappings (recommended)
 
-For newer versions of the Meta Pixel destination, you can map Amplitude properties to fields in Meta Pixel that will be included in the `user_data` array and used for conversions. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
+For newer versions of the Meta Pixel destination, you can map Amplitude properties to fields in Meta Pixel to use for better conversions. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
 
 1. Click the **Mappings** tab, then click **Edit**.
-2. Select a **External ID**. This is a unique identifier for users in Meta Pixel. It defaults to Amplitude **User ID** (`user_id`).
+2. Select a **External ID**. This is a unique identifier for users in Meta Pixel.
 3. Select as many other mappings as possible for best possible conversion results.
 4. Save when finished.
 
@@ -79,23 +78,23 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name    | Required              | Recommended   | Optional              | Default Amplitude Property |
-|-------------------|:---------------------:|:-------------:|:---------------------:|----------------------------|
-| **External ID**   | :octicons-check-16:   |               |                       | **User ID**                |
-| Email             |                       |               | :octicons-check-16:   |                            |
-| Phone Number      |                       |               | :octicons-check-16:   |                            |
-| First Name        |                       |               | :octicons-check-16:   |                            |
-| Last Name         |                       |               | :octicons-check-16:   |                            |
-| Date of Birth     |                       |               | :octicons-check-16:   |                            |
-| Gender            |                       |               | :octicons-check-16:   |                            |
-| City              |                       |               | :octicons-check-16:   |                            |
-| State             |                       |               | :octicons-check-16:   |                            |
-| Zip Code          |                       |               | :octicons-check-16:   |                            |
-| Country           |                       |               | :octicons-check-16:   |                            |
-| Client IP Address |                       |               | :octicons-check-16:   |                            |
-| Client User Agent |                       |               | :octicons-check-16:   |                            |
-| Click ID          |                       |               | :octicons-check-16:   |                            |
-| Browser ID        |                       |               | :octicons-check-16:   |                            |
-| Subscription ID   |                       |               | :octicons-check-16:   |                            |
-| Facebook Login ID |                       |               | :octicons-check-16:   |                            |
-| Lead ID           |                       |               | :octicons-check-16:   |                            |
+| Parameter Name    | Required              | Recommended | Default Amplitude Property | Hashed                |
+|-------------------|:---------------------:|-------------|----------------------------|:---------------------:|
+| **External ID**   | :octicons-check-16:   |             | **User ID**                | :octicons-check-16:   |
+| Email             |                       |             |                            | :octicons-check-16:   |
+| Phone Number      |                       |             |                            | :octicons-check-16:   |
+| First Name        |                       |             |                            | :octicons-check-16:   |
+| Last Name         |                       |             |                            | :octicons-check-16:   |
+| Date of Birth     |                       |             |                            | :octicons-check-16:   |
+| Gender            |                       |             |                            | :octicons-check-16:   |
+| City              |                       |             |                            | :octicons-check-16:   |
+| State             |                       |             |                            | :octicons-check-16:   |
+| Zip Code          |                       |             |                            | :octicons-check-16:   |
+| Country           |                       |             |                            | :octicons-check-16:   |
+| Client IP Address |                       |             |                            |                       |
+| Client User Agent |                       |             |                            |                       |
+| Click ID          |                       |             |                            |                       |
+| Browser ID        |                       |             |                            |                       |
+| Subscription ID   |                       |             |                            |                       |
+| Facebook Login ID |                       |             |                            |                       |
+| Lead ID           |                       |             |                            |                       |

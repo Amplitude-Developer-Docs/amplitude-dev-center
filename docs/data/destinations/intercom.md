@@ -69,7 +69,7 @@ After you configure your settings, configure your mappings.
 For newer versions of the Intercom destination, you can map Amplitude properties to fields in Intercom. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
 
 1. Click the **Mappings** tab, then click **Edit**.
-2. Select an **Intercom User ID** field for your users in Intercom. Keep in mind that event forwarding doesn't automatically create users so make sure the field selected matches your users' IDs within Intercom. The Amplitude property to map from defaults to Amplitude **User ID** (`user_id`). Your choice for an Intercom identifier are:
+2. Select an **Intercom User ID** field for your users in Intercom. Keep in mind that event forwarding doesn't automatically create users so make sure the field selected matches your users' IDs within Intercom. Your choice for an Intercom identifier are:
     1. **External ID** (A unique identifier within Intercom specified by you)
     2. **Email**
 3. Save when finished.

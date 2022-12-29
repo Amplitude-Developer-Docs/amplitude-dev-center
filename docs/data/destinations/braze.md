@@ -62,7 +62,7 @@ After you configure your settings, configure your mappings.
 For newer versions of the Braze destination, you can map Amplitude properties to fields in Braze. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
 
 1. Click the **Mappings** tab, then click **Edit**.
-2. Select a **Braze User ID** field for your users in Braze. The Amplitude property to map from defaults to Amplitude **User ID** (`user_id`). Your choice for a Braze identifier are:
+2. Select a **Braze User ID** field for your users in Braze. Your choice for a Braze identifier are:
     1. **External ID** (a unique identifier that's assigned by you to a user in Braze)
     2. **Braze ID** (a unique identifier that's automatically set by Braze)
     3. **User Alias** (an identifier that's assigned by you to a user in Braze)

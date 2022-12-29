@@ -72,7 +72,7 @@ After you configure your settings, configure your mappings.
 For newer versions of the Customer.io destination, you can map Amplitude properties to fields in Customer.io. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
 
 1. Click the **Mappings** tab, then click **Edit**.
-2. Select a **Customer.io User Identifier**. This is a unique identifier for users in Customer.io. It defaults to Amplitude **User ID** (`user_id`).
+2. Select a **Customer.io User Identifier**. This is a unique identifier for users in Customer.io.
       - If the Amplitude field you select for your `Customer.io User Identifier` is in an email format, users will be created and updated by their email fields.
       - Depending on your workspace settings, if you want to update users with the Customer.io `cio_id`, the `Customer.io User Identifier` field will need to be prefixed with `cio_`. Amplitude doesn't set this prefix, so your workspace will need to be set up accordingly.
 3. Save when finished.
