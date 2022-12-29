@@ -47,7 +47,7 @@ hide:
 
     ---
 
-    Read about product udpates and new features. 
+    Read about product updates and new features. 
 
     [:octicons-arrow-right-24: Product Updates](https://community.amplitude.com/product-updates)
 
