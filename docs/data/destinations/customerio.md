@@ -73,8 +73,8 @@ For newer versions of the Customer.io destination, you can map Amplitude propert
 
 1. Click the **Mappings** tab, then click **Edit**.
 2. Select a **Customer.io User Identifier**. This is a unique identifier for users in Customer.io. It defaults to Amplitude **User ID** (`user_id`).
-      - If using an email format for your `Customer.io User Identifier`, users will be created and updated by their email fields.
-      - Depending on your workspace settings, if you want to update users with the `customer_io_id`, the `Customer.io User Identifier` field will need to be prefixed with `cio_`. Amplitude doesn't set this prefix, so your workspace will need to be set up accordingly.
+      - If the Amplitude field you select for your `Customer.io User Identifier` is in an email format, users will be created and updated by their email fields.
+      - Depending on your workspace settings, if you want to update users with the Customer.io `cio_id`, the `Customer.io User Identifier` field will need to be prefixed with `cio_`. Amplitude doesn't set this prefix, so your workspace will need to be set up accordingly.
 3. Save when finished.
 
 After you configure mappings, enable the destination.
