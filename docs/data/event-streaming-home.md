@@ -1,5 +1,5 @@
 ---
-title: Event Streaming
+title: Event Streaming Overview
 description: Send Amplitude data to other tools in your stack with just a few clicks, using no-code event streaming integrations. 
 ---
 

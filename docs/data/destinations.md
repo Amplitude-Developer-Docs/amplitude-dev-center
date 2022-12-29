@@ -30,6 +30,8 @@ For detailed instructions, see the documentation for the destination you want to
 
 ### Event streaming
 
+See [Event Streaming Overview](event-streaming-home.md) for more details about streaming Amplitude events. 
+
 <!-- This content is used in several places. Make changes to includes/data-destinations-event-streaming.md -->
 
 --8<-- "includes/data-destinations-event-streaming.md"
