@@ -15,7 +15,7 @@ Amplitude Data's Customer.io integration lets you stream your Amplitude event da
 
 Keep these things in mind when sending events to [Customer.io:](http://customer.io/)
 
-- Amplitude matches the `Customer.io User Identifier` field to the `identifier` within Customer.io to associated events. If a user with that `identifier` doesn't exist within Customer.io, a user is created.
+- If a user with the provided `Customer.io User Identifier` doesn't exist within Customer.io, the user will be created.
 - Relevant limits for Customer.io events are:
   - Maximum length of Customer ID: 150 bytes
   - Maximum number of Unique Identify attributes: 300
@@ -63,6 +63,8 @@ After you create the destination, you must configure the settings.
       3. To select event properties to send, expand the **Specify event properties to send** panel, and select properties you want to include. If you don't select any properties here, Amplitude doesn't send any.
 6. Save when finished.
 
+See the [full list of available mappings](#list-of-available-mappings).
+
 After you configure your settings, configure your mappings.
 
 #### Configure mappings (recommended)
@@ -71,6 +73,8 @@ For newer versions of the Customer.io destination, you can map Amplitude propert
 
 1. Click the **Mappings** tab, then click **Edit**.
 2. Select a **Customer.io User Identifier**. This is a unique identifier for users in Customer.io. It defaults to Amplitude **User ID** (`user_id`).
+      - If using an email format for your `Customer.io User Identifier`, users will be created and updated by their email fields.
+      - Depending on your workspace settings, if you want to update users with the `customer_io_id`, the `Customer.io User Identifier` field will need to be prefixed with `cio_`. Amplitude doesn't set this prefix, so your workspace will need to be set up accordingly.
 3. Save when finished.
 
 After you configure mappings, enable the destination.
@@ -86,6 +90,6 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name                  | Required              | Recommended | Optional | Default Amplitude Property |
-|---------------------------------|:---------------------:|-------------|----------|----------------------------|
-| **Customer.io User Identifier** | :octicons-check-16:   |             |          | **User ID**                |
+| Parameter Name                  | Required              | Recommended | Default Amplitude Property |
+|---------------------------------|:---------------------:|-------------|----------------------------|
+| **Customer.io User Identifier** | :octicons-check-16:   |             | **User ID**                |
