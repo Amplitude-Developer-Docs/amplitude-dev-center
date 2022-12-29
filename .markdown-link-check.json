@@ -70,6 +70,10 @@
       "replacement": "https://docs.developers.amplitude.com/data"
     },
     {
+      "pattern": "/data",
+      "replacement": "https://docs.developers.amplitude.com/data"
+    },
+    {
       "pattern": "^experiment/",
       "replacement": "https://docs.developers.amplitude.com/experiment/"
     }
