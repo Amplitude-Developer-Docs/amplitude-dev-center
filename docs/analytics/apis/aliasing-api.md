@@ -7,7 +7,7 @@ description: If you have the Portfolio add-on, use the user mapping API to creat
 
 With Amplitude's [Portfolio add-on](https://help.amplitude.com/hc/en-us/articles/360002750712), you can generate a holistic view of how your users interact with your entire product portfolio. If you've instrumented multiple platforms or product lines, Portfolio can give you unparalleled insight into your users’ complete journey.
 
-It's not uncommon for user IDs for the same user to differ across projects within the same organization. The user mapping (aliasing) API lets you merge users with different user IDs in Amplitude.
+It's not uncommon for user IDs for the same user to differ across projects within the same organization. The user mapping (aliasing) API lets you map users with different user IDs together in Amplitude.
 
 In this example, three user records, each with a different user ID, are all merged into the user ID `mike@hooli.com`. This new user ID is that user's "global" user ID in the cross-project view. This way, you can get an accurate count of the number of unique users across your entire product portfolio.
 
