@@ -16,7 +16,7 @@ Amplitude Data's Braze integration lets you stream your Amplitude event data str
 
 ## Considerations
 
-- If a user with the provided Braze identifier doesn't exist within Braze, Braze creates a user with that ID. If this is not the desired behaviour, check the **Update Users Only** option.
+- If a user with the provided Braze identifier doesn't exist within Braze, Braze creates a user with that ID. If this isn't the desired behaviour, check the **Update Users Only** option.
 
 ## Setup
 
@@ -46,8 +46,8 @@ After you create the destination, you must configure the settings.
 3. Enter your **REST API Key**.
 4. Enter your **Braze App Identifier API Key**.
 5. **Create & Update Users** creates users in Braze and update the properties of existing users when an Amplitude Identify API call is made.
-      1. To create and update users, toggle Create & Update Users to Enabled.
-      2. To select user properties to send, expand the Specify user properties to send panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
+      1. To create and update users, toggle **Create & Update Users** to **Enabled**.
+      2. To select user properties to send, expand the **Specify user properties to send** panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
       3. Check the **Update Users Only** box to not create users if they don't exist when forwarding Identify API calls. If you're sending alias-only user profiles, this field shouldn't be checked. If **Update Users Only** is checked, your alias-only user profiles won't be created in Braze. More information available in the [Braze API documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
 6. **Send Events** sends events ingested by Amplitude to Braze.
       1. To send an event, toggle **Send Events** to **Enabled**.
@@ -63,9 +63,9 @@ For newer versions of the Braze destination, you can map Amplitude properties to
 
 1. Click the **Mappings** tab, then click **Edit**.
 2. Select a **Braze User ID** field for your users in Braze. The Amplitude property to map from defaults to Amplitude **User ID** (`user_id`). Your choice for a Braze identifier are:
-    1. **External ID** (a unique identifier that is assigned by you to a user in Braze)
-    2. **Braze ID** (a unique identifier that is automatically set by Braze)
-    3. **User Alias** (an identifier that is assigned by you to a user in Braze)
+    1. **External ID** (a unique identifier that's assigned by you to a user in Braze)
+    2. **Braze ID** (a unique identifier that's automatically set by Braze)
+    3. **User Alias** (an identifier that's assigned by you to a user in Braze)
 3. Save when finished.
 
 See the [full list of available mappings](#list-of-available-mappings).
@@ -84,7 +84,7 @@ The final step is enabling the destination. You must enable the destination to s
 ## List of available mappings
 
 | Parameter Name  | Required                                                          | Recommended | Default Amplitude Property |
-|-----------------|:-------------------------------------------------------------------:|:-------------:|----------------------------|
+|-----------------|:-----------------------------------------------------------------:|:-----------:|----------------------------|
 | **External ID** | :octicons-check-16: (one of External ID, Braze ID, or User Alias) |             | **User ID**                |
 | **Braze ID**    | :octicons-check-16: (one of External ID, Braze ID, or User Alias) |             | **User ID**                |
 | **User Alias**  | :octicons-check-16: (one of External ID, Braze ID, or User Alias) |             | **User ID**                |
