@@ -19,7 +19,7 @@ Amplitude Data's Intercom integration lets you stream your Amplitude event data 
 Keep these considerations in mind when streaming events to Intercom.
 
 - Amplitude sends the `created_at` and `event_name` properties to Intercom.
-- A user must exist in Intercom to send events for them. Event forwarding does not automatically create users in Intercom.
+- A user must exist in Intercom to send events for them. Event forwarding doesn't automatically create users in Intercom.
 - Intercom has a limit of 120 Event Types and 20 metadata (which are event properties) per Event Types. Be sure to select the events you want to forward to Intercom using the Event Filter while creating or editing the Event Streaming connection in Amplitude.
 - If you have Intercom configured as a Data Source in Amplitude, "[Intercom] event.created" is triggered whenever an event is created in Intercom, including through Amplitude's Event Streaming integration. If you don't want these stored in Amplitude, use [Block & Drop filters](https://help.amplitude.com/hc/en-us/articles/5078869299099-Filter-events-with-block-filters-and-drop-filters) to remove this event data from Amplitude.
 
@@ -69,10 +69,12 @@ After you configure your settings, configure your mappings.
 For newer versions of the Intercom destination, you can map Amplitude properties to fields in Intercom. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
 
 1. Click the **Mappings** tab, then click **Edit**.
-2. Select an **Intercom User ID** field for your users in Intercom. Keep in mind that event forwarding does not automatically create users so make sure the field selected matches your users' IDs within Intercom. The Amplitude property to map from defaults to Amplitude **User ID** (`user_id`). Your choice for an Intercom identifier are:
+2. Select an **Intercom User ID** field for your users in Intercom. Keep in mind that event forwarding doesn't automatically create users so make sure the field selected matches your users' IDs within Intercom. The Amplitude property to map from defaults to Amplitude **User ID** (`user_id`). Your choice for an Intercom identifier are:
     1. **External ID** (A unique identifier within Intercom specified by you)
     2. **Email**
 3. Save when finished.
+
+See the [full list of available mappings](#list-of-available-mappings).
 
 After you configure mappings, enable the destination.
 
