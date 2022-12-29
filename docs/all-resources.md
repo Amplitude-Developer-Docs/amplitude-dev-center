@@ -43,13 +43,13 @@ hide:
 
     [:octicons-arrow-right-24: Postman Workspace](https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview)
 
-- :material-newspaper-variant-multiple:{ .lg .middle } __Amplitude Blog__
+- :material-newspaper-variant-multiple:{ .lg .middle } __Product Updates__
 
     ---
 
-    See the Amplitude blog for tips and tricks. 
+    Read about product updates and new features. 
 
-    [:octicons-arrow-right-24: Amplitude Blog](https://blog.amplitude.com)
+    [:octicons-arrow-right-24: Product Updates](https://community.amplitude.com/product-updates)
 
 - :octicons-video-24:{ .lg .middle } __On-demand Webinars__
 
