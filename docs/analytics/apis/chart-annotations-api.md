@@ -30,11 +30,11 @@ Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 enco
 
 |Parameter|Description|
 |----|----|
-|`app_id`| Required. Integer. The Project ID of the project your chart belongs to.|
-|`date`| Required. Date. Date (YYYY-MM-DD) of the annotation.|
-|`label`| Required. String. The title of your annotation.|
-|`chart_id`| Optional. String. The ID of the chart (found in URL) to annotate. If you don't include a `chart_id`, the annotation is global and appears on all charts in the project.|
-|`details`|Optional. String. Details for the annotation.|
+|`app_id`| <span class="required">Required</span>. Integer. The Project ID of the project your chart belongs to.|
+|`date`| <span class="required">Required</span>. Date. Date (YYYY-MM-DD) of the annotation.|
+|`label`| <span class="required">Required</span>. String. The title of your annotation.|
+|`chart_id`| <span class="optional">Optional</span>. String. The ID of the chart (found in URL) to annotate. If you don't include a `chart_id`, the annotation is global and appears on all charts in the project.|
+|`details`|<span class="optional">Optional</span>. String. Details for the annotation.|
 
 ### Create annotation response
 
@@ -110,7 +110,7 @@ Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 enco
 
 |Name|Description|
 |----|-----------|
-|`id`|Required. Annotation ID.|
+|`id`|<span class="required">Required</span>. Annotation ID.|
 
 ### Get chart annotation response
 
