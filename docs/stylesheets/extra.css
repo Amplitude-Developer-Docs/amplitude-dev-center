@@ -110,6 +110,7 @@
   --md-amplitude-dark-teal: #0f4f73;
   --md-amplitude-light-teal: #91d9e3;
   --md-amplitude-light-blue: #c1e0fe;
+  --md-amplitude-red: #f54f4f;
 
   /* Default Colors */
 
@@ -485,4 +486,20 @@ textarea.at-field {
   background-color: var(--md-primary-fg-color);
   -webkit-mask-image: var(--md-admonition-icon--code-example);
           mask-image: var(--md-admonition-icon--code-example);
+}
+
+/* Required identifier */
+
+.required {
+
+  color: var(--md-amplitude-red);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.optional {
+
+  color: green;
+  font-weight: 400;
+  font-style: italic;
 }

@@ -35,8 +35,8 @@ Send a POST request to https://api2.amplitude.com/attribution with two arguments
 <!-- vale off-->
 |Name| Description  | Example|
 |---|---|---|
-|`api_key`| Required. The project's API key. | `{{api_key}}`|
-|`event`| Required. A request parameter representing the event, in JSON format.| `{"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}`|
+|`api_key`| <span class="required">Required</span>. The project's API key. | `{{api_key}}`|
+|`event`| <span class="required">Required</span>. A request parameter representing the event, in JSON format.| `{"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}`|
 <!-- vale on-->
 !!! example "Attribution Examples"
 
@@ -62,15 +62,15 @@ Send a POST request to https://api2.amplitude.com/attribution with two arguments
 
 These keys are available for the Event argument.
 
-| Key              | Description                                                                                                                          | Example                                                  |
+| <div class="big-column">Key</div>              | Description                                                                                                                          | Example                                                  |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| `event_type`     | Required. String. The event info. Prefix with brackets `[YOUR COMPANY]`.                                                             | `[YOUR COMPANY] Install`                                 |
-| `platform`       | Required. String. Either `ios` or `android`.                                                                                         | `ios`                                                    |
-| `idfa` or `idfv` | Required for iOS. String. The Identifier for Advertiser or the Identifier for Vendor. You must include *at least* one for iOS devices. | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
-| `adid`           | Required for Android. String. The Google ADID, or Amazon Advertising ID for Amazon devices.                                          | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
-| `android_id`       | Optional. String. (Android) The Android ID                                                                                           | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
-| `user_properties`  | Optional. Dictionary. A dictionary of attribution properties prefixed with brackets `[YOUR COMPANY]`.                                | `{"[YOUR COMPANY] media source": "Facebook"}`            |
-| `time`             | Optional. Long. Timestamp of the event in milliseconds since epoch.                                                                  | 1396381378123. It's set to the upload time by default |
+| `event_type`     | <span class="required">Required</span>. String. The event info. Prefix with brackets `[YOUR COMPANY]`.                                                             | `[YOUR COMPANY] Install`                                 |
+| `platform`       | <span class="required">Required</span>. String. Either `ios` or `android`.                                                                                         | `ios`                                                    |
+| `idfa` or `idfv` | <span class="required">Required for iOS</span>. String. The Identifier for Advertiser or the Identifier for Vendor. You must include *at least* one for iOS devices. | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
+| `adid`           | <span class="required">Required for Android</span>. String. The Google ADID, or Amazon Advertising ID for Amazon devices.                                          | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
+| `android_id`       | <span class="optional">Optional</span>. String. (Android) The Android ID                                                                                           | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
+| `user_properties`  | <span class="optional">Optional</span>. Dictionary. A dictionary of attribution properties prefixed with brackets `[YOUR COMPANY]`.                                | `{"[YOUR COMPANY] media source": "Facebook"}`            |
+| `time`             | <span class="optional">Optional</span>. Long. Timestamp of the event in milliseconds since epoch.                                                                  | 1396381378123. It's set to the upload time by default |
 
 ## Responses
 
