@@ -147,4 +147,4 @@ Converting timestamp column to milliseconds:
 
 Converting milliseconds to timestamp needed for time based import:
 
-`TO_TIMESTAMP_NTZ(TIME_COLUMN_IN_MILLIS) as "timestamp_column"`
+`TO_TIMESTAMP_NTZ(TIME_COLUMN_IN_MILLIS / 1000.0) as "timestamp_column"`
