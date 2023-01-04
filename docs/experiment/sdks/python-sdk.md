@@ -206,17 +206,17 @@ Install the Python Server SDK with pip.
     experiment = Experiment.initialize_local(api_key)
 
     # (2) Start the local evaluation client.
-  experiment.start()
+    experiment.start()
 
     # (3) Evaluate a user.
-  user = User(
+    user = User(
         device_id="abcdefg",
         user_id="user@company.com",
         user_properties={
             'premium': True
         }
     )
-  variants = experiment.evaluate(user)
+    variants = experiment.evaluate(user)
     ```
 
 ### Initialize
