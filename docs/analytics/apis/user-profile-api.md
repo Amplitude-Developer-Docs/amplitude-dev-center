@@ -49,15 +49,15 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 | <div class= "big-column">Parameter</div> | Description |
 | --- | --- |
-| `user_id`[^1] | Optional, but required unless `device_id` is set. The user ID (external database ID) to be queried. |
-| `device_id`[^1] | Optional, but required unless `user_id` is set. The device ID (anonymous ID) to be queried, required unless `user_id` is set. |
-| `get_recs` | Optional. Return a recommendation result for this user. Defaults to `false`.|
-| `rec_id`| Optional. Recommendations to retrieve, required if `get_recs` is true. Fetch multiple recommendations by separating the `rec_ids` with commas. |
-| `rec_type` | Optional. Overrides the default experimental control setting and `rec_type=model` returns modeled recommendations and `rec_type=random` returns random recommendations. |
-| `get_amp_props`| Optional. Return a full set of user properties for this user, not including computations. Defaults to `false`. |
-| `get_cohort_ids`| Optional. Return a list of all the cohort IDs that this user is a part of that have been set up to be tracked. By default cohort membership isn't tracked for users for any cohort. Defaults to `false`.|
-| `get_computations` | Optional. Return a list of all the computations that are enabled for this user. Defaults to `false`. |
-| `comp_id` | Optional. Return a single computation that might be enabled for this user. It returns a null value if it doesn't exist. If `get_computations` is true, all values are fetched, including this one (unless it's archived or deleted). |
+| `user_id`[^1] | <span class="optional">Optional</span>, but <span class="required">required unless `device_id` is set</span>. The user ID (external database ID) to be queried. |
+| `device_id`[^1] | Optional, but <span class="required">required unless `user_id` is set</span>. The device ID (anonymous ID) to be queried. |
+| `get_recs` | <span class="optional">Optional</span>. Return a recommendation result for this user. Defaults to `false`.|
+| `rec_id`| <span class="optional">Optional</span>. Recommendations to retrieve, required if `get_recs` is true. Fetch multiple recommendations by separating the `rec_ids` with commas. |
+| `rec_type` | <span class="optional">Optional</span>. Overrides the default experimental control setting and `rec_type=model` returns modeled recommendations and `rec_type=random` returns random recommendations. |
+| `get_amp_props`| <span class="optional">Optional</span>. Return a full set of user properties for this user, not including computations. Defaults to `false`. |
+| `get_cohort_ids`| <span class="optional">Optional</span>. Return a list of all the cohort IDs that this user is a part of that have been set up to be tracked. By default cohort membership isn't tracked for users for any cohort. Defaults to `false`.|
+| `get_computations` | <span class="optional">Optional</span>. Return a list of all the computations that are enabled for this user. Defaults to `false`. |
+| `comp_id` | <span class="optional">Optional</span>. Return a single computation that might be enabled for this user. It returns a null value if it doesn't exist. If `get_computations` is true, all values are fetched, including this one (unless it's archived or deleted). |
 
 [^1]:
     Requests must include either a `user_id` or a `device_id`.

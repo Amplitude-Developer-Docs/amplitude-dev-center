@@ -55,14 +55,14 @@ You can send the release's parameters as a JSON payload, or query parameters.
 
 |<div class="big-column">Name</div>|Description|
 |----|-------|
-|`version`|Required. The version of your product corresponding to this release.|
-|`release_start`| Required. Timestamp corresponding to the start of this release in UTC. Must be in this format: `yyyy-MM-dd HH:mm:ss`.|
-|`release_end`| Optional. Timestamp corresponding to the end of this release in UTC. Must be in this format: `yyyy-MM-dd HH:mm:ss`.|
-|`title`|Required. A name for the release.|
-|`description`|Optional. A description for the release.|
-|`platforms`|Optional. A list of platforms for this release.|
-|`created_by`| Optional. Name of the user creating the release, as a string.|
-|`chart_visibility`| Optional. Defaults to true. When true, indicates that this release should show up on charts as an annotation.|
+|`version`|<span class="required">Required</span>. The version of your product corresponding to this release.|
+|`release_start`| <span class="required">Required</span>. Timestamp corresponding to the start of this release in UTC. Must be in this format: `yyyy-MM-dd HH:mm:ss`.|
+|`release_end`| <span class="optional">Optional</span>. Timestamp corresponding to the end of this release in UTC. Must be in this format: `yyyy-MM-dd HH:mm:ss`.|
+|`title`|<span class="required">Required</span>. A name for the release.|
+|`description`|<span class="optional">Optional</span>. A description for the release.|
+|`platforms`|<span class="optional">Optional</span>. A list of platforms for this release.|
+|`created_by`| <span class="optional">Optional</span>. Name of the user creating the release, as a string.|
+|`chart_visibility`| <span class="optional">Optional</span>. Defaults to true. When true, indicates that this release should show up on charts as an annotation.|
 
 ## Response
 
