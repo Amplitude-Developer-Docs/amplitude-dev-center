@@ -145,6 +145,7 @@ Converting timestamp column to milliseconds:
 
 `DATE_PART('EPOCH_MILLISECOND', TIMESTAMP_COLUMN) as "time"`
 
-Converting milliseconds to timestamp needed for time based import:
+Converting milliseconds to timestamp needed for time-based import. This example uses the `scale` argument set to `3` to convert to milliseconds. See the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/functions/to_timestamp.html) for more details.
 
-`TO_TIMESTAMP_NTZ(TIME_COLUMN_IN_MILLIS) as "timestamp_column"`
+`TO_TIMESTAMP_NTZ(TIME_COLUMN_IN_MILLIS, 3) as "timestamp_column"`
+ 
