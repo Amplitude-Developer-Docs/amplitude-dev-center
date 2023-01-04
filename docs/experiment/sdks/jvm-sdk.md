@@ -307,7 +307,6 @@ Install the JVM Server SDK using Gradle.
 
     **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
 
-
 ### Initialize local
 
 Initializes a [local evaluation](../general/evaluation/local-evaluation.md) client.
