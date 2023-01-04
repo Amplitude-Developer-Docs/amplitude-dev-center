@@ -73,7 +73,7 @@ Install the Ruby Server SDK with bundler or gem directly.
     end
     ```
 
-    **Not getting the expected variant result for your flag?** Make sure your flag is activated, has a deployment set, and has users allocated.
+    **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
 
 ### Initialize
 
@@ -252,7 +252,7 @@ Install the Ruby Server SDK with bundler or gem directly.
     end
     ```
 
-    **Not getting the expected variant result for your flag?** Make sure your flag is activated, has a deployment set, and has users allocated.
+    **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
 
 ### Initialize
 
