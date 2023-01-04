@@ -60,6 +60,8 @@ go get github.com/amplitude/experiment-go-server
     }
     ```
 
+    **Not getting the expected variant result for your flag?** Make sure your flag is activated, has a deployment set, and has users allocated.
+
 ### Initialize
 
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
@@ -187,6 +189,8 @@ go get github.com/amplitude/experiment-go-server
       panic(err)
     }
     ```
+
+    **Not getting the expected variant result for your flag?** Make sure your flag is activated, has a deployment set, and has users allocated.
 
 ### Initialize
 

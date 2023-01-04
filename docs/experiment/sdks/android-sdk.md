@@ -27,6 +27,7 @@ dependencies {
     2. [Fetch variants for the user](#fetch)
     3. [Access a flag's variant](#variant)
 
+
     === "Java"
 
         ```java
@@ -98,6 +99,8 @@ dependencies {
         }
         ```
 
+        **Not getting the expected variant result for your flag?** Make sure your flag is activated, has a deployment set, and has users allocated.
+
 ## Core functions
 
 The following functions make up the core of the Experiment client-side SDK.
@@ -137,7 +140,7 @@ The initializer returns a singleton instance, so subsequent initializations for 
 
 If you use either Amplitude or Segment Analytics SDKs to track events into Amplitude, you'll want to set up an integration on initialization. Integrations automatically implement [provider](#providers) interfaces to enable a more streamlined developer experience by making it easier to **manage user identity** and **track exposures events**.
 
-???amplitude "Amplitude Integration"
+!!!amplitude "Amplitude Integration"
 
     The Amplitude Experiment SDK is set up to integrate seamlessly with the Amplitude Analytics SDK. All you need to do is update your SDK versions to the latest, and use the special integration initialization function.
 
