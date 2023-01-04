@@ -73,8 +73,8 @@ Authorization: Bearer {{scim-token}}
 
 |<div class="big-column">Name</div>| Description|
 |---|---|
-|`startIndex`| Optional. Integer. Defaults to 1. 1-indexed.|
-|`itemsPerPage`| Optional. Integer. Defaults to 100. Can be overridden to be higher.|
+|`startIndex`| <span class="optional">Optional</span>. Integer. Defaults to 1. 1-indexed.|
+|`itemsPerPage`| <span class="optional">Optional</span>. Integer. Defaults to 100. Can be overridden to be higher.|
 |`filter`|String. Must follow the [SCIM filter syntax](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2)|
 
 #### Response
@@ -129,7 +129,7 @@ Authorization: Bearer {{scim-token}}
 
 |<div class="big-column">Name</div>| Description|
 |---|---|
-|`id`| Required. Must be a valid email address. Not case sensitive.|
+|`id`| <span class="required">Required</span>. Must be a valid email address. Not case sensitive.|
 
 #### Response
 
@@ -291,7 +291,7 @@ If a pending user (an invited user that hasn't accepted the invitation) is delet
 
 |<div class="big-column">Name</div>| Description|
 |---|---|
-|`id`| Required. Must be a valid email address. Not case sensitive.|
+|`id`| <span class="required">Required</span>. Must be a valid email address. Not case sensitive.|
 
 #### Example request
 
@@ -384,7 +384,7 @@ Authorization: Bearer {{scim-token}}
 
 |Name| Description|
 |---|---|
-|`id`| Required. Integer. The group ID|
+|`id`| <span class="required">Required</span>. Integer. The group ID|
 
 #### Example response
 
@@ -508,7 +508,7 @@ Content-Length: 241
 
 |Name| Description|
 |---|---|
-|`id`| Required. Integer. The group ID|
+|`id`| <span class="required">Required</span>. Integer. The group ID|
 
 #### Example response
 
@@ -560,7 +560,7 @@ Authorization: Bearer {{scim-token}}
 
 |Name| Description|
 |---|---|
-|`id`| Required. Integer. The group ID|
+|`id`| <span class="required">Required</span>. Integer. The group ID|
 
 #### Response
 

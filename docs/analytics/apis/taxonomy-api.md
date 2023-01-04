@@ -75,7 +75,7 @@ category_name=Marketing
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`category_name` |Required. Name of the category.|
+|`category_name` |<span class="required">Required</span>. Name of the category.|
 
 #### Response
 
@@ -165,7 +165,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`category_name`| Required. The name of the category|
+|`category_name`| <span class="required">Required</span>. The name of the category|
 
 #### Response
 
@@ -216,13 +216,13 @@ category_name=Converted
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`category_id`| Required. The ID of the category|
+|`category_id`| <span class="required">Required</span>. The ID of the category|
 
 ##### Body parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`category_name`| Required. The new name of the category|
+|`category_name`| <span class="required">Required</span>. The new name of the category|
 
 #### Response
 
@@ -269,7 +269,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`category_id`| Required. The ID of the category|
+|`category_id`| <span class="required">Required</span>. The ID of the category|
 
 #### Response
 
@@ -327,9 +327,9 @@ event_type=My%20event&category=Conversion&description=Event%20type%20description
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`event_type` |Required. String. The event type name.|
-|`category`|Optional. String. The event type's category.|
-|`description`| Optional. String. Details about the event type.|
+|`event_type` |<span class="required">Required</span>. String. The event type name.|
+|`category`|<span class="optional">Optional</span>. String. The event type's category.|
+|`description`| <span class="optional">Optional</span>. String. Details about the event type.|
 
 #### Response
 
@@ -418,7 +418,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`event_type`| Required. String. The event type name. |
+|`event_type`| <span class="required">Required</span>. String. The event type name. |
 
 #### Response
 
@@ -475,16 +475,16 @@ category=&display_name=Event%20Number%203
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`event_type`| Required. String. The event name. |
+|`event_type`| <span class="required">Required</span>. String. The event name. |
 
 ##### Body parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`new_event_type`| Optional. String. The event type's new name.|
-|`category`|Optional. Current category name of the event type.|
-|`description`| Optional. String. Details to add to the event type.|
-|`display_name`| Optional. String. Display name of an event type. You can update the display name for an event type after it's ingested into Amplitude.|
+|`new_event_type`| <span class="optional">Optional</span>. String. The event type's new name.|
+|`category`|<span class="optional">Optional</span>. Current category name of the event type.|
+|`description`| <span class="optional">Optional</span>. String. Details to add to the event type.|
+|`display_name`| <span class="optional">Optional</span>. String. Display name of an event type. You can update the display name for an event type after it's ingested into Amplitude.|
 
 #### Response
 
@@ -531,7 +531,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`event_type`| Required. The name of the event type|
+|`event_type`| <span class="required">Required</span>. The name of the event type|
 
 #### Response
 
@@ -583,14 +583,14 @@ event_type=Onboard%20Start&event_property=Completed%20Task&type=boolean&is_array
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_type`|Required. String. Name of the event type to which the event properties belong to.|
-|`event_property`| Required. String. Name of the event property.|
-|`description`|Optional. String. The event property's description.|
-|`type`| Optional. String. Available with Govern Add-on. The event property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`|
-|`regex`| Optional. String. Available with Govern Add-on. Regular expression, custom regex used for pattern matching or more complex values. For example, property zip code must have pattern `[0-9]{5}`|
-|`enum_values`|Optional. String. Available with Govern Add-on. List of allowed values.|
-|`is_array_type`|Optional. Boolean. Available with Govern Add-on.|
-|`is_required`|Optional. Boolean. Available with Govern Add-on. Marks the property as required. When `true`, events that are missing this property are flagged on the Taxonomy page in the web app.|
+|`event_type`|<span class="required">Required</span>. String. Name of the event type to which the event properties belong to.|
+|`event_property`| <span class="required">Required</span>. String. Name of the event property.|
+|`description`|<span class="optional">Optional</span>. String. The event property's description.|
+|`type`| <span class="optional">Optional</span>. String. Available with Govern Add-on. The event property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`|
+|`regex`| <span class="optional">Optional</span>. String. Available with Govern Add-on. Regular expression, custom regex used for pattern matching or more complex values. For example, property zip code must have pattern `[0-9]{5}`|
+|`enum_values`|<span class="optional">Optional</span>. String. Available with Govern Add-on. List of allowed values.|
+|`is_array_type`|<span class="optional">Optional</span>. Boolean. Available with Govern Add-on.|
+|`is_required`|<span class="optional">Optional</span>. Boolean. Available with Govern Add-on. Marks the property as required. When `true`, events that are missing this property are flagged on the Taxonomy page in the web app.|
 
 #### Response
 
@@ -639,7 +639,7 @@ event_type=Onboard%20Start
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_type`|Required. Name of the event type to which the event properties belong to.|
+|`event_type`|<span class="required">Required</span>. Name of the event type to which the event properties belong to.|
 
 #### Response
 
@@ -695,13 +695,13 @@ event_type=Onboard%20Finish
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_property`|Required. The event property name.|
+|`event_property`|<span class="required">Required</span>. The event property name.|
 
 #### Body parameter
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_type`|Required. Name of the event type to which the event properties belong to.|
+|`event_type`|<span class="required">Required</span>. Name of the event type to which the event properties belong to.|
 
 #### Response
 
@@ -760,20 +760,20 @@ event_type=Onboard%20Start&description=User%20completed%20a%20task%20during%20on
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event-property`|Required. Name of the event property.|
+|`event-property`|<span class="required">Required</span>. Name of the event property.|
 
 ##### Body parameter
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_type`|Required. Name of the event type to which the event properties belong to.|
-|`description`|Optional. String. The event property's description.|
-|`new_event_property_value`|Optional. String. Available with Govern Add-on. The new name of the event property.|
-|`type`| Optional. String. Available with Govern Add-on. The event property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`|
-|`regex`|Optional. String. Available with Govern Add-on. Regular expression, custom regex used for pattern matching or more complex values. For example, property zip code must have pattern `[0-9]{5}` |
-|`enum_values`| Optional. String. Available with Govern Add-on. List of allowed values.|
-|`is_array_type`| Optional. Boolean. Available with Govern Add-on.|
-|`is_required`| Optional. Boolean. Available with Govern Add-on. Marks the property as required.|
+|`event_type`|<span class="required">Required</span>. Name of the event type to which the event properties belong to.|
+|`description`|<span class="optional">Optional</span>. String. The event property's description.|
+|`new_event_property_value`|<span class="optional">Optional</span>. String. Available with Govern Add-on. The new name of the event property.|
+|`type`| <span class="optional">Optional</span>. String. Available with Govern Add-on. The event property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`|
+|`regex`|<span class="optional">Optional</span>. String. Available with Govern Add-on. Regular expression, custom regex used for pattern matching or more complex values. For example, property zip code must have pattern `[0-9]{5}` |
+|`enum_values`| <span class="optional">Optional</span>. String. Available with Govern Add-on. List of allowed values.|
+|`is_array_type`| <span class="optional">Optional</span>. Boolean. Available with Govern Add-on.|
+|`is_required`| <span class="optional">Optional</span>. Boolean. Available with Govern Add-on. Marks the property as required.|
 
 #### Response
 
@@ -822,13 +822,13 @@ event_type=Onboard%20Finish
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_property`|Required. The event property name.|
+|`event_property`|<span class="required">Required</span>. The event property name.|
 
 ##### Body parameter
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_type`|Required. Name of the event type to which the event properties belong to.|
+|`event_type`|<span class="required">Required</span>. Name of the event type to which the event properties belong to.|
 
 #### Response
 
@@ -866,12 +866,12 @@ user_property=User%20Type&description=Describes%20whether%20the%20user%20is%20a%
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|Required. String. Name of the user property type.|
-|`description`|Optional. String. Details to add to the user property type.|
-|`type`|Optional. String. The user property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`.|
-|`regex`| Optional. String. Regular expression or custom regex used for pattern matching and more complex values. For example, 'zip code' property must have pattern `[0-9]{5}`.|
-|`enum_values`|Optional. String. List of allowed values, separated by comma. For example: `red, yellow, blue`.|
-|`is_array_type`|Optional. Boolean. Specifies whether the property value is an array.|
+|`user_property`|<span class="required">Required</span>. String. Name of the user property type.|
+|`description`|<span class="optional">Optional</span>. String. Details to add to the user property type.|
+|`type`|<span class="optional">Optional</span>. String. The user property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`.|
+|`regex`| <span class="optional">Optional</span>. String. Regular expression or custom regex used for pattern matching and more complex values. For example, 'zip code' property must have pattern `[0-9]{5}`.|
+|`enum_values`|<span class="optional">Optional</span>. String. List of allowed values, separated by comma. For example: `red, yellow, blue`.|
+|`is_array_type`|<span class="optional">Optional</span>. Boolean. Specifies whether the property value is an array.|
 
 #### Response
 
@@ -997,7 +997,7 @@ Authorization: Basic {{api-key}}:{{secret:key}}
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|Required. The user property name.|
+|`user_property`|<span class="required">Required</span>. The user property name.|
 
 ### Response
 
@@ -1054,18 +1054,18 @@ description=The%20user%20id&type=string
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|Required. The user property name.|
+|`user_property`|<span class="required">Required</span>. The user property name.|
 
 #### Body parameter
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`new_user_property_value`| Optional. String. New name of the user property type.|
-|`description`| Optional. String. Details to add to the user property type.|
-|`type`|Optional. String. The user property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`.|
-|`regex`| Optional. String. Regular expression or custom regex used for pattern matching and more complex values. For example, 'zip code' property must have pattern `[0-9]{5}`.|
-|`enum_values`| Optional. String. List of allowed values, separated by comma. For example: `red, yellow, blue`.|
-|`is_array_type`|Optional. Boolean. Specifies whether the property value is an array.|
+|`new_user_property_value`| <span class="optional">Optional</span>. String. New name of the user property type.|
+|`description`| <span class="optional">Optional</span>. String. Details to add to the user property type.|
+|`type`|<span class="optional">Optional</span>. String. The user property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`.|
+|`regex`| <span class="optional">Optional</span>. String. Regular expression or custom regex used for pattern matching and more complex values. For example, 'zip code' property must have pattern `[0-9]{5}`.|
+|`enum_values`| <span class="optional">Optional</span>. String. List of allowed values, separated by comma. For example: `red, yellow, blue`.|
+|`is_array_type`|<span class="optional">Optional</span>. Boolean. Specifies whether the property value is an array.|
 
 #### Response
 
@@ -1102,7 +1102,7 @@ Authorization: Basic {{api-key}}:{{secret:key}}
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|Required. The user property name.|
+|`user_property`|<span class="required">Required</span>. The user property name.|
 
 #### Response
 

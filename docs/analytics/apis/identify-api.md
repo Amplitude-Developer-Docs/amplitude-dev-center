@@ -50,8 +50,8 @@ You can send these parameters as query parameter in a GET request. In a POST req
 
 | <div class="big-column">Name</div> | Type | Description |
 | --- | --- | --- |
-| `user_id` | Required unless `device_id` is present. String. A UUID (unique user ID) specified by you. If you send a request with a `user_id` that's not in the Amplitude system yet, then the user tied to the `user_id` isn't marked new until their first event. |
-| `device_id` | Required unless `user_id` is present. String. A device specific identifier, such as the Identifier for Vendor (IDFV) on iOS. |
+| `user_id` | <span class="required">Required unless `device_id` is present</span>. String. A UUID (unique user ID) specified by you. If you send a request with a `user_id` that's not in the Amplitude system yet, then the user tied to the `user_id` isn't marked new until their first event. |
+| `device_id` | <span class="required">Required unless `user_id` is present</span>. String. A device specific identifier, such as the Identifier for Vendor (IDFV) on iOS. |
 | `user_properties` |  Dictionary. A dictionary of key-value pairs that represent data tied to the user. Each distinct value appears as a user segment on the Amplitude dashboard. Object depth may not exceed 40 layers. You can store property values in an array and date values are transformed into string values. |
 | `groups` | Dictionary. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532). A dictionary of key-value pairs that represent groups of users. Setting groups allows you to use [account-level reporting](https://help.amplitude.com/hc/en-us/articles/115001765532). You can track up to 5 unique group types and 10 total groups. |
 | `app_version` |String. The version of the app the user is on. |

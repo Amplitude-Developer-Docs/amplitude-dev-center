@@ -35,8 +35,8 @@ Create a Lookup Table object by uploading a CSV that maps an existing property t
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`name` | Required. String. Name of the table.|
-|`file` | Required. File. A CSV representation of the mappings.|
+|`name` | <span class="required">Required</span>. String. Name of the table.|
+|`file` | <span class="required">Required</span>. File. A CSV representation of the mappings.|
 
 #### Example request
 
@@ -111,7 +111,7 @@ Retrieve a Lookup Table by its name.
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`name` | Required. String. Name of the table.|
+|`name` | <span class="required">Required</span>. String. Name of the table.|
 
 #### Example request
 
@@ -158,8 +158,8 @@ Update a Lookup Table's columns and data.
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`name` | Required. String. Name of the table.|
-|`file` | Required. File. A CSV representation of the mappings.|
+|`name` | <span class="required">Required</span>. String. Name of the table.|
+|`file` | <span class="required">Required</span>. File. A CSV representation of the mappings.|
 
 #### Example request
 
@@ -232,8 +232,8 @@ Delete a Lookup Table.
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`name` | Required. String. Name of the table.|
-|`force` | Optional. Boolean. Delete the associated properties. Defaults to `false`.|
+|`name` | <span class="required">Required</span>. String. Name of the table.|
+|`force` | <span class="optional">Optional</span>. Boolean. Delete the associated properties. Defaults to `false`.|
 
 #### Example request
 
