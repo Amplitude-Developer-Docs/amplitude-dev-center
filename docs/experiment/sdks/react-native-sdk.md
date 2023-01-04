@@ -76,6 +76,8 @@ pod install
     }
     ```
 
+    **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
+
 ## Core functions
 
 The following functions make up the core of the Experiment client-side SDK.
@@ -105,7 +107,7 @@ const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 
 If you use either Amplitude or Segment Analytics SDKs to track events into Amplitude, you'll want to set up an integration on initialization. Integrations automatically implement [provider](#providers) interfaces to enable a more streamlined developer experience by making it easier to **manage user identity** and **track exposures events**.
 
-???amplitude "Amplitude Integration"
+!!!amplitude "Amplitude Integration"
 
     **This SDK only integrates with the [next generation Amplitude Analytics React Native SDK](../../../data/sdks/typescript-react-native/).**
 

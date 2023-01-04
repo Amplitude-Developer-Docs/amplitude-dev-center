@@ -100,6 +100,8 @@ Install the JVM Server SDK using Gradle.
         }
         ```
 
+    **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
+
 ### Initialize remote
 
 The SDK client should be initialized in your server on startup. The [deployment key](../general/data-model.md#deployments) argument passed into the `apiKey` parameter must live within the same project that you are sending analytics events to.
@@ -302,6 +304,8 @@ Install the JVM Server SDK using Gradle.
             .build();
         Map<String, Variant> variants = experiment.evaluate(user);
         ```
+
+    **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
 
 ### Initialize local
 

@@ -68,6 +68,8 @@ Install the Experiment JavaScript Client SDK.
     }
     ```
 
+    **Not getting the expected variant result for your flag?** Make sure your flag [is activated](../guides/getting-started/create-a-flag.md#activate-the-flag), has a [deployment set](../guides/getting-started/create-a-flag.md#add-a-deployment), and has [users allocated](../guides/getting-started/create-a-flag.md#configure-targeting-rules).
+
 ## Core functions
 
 The following functions make up the core of the Experiment client-side SDK.
@@ -97,7 +99,7 @@ const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 
 If you use either Amplitude or Segment Analytics SDKs to track events into Amplitude, you'll want to set up an integration on initialization. Integrations automatically implement [provider](#providers) interfaces to enable a more streamlined developer experience by making it easier to **manage user identity** and **track exposures events**.
 
-???amplitude "Amplitude Integration"
+!!!amplitude "Amplitude Integration"
 
     The Amplitude Experiment SDK is set up to integrate seamlessly with the Amplitude Analytics SDK. All you need to do is update your SDK versions to the latest, and use the special integration initialization function.
 
