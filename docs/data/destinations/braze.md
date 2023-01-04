@@ -1,15 +1,15 @@
 ---
 title: Braze Event Streaming
-description: Amplitude Data's Braze integration lets you stream your Amplitude event data straight to Braze with just a few clicks.
+description: Amplitude Data's Braze integration lets you stream your Amplitude event and user data straight to Braze with just a few clicks.
 ---
 
 --8<-- "includes/open-beta.md"
 
-Amplitude Data's Braze integration lets you stream your Amplitude event data straight to Braze with just a few clicks.
+Amplitude Data's Braze integration lets you stream your Amplitude event and user data straight to Braze with just a few clicks.
 
 !!!note "Other Amplitude + Braze Integrations"
 
-    This integration streams Amplitude events to Braze. Amplitude offers other integrations with Braze:
+    This integration streams Amplitude events and users to Braze. Amplitude offers other integrations with Braze:
 
     - [Send Cohorts to Braze](/data/destinations/braze-cohort)
     - [Braze Event Import](/data/sources/braze)

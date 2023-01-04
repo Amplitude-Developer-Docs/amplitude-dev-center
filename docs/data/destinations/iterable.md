@@ -1,15 +1,15 @@
 ---
 title: Iterable Event Streaming
-description: Amplitude Data's Iterable integration lets you stream your Amplitude event data straight to Iterable with just a few clicks.
+description: Amplitude Data's Iterable integration lets you stream your Amplitude event and user data straight to Iterable with just a few clicks.
 ---
 
 --8<-- "includes/open-beta.md"
 
-Amplitude Data's Iterable integration lets you stream your Amplitude event data straight to Iterable with just a few clicks.
+Amplitude Data's Iterable integration lets you stream your Amplitude event and user data straight to Iterable with just a few clicks.
 
 !!!note "Other Amplitude + Iterable integrations"
 
-    This integration streams Amplitude events to Iterable. Amplitude offers other integrations with Iterable:
+    This integration streams Amplitude events and users to Iterable. Amplitude offers other integrations with Iterable:
 
     - [Send Amplitude Cohorts to Iterable](/data/destinations/iterable-cohort)
     - [Import Iterable Data](/data/sources/iterable)
@@ -36,7 +36,7 @@ To configure an Event Streaming integration from Amplitude to Iterable, you need
 
 After you create the destination, you must configure the settings.
 
-### Configure settings
+#### Configure settings
 
 1. On the **Settings** tab, click **Edit**.
 2. Enter your **API Key**.

@@ -1,15 +1,17 @@
 ---
 title: Customer.io Event Streaming
-description: Amplitude Data's Customer.io integration lets you stream your Amplitude event data straight to Customer.io with just a few clicks.
+description: Amplitude Data's Customer.io integration lets you stream your Amplitude event and user data straight to Customer.io with just a few clicks.
 ---
 
 --8<-- "includes/open-beta.md"
 
-Amplitude Data's Customer.io integration lets you stream your Amplitude event data straight to Customer.io with just a few clicks.
+Amplitude Data's Customer.io integration lets you stream your Amplitude event and user data straight to Customer.io with just a few clicks.
 
-!!!note "Send Amplitude cohorts to Customer.io"
+!!!note "Other Amplitude + Customer.io integrations"
 
-    This integration sends Amplitude events to Customer.io. There is a separate integration to send cohorts. See [Send cohorts to Customer.io](customerio-cohort.md) for information.
+    This integration streams Amplitude events and users to Customer.io. Amplitude offers one other integration with Customer.io:
+
+    - [Send cohorts to Customer.io](/data/destinations/customerio-cohort)
 
 ## Considerations
 
