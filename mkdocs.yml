@@ -432,6 +432,7 @@ nav:
         - Releases: analytics/apis/releases-api.md
         - SCIM: analytics/apis/scim-api.md
         - Taxonomy: analytics/apis/taxonomy-api.md
+        - User Mapping (Aliasing): analytics/apis/aliasing-api.md
         - User Privacy: analytics/apis/user-privacy-api.md
         - User Profile: analytics/apis/user-profile-api.md
 - SDKs: 
