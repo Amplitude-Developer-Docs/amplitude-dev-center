@@ -50,10 +50,9 @@ To install Ampli locally, run `npm install @amplitude/ampli -D`.
 
 ### Step 4: Run Ampli in CI
 
-To integrate Ampli with your CI system, change your CI configuration to run [`ampli status`](cli.md#ampli-status) as part of the build process. Amplitude has made it easy by creating [Docker Containers](https://hub.docker.com/u/amplitudeinc) that you can use which include dependencies. Some runtimes have their own containers:
+To integrate Ampli with your CI system, change your CI configuration to run [`ampli status`](cli.md#ampli-status) as part of the build process. Amplitude has made it easy by creating [Docker Containers](https://hub.docker.com/u/amplitudeinc) that you can use which include dependencies. .NET runtimes have their own container:
 
 - `amplitudeinc/ampli`
-- `amplitudeinc/ampli-swift`
 - `amplitudeinc/ampli-dotnet`
 - `amplitudeinc/ampli-all` (for convenience this contains everything but is larger in size)
 
@@ -61,41 +60,14 @@ The following examples are for Bitbucket Pipelines but you can use the same imag
 
 === "ampli"
 
-    The [ampli image](https://hub.docker.com/r/amplitudeinc/ampli) can be used to verify the following SDK runtimes.
-
-    - android-java
-    - android-kotlin
-    - browser-javascript
-    - browser-typescript
-    - ios-objc
-    - jre-java
-    - node-javascript
-    - node-typescript
-    - python (2 & 3)
-    - ruby
+    The [ampli image](https://hub.docker.com/r/amplitudeinc/ampli) can be used to verify any SDK runtime except .NET.
 
     ```yaml
     # bitbucket-pipelines.yml
-    # Runtimes:
-    # android-java, android-kotlin, browser-javascript, browser-javascript,
-    # ios-objc, jre-java, node-javascript, node-typescript, python, ruby
+    # Runtimes: except .NET C#
     - step:
         name: Run 'ampli status' in CI
         image: amplitudeinc/ampli
-        script:
-          - ampli status [-u] -t $ITLY_KEY
-    ```
-
-=== "Swift"
-
-    The [ampli-swift image](https://hub.docker.com/r/amplitudeinc/ampli-swift) can be used to verify Swift runtimes.
-
-    ```yaml
-    # bitbucket-pipelines.yml
-    # Runtimes: Swift
-    - step:
-        name: Run 'ampli status' in CI
-        image: amplitudeinc/ampli-swift
         script:
           - ampli status [-u] -t $ITLY_KEY
     ```
@@ -110,21 +82,6 @@ The following examples are for Bitbucket Pipelines but you can use the same imag
     - step:
         name: Run 'ampli status' in CI
         image: amplitudeinc/ampli-dotnet
-        script:
-          - ampli status [-u] -t $ITLY_KEY
-    ```
-
-    </TabItem>
-    <TabItem value="ruby">
-
-    The ampli-ruby image can be used to verify Ruby.
-
-    ```yaml
-    # bitbucket-pipelines.yml
-    # Runtimes: Ruby
-    - step:
-        name: Run 'ampli status' in CI
-        image: amplitudeinc/ampli-ruby
         script:
           - ampli status [-u] -t $ITLY_KEY
     ```
