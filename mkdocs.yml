@@ -160,10 +160,11 @@ nav:
       - Use AMP with Amplitude: analytics/use-amp-pages.md
   - Data:
     - data/index.md
-    - Overview: data/index.md
+    - Overview: data/index.md  
     - Getting Started: "getting-started.md"
     - Sources:
       - Overview: data/sources.md
+      - Client-side vs Server-side: data/sources/client-side-vs-server-side.md
       - Ampli:
         - data/ampli/index.md
         - data/ampli/cli.md
