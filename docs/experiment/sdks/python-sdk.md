@@ -1,5 +1,5 @@
 ---
-title: Experiment Python SDK (Beta)
+title: Experiment Python SDK
 description: Official documentation for Amplitude Experiment's server-side Python SDK implementation.
 icon: simple/python
 ---
