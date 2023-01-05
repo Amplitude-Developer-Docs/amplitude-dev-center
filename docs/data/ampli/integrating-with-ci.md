@@ -14,7 +14,7 @@ After you've added Amplitude Data to your CI environment, Amplitude Data verifie
 
 ### Step 1: Create an API token
 
-Create an [API token](https://data.amplitude.com/settings/api-tokens) in your account. Ampli uses this token for authentication when running inside CI to update your tracking plan's implementation status.
+Create an API token in [your account](https://data.amplitude.com/) (page `Settings`/`API Tokens`). Ampli uses this token for authentication when running inside CI to update your tracking plan's implementation status.
 
 !!!warning
 
