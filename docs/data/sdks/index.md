@@ -5,14 +5,13 @@ description: Use Amplitude SDKs to send event data from your apps into Amplitude
 
 Use Amplitude SDKs to send event data from your apps into Amplitude.
 
-## Data SDKs
+## Analytics SDKs
 
-### Data client-side SDKs
+### Analytics client-side SDKs
 
 --8<-- "includes/data-sources-sdks-client-side.md"
 
-### Data server-side SDKs
-
+### Analytics server-side SDKs
 
 --8<-- "includes/data-sources-sdks-server-side.md"
 
