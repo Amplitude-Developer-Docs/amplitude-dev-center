@@ -9,7 +9,7 @@ The tracking library exposes a function for every event in your team’s trackin
  code completion and compile-time checks.
 
 !!!info "Ampli Node Resources"
-    [:material-language-typescript: Ampli TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v2/AmpliApp) · [:material-nodejs: Ampli JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v2/AmpliApp) · [:material-page-next: Ampli NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v2/AmpliApp) · [:material-nodejs: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v2/AmpliApp) · [:material-page-next: NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Node](./ampli.md).
@@ -34,7 +34,7 @@ The tracking library exposes a function for every event in your team’s trackin
     ampli pull [--path ./ampli]
     ```
 
-    4. [Initialize the Ampli Wrapper](#)
+    4. [Initialize the Ampli Wrapper](#pull-the-sdk-into-your-project)
     ```js
     import { ampli } from './ampli';
 
@@ -51,7 +51,7 @@ The tracking library exposes a function for every event in your team’s trackin
     6. [Track events with strongly typed methods and classes](#track)
     ```js
     ampli.songPlayed('ampli-user-id', { songId: 'song-1' });
-    ampli.track('ampli-user-id',new SongPlayed({ songId: 'song-2' });
+    ampli.track('ampli-user-id', new SongPlayed({ songId: 'song-2' });
     ```
 
     7. [Verify implementation status with CLI](#verify-implementation-status)
@@ -63,7 +63,7 @@ The tracking library exposes a function for every event in your team’s trackin
 
 ### Install the Ampli CLI
 
-If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ### Install dependencies
 
