@@ -19,43 +19,42 @@ The tracking library exposes a function for every event in your team’s trackin
 !!!tip "Quick Start"
 
     0. [Prerequisite - Create a Tracking Plan in Amplitude Data](#)
-    1. [Install the Ampli CLI](#)
-    2. [Install the Amplitude SDK](#)
-    3. [Pull the Ampli Wrapper into your project](#)
-    4. [Initialize the Ampli Wrapper](#)
-    5. [Identify users](#)
-    6. [Track events](#)
-    7. [Verify implementation status](#)
-
+    1. [Install the Ampli CLI](#install-the-ampli-cli)
     ```bash
-    npm install -g @amplitude/ampli 
+    npm install -g @amplitude/ampli
     ```
 
+    2. [Install the Amplitude SDK](##install-dependencies)
     ```bash
     npm install @amplitude/analytics-node
     ```
 
+    3. [Pull the Ampli Wrapper into your project](#pull-the-sdk-into-your-project)
     ```bash
-    ampli pull
+    ampli pull [--path ./ampli]
     ```
 
+    4. [Initialize the Ampli Wrapper](#)
     ```js
-    // (3) Import the Ampli Wrapper
     import { ampli } from './ampli';
 
-    // (4) Initialize the Ampli Wrapper
     ampli.load({ environment: 'production' });
+    ```
 
-    // (5) Identify users, set user properties
+    5. [Identify users and set user properties](#identify)
+    ```js
     ampli.identify('user-id', {
         userProp: 'A trait associated with this user'
     });
+    ```
 
-    // (6) Track events with strongly typed methods and classes
+    6. [Track events with strongly typed methods and classes](#track)
+    ```js
     ampli.songPlayed('ampli-user-id', { songId: 'song-1' });
     ampli.track('ampli-user-id',new SongPlayed({ songId: 'song-2' });
     ```
 
+    7. [Verify implementation status with CLI](#verify-implementation-status)
     ```bash
     ampli status [--update]
     ```
