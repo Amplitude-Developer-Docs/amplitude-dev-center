@@ -16,6 +16,50 @@ The tracking library exposes a function for every event in your team’s trackin
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
+!!!tip "Quick Start"
+
+    0. [Prerequisite - Create a Tracking Plan in Amplitude Data](#)
+    1. [Install the Ampli CLI](#)
+    2. [Install the Amplitude SDK](#)
+    3. [Pull the Ampli Wrapper into your project](#)
+    4. [Initialize the Ampli Wrapper](#)
+    5. [Identify users](#)
+    6. [Track events](#)
+    7. [Verify implementation status](#)
+
+    ```bash
+    npm install -g @amplitude/ampli 
+    ```
+
+    ```bash
+    npm install @amplitude/analytics-node
+    ```
+
+    ```bash
+    ampli pull
+    ```
+
+    ```js
+    // (3) Import the Ampli Wrapper
+    import { ampli } from './ampli';
+
+    // (4) Initialize the Ampli Wrapper
+    ampli.load({ environment: 'production' });
+
+    // (5) Identify users, set user properties
+    ampli.identify('user-id', {
+        userProp: 'A trait associated with this user'
+    });
+
+    // (6) Track events with strongly typed methods and classes
+    ampli.songPlayed('ampli-user-id', { songId: 'song-1' });
+    ampli.track('ampli-user-id',new SongPlayed({ songId: 'song-2' });
+    ```
+
+    ```bash
+    ampli status [--update]
+    ```
+
 ## Installation
 
 ### Install the Ampli CLI
