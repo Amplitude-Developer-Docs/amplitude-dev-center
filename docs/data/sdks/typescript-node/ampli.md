@@ -20,7 +20,7 @@ The tracking library exposes a function for every event in your team’s trackin
 
     0. [Prerequisite - Create a Tracking Plan in Amplitude Data](#)
 
-    1. [Install the Amplitude SDK](##install-dependencies)
+    1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
     ```bash
     npm install @amplitude/analytics-node
     ```
@@ -30,7 +30,7 @@ The tracking library exposes a function for every event in your team’s trackin
     npm install -g @amplitude/ampli
     ```
 
-    3. [Pull the Ampli Wrapper into your project](#pull-the-sdk-into-your-project)
+    3. [Pull the Ampli Wrapper into your project](#pull-the-ampli-wrapper-into-your-project)
     ```bash
     ampli pull [--path ./ampli]
     ```
@@ -62,7 +62,7 @@ The tracking library exposes a function for every event in your team’s trackin
 
 ## Installation
 
-### Install dependencies
+### Install the Amplitude SDK
 
 The Ampli Wrapper depends on the Amplitude SDK. If you haven't already, install the latest version.
 
@@ -82,7 +82,7 @@ The Ampli Wrapper depends on the Amplitude SDK. If you haven't already, install 
 
 --8<-- "includes/ampli/cli-install-simple.md"
 
-### Pull the SDK into your project
+### Pull the Ampli Wrapper into your project
 
 At the project root, run `pull` command.
 
@@ -126,7 +126,7 @@ This prompts you to log in to your workspace and select a source.
       ↳ Path: ./src/ampli
     ```
 
-## API
+## Ampli Wrapper API
 
 ### Load
 
@@ -425,7 +425,9 @@ Add your plugin after init Ampli.
     ampli.client.add(new AddEventIdPlugin())
     ```
 
-## Verify implementation status
+## Ampli CLI
+
+### Verify implementation status
 
 Verify that events are implemented in your code with the status command:
 
