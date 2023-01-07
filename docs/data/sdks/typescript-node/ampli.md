@@ -19,14 +19,15 @@ The tracking library exposes a function for every event in your team’s trackin
 !!!tip "Quick Start"
 
     0. [Prerequisite - Create a Tracking Plan in Amplitude Data](#)
-    1. [Install the Ampli CLI](#install-the-ampli-cli)
-    ```bash
-    npm install -g @amplitude/ampli
-    ```
 
-    2. [Install the Amplitude SDK](##install-dependencies)
+    1. [Install the Amplitude SDK](##install-dependencies)
     ```bash
     npm install @amplitude/analytics-node
+    ```
+
+    2. [Install the Ampli CLI](#install-the-ampli-cli)
+    ```bash
+    npm install -g @amplitude/ampli
     ```
 
     3. [Pull the Ampli Wrapper into your project](#pull-the-sdk-into-your-project)
@@ -61,13 +62,9 @@ The tracking library exposes a function for every event in your team’s trackin
 
 ## Installation
 
-### Install the Ampli CLI
-
---8<-- "includes/ampli/cli-install-simple.md"
-
 ### Install dependencies
 
-If you haven't already, install the core Amplitude SDK dependencies.
+The Ampli Wrapper depends on the Amplitude SDK. If you haven't already, install the latest version.
 
 === "npm"
 
@@ -80,6 +77,10 @@ If you haven't already, install the core Amplitude SDK dependencies.
     ```bash
     yarn add @amplitude/analytics-node
     ```
+
+### Install the Ampli CLI
+
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ### Pull the SDK into your project
 
@@ -94,33 +95,35 @@ This prompts you to log in to your workspace and select a source.
 === "TypeScript"
 
     ```text
-    ➜ ampli pull sourcename
+    ➜ ampli pull
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Node.js/TypeScript
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/ampli
+    ? Organization: Amplitude
+    ? Workspace: My Workspace
+    ? Source: My Node Source
+    ? Platform: Node.js
+    ? Language: TypeScript
+    ? Branch: main
+    ✔ Pulling latest version (1.0.0)...
+    ✔ Tracking library generated successfully.
+      ↳ Path: ./src/ampli
     ```
 
 === "JavaScript"
 
     ```text
-    ➜ ampli pull sourcename
+    ➜ ampli pull
     Ampli project is not initialized. No existing `ampli.json` configuration found.
     ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Node.js/JavaScript
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/ampli
+    ? Organization: Amplitude
+    ? Workspace: My Workspace
+    ? Source: My Node Source
+    ? Platform: Node.js
+    ? Language: JavaScript
+    ? Branch: main
+    ✔ Pulling latest version (1.0.0)...
+    ✔ Tracking library generated successfully.
+      ↳ Path: ./src/ampli
     ```
 
 ## API
