@@ -28,7 +28,13 @@ For detailed instructions, see the documentation for the source you want to add.
 
 <!-- This content is used in several places. Make changes to includes/data-sources-sdks.md -->
 
---8<-- "includes/data-sources-sdks.md"
+#### Client-side
+
+--8<-- "includes/data-sources-sdks-client-side.md"
+
+#### Server-side
+
+--8<-- "includes/data-sources-sdks-server-side.md"
 
 ### Cloud storage
 
