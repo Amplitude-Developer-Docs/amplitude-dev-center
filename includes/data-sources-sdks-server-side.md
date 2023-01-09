@@ -5,7 +5,6 @@
 - :java: [Java](../../data/sdks/java/)
 - :node: [Node.js](../../data/sdks/typescript-node/)
 - :python: [Python](../../data/sdks/python/)
-- :react: [React Native](../../data/sdks/typescript-react-native/)
 - :go: [Go (Beta)](../../data/sdks/go/index)
 
 </div>
