@@ -3,10 +3,16 @@ title: Node Ampli Wrapper
 description: The Ampli Wrapper - Node Typescript Installation & Quick Start guide.
 ---
 
-Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
+# Node Ampli Wrapper
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for
- code completion and compile-time checks.
+## Overview
+The Ampli Wrapper is a generated, strongly typed API for tracking Analytics events based on your Tracking Plan in Amplitude Data.
+
+Ampli can benefit your app by providing autocompletion for events & properties defined in Data and enforce your event schemas in code to prevent bad instrumentation.
+
+The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+
+Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
 !!!info "Ampli Node Resources"
     [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v2/AmpliApp) · [:material-nodejs: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v2/AmpliApp) · [:material-page-next: NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
@@ -18,7 +24,9 @@ The tracking library exposes a function for every event in your team’s trackin
 
 !!!tip "Quick Start"
 
-    0. [Prerequisite - Create a Tracking Plan in Amplitude Data](#)
+    0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+    
+        Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
     1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
     ```bash
@@ -84,47 +92,11 @@ The Ampli Wrapper depends on the Amplitude SDK. If you haven't already, install 
 
 ### Pull the Ampli Wrapper into your project
 
-At the project root, run `pull` command.
+Run the Ampli CLI `pull` command to log in to Amplitude Data and download the strongly typed Ampli Wrapper for your tracking plan. Ampli CLI commands are usually run from the project root directory.
 
 ```bash
 ampli pull
 ```
-
-This prompts you to log in to your workspace and select a source.
-
-=== "TypeScript"
-
-    ```text
-    ➜ ampli pull
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    ? Organization: Amplitude
-    ? Workspace: My Workspace
-    ? Source: My Node Source
-    ? Platform: Node.js
-    ? Language: TypeScript
-    ? Branch: main
-    ✔ Pulling latest version (1.0.0)...
-    ✔ Tracking library generated successfully.
-      ↳ Path: ./src/ampli
-    ```
-
-=== "JavaScript"
-
-    ```text
-    ➜ ampli pull
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    ? Organization: Amplitude
-    ? Workspace: My Workspace
-    ? Source: My Node Source
-    ? Platform: Node.js
-    ? Language: JavaScript
-    ? Branch: main
-    ✔ Pulling latest version (1.0.0)...
-    ✔ Tracking library generated successfully.
-      ↳ Path: ./src/ampli
-    ```
 
 ## Ampli Wrapper API
 
@@ -427,7 +399,53 @@ Add your plugin after init Ampli.
 
 ## Ampli CLI
 
-### Verify implementation status
+### Pull
+
+The `pull` command downloads the Ampli Wrapper code to your project.
+
+Run the `pull` command from the project root.
+
+```bash
+ampli pull
+```
+
+You will be prompted to log in to your workspace and select a source.
+
+=== "TypeScript"
+
+    ```text
+    ➜ ampli pull
+    Ampli project is not initialized. No existing `ampli.json` configuration found.
+    ? Create a new Ampli project here? Yes
+    ? Organization: Amplitude
+    ? Workspace: My Workspace
+    ? Source: My Node Source
+    ? Platform: Node.js
+    ? Language: TypeScript
+    ? Branch: main
+    ✔ Pulling latest version (1.0.0)...
+    ✔ Tracking library generated successfully.
+      ↳ Path: ./src/ampli
+    ```
+
+=== "JavaScript"
+
+    ```text
+    ➜ ampli pull
+    Ampli project is not initialized. No existing `ampli.json` configuration found.
+    ? Create a new Ampli project here? Yes
+    ? Organization: Amplitude
+    ? Workspace: My Workspace
+    ? Source: My Node Source
+    ? Platform: Node.js
+    ? Language: JavaScript
+    ? Branch: main
+    ✔ Pulling latest version (1.0.0)...
+    ✔ Tracking library generated successfully.
+      ↳ Path: ./src/ampli
+    ```
+
+### Status
 
 Verify that events are implemented in your code with the status command:
 
@@ -452,6 +470,8 @@ Events Tracked: 1 missed, 2 total
 ```
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
+
+# Migration
 
 ## Migrate from Ampli (Legacy) for the `@amplitude/node` runtime
 
