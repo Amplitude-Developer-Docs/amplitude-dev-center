@@ -56,6 +56,10 @@
 
     {
     "pattern": "/../data/sdks/ios/#advertiser-id"
+    },
+
+    {
+    "pattern": "https://data.amplitude.com/"
     }
 
 	],
