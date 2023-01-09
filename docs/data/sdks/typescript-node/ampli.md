@@ -26,44 +26,51 @@ Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScrip
     Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
-```bash
-npm install @amplitude/analytics-node
-```
+
+    ```bash
+    npm install @amplitude/analytics-node
+    ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)
-```bash
-npm install -g @amplitude/ampli
-```
+
+    ```bash
+    npm install -g @amplitude/ampli
+    ```
 
 3. [Pull the Ampli Wrapper into your project](#pull)
-```bash
-ampli pull [--path ./ampli]
-```
+
+    ```bash
+    ampli pull [--path ./ampli]
+    ```
 
 4. [Initialize the Ampli Wrapper](#load)
-```js
-import { ampli } from './ampli';
 
-ampli.load({ environment: 'production' });
-```
+    ```js
+    import { ampli } from './ampli';
+    
+    ampli.load({ environment: 'production' });
+    ```
 
 5. [Identify users and set user properties](#identify)
-```js
-ampli.identify('user-id', {
-    userProp: 'A trait associated with this user'
-});
-```
+
+    ```js
+    ampli.identify('user-id', {
+        userProp: 'A trait associated with this user'
+    });
+    ```
 
 6. [Track events with strongly typed methods and classes](#track)
-```js
-ampli.songPlayed('ampli-user-id', { songId: 'song-1' });
-ampli.track('ampli-user-id', new SongPlayed({ songId: 'song-2' });
-```
+
+    ```js
+    ampli.songPlayed('ampli-user-id', { songId: 'song-1' });
+    ampli.track('ampli-user-id', new SongPlayed({ songId: 'song-2' });
+    ```
 
 7. [Verify implementation status with CLI](#status)
-```bash
-ampli status [--update]
-```
+
+    ```bash
+    ampli status [--update]
+    ```
 
 ## Installation
 
