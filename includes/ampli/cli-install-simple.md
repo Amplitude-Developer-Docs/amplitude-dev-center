@@ -1,4 +1,4 @@
-You can install the [Ampli CLI](../../ampli/cli.md) from Homebrew or NPM.
+You can install the [Ampli CLI](https://www.docs.developers.amplitude.com/data/ampli/cli/) from Homebrew or NPM.
 
 === "brew"
 
