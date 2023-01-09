@@ -1,6 +1,7 @@
 ---
 title: Client-side vs Server-side Sources
 description: Learn the difference between Amplitude's client-side and server-side sources.
+status: new
 ---
 
 Client-side and server-side are terms that describe where an app's code runs: either on the user's device (client-side), or on a server (server-side). Amplitude has several types of sources to cover each of your needs. This doc primarily describes the differences between client-side and server-side sources, and gives a brief overview of third-party sources. 
