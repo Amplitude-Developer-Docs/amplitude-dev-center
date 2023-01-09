@@ -14,56 +14,56 @@ Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScrip
 !!!info "Ampli Node Resources"
     [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v2/AmpliApp) · [:material-nodejs: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v2/AmpliApp) · [:material-page-next: NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
---8<-- "includes/ampli-vs-amplitude.md"
-    Click here for more documentation on [Ampli for Node](./ampli.md).
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Node SDK](./index.md).
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
-!!!tip "Quick Start"
+## Quick Start
 
-    0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
-    
-        Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
-    1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
-    ```bash
-    npm install @amplitude/analytics-node
-    ```
+    Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
-    2. [Install the Ampli CLI](#install-the-ampli-cli)
-    ```bash
-    npm install -g @amplitude/ampli
-    ```
+1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
+```bash
+npm install @amplitude/analytics-node
+```
 
-    3. [Pull the Ampli Wrapper into your project](#pull)
-    ```bash
-    ampli pull [--path ./ampli]
-    ```
+2. [Install the Ampli CLI](#install-the-ampli-cli)
+```bash
+npm install -g @amplitude/ampli
+```
 
-    4. [Initialize the Ampli Wrapper](#load)
-    ```js
-    import { ampli } from './ampli';
+3. [Pull the Ampli Wrapper into your project](#pull)
+```bash
+ampli pull [--path ./ampli]
+```
 
-    ampli.load({ environment: 'production' });
-    ```
+4. [Initialize the Ampli Wrapper](#load)
+```js
+import { ampli } from './ampli';
 
-    5. [Identify users and set user properties](#identify)
-    ```js
-    ampli.identify('user-id', {
-        userProp: 'A trait associated with this user'
-    });
-    ```
+ampli.load({ environment: 'production' });
+```
 
-    6. [Track events with strongly typed methods and classes](#track)
-    ```js
-    ampli.songPlayed('ampli-user-id', { songId: 'song-1' });
-    ampli.track('ampli-user-id', new SongPlayed({ songId: 'song-2' });
-    ```
+5. [Identify users and set user properties](#identify)
+```js
+ampli.identify('user-id', {
+    userProp: 'A trait associated with this user'
+});
+```
 
-    7. [Verify implementation status with CLI](#status)
-    ```bash
-    ampli status [--update]
-    ```
+6. [Track events with strongly typed methods and classes](#track)
+```js
+ampli.songPlayed('ampli-user-id', { songId: 'song-1' });
+ampli.track('ampli-user-id', new SongPlayed({ songId: 'song-2' });
+```
+
+7. [Verify implementation status with CLI](#status)
+```bash
+ampli status [--update]
+```
 
 ## Installation
 
