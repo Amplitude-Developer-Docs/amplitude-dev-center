@@ -471,9 +471,9 @@ Events Tracked: 1 missed, 2 total
 
 Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
 
-# Migration
+## Migration
 
-## Migrate from Ampli (Legacy) for the `@amplitude/node` runtime
+### Migrate from Ampli (Legacy) for the `@amplitude/node` runtime
 
 Migrate from Ampli for `@amplitude/node` to Ampli for `@amplitude/analytics-node` by following these steps.
 
