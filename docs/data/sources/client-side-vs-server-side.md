@@ -14,7 +14,7 @@ Amplitude's client-side sources include these SDKs:
 - Web: Browser, Marketing Analytics Browser, React Native
 - Mobile: Android, iOS, Unity Plugin, Flutter, React Native
   
-See the [Data client-side SDKs](/data/sdks/#data-client-side-sdks) and the [Experiment client-side SDKs](/data/sdks/#experiment-client-side-sdks)
+See the [Analytics client-side SDKs](/data/sdks/#data-client-side-sdks) and the [Experiment client-side SDKs](/data/sdks/#experiment-client-side-sdks)
 
 ## Server-side sources
 
@@ -29,7 +29,7 @@ Amplitude's server-side sources include these SDKs and APIs:
 - HTTP V2 API 
 - Batch Event Upload API
 
-See the [Data server-side SDKs](/data/sdks/#data-server-side-sdks) and the [Experiment server-side SDKs](/data/sdks/#experiment-server-side-sdks)
+See the [Analytics server-side SDKs](/data/sdks/#data-server-side-sdks) and the [Experiment server-side SDKs](/data/sdks/#experiment-server-side-sdks)
 
 ## Third-party sources
 
