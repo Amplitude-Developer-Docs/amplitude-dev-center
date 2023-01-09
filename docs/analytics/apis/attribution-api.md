@@ -5,7 +5,7 @@ description: The Attribution API lets you send attribution campaign events to Am
 
 The Attribution API is for sending attribution campaign events (identified by `idfa`, `idfv`, or `adid`) that contain attribution information.
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-api-key-query-param.md"
 
@@ -38,27 +38,8 @@ Send a POST request to https://api2.amplitude.com/attribution with two arguments
 |`api_key`| <span class="required">Required</span>. The project's API key. | `{{api_key}}`|
 |`event`| <span class="required">Required</span>. A request parameter representing the event, in JSON format.| `{"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}`|
 <!-- vale on-->
-!!! example "Attribution Examples"
 
-    === "iOS Attribution"
-
-        ``` bash
-        POST /attribution HTTP/1.1
-        Host: api.amplitude.com
-        Content-Length: 365
-
-        api_key={{api_key}}&event=%7B%22event_type%22%3A%22%5BYOUR%20COMPANY%5D%20Install%22%2C%20%22idfa%22%3A%20%22AEBE52E7-03EE-455A-B3C4-E57283966239%22%2C%20%22user_properties%22%3A%20%7B%22%5BYOUR%20COMPANY%5D%20media%20source%22%3A%20%22facebook%22%2C%20%22%5BYOUR%20COMPANY%5D%20campaign%22%3A%20%22refer-a-friend%22%7D%2C%20%22platform%22%3A%20%22ios%22%7D
-        ```
-
-    === "Android Attribution"
-
-        ```bash
-
-        POST /attribution?api_key={{api_key}}&event={"event_type":"[YOUR COMPANY] Install","adid": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "android"} HTTP/1.1
-        Host: api2.amplitude.com
-        ```
-
-#### Event argument keys
+### Event argument keys
 
 These keys are available for the Event argument.
 
@@ -71,6 +52,48 @@ These keys are available for the Event argument.
 | `android_id`       | <span class="optional">Optional</span>. String. (Android) The Android ID                                                                                           | AEBE52E7-03EE-455A-B3C4-E57283966239                     |
 | `user_properties`  | <span class="optional">Optional</span>. Dictionary. A dictionary of attribution properties prefixed with brackets `[YOUR COMPANY]`.                                | `{"[YOUR COMPANY] media source": "Facebook"}`            |
 | `time`             | <span class="optional">Optional</span>. Long. Timestamp of the event in milliseconds since epoch.                                                                  | 1396381378123. It's set to the upload time by default |
+
+### Example request
+
+???code-example "iOS Attribution (click to expand)"
+
+    This is an example attribution for iOS.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request POST 'https://api.amplitude.com/attribution' \
+        --data-urlencode 'api_key=123456789' \
+        --data-urlencode 'event={"event_type":"[YOUR COMPANY] Install", "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "ios"}'
+        ```
+    === "HTTP"
+
+        ``` bash
+        POST /attribution HTTP/1.1
+        Host: api.amplitude.com
+        Content-Length: 365
+
+        api_key={{api_key}}&event=%7B%22event_type%22%3A%22%5BYOUR%20COMPANY%5D%20Install%22%2C%20%22idfa%22%3A%20%22AEBE52E7-03EE-455A-B3C4-E57283966239%22%2C%20%22user_properties%22%3A%20%7B%22%5BYOUR%20COMPANY%5D%20media%20source%22%3A%20%22facebook%22%2C%20%22%5BYOUR%20COMPANY%5D%20campaign%22%3A%20%22refer-a-friend%22%7D%2C%20%22platform%22%3A%20%22ios%22%7D
+        ```
+
+???code-example "Android Attribution (click to expand)"
+
+     This is an example attribution for Android.
+
+    === "cURL"
+
+        ```bash
+        
+        curl --location -g --request POST 'https://api2.amplitude.com/attribution?api_key=123456789&event={"event_type":"[YOUR COMPANY] Install","adid": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "android"}'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        POST /attribution?api_key={{api_key}}&event={"event_type":"[YOUR COMPANY] Install","adid": "AEBE52E7-03EE-455A-B3C4-E57283966239", "user_properties": {"[YOUR COMPANY] media source": "facebook", "[YOUR COMPANY] campaign": "refer-a-friend"}, "platform": "android"} HTTP/1.1
+        Host: api2.amplitude.com
+        ```
 
 ## Responses
 
