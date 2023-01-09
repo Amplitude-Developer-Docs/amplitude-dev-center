@@ -8,7 +8,7 @@ This integration combines Amplitude with Marketo's tools for in-app messaging, p
 ## Considerations
 
 - Email values are case-sensitive. If you use email address to map users between Amplitude and Marketo, the email address must be consistent between both systems.
-- If a user on Amplitude does not already exist in Marketo, the option to create the user can be toggled on or off with the "Upsert Leads" toggle on the cohort sync screen.
+- Enable **Upsert Leads** on the cohort sync screen to create Amplitude users in Marketo if they don't already exist.
 
 ## Setup
 
