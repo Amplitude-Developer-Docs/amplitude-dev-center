@@ -34,3 +34,12 @@ See the [Analytics server-side SDKs](/data/sdks/#data-server-side-sdks) and the 
 ## Third-party sources
 
 Third-party is another kind of source. These sources let you import data from other platforms into Amplitude. These sources all require that you have an account with the third-party sources, and each have different setup requirements. You can see all third-party sources in the [Source catalog](/data/sources).
+
+## How to choose
+
+Choosing the kinds of sources you need to use can be daunting, so here's a basic guide to help you make a decision.
+
+- **Client-side**: Choose client-side sources for the simplest initial instrumentation.
+- **Server-side**: Choose server-side sources if you want track server-side events and leverage existing user data tracking workflows.
+- **Hybrid**: Choose a hybrid approach that includes both client-side and server-side sources to get the benefits of simpler implementation and ability to track server-side events. 
+- **Third party**: Choose these sources if you already have a third-party data layer such as ad networks or marketing automation tools.
