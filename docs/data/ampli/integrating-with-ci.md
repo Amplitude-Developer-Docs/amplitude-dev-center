@@ -22,7 +22,7 @@ Create an API token in [your account](https://data.amplitude.com/) (page `Settin
 
 ### Step 2: Configure a CI environment variable
 
-Create an environment variable in your CI service called `ITLY_KEY` and set it to the API token you created. Use this environment variable to pass the token to `ampli status` when it runs inside CI.
+Create an environment variable in your CI service called `AMPLI_TOKEN` and set it to the API token you created. Use this environment variable to pass the token to `ampli status` when it runs inside CI.
 
 For example, this is what the [Netlify](https://docs.netlify.com/configure-builds/environment-variables/) environment variables screen would look like.
 
@@ -38,7 +38,7 @@ Read the documentation for your CI service to get step-by-step instructions:
 
 ### Step 3: Prepare your project
 
-By now, you've run `ampli pull` and `ampli status` in your project's root folder. The folder contains an `ampli.json` file with metadata about the current state of the Itly SDK in your project. When you run `ampli status`, on your local machine or soon in CI, Ampli verifies your analytics against this file.
+By now, you've run `ampli pull` and `ampli status` in your project's root folder. The folder contains an `ampli.json` file with metadata about the current state of the Ampli Wrapper in your project. When you run `ampli status`, on your local machine or soon in CI, Ampli verifies your analytics against this file.
 
 For non-JavaScript and non-TypeScript projects, this is all the configuration that's needed.
 
@@ -50,40 +50,92 @@ To install Ampli locally, run `npm install @amplitude/ampli -D`.
 
 ### Step 4: Run Ampli in CI
 
-To integrate Ampli with your CI system, change your CI configuration to run [`ampli status`](cli.md#ampli-status) as part of the build process. Amplitude has made it easy by creating [Docker Containers](https://hub.docker.com/u/amplitudeinc) that you can use which include dependencies. .NET runtimes have their own container:
+To integrate Ampli with your CI system, change your CI configuration to run [`ampli status`](cli.md#ampli-status) as part of the build process. Amplitude has made it easy by creating [Docker Containers](https://hub.docker.com/u/amplitudeinc) which include all necessary dependencies for the Ampli CLI.
 
-- `amplitudeinc/ampli`
-- `amplitudeinc/ampli-dotnet`
-- `amplitudeinc/ampli-all` (for convenience this contains everything but is larger in size)
+#### Docker Containers
 
-The following examples are for Bitbucket Pipelines but you can use the same images in any CI system that supports containers.
+##### amplitudeinc/ampli
+
+The [ampli image](https://hub.docker.com/r/amplitudeinc/ampli) can be used to verify any Ampli SDK runtime except .NET.
+
+##### amplitudeinc/ampli-all
+
+The [ampli-all image](https://hub.docker.com/r/amplitudeinc/ampli-all) can be used to verify any Ampli SDK runtime, including .NET C#, but is larger in size.
+
+!!!info
+    The `amplitudeinc/ampli-dotnet` and `amplitudeinc/ampli-swift` containers are deprecated.
+    
+    Use latest version of `amplitudeinc/ampli-all` instead.
+
+#### Github Actions
+
+The Ampli CLI Docker containers can be used in your Github Actions workflows by setting the `container.image` value.
+
+Learn more about how to run Github Actions in containers in Github's documentation [here](https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container)
 
 === "ampli"
-
-    The [ampli image](https://hub.docker.com/r/amplitudeinc/ampli) can be used to verify any SDK runtime except .NET.
-
     ```yaml
-    # bitbucket-pipelines.yml
-    # Runtimes: except .NET C#
+    name: Ampli Implementation Check
+    on: pull_request
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        container:
+          image: amplitudeinc/ampli
+  
+          steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+        
+            - name: Verify analytics implementation and update status in Data
+              run: ampli status -t ${{secrets.AMPLI_TOKEN}} [--update]
+    ```
+
+=== "ampli-all"
+    ```yaml
+    name: Ampli Implementation Check
+    on: pull_request
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        container:
+            image: amplitudeinc/ampli-all
+    
+        steps:
+          - name: Checkout repo
+            uses: actions/checkout@v3
+      
+          - name: Verify analytics implementation and update status in Data
+            run: ampli status -t ${{secrets.AMPLI_TOKEN}} [--update]
+    ```
+
+#### Bitbucket Pipelines
+
+The Ampli CLI Docker containers can be used in your `bitbucket-pipelines.yml` by setting the `image` value.
+
+=== "ampli"
+    ```yaml
     - step:
         name: Run 'ampli status' in CI
         image: amplitudeinc/ampli
-        script:
-          - ampli status [-u] -t $ITLY_KEY
+          script:
+            - ampli status [-u] -t $AMPLI_TOKEN
     ```
 
-=== ".NET"
-
-    The [ampli-dotnet image](https://hub.docker.com/r/amplitudeinc/ampli-dotnet) can be used to verify .NET C#.
-
+=== "ampli-all"
     ```yaml
-    # bitbucket-pipelines.yml
-    # Runtimes: .NET C#
     - step:
         name: Run 'ampli status' in CI
-        image: amplitudeinc/ampli-dotnet
-        script:
-          - ampli status [-u] -t $ITLY_KEY
+        image: amplitudeinc/ampli-all
+          script:
+            - ampli status [-u] -t $AMPLI_TOKEN
     ```
+
+#### Other CI Systems
+
+The examples above are for Github and Bitbucket, but you can use the same images in any CI system that supports containers.
+
 
 You should now have Ampli running inside your CI system. Congratulations!
