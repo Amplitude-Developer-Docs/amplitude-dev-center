@@ -9,7 +9,7 @@ Amplitude's Lookup Table integration lets you import your own data and map it to
 
     This feature is in closed beta. Customers with an Enterprise plan or the Govern add-on can contact their Amplitude Customer Service Manager or Account Executive to get access.
 
-You can also create and manage lookup tables via an API. See [Lookup Table API](/../analytics/apis/lookup-tables-api) for more information.
+You can also create and manage lookup tables via an API. See [Lookup Table API](../analytics/apis/lookup-tables-api) for more information.
 
 ## Setup
 
