@@ -14,20 +14,20 @@ To migrate to `Amplitude-Swift`, update your dependencies and instrumentation.
 
 ## Dependency
 
-For CocoaPods installation, 
+For CocoaPods installation:
 === "Amplitude-iOS"
     Add dependency to Podfile.
     ```
-        pod 'Amplitude', '~> 8.8.0'
+    pod 'Amplitude', '~> 8.8.0'
     ```
 
 === "Amplitude-Swift"
     Add dependency to Podfile.
     ```
-        pod 'AmplitudeSwift', '~> 0.3.0'
+    pod 'AmplitudeSwift', '~> 0.3.0'
     ```
 
-For Swift Package Manager installation,
+For Swift Package Manager installation:
 
 === "Amplitude-iOS"
     Enter `https://github.com/amplitude/Amplitude-iOS` into the search bar.
@@ -35,9 +35,9 @@ For Swift Package Manager installation,
 === "Amplitude-Swift"
     Enter `https://github.com/amplitude/Amplitude-Swift` into the search bar.
 
-For Carthage installation,
+For Carthage installation:
 
-=== "Amplitude-iOS"\
+=== "Amplitude-iOS"
     Add the following line to your Cartfile.
 
     ```
@@ -68,7 +68,7 @@ Like all other calls, `instance()` has been removed. legacy iOS and new iOS SDKs
     Amplitude.instance().initializeApiKey("YOUR-API-KEY")
     ```
 
-=== "Amplitude_Swift"
+=== "Amplitude-Swift"
 
     ```swift
     import Amplitude_Swift
@@ -83,11 +83,10 @@ Like all other calls, `instance()` has been removed. legacy iOS and new iOS SDKs
 
 ### Configuration
 
-The new iOS SDK configuration comes in a different shape. The configurations are simpler and more consistent across runtimes. We support more configurations in the new iOS SDK.
+The configuration new iOS SDK  comes in a different shape. The configurations are simpler and more consistent across runtimes.
 
 |Amplitude-iOS|Amplitude-Swift|
 |-|-|
-
 |`amplitude.instanceWithName("YOUR-INSTANCE-NAME")`|`config.instanceName`|
 |`amplitude.useDynamicConfig`|NOT SUPPORTED.|
 |`amplitude.setServerUrl("YOUR-SERVER-URL")`|`config.serverUrl`|
@@ -95,18 +94,12 @@ The new iOS SDK configuration comes in a different shape. The configurations are
 |`amplitude.trackingOptions`|`config.useBatch`|
 |`amplitude.trackingSessionEvents`|`config.trackingSessionEvents`|
 |`amplitude.minTimeBetweenSessionsMillis`|`config.minTimeBetweenSessionsMillis`|
+|`amplitude.eventUploadMaxBatchSize`|`config.flushQueueSize`|
 |`amplitude.eventUploadThreshold`|`config.flushQueueSize`|
 |`amplitude.eventUploadPeriodSeconds`|`config.flushIntervalMillis`|
-|`amplitude.eventUploadMaxBatchSize`|``|
 |Set max retries count. NOT SUPPORTED.|`config.flushMaxRetries`|
 |`amplitude.eventMaxCount`|NOT SUPPORTED.|
 |`amplitude.optOut`|`config.optOut`|
-|`amplitude.setPlan(plan)`|`config.plan`|
-|`plan.setBranch("YOUR-BRANCH")`|`config.plan.branch`|
-|`plan.setSource("YOUR-SOURCE")`|`config.plan.source`|
-|`plan.setVersion("YOUR-VERSION")`|`config.plan.version`|
-|`plan.setVersionId("YOUR-VERSION-ID")`|`config.plan.versionId`|
-|`amplitude.setTrackingOptions(options)`|`config.trackingOptions`|
 |`amplitude.enableCoppaControl() or amplitude.disableCoppaControl()`|`config.enableCoppaControl`|
 |Customize storage provider. NOT SUPPORTED.|`config.storageProvider`|
 |Set up log level. NOT SUPPORTED.|`config.logLevel`|
@@ -116,16 +109,22 @@ The new iOS SDK configuration comes in a different shape. The configurations are
 |The event callback. NOT SUPPORTED. See middleware. |`config.callback`|
 |`amplitude.libraryName`|NOT SUPPORTED.|
 |`amplitude.libraryVersion`|NOT SUPPORTED.|
-|`amplitude.adSupportBlock`|NOT SUPPORTED.|
+|`amplitude.adSupportBlock`|NOT SUPPORTED. See Plugins.|
+|`amplitude.useAdvertisingIdForDeviceId`|NOT SUPPORTED. See Plugins.|
 |`amplitude.locationInfoBlock`|`amplitude.locationInfoBlock`|
 |`amplitude.deferCheckInForeground`|NOT SUPPORTED.|
-|`amplitude.useAdvertisingIdForDeviceId`|NOT SUPPORTED. See Plugins.|
-|`amplitude.setOffline("YES-OR-NO")`|NOT SUPPORT.|
+|`amplitude.setOffline(Yes)`|NOT SUPPORT.|
 |`amplitude.setContentTypeHeader("YOUR-CONTENT-TYPE-HEADER")`|NOT SUPPORT.| 
+|`amplitude.setPlan(plan)`|`config.plan`|
+|`plan.setBranch("YOUR-BRANCH")`|`config.plan.branch`|
+|`plan.setSource("YOUR-SOURCE")`|`config.plan.source`|
+|`plan.setVersion("YOUR-VERSION")`|`config.plan.version`|
+|`plan.setVersionId("YOUR-VERSION-ID")`|`config.plan.versionId`|
+|`amplitude.setTrackingOptions(options)`|`config.trackingOptions`|
 
 ### Tracking events
 
-The legacy iOS SDK offered a variety of `logEvent` APIs with `withEventProperties`, `withApiProperties`, `withUserProperties`, `withGroup`, `withGroupProperties`, `withTimestamp`, `outOfSession`, `withMiddlewareExtra` to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API.
+The legacy iOS SDK offered a variety of `logEvent` APIs with `withEventProperties`, `withApiProperties`, `withUserProperties`, `withGroup`, `withGroupProperties`, `withTimestamp`, `outOfSession`, to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API.
 
 #### `logEvent()`
 
@@ -323,10 +322,10 @@ The `setUserProperties` API has been removed, but you can now use the unified `i
 === "Amplitude-iOS"
 
     ```swift
-      Amplitude.instance().setUserProperties([
-        "membership": "paid",
-        "payment": "bank",
-      ])
+    Amplitude.instance().setUserProperties([
+      "membership": "paid",
+      "payment": "bank",
+    ])
     ```
 
 === "Amplitude-Swift"
@@ -475,7 +474,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 #### Callback
 
-`Amplitude-Swft` supports configuration level and event level callback functions which are called for event upload success and error. Configuration level callback applies for each success and error upload. Event level callback is specific for one Event. Notice that the event level callbacks are stored in cache. It will be loss when the app crash.
+`Amplitude-Swft` supports configuration level and event level callback functions which will be called for success and error upload. Configuration level callback applies for every success and error event upload. Event level callback is specific for one Event. Notice that the event level callbacks are stored in cache. It will be loss when the app crash.
 
 === "Amplitude-Swift"
 
