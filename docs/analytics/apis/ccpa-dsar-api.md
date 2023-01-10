@@ -275,14 +275,42 @@ Poll the data request job to get its status.
 
 Download a returned output file.
 
-The download link is valid for two days. Most clients used to send API requests automatically download the data from the S3 link.
- If your API client doesn't automatically download the file from the link, access it manually using your org API key as the username and your org secret key as the password.
+The download link is valid for two days. Most clients used to send API requests automatically download the data from the S3 link. If your API client doesn't automatically download the file from the link, access it manually using your org API key as the username and your org secret key as the password.
 
-```bash
-GET /api/2/dsar/requests/request_id/outputs/:output_id HTTP/1.1
-Host: analytics.amplitude.com
-Authorization: Basic {{org-api-key}}:{{org-secret_key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://analytics.amplitude.com/api/2/dsar/requests/:request_id/outputs/:output_id' \
+    --header 'Authorization: Basic {{org-api-key}}:{{org-secret_key}}' # credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/dsar/requests/request_id/outputs/:output_id HTTP/1.1
+    Host: analytics.amplitude.com
+    Authorization: Basic {{org-api-key}}:{{org-secret_key}} # credentials must be base64 encoded
+    ```
+
+???code-example "Example: Get output for a specific request ID (click to expand)"
+
+    This example gets output with ID `0` for request 53367.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://analytics.amplitude.com/api/2/dsar/requests/53367/outputs/0' \
+        --header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo'
+        ```
+
+    === "HTTP"
+
+        ```bash
+        GET /api/2/dsar/requests/53367/outputs/0 HTTP/1.1
+        Host: amplitude.com
+        Accept: application/json
+        Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo
+        ```
 
 ### Path variables
 
