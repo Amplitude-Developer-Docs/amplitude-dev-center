@@ -14,7 +14,7 @@ After you've added Amplitude Data to your CI environment, Amplitude Data verifie
 
 ### Step 1: Create an API token
 
-Create an API token in [your account](https://data.amplitude.com/) (page `Settings`/`API Tokens`). Ampli uses this token for authentication when running inside CI to update your tracking plan's implementation status.
+Create an API token for [your Amplitude Data account](https://data.amplitude.com/) by going to `Settings` => `API Tokens`. Ampli uses this token for authentication when running inside CI to update your tracking plan's implementation status.
 
 !!!warning
 
@@ -26,7 +26,7 @@ Create an environment variable in your CI service called `AMPLI_TOKEN` and set i
 
 For example, this is what the [Netlify](https://docs.netlify.com/configure-builds/environment-variables/) environment variables screen would look like.
 
-![screen shot of the ITLY_KEY variable in Netlify](../../assets/images/data-netlify-environment-variables.png)
+![screen shot of the AMPLI_TOKEN variable in Netlify](../../assets/images/data-netlify-environment-variables.png)
 
 Read the documentation for your CI service to get step-by-step instructions:
 
