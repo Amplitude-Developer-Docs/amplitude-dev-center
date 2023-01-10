@@ -48,7 +48,7 @@ For Carthage installation:
     Add the following line to your Cartfile.
 
     ```
-    github "amplitude/Amplitude-Swift" ~> 8.8.0
+    github "amplitude/Amplitude-Swift" ~> 0.3.0
     ```
 
 ## Instrumentation
