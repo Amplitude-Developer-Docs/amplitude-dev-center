@@ -6,7 +6,7 @@ description: The California Consumer Privacy Act (CCPA) requires our customers t
 The California Consumer Privacy Act (CCPA) requires businesses to provide all data about an end user upon request.
  This Data Subject Access Request (DSAR) API makes it easy to retrieve all data about a user.
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-basic-org-key.md"
 
@@ -61,7 +61,7 @@ If you need to get data for 40 users per hour, you can spend `14400 / 40 = 360` 
 
 ### Example client implementation
 
-```python
+```python title="Python implementation"
 
 base_url = 'https://amplitude.com/api/2/dsar/requests'
 payload = {
@@ -92,18 +92,103 @@ for url in response.get('urls'):
 
 Create a request for user data.
 
-```bash
-POST /api/2/dsar/requests HTTP/1.1
-Host: amplitude.com
-Accept: application/json
-Content-Type: application/json
-Authorization: Basic {{org-api-key}}:{{org-secret_key}}
-{
-    "userId": 12345,
-    "startDate": "2020-04-24",
-    "endDate": "2022-02-20"
-}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request POST 'https://amplitude.com/api/2/dsar/requests' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Basic {{org-api-key}}:{{org-secret_key}}' # credentials must be base64 encoded \
+    --data-raw '{
+        "userId": 12345,
+        "startDate": "2020-04-24",
+        "endDate": "2022-02-20"
+    }'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    POST /api/2/dsar/requests HTTP/1.1
+    Host: amplitude.com
+    Accept: application/json
+    Content-Type: application/json
+    Authorization: Basic {{org-api-key}}:{{org-secret_key}} # credentials must be base64 encoded
+    {
+        "userId": 12345,
+        "startDate": "2020-04-24",
+        "endDate": "2022-02-20"
+    }
+    ```
+
+???example "More example requests (click to expand)"
+    ???code-example "Create request by user ID"
+
+        This example creates a request by user ID 12345, between the dates of April 24, 2020 and February 20, 2022.
+
+        === "cURL"
+
+            ```bash
+            curl --location --request POST 'https://amplitude.com/api/2/dsar/requests' \
+            --header 'Accept: application/json' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo' \
+            --data-raw '{
+                "userId": 12345,
+                "startDate": "2020-04-24",
+                "endDate": "2022-02-20"
+            }'
+            ```
+        === "HTTP"
+
+            ```bash
+            POST /api/2/dsar/requests HTTP/1.1
+            Host: amplitude.com
+            Accept: application/json
+            Content-Type: application/json
+            Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo
+            Content-Length: 83
+
+            {
+                "userId": 12345,
+                "startDate": "2020-04-24",
+                "endDate": "2022-02-20"
+            }
+            ```    
+    
+    ???code-example "Create request by Amplitude ID"
+
+        This example creates a request by Amplitude ID 90102919293, between the dates of April 24, 2020 and February 20, 2022.
+
+        === "cURL"
+
+            ```bash
+            curl --location --request POST 'https://amplitude.com/api/2/dsar/requests' \
+            --header 'Accept: application/json' \
+            --header 'Content-Type: application/json' \
+            --header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo' \
+            --data-raw '{
+                "amplitudeId": 90102919293,
+                "startDate": "2020-04-24",
+                "endDate": "2022-02-20"
+            }'
+            ```
+        === "HTTP"
+
+            ```bash
+            POST /api/2/dsar/requests HTTP/1.1
+            Host: amplitude.com
+            Accept: application/json
+            Content-Type: application/json
+            Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo
+            Content-Length: 83
+
+            {
+                "amplitudeId": 90102919293,
+                "startDate": "2020-04-24",
+                "endDate": "2022-02-20"
+            }
+            ```
 
 ### Body parameter
 
@@ -126,14 +211,45 @@ When successful, the call returns a `202 Accepted` response and `requestID`. Use
 
 ## Get data request status
 
-Poll the data request job to get its status.
+Poll the data request job to get its status. 
 
-```bash
-GET /api/2/dsar/requests/53369 HTTP/1.1
-Host: amplitude.com
-Accept: application/json
-Authorization: Basic {{org-api-key}}:{{org-secret_key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/dsar/requests/requestID' \
+    --header 'Accept: application/json' \
+    --header 'Authorization: Basic {{org-api-key}}:{{org-secret_key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/dsar/requests/requestID HTTP/1.1
+    Host: amplitude.com
+    Accept: application/json
+    Authorization: Basic {{org-api-key}}:{{org-secret_key}} #credentials must be base64 encoded
+    ```
+
+???code-example "Example: Poll a specific request (click to expand)"
+
+    This example polls request 53367.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://amplitude.com/api/2/dsar/requests/53367' \
+        --header 'Accept: application/json' \
+        --header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo'
+        ```
+
+    === "HTTP"
+
+        ```bash
+        GET /api/2/dsar/requests/53367 HTTP/1.1
+        Host: amplitude.com
+        Accept: application/json
+        Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo
+        ```
 
 ### Path variables
 
@@ -159,14 +275,42 @@ Authorization: Basic {{org-api-key}}:{{org-secret_key}}
 
 Download a returned output file.
 
-The download link is valid for two days. Most clients used to send API requests automatically download the data from the S3 link.
- If your API client doesn't automatically download the file from the link, access it manually using your org API key as the username and your org secret key as the password.
+The download link is valid for two days. Most clients used to send API requests automatically download the data from the S3 link. If your API client doesn't automatically download the file from the link, access it manually using your org API key as the username and your org secret key as the password.
 
-```bash
-GET /api/2/dsar/requests/request_id/outputs/:output_id HTTP/1.1
-Host: analytics.amplitude.com
-Authorization: Basic {{org-api-key}}:{{org-secret_key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://analytics.amplitude.com/api/2/dsar/requests/:request_id/outputs/:output_id' \
+    --header 'Authorization: Basic {{org-api-key}}:{{org-secret_key}}' # credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/dsar/requests/request_id/outputs/:output_id HTTP/1.1
+    Host: analytics.amplitude.com
+    Authorization: Basic {{org-api-key}}:{{org-secret_key}} # credentials must be base64 encoded
+    ```
+
+???code-example "Example: Get output for a specific request ID (click to expand)"
+
+    This example gets output with ID `0` for request 53367.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://analytics.amplitude.com/api/2/dsar/requests/53367/outputs/0' \
+        --header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo'
+        ```
+
+    === "HTTP"
+
+        ```bash
+        GET /api/2/dsar/requests/53367/outputs/0 HTTP/1.1
+        Host: amplitude.com
+        Accept: application/json
+        Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo
+        ```
 
 ### Path variables
 
