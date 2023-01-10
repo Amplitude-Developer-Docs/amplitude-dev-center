@@ -66,6 +66,10 @@
       "replacement": "https://docs.developers.amplitude.com/"
     },
     {
+      "pattern": "/analytics",
+      "replacement": "https://docs.developers.amplitude.com/analytics"
+    },
+    {
       "pattern": "^data/",
       "replacement": "https://docs.developers.amplitude.com/data"
     },
