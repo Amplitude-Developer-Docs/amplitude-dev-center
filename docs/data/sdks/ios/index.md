@@ -566,8 +566,10 @@ To track revenue from a user, call `logRevenueV2` each time a user generates r
 === "Swift"
 
     ```swift
-    let revenue = AMPRevenue().setProductIdentifier("productIdentifier").quantity = 3
-    revenue?.price = NSNumber(value: 3.99)
+    let revenue = AMPRevenue()
+    revenue.setProductIdentifier("productIdentifier")
+    revenue.setQuantity(3)
+    revenue.setPrice(NSNumber(value: 3.99))
     Amplitude.instance().logRevenueV2(revenue)
     ```
 
