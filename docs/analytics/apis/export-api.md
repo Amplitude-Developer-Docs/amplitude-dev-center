@@ -5,7 +5,7 @@ description: Use the Export API to export your event data.
 
 The Export API lets you export your project's event data.
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-basic.md"
 
@@ -21,17 +21,46 @@ The Export API lets you export your project's event data.
 - The specified date range refers to the time the event data was uploaded to Amplitude servers (see `server_upload_time`). The Export API returns events timestamped in UTC. Data is available to export at a minimum within 2 hours of when the servers received it. For example, data sent between 8 and 9 PM begins loading at 9 PM and is available via the Export API at 11 PM. Note that there is no delay in platform reporting. Only exports are delayed.
 - Export API isn't supported for a cross-project view because the view doesn’t own any data. To export all the data in the view, you would need to call the Export API on the underlying projects that actually ingested the data.
 - Size limit is 4GB. If the size exceeds 4GB, the request returns a 400 response. In this case, choose a smaller time range to export the data. In cases where an hour's worth of data exceeds 4GB, use the [Amazon S3 export](https://help.amplitude.com/hc/en-us/articles/360044561111-Amazon-S3-Amplitude-Integration).
-- To export a whole day, Use T00 to T23. The max time range you can query at once is 365 days.
+- To export a whole day, use `T00` to `T23`. For example, `GET 'https://amplitude.com/api/2/export?start=20230101T00&end=20220101T23'`
+- The max period you can query at once is 365 days.
 
 ## Example request
 
-`GET https://amplitude.com/api/2/export`
+Send a GET request to `https://amplitude.com/api/2/export` with two required query parameters: start date and end date.
 
-```bash
-GET /api/2/export?start=20220101T00&end=20220127T00 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/export?start=<starttime>&end=<endtime>' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/export?start=<starttime>&end=<endtime> HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???code-example "Example: Get data for a period (click to expand)"
+
+    This example exports activity data from between midnight on January 1, 2022 and midnight January 27, 2022.  
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://amplitude.com/api/2/export?start=20220101T00&end=20220127T00' \
+        --header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo'
+        ```
+
+    === "HTTP"
+
+        ```bash
+        GET /api/2/export?start=20220101T00&end=20220127T00 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo
+        ```
 
 ## Query parameters
 
