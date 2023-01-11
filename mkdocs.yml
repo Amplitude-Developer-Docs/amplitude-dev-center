@@ -80,6 +80,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      title: "On this page"
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:

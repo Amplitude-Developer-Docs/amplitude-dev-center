@@ -2,7 +2,7 @@
 title: User Profile API
 description: The User Profile API serves Amplitude User Profiles, which includes user properties, computed user properties, a list of cohort IDs of cohorts that the user is in, and recommendations.
 ---
-
+<!-- markdownlint-disable MD036 -->
 The User Profile API serves Amplitude user profiles, which include user properties, computed user properties, a list of cohort IDs of cohorts that the user is in, and recommendations.
 
 !!!note "Some features require Amplitude Audiences"
@@ -21,24 +21,24 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 ## Considerations
 
-### Default experiences
+**Default experiences**
 
 - If you don't serve your default user experience for users with `is_control=true`, Amplitude can't measure performance.
 - Serve a default experience in case there is an error.
 - If Amplitude is unavailable and returns a 500 response, you can retry or serve the default experience.
 
-### Authentication errors
+**Authentication errors**
 
 - If the secret key is correct but user IDs are improperly formatted, or are user IDs from a different project, you get this error: `{"error":"User id and device id not seen before"}`
 - If the secret key is wrong, you get an HTTP 401 response: `Invalid Api-Key`
 - If the authorization header is missing or malformed you get an HTTP 401 response: `Missing Api-Key in Authorization header`
 
-### Configuration errors
+**Configuration errors**
 
 - If the endpoint or path are wrong, you get an empty error (HTTP 404) response.
 - If an insecure HTTP request is sent, it's redirected to the HTTPs endpoint (HTTPS 301) with an HTML body - the Location header contains the proper protocol and URL.
 
-### Throttling errors
+**Throttling errors**
 
 - Amplitude orgs have a limit of 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
     - `{"error":"Number of requests per minute exceeds system limit. Contact Support if you need this limit raised"}` 
