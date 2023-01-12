@@ -1,0 +1,53 @@
+---
+title: Amplitude Developer Docs Changelog
+description: See what's new and changed in the Ampltude Developer Center!
+status: new
+hide:
+  - toc
+---
+<!-- Turn off linting rules that don't apply here -->
+<!-- vale Amplitude.Headings = NO --> 
+<!-- vale Amplitude.We = NO -->
+<!-- vale Amplitude.Passive = NO -->
+<!-- vale Amplitude.Adverbs = NO -->
+<!-- markdownlint-disable MD036 -->
+<!-- / End linting rules -->
+
+See what's new and changed in the Amplitude Developer Center. Updates are announced on Fridays.
+
+!!!note "Changelog notes"
+
+    - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates) for those changes.
+    - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
+
+## Week of January 8, 2023
+
+**New** 
+
+- Added changelog (this doc). [#](/changelog)
+- Added new [Client-side vs Server-side sources overview](/data/sources/client-side-vs-server-side/), and organized the Analytics SDKs by client-side and server-side. [#486](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/486)
+- Added new [Exposures without Assignments](/experiment/guides/troubleshooting/exposures-without-assignments/) doc. [#484](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/484)
+
+**Updated** 
+
+- Added new-format API examples to [Attribution API](/analytics/apis/attribution-api) doc. [#488](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/488)
+- Added new-format API examples to [CCPA DSAR API](/analytics/apis/ccpa-dsar-api) doc. [#495](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/495)
+- Added new-format API examples to [User Profile API](/analytics/apis/user-profile-api) doc. [#498](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/498)
+- Changed the “Table of contents” heading on the right nav to “On this page”. Bundled with [#498](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/498)
+- Updated [Marketo doc](/data/destinations/marketo-cohort) for new Upsert functionality. [#490](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/490)
+- Added missing Optional identifiers to the Identify API doc. [#491](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/491)
+- Cross-linked [Lookup Table API](/analytics/apis/lookup-tables-api) and [Lookup Table source](/data/sources/lookup-table) docs, with minor formatting and language improvements in both articles. [#492](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/492)
+- Added a link to help doc on managing privacy notifications to our [User Privacy API](/analytics/apis/user-privacy-api) doc. [#494](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/494)
+
+## Week of January 1, 2023
+
+**New**
+
+- Added new doc for the [Aliasing API](../analytics/apis/aliasing-api). [#472](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/472)
+- Started adding <span class="required">Required</span> and <span class="optional">Optional</span> tags in our parameter tables. You can see this in action in the API docs. [#481](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/481)
+- Added Aliasing API requests to our [Postman Collection](https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview). 
+
+**Updated**
+
+- Experiment Python SDK became generally available, updated doc to remove beta labels. [#479](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/479)
+- Corrected timestamp calculation info in Snowflake doc. [#480](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/480)

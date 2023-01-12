@@ -411,6 +411,7 @@ nav:
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API (Beta): experiment/apis/management-api.md
+  - Docs Changelog: changelog.md
 - Guides:
   - Accounts Guide: guides/accounts-instrumentation-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
