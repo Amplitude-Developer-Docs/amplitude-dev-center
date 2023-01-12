@@ -349,7 +349,7 @@ This method contains logic for preparing the plugin for use and has `client` ins
 
 ### `Plugin.execute`
 
-This method contains the logic for processing events and has `event` instance as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event. If used as a destination type plugin, the expected return value is `None`. This method is called for each event that's instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
+This method contains the logic for processing events and has `event` instance as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event. If used as a destination type plugin, the expected return value is a map with keys: `event` (BaseEvent), `code` (number), and `message` (string). This method is called for each event that's instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
 
 ### Plugin examples
 
