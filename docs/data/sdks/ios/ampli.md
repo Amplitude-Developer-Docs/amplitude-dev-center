@@ -297,6 +297,11 @@ You can send all Even objects using the generic track method.
     ]];
     ```
 
+--8<-- "includes/ampli/flush/ampli-flush-section.md"
+
+--8<-- "includes/ampli/flush/ampli-flush-snippet-ios.md"
+
+
 ## Verify implementation status
 
 Verify events are implemented in your code with the status command:

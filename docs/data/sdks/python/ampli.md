@@ -170,6 +170,10 @@ ampli.track('user_id', SongPlayed(
 ), EventOptions(device_id="device_id"))
 ```
 
+--8<-- "includes/ampli/flush/ampli-flush-section.md"
+
+--8<-- "includes/ampli/flush/ampli-flush-snippet-python.md"
+
 ### Plugin
 
 Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type).

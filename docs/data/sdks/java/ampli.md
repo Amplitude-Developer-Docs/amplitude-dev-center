@@ -10,9 +10,8 @@ In Java, the tracking library exposes a type-safe function for every event in yo
 The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
 !!!info "Ampli JRE Resources"
-<!--vale off-->
     [:material-language-kotlin: Ampli JRE Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp) · [:material-language-java: Ampli JRE Java Example](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
-<!-- vale on-->
+
 !!!note "Deprecated Itly runtime"
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
      If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-jre-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/jre.md)**.
@@ -306,6 +305,10 @@ Send Event objects using the generic track method.
       songFavorited = true, // Boolean
     );
     ```
+
+--8<-- "includes/ampli/flush/ampli-flush-section.md"
+
+--8<-- "includes/ampli/flush/ampli-flush-snippet-java.md"
 
 ## Verify implementation status
 
