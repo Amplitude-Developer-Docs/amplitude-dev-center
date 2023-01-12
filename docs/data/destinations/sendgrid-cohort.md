@@ -20,7 +20,7 @@ This SendGrid integration allows you to send audiences from Amplitude to SendGri
 - You must map the email, first name, and last name fields. If the Amplitude user doesn't have values for the first and last name fields, the corresponding SendGrid contact won't have first or last names, only the email address.
 - In cases where users don't have an email address, they aren't synced to SendGrid. This can cause a discrepancy between the number of users in SendGrid and Amplitude. 
 - In SendGrid, emails aren't case-sensitive. For example, "User@Company.com" and "user@company.com" sync to the same contact (user@company.com).
-- New contacts will be created for Amplitude users that are not SendGrid contacts, existing contacts will not be duplicated. Both types of users will be added to the list.
+- New contacts are created for Amplitude users that are not SendGrid contacts, and existing contacts aren't duplicated. Both types of users are added to the list.
 
 ## Setup
 
