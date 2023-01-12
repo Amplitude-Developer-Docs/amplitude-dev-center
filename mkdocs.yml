@@ -20,7 +20,6 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-
   # Static files
   static_templates:
     - 404.html
@@ -32,8 +31,11 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
+    - content.code.copy # enables code copy to clipboard feature
+    - content.action.edit # adds edit icon to pages
+    - content.action.view # adds view page source icon to pages
     #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
-    - content.code.annotate
+    - content.code.annotate #enables code annotation feature
     - content.tooltips #enables enhanced tooltips
     - content.tabs.link
     # - header.autohide
