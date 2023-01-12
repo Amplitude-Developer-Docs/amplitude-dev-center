@@ -15,7 +15,7 @@ Exposure without assignment can affect future experiments, so you should investi
 
 ## Causes
 
-A large number or high percentage of users who are in the Exposures but no Assignments chart could mean that:
+A significant number of users in the Exposures but no Assignments chart could be caused by:
 
 - You are manually sending exposures for the wrong users.
 - You are mixing up your IDs. For example, for the assignment event you sent the user ID and for the exposure event you have sent the user ID as the device ID. Often, this shows up as certain users only having assignment events and no other events. If the user is anonymous (doesn't have a user ID), you still need to send the device ID as the device ID. Don't send the device ID as the user ID. Remember that for an event to be ingested [you must send it with a user ID or a device ID](/../analytics/apis/http-v2-api/#device-ids-and-user-ids-minimum-length). 
