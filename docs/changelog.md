@@ -39,6 +39,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added missing Optional identifiers to the Identify API doc. [#491](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/491)
 - Cross-linked [Lookup Table API](/analytics/apis/lookup-tables-api) and [Lookup Table source](/data/sources/lookup-table) docs, with minor formatting and language improvements in both articles. [#492](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/492)
 - Added a link to help doc on managing privacy notifications to our [User Privacy API](/analytics/apis/user-privacy-api) doc. [#494](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/494)
+- Made some clarifying changes to [SendGrid Cohort](/data/destinations/sendgrid-cohort) doc. [#500](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/500)
 
 ## Week of January 1, 2023
 
