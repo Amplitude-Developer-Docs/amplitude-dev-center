@@ -24,9 +24,9 @@ See what's new and changed in the Amplitude Developer Center. Updates are announ
 
 **New** 
 
-- Added changelog (this doc). [#](/changelog)
+- Added changelog (this doc). [#499](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/499)
 - Added new [Client-side vs Server-side sources overview](/data/sources/client-side-vs-server-side/), and organized the Analytics SDKs by client-side and server-side. [#486](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/486)
-- Added new [Exposures without Assignments](/experiment/guides/troubleshooting/exposures-without-assignments/) doc. [#484](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/484)
+- Added new [Exposures without Assignments](../experiment/guides/troubleshooting/exposures-without-assignments/) doc. [#484](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/484)
 
 **Updated** 
 
@@ -43,7 +43,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are announ
 
 **New**
 
-- Added new doc for the [Aliasing API](../analytics/apis/aliasing-api). [#472](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/472)
+- Added new doc for the [Aliasing API](/analytics/apis/aliasing-api). [#472](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/472)
 - Started adding <span class="required">Required</span> and <span class="optional">Optional</span> tags in our parameter tables. You can see this in action in the API docs. [#481](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/481)
 - Added Aliasing API requests to our [Postman Collection](https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview). 
 
