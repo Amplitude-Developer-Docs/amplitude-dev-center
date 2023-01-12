@@ -37,7 +37,7 @@ theme:
     #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
     - content.code.annotate #enables code annotation feature
     - content.tooltips #enables enhanced tooltips
-    - content.tabs.link
+    - content.tabs.link #links tabs with the same name, so when one is clicked, the others on the same page focus on matching tabs
     # - header.autohide
     # - navigation.expand
     - navigation.instant
