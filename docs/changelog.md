@@ -13,7 +13,7 @@ hide:
 <!-- markdownlint-disable MD036 -->
 <!-- / End linting rules -->
 
-See what's new and changed in the Amplitude Developer Center. Updates are announced on Fridays.
+See what's new and changed in the Amplitude Developer Center. Updates are typically posted the last business day of the week.
 
 !!!note "Changelog notes"
 
@@ -24,9 +24,10 @@ See what's new and changed in the Amplitude Developer Center. Updates are announ
 
 **New** 
 
-- Added changelog (this doc). [#499](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/499)
+- Added Doc Changelog (this page). [#499](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/499)
 - Added new [Client-side vs Server-side sources overview](/data/sources/client-side-vs-server-side/), and organized the Analytics SDKs by client-side and server-side. [#486](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/486)
 - Added new [Exposures without Assignments](../experiment/guides/troubleshooting/exposures-without-assignments/) doc. [#484](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/484)
+- *Site change*: Introduced an update that forces external links to open in a new tab.
 
 **Updated** 
 
