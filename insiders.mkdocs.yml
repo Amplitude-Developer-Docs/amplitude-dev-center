@@ -18,7 +18,6 @@ plugins:
       external_links_attr_map:
         target: _blank
 
-
 # Extensions
 markdown_extensions:
   - admonition
