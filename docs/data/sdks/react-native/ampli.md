@@ -308,6 +308,10 @@ Track Event objects using Ampli `track`:
     }));
     ```
 
+--8<-- "includes/ampli/flush/ampli-flush-section.md"
+
+--8<-- "includes/ampli/flush/ampli-flush-snippet-typescript.md"
+
 ## Verify implementation status
 
 Verify that events are implemented in your code with the status command:
