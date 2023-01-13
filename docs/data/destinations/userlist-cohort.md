@@ -1,7 +1,6 @@
 ---
 title: Send Cohorts to Userlist
 description: Send Amplitude cohorts to Userlist to send cohort members relevant email campaigns.
-status: new
 ---
 
 --8<-- "includes/editions-all-paid-editions.md"

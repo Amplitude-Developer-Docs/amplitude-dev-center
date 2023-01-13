@@ -1,7 +1,6 @@
 ---
 title: Manage Personal Data with Osano
 description: Connect Osano and Amplitude to automatically classify personal data stored in Amplitude.
-status: new
 ---
 
 [Osano](https://www.osano.com/) is an easy-to-use data privacy platform that helps you keep your website compliant with laws such as GDPR and CCPA. Osano monitors all the vendors you share data with so you don't have to.

@@ -1,7 +1,6 @@
 ---
 title: Send Cohorts to Sendgrid
 description: Send audiences from Amplitude to Sendgrid to create more personalized campaigns.
-status: new
 ---
 
 !!!alpha 

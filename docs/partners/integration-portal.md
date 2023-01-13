@@ -1,7 +1,6 @@
 ---
 title: Integration Portal
 description: Use the Amplitude Integration Portal to self-service most aspects of integrating your product with Amplitude. 
-status: new
 template: guide-first.html
 ---
 

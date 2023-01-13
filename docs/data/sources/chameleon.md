@@ -1,7 +1,6 @@
 ---
 title: Import Chameleon Events
 description: Import Chameleon events into Amplitude to analyze tour performance alongside your data in Amplitude.
-status: new
 ---
 
 [Chameleon](https://www.chameleon.io/) is a product adoption platform which allows you to create beautiful product guidance that helps, guides, and delights your users throughout their journey. Build, manage and optimize your product tours without writing code. This Chameleon integration allows you to analyze Chameleon tour performance alongside other product data within Amplitude.

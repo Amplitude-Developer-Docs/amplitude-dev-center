@@ -1,7 +1,6 @@
 ---
 title: Send Cohorts to Salesforce Marketing Cloud (v2)
 description: Easily send Amplitude cohorts to Salesforce Marketing Cloud for targeting with the improved v2 integration.
-status: new
 ---
 
 !!! beta

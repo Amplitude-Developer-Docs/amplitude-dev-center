@@ -1,7 +1,6 @@
 ---
 title: Import MoEngage Events into Amplitude
 description: Add this integration to import campaign data from MoEngage into Amplitude for further analysis.
-status: new
 ---
 
 MoEngage is an insights-led customer engagement platform for the customer-obsessed marketers and product owners. This integration allows you to ingest campaign data from MoEngage for further analysis.
