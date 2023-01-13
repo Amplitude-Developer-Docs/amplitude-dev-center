@@ -26,6 +26,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 - Added Doc Changelog (this page). [#499](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/499)
 - Added new [Client-side vs Server-side sources overview](/data/sources/client-side-vs-server-side/), and organized the Analytics SDKs by client-side and server-side. [#486](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/486)
+- Added new [Amplitude API Keys and Tokens Guide](/guides/amplitude-keys-guide) doc. [#504](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/504)
 - Added new [Exposures without Assignments](../experiment/guides/troubleshooting/exposures-without-assignments/) doc. [#484](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/484)
 - *Site change*: Introduced an update that forces external links to open in a new tab.
 
