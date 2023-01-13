@@ -205,6 +205,16 @@
   color: var(--md-accent-fg-color);
 }
 
+/* Class for adding alt text to emojis in tables */
+.screen-reader-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* COLUMN WIDTH CLASSES
 These classes makes tables make sense. Because MD table column width is based on
 the width of the first cell's content, this sets the width to a minimum of 180px.
