@@ -416,6 +416,7 @@ nav:
   - Docs Changelog: changelog.md
 - Guides:
   - Accounts Guide: guides/accounts-instrumentation-guide.md
+  - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
 - APIs:
       - analytics/apis/index.md
