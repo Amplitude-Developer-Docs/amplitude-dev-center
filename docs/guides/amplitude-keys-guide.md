@@ -77,11 +77,11 @@ Manage your Deployment keys in **Experiment** > **Deployments**.
 
 !!!beta "This API is currently in Beta"
 
-Management API keys are different from the deployment keys used to fetch flag variants.
+Management API keys are used to authenticate requests made to manage flags and experiments. These keys are different from the deployment keys used to fetch flag variants. 
 
 !!!warning "Management API Keys are private"
 
-    Keep your Management API key secret. If your key has been compromised, you can delete it and create a new one yourself in Experiment.
+    Keep your Management API key secret. If your key has been compromised, create a new key and delete the old key.
 
 Create and manage these keys via the **Management API link** in the Experiment sidebar.
 
