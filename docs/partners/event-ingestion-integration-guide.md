@@ -1,7 +1,6 @@
 ---
 title: Create an Event Ingestion Integration
 description: This guide walks through the basics of creating an event ingestion integration with Amplitude. 
-status: new
 template: guide.html
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Send Cohorts to Snapchat Ads
 description: Use the Snapchat Ads Amplitude integration to send audiences to Snapchat Ads to create personalized campaigns.
-status: new
 ---
 
 !!! beta

@@ -2,7 +2,6 @@
 title: Create a Cohort Syncing Integration
 description: This guide walks through the basics of creating a cohort syncing integration with Amplitude. 
 template: guide-last.html
-status: new
 ---
 
 --8<-- "includes/partners/partner-portal-prereq.md"

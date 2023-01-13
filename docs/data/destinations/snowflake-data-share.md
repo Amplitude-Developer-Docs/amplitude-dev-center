@@ -1,7 +1,6 @@
 ---
 title: Snowflake Data Share Export
 description: Access your Amplitude event data via Snowflake Data Share.
-status: new
 ---
 
 Get access to your Amplitude events via Snowflake's Data Share product.

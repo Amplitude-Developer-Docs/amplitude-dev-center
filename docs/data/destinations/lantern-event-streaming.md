@@ -1,7 +1,6 @@
 ---
 title: Lantern Event Streaming
 description: Stream Amplitude events to Lantern to help predict when your customers are ready to expand or need help.
-status: new
 ---
 
 --8<-- "includes/open-beta.md"

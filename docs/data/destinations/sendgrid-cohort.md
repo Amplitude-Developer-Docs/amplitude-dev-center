@@ -1,7 +1,6 @@
 ---
 title: Send Cohorts to Sendgrid
 description: Send audiences from Amplitude to Sendgrid to create more personalized campaigns.
-status: new
 ---
 
 !!!alpha 
@@ -27,7 +26,8 @@ This SendGrid integration allows you to send audiences from Amplitude to SendGri
 ### SendGrid setup
 
 Log in to SendGrid and [create your API key](https://docs.sendgrid.com/ui/account-and-settings/api-keys).
-- The type of API key must be either Full Access or Restricted Access with Marketing permissions
+
+The type of API key must be either Full Access or Restricted Access with Marketing permissions
 
 ### Amplitude setup
 

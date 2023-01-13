@@ -1,7 +1,6 @@
 ---
 title: Import Cordial Events
 description: Import Cordial event data into Ampltidue to better understand your customer's engagement with your brand across all touchpoints.
-status: new
 ---
 
 !!!beta "This feature is in open beta"
