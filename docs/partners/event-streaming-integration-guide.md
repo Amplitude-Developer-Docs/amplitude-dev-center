@@ -15,7 +15,7 @@ This guide walks through the basics of creating your own Event Streaming tile in
 - **Event Forwarding:**  Forwarding Amplitude Track calls to a destination is named *event forwarding*. Amplitude forwards both the 'raw' event and merged or [transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure). Amplitude also sends the `event_name` and `created_at` to your destination.
 - **Event Filtering:** Amplitude has fine-grain filtering options that allow the user to choose which events to send based on selecting event types and property conditions.
 - **Event Selective Property Forwarding:** The user can select which event, user, or group properties to include in the payload of forwarded events.
-- **Regular User Identify Forwarding (creating and updating a user):** Enable Identify Forwarding feature for your destination. This allows the destination to send users and their properties that are created under the Identify API in real time. See the [Identify documentation](../analytics/apis/identify-api) for more information.
+- **Regular User Identify Forwarding (creating and updating a user):** Enable Identify Forwarding feature for your destination. This allows the destination to send users and their properties that are created under the Identify API in real time. See the [Identify documentation](/analytics/apis/identify-api) for more information.
 - **User Property Mapping** The user is able to select an Amplitude user property to map to a field in your destination. This also allows for custom user identifiers.
 
 ### Limitations

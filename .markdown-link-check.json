@@ -56,6 +56,14 @@
 
     {
     "pattern": "/../data/sdks/ios/#advertiser-id"
+    },
+
+    {
+    "pattern": "https://docs.snowflake.com/en/user-guide/data-sharing-intro.html"
+    },
+
+    {
+    "pattern": "https://docs.osano.com/data-field-classification-categories"
     }
 
 	],
@@ -74,7 +82,7 @@
       "replacement": "https://docs.developers.amplitude.com/data"
     },
     {
-      "pattern": "/data",
+      "pattern": "/data/",
       "replacement": "https://docs.developers.amplitude.com/data"
     },
     {

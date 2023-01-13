@@ -7,7 +7,7 @@ descriptions: Send Amplitude the highest-quality data possible with MetaRouter's
 
     This integration is currently in beta and is still in active development. To join their beta program, or if you have any feedback to help improve the MetaRouter Source and its documentation, [contact the MetaRouter team](mailto:questions@metarouter.io).
 
-[MetaRouter](https://www.linkedin.com/company/metarouter/about/) provides customer data integration while placing data governance entirely in the hands of your organization. Send Amplitude the highest-quality data possible with MetaRouter's server-side, first-party data streaming platform. Map and transform data for clean, structured data into Amplitude, and keep a high degree of control over each parameter sent.
+[MetaRouter](https://www.metarouter.io/) provides customer data integration while placing data governance entirely in the hands of your organization. Send Amplitude the highest-quality data possible with MetaRouter's server-side, first-party data streaming platform. Map and transform data for clean, structured data into Amplitude, and keep a high degree of control over each parameter sent.
 
 !!!tip "This integration is maintained by MetaRouter"
 
