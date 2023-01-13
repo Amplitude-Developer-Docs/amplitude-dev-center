@@ -17,7 +17,7 @@ This table gives a brief overview of each kind of key.
 | Experiment | Deployment Key (client-side) | :white_check_mark:<span class="screen-reader-only">Yes</span> | :white_check_mark: <span class="screen-reader-only">Yes</span> |
 | Experiment | Deployment Key (server-side) | :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span> |
 | Experiment | Management API Key | :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span> |
-| Data | API Tokens | :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span>|
+| Data       | API Token | :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span>|
 | Other| SCIM Key| :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span>|
 | Other| Org-level keys| :x: <span class="screen-reader-only">No</span> | Contact Support|
 
@@ -31,7 +31,7 @@ To view your project's API Key and Secret Key, see [Find your Amplitude Project 
 
 To collect data from browsers and mobile applications, Amplitude must be able to identify which project the requests should go to. Amplitude does this with an *API Key* that's associated with a single project. 
 
-Files sent to a browser and code distributed as part of a mobile app are shared with end users, so the API Key can't be kept truly secret. 
+Files sent to a browser and code distributed as part of a mobile app are shared with end users, so the API Key can't be truly secret. 
 
 Because there's no way to keep the API Key secret, the scope of what the key can be used for is limited to the bare minimum needed to ingest data into Amplitude. This isn't unique to Amplitude: all services that support ingesting data from browsers or mobile apps have a similar key, though what they call it may vary.
 
@@ -69,9 +69,9 @@ When you [create a deployment](../experiment/guides/getting-started/create-a-dep
 
 !!!warning "Server-side Deployment Keys are private"
 
-    These deployments run on a server you control, such as a web server or batch processing system. The API key associated with server deployments should be kept secret and are for use in server-side SDKs. These keys are prepended with `server-`. If a server-side key is compromised, you can delete the deployment in Experiment.
+    These deployments run on a server you control, such as a web server or batch processing system. The API key associated with server deployments should be kept secret and are for use in server-side SDKs. These keys are prepended with `server-`. If a server-side key is compromised, create a new deployment key, replace the old key with the new key on all flags and experiments, and delete the old key.
 
-Manage your Deployment keys in **Experiment** > **Deployments**.
+Manage your Deployment keys in **Experiment** > **Deployments**. 
 
 ### Management API Key 
 
