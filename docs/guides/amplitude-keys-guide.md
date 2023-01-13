@@ -25,7 +25,7 @@ This table gives a brief overview of each kind of key.
 
 Analytics keys are automatically created for each project, and can only be used to manipulate data within the project the key belongs to. 
 
-To view your project's API Key and Secret Key, see [Find your Amplitude Project API Credentials](/analytics/find-api-credentials/).
+To view your project's API Key and Secret Key, see [Find your Amplitude Project API Credentials](../../analytics/find-api-credentials/).
 
 ### API Key
 
@@ -61,7 +61,7 @@ You can create and revoke these as needed by navigating to **Data** > **Settings
 
 ### Deployment Key
 
-When you [create a deployment](../experiment/guides/getting-started/create-a-deployment), Experiment creates a key for that deployment. Whether the key is public or private depends on whether the deployment is client-side or server-side.
+When you [create a deployment](../../experiment/guides/getting-started/create-a-deployment), Experiment creates a key for that deployment. Whether the key is public or private depends on whether the deployment is client-side or server-side.
 
 !!!tip "Client-side Deployment Keys are public"
 
@@ -97,7 +97,7 @@ Some APIs require an org-level API Key and Secret Key. You must request these fr
 
 ### SCIM Key
 
-The SCIM key is used with the [SCIM API](/analytics/apis/scim-api). SCIM features are available in accounts with an Enterprise plan.
+The SCIM key is used with the [SCIM API](../../analytics/apis/scim-api). SCIM features are available in accounts with an Enterprise plan.
 
 !!!warning "SCIM tokens are secret"
 
