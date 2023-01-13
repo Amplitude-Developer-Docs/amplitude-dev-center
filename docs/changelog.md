@@ -41,6 +41,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added a link to help doc on managing privacy notifications to our [User Privacy API](/analytics/apis/user-privacy-api) doc. [#494](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/494)
 - Made some clarifying changes to [SendGrid Cohort](/data/destinations/sendgrid-cohort) doc. [#500](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/500)
 - Removed "New" badges from articles older than 2 months, and removed the global feedback banner. [#503](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/503)
+- Added `flush` documentation to Ampli documentation. [#502](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/502)
 
 ## Week of January 1, 2023
 
