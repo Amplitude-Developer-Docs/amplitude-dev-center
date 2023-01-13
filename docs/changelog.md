@@ -48,7 +48,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 **New**
 
-- Added new doc for the [Aliasing API](/analytics/apis/aliasing-api). [#472](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/472)
+- Added new doc for the [Aliasing API](../analytics/apis/aliasing-api). [#472](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/472)
 - Started adding <span class="required">Required</span> and <span class="optional">Optional</span> tags in our parameter tables. You can see this in action in the API docs. [#481](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/481)
 - Added Aliasing API requests to our [Postman Collection](https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview). 
 
