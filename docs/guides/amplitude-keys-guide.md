@@ -61,7 +61,7 @@ You can create and revoke these as needed by navigating to **Data** > **Settings
 
 ### Deployment Key
 
-When you [create a deployment](/experiment/guides/getting-started/create-a-deployment) in Experiment, a key is created for that deployment. Whether the key is public or private depends on whether the deployment is client-side or server-side.
+When you [create a deployment](/experiment/guides/getting-started/create-a-deployment), Experiment creates a key for that deployment. Whether the key is public or private depends on whether the deployment is client-side or server-side.
 
 !!!tip "Client-side Deployment Keys are public"
 
@@ -79,9 +79,11 @@ Manage your Deployment keys in **Experiment** > **Deployments**.
 
 Management API keys are different from the deployment keys used to fetch flag variants.
 
-Create and manage these keys via the **Management API link** in the Experiment sidebar.
+!!!warning "Management API Keys are private"
 
-<NEED MORE INFO ABOUT THIS ONE>
+    Keep your Management API key secret. If your key has been compromised, you can delete it and create a new one yourself in Experiment.
+
+Create and manage these keys via the **Management API link** in the Experiment sidebar.
 
 ## Other keys 
 
