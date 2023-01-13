@@ -38,7 +38,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Changed the “Table of contents” heading on the right nav to “On this page”. Bundled with [#498](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/498)
 - Updated [Marketo doc](../data/destinations/marketo-cohort) for new Upsert functionality. [#490](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/490)
 - Added missing Optional identifiers to the Identify API doc. [#491](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/491)
-- Cross-linked [Lookup Table API](../analytics/apis/lookup-tables-api) and [Lookup Table source](/data/sources/lookup-table) docs, with minor formatting and language improvements in both articles. [#492](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/492)
+- Cross-linked [Lookup Table API](../analytics/apis/lookup-tables-api) and [Lookup Table source](../data/sources/lookup-table) docs, with minor formatting and language improvements in both articles. [#492](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/492)
 - Added a link to help doc on managing privacy notifications to our [User Privacy API](../analytics/apis/user-privacy-api) doc. [#494](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/494)
 - Made some clarifying changes to [SendGrid Cohort](../data/destinations/sendgrid-cohort) doc. [#500](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/500)
 - Removed "New" badges from articles older than 2 months, and removed the global feedback banner. [#503](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/503)
