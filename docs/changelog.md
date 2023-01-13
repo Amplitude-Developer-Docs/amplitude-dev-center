@@ -25,28 +25,30 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 **New** 
 
 - Added Doc Changelog (this page). [#499](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/499)
-- Added new [Client-side vs Server-side sources overview](/data/sources/client-side-vs-server-side/), and organized the Analytics SDKs by client-side and server-side. [#486](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/486)
+- Added new [Client-side vs Server-side sources overview](../data/sources/client-side-vs-server-side/), and organized the Analytics SDKs by client-side and server-side. [#486](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/486)
+- Added new [Amplitude API Keys and Tokens Guide](../guides/amplitude-keys-guide) doc. [#504](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/504)
 - Added new [Exposures without Assignments](../experiment/guides/troubleshooting/exposures-without-assignments/) doc. [#484](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/484)
 - *Site change*: Introduced an update that forces external links to open in a new tab.
 
 **Updated** 
 
-- Added new-format API examples to [Attribution API](/analytics/apis/attribution-api) doc. [#488](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/488)
-- Added new-format API examples to [CCPA DSAR API](/analytics/apis/ccpa-dsar-api) doc. [#495](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/495)
-- Added new-format API examples to [User Profile API](/analytics/apis/user-profile-api) doc. [#498](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/498)
+- Added new-format API examples to [Attribution API](../analytics/apis/attribution-api) doc. [#488](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/488)
+- Added new-format API examples to [CCPA DSAR API](../analytics/apis/ccpa-dsar-api) doc. [#495](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/495)
+- Added new-format API examples to [User Profile API](../analytics/apis/user-profile-api) doc. [#498](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/498)
 - Changed the “Table of contents” heading on the right nav to “On this page”. Bundled with [#498](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/498)
-- Updated [Marketo doc](/data/destinations/marketo-cohort) for new Upsert functionality. [#490](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/490)
+- Updated [Marketo doc](../data/destinations/marketo-cohort) for new Upsert functionality. [#490](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/490)
 - Added missing Optional identifiers to the Identify API doc. [#491](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/491)
-- Cross-linked [Lookup Table API](/analytics/apis/lookup-tables-api) and [Lookup Table source](/data/sources/lookup-table) docs, with minor formatting and language improvements in both articles. [#492](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/492)
-- Added a link to help doc on managing privacy notifications to our [User Privacy API](/analytics/apis/user-privacy-api) doc. [#494](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/494)
-- Made some clarifying changes to [SendGrid Cohort](/data/destinations/sendgrid-cohort) doc. [#500](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/500)
+- Cross-linked [Lookup Table API](../analytics/apis/lookup-tables-api) and [Lookup Table source](../data/sources/lookup-table) docs, with minor formatting and language improvements in both articles. [#492](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/492)
+- Added a link to help doc on managing privacy notifications to our [User Privacy API](../analytics/apis/user-privacy-api) doc. [#494](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/494)
+- Made some clarifying changes to [SendGrid Cohort](../data/destinations/sendgrid-cohort) doc. [#500](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/500)
 - Removed "New" badges from articles older than 2 months, and removed the global feedback banner. [#503](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/503)
+- Added `flush` documentation to Ampli docs. [#502](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/502)
 
 ## Week of January 1, 2023
 
 **New**
 
-- Added new doc for the [Aliasing API](/analytics/apis/aliasing-api). [#472](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/472)
+- Added new doc for the [Aliasing API](../analytics/apis/aliasing-api). [#472](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/472)
 - Started adding <span class="required">Required</span> and <span class="optional">Optional</span> tags in our parameter tables. You can see this in action in the API docs. [#481](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/481)
 - Added Aliasing API requests to our [Postman Collection](https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview). 
 
