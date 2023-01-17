@@ -9,6 +9,9 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
+!!!deprecated "Legacy SDK"
+    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the latest [iOS Swift SDK](../ios-swift/) which supports plugins and more. See the [Migration Guide](../../sdks/ios-swift/migration) for more help.
+
 !!!info "iOS SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
 

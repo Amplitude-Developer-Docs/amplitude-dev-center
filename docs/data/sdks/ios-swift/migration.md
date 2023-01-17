@@ -510,4 +510,4 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
     })
     ```
 
-    --8<-- "includes/abbreviations.md"
+--8<-- "includes/abbreviations.md"
