@@ -20,6 +20,14 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
     - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates) for those changes.
     - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
 
+## Week of January 16, 2023
+
+**New** 
+
+- *Site change*: Added breadcrumb navigation. [#507](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/507)
+
+**Updated**
+
 ## Week of January 8, 2023
 
 **New** 
