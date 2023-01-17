@@ -7,7 +7,7 @@ The new version of Amplitude's iOS SDK (`Amplitude-Swift`) features a plugin arc
 
 To migrate to `Amplitude-Swift`, update your dependencies and instrumentation.
 
-### Terminology
+## Terminology
 
 * `Amplitude-iOS`: Legacy iOS SDK
 * `Amplitude-Swift`: New iOS SDK
@@ -53,11 +53,11 @@ For Carthage installation:
 
 ## Instrumentation
 
-The new iOS SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls have changed.
+This SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
-Like all other calls, `instance()` has been removed. legacy iOS and new iOS SDKs also has different way to set the configs. The new iOS SDKs intruduce Configuration object to set the configuration. See [Configuration](#configuration).
+Like all other calls, `instance()` has been removed. Configuration is handled differently between the legacy iOS and new iOS SDK. The new iOS SDKs use the Configuration object to set the configuration. See [Configuration](#configuration).
 
 === "Amplitude-iOS"
 
@@ -83,7 +83,7 @@ Like all other calls, `instance()` has been removed. legacy iOS and new iOS SDKs
 
 ### Configuration
 
-The configuration new iOS SDK  comes in a different shape. The configurations are simpler and more consistent across runtimes.
+The configurations for the new SDK are simpler and more consistent across runtimes.
 
 |Amplitude-iOS|Amplitude-Swift|
 |-|-|
@@ -104,17 +104,17 @@ The configuration new iOS SDK  comes in a different shape. The configurations ar
 |Customize storage provider. NOT SUPPORTED.|`config.storageProvider`|
 |Set up log level. NOT SUPPORTED.|`config.logLevel`|
 |Customize logger provider. NOT SUPPORTED.|`config.loggerProvider`|
-|Overwrite the minimum length deviceId and UserId. NOT SUPPORTED.|`config.minIdLength`|
+|Overwrite the minimum length deviceId and userId. NOT SUPPORTED.|`config.minIdLength`|
 |Partner Id for partner integrations. NOT SUPPORTED.|`config.partnerId`|
 |The event callback. NOT SUPPORTED. See middleware. |`config.callback`|
 |`amplitude.libraryName`|NOT SUPPORTED.|
 |`amplitude.libraryVersion`|NOT SUPPORTED.|
-|`amplitude.adSupportBlock`|NOT SUPPORTED. See Plugins.|
-|`amplitude.useAdvertisingIdForDeviceId`|NOT SUPPORTED. See Plugins.|
+|`amplitude.adSupportBlock`|NOT SUPPORTED. See [Plugins](#plugins).|
+|`amplitude.useAdvertisingIdForDeviceId`|NOT SUPPORTED. See [Plugins](#plugins).|
 |`amplitude.locationInfoBlock`|`amplitude.locationInfoBlock`|
 |`amplitude.deferCheckInForeground`|NOT SUPPORTED.|
-|`amplitude.setOffline(Yes)`|NOT SUPPORT.|
-|`amplitude.setContentTypeHeader("YOUR-CONTENT-TYPE-HEADER")`|NOT SUPPORT.| 
+|`amplitude.setOffline(Yes)`|NOT SUPPORTED.|
+|`amplitude.setContentTypeHeader("YOUR-CONTENT-TYPE-HEADER")`|NOT SUPPORTED.| 
 |`amplitude.setPlan(plan)`|`config.plan`|
 |`plan.setBranch("YOUR-BRANCH")`|`config.plan.branch`|
 |`plan.setSource("YOUR-SOURCE")`|`config.plan.source`|
@@ -163,27 +163,21 @@ The `logEvent()` API maps to `track()`.
 
     ```swift
     let eventType = "Button Clicked"
-    let eventProperties: [String: Any] = ["key": "value"]
-    let groups: [String: Any] = ["orgId": 10]
-
+    let timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
     Amplitude.instance().logEvent(
-        eventType,
-        withEventProperties: eventProperties,
-        withGroups: groups)
+      eventType,
+      withTimestamp: timestamp)
     ```
 
 === "Amplitude-Swift"
 
     ```swift
     let eventType = "Button Clicked"
+    let timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
     let event = BaseEvent(
-      eventType: eventType, 
-      eventProperties:[
-        "integer": 1,
-        "string": "stringValue",
-        "array": [1, 2, 3],
-      ], 
-      groups: groups)
+      eventType: eventType,
+      timestamp: timestamp)
+    amplitude.track(event: event)
       
     amplitude.track(event)
     ```
@@ -209,6 +203,7 @@ The `logEvent()` API maps to `track()`.
 
     ```swift
     let eventType = "Button Clicked"
+    let groups: [String: Any] = ["orgId": 10]
     let event = BaseEvent(
       eventType: eventType, 
       eventProperties:[
@@ -248,7 +243,7 @@ Setting a user ID can be invoked on `amplitude` without calling `getInstance()`.
 === "Amplitude-iOS"
 
     ```swift
-    let userId = "TEST-USER-NAME"
+    let userId = "TEST-USER-ID"
     Amplitude.instance().setUserId(userId)
     ```
 
@@ -261,7 +256,7 @@ Setting a user ID can be invoked on `amplitude` without calling `getInstance()`.
 
 #### `setDeviceId()`
 
-Setting a device ID can be invoked on `amplitude` without calling `instance()`.
+Set a device ID on `amplitude` without calling `instance()`.
 
 === "Amplitude-iOS"
 
@@ -419,12 +414,12 @@ Track revenue using `revenue()` API on `amplitude` without calling `instance()`.
 
 #### Plugins
 
-The configs `amplitude.adSupportBlock` or `amplitude.useAdvertisingIdForDeviceId` were available in `Amplitude-iOS` to allow use idfv or idfa as the deviceID. Although `Amplitude-Swift` doesn't support these configurations, you can add plugins to the new iOS SDK to enrich event payloads.
+The configs `amplitude.adSupportBlock` or `amplitude.useAdvertisingIdForDeviceId` were available in `Amplitude-iOS` to allow you to use IDFV or IDFA as the deviceID. Although `Amplitude-Swift` doesn't support these configurations, you can add plugins to the new iOS SDK to enrich event payloads.
 
 === "Amplitude-Swift"
 
     ```swift
-    import AdSupport
+    import AdSupportf
     import Amplitude_Swift
     import AppTrackingTransparency
     import Foundation
@@ -474,7 +469,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 #### Callback
 
-`Amplitude-Swft` supports configuration level and event level callback functions which will be called for success and error upload. Configuration level callback applies for every success and error event upload. Event level callback is specific for one Event. Notice that the event level callbacks are stored in cache. It will be loss when the app crash.
+`Amplitude-Swft` supports configuration-level and event-level callback functions which are called for success and error upload. Configuration-level callback applies for every success and error event upload. Event-level callback is specific for one Event. Notice that the event-level callbacks are stored in cache, those callbacks are lost if the app crashes.
 
 === "Amplitude-Swift"
 
@@ -500,7 +495,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
       }, 
       eventType: "TEST-EVENT-TYPE")
       
-      amplitude.track(event: event)
+    amplitude.track(event: event)
     ```
 
     or 
@@ -514,3 +509,5 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
           print("eventcallback: \(event), code: \(code), message: \(message)")
     })
     ```
+
+    --8<-- "includes/abbreviations.md"
