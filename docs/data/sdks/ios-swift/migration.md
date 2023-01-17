@@ -419,7 +419,7 @@ The configs `amplitude.adSupportBlock` or `amplitude.useAdvertisingIdForDeviceId
 === "Amplitude-Swift"
 
     ```swift
-    import AdSupportf
+    import AdSupport
     import Amplitude_Swift
     import AppTrackingTransparency
     import Foundation
