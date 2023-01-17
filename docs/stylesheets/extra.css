@@ -102,6 +102,7 @@
   --md-accent-fg-color:         #2f1761;
   --md-accent-bg-color:         #fff;
   --md-accent-bg-color--light:  #f5d9e1;
+  --banner-bg-color: #2f1761;
   --md-footer-bg-color: #2f1761;
   --md-footer-fg-color--lighter: #c9c2f5;
   --heading-color: #3d3d3d;
@@ -166,6 +167,16 @@
   background-color: var(--md-accent-fg-color);
 }
 
+/* Overrides theme defaults */
+
+.md-nav__item--section>.md-nav__link[for],.md-nav--lifted>.md-nav__list>.md-nav__item>[for] {
+  color: var(--md-default-fg-color);
+}
+
+.md-nav__title {
+  color: var(--md-default-fg-color);
+}
+
 /* Sets nav items to bold */
 
 .md-tabs__item {
@@ -188,6 +199,20 @@
     background-color: var(--md-accent-fg-color);
     color: var(--md-default-bg-color);
     border-color: var(--md-accent-fg-color)
+}
+
+.md-status { /* sets status badge color */
+  color: var(--md-accent-fg-color);
+}
+
+/* Class for adding alt text to emojis in tables */
+.screen-reader-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* COLUMN WIDTH CLASSES
@@ -311,6 +336,13 @@ margin: 1em auto 1em;
 .announce a:hover { /* sets the hover color of links inside the announcement */
   color: var(--md-accent-bg-color--light);
 }
+
+.md-banner {
+  background-color: var(--banner-bg-color);
+  color: var(--md-footer-fg-color);
+  overflow: auto;
+}
+
 
 /* Icon Colors */
 

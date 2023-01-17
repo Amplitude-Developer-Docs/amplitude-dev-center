@@ -20,7 +20,6 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-
   # Static files
   static_templates:
     - 404.html
@@ -32,22 +31,26 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   features:
+    - content.code.copy # enables code copy to clipboard feature
+    - content.action.edit # adds edit icon to pages
+    - content.action.view # adds view page source icon to pages
     #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
-    - content.code.annotate
+    - content.code.annotate # enables code annotation feature
     - content.tooltips #enables enhanced tooltips
-    - content.tabs.link
+    - content.tabs.link #links tabs with the same name, so when one is clicked, the others on the same page focus on matching tabs
     # - header.autohide
-    # - navigation.expand
-    - navigation.instant
-    - navigation.indexes
-    - navigation.sections
-    - navigation.tabs
+    # - navigation.expand # expands everything in nav. Not enabled intentionally it's really overwhelming.
+    - navigation.instant #makes site act like a SPA. Preserves search index on navigation and saves a bunch of time. Keeps site snappy.
+    - navigation.path # enables breadcrumbs
+    - navigation.indexes # enables attaching a page to section head: the "index" pages
+    - navigation.sections # top-level sections are rendered in groups in the sidebar
+    - navigation.tabs # adds the top level menu tabs in the header bar. 
     # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
+    - navigation.top #back to top button
+    - navigation.tracking # URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
+    - search.highlight # highlights search term on page
+    - search.share # allows users to share a deeplink to search results
+    - search.suggest # enables search suggestions
     # - toc.integrate #this is a really noisy feature, IMO.
   font: false # Prevents autoloading of google fonts, for privacy reasons.
   favicon: assets/favicon.ico
@@ -80,6 +83,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      title: "On this page"
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -160,10 +164,11 @@ nav:
       - Use AMP with Amplitude: analytics/use-amp-pages.md
   - Data:
     - data/index.md
-    - Overview: data/index.md
+    - Overview: data/index.md  
     - Getting Started: "getting-started.md"
     - Sources:
       - Overview: data/sources.md
+      - Client-side vs Server-side: data/sources/client-side-vs-server-side.md
       - Ampli:
         - data/ampli/index.md
         - data/ampli/cli.md
@@ -393,6 +398,7 @@ nav:
         - Troubleshooting:
           - Variant Jumping: experiment/guides/troubleshooting/variant-jumping.md
           - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
+          - Exposures without Assignments: experiment/guides/troubleshooting/exposures-without-assignments.md
       - SDKs:
         - JavaScript SDK: experiment/sdks/javascript-sdk.md
         - Android SDK: experiment/sdks/android-sdk.md
@@ -408,8 +414,10 @@ nav:
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API (Beta): experiment/apis/management-api.md
+  - Docs Changelog: changelog.md
 - Guides:
   - Accounts Guide: guides/accounts-instrumentation-guide.md
+  - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
 - APIs:
       - analytics/apis/index.md

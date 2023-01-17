@@ -290,6 +290,10 @@ Send event objects using the generic track method.
     );
     ```
 
+--8<-- "includes/ampli/flush/ampli-flush-section.md"
+
+--8<-- "includes/ampli/flush/ampli-flush-snippet-java.md"
+
 ## Verify implementation status
 
 Verify that events are implemented in your code with the status command:

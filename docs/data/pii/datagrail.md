@@ -1,7 +1,6 @@
 ---
 title: Manage Personal Data with DataGrail
 description: Connect DataGrail and Amplitude to automatically easily identify, retrieve, and delete PII in Amplitude.
-status: new
 ---
 
 !!!beta

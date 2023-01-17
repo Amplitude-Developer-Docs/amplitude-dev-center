@@ -1,7 +1,6 @@
 ---
 title: Integration Portal
 description: Use the Amplitude Integration Portal to self-service most aspects of integrating your product with Amplitude. 
-status: new
 template: guide-first.html
 ---
 
@@ -34,7 +33,7 @@ To get started, you need to do the following:
 
 1. Apply through the [Technology Partner Portal](https://info.amplitude.com/technology-partners).
 2. Sign both the mNDA + Partner agreement.
-3. [Sign up](https://amplitude.com/get-started?utm_source=adwordsb&utm_medium=ppc&utm_campaign=Search_APAC_AU_EN_Brand&utm_content=Brand_Phrase&utm_term=amplitude&gclid=CjwKCAjwo_KXBhAaEiwA2RZ8hEl3xAKC7rR315frp2apgK-x2xNwp6iImFVAJ_ruLDcfUj3Uhp7xahoC6ogQAvD_BwE) or have an existing Amplitude plan.
+3. [Sign up](https://amplitude.com/get-started) or have an existing Amplitude plan.
 4. Email integrations@amplitude.com with  [Org ID](https://help.amplitude.com/hc/en-us/articles/235649848-The-Settings-page) so Amplitude can enable the Integration Portal. This also enables the partner sandbox plan to give you access to all the same features as the Enterprise plan for testing purposes.
 
 ### High-level process to get listed in Amplitude

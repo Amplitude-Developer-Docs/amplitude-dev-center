@@ -60,6 +60,14 @@
 
     {
     "pattern": "https://data.amplitude.com/"
+    },
+    
+    {
+    "pattern": "https://docs.snowflake.com/en/user-guide/data-sharing-intro.html"
+    },
+
+    {
+    "pattern": "https://docs.osano.com/data-field-classification-categories"
     }
 
 	],
@@ -68,18 +76,6 @@
     {
       "pattern": "^../",
       "replacement": "https://docs.developers.amplitude.com/"
-    },
-    {
-      "pattern": "^data/",
-      "replacement": "https://docs.developers.amplitude.com/data"
-    },
-    {
-      "pattern": "/data",
-      "replacement": "https://docs.developers.amplitude.com/data"
-    },
-    {
-      "pattern": "^experiment/",
-      "replacement": "https://docs.developers.amplitude.com/experiment/"
     }
   ],
 

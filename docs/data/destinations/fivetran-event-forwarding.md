@@ -1,7 +1,6 @@
 ---
 title: Send Events via Fivetran
 description: Use this integration to forward Amplitude events to destinations via the Fivetran connector.
-status: new
 ---
 
 Fivetran is the leader in automated data integration, delivering ready-to-use connectors that adapt to change. Using this integration, you can forward events from Amplitude to your destination using the Fivetran connector.

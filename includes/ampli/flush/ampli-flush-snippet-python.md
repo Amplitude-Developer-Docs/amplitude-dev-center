@@ -1,0 +1,5 @@
+=== "Python"
+
+    ```python
+    ampli.flush();
+    ```

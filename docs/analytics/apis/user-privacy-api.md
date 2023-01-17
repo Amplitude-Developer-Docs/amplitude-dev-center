@@ -22,7 +22,7 @@ The User Privacy API helps you comply with end-user data deletion requests manda
 
 Keep these considerations in mind when using the User Privacy API.
 
-- When you make a deletion request, Amplitude emails all account admins with the deletion details.
+- When you make a deletion request, Amplitude [emails all account admins](https://help.amplitude.com/hc/en-us/articles/360031965572-Manage-user-privacy-notifications-in-Amplitude) with the deletion details.
 - Amplitude deletes all events and user properties added up until the time that job runs for each Amplitude ID in a deletion job.
 - Running a deletion job for a user doesn't block new events for that user. Amplitude accepts new events from a deleted user.
 - If Amplitude receives events for a deleted user, then it counts the deleted user as a new user.
