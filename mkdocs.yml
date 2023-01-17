@@ -35,11 +35,11 @@ theme:
     - content.action.edit # adds edit icon to pages
     - content.action.view # adds view page source icon to pages
     #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
-    - content.code.annotate #enables code annotation feature
+    - content.code.annotate # enables code annotation feature
     - content.tooltips #enables enhanced tooltips
     - content.tabs.link #links tabs with the same name, so when one is clicked, the others on the same page focus on matching tabs
     # - header.autohide
-    # - navigation.expand #expands everything in nav. Not enabled intentionally it's really overwhelming.
+    # - navigation.expand # expands everything in nav. Not enabled intentionally it's really overwhelming.
     - navigation.instant #makes site act like a SPA. Preserves search index on navigation and saves a bunch of time. Keeps site snappy.
     - navigation.path # enables breadcrumbs
     - navigation.indexes # enables attaching a page to section head: the "index" pages
