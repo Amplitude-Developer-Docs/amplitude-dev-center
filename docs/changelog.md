@@ -25,6 +25,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 **New** 
 
 - *Site change*: Added breadcrumb navigation. [#507](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/507)
+- *Repo change*: Simplified README and moved all repo meta docs to Wiki format to make them easier to browse and read. [#508](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/508)
 
 **Updated**
 
