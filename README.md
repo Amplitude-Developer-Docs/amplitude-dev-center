@@ -41,6 +41,7 @@ Anyone can suggest changes to the docs. Just open a PR with your changes! See ou
 
 ## Resources
 
+- [Developer Center Wiki](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki)
 - [Formatting Cheatsheet](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki/Formatting-Cheatsheet)
 - [Style Guide](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki/Style-Guide)
 - [Known issues and hacks I don't feel bad about](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki#known-issues-and-hacks-i-dont-feel-bad-about)
