@@ -473,7 +473,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 === "Amplitude-Swift"
 
-    Configuration level callbacks:
+    Configuration-level callbacks:
 
     ```swift
     let amplitude = Amplitude(
@@ -486,7 +486,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
     )
     ```
 
-    Event level callbacks:
+    Event-level callbacks:
 
     ```swift
     let event = BaseEvent(
