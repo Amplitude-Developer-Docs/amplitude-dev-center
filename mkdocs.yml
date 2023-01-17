@@ -35,21 +35,22 @@ theme:
     - content.action.edit # adds edit icon to pages
     - content.action.view # adds view page source icon to pages
     #- announce.dismiss # this feature is perenially buggy, so keep it disabled unless necessary.
-    - content.code.annotate #enables code annotation feature
+    - content.code.annotate # enables code annotation feature
     - content.tooltips #enables enhanced tooltips
     - content.tabs.link #links tabs with the same name, so when one is clicked, the others on the same page focus on matching tabs
     # - header.autohide
-    # - navigation.expand
-    - navigation.instant
-    - navigation.indexes
-    - navigation.sections
-    - navigation.tabs
+    # - navigation.expand # expands everything in nav. Not enabled intentionally it's really overwhelming.
+    - navigation.instant #makes site act like a SPA. Preserves search index on navigation and saves a bunch of time. Keeps site snappy.
+    - navigation.path # enables breadcrumbs
+    - navigation.indexes # enables attaching a page to section head: the "index" pages
+    - navigation.sections # top-level sections are rendered in groups in the sidebar
+    - navigation.tabs # adds the top level menu tabs in the header bar. 
     # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
+    - navigation.top #back to top button
+    - navigation.tracking # URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
+    - search.highlight # highlights search term on page
+    - search.share # allows users to share a deeplink to search results
+    - search.suggest # enables search suggestions
     # - toc.integrate #this is a really noisy feature, IMO.
   font: false # Prevents autoloading of google fonts, for privacy reasons.
   favicon: assets/favicon.ico
