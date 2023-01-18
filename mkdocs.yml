@@ -331,7 +331,7 @@ nav:
         - Userlist: data/destinations/userlist-event-streaming.md
         - Webhooks: data/destinations/webhooks-streaming.md
       - Cohorts:
-        - Overview: data/cohort-destination-overview.md
+        - Overview: data/destination-cohort-overview.md
         - Airship: data/destinations/airship-cohort.md
         - Amazon S3: data/destinations/amazon-s3-cohort.md
         - Appcues: data/destinations/appcues-cohort.md
