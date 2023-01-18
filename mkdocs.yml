@@ -315,7 +315,7 @@ nav:
         - Snowflake: data/destinations/snowflake.md
         - Snowflake Data Share: data/destinations/snowflake-data-share.md
       - Event Streaming: 
-        - Overview: data/event-streaming-home.md
+        - Overview: data/destination-event-streaming-overview.md
         - AppsFlyer: data/destinations/appsflyer.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
