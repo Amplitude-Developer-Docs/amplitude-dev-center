@@ -14,13 +14,68 @@ In Swift and Objective-C, the tracking library exposes a type-safe function for 
 !!!note "Deprecated Itly runtime"
     This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/ios.md)**.
 
+## Quick Start
+
+0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+    Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
+
+    ```shell
+    pod 'Amplitude', '~> 8.14.0'
+    ```
+
+2. [Install the Ampli CLI](#install-the-ampli-cli)
+
+    ```shell
+    npm install -g @amplitude/ampli
+    ```
+
+3. [Pull the Ampli Wrapper into your project](#pull)
+
+    ```shell
+    ampli pull [--path ./Ampli]
+    ```
+
+4. [Initialize the Ampli Wrapper](#load)
+
+    ```swift
+    Ampli.instance.load(LoadOptions(
+      environment: AmpliEnvironment.Production
+    ))
+    ```
+
+5. [Identify users and set user properties](#identify)
+
+    ```swift
+    Ampli.instance.identify("userID", Identify(
+        userProp: "A trait associated with this user"
+    ))
+    ```
+
+6. [Track events with strongly typed methods and classes](#track)
+
+    ```swift
+    Ampli.instance.songPlayed(SongPlayed(songId: 'song-1');
+    Ampli.instance.track(SongFavorted(songId: 'song-2');
+    ```
+
+7. [Flush events before application exit](#flush)
+
+    ```js
+    Ampli.instance.flush()
+    ```
+
+8. [Verify implementation status with CLI](#status)
+
+    ```shell
+    ampli status [--update]
+    ```
+
 ## Installation
 
-### Install the Ampli CLI
-
-If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
-
-### Install dependencies
+### Install the Amplitude SDK
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
@@ -38,7 +93,7 @@ To install these dependencies with CocoaPods:
         target '{Project-Name}' do
           use_frameworks!
 
-          pod 'Amplitude', "~> 8.6.0"
+          pod 'Amplitude', "~> 8.14.0"
         end
         ```
     === "Objective-C"
@@ -49,53 +104,14 @@ To install these dependencies with CocoaPods:
         target '{Project-Name}' do
           use_frameworks!
 
-          pod 'Amplitude', "~> 8.6.0"
+          pod 'Amplitude', "~> 8.14.0"
         end
         ```
 
 4. Run `pod install`
 5. Open Xcode. Don't open the .xcodeproj file, instead open the .xcodeworkspace file.
 
-### Pull the SDK into your project
-
-At the project root, run `pull` command.
-
-```bash
-ampli pull
-```
-
-This prompts you to log in to your workspace and select a source.
-
-=== "Swift"
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: iOS - Swift
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/itly
-    ```
-
-=== "Objective-C"
-
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: iOS - Obj-C
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/itly
-    ```
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ## API
 
@@ -326,7 +342,7 @@ Migrate from an Itly iOS runtime to Ampli by following these steps.
     target '{Project-Name}' do
       use_frameworks!
 
-      pod 'Amplitude', "~> 8.6"
+      pod 'Amplitude', "~> 8.14"
     end
     ```
 

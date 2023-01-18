@@ -10,45 +10,78 @@ The tracking library exposes a type-safe function for every event in your team�
 !!!alpha "Go Ampli Resources (Beta)"
     [:material-github: Examples](https://github.com/amplitude/ampli-examples/tree/main/go/simple/v2) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
-## Install
+## Quick Start
 
-These instructions are also available from the **Implementation** page of your Amplitude Data workspace.
+0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
-### Install the Ampli CLI
+    Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
-If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
+1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
-### Install dependencies
+    ```shell
+    go get https://github.com/amplitude/analytics-go
+    ```
+
+2. [Install the Ampli CLI](#install-the-ampli-cli)
+
+    ```shell
+    npm install -g @amplitude/ampli
+    ```
+
+3. [Pull the Ampli Wrapper into your project](#pull)
+
+    ```shell
+    ampli pull [--path ./ampli]
+    ```
+
+4. [Initialize the Ampli Wrapper](#load)
+
+    ```golang
+    import "<your-module-name>/ampli"
+
+    ampli.Instance.Load(ampli.LoadOptions{
+        Environment: ampli.EnvironmentProduction,
+    })
+    ```
+
+5. [Identify users and set user properties](#identify)
+
+    ```golang
+    ampli.Instance.Identify(userID, ampli.Identify.Builder().
+		UserProp("A trait associated with this user").Build()
+    )
+    ```
+
+6. [Track events with strongly typed methods and classes](#track)
+
+    ```golang
+    ampli.Instance.SongPlayed("user_id", SongPlayed().Builder().SongId("song-1").Build())
+    ampli.Instance.Track("user_id", SongFavorited().Builder().SongId("song-2").Build())
+    ```
+
+7. [Flush events before application exit](#flush)
+
+    ```golang
+    ampli.Instance.Flush()
+    ```
+
+8. [Verify implementation status with CLI](#status)
+
+    ```shell
+    ampli status [--update]
+    ```
+
+## Installation
+
+### Install the Amplitude SDK
 
 If you haven't already, install the core Amplitude SDK dependencies `analytics-go` using `go get`:
 
-```bash
+```shell
 go get https://github.com/amplitude/analytics-go
 ```
 
-### Pull the SDK into your project
-
-At the project root, run `pull` command.
-
-```bash
-ampli pull
-```
-
-This prompts you to log in to your workspace and select a source.
-
-```bash
-➜ ampli pull sourcename
-Ampli project is not initialized. No existing `ampli.json` configuration found.
-? Create a new Ampli project here? Yes
-? Organization: Amplitude
-? Workspace: My Workspace
-? Source: sourcename
-? Runtime: go:go-ampli
-? Branch: main
-✔ Pulling version 1 (latest)
-✔ Tracking library generated successfully.
-  ↳ Path: ./ampli
-```
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ## API
 
@@ -57,9 +90,7 @@ Ampli project is not initialized. No existing `ampli.json` configuration found.
 Initialize Ampli in your code. The `Load()` method accepts configuration option arguments:
 
 ```Go
-import (
-    "<your-module-name>/ampli"
-)
+import  "<your-module-name>/ampli"
 
 ampli.Instance.Load(ampli.LoadOptions{
     Environment: ampli.EnvironmentProduction,
@@ -90,23 +121,12 @@ Just as Ampli creates types for events and their properties, it creates types fo
 
 The `Identify()` function accepts a string `userID`, an Identify event instance, and `amplitude.EventOptions`.
 
-All required properties are passed in as parameters of `NewIdentify()`. For example your tracking plan only contains a required user property called `role`. The property's type is a string.
+All properties are passed in as parameters of methods to `ampli.Identify.Builder()`. For example your tracking plan only contains a required user property called `role`. The property's type is a string.
 
 ```Go
 ampli.Instance.Identify(
     "user_id",
-    ampli.NewIdentify("admin"),
-    amplitude.EventOptions{},
-)
-```
-
-Optional properties can be set by `SetOptional()`. For example your tracking plan only contains a optional user property called `role`. 
-
-```Go
-ampli.Instance.Identify(
-    "user_id",
-    ampli.NewIdentify().SetOptionalRole("admin"),
-    amplitude.EventOptions{},
+    ampli.Identify.Builder().Role("admin").Build(),
 )
 ```
 
@@ -115,7 +135,7 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 ```Go
 ampli.Instance.Identify(
     "user_id",
-    ampli.NewIdentify("admin"),
+    ampli.Identify.Builder().Role("admin").Build(),
     amplitude.EventOptions{
         DeviceID: "divice_id",
     },
@@ -173,7 +193,7 @@ ampli.Instance.SetGroup("user-id", "sport", []string{"football", "basketball"}, 
 To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
 
 ```Go
-ampli.Instance.EventName("user_id", NewEventName(...), EventOptions(...))
+ampli.Instance.EventName(userID, ampli.EventName.Builder().eventProp(true).Build(), amplitude.EventOptions{})
 ```
 
 `EventOptions` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument), like `DeviceID`.

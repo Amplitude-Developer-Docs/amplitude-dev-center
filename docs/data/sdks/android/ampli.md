@@ -14,13 +14,71 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
 !!!note "Deprecated Itly runtime"
     This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.
 
+## Quick Start
+
+0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+    Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
+
+    ```
+    implementation 'com.amplitude:android-sdk:2.38.3'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    ```
+
+2. [Install the Ampli CLI](#install-the-ampli-cli)
+
+    ```shell
+    npm install -g @amplitude/ampli
+    ```
+
+3. [Pull the Ampli Wrapper into your project](#pull)
+
+    ```shell
+    ampli pull [--path ./app/src/main/java/com/amplitude/ampli]
+    ```
+
+4. [Initialize the Ampli Wrapper](#load)
+
+    ```kotlin
+    import com.amplitude.ampli.*
+    
+    ampli.load(appContext, LoadOptions(
+        environment = Ampli.Environment.PRODUCTION
+    ));
+    ```
+
+5. [Identify users and set user properties](#identify)
+
+    ```kotlin
+    ampli.identify(userId, Identify(
+        userProp = "A trait associated with this user"
+    ))
+    ```
+
+6. [Track events with strongly typed methods and classes](#track)
+
+    ```kotlin
+    ampli.songPlayed(songId = "song-1")
+    ampli.track(SongFavorited(songId = "song-2"))
+    ```
+
+7. [Flush events before application exit](#flush)
+
+    ```kotlin
+    ampli.flush()
+    ```
+
+8. [Verify implementation status with CLI](#status)
+
+    ```shell
+    ampli status [--update]
+    ```
+
 ## Installation
 
-### Install the Ampli CLI
-
-If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
-
-### Install dependencies
+### Install the Amplitude SDK
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
@@ -42,47 +100,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
   
     If you're not already requesting the [INTERNET permission](https://developer.android.com/reference/android/Manifest.permission#INTERNET), add `<uses-permission android:name="android.permission.INTERNET" />` to your AndroidManifest.xml.
 
-### Pull the SDK into your project
-
-At the project root, run `pull` command.
-
-```bash
-ampli pull
-```
-
-This prompts you to log in to your workspace and select a source.
-
-=== "Java"
-
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Android - Java
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/itly
-    ```
-
-=== "Kotlin"
-
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Android - Kotlin
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/itly
-    ```
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ## API
 

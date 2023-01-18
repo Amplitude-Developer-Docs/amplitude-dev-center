@@ -27,26 +27,26 @@ Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScrip
 
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
-    ```bash
+    ```shell
     npm install @amplitude/analytics-node
     ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)
 
-    ```bash
+    ```shell
     npm install -g @amplitude/ampli
     ```
 
 3. [Pull the Ampli Wrapper into your project](#pull)
 
-    ```bash
-    ampli pull [--path ./ampli]
+    ```shell
+    ampli pull [--path ./src/ampli]
     ```
 
 4. [Initialize the Ampli Wrapper](#load)
 
     ```js
-    import { ampli } from './ampli';
+    import { ampli } from './src/ampli';
     
     ampli.load({ environment: 'production' });
     ```
@@ -66,9 +66,15 @@ Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScrip
     ampli.track('ampli-user-id', new SongPlayed({ songId: 'song-2' });
     ```
 
-7. [Verify implementation status with CLI](#status)
+7. [Flush events before application exit](#flush)
 
-    ```bash
+    ```js
+    ampli.flush();
+    ```
+
+8. [Verify implementation status with CLI](#status)
+
+    ```shell
     ampli status [--update]
     ```
 
@@ -90,17 +96,7 @@ The Ampli Wrapper depends on the Amplitude SDK. If you haven't already, install 
     yarn add @amplitude/analytics-node
     ```
 
-### Install the Ampli CLI
-
 --8<-- "includes/ampli/cli-install-simple.md"
-
-### Pull the Ampli Wrapper into your project
-
-Run the Ampli CLI `pull` command to log in to Amplitude Data and download the strongly typed Ampli Wrapper for your tracking plan. Ampli CLI commands are usually run from the project root directory.
-
-```bash
-ampli pull
-```
 
 ## Ampli Wrapper API
 

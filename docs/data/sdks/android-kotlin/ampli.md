@@ -10,76 +10,93 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
 
 <!--vale off-->
 !!!info "Ampli Android Resources"
-    [:material-language-kotlin: Ampli Android Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v2/AmpliApp) · [:material-language-java: Ampli Android Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v2/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-kotlin: Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v2/AmpliApp) · [:material-language-java: Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v2/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 <!-- vale on-->
+
+## Quick Start
+
+0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+    Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
+
+    ```
+    implementation 'com.amplitude:analytics-android:1.5+'
+    ```
+
+2. [Install the Ampli CLI](#install-the-ampli-cli)
+
+    ```shell
+    npm install -g @amplitude/ampli
+    ```
+
+3. [Pull the Ampli Wrapper into your project](#pull)
+
+    ```shell
+    ampli pull [--path ./app/src/main/java/com/amplitude/ampli]
+    ```
+
+4. [Initialize the Ampli Wrapper](#load)
+
+    ```kotlin
+    import com.amplitude.ampli.*
+    
+    ampli.load(appContext, LoadOptions(
+        environment = Ampli.Environment.PRODUCTION
+    ));
+    ```
+
+5. [Identify users and set user properties](#identify)
+
+    ```kotlin
+    ampli.identify(userId, Identify(
+        userProp = "A trait associated with this user"
+    ))
+    ```
+
+6. [Track events with strongly typed methods and classes](#track)
+
+    ```kotlin
+    ampli.songPlayed(songId = "song-1")
+    ampli.track(SongFavorited(songId = "song-2"))
+    ```
+
+7. [Flush events before application exit](#flush)
+
+    ```kotlin
+    ampli.flush()
+    ```
+
+8. [Verify implementation status with CLI](#status)
+
+    ```shell
+    ampli status [--update]
+    ```
 
 ## Installation
 
-### Install the Ampli CLI
-
-If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
-
-### Install dependencies
+### Install the Amplitude SDK
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
 === "Java"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:1.0+'
+    implementation 'com.amplitude:analytics-android:1.5+'
     ```
 
 === "Kotlin"
 
     ```bash
-    implementation 'com.amplitude:analytics-android:1.0+'
+    implementation 'com.amplitude:analytics-android:1.5+'
     ```
 
 !!!note
 
     If you're not already requesting the [INTERNET permission](https://developer.android.com/reference/android/Manifest.permission#INTERNET), add `<uses-permission android:name="android.permission.INTERNET" />` to your AndroidManifest.xml.
 
-### Pull the Wrapper into your project
-
-At the project root, run `pull` command.
-
-```bash
-ampli pull
-```
-
-This prompts you to log in to your workspace and select a source.
-
-=== "Java"
-
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Android / Java
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/main/java/com/amplitude/ampli
-    ```
-
-=== "Kotlin"
-
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Android / Kotlin
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/main/java/com/amplitude/ampli
-    ```
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ## API
 
@@ -424,7 +441,7 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
 2. Add Amplitude dependencies.
 
     ```bash
-    implementation 'com.amplitude:analytics-android:1.0.0'
+    implementation 'com.amplitude:analytics-android:1.5+'
     ```
 
 3. Pull the latest Ampli Wrapper.
