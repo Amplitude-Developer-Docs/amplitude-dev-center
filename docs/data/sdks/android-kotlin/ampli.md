@@ -21,7 +21,7 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
 
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
-    ```
+    ```kotlin
     implementation 'com.amplitude:analytics-android:1.5+'
     ```
 

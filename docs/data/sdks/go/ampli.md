@@ -48,7 +48,7 @@ The tracking library exposes a type-safe function for every event in your teamâ€
 
     ```golang
     ampli.Instance.Identify(userID, ampli.Identify.Builder().
-		UserProp("A trait associated with this user").Build()
+        UserProp("A trait associated with this user").Build()
     )
     ```
 
