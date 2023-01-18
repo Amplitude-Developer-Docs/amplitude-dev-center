@@ -32,6 +32,8 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 **Updated**
 
+- Changed the URL of [Event Streaming Overview](../data/destination-event-streaming-overview) for clarity and consistency. There is a redirect in place, but we recommend updating your bookmarks. [#513](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/513)
+
 ## Week of January 8, 2023
 
 **New** 
