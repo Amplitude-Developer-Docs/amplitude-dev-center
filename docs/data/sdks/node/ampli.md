@@ -325,31 +325,7 @@ Track Event objects using Ampli `track`:
 
 --8<-- "includes/ampli/flush/ampli-flush-snippet-typescript.md"
 
-## Verify implementation status
-
-Verify events are implemented in your code with the status command:
-
-```bash
-ampli status
-```
-
-To update the implementation status in your tracking plan use the `--update` flag or `-u`:
-
-```bash
-ampli status -u
-```
-
-The output displays status and indicates what events are missing.
-
-```bash
-➜ ampli status
-✘ Verifying event tracking implementation in source code
- ✔ Song Played (1 location)
- ✘ Song Stopped Called when a user stops playing a song.
-Events Tracked: 2 missed, 3 total
-```
-
-Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
+--8<-- "includes/ampli/cli-pull-and-status-section.md"
 
 ## Migrate from an Itly runtime
 
