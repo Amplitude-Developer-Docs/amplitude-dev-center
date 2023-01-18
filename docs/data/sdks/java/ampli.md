@@ -24,7 +24,7 @@ The function’s arguments correspond to the event’s properties and are strong
 
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
-    ```
+    ```java
     implementation 'com.amplitude:java-sdk:1.10.0'
     implementation 'org.json:json:20201115'
     ```
