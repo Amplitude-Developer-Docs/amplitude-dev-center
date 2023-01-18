@@ -46,6 +46,21 @@ ampli pull
 
 A browser window opens and automatically logs you in or prompt you for your credentials. Ampli stores your project-specific settings in `ampli.json` and your user-specific settings (such as your credentials) in `~/ampli.json`. Depending on your Amplitude organization settings, the CLI might prompt you to choose your Organization or Workspace.
 
+```text
+➜ ampli pull
+Ampli project is not initialized. No existing `ampli.json` configuration found.
+? Create a new Ampli project here? Yes
+? Organization: My Organization
+? Workspace: My Workspace
+? Source: My Web Source
+? Platform: Browser
+? Language: TypeScript
+? Branch: main
+✔ Pulling latest version (1.0.0)...
+✔ Tracking library generated successfully.
+  ↳ Path: ./src/ampli
+```
+
 ### Step 3: Generate your analytics SDK
 
 Now that you're done setting Ampli up, you’re ready to generate your analytics SDK. The `ampli pull` command looks at the events and properties you've defined in your Amplitude Data account (also known as a tracking plan). Ampli uses this information to create a matching type-safe analytics library for you to use.

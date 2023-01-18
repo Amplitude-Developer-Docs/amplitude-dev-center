@@ -15,13 +15,68 @@ The tracking library exposes a function for every event in your team’s trackin
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
+## Quick Start
+
+0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+    Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
+
+1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
+
+    ```shell
+    npm install @amplitude/analytics-browser
+    ```
+
+2. [Install the Ampli CLI](#install-the-ampli-cli)
+
+    ```shell
+    npm install -g @amplitude/ampli
+    ```
+
+3. [Pull the Ampli Wrapper into your project](#pull)
+
+    ```shell
+    ampli pull [--path ./src/ampli]
+    ```
+
+4. [Initialize the Ampli Wrapper](#load)
+
+    ```js
+    import { ampli } from './src/ampli';
+    
+    ampli.load({ environment: 'production' });
+    ```
+
+5. [Identify users and set user properties](#identify)
+
+    ```js
+    ampli.identify('user-id', {
+        userProp: 'A trait associated with this user'
+    });
+    ```
+
+6. [Track events with strongly typed methods and classes](#track)
+
+    ```js
+    ampli.songPlayed({ songId: 'song-1' });
+    ampli.track(new SongPlayed({ songId: 'song-2' });
+    ```
+
+7. [Flush events before application exit](#flush)
+
+    ```js
+    ampli.flush();
+    ```
+
+8. [Verify implementation status with CLI](#status)
+
+    ```shell
+    ampli status [--update]
+    ```
+
 ## Installation
 
-### Install the Ampli CLI
-
-If you haven't installed the Ampli CLI, [install it now](../../ampli/cli.md).
-
-### Install dependencies
+### Install the Amplitude SDK
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
@@ -40,47 +95,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
 !!!note
     Note: when using Ampli in the browser, Amplitude recommends loading `@amplitude/analytics-browser` as a module rather than as a JavaScript snippet.
 
-### Pull the SDK into your project
-
-At the project root, run `pull` command.
-
-```bash
-ampli pull
-```
-
-This prompts you to log in to your workspace and select a source.
-
-=== "TypeScript"
-
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Browser/TypeScript
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/ampli
-    ```
-
-=== "JavaScript"
-
-    ```bash
-    ➜ ampli pull sourcename
-    Ampli project is not initialized. No existing `ampli.json` configuration found.
-    ? Create a new Ampli project here? Yes
-    Organization: Amplitude
-    Workspace: My Workspace
-    Source: sourcename
-    Runtime: Browser/JavaScript
-    Branch: main
-    Pulling latest version (1.0.0)...
-    Tracking library generated successfully.
-    Path: ./src/ampli
-    ```
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ## API
 
@@ -376,31 +391,7 @@ Add your plugin after init Ampli.
     ampli.client.add(new AddEventIdPlugin())
     ```
 
-## Verify implementation status
-
-Verify that events are implemented in your code with the status command:
-
-```bash
-ampli status
-```
-
-To update the implementation status in your tracking plan use the `--update` flag or `-u`:
-
-```bash
-ampli status -u
-```
-
-The output displays status and indicates what events are missing.
-
-```bash
-➜ ampli status
-✘ Verifying event tracking implementation in source code
- ✔ Song Played (1 location)
- ✘ Song Stopped Called when a user stops playing a song.
-Events Tracked: 1 missed, 2 total
-```
-
-Learn more about [`ampli status`](../../ampli/cli.md#ampli-status).
+--8<-- "includes/ampli/cli-pull-and-status-section.md"
 
 ## Migrate from an Itly runtime
 

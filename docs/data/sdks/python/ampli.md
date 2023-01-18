@@ -14,13 +14,68 @@ The tracking library exposes a type-safe function for every event in your team�
 !!!note "Deprecated Itly runtime"
     This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrate-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python.md)**.
 
-## Install
+## Quick Start
 
-### Install the Ampli CLI
+0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
-If you haven't installed the Ampli CLI, [install it now](../../ampli).
+    Plan your events and properties in [Amplitude Data](https://data.amplitude.com/). See detailed instructions [here](https://help.amplitude.com/hc/en-us/articles/5078731378203)
 
-### Install dependencies
+1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
+
+    ```shell
+    pip install amplitude-analytics
+    ```
+
+2. [Install the Ampli CLI](#install-the-ampli-cli)
+
+    ```shell
+    npm install -g @amplitude/ampli
+    ```
+
+3. [Pull the Ampli Wrapper into your project](#pull)
+
+    ```shell
+    ampli pull [--path ./ampli]
+    ```
+
+4. [Initialize the Ampli Wrapper](#load)
+
+    ```python
+    from .ampli import *
+    
+    ampli.load(LoadOptions(
+      environment=Environment.PRODUCTION
+    ))
+    ```
+
+5. [Identify users and set user properties](#identify)
+
+    ```python
+    ampli.identify("user_id", Identify(userProp="A trait associated with this user"))
+    ```
+
+6. [Track events with strongly typed methods and classes](#track)
+
+    ```python
+    ampli.song_played('user_id', SongPlayed(song_id="song-1"))
+    ampli.track('user-id', new SongFavorited(song_id="song-2"));
+    ```
+
+7. [Flush events before application exit](#flush)
+
+    ```python
+    ampli.flush();
+    ```
+
+8. [Verify implementation status with CLI](#status)
+
+    ```shell
+    ampli status [--update]
+    ```
+
+## Installation
+
+### Install the Amplitude SDK
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
@@ -28,29 +83,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
 pip install amplitude-analytics
 ```
 
-### Pull the SDK into your project
-
-At the project root, run `pull` command.
-
-```bash
-ampli pull
-```
-
-This prompts you to log in to your workspace and select a source.
-
-```bash
-➜ ampli pull sourcename
-Ampli project is not initialized. No existing `ampli.json` configuration found.
-? Create a new Ampli project here? Yes
-Organization: Amplitude
-Workspace: My Workspace
-Source: sourcename
-Runtime: Python/Python
-Branch: main
-Pulling latest version (1.0.0)...
-Tracking library generated successfully.
-Path: ./ampli
-```
+--8<-- "includes/ampli/cli-install-simple.md"
 
 ## API
 
@@ -208,31 +241,7 @@ Add your plugin after init Ampli:
 ampli.client.add(SegmentPlugin("write_key"))
 ```
 
-## Verify implementation status
-
-Verify events are implemented in your code with the status command:
-
-```bash
-ampli status
-```
-
-To update the implementation status in your tracking plan use the `--update` flag or `-u`:
-
-```bash
-ampli status -u
-```
-
-The output displays status and indicates what events are missing.
-
-```bash
-➜ ampli status
-✘ Verifying event tracking implementation in source code
- ✔ Song Played (1 location)
- ✘ Song Stopped Called when a user stops playing a song.
-Events Tracked: 1 missed, 2 total
-```
-
-Learn more about [`ampli status`](https://developers.data.amplitude.com/using-the-ampli-cli/#ampli-status).
+--8<-- "includes/ampli/cli-pull-and-status-section.md"
 
 ## Migrate from an Itly Python runtime
 
