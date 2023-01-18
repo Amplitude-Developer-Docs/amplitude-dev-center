@@ -304,6 +304,7 @@ nav:
     - Destinations:
       - Overview: data/destinations.md
       - Cloud Storage:
+        - Overview: data/destination-cloud-storage-overview.md
         - Amazon S3: data/destinations/amazon-s3.md
         - Google Cloud Storage: data/destinations/google-cloud-storage.md
       - Warehouse:
