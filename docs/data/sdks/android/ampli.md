@@ -3,13 +3,16 @@ title: Android Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
 ---
 
-Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
+--8<-- "includes/ampli/ampli-overview-section.md"
 
-In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
 <!--vale off-->
 !!!info "Ampli Android Resources (Legacy)"
-    [:material-language-kotlin: Ampli Android Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp) · [:material-language-java: Ampli Android Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-kotlin: Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp) · [:material-language-java: Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Android SDK](./index.md).
 
 !!!note "Deprecated Itly runtime"
     This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.

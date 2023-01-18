@@ -1,17 +1,21 @@
 ---
-title: Browser TypeScript Ampli Wrapper
+title: Browser Ampli Wrapper
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
-Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
-
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+Amplitude Data supports tracking analytics events from browser apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
 <!--vale off-->
 !!!info "Ampli Browser Resources"
-    [:material-language-typescript: Ampli TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app) · [:material-language-javascript: Ampli JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app) · [:material-language-javascript: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 <!--vale on-->
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Browser SDK](./index.md).
+
+--8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 

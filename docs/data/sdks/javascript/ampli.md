@@ -3,10 +3,9 @@ title: Browser Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the browser JavaScript and Typescript runtimes.
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
-
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
 !!!info "Ampli Resources"
     - [Browser JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app)
@@ -15,6 +14,9 @@ The tracking library exposes a function for every event in your team’s trackin
 !!!note "Deprecated Itly runtime"
     This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
     If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Browser SDK](./index.md).
 
 --8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 

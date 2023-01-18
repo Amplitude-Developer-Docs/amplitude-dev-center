@@ -3,11 +3,7 @@ title: Node Ampli Wrapper
 description: The Ampli Wrapper - Node Typescript Installation & Quick Start guide.
 ---
 
-## Overview
-
-The Ampli Wrapper is a generated, strongly typed API for tracking Analytics events based on your Tracking Plan in Amplitude Data. The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties.
-
-Ampli can benefit your app by providing autocompletion for events & properties defined in Data and enforce your event schemas in code to prevent bad instrumentation. 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
 Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
@@ -16,6 +12,8 @@ Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScrip
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Click here for more documentation on the [Amplitude Node SDK](./index.md).
+
+--8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 

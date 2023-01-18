@@ -3,15 +3,17 @@ title: Android Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
 Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
-
-In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
 
 <!--vale off-->
 !!!info "Ampli Android Resources"
     [:material-language-kotlin: Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v2/AmpliApp) · [:material-language-java: Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v2/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 <!-- vale on-->
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Android SDK](./index.md).
 
 ## Quick Start
 

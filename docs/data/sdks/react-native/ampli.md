@@ -3,32 +3,20 @@ title: React Native Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the React Native TypeScript and JavaScript runtimes.
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
 Amplitude Data supports tracking analytics events from React Native apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
-
 !!!info "Ampli Resources"
-    - [React Native JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v1/AmpliApp)
-    - [React Native Typescript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v1/AmpliApp)
+    - [JavaScript Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v1/AmpliApp)
+    - [Typescript Examples](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v1/AmpliApp)
 
 --8<-- "includes/beta-not-supported.md"
 
-??? tip "Enable real-time type checking for JavaScript"
-    Because JavaScript isn't a type-safe language, static type checking isn't built in like TypeScript. Some common IDEs allow for real-time type checks in JavaScript based on JSDoc.
-     For a better development experience Ampli generates JSDocs for all methods and classes.
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude React Native SDK](./index.md).
 
-    To enable real-time type checking in VSCode for JavaScript:
-
-    1. Go to **Preferences > Settings** then search for **checkJs**.
-    2. Select **JS/TS > Implicit Project Config: Check JS**.
-
-    After it's activated, type errors appear directly in the IDE.
-
-    Jetbrains provides similar support:
-
-    1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
-    2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
+--8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
