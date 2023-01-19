@@ -74,9 +74,9 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name | Required              | Recommended           | Default Amplitude Property |
-|----------------|:---------------------:|:---------------------:|----------------------------|
-| **Email**      | :octicons-check-16:   |                       | **Email**                  |
-| **User ID**    |                       | :octicons-check-16:   | **User ID**                |
-| Campaign ID    |                       |                       |                            |
-| Template ID    |                       |                       |                            |
+| Parameter Name | Required                                      | Recommended                | Default Amplitude Property |
+|----------------|:---------------------------------------------:|----------------------------|----------------------------|
+| **Email**      | :octicons-check-16: (one of Email or User ID) |                            | **Email**                  |
+| **User ID**    | :octicons-check-16: (one of Email or User ID) |                            | **User ID**                |
+| Campaign ID    |                                               |                            |                            |
+| Template ID    |                                               |                            |                            |
