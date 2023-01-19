@@ -27,12 +27,15 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added new [Cloud Storage Destination Overview](../data/destination-cloud-storage-overview). [#510](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/510)
 - Added new [Cloud Storage Source Overview](../data/source-cloud-storage-overview). [#511](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/511)
 - Added new [Other Sources Overview](...data/source-other-overview). [#512](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/512)
+- Added new [Cohort Syncing Destinations Overview](..data/destination-cohort-overview). [#516](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/516)
 - *Site change*: Added breadcrumb navigation. [#507](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/507)
 - *Repo change*: Simplified README and moved all repo meta docs to Wiki format to make them easier to browse and read. [#508](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/508)
 
 **Updated**
 
+- Added new-format API examples to [Export API](../docs/analytics/apis/export-api) doc. [#496](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/496)
 - Changed the URL of [Event Streaming Overview](../data/destination-event-streaming-overview) for clarity and consistency. There is a redirect in place, but we recommend updating your bookmarks. [#513](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/513)
+- Updated wording in the Integration Portal docs to reflect a small UI change. [#514](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/514)
 
 ## Week of January 8, 2023
 
