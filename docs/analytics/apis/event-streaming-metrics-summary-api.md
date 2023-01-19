@@ -3,7 +3,7 @@ title: Event Streaming Metrics Summary API
 description: Get delivery metrics summary for a configured event stream using the the Event Streaming Metrics API.
 ---
 
-The Event Streaming Metrics API lets you get delivery metrics summary for a configured event stream.
+Use the Event Streaming Metrics API to monitor delivery metrics for a configured event stream. 
 
 --8<-- "includes/auth-basic.md"
 
