@@ -437,6 +437,7 @@ nav:
     - CCPA DSAR: analytics/apis/ccpa-dsar-api.md
     - Chart Annotations: analytics/apis/chart-annotations-api.md
     - Dashboard: analytics/apis/dashboard-rest-api.md
+    - Event Streaming Metrics: analytics/apis/event-streaming-metrics-summary-api.md
     - Export: analytics/apis/export-api.md
     - Group Identify: analytics/apis/group-identify-api.md
     - HTTP V2: analytics/apis/http-v2-api.md

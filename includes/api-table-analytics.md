@@ -1,4 +1,4 @@
-|API|This API lets you:|
+|<div class="big column">API</div>|This API lets you:|
 |---|-----------|
 |[Attribution](../apis/attribution-api)| Send attribution campaign events (identified by `idfa`, `idfv`, or `adid`) that contain attribution information. |
 |[Batch Event Upload](../apis/batch-event-upload-api)| Upload large amounts of event data.|
@@ -6,6 +6,7 @@
 |[CCPA DSAR](../apis/ccpa-dsar-api)| The Data Subject Access Request (DSAR) API makes it easy to retrieve all data about a user. |
 |[Chart Annotations](../apis/chart-annotations-api)|Programmatically annotate important dates like feature releases and marketing campaigns on your organization's charts with a horizontal axis of calendar dates. |
 |[Dashboard REST](../apis/dashboard-rest-api)| Get data that's displayed on the dashboard graphs in JSON format via the Dashboard REST API.|
+|[Event Streaming Metrics Summary](../apis/event-streaming-metrics-summary-api)| Get delivery metrics summary for a configured event stream.|
 |[Export](../apis/export-api)|Export your project's event data. |
 |[Group Identify](../apis/group-identify-api)|Set or update properties of particular groups.|
 |[HTTP V2](../apis/http-v2-api)|Send data directly from your server to the HTTP V2 endpoint.|
