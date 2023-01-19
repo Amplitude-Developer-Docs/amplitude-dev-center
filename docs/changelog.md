@@ -24,11 +24,11 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 **New** 
 
-- Added new [Cloud Storage Destination Overview](../data/destination-cloud-storage-overview). [#510](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/510)
-- Added new [Cloud Storage Source Overview](../data/source-cloud-storage-overview). [#511](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/511)
-- Added new [Other Sources Overview](../data/source-other-overview). [#512](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/512)
-- Added new [Cohort Syncing Destinations Overview](../data/destination-cohort-overview). [#516](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/516)
-- Added new [API Reference Overview](../analytics/api-reference-overview). [#517](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/517)
+- Added new [Cloud Storage Destination Overview](../data/destination-cloud-storage-overview) doc. [#510](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/510)
+- Added new [Cloud Storage Source Overview](../data/source-cloud-storage-overview) doc. [#511](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/511)
+- Added new [Other Sources Overview](../data/source-other-overview) doc. [#512](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/512)
+- Added new [Cohort Syncing Destinations Overview](../data/destination-cohort-overview) doc. [#516](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/516)
+- Added new [API Reference Overview](../analytics/api-reference-overview) doc. [#517](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/517)
 - *Site change*: Added breadcrumb navigation. [#507](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/507)
 - *Repo change*: Simplified README and moved all repo meta docs to Wiki format to make them easier to browse and read. [#508](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/508)
 
