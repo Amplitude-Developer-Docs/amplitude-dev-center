@@ -4,9 +4,9 @@ description: Send Amplitude audineces to Maze to create more personalized campai
 ---
 --8<-- "includes/editions-scholarship-growth-enterprise.md"
 
-[Maze](https://maze.co/) empowers product and marketing teams to test anything from prototypes to copy, or round up user feedback, all in one place. Collect user insights across teams and create better user experiences, together.
+[Maze](https://maze.co/) empowers product teams to continuously collect and consume user insights across the entire product development cycle. With solutions for participant recruitment, product research, and reporting, Maze helps teams build the habit of continuous product discovery in a platform that enables everyone to run great research. 
 
-The Maze integration allows you to send audiences from Amplitude to Maze to create more personalized campaigns.
+The Maze integration allows you to send audiences from Amplitude to Maze to create more personalized campaigns. 
 
 !!!info "This integration is maintained by Maze"
     
