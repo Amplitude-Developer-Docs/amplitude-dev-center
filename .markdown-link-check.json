@@ -59,6 +59,10 @@
     },
 
     {
+    "pattern": "https://data.amplitude.com/"
+    },
+    
+    {
     "pattern": "https://docs.snowflake.com/en/user-guide/data-sharing-intro.html"
     },
 

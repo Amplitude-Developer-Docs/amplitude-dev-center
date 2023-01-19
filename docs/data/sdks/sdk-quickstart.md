@@ -8,7 +8,7 @@ status: new
 ---
 <!-- Note to contributors: This doc has creative uses of standard formatting features. It's kind of brittle and can be hard to work with. If you have any questions or need help, reach out in #dev-doc-requests-->
 
-Use this guide to get started with the Amplitude SDKs. Choose your target language:
+Use this guide to get started with the Amplitude SDKs. Choose your target platform:
 
 === "Browser"
 

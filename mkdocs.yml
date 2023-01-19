@@ -232,6 +232,7 @@ nav:
         - Other Topics:
           - data/dynamic-configuration.md
       - Cloud Storage:
+        - Overview: data/source-cloud-storage-overview.md
         - Amazon S3: data/sources/amazon-s3.md
         - Google Cloud Storage: data/sources/google-cloud-storage.md
         - Converter Configuration: data/converter-configuration-reference.md
@@ -239,6 +240,7 @@ nav:
         #- BigQuery: data/sources/bigquery.md
         - Snowflake: data/sources/snowflake.md
       - Other Sources:
+        - Overview: data/source-other-overview.md
         - Ad Networks:
           - Facebook Ads: data/sources/facebook-ads.md
           - Google Ads: data/sources/google-ads.md
@@ -304,6 +306,7 @@ nav:
     - Destinations:
       - Overview: data/destinations.md
       - Cloud Storage:
+        - Overview: data/destination-cloud-storage-overview.md
         - Amazon S3: data/destinations/amazon-s3.md
         - Google Cloud Storage: data/destinations/google-cloud-storage.md
       - Warehouse:
@@ -312,7 +315,7 @@ nav:
         - Snowflake: data/destinations/snowflake.md
         - Snowflake Data Share: data/destinations/snowflake-data-share.md
       - Event Streaming: 
-        - Overview: data/event-streaming-home.md
+        - Overview: data/destination-event-streaming-overview.md
         - AppsFlyer: data/destinations/appsflyer.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
@@ -331,6 +334,7 @@ nav:
         - Userlist: data/destinations/userlist-event-streaming.md
         - Webhooks: data/destinations/webhooks-streaming.md
       - Cohorts:
+        - Overview: data/destination-cohort-overview.md
         - Airship: data/destinations/airship-cohort.md
         - Amazon S3: data/destinations/amazon-s3-cohort.md
         - Appcues: data/destinations/appcues-cohort.md
