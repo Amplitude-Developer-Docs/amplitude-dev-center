@@ -3,7 +3,7 @@ title: Cohort Destinations Overview
 description: Send Amplitude behavioral cohorts to other tools in your stack with just a few clicks, using no-code cohort integrations. 
 ---
 
-Send Amplitude cohorts to the other tools in your stack in just a few clicks, using no-code cohort integrations (also called destinations).
+Send Amplitude cohorts to other destinations in your stack with just a few clicks, using no-code cohort integrations.
 
 Learn more about behavioral cohorts in the [Help Center](https://help.amplitude.com/hc/en-us/articles/231881448).
 
