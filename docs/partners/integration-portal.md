@@ -40,7 +40,7 @@ To get started, you need to do the following:
 
 Here are the high-level steps to having your integration listed within the Amplitude app. 
 
-1. **Go to the Integration Portal**: In Amplitude, navigate to the **My Settings** page and click **Developer Portal**. If you don't see this option, send an email to integrations@amplitude.com with your [Org ID](https://help.amplitude.com/hc/en-us/articles/235649848-The-Settings-page), and Amplitude will enable it for you.
+1. **Go to the Integration Portal**: In Amplitude, navigate to the **My Settings** page and click **Integration Portal**. If you don't see this option, send an email to integrations@amplitude.com with your [Org ID](https://help.amplitude.com/hc/en-us/articles/235649848-The-Settings-page), and Amplitude will enable it for you.
 2. **Configure your integration**: After you've submitted your integration, it notifies the Amplitude Engineering team to review your integration.
 3. **Amplitude Engineering team reviews integration**: During the review process, the Amplitude team validates the integration which could take up to 1 week. During this process, Amplitude may reach out to you if the team has questions.
 4. **Integration goes live in Amplitude**: After Amplitude approves the integration, it's automatically deployed and enabled for your organization. You can then see a tile within Amplitude app on the source or destination page depending on the integration type.
