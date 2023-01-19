@@ -424,29 +424,30 @@ nav:
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
 - APIs:
-      - analytics/apis/index.md
-      - Find your API credentials: analytics/find-api-credentials.md
-      #- Authentication: analytics/apis/authentication.md
-      #- Limits: analytics/apis/rate-limits.md
-      #- Use Postman with the APIs: analytics/apis/rate-limits.md
-      - API References:
-        - Attribution: analytics/apis/attribution-api.md
-        - Batch Event Upload: analytics/apis/batch-event-upload-api.md
-        - Behavioral Cohorts: analytics/apis/behavioral-cohorts-api.md
-        - CCPA DSAR: analytics/apis/ccpa-dsar-api.md
-        - Chart Annotations: analytics/apis/chart-annotations-api.md
-        - Dashboard: analytics/apis/dashboard-rest-api.md
-        - Export: analytics/apis/export-api.md
-        - Group Identify: analytics/apis/group-identify-api.md
-        - HTTP V2: analytics/apis/http-v2-api.md
-        - Identify: analytics/apis/identify-api.md
-        - Lookup Tables: analytics/apis/lookup-tables-api.md
-        - Releases: analytics/apis/releases-api.md
-        - SCIM: analytics/apis/scim-api.md
-        - Taxonomy: analytics/apis/taxonomy-api.md
-        - User Mapping (Aliasing): analytics/apis/aliasing-api.md
-        - User Privacy: analytics/apis/user-privacy-api.md
-        - User Profile: analytics/apis/user-profile-api.md
+  - analytics/apis/index.md
+  - Find your API credentials: analytics/find-api-credentials.md
+  #- Authentication: analytics/apis/authentication.md
+  #- Limits: analytics/apis/rate-limits.md
+  #- Use Postman with the APIs: analytics/apis/rate-limits.md
+  - API References: 
+    - Overview: analytics/api-reference-overview.md
+    - Attribution: analytics/apis/attribution-api.md
+    - Batch Event Upload: analytics/apis/batch-event-upload-api.md
+    - Behavioral Cohorts: analytics/apis/behavioral-cohorts-api.md
+    - CCPA DSAR: analytics/apis/ccpa-dsar-api.md
+    - Chart Annotations: analytics/apis/chart-annotations-api.md
+    - Dashboard: analytics/apis/dashboard-rest-api.md
+    - Export: analytics/apis/export-api.md
+    - Group Identify: analytics/apis/group-identify-api.md
+    - HTTP V2: analytics/apis/http-v2-api.md
+    - Identify: analytics/apis/identify-api.md
+    - Lookup Tables: analytics/apis/lookup-tables-api.md
+    - Releases: analytics/apis/releases-api.md
+    - SCIM: analytics/apis/scim-api.md
+    - Taxonomy: analytics/apis/taxonomy-api.md
+    - User Mapping (Aliasing): analytics/apis/aliasing-api.md
+    - User Privacy: analytics/apis/user-privacy-api.md
+    - User Profile: analytics/apis/user-profile-api.md
 - SDKs: 
   - https://www.docs.developers.amplitude.com/data/sdks/
 - Partners:
