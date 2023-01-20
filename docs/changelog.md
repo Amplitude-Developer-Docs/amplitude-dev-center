@@ -37,7 +37,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 **Updated**
 
 - *Site change*: Added breadcrumb navigation. [#507](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/507)
-- *Site change*: Massive overhaul to the docs home page to make browsing easier for new readers. [#523](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/523)
+- *Site change*: Massive overhaul to the docs home page and other high-level pages to make browsing easier for new readers. [#523](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/523)
 - *Repo change*: Simplified README and moved all repo meta docs to Wiki format to make them easier to browse and read. [#508](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/508)
 - Added new-format API examples to [Export API](../analytics/apis/export-api) doc. [#496](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/496)
 - Overhauled [APIs page](../analytics/apis) to include more useful information. [#517](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/517)
