@@ -19,9 +19,27 @@ The Experiment management API can be used to programmatically create and control
 | [Get experiment details](#get-experiment-details) | Get the configuration details of an experiment. |
 | [List experiment versions](#list-experiment-versions) | List all versions for an experiment. |
 | [Get experiment version details](#get-experiment-version-details) | Get a specific version for an experiment. |
+| [List experiment variants](#list-experiment-variants) | List all variants for an experiment. |
+| [Get experiment variant details](#get-experiment-variant-details) | Get a specific variant for an experiment. |
+| [Get experiment variant inclusions](#get-experiment-variant-inclusions) | Get all inclusions (users) for an experiment's variant. |
+| [Create experiment variant](#create-experiment-variant) | Create a new variant for an experiment. |
+| [Edit experiment variant](#edit-experiment-variant) | Edit a variant for an experiment. |
+| [Remove experiment variant](#remove-experiment-variant) | Remove a variant from an experiment. |
+| [Add users to experiment's variant](#add-users-to-experiments-variant) | Add users to experiment's variant. |
+| [Remove users from experiment's variant](#remove-users-from-experiments-variant) | Remove users from experiment's variant. |
+| [Remove all users from experiment's variant](#remove-all-users-from-experiments-variant) | Remove all users from experiment's variant. |
 | [Get flag details](#get-flag-details) | Get the configuration details of a flag. |
 | [List flag versions](#list-flag-versions) | List all versions for a flag. |
 | [Get flag version details](#get-flag-version-details) | Get a specific version for a flag. |
+| [List flag variants](#list-flag-variants) | List all variants for a flag. |
+| [Get flag variant details](#get-flag-variant-details) | Get a specific variant for a flag. |
+| [Get flag variant inclusions](#get-flag-variant-inclusions) | Get all inclusions (users) for a flag's variant. |
+| [Create flag variant](#create-flag-variant) | Create a new variant for a flag. |
+| [Edit flag variant](#edit-flag-variant) | Edit a variant for a flag. |
+| [Remove flag variant](#remove-flag-variant) | Remove a variant from a flag. |
+| [Add users to flag's variant](#add-users-to-flags-variant) | Add users to flag's variant. |
+| [Remove users from flag's variant](#remove-users-from-flags-variant) | Remove users from flag's variant. |
+| [Remove all users from flag's variant](#remove-all-users-from-flags-variant) | Remove all users from flag's variant. |
 | [Create experiment](#create-experiment) | Create a new experiment. |
 | [Activate experiment](#activate-experiment) | Activate a inactive experiment. |
 | [Deactivate experiment](#deactivate-experiment) | Deactivate an active experiment. |
@@ -239,6 +257,313 @@ A successful request returns a `200 OK` response and a JSON object with details 
 
 ------
 
+## List experiment variants
+
+```bash
+GET https://management-api.experiment.amplitude.com/experiments/{id}/variants
+```
+
+Fetch a list of all variants for an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a list of experiment's variants encoded as JSON in the response body.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Get experiment variant details
+
+```bash
+GET https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}
+```
+
+Fetch details of a specific variant of an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with details of experiment's variant.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Get experiment variant inclusions
+
+```bash
+GET https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}/users
+```
+
+Fetch a list of inclusions for a specific variant of an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with a list of inclusions of experiment's variant.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>/users' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Create experiment variant
+
+```bash
+POST https://management-api.experiment.amplitude.com/experiments/{id}/variants
+```
+
+Create a new variant for an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`key`| Required | string | The experiment key. |
+|`description`| Optional | string | Description for the experiment.|
+|`name`| Optional | string | Name for the experiment.|
+|`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
+|`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request POST \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+    ```
+
+------
+
+## Edit experiment variant
+
+```bash
+PATCH https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}
+```
+
+Edit a variant for an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`key`| Optional | string | The experiment key. |
+|`description`| Optional | string | Description for the experiment.|
+|`name`| Optional | string | Name for the experiment.|
+|`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
+|`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request PATCH \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+    ```
+
+------
+
+## Remove experiment variant
+
+```bash
+DELETE https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}
+```
+
+Remove a variant from an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request DELETE \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Add users to experiment's variant
+
+```bash
+POST https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}/users
+```
+
+Add users (inclusions) to experiment's variant.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`inclusions`| Required | string array | Array of user ids. |
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request POST \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>/users' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"inclusions":"<[]>"}'
+    ```
+
+------
+
+## Remove users from experiment's variant
+
+```bash
+DELETE https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}/users/{userIndex}
+```
+
+Remove users (inclusions) from experiment's variant.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+|`userIndex`| Required. String. The user's index.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request DELETE \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>/users/{<userIndex>}' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Remove all users from experiment's variant
+
+```bash
+DELETE https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}/users
+```
+
+Remove all users (inclusions) from experiment's variant.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The experiment's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request DELETE \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>/users' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
 ## Get flag details
 
 ```bash
@@ -324,6 +649,313 @@ A successful request returns a `200 OK` response and a JSON object with details 
     ```bash
     curl --request GET \
       --url 'https://management-api.experiment.amplitude.com/flags/<id>/versions/<versionId>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## List flag variants
+
+```bash
+GET https://management-api.experiment.amplitude.com/flags/{id}/variants
+```
+
+Fetch a list of all variants for a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a list of flag's variants encoded as JSON in the response body.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Get flag variant details
+
+```bash
+GET https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}
+```
+
+Fetch details of a specific variant of a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with details of flag's variant.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Get flag variant inclusions
+
+```bash
+GET https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}/users
+```
+
+Fetch a list of inclusions for a specific variant of a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with a list of inclusions of flag's variant.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>/users' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Create flag variant
+
+```bash
+POST https://management-api.experiment.amplitude.com/flags/{id}/variants
+```
+
+Create a new variant for a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`key`| Required | string | The flag key. |
+|`description`| Optional | string | Description for the flag.|
+|`name`| Optional | string | Name for the flag.|
+|`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
+|`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request POST \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+    ```
+
+------
+
+## Edit flag variant
+
+```bash
+PATCH https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}
+```
+
+Edit a variant for a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`key`| Optional | string | The flag key. |
+|`description`| Optional | string | Description for the flag.|
+|`name`| Optional | string | Name for the flag.|
+|`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
+|`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request PATCH \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+    ```
+
+------
+
+## Remove flag variant
+
+```bash
+DELETE https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}
+```
+
+Remove a variant from an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request DELETE \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Add users to flag's variant
+
+```bash
+POST https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}/users
+```
+
+Add users (inclusions) to flag's variant.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The variant's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`inclusions`| Required | string array | Array of user ids. |
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request POST \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>/users' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"inclusions":"<[]>"}'
+    ```
+
+------
+
+## Remove users from flag's variant
+
+```bash
+DELETE https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}/users/{userIndex}
+```
+
+Remove users (inclusions) from flag's variant.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The flag's ID.|
+|`userIndex`| Required. String. The user's index.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request DELETE \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>/users/{<userIndex>}' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+------
+
+## Remove all users from flag's variant
+
+```bash
+DELETE https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}/users
+```
+
+Remove all users (inclusions) from flag's variant.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The flag's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request DELETE \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>/users' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```
