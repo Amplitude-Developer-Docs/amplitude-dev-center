@@ -3,7 +3,7 @@ title: Event Streaming Metrics Summary API
 description: Get delivery metrics summary for a configured event stream using the the Event Streaming Metrics API.
 ---
 
-Use the Event Streaming Metrics API to monitor delivery metrics for a configured event stream. 
+Use the Event Streaming Metrics API to monitor delivery metrics for your event streams.
 
 --8<-- "includes/auth-basic.md"
 
@@ -17,11 +17,11 @@ Use the Event Streaming Metrics API to monitor delivery metrics for a configured
 ## Considerations
 
 - The latest 4 hours of data is accurate to the minute. Beyond that, the data is aggregated internally for every hour. Consider this when requesting metric data older than 4 hours.
-- The metrics are retained for the last 90 days. Sending `start` or `end` time beyond this threshold returns a `400` status. 
+- Amplitude retains event streaming metrics for the last 90 days. Sending `start` or `end` time beyond this threshold returns a `400` status. 
 
 ## Limits
 
-The API has a limit of 4 concurrent requests per project, and 12 requests per minute per project. Anything above this threshold is rejected with a `429` status code.
+The API has a limit of 4 concurrent requests per project, and 12 requests per minute per project. Amplitude rejects anything above this threshold with a `429` status code.
 
 ## Example request
 
