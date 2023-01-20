@@ -13,7 +13,7 @@ Amplitude Data supports tracking analytics events from Android apps written in K
 <!-- vale on-->
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
-    Click here for more documentation on the [Amplitude Android SDK](./index.md).
+   Visit the [Amplitude Android SDK](./index.md) documentation.
 
 ## Quick Start
 
