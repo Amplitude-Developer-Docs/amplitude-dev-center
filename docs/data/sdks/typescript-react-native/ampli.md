@@ -11,7 +11,7 @@ Amplitude Data supports tracking analytics events from React Native apps written
     [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v2/AmpliApp) · [:material-nodejs: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v2/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
-    Click here for more documentation on the [Amplitude React Native SDK](./index.md).
+    Visit the [Amplitude React Native SDK](./index.md) documentation.
 
 --8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 
