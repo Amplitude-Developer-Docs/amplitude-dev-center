@@ -11,7 +11,7 @@ Amplitude Data supports tracking analytics events from JRE programs written in J
     [:material-language-kotlin: JRE Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp) · [:material-language-java: JRE Java Example](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
-    Click here for more documentation on the [Amplitude Java SDK](./index.md).
+    Visit the [Amplitude Java SDK](./index.md) documentation.
 
 !!!note "Deprecated Itly runtime"
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
