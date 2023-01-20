@@ -39,6 +39,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Changed the URL of [Event Streaming Overview](../data/destination-event-streaming-overview) for clarity and consistency. There is a redirect in place, but we recommend updating your bookmarks. [#513](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/513)
 - Updated wording in the Integration Portal docs to reflect a small UI change. [#514](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/514)
 - Updated description in [Maze Cohort Syncing](../data/destinations/maze-cohort) docs. [#518](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/518)
+- Added IP addresses to allowlist in [Snowflake Export](../data/destinations/snowflake), and fixed broken IP allowlist formatting in [Snowflake Import](../data/sources/snowflake). [#522](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/522)
 
 ## Week of January 8, 2023
 
