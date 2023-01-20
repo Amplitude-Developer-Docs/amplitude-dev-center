@@ -198,9 +198,9 @@ Configure and update source runtime. Follow the prompts to select a specific pla
 
 ```text
 ➜ ampli configure
-? Select a platform Browser
-? Select a language TypeScript
-? Select a SDK @amplitude/analytics-browser@^1.0 (recommended)
+? Select a platform: Browser
+? Select a language: TypeScript
+? Select a SDK: @amplitude/analytics-browser@^1.0 (recommended)
 ✔ Successfully configured source.
 ```
 
