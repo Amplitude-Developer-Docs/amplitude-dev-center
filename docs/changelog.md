@@ -20,6 +20,32 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
     - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates) for those changes.
     - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
 
+## Week of January 16, 2023
+
+**New** 
+
+- Added new [Event Streaming Metrics Summary API](../analytics/apis/event-streaming-metrics-summary-api) doc. [#519](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/519).
+- Added Event Streaming Metrics Summary API examples to the [Postman Collection](https://www.postman.com/amplitude-dev-docs/workspace/amplitude-developers/overview). 
+
+- Added new [Cloud Storage Destination Overview](../data/destination-cloud-storage-overview) doc. [#510](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/510)
+- Added new [Cloud Storage Source Overview](../data/source-cloud-storage-overview) doc. [#511](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/511)
+- Added new [Other Sources Overview](../data/source-other-overview) doc. [#512](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/512)
+- Added new [Cohort Syncing Destinations Overview](../data/destination-cohort-overview) doc. [#516](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/516)
+- Added new [API Reference Overview](../analytics/api-reference-overview) doc. [#517](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/517)
+- Added new [Guides](../guides) landing page to make it easier to find getting started material. [#523](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/523)
+
+**Updated**
+
+- *Site change*: Added breadcrumb navigation. [#507](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/507)
+- *Site change*: Massive overhaul to the docs home page and other high-level pages to make browsing easier for new readers. [#523](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/523)
+- *Repo change*: Simplified README and moved all repo meta docs to Wiki format to make them easier to browse and read. [#508](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/508)
+- Added new-format API examples to [Export API](../analytics/apis/export-api) doc. [#496](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/496)
+- Overhauled [APIs page](../analytics/apis) to include more useful information. [#517](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/517)
+- Changed the URL of [Event Streaming Overview](../data/destination-event-streaming-overview) for clarity and consistency. There is a redirect in place, but we recommend updating your bookmarks. [#513](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/513)
+- Updated wording in the Integration Portal docs to reflect a small UI change. [#514](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/514)
+- Updated description in [Maze Cohort Syncing](../data/destinations/maze-cohort) docs. [#518](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/518)
+- Added IP addresses to allowlist in [Snowflake Export](../data/destinations/snowflake), and fixed broken IP allowlist formatting in [Snowflake Import](../data/sources/snowflake). [#522](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/522)
+
 ## Week of January 8, 2023
 
 **New** 
