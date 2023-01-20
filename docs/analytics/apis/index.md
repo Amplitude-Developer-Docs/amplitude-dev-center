@@ -1,6 +1,8 @@
 ---
 title: Amplitude APIs
 description: Use Amplitude APIs to send and receive data, and extend Amplitude.
+hide:
+  - toc
 ---
 
 Use Amplitude APIs to send and receive information and extend Amplitude. 
@@ -9,14 +11,14 @@ Use Amplitude APIs to send and receive information and extend Amplitude.
 
 <div class="grid cards" markdown>
 
-- :material-chart-arc: [Analytics and Data APIs](../api-reference-overview#analytics-and-data-apis)
-- :material-test-tube: [Experiment APIs](../api-reference-overview#experiment-apis)
+- :amp-analytics: [Analytics and Data APIs](../api-reference-overview#analytics-and-data-apis)
+- :amp-experiment: [Experiment APIs](../api-reference-overview#experiment-apis)
 
 </div>
 
 ## More API resources
 
-- [Amplitude Keys and Tokens](/guides/amplitude-keys-guide): Learn about the keys and tokens used with Amplitude. 
+- [Amplitude Keys and Tokens](../guides/amplitude-keys-guide): Learn about the keys and tokens used with Amplitude. 
 - [Find your API Credentials](../find-api-credentials): Learn how to find the API key for your Amplitude project. 
 
 ## Official Postman Collection

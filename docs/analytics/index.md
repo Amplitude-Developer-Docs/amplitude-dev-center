@@ -4,6 +4,7 @@ description: Amplitude Analytics is the leading product analytics tool. It helps
 hide:
   - tags
   - feedback
+  - toc
 ---
 
 Amplitude Analytics is the leading product analytics tool. It helps you gather and democratize data about how users engage with your apps.
@@ -18,11 +19,11 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
     [:octicons-arrow-right-24: Understand the basics](../analytics/what-is-amplitude)
 
-- :material-code-braces:{ .lg .middle } __Instrument analytics__
+- :material-code-braces:{ .lg .middle } __Instrument Analytics__
 
     ---
 
-    Send data to Amplitude.
+    Send data to Amplitude with the SDKs.
 
     [:octicons-arrow-right-24: See the SDKs](../../data/sdks/)
 
