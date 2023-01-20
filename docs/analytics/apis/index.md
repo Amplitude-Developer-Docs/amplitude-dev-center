@@ -16,7 +16,7 @@ Use Amplitude APIs to send and receive information and extend Amplitude.
 
 ## More API resources
 
-- [Amplitude Keys and Tokens](/guides/amplitude-keys-guide): Learn about the keys and tokens used with Amplitude. 
+- [Amplitude Keys and Tokens](../guides/amplitude-keys-guide): Learn about the keys and tokens used with Amplitude. 
 - [Find your API Credentials](../find-api-credentials): Learn how to find the API key for your Amplitude project. 
 
 ## Official Postman Collection
