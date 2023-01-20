@@ -25,7 +25,6 @@ Depending on your company's network policy, you may need add these IP addresses 
 
 - Maximum running time for a single Snowflake SQL query is 12 hours.
 
-
 ## Add Snowflake as a source
 
 !!!note "Time-based Import"
