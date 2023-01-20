@@ -13,10 +13,17 @@ Load your Amplitude event data into your Snowflake account. You can set up recur
 
     - [Import Snowflake Data](/data/sources/snowflake)
 
+## Considerations
+
+Depending on your company's network policy, you may need add these IP addresses to your allowlist in order for Amplitude's servers to access your Snowflake instance:
+
+- 52.33.3.219
+- 35.162.216.242
+- 52.27.10.221
+
 ## Limits
 
 - Maximum running time for a single Snowflake SQL query is 12 hours.
-
 
 ## Set up a recurring data export to Snowflake
 

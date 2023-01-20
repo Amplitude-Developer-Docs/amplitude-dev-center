@@ -15,15 +15,15 @@ With Amplitude's Snowflake integration, you can ingest Snowflake data directly i
 
 ## Considerations
 
-    - Depending on your company's network policy, you may need add these IP addresses to your allowlist in order for Amplitude's servers to access your Snowflake instance:
-      - 52.33.3.219
-      - 35.162.216.242
-      - 52.27.10.221
+Depending on your company's network policy, you may need add these IP addresses to your allowlist in order for Amplitude's servers to access your Snowflake instance:
+
+- 52.33.3.219
+- 35.162.216.242
+- 52.27.10.221
 
 ## Limits
 
 - Maximum running time for a single Snowflake SQL query is 12 hours.
-
 
 ## Add Snowflake as a source
 

@@ -1,7 +1,8 @@
 ---
 title: Amplitude Data Overview
 description: Get started with Amplitude Data.
-nav: hide
+hide:
+  - toc
 ---
 
 Amplitude Data makes it easy for you to configure Sources and Destinations. Sources send data into Amplitude, and Destinations receive data from Amplitude. You can use the data that you send to Amplitude for Analytics, Experiment, and Audiences. 

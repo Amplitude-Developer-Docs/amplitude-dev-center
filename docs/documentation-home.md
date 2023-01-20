@@ -1,6 +1,8 @@
 ---
-title: Welcome to the Amplitude Developer Center
+title: Amplitude Developer Docs
 description: Amplitude gives your teams a self-service digital analytics platform to understand your users, drive conversions, and increase engagement, growth, and revenue.
+hide:
+  - toc
 ---
 
 Amplitude gives your teams a self-service digital analytics platform to understand your users, drive conversions, and increase engagement, growth, and revenue. It helps you proactively improve data quality, discover new audiences, and sync behavioral data across your stack.
@@ -13,7 +15,7 @@ The Amplitude Developer Center has everything you need to instrument Amplitude. 
 
 <div class="grid cards" markdown>
 
-- :material-chart-arc:{ .lg .middle } __Amplitude Analytics__
+- :amp-analytics:{ .lg .middle } __Amplitude Analytics__
 
     ---
 
@@ -21,7 +23,7 @@ The Amplitude Developer Center has everything you need to instrument Amplitude. 
 
     [:octicons-arrow-right-24: See the Analytics docs](../analytics/)
 
-- :material-transfer:{ .lg .middle } __Amplitude Data__
+- :amp-data:{ .lg .middle } __Amplitude Data__
 
     ---
 
@@ -29,7 +31,7 @@ The Amplitude Developer Center has everything you need to instrument Amplitude. 
 
     [:octicons-arrow-right-24: See the Data docs](../data/)
 
-- :material-test-tube:{ .lg .middle } __Amplitude Experiment__
+- :amp-experiment:{ .lg .middle } __Amplitude Experiment__
 
     ---
 
@@ -37,7 +39,7 @@ The Amplitude Developer Center has everything you need to instrument Amplitude. 
 
     [:octicons-arrow-right-24: See the Experiment docs](../experiment/)
 
-- :material-code-braces:{ .lg .middle } __APIs__
+- :material-file-code-outline:{ .lg .middle } __APIs__
 
     ---
 
