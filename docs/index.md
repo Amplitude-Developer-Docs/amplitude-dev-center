@@ -59,7 +59,7 @@ title: Amplitude Developer Center
 
     [:octicons-arrow-right-24: See the SDK docs](../data/sdks/)
 
-- :material-help:{ .lg .middle } __Learn__
+- :material-book-open-variant:{ .lg .middle } __Learn__
 
     ---
 
