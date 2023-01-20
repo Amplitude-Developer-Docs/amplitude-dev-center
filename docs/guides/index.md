@@ -41,4 +41,21 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
     Learn how to backfill historical data into Amplitude. 
 
     [:octicons-arrow-right-24: Read the guide](../analytics/data-backfill-guide/)
+
+- :material-database-import-outline:{ .lg .middle } __Choose the right source type__
+
+    ---
+
+    Learn about the differences between client-side, server-side, and third-party sources in Amplitude. 
+
+    [:octicons-arrow-right-24: Read the guide](../data/sources/client-side-vs-server-side/)
+
+- :material-bug-outline:{ .lg .middle } __Debug Analytics instrumentation__
+
+    ---
+
+    Learn how to validate and debug your Analytics instrumentation.  
+
+    [:octicons-arrow-right-24: Read the guide](../data/debugger)
+
 </div>
