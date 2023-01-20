@@ -107,7 +107,7 @@ Here is a basic request with only the required parameters.
 
 |<div class ="big-column">Name</div>|Description|
 |-----|----------|
-|`sync_id`|  <span class="required">Required</span>. The ID for a specific streaming destination, found in the URL of the streaming settings page. For example: https://analytics.amplitude.com/amplitude/connections/project/PROJECT_ID/setup-integration/event_streaming/DESTINATION_TYPE/**SYNC_ID**/settings.<br> The `sync_ID` in the URL is base64-encoded. For example, `MzAwMDE2MjU=`. <br> When submitting a request, you need the decoded value, for example `30001625`. You can decode in the web console with this command `atob('MzAwMDE2MjU=')`|
+|`sync_id`|  <span class="required">Required</span>. The ID for a specific streaming destination. You can find this ID under the title of the sync on the destination's setting page.|
 |`time_period`|  <span class="required">Required</span>. Retrieves the data for a specified period. Can be one of the following values:<br>`TEN_MINUTES`<br>`ONE_HOUR`<br> `FOUR_HOURS`<br> `ONE_DAY`<br> `ONE_WEEK`<br> `TWO_WEEKS`<br> `CUSTOM`[^1]|
 |`start`| <span class="optional">Optional</span>, but <span class="required">required if `time_period` is `CUSTOM`</span>. The inclusive starting time of the custom interval in the format `YYYY-MM-DDThh:mmTZD` (ISO-8601). For example, `2022-10-01T07:00:00+01:00`|
 |`end`|<span class="optional">Optional</span>, <span class="required">required if `time_period` is `CUSTOM`</span>. The exclusive end time of the custom interval in the format `YYYY-MM-DDThh:mmTZD` (ISO-8601). For example, `2022-10-31T07:00:00+01:00`|
