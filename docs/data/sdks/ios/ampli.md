@@ -11,7 +11,7 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
     [:material-language-swift: Swift Example](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/AmpliSwiftSampleApp) · [:material-language-c: Objective-C Example](https://github.com/amplitude/ampli-examples/tree/main/ios/objective-c/AmpliObjectiveCSampleApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
-    Click here for more documentation on the [Amplitude iOS SDK](./index.md).
+    Visit the [Amplitude iOS SDK](./index.md) documentation.
 
 !!!note "Deprecated Itly runtime"
     This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/ios.md)**.
