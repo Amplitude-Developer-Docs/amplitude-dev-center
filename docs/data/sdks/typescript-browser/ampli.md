@@ -13,7 +13,7 @@ Amplitude Data supports tracking analytics events from browser apps written in J
 <!--vale on-->
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
-    Click here for more documentation on the [Amplitude Browser SDK](./index.md).
+    Visit the [Amplitude Browser SDK](./index.md) documentation.
 
 --8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 
