@@ -1,5 +1,5 @@
 ---
-title: Welcome to the Amplitude Developer Center
+title: Amplitude Developer Docs
 description: Amplitude gives your teams a self-service digital analytics platform to understand your users, drive conversions, and increase engagement, growth, and revenue.
 hide:
   - toc

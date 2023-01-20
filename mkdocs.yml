@@ -420,6 +420,7 @@ nav:
         - Management API (Beta): experiment/apis/management-api.md
   - Docs Changelog: changelog.md
 - Guides:
+  - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
