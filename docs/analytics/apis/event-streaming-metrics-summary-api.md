@@ -44,8 +44,6 @@ Here is a basic request with only the required parameters.
     Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64-encoded
     ```
 
-    `1GET api/2/event-streaming/delivery-metrics-summary? \ 2sync_id=30001625& \ 3time_period=CUSTOM& \ 4start=2022-10-01T07:00:00+01:00& \ 5end=2022-10-31T07:00:00+01:00' HTTP/1.1 6Host: amplitude.com 7Authorization: Basic {{api-key}}:{{secret-key}}`
-
 ???example "More example requests (click to expand)"
 
     ???code-example "Get last four hours"
