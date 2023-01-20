@@ -12,7 +12,7 @@ Amplitude Data supports tracking analytics events from Android apps written in K
     [:material-language-kotlin: Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp) · [:material-language-java: Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
-    Click here for more documentation on the [Amplitude Android SDK](./index.md).
+    Visit the [Amplitude Android SDK](./index.md) documentation.
 
 !!!note "Deprecated Itly runtime"
     This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.
