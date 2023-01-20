@@ -106,7 +106,7 @@ ampli.Instance.Load(ampli.LoadOptions{
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
-|`Environment`| Required. String. Specifies the environment the Ampli Wrapper is running in e.g. `EnvironmentProduction` or `EnvironmentDevelopment`. Environments can be created, renamed, and managed in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If an `Client.ApiKey` or `Client.Instance` is provided, `Environment` will be ignored, and can be omitted.|
+|`Environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example,  `EnvironmentProduction` or `EnvironmentDevelopment`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `Client.ApiKey` or `Client.Instance` is provided, `Environment` is ignored, and can be omitted.|
 |`Disabled`|Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`Environment`|Specifies the environment the Ampli Wrapper runs in: either `EnvironmentDevelopment` or `EnvironmentProduction`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
 |`Client`| A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|
