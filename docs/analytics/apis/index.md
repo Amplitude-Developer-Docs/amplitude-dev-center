@@ -9,8 +9,8 @@ Use Amplitude APIs to send and receive information and extend Amplitude.
 
 <div class="grid cards" markdown>
 
-- :material-chart-arc: [Analytics and Data APIs](../api-reference-overview#analytics-and-data-apis)
-- :material-test-tube: [Experiment APIs](../api-reference-overview#experiment-apis)
+- :amp-analytics: [Analytics and Data APIs](../api-reference-overview#analytics-and-data-apis)
+- :amp-experiment: [Experiment APIs](../api-reference-overview#experiment-apis)
 
 </div>
 
