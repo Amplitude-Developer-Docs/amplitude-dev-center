@@ -3,12 +3,15 @@ title: Go Ampli Wrapper (Beta)
 description:  Learn how to install and use the Amplitude Data Ampli Wrapper for the Go runtimes.
 ---
 
-Amplitude Data supports tracking analytics events from Go apps. The generated tracking library is packaged as a Go package.
+--8<-- "includes/ampli/ampli-overview-section.md"
 
-The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for auto code completion.
+Amplitude Data supports tracking analytics events from Go apps. The generated tracking library is packaged as a Go package.
 
 !!!alpha "Go Ampli Resources (Beta)"
     [:material-github: Examples](https://github.com/amplitude/ampli-examples/tree/main/go/simple/v2) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Go SDK](./index.md).
 
 ## Quick Start
 
@@ -87,7 +90,7 @@ go get https://github.com/amplitude/analytics-go
 
 ### Load
 
-Initialize Ampli in your code. The `Load()` method accepts configuration option arguments:
+Initialize Ampli in your code. The `Load()` method requires a configuration options parameter:
 
 ```Go
 import  "<your-module-name>/ampli"
@@ -99,10 +102,11 @@ ampli.Instance.Load(ampli.LoadOptions{
 
 | <div class ="big-column">Arg of load()</div> | Description |
 |-|-|
-| `options` | A instance of LoadOptions. Specifies configuration options for the Ampli Wrapper.|
+|`options`| Required. A instance of LoadOptions. Specifies configuration options for the Ampli Wrapper.|
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
+|`Environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example,  `EnvironmentProduction` or `EnvironmentDevelopment`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `Client.ApiKey` or `Client.Instance` is provided, `Environment` is ignored, and can be omitted.|
 |`Disabled`|Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`Environment`|Specifies the environment the Ampli Wrapper runs in: either `EnvironmentDevelopment` or `EnvironmentProduction`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
 |`Client`| A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|

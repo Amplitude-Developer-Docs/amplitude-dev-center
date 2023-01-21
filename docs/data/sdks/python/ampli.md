@@ -3,13 +3,15 @@ title: Python Ampli Wrapper
 description:  Learn how to install and use the Amplitude Data Ampli Wrapper for the Python runtimes.
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
 Amplitude Data supports tracking analytics events from Python apps (Python 3.6 or higher). The generated tracking library is packaged as a python package.
 
-The tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for auto code completion.
-
 !!!info "Ampli Python Resources"
-    [:material-language-python: Ampli Python Example](https://github.com/amplitude/ampli-examples/tree/main/python/simple/v1) · [:material-open-source-initiative: Ampli Django Example](https://github.com/amplitude/ampli-examples/tree/main/python/django/v1) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-python: Basic Python Example](https://github.com/amplitude/ampli-examples/tree/main/python/simple/v1) · [:material-open-source-initiative: Django Example](https://github.com/amplitude/ampli-examples/tree/main/python/django/v1) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Python SDK](./index.md).
 
 !!!note "Deprecated Itly runtime"
     This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrate-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python.md)**.
@@ -89,7 +91,7 @@ pip install amplitude-analytics
 
 ### Load
 
-Initialize Ampli in your code. The `load()` method accepts configuration option arguments:
+Initialize Ampli in your code. The `load()` method requires a configuration options parameter:
 
 ```python
 from .ampli import *
@@ -102,10 +104,11 @@ ampli.load(LoadOptions(
 
 | <div class ="big-column">Arg of load()</div> | Description |
 |-|-|
-| `options` | Optional. Defaults to None. A instance of LoadOptions. Specifies configuration options for the Ampli Wrapper.|
+|`options`| Required. An instance of LoadOptions. Specifies configuration options for the Ampli Wrapper.|
 
 | <div class ="big-column">Arg of LoadOptions</div> | Description |
 |-|-|
+|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in e.g. `production` or `development`. Environments can be created, renamed, and managed in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If an `client.api_key` or `client.instance` is provided, `environment` will be ignored, and can be omitted.|
 |`disabled`|Optional. Defaults to False. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
 |`environment`|Optional. Defaults to None. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
 |`client`|Optional. Defaults to None. A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|

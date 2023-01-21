@@ -3,13 +3,15 @@ title: Node.js Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Node.js JavaScript and Typescript runtimes.
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
 Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
-
 !!!info "Ampli Node Resources (Legacy)"
-    [:material-language-typescript: Ampli Node TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp) · [:material-nodejs: Ampli Node JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp) · [:material-page-next: Ampli NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/typescript/v1/AmpliApp) · [:material-nodejs: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/node/javascript/v1/AmpliApp) · [:material-page-next: NextJS Example](https://github.com/amplitude/ampli-examples/tree/main/node/nextjs/ampli-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Click here for more documentation on the [Amplitude Node SDK](./index.md).
 
 !!!note "Deprecated Itly runtime"
     This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
@@ -125,15 +127,15 @@ Initialize Ampli in your code.
     ampli.load({ environment: 'production' });
     ```
 
-The `load()` function accepts an options object to configure the SDK's behavior:
+The `load()` function requires an options object to configure the SDK's behavior:
 
-| <div class="big-column">Option</div> | Type              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|--------------------------------------|-------------------| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disabled`                           | `Boolean`           | optional | Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
-| `environment`                        | `String`            | optional | Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
-| `client.apiKey`                      | `String`            | optional |Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-| `client.instance`                    | `AmplitudeClient`   | optional | Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-| `client.options`                     | `Amplitude.Options` | optional | Overrides the default configuration for the AmplitudeClient.|
+| <div class="big-column">Option</div> |Type|Required|Description|
+|---------------------------------|------------------| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in e.g. `production` or `development`. Environments can be created, renamed, and managed in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If an `client.apiKey` or `client.instance` is provided, `environment` will be ignored, and can be omitted.|
+|`disabled`| `Boolean`| optional | Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                 |
+|`client.apiKey`| `String`| optional |Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+|`client.instance`| `AmplitudeClient` | optional | Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.options`| `Amplitude.Options` | optional | Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
 

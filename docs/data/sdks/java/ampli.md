@@ -3,14 +3,15 @@ title: JRE Ampli Wrapper
 description: Documentation for Amplitude Data's JRE Ampli Wrapper. 
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
 Amplitude Data supports tracking analytics events from JRE programs written in Java (6 and higher).
 
-In Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan.
-The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
-
 !!!info "Ampli JRE Resources"
-    [:material-language-kotlin: Ampli JRE Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp) · [:material-language-java: Ampli JRE Java Example](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-kotlin: JRE Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/jre/kotlin/AmpliApp) · [:material-language-java: JRE Java Example](https://github.com/amplitude/ampli-examples/tree/main/jre/java/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Visit the [Amplitude Java SDK](./index.md) documentation.
 
 !!!note "Deprecated Itly runtime"
     This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
@@ -142,9 +143,9 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
 | <div class="big-column">Arg</div> | Description |
 |-|-|
-| `LoadOptions` | Optional. Defaults to `false`. Specifies configuration options for the Ampli Wrapper.|
+|`LoadOptions`| Required. Specifies configuration options for the Ampli Wrapper.|
+|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example,  `production` or `development`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `client.apiKey` or `client.instance` is provided, `environment` is ignored, and can be omitted.|
 |`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it logs an error but stills let the event through. In development, the SDK throws an exception to alert you that something is wrong.|
 |`client`|Optional. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 |`apiKey`|Optional. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 

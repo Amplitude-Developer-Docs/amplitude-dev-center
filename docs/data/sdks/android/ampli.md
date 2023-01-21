@@ -3,13 +3,16 @@ title: Android Ampli Wrapper
 description: Learn how to install and use the Amplitude Data Ampli Wrapper for the Android Java and Kotlin runtimes.
 ---
 
-Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
+--8<-- "includes/ampli/ampli-overview-section.md"
 
-In Kotlin and Java, the tracking library exposes a type-safe function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+Amplitude Data supports tracking analytics events from Android apps written in Kotlin and Java.
 
 <!--vale off-->
 !!!info "Ampli Android Resources (Legacy)"
-    [:material-language-kotlin: Ampli Android Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp) · [:material-language-java: Ampli Android Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-kotlin: Kotlin Example](https://github.com/amplitude/ampli-examples/tree/main/android/kotlin/v1/AmpliApp) · [:material-language-java: Java Example](https://github.com/amplitude/ampli-examples/tree/main/android/java/v1/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Visit the [Amplitude Android SDK](./index.md) documentation.
 
 !!!note "Deprecated Itly runtime"
     This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.
@@ -131,9 +134,9 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 | <div class ="big-column">Arg</div> | Description |
 |-|-|
 | `appContext`| An object with a set of properties to add to every event sent by the Ampli Wrapper.<br /><br /> This option is available when there is at least one source template associated with your team's tracking plan.|
-| `LoadOptions` | Optional. Specifies configuration options for the Ampli Wrapper.|
+|`LoadOptions`| Required. Specifies configuration options for the Ampli Wrapper.|
+|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in e.g. `production` or `development`. Environments can be created, renamed, and managed in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If an `client.apiKey` or `client.instance` is provided, `environment` will be ignored, and can be omitted.|
 |`disabled`|Optional. Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
-|`environment`|Optional. Defaults to `development`. Specifies the environment the Ampli Wrapper runs in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries. The option also determines safe defaults for handling event validation errors. In production, when the wrapper detects an invalid event, it logs an error but stills let the event through. In development, the wrapper throws an exception to alert you that something is wrong.|
 |`client.instance`| Optional. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 |`client.apiKey`|Optional. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
 

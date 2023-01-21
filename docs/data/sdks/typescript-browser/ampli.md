@@ -1,17 +1,21 @@
 ---
-title: Browser TypeScript Ampli Wrapper
+title: Browser Ampli Wrapper
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
 ---
 
+--8<-- "includes/ampli/ampli-overview-section.md"
 
-Amplitude Data supports tracking analytics events from Node.js apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
-
-The tracking library exposes a function for every event in your team’s tracking plan. The function’s arguments correspond to the event’s properties and are strongly typed to allow for code completion and compile-time checks.
+Amplitude Data supports tracking analytics events from browser apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
 <!--vale off-->
 !!!info "Ampli Browser Resources"
-    [:material-language-typescript: Ampli TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app) · [:material-language-javascript: Ampli JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v2/react-app) · [:material-language-javascript: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v2/react-app) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 <!--vale on-->
+
+--8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
+    Visit the [Amplitude Browser SDK](./index.md) documentation.
+
+--8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
@@ -102,15 +106,15 @@ If you haven't already, install the core Amplitude SDK dependencies.
 ### Load
 
 Initialize Ampli in your code.
-The `load()` function accepts an options object to configure the SDK's behavior:
+The `load()` function requires an options object to configure the SDK's behavior:
 
-| <div class ="big-column">Option</div> | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|---------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `disabled`                            | Optional. Boolean. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                   |
-| `environment`                         | Optional. String. Specifies the environment the Ampli Wrapper is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />Defaults to `development`.                                                                                                                                                                                                                    |
-| `client.apiKey`                       | Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-| `client.instance`                     | Optional. `AmplitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
-| `client.configuration`                | Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
+| <div class ="big-column">Option</div> |Description|
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example, `production` or `development`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `client.apiKey` or `client.instance` is provided, `environment` is ignored, and can be omitted.|
+|`disabled`| Optional. Boolean. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.|
+|`client.apiKey`| Optional. String. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
+|`client.instance`| Optional. `AmplitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.configuration`| Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
 Example of initialization with `load` to override the default configuration:
 
