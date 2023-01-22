@@ -150,4 +150,5 @@ Converting milliseconds to TIMESTAMP_NTZ format needed for time-based import. Th
 `TO_TIMESTAMP_NTZ(TIME_COLUMN_IN_MILLIS, 3) as "update_time_column"`
 
 Converting a timestamp column with a timezone to TIMESTAMP_NTZ format needed for time-based import.
+
 `TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', TIMESTAMP_TZ_COLUMN)) as "update_time_column"`
