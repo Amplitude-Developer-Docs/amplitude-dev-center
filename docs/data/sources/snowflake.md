@@ -81,7 +81,7 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `time` | Yes | Milliseconds since epoch (Timestamp) | 1396381378123 |
 | `event_properties` | Yes | VARIANT (JSON Object) | {"source":"notification", "server":"host-us"} |
 | `user_properties` | No | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
 
 ### User properties
 
@@ -89,7 +89,7 @@ You must include the mandatory fields for the data type when creating the SQL qu
 |---|---|---|---|
 | `user_id` | Yes | VARCHAR | datamonster@gmail.com |
 | `user_properties` | Yes | VARIANT (JSON Object) | {"city":"chicago", "gender":"female"} |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
 <!--vale on-->
 ### Group properties
 
@@ -97,7 +97,7 @@ You must include the mandatory fields for the data type when creating the SQL qu
 |---|---|---|---|
 | `groups` | Yes | VARIANT (JSON Object) | {"company":"amplitude", "team":["marketing", "sales"]} |
 | `group_properties` | Yes | VARIANT (JSON Object) | {"location":"seattle", "active":"true"} |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
 
 Each group property in `group_properties` would be applied to every group in `groups`
 
@@ -145,7 +145,9 @@ Converting timestamp column to milliseconds:
 
 `DATE_PART('EPOCH_MILLISECOND', TIMESTAMP_COLUMN) as "time"`
 
-Converting milliseconds to timestamp needed for time-based import. This example uses the `scale` argument set to `3` to convert to milliseconds. See the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/functions/to_timestamp.html) for more details.
+Converting milliseconds to TIMESTAMP_NTZ format needed for time-based import. This example uses the `scale` argument set to `3` to convert to milliseconds. See the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/functions/to_timestamp.html) for more details.
 
-`TO_TIMESTAMP_NTZ(TIME_COLUMN_IN_MILLIS, 3) as "timestamp_column"`
- 
+`TO_TIMESTAMP_NTZ(TIME_COLUMN_IN_MILLIS, 3) as "update_time_column"`
+
+Converting a timestamp column with a timezone to TIMESTAMP_NTZ format needed for time-based import.
+`TO_TIMESTAMP_NTZ(CONVERT_TIMEZONE('UTC', TIMESTAMP_TZ_COLUMN)) as "update_time_column"`
