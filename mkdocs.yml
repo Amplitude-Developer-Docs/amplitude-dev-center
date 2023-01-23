@@ -450,8 +450,7 @@ nav:
     - User Mapping (Aliasing): analytics/apis/aliasing-api.md
     - User Privacy: analytics/apis/user-privacy-api.md
     - User Profile: analytics/apis/user-profile-api.md
-- SDKs: 
-  - https://www.docs.developers.amplitude.com/data/sdks/
+- SDKs: /data/sdks/index.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
