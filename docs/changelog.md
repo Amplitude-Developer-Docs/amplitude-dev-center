@@ -39,6 +39,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - *Site change*: Added breadcrumb navigation. [#507](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/507)
 - *Site change*: Massive overhaul to the docs home page and other high-level pages to make browsing easier for new readers. [#523](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/523)
 - *Repo change*: Simplified README and moved all repo meta docs to Wiki format to make them easier to browse and read. [#508](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/508)
+- Updated Ampli docs to call out `environment` as Required, standardized language across the docs, cleaned up table whitespace, and fixed Swift code snippet. [#515](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/515/files)
 - Updated multiple event streaming destination docs. [#453](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/453)
 - Added quickstart sections to Ampli docs. [#489](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/489) 
 - Added new-format API examples to [Export API](../analytics/apis/export-api) doc. [#496](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/496)
