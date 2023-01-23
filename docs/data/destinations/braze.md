@@ -45,10 +45,10 @@ After you create the destination, you must configure the settings.
 2. Select your **Braze REST API Endpoint**.
 3. Enter your **REST API Key**.
 4. Enter your **Braze App Identifier API Key**.
-5. **Create & Update Users** creates users in Braze and update the properties of existing users when an Amplitude Identify API call is made.
+5. **Create & Update Users** creates users in Braze and update the properties of existing users when a user is created or user properties are updated in Amplitude.
       1. To create and update users, toggle **Create & Update Users** to **Enabled**.
       2. To select user properties to send, expand the **Specify user properties to send** panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
-      3. Check the **Update Users Only** box to not create users if they don't exist when forwarding Identify API calls. If you're sending alias-only user profiles, this field shouldn't be checked. If **Update Users Only** is checked, your alias-only user profiles won't be created in Braze. More information available in the [Braze API documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
+      3. Check the **Update Users Only** box to not create users if they don't exist in Braze. If you're sending alias-only user profiles, this field shouldn't be checked. If **Update Users Only** is checked, your alias-only user profiles won't be created in Braze. More information available in the [Braze API documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
 6. **Send Events** sends events ingested by Amplitude to Braze.
       1. To send an event, toggle **Send Events** to **Enabled**.
       2. Expand the **Select and filter events** panel, and select which events to send.

@@ -56,7 +56,7 @@ After you create the destination, you must configure the settings.
 1. On the **Settings** tab, click **Edit**.
 2. Enter your **Customer.io Site ID**.
 3. Enter your **Tracking API Key**.
-4. **Create & Update Users** creates users in Customer.io and update the properties of existing users when an Amplitude Identify API call is made.
+4. **Create & Update Users** creates users in Customer.io and update the properties of existing users when a user is created or user properties are updated in Amplitude.
       1. To create and update users, toggle Create & Update Users to Enabled.
       2. To select user properties to send, expand the Specify user properties to send panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
 5. **Send Events** sends events ingested by Amplitude to Customer.io.
