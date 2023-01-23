@@ -24,10 +24,14 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 **New**
 
+- Added [migration guide](/data/sdks/ios-swift/migration/) for moving from the legacy iOS SDK to the new Amplitude-Swift SDK. [#493](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/493). 
+- Navigation changes: Updated navigation for the SDK section of the site and added new links to content to improve browsability. [#529](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/529)
+
 **Updated**
 
 - Updated the status returned for requests outside of data retention period in [Event Streaming Metrics Summary API](../analytics/apis/event-streaming-metrics-summary-api) doc. [#528](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/528)
 - Updated required timestamp format in [Snowflake Import](../data/sources/snowflake) doc. [#526](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/526)
+- Updated [Ampli CLI](../data/ampli/cli) docs. [#520](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/520)
 
 ## Week of January 16, 2023
 
