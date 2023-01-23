@@ -18,21 +18,23 @@ For detailed instructions, see the documentation for the source you want to add.
 
 ### SDKs
 
-!!!tip
+For more helpful SDK-related content, visit [Amplitude SDKs](../sdks)
 
-    See the [Amplitude SDK Quickstart Guide](../sdks/) for a high-level introduction to using these SDKs.
+!!!tip "SDK Quickstart Guide"
 
-<!-- #### Work with Ampli -->
+    See the [Amplitude SDK Quickstart Guide](../sdks/sdk-quickstart) for a high-level introduction to using these SDKs.
 
-<!-- Consider breaking out SDKs by Web, Mobile, Server -->
+!!! info "Work with Ampli"
+
+    The Ampli CLI and Ampli Wrapper work together with Amplitude SDKs to generate a tracking library based on your Tracking Plan. Learn more about [Ampli](../ampli/).
 
 <!-- This content is used in several places. Make changes to includes/data-sources-sdks.md -->
 
-#### Client-side
+#### Client-side SDKs
 
 --8<-- "includes/data-sources-sdks-client-side.md"
 
-#### Server-side
+#### Server-side SDKs
 
 --8<-- "includes/data-sources-sdks-server-side.md"
 

@@ -1,28 +1,22 @@
 ---
 title: Amplitude SDKs
-description: Use Amplitude SDKs to send event data from your apps into Amplitude. 
+description: Use Amplitude SDKs to send event data from your apps into Amplitude.
 ---
 
 Use Amplitude SDKs to send event data from your apps into Amplitude.
 
-## Analytics SDKs
+## Get started 
 
-### Analytics client-side SDKs
+See the [Quickstart Guide](../sdks/sdk-quickstart) to get up and running with the Amplitude SDKs fast. 
 
---8<-- "includes/data-sources-sdks-client-side.md"
+## Find an SDK
 
-### Analytics server-side SDKs
+Visit the [SDK Catalog](../sdks/sdk-overview) page to see all most current SDK documentation. 
 
---8<-- "includes/data-sources-sdks-server-side.md"
+## Choose client-side versus server-side
 
-## Experiment SDKs
+Learn about when you should choose client-side or server-side SDKs in the [Client-side vs Server-side Sources](../sources/client-side-vs-server-side) guide.
 
-Learn more in the [Experiment documentation](../../experiment/)
+## Work with Ampli
 
-### Experiment client-side SDKs
-
---8<-- "includes/experiment-client-sdks.md"
-
-### Experiment server-side SDKs
-
---8<--  "includes/experiment-server-sdks.md"
+The Ampli CLI and Ampli Wrapper work together with Amplitude SDKs to generate a tracking library based on your Tracking Plan. The Ampli Wrapper is a dynamic, code-generated SDK. It has strong types for the events in your tracking plan, and provides autocomplete and static type checking. Learn more about [Ampli](../ampli/).
