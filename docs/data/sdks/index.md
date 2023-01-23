@@ -15,7 +15,7 @@ Learn about when you should choose client-side or server-side SDKs in the [Clien
 
 ## Ampli
 
-The Ampli CLI, Ampli Wrapper, and Amplitude SDK work together to generate a tracking library based on your Tracking Plan. The Ampli Wrapper is a dynamic, code-generated SDK. It has strong types for the events in your tracking plan, and provides autocomplete and static type checking. Learn more about [Ampli](../data/ampli/).
+The Ampli CLI, Ampli Wrapper, and Amplitude SDK work together to generate a tracking library based on your Tracking Plan. The Ampli Wrapper is a dynamic, code-generated SDK. It has strong types for the events in your tracking plan, and provides autocomplete and static type checking. Learn more about [Ampli](../ampli/).
 
 ## Analytics SDKs
 
