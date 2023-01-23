@@ -20,6 +20,15 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
     - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates) for those changes.
     - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
 
+## Week of January 22, 2023
+
+**New**
+
+**Updated**
+
+- Updated the status returned for requests outside of data retention period in [Event Streaming Metrics Summary API](../analytics/apis/event-streaming-metrics-summary-api) doc. [#528](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/528)
+- Updated required timestamp format in [Snowflake Import](../data/sources/snowflake) doc. [#526](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/526)
+
 ## Week of January 16, 2023
 
 **New** 
