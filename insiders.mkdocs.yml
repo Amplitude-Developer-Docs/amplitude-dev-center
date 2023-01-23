@@ -6,9 +6,6 @@ extra_css:
 plugins:
   - search
   - tags #insiders
-  - redirects:
-      redirect_maps:
-        'data/sdks/sdk-overview.md': 'data/sdks/index.md'
   - git-revision-date
   - glightbox # enables image light box
   - social: #insiders

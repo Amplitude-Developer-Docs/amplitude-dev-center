@@ -19,9 +19,6 @@ plugins:
   #- privacy: #slow plugin, leave commented out for local builds
       #external_links_attr_map:
         #target: _blank
-  - redirects:
-      redirect_maps:
-          'data/sdks/sdk-overview.md': 'data/sdks/index.md'
 
 # Long explanation for this extra doc. 
 # In order to use config inheritance, everything must use the alternative syntax (key:value vs lists)

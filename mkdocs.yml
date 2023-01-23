@@ -70,9 +70,7 @@ plugins:
   - search
   - git-revision-date # enables the git revision date functionality
   #- glightbox # leave this commented out -- it enables image lightboxing but it also increases build time by 30 seconds so you don't want it messing with you locally. This plugin is enabled on insiders.
-  - redirects: # please only use this feature if you need to overcome a shortcoming of the site nav. DO NOT USE THIS FOR ROUTINE REDIRECTS, write those in AWS instead
-      redirect_maps:
-          'data/sdks/sdk-overview.md': 'data/sdks/index.md'
+
 # Extensions
 markdown_extensions:
   - admonition
