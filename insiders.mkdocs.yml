@@ -6,6 +6,9 @@ extra_css:
 plugins:
   - search
   - tags #insiders
+  - redirects:
+      redirect_maps:
+        'data/sdks/sdk-overview.md': 'data/sdks/index.md'
   - git-revision-date
   - glightbox # enables image light box
   - social: #insiders
@@ -17,9 +20,6 @@ plugins:
       external_links: true
       external_links_attr_map:
         target: _blank
-  - redirects: # please only use this feature if you need to overcome a shortcoming of the site nav. DO NOT USE THIS FOR ROUTINE REDIRECTS, write those in AWS instead
-    redirect_maps:
-        'data/sdks/sdk-overview.md': 'data/sdks/index.md'
 
 # Extensions
 markdown_extensions:
