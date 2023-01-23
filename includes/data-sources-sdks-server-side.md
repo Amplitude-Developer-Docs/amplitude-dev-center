@@ -2,9 +2,9 @@
 
 <div class="grid cards" markdown>
 
-- :java: [Java](../../data/sdks/java/)
-- :node: [Node.js](../../data/sdks/typescript-node/)
-- :python: [Python](../../data/sdks/python/)
-- :go: [Go (Beta)](../../data/sdks/go/index)
+- :java: [Java](/data/sdks/java/)
+- :node: [Node.js](/data/sdks/typescript-node/)
+- :python: [Python](/data/sdks/python/)
+- :go: [Go (Beta)](/data/sdks/go/index)
 
 </div>
