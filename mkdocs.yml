@@ -416,6 +416,7 @@ nav:
         - Ampli Codegen: data/sdks/android-kotlin/ampli.md
       - iOS (Beta):
         - data/sdks/ios-swift/index.md
+        - Migration Guide: data/sdks/ios-swift/migration.md
       - Java:
         - data/sdks/java/index.md
         - Ampli Codegen: data/sdks/java/ampli.md
