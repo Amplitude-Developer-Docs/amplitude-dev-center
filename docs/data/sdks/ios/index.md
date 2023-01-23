@@ -9,6 +9,9 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
+!!!deprecated "Legacy SDK"
+    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the latest [iOS Swift SDK](../ios-swift/) which supports plugins and more. See the [Migration Guide](../../sdks/ios-swift/migration) for more help.
+
 !!!info "iOS SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
 
@@ -566,8 +569,10 @@ To track revenue from a user, call `logRevenueV2` each time a user generates r
 === "Swift"
 
     ```swift
-    let revenue = AMPRevenue().setProductIdentifier("productIdentifier").quantity = 3
-    revenue?.price = NSNumber(value: 3.99)
+    let revenue = AMPRevenue()
+    revenue.setProductIdentifier("productIdentifier")
+    revenue.setQuantity(3)
+    revenue.setPrice(NSNumber(value: 3.99))
     Amplitude.instance().logRevenueV2(revenue)
     ```
 
