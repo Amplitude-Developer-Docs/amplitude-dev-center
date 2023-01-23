@@ -17,7 +17,7 @@ Use the Event Streaming Metrics API to monitor delivery metrics for your event s
 ## Considerations
 
 - The latest 4 hours of data is accurate to the minute. Beyond that, the data is aggregated internally for every hour. Consider this when requesting metric data older than 4 hours.
-- Amplitude retains event streaming metrics for the last 90 days. Sending `start` or `end` time beyond this threshold returns a `400` status. 
+- Amplitude retains event streaming metrics for the last 90 days. Sending `start` or `end` time beyond this threshold returns a `500` status. 
 
 ## Limits
 
