@@ -33,7 +33,8 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Updated required timestamp format in [Snowflake Import](../data/sources/snowflake) doc. [#526](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/526)
 - Updated [Ampli CLI](../data/ampli/cli) docs. [#520](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/520)
 - Fixed broken code formatting and clarified callouts in [User Privacy API](../analytics/apis/user-privacy-api) doc. [#531](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/531)
-- Made formatting and link improvements in [Batch Event Upload API](../analytics/apis/batch-event-upload-api) doc. [#532](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/532) 
+- Made formatting and link improvements in [Batch Event Upload API](../analytics/apis/batch-event-upload-api) doc. [#532](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/532)
+- Fixed an issue that made buttons on the homepage open in new tabs without warning. [#534](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/534)
 
 ## Week of January 16, 2023
 
