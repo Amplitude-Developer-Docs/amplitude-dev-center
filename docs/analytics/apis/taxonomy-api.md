@@ -545,7 +545,7 @@ A successful request returns a `200 OK` response with a JSON body:
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 A failed request returns a `409 Conflict` status with an error message.
 
@@ -568,11 +568,22 @@ Retrieves all event types in a project. This request has no required parameters.
 
 #### Example request
 
-```bash
-GET /api/2/taxonomy/event HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}:{{secret-key}}}
-```
+This basic request shows the required fields.
+
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/taxonomy/event HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 #### Response
 
@@ -604,23 +615,54 @@ A successful request returns a `200 OK` status with a JSON body:
 
 ### Get an event type
 
-Get a single event type, by name.
+Get a single event type, by name. Send a `GET` request with the event name.
 
 `GET https://amplitude.com/api/2/taxonomy/event/:event_type`
 
 #### Example request
 
-```bash
-GET /api/2/taxonomy/event/:event_type HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+This basic request shows the required fields.
+
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event:event_type' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/taxonomy/event/:event_type HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???code-example "Example: Get an event type by name (click to expand)"
+
+    This example gets the "Event 2" event type. This is a custom event, so it has a `ce:` prefix.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event/ce:Event 2' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event/ce:Event 2' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+        ```
 
 ##### Path variables
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`event_type`| <span class="required">Required</span>. String. The event type name. |
+|`event_type`| <span class="required">Required</span>. String. The event type name. Prefix custom event types with `ce:`.|
 
 #### Response
 
@@ -658,7 +700,7 @@ A failed request returns a `400 Bad Request` status with more information about 
 
 ### Update event type
 
-Update an event type.
+Update an event type. Send a `PUT` request with the event type name.
 
 `PUT https://amplitude.com/api/2/taxonomy/event/:event_type`
 
@@ -667,7 +709,7 @@ Update an event type.
 ```bash
 PUT /api/2/taxonomy/event/ce:Event1 HTTP/1.1
 Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
 Content-Length: 41
 
 category=&display_name=Event%20Number%203
@@ -700,7 +742,7 @@ A successful request returns a `200 OK` status and a JSON body.
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 If there is a problem with your request, the request returns a `409 Conflict` status, and a JSON body with more information.
 
