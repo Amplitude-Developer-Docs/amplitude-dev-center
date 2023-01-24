@@ -37,8 +37,9 @@ Keep these considerations in mind when using the User Privacy API.
  The deletion process removes all data associated with the user from all Amplitude's systems, including associated recovery and back-up systems.
  After the job completes, its status changes to `done`.
 
-!!! warning
-    Using this API doesn't prevent future user tracking for the deleted users. To learn about how to stop tracking users in your application, see the `setOptOut()` method in the SDKs.
+!!! warning "User tracking"
+
+    Using this API doesn't prevent future user tracking for the deleted users. To learn about how to stop tracking users in your application, see the `setOptOut()` method in documentation for the Amplitude SDK you're using.
 
 ## Limits
 
@@ -328,6 +329,7 @@ If the request returns no values, then no jobs are scheduled for that time range
 <!--vale off-->
 
 === "cURL"
+
     ```bash
     # You can also use wget
     curl -X GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string \
@@ -336,6 +338,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     ```
 
 === "HTTP"
+
     ```bash
     GET https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string HTTP/1.1
     Host: amplitude.com
@@ -343,6 +346,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     Accept: application/json
     ```
 === "JavaScript"
+
     ```js
     var headers = {
       'Accept':'application/json'
@@ -360,6 +364,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     })
     ```
 === "NodeJs"
+
     ```js
     const request = require('node-fetch');
 
@@ -381,6 +386,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     });
     ```
 === "Ruby"
+
     ```ruby
     require 'rest-client'
     require 'json'
@@ -398,6 +404,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     p JSON.parse(result)
     ```
 === "Python"
+
     ```python
     import requests
     headers = {
@@ -411,6 +418,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     print r.json()
     ```
 === "Java"
+
     ```java
     URL obj = new URL("https://amplitude.com/api/2/deletions/users?start_day=string&end_day=string");
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -428,6 +436,7 @@ If the request returns no values, then no jobs are scheduled for that time range
     ```
 
 === "Go"
+
     ```go
     package main
 
@@ -457,8 +466,8 @@ If the request returns no values, then no jobs are scheduled for that time range
 
 |Name|Description|
 |-----|------------|
-|`start`| Required. First hour included in data series, formatted `YYYYMMDDTHH`. For example, `20220201T05`.|
-|`end` |Required. Last hour included in data series, formatted `YYYYMMDDTHH` For example, `20220201T05`.|
+|`start`| <span class="required">Required</span>. First hour included in data series, formatted `YYYYMMDDTHH`. For example, `20220201T05`.|
+|`end` |<span class="required">Required</span>. Last hour included in data series, formatted `YYYYMMDDTHH` For example, `20220201T05`.|
 
 ### Response
 
@@ -507,7 +516,6 @@ Removes the specified ID from a deletion job.
 DELETE /api/2/deletions/users/12345/ HTTP/1.1
 Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-encoded
-```
 
 {
   "amplitude_ids": [
@@ -522,6 +530,7 @@ Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64-enc
   ],
   "requester": "employee@yourcompany.com"
 }
+```
 
 ### Path variables
 

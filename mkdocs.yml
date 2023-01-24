@@ -118,8 +118,8 @@ markdown_extensions:
 extra:
   support_contact: https://amplitude.com
   docs_home: https://docs.developers.amplitude.com/documentation-home
-  community: https://community.amplitude.com
-  product_updates: https://community.amplitude.com/product-updates
+  community: https://community.amplitude.com/?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite
+  product_updates: https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite
   help_site: https://help.amplitude.com
   status_page: https://status.amplitude.com/
   training_site: https://academy.amplitude.com/
@@ -178,59 +178,7 @@ nav:
         - data/ampli/middleware.md
         - data/ampli/plugin.md
         - data/ampli/migration.md
-      - SDKs:
-        - data/sdks/index.md
-        - Quickstart Guide: data/sdks/sdk-quickstart.md
-        - Browser:
-          - data/sdks/typescript-browser/index.md
-          - Marketing Analytics Browser:
-            - data/sdks/marketing-analytics-browser/index.md
-          - Ampli Codegen: data/sdks/typescript-browser/ampli.md
-          - Migration Guide: data/sdks/typescript-browser/migration.md
-        - Node.js:
-          - data/sdks/typescript-node/index.md
-          - Ampli Codegen: data/sdks/typescript-node/ampli.md
-        - Android:
-          - data/sdks/android-kotlin/index.md
-          - Ampli Codegen: data/sdks/android-kotlin/ampli.md
-        - iOS (Beta):
-          - data/sdks/ios-swift/index.md
-        - Java:
-          - data/sdks/java/index.md
-          - Ampli Codegen: data/sdks/java/ampli.md
-        - React Native (Beta):
-          - data/sdks/typescript-react-native/index.md
-          - Ampli Codegen (Beta): data/sdks/typescript-react-native/ampli.md
-        - Flutter:
-          - data/sdks/flutter/index.md
-        - Python:
-          - data/sdks/python/index.md
-          - Ampli Codegen: data/sdks/python/ampli.md
-        - Unity:
-          - data/sdks/unity/index.md
-        - Unreal:
-          - data/sdks/unreal/index.md
-        - Go (Beta):
-          - data/sdks/go/index.md
-          - Ampli Codegen (Beta): data/sdks/go/ampli.md
-        - Legacy:
-          - Browser:
-            - data/sdks/javascript/index.md
-            - Ampli Codegen: data/sdks/javascript/ampli.md
-          - Android:
-            - data/sdks/android/index.md
-            - Ampli Codegen: data/sdks/android/ampli.md
-          - iOS:
-            - data/sdks/ios/index.md
-            - Ampli Codegen: data/sdks/ios/ampli.md
-          - React Native:
-            - data/sdks/react-native/index.md
-            - Ampli Codegen: data/sdks/react-native/ampli.md
-          - Node.js:
-            - data/sdks/node/index.md
-            - Ampli Codegen: data/sdks/node/ampli.md
-        - Other Topics:
-          - data/dynamic-configuration.md
+      - SDKs: data/sdks/sdk-overview.md
       - Cloud Storage:
         - Overview: data/source-cloud-storage-overview.md
         - Amazon S3: data/sources/amazon-s3.md
@@ -451,7 +399,60 @@ nav:
     - User Privacy: analytics/apis/user-privacy-api.md
     - User Profile: analytics/apis/user-profile-api.md
 - SDKs: 
-  - https://www.docs.developers.amplitude.com/data/sdks/
+    - data/sdks/index.md
+    - Quickstart Guide: data/sdks/sdk-quickstart.md
+    - SDK References: 
+      - SDK Catalog: data/sdks/sdk-overview.md
+      - Browser:
+        - data/sdks/typescript-browser/index.md
+        - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
+        - Ampli Codegen: data/sdks/typescript-browser/ampli.md
+        - Migration Guide: data/sdks/typescript-browser/migration.md
+      - Node.js:
+        - data/sdks/typescript-node/index.md
+        - Ampli Codegen: data/sdks/typescript-node/ampli.md
+      - Android:
+        - data/sdks/android-kotlin/index.md
+        - Ampli Codegen: data/sdks/android-kotlin/ampli.md
+      - iOS (Beta):
+        - data/sdks/ios-swift/index.md
+        - Migration Guide: data/sdks/ios-swift/migration.md
+      - Java:
+        - data/sdks/java/index.md
+        - Ampli Codegen: data/sdks/java/ampli.md
+      - React Native (Beta):
+        - data/sdks/typescript-react-native/index.md
+        - Ampli Codegen (Beta): data/sdks/typescript-react-native/ampli.md
+      - Flutter:
+        - data/sdks/flutter/index.md
+      - Python:
+        - data/sdks/python/index.md
+        - Ampli Codegen: data/sdks/python/ampli.md
+      - Unity:
+        - data/sdks/unity/index.md
+      - Unreal:
+        - data/sdks/unreal/index.md
+      - Go (Beta):
+        - data/sdks/go/index.md
+        - Ampli Codegen (Beta): data/sdks/go/ampli.md
+    - Legacy SDKs:
+      - Browser:
+        - data/sdks/javascript/index.md
+        - Ampli Codegen: data/sdks/javascript/ampli.md
+      - Android:
+        - data/sdks/android/index.md
+        - Ampli Codegen: data/sdks/android/ampli.md
+      - iOS:
+        - data/sdks/ios/index.md
+        - Ampli Codegen: data/sdks/ios/ampli.md
+      - React Native:
+        - data/sdks/react-native/index.md
+        - Ampli Codegen: data/sdks/react-native/ampli.md
+      - Node.js:
+        - data/sdks/node/index.md
+        - Ampli Codegen: data/sdks/node/ampli.md
+    - Other Topics:
+      - data/dynamic-configuration.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
