@@ -100,9 +100,19 @@ This call should return a `200` response code. In the web app, confirm that Ampl
 After the proxy is working correctly, configure the SDK. Amplitude’s SDKs are open source code that you can change. The SDKs already have built-in options to send events to your defined server endpoint.
 
 !!!note
-    The SDK's don't point to the same API endpoint as the HTTP API V2, but rather a special endpoint for its custom payloads. Send them instead to `https://api2.amplitude.com/`.
+    Different SDKs point to different API endpoint with its custom payload. The following list are the endpoints for different SDKs.
 
-- JavaScript(Web): Set the `apiEndpoint` option when initializing the SDK.
-- iOS/Android: Use the `setServerUrl` function to configure the server URL.
+ <div class="big-column">SDK</div> | Endpoint | Set server url |
+| --- | --- | --- |
+| [Amplitude-JavaScript](../data/sdks/javascript/) | `https://api.amplitude.com` | Set the `apiEndpoint` option when initializing the SDK.|
+| [Amplitude-Node](../data/sdks/node/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK.
+| [Amplitude-Android](../data/sdks/android/)| `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
+| [Amplitude-Java](../data/sdks/java/) | `https://api2.amplitude.com/2/httpapi` | Use the `setServerUrl` function to configure the server URL. |
+| [Amplitude-iOS](../data/sdks/ios/) | `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
+| [Amplitude-TypeScript](../data/sdks/typescript-browser/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-Kotlin](../data/sdks/android-kotlin/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-Swift](../data/sdks/ios-swift/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-Python](../data/sdks/python/) | `https://api2.amplitude.com/2/httpapi` | Set the `server_url` option when initializing the SDK.|
+| [Amplitude-Go](../data/sdks/go/) | `https://api2.amplitude.com/2/httpapi` |  Set the `serverUrl` option when initializing the SDK. |
 
 Now you can send events through your proxy and see them logged in Amplitude.
