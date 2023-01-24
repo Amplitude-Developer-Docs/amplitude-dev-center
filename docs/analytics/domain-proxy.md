@@ -102,10 +102,10 @@ After the proxy is working correctly, configure the SDK. Amplitude’s SDKs are 
 !!!note
     Different SDKs point to different API endpoint with its custom payload. The following list are the endpoints for different SDKs.
 
- <div class="big-column">SDK</div> | Endpoint | Set server url |
+|<div class="big-column">SDK</div> | Endpoint | Set server url |
 | --- | --- | --- |
-| [Amplitude-JavaScript](../data/sdks/javascript/) | `https://api.amplitude.com` | Set the `apiEndpoint` option when initializing the SDK.|
-| [Amplitude-Node](../data/sdks/node/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK.
+| [Amplitude-JavaScript](../data/sdks/javascript/) | `https://api.amplitude.com` | Set the `apiEndpoint` option when initializing the SDK. |
+| [Amplitude-Node](../data/sdks/node/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
 | [Amplitude-Android](../data/sdks/android/)| `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
 | [Amplitude-Java](../data/sdks/java/) | `https://api2.amplitude.com/2/httpapi` | Use the `setServerUrl` function to configure the server URL. |
 | [Amplitude-iOS](../data/sdks/ios/) | `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
