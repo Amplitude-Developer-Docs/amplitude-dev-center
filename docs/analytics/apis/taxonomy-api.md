@@ -8,7 +8,7 @@ The Taxonomy API grants Scholarship, Growth, and Enterprise clients the ability 
 The Taxonomy API lets you create, get, update, and delete categories, event types, event properties, and user properties.
 You can edit planned events and properties, and not events and properties that already have data in the project.
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-basic.md"
 
@@ -63,13 +63,56 @@ Create an event category in your project.
 
 #### Example request
 
-```bash
-POST /api/2/taxonomy/category HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}:{{secret-key}}}
-Content-Type: application/x-www-form-urlencoded
-category_name=Marketing
-```
+This basic request shows the required fields.
+
+=== "cURL"
+
+    ```bash
+
+    curl --location --request POST 'https://amplitude.com/api/2/taxonomy/category' \
+    --header 'Authorization: Basic {{api-key}:{{secret-key}}' \ #credentials must be base64 encoded
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'category_name=CATEGORY_NAME'
+    ```
+
+=== "HTTP"
+
+    ```bash
+
+    POST /api/2/taxonomy/category HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}:{{secret-key}} #credentials must be base64 encoded
+    Content-Type: application/x-www-form-urlencoded
+    category_name=CATEGORY_NAME
+
+    ```
+
+???code-example "Example: Create an event category (click to expand)"
+
+    This example creates an event category named "Attribution".
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request POST 'https://amplitude.com/api/2/taxonomy/category' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'category_name=Attribution'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        POST /api/2/taxonomy/category HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 25
+
+        category_name=Attribution
+        ```
 
 ##### Body parameters
 
@@ -108,11 +151,21 @@ Get all event categories in your project.
 
 #### Example request
 
-```bash
-GET /api/2/taxonomy/category HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}:{{secret-key}}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/taxonomy/category' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+
+    GET /api/2/taxonomy/category HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 #### Response
 
@@ -149,17 +202,50 @@ A failed request returns a `400 Bad Request` response with more information.
 
 ### Get an event category
 
-Get the ID of an event category in your project.
+Get the ID of an event category in your project. Send a `GET` request with the category name.
 
 `GET https://amplitude.com/api/2/taxonomy/category/:category_name`
 
 #### Example request
 
-```bash
-GET /api/2/taxonomy/category/:category_name HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+This is a basic request that shows the required fields. 
+
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/taxonomy/category/:category_name' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+
+    GET /api/2/taxonomy/category/:category_name HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???code-example "Example: Get the ID for a category (click to expand)"
+
+    This example get the ID for the event category named "Attribution".
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request GET 'https://amplitude.com/api/2/taxonomy/category/Attribution' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='    
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        GET /api/2/taxonomy/category/Attribution HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        ```
 
 ##### Path variables
 
@@ -196,22 +282,62 @@ A failed request returns a `400 Bad Request` status with more information about 
 
 ### Update event category
 
-Update the name of an event category.
+Update the name of an event category. Send a `PUT` request with the category ID and a new name in the body.
 
 `PUT https://amplitude.com/api/2/taxonomy/category/:category_id`
 
 #### Example request
-<!--vale off-->
-```bash hl_lines="7"
-PUT /api/2/taxonomy/category/412941 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 23
 
-category_name=Converted
-```
-<!--vale on-->
+This basic request shows the required fields.
+
+=== "cURL"
+
+    ```bash
+    curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/category/CATEGORY_ID' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'category_name=NEW_NAME'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    PUT /api/2/taxonomy/category/CATEGORY_ID HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 23
+
+    category_name=NEW_NAME
+    ```
+
+???code-example "Example: Rename a category (click to expand)"
+
+    This example renames the category with the ID `412941` to "Converted".
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/category/412941' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'category_name=Converted'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        PUT /api/2/taxonomy/category/412941 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 23
+
+        category_name=Converted
+        ```
+
 ##### Path variables
 
 |<div class="big-column">Name</div>| Description|
@@ -236,7 +362,7 @@ A successful request returns a `200 OK` status and a JSON body.
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 If there is a problem with your request, the request returns a `409 Conflict` status, and a JSON body with more information.
 
@@ -253,17 +379,48 @@ If there is a problem with your request, the request returns a `409 Conflict` st
 
 ### Delete an event category
 
-Delete an event category.
+Delete an event category. Send a `DELETE` request with the category ID.
 
 `DELETE https://amplitude.com/api/2/taxonomy/category/:category_id`
 
 #### Example request
 
-```bash
-DELETE /api/2/taxonomy/category/12345 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+This basic request shows the required fields.
+
+=== "cURL"
+
+    ```bash 
+    curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/category/:category_id' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    DELETE /api/2/taxonomy/category/:category_id HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+???code-example "Example: Delete a category (click to expand)"
+
+    This example deletes the category with the ID `412941`.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/category/412941' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        DELETE /api/2/taxonomy/category/412941 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        ```
 
 ##### Path variables
 
@@ -283,7 +440,7 @@ A successful request returns a `200 OK` status and a JSON body.
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 If there is a problem with your request, the request returns a `409 Conflict` status, and a JSON body with more information.
 
@@ -292,7 +449,7 @@ If there is a problem with your request, the request returns a `409 Conflict` st
     "success": false,
     "errors": [
         {
-            "message": "Attempted to operate on entity event_category, id \"4129\", that does not exist."
+            "message": "Attempted to operate on entity event_category, id \"412941\", that does not exist."
         }
     ]
 }
@@ -306,22 +463,67 @@ You can use the API to manipulate event types.
 
 ### Create event type
 
-Creates an event type.
+Creates an event type. Send a `POST` request to `https://amplitude.com/api/2/taxonomy/event` and include a body with your parameters.
 
 !!!note
+
     You must [initialize the schema](https://help.amplitude.com/hc/en-us/articles/360047579451) before you can add event types via the API.
 
 #### Example request
 
-```bash
-POST /api/2/taxonomy/event?=null HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 80
+This basic request shows the required fields.
 
-event_type=My%20event&category=Conversion&description=Event%20type%20description
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request POST 'https://amplitude.com/api/2/taxonomy/event' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'event_type=EVENT_TYPE' \
+    --data-urlencode 'category=CATEGORY_NAME' \
+    --data-urlencode 'description=DESCRIPTION'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    POST /api/2/taxonomy/event?=null HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 80
+
+    event_type=EVENT_TYPE&category=CATEGORY_NAME&description=CATEGORY_DESCRIPTION
+    ```
+
+???code-example "Example: Create an event type (click to expand)"
+
+    This example creates the event type "Onboarding Start" with the category "Onoboarding" and a description of "My new onboarding event".
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request POST 'https://amplitude.com/api/2/taxonomy/event' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --data-urlencode 'event_type=Onboard Start' \
+        --data-urlencode 'category=Onboarding' \
+        --data-urlencode 'description=My new onboarding event. ' \
+        
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        POST /api/2/taxonomy/event HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+        Content-Length: 92
+
+        event_type=Onboard%20Start&category=Onboarding&description=My%20new%20onboarding%20event.%20
+        ```
 
 ##### Body parameters
 
