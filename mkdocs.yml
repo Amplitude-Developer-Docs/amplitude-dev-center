@@ -118,8 +118,8 @@ markdown_extensions:
 extra:
   support_contact: https://amplitude.com
   docs_home: https://docs.developers.amplitude.com/documentation-home
-  community: https://community.amplitude.com
-  product_updates: https://community.amplitude.com/product-updates
+  community: https://community.amplitude.com/?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite
+  product_updates: https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite
   help_site: https://help.amplitude.com
   status_page: https://status.amplitude.com/
   training_site: https://academy.amplitude.com/
