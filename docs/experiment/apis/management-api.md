@@ -1289,7 +1289,7 @@ A successful request returns a `200 OK` response and a JSON object with the flag
 
 ------
 
-## Other Ednpoints
+## Other Endpoints
 
 ## List deployments
 
