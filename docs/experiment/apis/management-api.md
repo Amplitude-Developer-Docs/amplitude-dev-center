@@ -28,6 +28,7 @@ The Experiment management API can be used to programmatically create and control
 | [Add users to experiment's variant](#add-users-to-experiments-variant) | Add users to experiment's variant. |
 | [Remove users from experiment's variant](#remove-users-from-experiments-variant) | Remove users from experiment's variant. |
 | [Remove all users from experiment's variant](#remove-all-users-from-experiments-variant) | Remove all users from experiment's variant. |
+| [Edit experiment](#edit-experiment) | Edit experiment. |
 | [Get flag details](#get-flag-details) | Get the configuration details of a flag. |
 | [List flag versions](#list-flag-versions) | List all versions for a flag. |
 | [Get flag version details](#get-flag-version-details) | Get a specific version for a flag. |
@@ -40,7 +41,9 @@ The Experiment management API can be used to programmatically create and control
 | [Add users to flag's variant](#add-users-to-flags-variant) | Add users to flag's variant. |
 | [Remove users from flag's variant](#remove-users-from-flags-variant) | Remove users from flag's variant. |
 | [Remove all users from flag's variant](#remove-all-users-from-flags-variant) | Remove all users from flag's variant. |
+| [Edit flag](#edit-flag) | Edit flag. |
 | [Create experiment](#create-experiment) | Create a new experiment. |
+| [Create flag](#create-flag) | Create a new flag. |
 | [Activate experiment](#activate-experiment) | Activate a inactive experiment. |
 | [Deactivate experiment](#deactivate-experiment) | Deactivate an active experiment. |
 | [Rollout weights](#rollout-weights) | Update the rollout weights for an experiment. |
@@ -564,6 +567,91 @@ A successful request returns a `200 OK` response.
 
 ------
 
+## Edit experiment
+
+```bash
+PATCH https://management-api.experiment.amplitude.com/experiments/{id}
+```
+
+Edit an experiment.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`bucketingKey`| Optional | string | The user property to bucket the user by. |
+|`bucketingSalt`| Optional | string | Experiment's bucketing salt. |
+|`bucketingUnit`| Optional | string | Experiment's bucketing |
+|`description`| Optional | string | Description of the experiment |
+|`enabled`| Optional | boolean | Property to activate or deactivate the flag|
+|`evaluationMode`| Optional | string | Evaluation mode for the experiment, either 'local' or 'remote' |
+|`name`| Optional | string | Name of the experiment |
+|`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users |
+|`experimentType`| Optional | number | Experiment type, either 'no-harm' or 'hypothesis-testing' |
+|`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
+|`startDate`| Optional | string | Start date of the experiment in ISO 8601 format |
+|`endDate`| Optional | string | End date of the experiment in ISO 8601 format. End date can be null. |
+|`exposureEvent`| Optional | object | See the [`exposureEvent`](#exposureevent) table for more information. If set to null, the Amplitude Exposure Event will be used |
+
+#### `exposureEvent`
+
+The `exposureEvent` field contains these objects.
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`event_type`| Required | string | Event type. |
+|`filters`| Required | object array | See the [`filters`](#filters) table for more information. |
+|`group_by`| Required | object array | See the [`group_by`](#group_by) table for more information. |
+
+#### `filters`
+
+The `filters` field contains these objects.
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`group_type`| Optional | string | Group type of the filter; can be null. Currently we only use `USER` value |
+|`subprop_key`| Required | string | Filter's key; can be null. |
+|`subprop_op`| Required | string | The [operation](#subprop_op) to use in this filter. |
+|`subprop_type`| Required | string | Type of filter; can be null. One of `USER`, `GROUP`, `EVENT` |
+|`subprop_value`| Required | string array | Array of values. |
+
+#### `subprop_op`
+
+An string value representing operations on a property value. Possible values are: `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `glob match`, `glob does not match`
+
+#### `group_by`
+
+The `group_by` field contains these objects. Experiment currently does not use these objects, and users should pass an empty array instead.
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`group_type`| Optional | string | Group type; can be null. |
+|`type`| Required | string | Type to group by. |
+|`value`| Required | string | Value to group by. |
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request PATCH \
+      --url 'https://management-api.experiment.amplitude.com/experiments/<id>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"enabled":"<true>","rolloutPercentage":"<10>"}'
+    ```
+
+------
+
 ## Get flag details
 
 ```bash
@@ -962,6 +1050,50 @@ A successful request returns a `200 OK` response.
 
 ------
 
+## Edit flag
+
+```bash
+PATCH https://management-api.experiment.amplitude.com/flags/{id}
+```
+
+Edit a flag.
+
+### Path variables
+
+|<div class="big-column">Name</div>|Description|
+|---|----|
+|`id`| Required. String. The flag's ID.|
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`bucketingKey`| Optional | string | The user property to bucket the user by. |
+|`bucketingSalt`| Optional | string | Flag's bucketing salt. |
+|`bucketingUnit`| Optional | string | Flag's bucketing |
+|`description`| Optional | string | Description of the flag |
+|`enabled`| Optional | boolean | Property to activate or disactivate the flag|
+|`evaluationMode`| Optional | string | Evaluation mode for the flag, either 'local' or 'remote' |
+|`name`| Optional | string | Name of the flag |
+|`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users |
+
+### Response
+
+A successful request returns a `200 OK` response.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request PATCH \
+      --url 'https://management-api.experiment.amplitude.com/flags/<id>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"enabled":"<true>","rolloutPercentage":"<10>"}'
+    ```
+
+------
+
 ## Create experiment
 
 ```bash
@@ -975,7 +1107,8 @@ Create a new experiment.
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
 |`projectId`| Required | string | The project's ID. |
-|`key`| Required | string | The flag or experiment key. |
+|`key`| Required | string | The experiment key. |
+|`name`| Optional | string | The experiment name. |
 |`description`| Optional | string | Description for the experiment.|
 |`variants`| Optional | object array | Array of [`variants`](#variants). |
 |`bucketingKey`| Optional | string | The user property to bucket the user by. |
@@ -983,6 +1116,8 @@ Create a new experiment.
 |`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. |
 |`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
 |`deployments`| Optional | string array | Array of deployments that the experiment should be assigned to. |
+|`experimentType`| Optional | string | Experiment type; options include `hypothesis-testing` or `no-harm`. |
+|`evaluationMode`| Optional | string | Experiment evaluation mode; options include `remote` or `local`. |
 
 #### `variants`
 
@@ -1031,6 +1166,46 @@ A successful request returns a `200 OK` response and a JSON object with the expe
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/experiments/new' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+      --data '{"projectId":"<projectId>","key":"<key>"}'
+    ```
+
+------
+
+## Create flag
+
+```bash
+POST https://management-api.experiment.amplitude.com/flags/new
+```
+
+Create a new flag.
+
+### Request body
+
+|<div class="med-big-column">Name</div>|Requirement|Type|Description|
+|---|---|---|---|
+|`projectId`| Required | string | The project's ID. |
+|`key`| Required | string | The flag key. |
+|`name`| Optional | string | The flag name. |
+|`description`| Optional | string | Description for the flag.|
+|`variants`| Optional | object array | Array of [`variants`](#variants). |
+|`bucketingKey`| Optional | string | The user property to bucket the user by. |
+|`rolloutWeights`| Optional | object | Rollout weights for non-targeted users. The object should be a mapping from variant key to rollout weight as an integer. For example: `{ "control": 1, "treatment": 1 }`. |
+|`targetSegments`| Optional | object | See the [`targetSegments`](#targetsegments) table for more information. |
+|`deployments`| Optional | string array | Array of deployments that the experiment should be assigned to. |
+|`evaluationMode`| Optional | string | Experiment evaluation mode; options include `remote` or `local`. |
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with the flag's details.
+
+<!-- TODO example response body -->
+
+!!!example "Example cURL"
+    ```bash
+    curl --request POST \
+      --url 'https://management-api.experiment.amplitude.com/flags/new' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
       --data '{"projectId":"<projectId>","key":"<key>"}'
