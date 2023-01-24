@@ -35,6 +35,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Fixed broken code formatting and clarified callouts in [User Privacy API](../analytics/apis/user-privacy-api) doc. [#531](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/531)
 - Made formatting and link improvements in [Batch Event Upload API](../analytics/apis/batch-event-upload-api) doc. [#532](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/532)
 - Fixed an issue that made buttons on the homepage open in new tabs without warning. [#534](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/534)
+- Fixed an incorrect URL in the [Go SDK](../data/sources/sdks/go) doc. [#536](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/536)
 
 ## Week of January 16, 2023
 
