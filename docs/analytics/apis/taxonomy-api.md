@@ -789,7 +789,7 @@ A successful request returns a `200 OK` status and a JSON body.
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 If there is a problem with your request, the request returns a `409 Conflict` status, and a JSON body with more information.
 
