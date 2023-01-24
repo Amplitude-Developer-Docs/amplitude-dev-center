@@ -5,9 +5,9 @@ description: The Batch Event Upload API lets you upload large amounts of event d
 <!-- markdownlint-disable-file MD037 -->
 The Batch Event Upload API lets you upload large amounts of event data.
 
-The event JSON format follows the [HTTP API format](https://developers.amplitude.com/docs/http-api-v2), and has the same requirements.
+The event JSON format follows the [HTTP API format](../analytics/apis/http-v2-api), and has the same requirements.
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-api-key.md"
 
@@ -35,6 +35,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 - The key for the `events` payload is `events` plural, not `event` singular.
 
 === "cURL"
+
     ```curl
     # You can also use wget
     curl -X POST https://api2.amplitude.com/batch \
@@ -43,6 +44,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "HTTP"
+
     ```bash
     POST https//api2.amplitude.com/batch HTTP/1.1
     Host: api2.amplitude.com
@@ -51,6 +53,7 @@ If you have used the HTTP API before, note that there are two minor but importan
     ```
 
 === "JavaScript"
+
     ```js
     var headers = {
         'Content-Type':'application/json',
@@ -66,6 +69,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 === "Node"
 
     ```js
+
     const request = require('node-fetch');
     const inputBody = '{
     "api_key": "my_amplitude_api_key",
@@ -186,6 +190,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 === "Java"
 
     ```java
+
     URL obj = new URL("https://api2.amplitude.com/batch");
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
     con.setRequestMethod("POST");
@@ -204,6 +209,7 @@ If you have used the HTTP API before, note that there are two minor but importan
 === "Go"
 
     ```go
+
     package main
 
     import (
@@ -431,11 +437,11 @@ These properties belong to the `options` object.
 
 | <div class="big-column">Name</div> |  Description |
 | --- | --- |
-| code  | 400 error code. |
-| error |  String. Error description |
-| missing_field | String. Indicates which request-level required field is missing. |
-| events_with_invalid_fields | Object. A map from field names to an array of indexes into the events array indicating which events have invalid values for those fields |
-| events_with_missing_fields | Object. A map from field names to an array of indexes into the events array indicating which events are missing those required fields |
+| `code`  | 400 error code. |
+| `error` |  String. Error description |
+| `missing_field` | String. Indicates which request-level required field is missing. |
+| `events_with_invalid_fields` | Object. A map from field names to an array of indexes into the events array indicating which events have invalid values for those fields |
+| `events_with_missing_fields` | Object. A map from field names to an array of indexes into the events array indicating which events are missing those required fields |
 
 ### SilencedDeviceID
 
@@ -474,14 +480,14 @@ These properties belong to the `options` object.
 
 | <div class="big-column">Name</div> | Description |
 | ---| --- |
-| code |  400 error code |
-| error | String. Error description. |
-| eps_threshold | Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
-| exceeded_daily_quota_devices | Integer. A map from device_id to its current number of daily events, for all devices that exceed the app's daily event quota. |
-| silenced_devices | [string]. Array of device_ids that have been silenced by Amplitude. |
-| silenced_events | [integer]. Array of indexes in the events array indicating events whose device_id got silenced. |
-| throttled_devices | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
-| throttled_events | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
+| `code` |  400 error code |
+| `error` | String. Error description. |
+| `eps_threshold` | Integer. Your app's current events per second threshold. If you exceed this rate your requests will be throttled. |
+| `exceeded_daily_quota_devices` | Integer. A map from device_id to its current number of daily events, for all devices that exceed the app's daily event quota. |
+| `silenced_devices` | [string]. Array of device_ids that have been silenced by Amplitude. |
+| `silenced_events` | [integer]. Array of indexes in the events array indicating events whose device_id got silenced. |
+| `throttled_devices` | Object. A map from device_id to its current events per second rate, for all devices that exceed the app's current threshold. |
+| `throttled_events` | [integer]. Array of indexes in the events array indicating events whose user_id and/or device_id got throttled |
 
 ### PayloadTooLargeError
 
@@ -497,8 +503,8 @@ These properties belong to the `options` object.
 
 | Name | Description |
 | --- | --- |
-| code | Integer. 413 error code |
-| error | String. Error description. |
+| `code` | Integer. 413 error code |
+| `error` | String. Error description. |
 
 ### TooManyRequestsForDeviceError
 
