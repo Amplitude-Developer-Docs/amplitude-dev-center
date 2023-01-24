@@ -43,7 +43,7 @@ The SDK internally uses a few Java 8 language APIs through desugaring. Make sure
 
 ### Step 3: Initialization
 
-Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. You can use the Android SDK anywhere after it's initialized in an Android application.
+Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. We recommened to do the initialization in the Main Activity, which will never get destroyed. Or the Application class if you have one. Then You can use the Android SDK anywhere after it's initialized in an Android application.
 
 ```kotlin
 import com.amplitude.android.Amplitude;
