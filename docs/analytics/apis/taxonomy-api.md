@@ -529,7 +529,7 @@ This basic request shows the required fields.
 
 |<div class="big-column">Name</div>| Description|
 |-----|------|
-|`event_type` |<span class="required">Required</span>. String. The event type name.|
+|`event_type` |<span class="required">Required</span>. String. The event name.|
 |`category`|<span class="optional">Optional</span>. String. The event type's category.|
 |`description`| <span class="optional">Optional</span>. String. Details about the event type.|
 
@@ -662,7 +662,7 @@ This basic request shows the required fields.
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`event_type`| <span class="required">Required</span>. String. The event type name. Prefix custom event types with `ce:`.|
+|`event_type`| <span class="required">Required</span>. String. The event name. Prefix custom event types with `ce:`.|
 
 #### Response
 
@@ -706,20 +706,64 @@ Update an event type. Send a `PUT` request with the event type name.
 
 #### Example request
 
-```bash
-PUT /api/2/taxonomy/event/ce:Event1 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
-Content-Length: 41
+This is a basic request with the required path variable and a few optional parameters. 
 
-category=&display_name=Event%20Number%203
-```
+=== "cURL"
+
+    ```bash
+        curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/event/EVENT_TYPE_NAME' \
+        --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+        --data-urlencode 'category=NEW_CATEGORY_NAME' \
+        --data-urlencode 'display_name=NEW_EVENT_TYPE_DISPLAY_NAME'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    PUT /api/2/taxonomy/event/EVENT_TYPE_NAME HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} # credentials must be base64 encoded
+    Content-Length: 41
+
+    category=NEW_CATEGORY_NAME&display_name=NEW_EVENT_TYPE_DISPLAY_NAME
+    ```
+
+???code-example "Example: Update an event type (click to expand)"
+
+    This example updates the event type "OnboardingBegin" with the category "Onboarding", event type name "OnboardStart", the display name "Onboarding Start", and a description of "User signed in and completed an onboarding task from modal". Because the event type is custom, it has the `ce:` prefix.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/event/ce:OnboardBegin' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'new_event_type=OnboardStart' \
+        --data-urlencode 'category=Onboarding' \
+        --data-urlencode 'description=User signed in and completed an onboarding task from modal.' \
+        --data-urlencode 'display_name=Onboarding Start'
+        
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        PUT /api/2/taxonomy/event/ce:OnboardBegin HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 169
+
+        new_event_type=OnboardStart&category=Onboarding&description=User%20signed%20in%20and%20completed%20an%20onboarding%20task%20from%20modal.&display_name=Onboarding%20Start
+        ```
 
 ##### Path variables
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`event_type`| <span class="required">Required</span>. String. The event name. |
+|`event_type`| <span class="required">Required</span>. String. The event name. Prefix custom event types with `ce:`. |
 
 ##### Body parameters
 
@@ -765,17 +809,49 @@ Delete an event type.
 
 #### Example request
 
-```bash
-DELETE /api/2/taxonomy/event/ce:Event1 HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/event/EVENT_TYPE'
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    DELETE /api/2/taxonomy/event/EVENT_TYPE HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???code-example "Example: Delete event type (click to expand)"
+
+    This example deletes the event type "Event1". Because the event type is custom, it has the `ce:` prefix.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/event/ce:Event1' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        DELETE /api/2/taxonomy/event/ce:Event1 HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+        ```
 
 ##### Path variables
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
-|`event_type`| <span class="required">Required</span>. The name of the event type|
+|`event_type`| <span class="required">Required</span>. The name of the event type. Prefix custom event types with `ce:`. |
 
 #### Response
 
@@ -827,7 +903,7 @@ event_type=Onboard%20Start&event_property=Completed%20Task&type=boolean&is_array
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`event_type`|<span class="required">Required</span>. String. Name of the event type to which the event properties belong to.|
+|`event_type`|<span class="required">Required</span>. String. Name of the event type to which the event properties belong to. |
 |`event_property`| <span class="required">Required</span>. String. Name of the event property.|
 |`description`|<span class="optional">Optional</span>. String. The event property's description.|
 |`type`| <span class="optional">Optional</span>. String. Available with Govern Add-on. The event property's data type. Acceptable values are `string`, `number`, `boolean`, `enum`, and `any`|
@@ -848,7 +924,7 @@ A successful request returns a `200 OK` status and a JSON body.
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 If there is a problem with your request, the request returns a `409 Conflict` status, and a JSON body with more information.
 
