@@ -97,10 +97,9 @@ This call should return a `200` response code. In the web app, confirm that Ampl
 
 ### Configure the SDKs to work with alternate endpoints
 
-After the proxy is working correctly, configure the SDK. Amplitude’s SDKs are open source code that you can change. The SDKs already have built-in options to send events to your defined server endpoint.
+After the proxy is working correctly, configure your SDK. Amplitude’s SDKs are open source code that you can change and have built-in options to send events to your defined server endpoint
 
-!!!note
-    Different SDKs point to different API endpoint with its custom payload. The following list are the endpoints for different SDKs.
+The SDKs point to special endpoints for their custom payloads. Find the endpoint for your SDK in this table: 
 
 |<div class="big-column">SDK</div> | Endpoint | Set server url |
 | --- | --- | --- |
@@ -115,4 +114,4 @@ After the proxy is working correctly, configure the SDK. Amplitude’s SDKs are 
 | [Amplitude-Python](../data/sdks/python/) | `https://api2.amplitude.com/2/httpapi` | Set the `server_url` option when initializing the SDK.|
 | [Amplitude-Go](../data/sdks/go/) | `https://api2.amplitude.com/2/httpapi` |  Set the `serverUrl` option when initializing the SDK. |
 
-Now you can send events through your proxy and see them logged in Amplitude.
+After you configure the SDK, you can send events through your proxy and see them logged in Amplitude.
