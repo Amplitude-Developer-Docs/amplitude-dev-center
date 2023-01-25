@@ -1471,15 +1471,24 @@ This request returns either a true or false response.
 
 Retrieves all user properties in your account. This call doesn't have any required parameters.
 
-`https://amplitude.com/api/2/taxonomy/user-property`
+`GET https://amplitude.com/api/2/taxonomy/user-property`
 
 #### Example request
 
-```bash
-GET /api/2/taxonomy/user-property HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/taxonomy/user-property' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/taxonomy/user-property HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+    ```
 
 #### Response
 
@@ -1565,21 +1574,53 @@ Retrieves a single user property, by name.
 
 #### Example request
 
+This is a basic request.
+
+=== "cURL"
+
 ```bash
-GET /api/2/taxonomy/user-property/device_id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+curl --location --request GET 'https://amplitude.com/api/2/taxonomy/user-property/USER_PROPERTY' \
+--header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded
 ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/taxonomy/user-property/USER_PROPERTY HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+    ```
+
+???code-example "Example: Get a user property (click to expand)"
+
+    This example gets the "device_id" user property.
+
+    === "cURL"
+
+        ```bash
+        
+        curl --location --request GET 'https://amplitude.com/api/2/taxonomy/user-property/device_id' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        GET /api/2/taxonomy/user-property/device_id HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        ```
 
 ##### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|<span class="required">Required</span>. The user property name.|
+|`user_property`|<span class="required">Required</span>. The user property name. Prefix custom user properties with `gp:`|
 
-### Response
+#### Response
 
-#### 200 OK
+##### 200 OK
 
 A successful request returns a `200 OK` response and a JSON body with user property details.
 
@@ -1597,7 +1638,7 @@ A successful request returns a `200 OK` response and a JSON body with user prope
 }
 ```
 
-#### 404 Bad Request
+##### 404 Bad Request
 
 A failed request returns a `404 Bad Request` status and an error message.
 
@@ -1616,23 +1657,66 @@ A failed request returns a `404 Bad Request` status and an error message.
 
 Update a user property.
 
-`https://amplitude.com/api/2/taxonomy/user-property/:user_property`
+`PUT https://amplitude.com/api/2/taxonomy/user-property/:user_property`
 
 ### Example request
 
-```bash
-PUT /api/2/taxonomy/user-property/user_id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+This is a basic request with only the required path parameter and a few optional parameters in the body. 
 
-description=The%20user%20id&type=string
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/user-property/USER_PROPERTY' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'new_user_property_value=VALUE' \
+    --data-urlencode 'description=DESCRIPTION'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    PUT /api/2/taxonomy/user-property/USER_PROPERTY HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 37
+
+    new_user_property_value=VALUE&description=DESCRIPTION
+    ```
+
+???code-example "Example: Update a user property (click to expand)"
+
+    This example updates a user property called "user_type" to be named "subscription_type", adds a description of "The user's subscription type", and changes the property's data type to `string`. The user property is prefixed with `gp:` in the path because it's a custom user property. 
+
+    === "cURL"
+
+        ```bash
+        
+        curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/user-property/gp:user_type' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --data-urlencode 'new_user_property_value=subscription_type' \
+        --data-urlencode 'description=The user'\''s subscription type' \
+        --data-urlencode 'type=string'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        PUT /api/2/taxonomy/user-property/gp:user_type HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Content-Length: 100
+
+        new_user_property_value=subscription_type&description=The%20user's%20subscription%20type&type=string
+        ```
 
 #### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|<span class="required">Required</span>. The user property name.|
+|`user_property`|<span class="required">Required</span>. The user property name. Prefix custom user properties with `gp:`|
 
 #### Body parameter
 
@@ -1663,24 +1747,55 @@ This request returns either a true or false response.
 
 ### Delete user property
 
-Deletes a single user property, by name.
+Deletes a single user property, by name. 
 
-`https://amplitude.com/api/2/taxonomy/user-property/:user_property`
+`DELETE https://amplitude.com/api/2/taxonomy/user-property/USER_PROPERTY`
 
 #### Example request
 
-```bash
-DELETE /api/2/taxonomy/user-property/gp:user_id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+=== "cURL"
 
-```
+    ```bash
+    curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/user-property/USER_PROPERTY' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+
+    DELETE /api/2/taxonomy/user-property/USER_PROPERTY HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+
+    ```
+
+???code-example "Example: Delete a user property (click to expand)"
+
+    This example deletes a custom user property "interests". Notice that the user property is prefixed with `gp:`.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/user-property/gp:interests' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+      DELETE /api/2/taxonomy/user-property/gp:interests HTTP/1.1
+      Host: amplitude.com
+      Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        ```
 
 ##### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
-|`user_property`|<span class="required">Required</span>. The user property name.|
+|`user_property`|<span class="required">Required</span>. The user property name. Prefix custom user properties with `gp:`|
 
 #### Response
 
