@@ -22,4 +22,14 @@ Amplitude Data's Time-to-Live (TTL) feature lets you have control over how long 
 
 ## Enable TTL 
 
-To enable or disable TTL, reach out to your Account Manager at Amplitude or fill out a support request [here](https://help.amplitude.com/hc/en-us/requests/new).
+To have TTL controls enabled for your organization, please reach out to your Account Manager at Amplitude or fill out a support request [here](https://help.amplitude.com/hc/en-us/requests/new).
+
+## Configuring TTL for your Organization
+
+The TTL feature is only accessible by Admins of your organization. You can find the controls in the Analytics Settings page in the “Time-to-Live” tab.
+
+Admins can configure the retention period for the organization by number of months. By default, Amplitude sets a month to 30 days. For example, if you set your organization’s retention period to 4 months, it will retain all event data within the last 120 days. Once you have selected the retention period, you will see a modal which specifies details of how TTL works along with a second stage confirmation for setting up TTL at the organization. 
+
+Once you confirm, deletion of your event data will start in 24 hours. In the case where you want to cancel TTL, Admins have the ability to rescind this request within this 24 hour period. After the 24 hour period passes, the deletion of events outside the retention window will begin. 
+
+Note: The initial deletion process, in most cases, will take longer than daily deletions. Depending on an organization’s historical event volume, it may take up to 30 days.
