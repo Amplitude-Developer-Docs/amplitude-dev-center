@@ -247,7 +247,7 @@ This is a basic request that shows the required fields.
         Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
         ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -338,7 +338,7 @@ This basic request shows the required fields.
         category_name=Converted
         ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -422,7 +422,7 @@ This basic request shows the required fields.
         Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
         ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -498,7 +498,7 @@ This basic request shows the required fields.
 
 ???code-example "Example: Create an event type (click to expand)"
 
-    This example creates the event type "Onboarding Start" with the category "Onoboarding" and a description of "My new onboarding event".
+    This example creates the event type "Onboarding Start" with the category "Onboarding" and a description of "My new onboarding event".
 
     === "cURL"
 
@@ -658,7 +658,7 @@ This basic request shows the required fields.
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
         ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -706,7 +706,7 @@ Update an event type. Send a `PUT` request with the event type name.
 
 #### Example request
 
-This is a basic request with the required path variable and a few optional parameters. 
+This is a basic request with the required path parameter and a few optional parameters. 
 
 === "cURL"
 
@@ -759,7 +759,7 @@ This is a basic request with the required path variable and a few optional param
         new_event_type=OnboardStart&category=Onboarding&description=User%20signed%20in%20and%20completed%20an%20onboarding%20task%20from%20modal.&display_name=Onboarding%20Start
         ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -847,7 +847,7 @@ Delete an event type.
 
         ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>| Description|
 |----|-----|
@@ -886,18 +886,66 @@ Event properties describe the attributes of an event. For example, if 'Swipe' is
 
 ### Create event property
 
-Create an event property.
+Create an event property. Send a `POST` request to the endpoint with the required information in the body.
 
 `POST https://amplitude.com/api/2/taxonomy/event-property`
 
 #### Example request
 
-```bash
-POST /api/2/taxonomy/event-property HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
-event_type=Onboard%20Start&event_property=Completed%20Task&type=boolean&is_array_type=false&is_required=false
-```
+This is a basic request with only the required parameters.
+
+=== "cURL"
+
+    ```bash
+    curl --location --request POST 'https://amplitude.com/api/2/taxonomy/event-property' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'event_type=EVENT_TYPE' \
+    --data-urlencode 'event_property=EVENT_PROPERTY' \
+    ```
+
+=== "HTTP"
+
+    ```bash
+    POST /api/2/taxonomy/event-property HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 94
+
+    event_type=EVENT_TYPE&event_property=EVENT_PROPERTY
+    ```
+
+???code-example "Example: Create an event property (click to expand)"
+
+    This example creates the event property "Completed Task" with the description "User completed any onboarding task" for the event "Onboarding Start". The event property is a boolean type, is not required.
+
+    === "cURL"
+
+        ```bash
+       
+        curl --location --request POST 'https://amplitude.com/api/2/taxonomy/event-property' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --data-urlencode 'event_type=Onboard Start' \
+        --data-urlencode 'event_property=Completed Task' \
+        --data-urlencode 'description=User completed any onboarding task' \
+        --data-urlencode 'type=boolean' \
+        --data-urlencode 'is_required=false'
+        
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        POST /api/2/taxonomy/event-property HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+
+        Content-Length: 144
+
+        event_type=Onboard%20Start&event_property=Completed%20Task&type=boolean&is_required=false&description=User%20completed%20any%20onboarding%20task
+        ```
 
 ##### Body parameter
 
@@ -947,13 +995,56 @@ Get all an event's properties.
 
 #### Example request
 
-```bash
-GET /api/2/taxonomy/event-property HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+This is a basic request.
 
-event_type=Onboard%20Start
-```
+=== "cURL"
+
+    ```bash
+
+    curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event-property' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'event_type=EVENT_NAME'
+    ```
+
+=== "HTTP"
+
+    ```bash
+
+    GET /api/2/taxonomy/event-property HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+
+    event_type=EVENT_NAME
+    ```
+
+???code-example "Example: Get all properties for an event (click to expand)"
+
+    This example gets all event properties for the "Onboard Start" event.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event-property' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'event_type=Onboard Start'
+        
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        GET /api/2/taxonomy/event-property HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 26
+
+        event_type=Onboard%20Start
+        ```
 
 ##### Body parameter
 
@@ -997,19 +1088,59 @@ A successful request returns a `200 OK` status and a JSON body with a list of ev
 
 ### Get event property
 
-Get a single event property.
+Get a single event property. Send a `GET` request with the event property name as a path parameter, and the event name in the body.
 
 `GET https://amplitude.com/api/2/taxonomy/event-property`
 
 #### Example request
 
-```bash
-GET /api/2/taxonomy/event-property/Shared HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+This is a basic request with the required path parameter and body parameter.
 
-event_type=Onboard%20Finish
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event-property?event_property=EVENT_PROPERTY' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'event_type=EVENT_NAME'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/2/taxonomy/event-property/EVENT_PROPERTY_NAME HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+
+    event_type=EVENT_NAME
+    ```
+
+???code-example "Example: Get a property for an event (click to expand)"
+
+    This example gets a the "Completed Task" property for the "Onboard Start" event.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event-property?event_property=Completed Task' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'event_type=Onboard Start'
+        ```
+
+    === "HTTP"
+
+        ```bash
+        
+        GET /api/2/taxonomy/event-property?event_property=Completed Task HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 26
+
+        event_type=Onboard%20Start
+        ```
 
 #### Path parameters
 
@@ -1064,19 +1195,65 @@ If Amplitude can't find the event property, or the request is configured incorre
 
 Update an event property.
 
-`https://amplitude.com/api/2/taxonomy/event-property/:event-property`
+`PUT https://amplitude.com/api/2/taxonomy/event-property/:event-property`
 
 #### Example request
 
-```bash
-PUT /api/2/taxonomy/event-property/Completed Task HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+This is a basic request with only the required parameters.
 
-event_type=Onboard%20Start&description=User%20completed%20a%20task%20during%20onboarding.%20
-```
+=== "cURL"
 
-##### Path variables
+    ```bash
+    curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/event-property/EVENT_PROPERTY' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'event_type=EVENT_NAME' \
+    ```
+
+=== "HTTP"
+
+    ```bash
+
+    PUT /api/2/taxonomy/event-property/EVENT_PROPERTY HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} #credentials must be base64 encoded
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 24
+
+    event_type=EVENT_NAME
+    ```
+
+???code-example "Example: Update an event property (click to expand)"
+
+    This example updates a the "Completed Task" property for the "Onboard Start" event. It changes the name to "Task Completed", adds a description, and changes the type to "any".
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/event-property/Completed Task' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'event_type=Onboard Start' \
+        --data-urlencode 'description=User completed an oboarding task' \
+        --data-urlencode 'new_event_property_value=Task Completed' \
+        --data-urlencode 'type=any'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        PUT /api/2/taxonomy/event-property/Completed Task HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 130
+
+        event_type=Onboard%20Start&description=User%20completed%20an%20oboarding%20task&new_event_property_value=Task%20Completed&type=any
+        ```
+
+##### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
@@ -1107,7 +1284,7 @@ A successful request returns a `200 OK` status and a JSON body.
 }
 ```
 
-##### 409 Conflict
+##### 409 conflict
 
 Some failed requests return a `409 Conflict` and an error message with more details.
 
@@ -1124,21 +1301,61 @@ Some failed requests return a `409 Conflict` and an error message with more deta
 
 ### Delete event property
 
-Delete an event property.
+Delete an event property. Send a `DELETE` request with the event property as a path parameter and the event type in the request body. 
 
 `DELETE https://amplitude.com/api/2/taxonomy/event-property/:event-property`
 
 #### Example request
 
-```bash
-DELETE /api/2/taxonomy/event-property/Shared HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+This is an example request with the required parameters.
 
-event_type=Onboard%20Finish
-```
+=== "cURL"
 
-##### Path variables
+    ```bash
+    curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/event-property/EVENT_PROPERTY' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' # credentials must be base64 encoded \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'event_type=EVENT_NAME'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    DELETE /api/2/taxonomy/event-property/EVENT_PROPERTY HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} # credentials must be base64 encoded
+
+    event_type=EVENT_NAME
+    ```
+
+???code-example "Example: Delete an event property (click to expand)"
+
+    This example deletes the event property "Completed Task" from the "Onboarding Start" event.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/event-property/Completed Task' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --header 'Content-Type: application/x-www-form-urlencoded' \
+        --data-urlencode 'event_type=Onboarding Start'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        DELETE /api/2/taxonomy/event-property/Completed Task HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Content-Type: application/x-www-form-urlencoded
+        Content-Length: 29
+
+        event_type=Onboarding%20Start
+        ```
+
+##### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
@@ -1313,7 +1530,7 @@ Host: amplitude.com
 Authorization: Basic {{api-key}}:{{secret:key}}
 ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
@@ -1370,7 +1587,7 @@ Authorization: Basic {{api-key}}:{{secret:key}}
 description=The%20user%20id&type=string
 ```
 
-#### Path variables
+#### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
@@ -1418,7 +1635,7 @@ Authorization: Basic {{api-key}}:{{secret:key}}
 
 ```
 
-##### Path variables
+##### Path parameters
 
 |<div class="big-column">Name</div>|Description|
 |-----|---------|
