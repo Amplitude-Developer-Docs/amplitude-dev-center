@@ -1391,13 +1391,54 @@ Create a user property.
 
 #### Example request
 
-```bash
-POST /api/2/taxonomy/user-property HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret:key}}
+This is a basic request with only the required parameters in the body. 
 
-user_property=User%20Type&description=Describes%20whether%20the%20user%20is%20a%20Free%2C%20Standard%2C%20or%20Premium%20user.%20&enum_values=Free%2C%20Standard%2C%20Premium
-```
+=== "cURL"
+
+    ```bash
+
+    curl --location --request POST 'https://amplitude.com/api/2/taxonomy/user-property' \
+    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' # credentials must be base64 encoded \
+    --data-urlencode 'user_property=USER_PROPERTY' \
+    ```
+
+=== "HTTP"
+
+    ```bash
+    POST /api/2/taxonomy/user-property HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret:key}} # credentials must be base64 encoded
+
+    user_property=USER_PROPERTY
+    ```
+
+???code-example "Example: Create a user property (click to expand)"
+
+    This example creates a user property called "User Type", with a description of "Describes whether the user is a Free, Standard, or Premium user.", a type of `string` and allows the values "Free", "Standard", and "Premium".
+
+    === "cURL"
+
+        ```bash
+        
+        curl --location --request POST 'https://amplitude.com/api/2/taxonomy/user-property' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --data-urlencode 'user_property=User Type' \
+        --data-urlencode 'description=Describes whether the user is a Free, Standard, or Premium user. ' \
+        --data-urlencode 'type=string' \
+        --data-urlencode 'enum_values=Free, Standard, Premium'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        POST /api/2/taxonomy/user-property HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Content-Length: 185
+
+        user_property=User%20Type&description=Describes%20whether%20the%20user%20is%20a%20Free%2C%20Standard%2C%20or%20Premium%20user.%20&type=string&enum_values=Free%2C%20Standard%2C%20Premium
+        ```
 
 ##### Body parameter
 
