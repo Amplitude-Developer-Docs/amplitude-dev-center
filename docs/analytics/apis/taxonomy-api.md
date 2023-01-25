@@ -1783,7 +1783,7 @@ Deletes a single user property, by name.
 
     === "HTTP"
 
-        ``bash
+        ```bash
 
         DELETE /api/2/taxonomy/user-property/gp:interests HTTP/1.1
         Host: amplitude.com
