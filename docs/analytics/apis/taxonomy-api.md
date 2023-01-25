@@ -1777,18 +1777,17 @@ Deletes a single user property, by name.
     === "cURL"
 
         ```bash
-
         curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/user-property/gp:interests' \
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
         ```
 
     === "HTTP"
 
-        ```bash
+        ``bash
 
-      DELETE /api/2/taxonomy/user-property/gp:interests HTTP/1.1
-      Host: amplitude.com
-      Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        DELETE /api/2/taxonomy/user-property/gp:interests HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
         ```
 
 ##### Path parameters
