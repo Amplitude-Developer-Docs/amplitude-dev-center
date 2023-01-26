@@ -48,14 +48,14 @@ See the [Extole documentation](https://dev.extole.com/reference/client-api-overv
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Extole - Event Stream**.
-2. Enter a sync name, then click **Create Sync**.
-3. Toggle Status to **Enabled**.
-4. Paste your Extole REST API Key (Rest API Access Token from the Extole platform)
-5. Toggle the Send events filter to select the events to send. Extole recommends choosing the events that are most important to your use case.
-6. Use the Event Properties filter to select which Event Properties you would like to send.
-7. When finished, enable the destination and Save.
-8. Select the Mappings tab to choose your user identifier to map to other properties from Amplitude to Extole.
+1. In Amplitude Data, navigate to **Destinations**, then find **Extole - Event Stream**.
+2. Toggle Status to **Enabled**.
+3. In **REST API Key**, paste your Extole access token. 
+4. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
+5. Use the Event Properties filter to select which event properties you want to send.
+6. When finished, save the destination.
+
+After you've saved the destination, click the **Mappings** tab to choose your user identifier to map to other properties from Amplitude to Extole.
 
 ## Use cases
 
