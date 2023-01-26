@@ -338,8 +338,9 @@ A successful request returns a `200 OK` response.
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
     ```
 
@@ -381,7 +382,7 @@ A successful request returns a `200 OK` response.
     curl --request PATCH \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
     ```
 
@@ -449,8 +450,9 @@ A successful request returns a `200 OK` response.
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>/users' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"inclusions":"<[]>"}'
     ```
 
@@ -539,7 +541,7 @@ Edit an experiment.
 |---|---|---|---|
 |`bucketingKey`| Optional | string | The user property to bucket the user by. |
 |`bucketingSalt`| Optional | string | Experiment's bucketing salt. |
-|`bucketingUnit`| Optional | string | Experiment's bucketing. |
+|`bucketingUnit`| Optional | string | Experiment's bucketing unit represented by a group type from the accounts add-on. Used for group level bucketing and analysis. |
 |`description`| Optional | string | Description of the experiment. |
 |`enabled`| Optional | boolean | Property to activate or deactivate the experiment. |
 |`evaluationMode`| Optional | string | Evaluation mode for the experiment, either `local` or `remote`. |
@@ -597,8 +599,9 @@ A successful request returns a `200 OK` response.
     ```bash
     curl --request PATCH \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"enabled":"<true>","rolloutPercentage":"<10>"}'
     ```
 
@@ -675,8 +678,9 @@ A successful request returns a `200 OK` response and a JSON object with the expe
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/experiments/new' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"projectId":"<projectId>","key":"<key>"}'
     ```
 
@@ -684,7 +688,7 @@ A successful request returns a `200 OK` response and a JSON object with the expe
 
 ## Activate experiment
 
-***Not recommended to use. Use [`Edit experiment`](#edit-experiment) instead***
+!!!warn "Not recommended. Use [`edit experiment`](#edit-experiment) instead."
 
 ```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/activate
@@ -704,6 +708,7 @@ Activate an inactive experiment.
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>/activate' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```
@@ -712,7 +717,7 @@ Activate an inactive experiment.
 
 ## Deactivate experiment
 
-***Not recommended to use. Use [`Edit experiment`](#edit-experiment) instead***
+!!!warn "Not recommended. Use [`edit experiment`](#edit-experiment) instead."
 
 ```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/deactivate
@@ -732,6 +737,7 @@ Deactivate an active experiment.
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>/deactivate' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```
@@ -766,8 +772,9 @@ Update the rollout weights for an experiment.
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>/rollout-weights' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"rolloutWeights":{"control": 1,"treatment":1}}'
     ```
 
@@ -1023,8 +1030,9 @@ A successful request returns a `200 OK` response.
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
     ```
 
@@ -1065,8 +1073,9 @@ A successful request returns a `200 OK` response.
     ```bash
     curl --request PATCH \
       --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
     ```
 
@@ -1134,8 +1143,9 @@ A successful request returns a `200 OK` response.
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/flags/<id>/variants/<variantKey>/users' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"inclusions":"<[]>"}'
     ```
 
@@ -1224,7 +1234,7 @@ Edit a flag.
 |---|---|---|---|
 |`bucketingKey`| Optional | string | The user property to bucket the user by. |
 |`bucketingSalt`| Optional | string | Flag's bucketing salt. |
-|`bucketingUnit`| Optional | string | Flag's bucketing. |
+|`bucketingUnit`| Optional | string | Flag's bucketing unit represented by a group type from the accounts add-on. Used for group level bucketing. |
 |`description`| Optional | string | Description of the flag. |
 |`enabled`| Optional | boolean | Property to activate or deactivate the flag. |
 |`evaluationMode`| Optional | string | Evaluation mode for the flag, either `local` or `remote`. |
@@ -1281,8 +1291,9 @@ A successful request returns a `200 OK` response and a JSON object with the flag
     ```bash
     curl --request POST \
       --url 'https://management-api.experiment.amplitude.com/flags/new' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"projectId":"<projectId>","key":"<key>"}'
     ```
 
