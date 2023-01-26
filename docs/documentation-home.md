@@ -3,6 +3,7 @@ title: Amplitude Developer Docs
 description: Amplitude gives your teams a self-service digital analytics platform to understand your users, drive conversions, and increase engagement, growth, and revenue.
 hide:
   - toc
+toplevel: true
 ---
 
 Amplitude gives your teams a self-service digital analytics platform to understand your users, drive conversions, and increase engagement, growth, and revenue. It helps you proactively improve data quality, discover new audiences, and sync behavioral data across your stack.

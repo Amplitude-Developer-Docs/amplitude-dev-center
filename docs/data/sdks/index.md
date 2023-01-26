@@ -1,6 +1,7 @@
 ---
 title: Amplitude SDKs
 description: Use Amplitude SDKs to send event data from your apps into Amplitude.
+toplevel: true
 ---
 
 Use Amplitude SDKs to send event data from your apps into Amplitude.

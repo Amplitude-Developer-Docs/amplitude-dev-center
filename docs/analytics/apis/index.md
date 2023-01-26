@@ -3,6 +3,7 @@ title: Amplitude APIs
 description: Use Amplitude APIs to send and receive data, and extend Amplitude.
 hide:
   - toc
+toplevel: true
 ---
 
 Use Amplitude APIs to send and receive information and extend Amplitude. 
