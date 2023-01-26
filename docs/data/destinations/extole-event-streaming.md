@@ -8,7 +8,7 @@ status: new
 
     This feature is in open beta and is in active development. Contact your Extole Client Success Manager or the [Extole support team](mailto:support@extole.com) for support with this integration.
 
-[Extole](https://www.extole.com/) is the Customer-Led Growth platform. With Extole, marketers fight skyrocketing paid media costs by turning their customers into a primary vehicle for acquisition, awareness, and activation. With Extole's SaaS platform and experts, marketers rapidly launch programs such as refer-a-friend, friends & family, and challenges, personalized to behavioral segments. Customer-Led Growth drives revenue and generates an important and unique source of first-party data. 
+[Extole](https://www.extole.com/) is the Customer-Led Growth platform. With Extole, marketers fight skyrocketing paid media costs by turning their customers into a primary vehicle for acquisition, awareness, and activation. With Extole's SaaS platform and experts, marketers launch programs such as refer-a-friend, friends & family, and challenges, personalized to behavioral segments. Customer-Led Growth drives revenue and generates an important and unique source of first-party data. 
 
 This integration allows Amplitude events to automatically flow into your Extole campaigns. After you've configured your Extole campaigns and the Amplitude integration, you can view a live stream of events using Extole's [Event Live View](https://my.extole.com/events/live). Amplitude events can then be used to trigger emails, fulfill rewards, create audiences, and track user activity within the Extole platform.
 
@@ -17,12 +17,12 @@ This integration allows Amplitude events to automatically flow into your Extole 
 Keep these things in mind when sending events to Extole:
 
 - You must enable this integration in each Amplitude project you want to use it in.
-- To create and unify user records in Extole, you must map the Amplitude `user_id` property to the users email address in Extole. Extole strongly recommends that you implement a secondary `user_id` mapping using the `unique_id` property, which is a typically a numeric string value for how you identify a unique user in your system. If a user has a `unique_id` or email that doesn't exist within Extole, a new user is created.
+- To create and unify user records in Extole, you must map the Amplitude `user_id` property to the users email address in Extole. Extole strongly recommends that you implement a secondary `user_id` mapping using the `unique_id` property, which is a typically a numeric string value for how you identify a unique user in your system. If a user has a `unique_id` or email that doesn't exist in Extole, a new user is created.
 - Amplitude sends selected user, event, and group properties with the event.
 
 ## Limits
 
-- Extole doesn't have hard limits on quantity or velocity; however, requests that are sent too quickly can return a 429 response. Amplitude will handle these automatically.
+- Extole doesn't have hard limits on quantity or velocity. If you send requests too quickly, they may be throttled and return a 429 response. Amplitude retries to send throttled events automatically, which resolves the temporary throttling.
 - Requests must be smaller than 2MB.
 
 ## Setup
@@ -59,7 +59,7 @@ After you've saved the destination, click the **Mappings** tab to choose your us
 
 ## Use cases
 
-**Turn Customers into a vehicle for growth and acquisition**: Automatically send Amplitude events and audiences to power personalized Refer-a-Friend programs that leverage your existing customers to help acquire new ones on your behalf. 
+**Turn Customers into a vehicle for growth and acquisition**: Automatically send Amplitude events and audiences to power personalized Refer-a-Friend programs that leverage your existing customers to help gain new ones on your behalf. 
 
 **Activate and un-stick customers**: Automatically send Amplitude events and audiences to power Challenges, which use rewards to motivate your customers to take certain actions depending on where they are in their customer journey.
 
