@@ -4,7 +4,7 @@ hide:
   - navigation
   - toc
 title: Amplitude Developer Center
-
+toplevel: true
 ---
 
 <!-- partially overridden by overrides/home.html -->
