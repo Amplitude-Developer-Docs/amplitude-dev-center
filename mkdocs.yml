@@ -328,6 +328,7 @@ nav:
       - DataGrail: data/pii/datagrail.md
       - Osano: data/pii/osano.md
       - Transcend: data/pii/transcend.md
+    - Time-to-Live: data/ttl-configuration.md
   - Experiment:
       - experiment/index.md
       - Overview: experiment/index.md
