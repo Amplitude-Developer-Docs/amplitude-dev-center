@@ -13,7 +13,7 @@ The Python SDK lets you send events to Amplitude. This library is open-source, c
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Python) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Python/releases) · [:material-book: API Reference](https://github.com/amplitude/Amplitude-Python)
 
 !!!info "Supported Python Versions"
-    Python SDK supports Python version 3.6+. Python SDK repository runs tests on all supported versions.
+    The Python SDK supports Python version 3.6+. The Python SDK repository runs tests on all supported versions.
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
@@ -120,7 +120,7 @@ Identify is for setting the user properties of a particular user without sending
 
 #### Set a user property
 
-The Identify object provides controls over setting user properties. An Identify object must first be instantiated, then Identify methods can be called on it, and finally the client will make a call with the Identify object.
+The Identify object provides controls over setting user properties. An Identify object must first be instantiated, then Identify methods can be called on it, and finally the client makes a call with the Identify object.
 
 ```Python
 from amplitude import Identify, EventOptions
@@ -242,9 +242,9 @@ client.identify(identify_obj, EventOptions(user_id="USER_ID"))
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Amplitude supports assigning users to groups and performing queries such as Count by Distinct on those groups. An example would be if you want to group your users based on what organization they're in by using an 'orgId'. You can designate Joe to be in 'orgId' '10' while Sue is in 'orgId' '15'. When performing a query in the Event Segmentation chart, you can then select "..performed by" 'orgId' to query the number of different organizations that have performed a specific event. As long as at least one member of that group has performed the specific event, that group will be included in the count.
+Amplitude supports assigning users to groups and performing queries such as Count by Distinct on those groups. An example would be if you want to group your users based on what organization they're in by using an 'orgId'. You can designate Joe to be in 'orgId' '10' while Sue is in 'orgId' '15'. When performing a query in the Event Segmentation chart, you can then select "..performed by" 'orgId' to query the number of different organizations that have performed a specific event. As long as at least one member of that group has performed the specific event, that group is included in the count.
 
-When setting groups, you will need to define a `group_type` and `group_name`. In the previous example, 'orgId' is the `group_type` and each of the values '10' and '15' are a `group_name`. Another example of a `group_type` could be 'sport' with `group_name` values like 'tennis' and 'baseball'. You can use `set_group()` to designate which groups a user belongs to. Note: This will also set the 'group_type:group_name' as a user property. This overwrites any existing `group_name` value set for that user's `group_type`, as well as the corresponding user property value. `group_type` is a string and `group_name` can be either a string or an array of strings to indicate a user being in multiple groups (for example, if Joe is in 'orgId' '10' and '16', then the `group_name` would be '[10, 16]'). Here is what your code might look like.
+When setting groups, you need to define a `group_type` and `group_name`. In the previous example, 'orgId' is the `group_type` and each of the values '10' and '15' are a `group_name`. Another example of a `group_type` could be 'sport' with `group_name` values like 'tennis' and 'baseball'. You can use `set_group()` to designate which groups a user belongs to. Note: This also sets the 'group_type:group_name' as a user property. This overwrites any existing `group_name` value set for that user's `group_type`, as well as the corresponding user property value. `group_type` is a string and `group_name` can be either a string or an array of strings to indicate a user being in multiple groups (for example, if Joe is in 'orgId' '10' and '16', then the `group_name` would be '[10, 16]'). Here is what your code might look like.
 
 ```Python
 # set group with single group name
@@ -274,7 +274,7 @@ client.track(event)
 
 Use the Group Identify API to set or update properties of particular groups. However, these updates will only affect events going forward.
 
-The `group_identify()` method accepts a group type and group name string parameter, as well as an Identify object that will be applied to the group.
+The `group_identify()` method accepts a group type and group name string parameter, as well as an Identify object that's applied to the group.
 
 ```Python
 identify_obj=Identify()
@@ -337,7 +337,7 @@ client.remove(plugin_obj)
 ### `shutdown`
 
 Use the `shutdown` method to close the instance. A closed instance doesn't accept new events and tries to flush events left in the buffer. Then the client instance shuts down running threads.
-Starting from version v1.1.1, `shutdown` method is automatically registered to be called when main thread exits.
+In version v1.1.1 and higher, the `shutdown` method is automatically registered to be called when the main thread exits.
 
 ```py
 client.shutdown()
