@@ -267,6 +267,7 @@ nav:
         - AppsFlyer: data/destinations/appsflyer.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
+        - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
         - Lantern: data/destinations/lantern-event-streaming.md
         - Pub/Sub: data/destinations/google-pub-sub.md
