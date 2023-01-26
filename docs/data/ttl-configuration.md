@@ -34,7 +34,7 @@ Amplitude admins can configure TTL.
 2. Choose the retention period.
 3. Confirm your changes.
 
-After you confirm, deletion of your event data starts in 24 hours. 
+After you confirm, deletion of your event data starts in 24 hours. It may take up to 30 days for the initial deletion. 
 
 !!!warning "Canceling TTL"
 
