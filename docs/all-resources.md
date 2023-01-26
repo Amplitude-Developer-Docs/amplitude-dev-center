@@ -5,6 +5,7 @@ hide:
   - toc
   - navigation
 #template: resources.html
+toplevel: true
 ---
 
 <!-- markdownlint-disable MD030 -->

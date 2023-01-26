@@ -34,6 +34,20 @@ as the main headline.
 {{ page.content }}
 
 <!-- Was this page helpful? -->
+{% if page and page.meta and not(
+  page.meta.toplevel
+  ) %}
+  <hr>
+  <!-- Tracks link clicks out to the community for doc improvements-->
+<script>
+    var eventProperties = {
+        name: "community_help",
+        url: window.location.href,
+    };
+</script>
+  <p>Still have questions? Ask them in the <a id="linkToCommunityHelp" href="https://community.amplitude.com" onclick="amplitude.getInstance().logEvent('Link Click', eventProperties)">Community</a>.
+
+  {% endif %}
 
 <!-- Source file information -->
 

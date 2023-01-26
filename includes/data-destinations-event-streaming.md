@@ -7,6 +7,7 @@
 - :amazon-kinesis: [Amazon Kinesis Firehose](/data/destinations/kinesis-firehose)
 - :braze: [Braze](/data/destinations/braze)
 - :customerio: [Customer.io](/data/destinations/customerio)
+- :extole: [Extole](/data/destinations/extole-event-streaming)
 - :fivetran: [Fivetran](/data/destinations/fivetran-event-forwarding)
 - :google-analytics-4: [Google Analytics 4 (iOS/Android)](/data/destinations/google-analytics-4-firebase)
 - :google-analytics-4: [Google Analytics 4 (Web)](/data/destinations/google-analytics-4-gtag)

@@ -4,6 +4,7 @@ description: Learn more about using Amplitude with our guides.
 hide:
   - toc
   - navigation
+toplevel: true
 ---
 
 Getting started with Amplitude can be daunting. These guides break down sophisticated concepts to help you make the most of Amplitude. 
