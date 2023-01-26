@@ -13,7 +13,7 @@ The Python SDK lets you send events to Amplitude. This library is open-source, c
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Python) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Python/releases) · [:material-book: API Reference](https://github.com/amplitude/Amplitude-Python)
 
 !!!info "Supported Python Versions"
-    Python SDK supports Python version 3.6+. Python SDK repository runs tests on all supported versions.
+    The Python SDK supports Python version 3.6+. The Python SDK repository runs tests on all supported versions.
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
@@ -337,7 +337,7 @@ client.remove(plugin_obj)
 ### `shutdown`
 
 Use the `shutdown` method to close the instance. A closed instance doesn't accept new events and tries to flush events left in the buffer. Then the client instance shuts down running threads.
-Starting from version v1.1.1, `shutdown` method is automatically registered to be called when main thread exits.
+In version v1.1.1 and higher, the `shutdown` method is automatically registered to be called when the main thread exits.
 
 ```py
 client.shutdown()
