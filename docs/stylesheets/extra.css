@@ -344,6 +344,14 @@ margin: 1em auto 1em;
 }
 
 
+/* changes Horizontal rule styling */
+
+.sdk-hr hr{
+    border-bottom: 0.05rem solid var(--md-primary-fg-color);
+    display: flow-root;
+    margin: 1.5em 0;
+}
+
 /* Icon Colors */
 
 .green {

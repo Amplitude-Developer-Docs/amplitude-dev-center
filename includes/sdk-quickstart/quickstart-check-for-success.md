@@ -1,5 +1,7 @@
 ## Check for success
 
+----------------------
+
 After you begin sending data to Amplitude, use one of these tools to check your instrumentation and validate your events.
 
 ### Ingestion Debugger
