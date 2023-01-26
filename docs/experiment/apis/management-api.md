@@ -11,7 +11,7 @@ The Experiment management API can be used to programmatically create and control
 
 ## Endpoints
 
-[Experiment Endpoints](#experiment-endpoints)
+[Experiment endpoints](#experiment-endpoints)
 
 | <div class="big-column">Name</div> | Description |
 | --- | --- |
@@ -34,7 +34,7 @@ The Experiment management API can be used to programmatically create and control
 | [Deactivate experiment](#deactivate-experiment) | Deactivate an active experiment. |
 | [Rollout weights](#rollout-weights) | Update the rollout weights for an experiment. |
 
-[Flag Endpoints](#flag-endpoints)
+[Flag endpoints](#flag-endpoints)
 
 | <div class="big-column">Name</div> | Description |
 | --- | --- |
@@ -54,7 +54,7 @@ The Experiment management API can be used to programmatically create and control
 | [Edit flag](#edit-flag) | Edit flag. |
 | [Create flag](#create-flag) | Create a new flag. |
 
-[Other Endpoints](#other-endpoints)
+[Other endpoints](#other-endpoints)
 
 | <div class="big-column">Name</div> | Description |
 | --- | --- |
@@ -88,7 +88,7 @@ Endpoints that list resources such as `/experiments/list` will only return a lim
 
 ------
 
-## Experiment Endpoints
+## Experiment endpoints
 
 ## List experiments
 
@@ -100,7 +100,7 @@ Fetch a list of experiments including their configuration details. Results are o
 
 ### Query parameters
 
-| <div class="big-column">Name</div> | Description |
+| Name| Description |
 | --- | --- |
 | `limit` | The max number of experiments to be returned. Capped at 1000. |
 | `cursor` | The offset to start the "page" of results from. |
@@ -131,7 +131,7 @@ Fetch the configuration details of an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+| Name | Description |
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -161,7 +161,7 @@ Fetch a list of all versions for an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -191,7 +191,7 @@ Fetch details of a specific version of an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`versionId`| Required. String. The version's ID.|
@@ -222,7 +222,7 @@ Fetch a list of all variants for an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -252,7 +252,7 @@ Fetch details of a specific variant of an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -283,7 +283,7 @@ Fetch a list of inclusions for a specific variant of an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -314,7 +314,7 @@ Create a new variant for an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -356,7 +356,7 @@ Edit a variant for an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -398,7 +398,7 @@ Remove a variant from an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -429,7 +429,7 @@ Add users (inclusions) to experiment's variant.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -468,7 +468,7 @@ Remove users (inclusions) from experiment's variant.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -531,7 +531,7 @@ Edit an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -700,7 +700,7 @@ Activate an inactive experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -729,7 +729,7 @@ Deactivate an active experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -746,7 +746,7 @@ Deactivate an active experiment.
 
 ## Rollout weights
 
-***Not recommended to use. Use [`Edit experiment variant`](#edit-experiment-variant) instead***
+!!!warn "Not recommended. Use [`edit experiment variant`](#edit-experiment-variant) instead."
 
 ```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/rollout-weights
@@ -758,7 +758,7 @@ Update the rollout weights for an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 
@@ -780,9 +780,7 @@ Update the rollout weights for an experiment.
 
 ------
 
-## Flag Endpoints
-
-------
+## Flag endpoints
 
 ## List flags
 
@@ -794,7 +792,7 @@ Fetch a list of flags including their configuration details. Results are ordered
 
 ### Query parameters
 
-| <div class="big-column">Name</div> | Description |
+|Name|Description|
 | --- | --- |
 | `limit` | The max number of flags to be returned. Capped at 1000. |
 | `cursor` | The offset to start the "page" of results from. |
@@ -823,7 +821,7 @@ Fetch the configuration details of a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 
@@ -853,7 +851,7 @@ Fetch a list of all versions for a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 
@@ -883,7 +881,7 @@ Fetch details of a specific version of a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flags's ID.|
 |`versionId`| Required. String. The version's ID.|
@@ -914,7 +912,7 @@ Fetch a list of all variants for a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 
@@ -944,7 +942,7 @@ Fetch details of a specific variant of a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -975,7 +973,7 @@ Fetch a list of inclusions for a specific variant of a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -1006,7 +1004,7 @@ Create a new variant for a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 
@@ -1048,7 +1046,7 @@ Edit a variant for a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -1091,7 +1089,7 @@ Remove a variant from an experiment.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -1122,7 +1120,7 @@ Add users (inclusions) to flag's variant.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The variant's ID.|
@@ -1161,7 +1159,7 @@ Remove users (inclusions) from flag's variant.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The flag's ID.|
@@ -1193,7 +1191,7 @@ Remove all users (inclusions) from flag's variant.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The flag's ID.|
@@ -1224,7 +1222,7 @@ Edit a flag.
 
 ### Path variables
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
 
@@ -1299,7 +1297,7 @@ A successful request returns a `200 OK` response and a JSON object with the flag
 
 ------
 
-## Other Endpoints
+## Other endpoints
 
 ## List deployments
 
@@ -1311,7 +1309,7 @@ Fetch a list of deployments that experiments or flags can be assigned to.
 
 ### Query parameters
 
-|<div class="big-column">Name</div>|Description|
+|Name|Description|
 |---|----|
 |`limit`| The max number of deployments to be returned. Capped at 1000.|
 |`cursor`| The offset to start the "page" of results from.|
