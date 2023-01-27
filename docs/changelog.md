@@ -42,6 +42,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added new styling elements to headings in the [SDK Quickstart](../data/sdks/sdk-quickstart) doc to make the page easier to follow. [#542](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/542)
 - Added supported versions and shutdown information to [Python SDK](../data/sdks/python) doc. [#541](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/541)
 - Fixed incorrect link in the [React Native](../data/sdks/typescript-react-native) doc. [#547](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/547/)
+- Fixed `setGroup` calls in several Ampli docs. [#548](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/548).
 
 <!-- markdown-link-check-disable -->
 <!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
