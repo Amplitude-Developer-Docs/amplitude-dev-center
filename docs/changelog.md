@@ -24,9 +24,9 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 **New**
 
-- Added [migration guide](../data/sdks/ios-swift/migration/) for moving from the legacy iOS SDK to the new Amplitude-Swift SDK. [#493](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/493). 
-- Added [Time-to-Live](../data/ttl-configuration) doc. [#539](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/539)
-- Added [Extole Event Streaming](data/destinations/extole-event-streaming) doc. [#544](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/544)
+- Added new [migration guide](../data/sdks/ios-swift/migration/) for moving from the legacy iOS SDK to the new Amplitude-Swift SDK. [#493](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/493). 
+- Added new [Time-to-Live](../data/ttl-configuration) doc. [#539](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/539)
+- Added new [Extole Event Streaming](data/destinations/extole-event-streaming) doc. [#544](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/544)
 - Navigation changes: Updated navigation for the SDK section of the site and added new links to content to improve browseability. [#529](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/529)
 
 **Updated**
@@ -41,6 +41,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added recommendations to initialization instructions in the [Android-Kotlin SDK](../data/sdks/android-kotlin) doc. [#537](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/537)
 - Added new styling elements to headings in the [SDK Quickstart](../data/sdks/sdk-quickstart) doc to make the page easier to follow. [#542](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/542)
 - Added supported versions and shutdown information to [Python SDK](/data/sdks/python) doc. [#541](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/541)
+- Fixed incorrect link in the [React Native](/data/sdks/typescript-react-native) doc. [#547](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/547/)
 
 <!-- markdown-link-check-disable -->
 <!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
