@@ -255,7 +255,7 @@ Fetch details of a specific variant of an experiment.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Response
 
@@ -286,7 +286,7 @@ Fetch a list of inclusions for a specific variant of an experiment.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Response
 
@@ -322,9 +322,9 @@ Create a new variant for an experiment.
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`key`| Required | string | The experiment key. |
-|`description`| Optional | string | Description for the experiment.|
-|`name`| Optional | string | Name for the experiment.|
+|`key`| Required | string | The variant key. |
+|`description`| Optional | string | Description for the variant.|
+|`name`| Optional | string | Name for the variant.|
 |`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
 |`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
 
@@ -341,7 +341,7 @@ A successful request returns a `200 OK` response.
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
 
 ------
@@ -359,15 +359,15 @@ Edit a variant for an experiment.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Request body
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`key`| Optional | string | The experiment key. |
-|`description`| Optional | string | Description for the experiment.|
-|`name`| Optional | string | Name for the experiment.|
+|`key`| Optional | string | The variant key. |
+|`description`| Optional | string | Description for the variant.|
+|`name`| Optional | string | Name for the variant.|
 |`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
 |`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
 
@@ -383,7 +383,7 @@ A successful request returns a `200 OK` response.
       --url 'https://management-api.experiment.amplitude.com/experiments/<id>/variants/<variantKey>' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
 
 ------
@@ -401,7 +401,7 @@ Remove a variant from an experiment.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Response
 
@@ -425,20 +425,20 @@ A successful request returns a `200 OK` response.
 POST https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}/users
 ```
 
-Add users (inclusions) to experiment's variant.
+Add inclusions (users or devices) to experiment's variant.
 
 ### Path variables
 
 |Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Request body
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`inclusions`| Required | string array | Array of user ids. |
+|`inclusions`| Required | object | Contains an string array of user or device ids. |
 
 ### Response
 
@@ -453,7 +453,7 @@ A successful request returns a `200 OK` response.
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"inclusions":"<[]>"}'
+      --data '{"inclusions":<["id1", "id2", "id3"]>}'
     ```
 
 ------
@@ -464,14 +464,14 @@ A successful request returns a `200 OK` response.
 DELETE https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}/users/{userIndex}
 ```
 
-Remove users (inclusions) from experiment's variant.
+Remove inclusions (users or devices) from experiment's variant.
 
 ### Path variables
 
 |Name|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 |`userIndex`| Required. String. The user's index.|
 
 ### Response
@@ -496,14 +496,14 @@ A successful request returns a `200 OK` response.
 DELETE https://management-api.experiment.amplitude.com/experiments/{id}/variants/{variantKey}/users
 ```
 
-Remove all users (inclusions) from experiment's variant.
+Remove all inclusions (users or devices) from experiment's variant.
 
 ### Path variables
 
 |<div class="big-column">Name</div>|Description|
 |---|----|
 |`id`| Required. String. The experiment's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Response
 
@@ -561,7 +561,6 @@ The `exposureEvent` field contains these objects.
 |---|---|---|---|
 |`event_type`| Required | string | Event type. |
 |`filters`| Required | object array | See the [`filters`](#filters) table for more information. |
-|`group_by`| Required | object array | See the [`group_by`](#group_by) table for more information. |
 
 #### `filters`
 
@@ -579,16 +578,6 @@ The `filters` field contains these objects.
 
 An string value representing operations on a property value. Possible values are: `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `glob match`, `glob does not match`
 
-#### `group_by`
-
-The `group_by` field contains these objects. Experiment currently does not use these objects, and users should pass an empty array instead.
-
-|<div class="med-big-column">Name</div>|Requirement|Type|Description|
-|---|---|---|---|
-|`group_type`| Optional | string | Group type; can be null. |
-|`type`| Required | string | Type to group by. |
-|`value`| Required | string | Value to group by. |
-
 ### Response
 
 A successful request returns a `200 OK` response.
@@ -602,7 +591,7 @@ A successful request returns a `200 OK` response.
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"enabled":"<true>","rolloutPercentage":"<10>"}'
+      --data '{"enabled":<enabled>,"rolloutPercentage":<rolloutPercentage>}'
     ```
 
 ------
@@ -945,7 +934,7 @@ Fetch details of a specific variant of a flag.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Response
 
@@ -976,7 +965,7 @@ Fetch a list of inclusions for a specific variant of a flag.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Response
 
@@ -1012,9 +1001,9 @@ Create a new variant for a flag.
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`key`| Required | string | The flag key. |
-|`description`| Optional | string | Description for the flag.|
-|`name`| Optional | string | Name for the flag.|
+|`key`| Required | string | The variant key. |
+|`description`| Optional | string | Description for the variant.|
+|`name`| Optional | string | Name for the variant.|
 |`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
 |`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
 
@@ -1031,7 +1020,7 @@ A successful request returns a `200 OK` response.
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
 
 ------
@@ -1049,15 +1038,15 @@ Edit a variant for a flag.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Request body
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`key`| Optional | string | The flag key. |
-|`description`| Optional | string | Description for the flag.|
-|`name`| Optional | string | Name for the flag.|
+|`key`| Optional | string | The variant key. |
+|`description`| Optional | string | Description for the variant.|
+|`name`| Optional | string | Name for the variant.|
 |`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
 |`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
 
@@ -1074,7 +1063,7 @@ A successful request returns a `200 OK` response.
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":"<rolloutWeight>"}'
+      --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
 
 ------
@@ -1092,7 +1081,7 @@ Remove a variant from an experiment.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Response
 
@@ -1116,20 +1105,20 @@ A successful request returns a `200 OK` response.
 POST https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}/users
 ```
 
-Add users (inclusions) to flag's variant.
+Add inclusions (users or devices) to flag's variant.
 
 ### Path variables
 
 |Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
-|`variantKey`| Required. String. The variant's ID.|
+|`variantKey`| Required. String. The variant's key.|
 
 ### Request body
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`inclusions`| Required | string array | Array of user ids. |
+|`inclusions`| Required | object | Contains an string array of user or device ids. |
 
 ### Response
 
@@ -1144,7 +1133,7 @@ A successful request returns a `200 OK` response.
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
-      --data '{"inclusions":"<[]>"}'
+      --data '{"inclusions":<["id1", "id2", "id3"]>}'
     ```
 
 ------
@@ -1162,7 +1151,7 @@ Remove users (inclusions) from flag's variant.
 |Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
-|`variantKey`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The flag's key.|
 |`userIndex`| Required. String. The user's index.|
 
 ### Response
@@ -1187,14 +1176,14 @@ A successful request returns a `200 OK` response.
 DELETE https://management-api.experiment.amplitude.com/flags/{id}/variants/{variantKey}/users
 ```
 
-Remove all users (inclusions) from flag's variant.
+Remove all inclusion (users or devices) from flag's variant.
 
 ### Path variables
 
 |Name|Description|
 |---|----|
 |`id`| Required. String. The flag's ID.|
-|`variantKey`| Required. String. The flag's ID.|
+|`variantKey`| Required. String. The flag's key.|
 
 ### Response
 
@@ -1251,7 +1240,7 @@ A successful request returns a `200 OK` response.
       --url 'https://management-api.experiment.amplitude.com/flags/<id>' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
-      --data '{"enabled":"<true>","rolloutPercentage":"<10>"}'
+      --data '{"enabled":<enabled>,"rolloutPercentage":<rolloutPercentage>}'
     ```
 
 ------
