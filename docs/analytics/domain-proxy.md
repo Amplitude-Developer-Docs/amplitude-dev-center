@@ -97,7 +97,7 @@ This call should return a `200` response code. In the web app, confirm that Ampl
 
 ### Configure the SDKs to work with alternate endpoints
 
-After the proxy is working correctly, configure your SDK. Amplitude’s SDKs are open source code that you can change and have built-in options to send events to your defined server endpoint
+After the proxy is working correctly, configure your SDK. Amplitude’s SDKs are open source code that you can change and have built-in options to send events to your defined server endpoint.
 
 The SDKs point to special endpoints for their custom payloads. Find the endpoint for your SDK in this table: 
 
