@@ -361,7 +361,7 @@ nav:
         - React Native SDK: experiment/sdks/react-native-sdk.md
         - Node.js SDK: experiment/sdks/nodejs-sdk.md
         - Ruby SDK: experiment/sdks/ruby-sdk.md
-        - JVM SDK (Beta): experiment/sdks/jvm-sdk.md
+        - JVM SDK: experiment/sdks/jvm-sdk.md
         - Go SDK: experiment/sdks/go-sdk.md
         - Python SDK: experiment/sdks/python-sdk.md
         - Legacy:

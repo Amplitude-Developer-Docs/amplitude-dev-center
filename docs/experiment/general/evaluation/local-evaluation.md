@@ -44,7 +44,7 @@ Local evaluation is only supported by server-side SDKs which have local evaluati
 | --- | --- | --- |
 | [:material-nodejs: Node.js](../../sdks/nodejs-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green }  |
 | [:material-language-ruby: Ruby](../../sdks/ruby-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green }  |
-| [:material-language-java: JVM (Beta)](../../sdks/jvm-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
+| [:material-language-java: JVM](../../sdks/jvm-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
 | [:fontawesome-brands-golang: Go](../../sdks/go-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
 | [:material-language-python: Python](../../sdks/python-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
 
