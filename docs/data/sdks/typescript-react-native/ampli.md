@@ -197,13 +197,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "TypeScript"
 
     ```typescript
-    ampli.setGroup('groupType', 'groupName');
+    ampli.client.setGroup('groupType', 'groupName');
     ```
 
 === "JavaScript"
 
     ```javascript
-    ampli.setGroup('groupType', 'groupName');
+    ampli.client.setGroup('groupType', 'groupName');
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
@@ -216,13 +216,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "TypeScript"
 
     ```typescript
-    ampli.setGroup('orgId', ['10', '20']);
+    ampli.client.setGroup('orgId', ['10', '20']);
     ```
 
 === "JavaScript"
 
     ```javascript
-    ampli.setGroup('orgId', ['10', '20']);
+    ampli.client.setGroup('orgId', ['10', '20']);
     ```
 
 ### Track
