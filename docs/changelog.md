@@ -44,6 +44,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added supported versions and shutdown information to [Python SDK](../data/sdks/python) doc. [#541](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/541)
 - Fixed incorrect link in the [React Native](../data/sdks/typescript-react-native) doc. [#547](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/547/)
 - Fixed `setGroup` calls in several Ampli docs. [#548](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/548).
+- Added table with server URLs for all SDKs for sending data to Amplitude via [domain proxy](../analytics/domain-proxy).   
 
 <!-- markdown-link-check-disable -->
 <!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
