@@ -60,6 +60,13 @@ The Experiment management API can be used to programmatically create and control
 | --- | --- |
 | [List deployments](#list-deployments) | List deployments that experiments or flags can be assigned to. |
 
+## Regions
+
+| Region | Endpoint |
+| --- | --- |
+| Standard Server | [https://management-api.experiment.amplitude.com](https://management-api.experiment.amplitude.com) |
+| EU Residency Server | [https://management-api.experiment.eu.amplitude.com](https://management-api.experiment.eu.amplitude.com) |
+
 ## Authorization
 
 The management API uses the HTTP Authorization header for authentication.
