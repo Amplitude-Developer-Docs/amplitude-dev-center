@@ -479,7 +479,7 @@ Remove inclusions (users or devices) from experiment's variant.
 |---|----|
 |`id`| Required. String. The experiment's ID.|
 |`variantKey`| Required. String. The variant's key.|
-|`userIndex`| Required. String. The user's index.|
+|`userIndex`| Required. String. The user's index. Zero-indexed.|
 
 ### Response
 
@@ -553,12 +553,12 @@ Edit an experiment.
 |`enabled`| Optional | boolean | Property to activate or deactivate the experiment. |
 |`evaluationMode`| Optional | string | Evaluation mode for the experiment, either `local` or `remote`. |
 |`name`| Optional | string | Name of the experiment. |
-|`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. |
-|`experimentType`| Optional | number | Experiment type, either `no-harm` or `hypothesis-testing`. |
+|`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. Range 0 - 100. |
+|`experimentType`| Optional | string | Experiment type, options include `no-harm` or `hypothesis-testing`. |
 |`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
 |`startDate`| Optional | string | Start date of the experiment in ISO 8601 format. |
 |`endDate`| Optional | string | End date of the experiment in ISO 8601 format. End date can be null. |
-|`exposureEvent`| Optional | object | See the [`exposureEvent`](#exposureevent) table for more information. If set to null, the Amplitude Exposure Event will be use. |
+|`exposureEvent`| Optional | object | See the [`exposureEvent`](#exposureevent) table for more information. If set to null, the Amplitude Exposure Event will be used. |
 
 #### `exposureEvent`
 
@@ -1159,7 +1159,7 @@ Remove users (inclusions) from flag's variant.
 |---|----|
 |`id`| Required. String. The flag's ID.|
 |`variantKey`| Required. String. The flag's key.|
-|`userIndex`| Required. String. The user's index.|
+|`userIndex`| Required. String. The user's index. Zero-indexed.|
 
 ### Response
 
@@ -1233,7 +1233,7 @@ Edit a flag.
 |`enabled`| Optional | boolean | Property to activate or deactivate the flag. |
 |`evaluationMode`| Optional | string | Evaluation mode for the flag, either `local` or `remote`. |
 |`name`| Optional | string | Name of the flag. |
-|`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. |
+|`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. Range 0 - 100. |
 
 ### Response
 
