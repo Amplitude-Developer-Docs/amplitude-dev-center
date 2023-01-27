@@ -41,6 +41,7 @@
 - :shopify: [Shopify](../data/sources/shopify.md)
 - :singular: [Singular](../data/sources/singular.md)
 - :split: [Split](../data/sources/split.md)
+- :sprig: [Sprig](..data/sources/sprig.md)
 - :survicate: [Survicate](../data/sources/survicate.md)
 - :taplytics: [Taplytics](../data/sources/taplytics.md)
 - :tribe: [Tribe](../data/sources/tribe.md)
