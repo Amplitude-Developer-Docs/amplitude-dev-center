@@ -20,6 +20,33 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
     - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite) for those changes.
     - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
 
+## Week of January 22, 2023
+
+**New**
+
+- Added new [migration guide](../data/sdks/ios-swift/migration/) for moving from the legacy iOS SDK to the new Amplitude-Swift SDK. [#493](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/493). 
+- Added new [Time-to-Live](../data/ttl-configuration) doc. [#539](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/539)
+- Added new [Extole Event Streaming](../data/destinations/extole-event-streaming) doc. [#544](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/544)
+- Navigation changes: Updated navigation for the SDK section of the site and added new links to content to improve browseability. [#529](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/529)
+
+**Updated**
+
+- Updated the status returned for requests outside of data retention period in [Event Streaming Metrics Summary API](../analytics/apis/event-streaming-metrics-summary-api) doc. [#528](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/528)
+- Updated required timestamp format in [Snowflake Import](../data/sources/snowflake) doc. [#526](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/526)
+- Updated [Ampli CLI](../data/ampli/cli) docs. [#520](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/520)
+- Fixed broken code formatting and clarified callouts in [User Privacy API](../analytics/apis/user-privacy-api) doc. [#531](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/531)
+- Made formatting and link improvements in [Batch Event Upload API](../analytics/apis/batch-event-upload-api) doc. [#532](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/532)
+- Fixed an issue that made buttons on the homepage open in new tabs without warning. [#534](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/534)
+- Fixed an incorrect URL in the [Go SDK](../data/sources/sdks/go) doc. [#536](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/536)
+- Added recommendations to initialization instructions in the [Android-Kotlin SDK](../data/sdks/android-kotlin) doc. [#537](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/537)
+- Added new styling elements to headings in the [SDK Quickstart](../data/sdks/sdk-quickstart) doc to make the page easier to follow. [#542](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/542)
+- Added supported versions and shutdown information to [Python SDK](../data/sdks/python) doc. [#541](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/541)
+- Fixed incorrect link in the [React Native](../data/sdks/typescript-react-native) doc. [#547](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/547/)
+- Fixed `setGroup` calls in several Ampli docs. [#548](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/548).
+
+<!-- markdown-link-check-disable -->
+<!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
+
 ## Week of January 16, 2023
 
 **New** 
