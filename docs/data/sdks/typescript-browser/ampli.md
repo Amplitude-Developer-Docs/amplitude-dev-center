@@ -202,13 +202,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "TypeScript"
 
     ```ts
-    ampli.setGroup('groupType', 'groupName');
+    ampli.client.setGroup('groupType', 'groupName');
     ```
 
 === "JavaScript"
 
     ```js
-    ampli.setGroup('groupType', 'groupName');
+    ampli.client.setGroup('groupType', 'groupName');
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
@@ -220,13 +220,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "TypeScript"
 
     ```ts
-    ampli.setGroup('orgId', ['10', '20']);
+    ampli.client.setGroup('orgId', ['10', '20']);
     ```
 
 === "JavaScript"
 
     ```js
-    ampli.setGroup('orgId', ['10', '20']);
+    ampli.client.setGroup('orgId', ['10', '20']);
     ```
 
 ### Track
@@ -422,7 +422,7 @@ Migrate from an Itly Browser runtime to Ampli by following these steps.
 
 7. Find and replace:
     - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
-    - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
+    - `itly.group(userId, groupId) => ampli.client.setGroup(userId, groupType, groupName)`
     - `itly.load()` => `ampli.load()`
     - All `itly.` with `ampli.`
 

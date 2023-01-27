@@ -227,13 +227,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "Java"
 
     ```java
-    Ampli.getInstance().setGroup("groupType", "groupName");
+    Ampli.getInstance().getClient().setGroup("groupType", "groupName");
     ```
 
 === "Kotlin"
 
     ```kotlin
-    ampli.setGroup("groupType", "groupName")
+    ampli.client?.setGroup("groupType", "groupName")
     ```
 
 --8<-- "includes/groups-intro-paragraph.md"
@@ -245,13 +245,13 @@ Call `setGroup()` to associate a user with their group (for example, their depar
 === "Java"
 
     ```java
-    Ampli.getInstance().setGroup("orgID", new String[]{"10", "20"});
+    Ampli.getInstance().getClient().setGroup("orgID", new String[]{"10", "20"});
     ```
 
 === "Kotlin"
 
     ```kotlin
-    ampli.setGroup("orgId", arrayOf("10", "20"))
+    ampli.client?.setGroup("orgId", arrayOf("10", "20"))
     ```
 
 ### Track
@@ -460,7 +460,7 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
     **Kotlin and Java:**
     - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
     - `itly.` => `ampli.`
-    - `itly.group(groupId)` => `ampli.setGroup(groupType, groupValue)`
+    - `itly.group(groupId)` => `ampli.client?.setGroup(groupType, groupValue)`
 
     **Kotlin only:**
 

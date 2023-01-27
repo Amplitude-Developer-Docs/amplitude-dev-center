@@ -183,13 +183,13 @@ ampli.Instance.GroupIdentify(
 Call `SetGroup()` to associate a user with their group (for example, their department or company). The `SetGroup()` function accept `userID` `groupType`, `groupName` and EventOptions.
 
 ```Go
-ampli.Instance.SetGroup("user-id", "sport", []string{"football"}, amplitude.EventOptions{})
+ampli.Instance.Client.SetGroup("user-id", "sport", []string{"football"}, amplitude.EventOptions{})
 ```
 
 Multiple group names can be set at once.
 
 ```Go
-ampli.Instance.SetGroup("user-id", "sport", []string{"football", "basketball"}, amplitude.EventOptions{})
+ampli.Instance.Client.SetGroup("user-id", "sport", []string{"football", "basketball"}, amplitude.EventOptions{})
 ```
 
 ### Track
