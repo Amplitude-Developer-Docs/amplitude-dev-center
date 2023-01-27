@@ -1,7 +1,7 @@
 ---
 title: Import Sprig Events
-description: Words
-status: Use the Sprig integration to send survey data to Amplitude when a response is received, and use the data when creating charts and cohorts in Amplitude.
+description: Use the Sprig integration to send survey data to Amplitude when a response is received, and use the data when creating charts and cohorts in Amplitude.
+status: new
 ---
 
 [Sprig](https://sprig.com/) is the product development lifecycle research platform. Sprig is on a mission to make experiences that matter. Companies use Sprig's Concept and Usability Testing and In-Product Surveys to get research insights from users about new ideas, designs, and current product experiences.
