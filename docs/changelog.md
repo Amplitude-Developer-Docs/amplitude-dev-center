@@ -27,6 +27,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added new [migration guide](../data/sdks/ios-swift/migration/) for moving from the legacy iOS SDK to the new Amplitude-Swift SDK. [#493](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/493). 
 - Added new [Time-to-Live](../data/ttl-configuration) doc. [#539](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/539)
 - Added new [Extole Event Streaming](../data/destinations/extole-event-streaming) doc. [#544](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/544)
+- Added new [Import Sprig Events](../data/sources/sprig) doc. [#549](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/549)
 - Navigation changes: Updated navigation for the SDK section of the site and added new links to content to improve browseability. [#529](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/529)
 
 **Updated**

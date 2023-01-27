@@ -240,6 +240,7 @@ nav:
           - MetaRouter: data/sources/metarouter.md
         - Qualitative Feeback:
           - Qualtrics: data/sources/qualtrics.md
+          - Sprig: data/sources/sprig.md
           - Survicate: data/sources/survicate.md
         - Reverse ETL:
           - Census: data/sources/census.md
