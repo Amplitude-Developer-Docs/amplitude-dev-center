@@ -71,7 +71,8 @@ plugins:
   - git-revision-date # enables the git revision date functionality
   #- glightbox # leave this commented out -- it enables image lightboxing but it also increases build time by 30 seconds so you don't want it messing with you locally. This plugin is enabled on insiders.
 
-# Extensions
+# Extensions 
+# Make sure to mirror changes in insiders.mkdocs.yml. 
 markdown_extensions:
   - admonition
   - abbr
@@ -119,16 +120,16 @@ markdown_extensions:
 
 extra:
   support_contact: https://amplitude.com
-  docs_home: https://docs.developers.amplitude.com/documentation-home
-  community: https://community.amplitude.com
-  product_updates: https://community.amplitude.com/product-updates
+  docs_home: /documentation-home
+  community: https://community.amplitude.com/?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite
+  product_updates: https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite
   help_site: https://help.amplitude.com
   status_page: https://status.amplitude.com/
   training_site: https://academy.amplitude.com/
   postman_workspace: https://www.postman.com/amplitude-developer-docs/workspace/amplitude-developers/overview
   report_issue: https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues/new/?title=[Feedback]+{{page.title}}+-+{{page.url}}
   getting_started_guide: https://docs.developers.amplitude.com/getting-started
-  sdk_quickstart: https://www.docs.developers.amplitude.com/data/sdks/
+  sdk_quickstart: /data/sdks/sdk-quickstart/
   more_resources: all-resources
   status:
     new: Recently added
@@ -242,6 +243,7 @@ nav:
           - MetaRouter: data/sources/metarouter.md
         - Qualitative Feeback:
           - Qualtrics: data/sources/qualtrics.md
+          - Sprig: data/sources/sprig.md
           - Survicate: data/sources/survicate.md
         - Reverse ETL:
           - Census: data/sources/census.md
@@ -260,6 +262,7 @@ nav:
         - Amazon S3: data/destinations/amazon-s3.md
         - Google Cloud Storage: data/destinations/google-cloud-storage.md
       - Warehouse:
+        - Overview: data/destination-warehouse-overview.md
         - Redshift: data/destinations/redshift.md
         - BigQuery: data/destinations/bigquery.md
         - Snowflake: data/destinations/snowflake.md
@@ -269,6 +272,7 @@ nav:
         - AppsFlyer: data/destinations/appsflyer.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
+        - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
         - Lantern: data/destinations/lantern-event-streaming.md
         - Pub/Sub: data/destinations/google-pub-sub.md
@@ -330,6 +334,7 @@ nav:
       - DataGrail: data/pii/datagrail.md
       - Osano: data/pii/osano.md
       - Transcend: data/pii/transcend.md
+    - Time-to-Live: data/ttl-configuration.md
   - Experiment:
       - experiment/index.md
       - Overview: experiment/index.md
@@ -360,7 +365,7 @@ nav:
         - React Native SDK: experiment/sdks/react-native-sdk.md
         - Node.js SDK: experiment/sdks/nodejs-sdk.md
         - Ruby SDK: experiment/sdks/ruby-sdk.md
-        - JVM SDK (Beta): experiment/sdks/jvm-sdk.md
+        - JVM SDK: experiment/sdks/jvm-sdk.md
         - Go SDK: experiment/sdks/go-sdk.md
         - Python SDK: experiment/sdks/python-sdk.md
         - Legacy:

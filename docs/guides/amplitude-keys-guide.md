@@ -12,14 +12,14 @@ This table gives a brief overview of each kind of key.
 
 | Product |       Key |       Public | Can it be rotated? |
 |---|---|---|---|
-| Analytics | Project API Key | :white_check_mark: <span class="screen-reader-only">Yes</span>| :x: <span class="screen-reader-only">No</span> |
-| Analytics | Project Secret Key | :x:<span class="screen-reader-only">No</span> | Contact Support |
-| Experiment | Deployment Key (client-side) | :white_check_mark:<span class="screen-reader-only">Yes</span> | :white_check_mark: <span class="screen-reader-only">Yes</span> |
-| Experiment | Deployment Key (server-side) | :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span> |
-| Experiment | Management API Key | :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span> |
-| Data       | API Token | :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span>|
-| Other| SCIM Key| :x: <span class="screen-reader-only">No</span> | :white_check_mark: <span class="screen-reader-only">Yes</span>|
-| Other| Org-level keys| :x: <span class="screen-reader-only">No</span> | Contact Support|
+| Analytics | Project API Key | :white_check_mark:{ title="This key can be rotated" } <span class="screen-reader-only">Yes</span>| :x:{ title="This key can't be rotated" } <span class="screen-reader-only">No</span> |
+| Analytics | Project Secret Key | :x:{ title="This key can't be rotated" }<span class="screen-reader-only">No</span> | Contact Support |
+| Experiment | Deployment Key (client-side) | :white_check_mark:{ title="This key can be rotated" }<span class="screen-reader-only">Yes</span> | :white_check_mark:{ title="This key can be rotated" } <span class="screen-reader-only">Yes</span> |
+| Experiment | Deployment Key (server-side) | :x:{ title="This key can't be rotated" } <span class="screen-reader-only">No</span> | :white_check_mark:{ title="This key can be rotated" } <span class="screen-reader-only">Yes</span> |
+| Experiment | Management API Key | :x:{ title="This key can't be rotated" } <span class="screen-reader-only">No</span> | :white_check_mark:{ title="This key can be rotated" } <span class="screen-reader-only">Yes</span> |
+| Data       | API Token | :x:{ title="This key can't be rotated" } <span class="screen-reader-only">No</span> | :white_check_mark:{ title="This key can be rotated" } <span class="screen-reader-only">Yes</span>|
+| Other| SCIM Key| :x:{ title="This key can't be rotated" } <span class="screen-reader-only">No</span> | :white_check_mark:{ title="This key can be rotated" } <span class="screen-reader-only">Yes</span>|
+| Other| Org-level keys| :x:{ title="This key can't be rotated" } <span class="screen-reader-only">No</span> | Contact Support|
 
 ## Analytics keys
 

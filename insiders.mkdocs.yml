@@ -30,6 +30,9 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      title: "On this page"
+      toc_depth: 3
+      permalink_title: Link to this section
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:

@@ -5,6 +5,7 @@ hide:
   - toc
   - navigation
 #template: resources.html
+toplevel: true
 ---
 
 <!-- markdownlint-disable MD030 -->
@@ -25,7 +26,7 @@ hide:
 
     Get support and connect with other Amplitude users.
 
-    [:octicons-arrow-right-24: Amplitude Community](https://community.amplitude.com)
+    [:octicons-arrow-right-24: Amplitude Community](https://community.amplitude.com/?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite)
 
 - :material-help:{ .lg .middle } __Amplitude Help Center__
 
@@ -49,7 +50,7 @@ hide:
 
     Read about product updates and new features. 
 
-    [:octicons-arrow-right-24: Product Updates](https://community.amplitude.com/product-updates)
+    [:octicons-arrow-right-24: Product Updates](https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite)
 
 - :octicons-video-24:{ .lg .middle } __On-demand Webinars__
 

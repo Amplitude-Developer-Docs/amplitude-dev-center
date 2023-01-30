@@ -1,5 +1,5 @@
 ---
-title: Experiment JVM SDK (Beta)
+title: Experiment JVM SDK
 description: Official documentation for Amplitude Experiment's server-side JVM SDK implementation.
 icon: material/language-java
 ---

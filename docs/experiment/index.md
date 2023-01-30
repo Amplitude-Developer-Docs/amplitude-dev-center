@@ -1,6 +1,7 @@
 ---
 title: Amplitude Experiment Overview
 description: Learn about Amplitude's experimentation and feature-flagging platform.
+toplevel: true
 ---
 
 Welcome to Amplitude Experiment. This page acts as a quick reference as well as a high level system overview of Experiment's end-to-end feature-flagging and experimentation platform.
@@ -67,7 +68,7 @@ Client-side SDKs work in a single-user context. Server-side SDKs work in a multi
 | API | Description |
 | --- | --- |
 | [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
-| [Management API (Beta)](https://developers.experiment.amplitude.com/reference/management-api) | Manage or list flags and experiments within your organization. |
+| [Management API (Beta)](apis/management-api.md) | Manage or list flags and experiments within your organization. |
 
 ## System overview
 <!-- vale Amplitude.Contractions = NO-->
