@@ -12,7 +12,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Browser"
 
-    The Browser SDK lets you send events to Amplitude. See the full documentation at [Browser SDK](../sdks/typescript-browser/).
+    The Browser SDK lets you send events to Amplitude. See the full documentation at [Browser SDK](../typescript-browser/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library)
@@ -168,7 +168,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Node"
 
-    The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../sdks/typescript-node/).
+    The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../typescript-node/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_1)
@@ -325,7 +325,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Android"
 
-    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../sdks/android-kotlin/).
+    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../android-kotlin/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_2)
@@ -491,7 +491,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "iOS"
 
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../sdks/ios/)
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_3)
@@ -630,7 +630,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "JRE"
 
-    This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../sdks/java/).
+    This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../java/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_4)
@@ -859,7 +859,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "React Native"
 
-    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../sdks/react-native/).
+    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../react-native/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)
@@ -1015,7 +1015,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Flutter"
 
-    The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../sdks/flutter/).
+    The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../flutter/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_7)
@@ -1098,7 +1098,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Go"
 
-    The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../sdks/go/).
+    The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../go/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_8)
@@ -1190,7 +1190,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Unity"
 
-    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../sdks/unity/).
+    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../unity/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_9)
@@ -1272,7 +1272,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Unreal"
 
-    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../sdks/unreal/).
+    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../unreal/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_10)
