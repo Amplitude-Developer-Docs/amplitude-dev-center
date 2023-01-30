@@ -71,7 +71,8 @@ plugins:
   - git-revision-date # enables the git revision date functionality
   #- glightbox # leave this commented out -- it enables image lightboxing but it also increases build time by 30 seconds so you don't want it messing with you locally. This plugin is enabled on insiders.
 
-# Extensions
+# Extensions 
+# Make sure to mirror changes in insiders.mkdocs.yml. 
 markdown_extensions:
   - admonition
   - abbr
