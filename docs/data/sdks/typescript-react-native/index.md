@@ -79,7 +79,7 @@ init(API_KEY, 'user@amplitude.com', {
 
 --8<-- "includes/sdk-ts/client-debugging.md"
 
-#### EU data residency
+### EU data residency
 
 You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
 
