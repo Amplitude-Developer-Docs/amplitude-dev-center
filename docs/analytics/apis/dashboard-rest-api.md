@@ -806,7 +806,7 @@ This is a basic request with only the required parameters.
 === "cURL"
 
     ```bash
-    curl --location --request GET 'https://amplitude.com/api/2/segmentation?e={"event_type":"YOUR%20EVENT"}&start=STARTDATE&end=DATE' \
+    curl --location --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"YOUR%20EVENT"}&start=STARTDATE&end=DATE' \
     --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
     ```
 
