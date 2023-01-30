@@ -22,7 +22,7 @@ Amplitude Data supports tracking analytics events from Go apps. The generated tr
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```shell
-    go get https://github.com/amplitude/analytics-go
+    go get github.com/amplitude/analytics-go
     ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)
@@ -81,7 +81,7 @@ Amplitude Data supports tracking analytics events from Go apps. The generated tr
 If you haven't already, install the core Amplitude SDK dependencies `analytics-go` using `go get`:
 
 ```shell
-go get https://github.com/amplitude/analytics-go
+go get github.com/amplitude/analytics-go
 ```
 
 --8<-- "includes/ampli/cli-install-simple.md"

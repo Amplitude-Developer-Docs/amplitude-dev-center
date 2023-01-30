@@ -27,7 +27,7 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
 Run `yarn add @amplitude/react-native` in your project directory, the same level with `package.json`.
 
 ```bash
-yarn add @amplitude/react-native@latest
+yarn add @amplitude/react-native
 ```
 
 ### iOS installation

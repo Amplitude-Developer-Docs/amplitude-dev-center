@@ -27,7 +27,7 @@ Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Packag
     1. Add dependency to `Podfile`.
 
         ```bash
-        pod 'Amplitude', '~> 8.8.0'
+        pod 'Amplitude', '~> 8.14'
         ```
 
     2. Run `pod install` in the project directory to download dependency.
@@ -45,7 +45,7 @@ Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Packag
     Add the following line to your `Cartfile`.
       
     ```bash
-    github "amplitude/Amplitude-iOS" ~> 8.8.0
+    github "amplitude/Amplitude-iOS" ~> 8.14
     ```
 
 After you've installed the SDK, import Amplitude into any file that uses it.

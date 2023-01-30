@@ -24,7 +24,7 @@ Use Gradle or another build system to resolve the Java SDK dependency. The follo
 ```java
 dependencies {
     implementation 'org.json:json:20201115'
-    implementation 'com.amplitude:java-sdk:1.10.0'
+    implementation 'com.amplitude:java-sdk:1.+'
 }
 ```
 

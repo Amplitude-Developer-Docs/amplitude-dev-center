@@ -61,7 +61,7 @@ Some users use `unity-jar-resolver` themselves. When they force resolve depend
 Add Amplitude's native dependencies under `androidPackage` tag.
 
 ```xml title="*Dependencies.xml"
-    <androidPackage spec="com.amplitude:android-sdk:2.25.2">
+    <androidPackage spec="com.amplitude:android-sdk:2.+">
       <repositories>
         <repository>https://maven.google.com</repository>
       </repositories>

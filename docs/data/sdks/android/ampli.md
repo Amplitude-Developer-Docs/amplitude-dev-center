@@ -26,7 +26,7 @@ Amplitude Data supports tracking analytics events from Android apps written in K
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```java
-    implementation 'com.amplitude:android-sdk:2.38.3'
+    implementation 'com.amplitude:android-sdk:2.+'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
@@ -88,14 +88,14 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "Java"
 
     ```shell
-    implementation 'com.amplitude:android-sdk:2.38.3'
+    implementation 'com.amplitude:android-sdk:2.+'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
 === "Kotlin"
 
     ```shell
-    implementation 'com.amplitude:android-sdk:2.38.3'
+    implementation 'com.amplitude:android-sdk:2.+'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```
 
@@ -336,7 +336,7 @@ Migrate from an Itly Android runtime to Ampli by following these steps.
 2. Add Amplitude dependencies.
 
     ```bash
-    implementation 'com.amplitude:android-sdk:2.35.2'
+    implementation 'com.amplitude:android-sdk:2.+'
     // https://github.com/amplitude/Amplitude-Android/issues/309
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     ```

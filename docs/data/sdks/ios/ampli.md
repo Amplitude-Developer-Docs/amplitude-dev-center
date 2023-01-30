@@ -25,7 +25,7 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```shell
-    pod 'Amplitude', '~> 8.14.0'
+    pod 'Amplitude', '~> 8.14'
     ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)
@@ -95,7 +95,7 @@ To install these dependencies with CocoaPods:
         target '{Project-Name}' do
           use_frameworks!
 
-          pod 'Amplitude', "~> 8.14.0"
+          pod 'Amplitude', "~> 8.14"
         end
         ```
     === "Objective-C"
@@ -106,7 +106,7 @@ To install these dependencies with CocoaPods:
         target '{Project-Name}' do
           use_frameworks!
 
-          pod 'Amplitude', "~> 8.14.0"
+          pod 'Amplitude', "~> 8.14"
         end
         ```
 
