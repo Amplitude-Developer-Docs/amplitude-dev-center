@@ -259,6 +259,7 @@ nav:
         - Amazon S3: data/destinations/amazon-s3.md
         - Google Cloud Storage: data/destinations/google-cloud-storage.md
       - Warehouse:
+        - Overview: data/destination-warehouse-overview.md
         - Redshift: data/destinations/redshift.md
         - BigQuery: data/destinations/bigquery.md
         - Snowflake: data/destinations/snowflake.md
