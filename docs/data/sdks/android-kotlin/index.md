@@ -18,10 +18,11 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
 
 ## Getting started
 
+Check out a sample project [here](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-android-app).
+
 ### Step 1: Add dependencies
 
-- Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies.
-- In `build.gradle` file, add the following dependencies with the [latest version](https://search.maven.org/artifact/com.amplitude/analytics-android) of the SDK.
+Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies. In `build.gradle` file, add the following dependencies with the [latest version](https://search.maven.org/artifact/com.amplitude/analytics-android) of the SDK. And the sync project with Gradle files.
 
 ```txt
 dependencies {
@@ -29,7 +30,15 @@ dependencies {
 }
 ```
 
-- Sync project with Gradle files.
+If you are using Maven in your project, the jar is available on Maven Central using the following configuration in your pom.xml:
+
+```txt
+<dependency>
+  <groupId>com.amplitude</groupId>
+  <artifactId>analytics-android</artifactId>
+  <version>1.X</version>
+</dependency>
+```
 
 ### Step 2: Add permissions
 <!-- vale off -->
@@ -43,7 +52,7 @@ The SDK internally uses a few Java 8 language APIs through desugaring. Make sure
 
 ### Step 3: Initialization
 
-Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. Amplitude recommends doing the initialization in the Main Activity, which never gets destroyed, or the Application class if you have one. After it's initialized, you can use the Android SDK anywhere in your Android application.
+Before you can instrument, you must initialize the SDK using the [API key](https://www.docs.developers.amplitude.com/analytics/find-api-credentials/) for your Amplitude project. Amplitude recommends doing the initialization in the Main Activity, which never gets destroyed, or the Application class if you have one. After it's initialized, you can use the Android SDK anywhere in your Android application.
 
 ```kotlin
 import com.amplitude.android.Amplitude;
@@ -51,8 +60,7 @@ import com.amplitude.android.Amplitude;
 val amplitude = Amplitude(
   Configuration(
     apiKey = AMPLITUDE_API_KEY,
-    context = applicationContext,
-    minIdLength = 3 // Optional. Sets minimum length for user and device ID (Default: 5)
+    context = applicationContext
   )
 )
 ```
@@ -78,6 +86,24 @@ You can configure the server zone when initializing the client for sending data 
     )
     ```
 
+### Step 4: Send events
+
+```kotlin
+// Track a basic event
+amplitude.track("Button Clicked")
+// Track events with optional properties
+amplitude.track(
+  "Button Clicked",
+  mapOf("buttonColor" to "primary")
+)
+```
+
+Events tracked are buffered locally and flushed every 30 seconds. After calling track() in your app, you may wait several seconds to see data appear on the Amplitude website.
+
+### Step 5: Check for success
+
+Go to your Amplitude project, click Data in the navigation bar, and view events just sent by clicking Events on the left sidebar. 
+
 ## Usage
 
 ### `track`
@@ -85,7 +111,10 @@ You can configure the server zone when initializing the client for sending data 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```kotlin
-amplitude.track("Button Clicked", mutableMapOf<String, Any?>("my event property" to "test event property value"))
+amplitude.track(
+    "Button Clicked",
+    mutableMapOf<String, Any?>("my event property" to "test event property value")
+)
 ```
 
 ### `identify`
@@ -705,7 +734,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
 
 Don't send push notification events client-side via the Android SDK. Because a user must open the app to initialize the Amplitude SDK in order for the SDK to send the event, events aren't sent to the Amplitude servers until the next time the user opens the app. This can cause data delays.
 
-You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
+You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://www.docs.developers.amplitude.com/analytics/apis/http-v2-api/) to send push notification events to Amplitude.
 
 ### Set log callback
 
