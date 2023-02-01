@@ -124,7 +124,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         });
         ```
 
-    Learn more about [Ampli Browser](../sdks/typescript-browser/ampli/).
+    Learn more about [Ampli Browser](../typescript-browser/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -164,7 +164,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more available functionalities in [Browser SDK](../sdks/typescript-browser/).
+    Learn more available functionalities in [Browser SDK](../typescript-browser/).
 
 === "Node"
 
@@ -279,7 +279,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli Node](../sdks/typescript-node/ampli/).
+    Learn more about [Ampli Node](../typescript-node/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -321,7 +321,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         });
         ```
 
-    Learn more available functionalities in [Node SDK](../sdks/typescript-node/).
+    Learn more available functionalities in [Node SDK](../typescript-node/).
 
 === "Android"
 
@@ -349,7 +349,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     To report events to Amplitude, add the INTERNET permission to your AndroidManifest.xml file. `<uses-permission android:name="android.permission.INTERNET" />`
 
-    Learn more about [Add Android Permission](../sdks/android-kotlin/#2-add-permissions).
+    Learn more about [Add Android Permission](../android-kotlin/#2-add-permissions).
 
     ### Initialization
 
@@ -418,7 +418,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         );
         ```
 
-    Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
+    Learn more about [Ampli Android](../android-kotlin/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -487,7 +487,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more available functionalities in [Android SDK](../sdks/android-kotlin/).
+    Learn more available functionalities in [Android SDK](../android-kotlin/).
 
 === "iOS"
 
@@ -510,7 +510,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         pod 'Amplitude', '~> 8.8.0'
         ```
-        [Learn more](../sdks/ios/#__tabbed_1_1)
+        [Learn more](../ios/#__tabbed_1_1)
 
     === "Swift Package Manager"
 
@@ -518,7 +518,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
         ```
-        [Learn more](../sdks/ios/#__tabbed_1_2)
+        [Learn more](../ios/#__tabbed_1_2)
     
     === "Carthage"
 
@@ -526,7 +526,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         github 'amplitude/Amplitude-iOS' ~> 8.8.0
         ```
-        [Learn more](../sdks/ios/#__tabbed_1_3)
+        [Learn more](../ios/#__tabbed_1_3)
 
     ### Initialization
 
@@ -584,7 +584,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli iOS](../sdks/ios/ampli/).
+    Learn more about [Ampli iOS](../ios/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -626,7 +626,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         }
         ```
 
-    Learn more available functionalities in [iOS SDK](../sdks/ios/).
+    Learn more available functionalities in [iOS SDK](../ios/).
 
 === "JRE"
 
@@ -651,7 +651,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
             implementation 'com.amplitude:java-sdk:1.+'
         }
         ```
-        Learn more about [Add Dependency using Gradle](../sdks/java/#maven).
+        Learn more about [Add Dependency using Gradle](../java/#maven).
 
     === "Download"
 
@@ -721,7 +721,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli Java](../sdks/java/ampli/).
+    Learn more about [Ampli Java](../java/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -760,7 +760,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         amplitude.logEvent(event)
         ```
 
-    Learn more in [Java SDK](../sdks/java/).
+    Learn more in [Java SDK](../java/).
 
 === "Python"
 
@@ -827,7 +827,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         )
 
         ```
-    Learn more about [Ampli Python](../sdks/python/ampli/).
+    Learn more about [Ampli Python](../python/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -855,7 +855,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         )
         ```
 
-    Learn more available functionalities in [Python SDK](../sdks/python/).
+    Learn more available functionalities in [Python SDK](../python/).
 
 === "React Native"
 
@@ -973,7 +973,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli React Native](../sdks/typescript-react-native/ampli/).
+    Learn more about [Ampli React Native](../typescript-react-native/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -1011,7 +1011,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         track('Button Clicked', eventProperties);
         ```
 
-    Learn more available functionalities in [React Native SDK](../sdks/typescript-react-native/).
+    Learn more available functionalities in [React Native SDK](../typescript-react-native/).
 
 === "Flutter"
 
@@ -1039,7 +1039,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     iOS installation also need to add `platform :ios, '10.0'` to your Podfile.
 
-    Learn more about [adding the dependency](../sdks/flutter/#add-dependencies).
+    Learn more about [adding the dependency](../flutter/#add-dependencies).
 
     ### Initialization
 
@@ -1094,7 +1094,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
       ```
 
-      Learn more in [Flutter SDK](../sdks/flutter/).
+      Learn more in [Flutter SDK](../flutter/).
 
 === "Go"
 
@@ -1186,7 +1186,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-        Learn more available functionalities in [Go SDK](../sdks/go/).
+        Learn more available functionalities in [Go SDK](../go/).
 
 === "Unity"
 
@@ -1209,7 +1209,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
         ```
-        Learn more about [Unity package manager initizalization](../sdks/unity/#option-1-unity-package-manager)
+        Learn more about [Unity package manager initizalization](../unity/#option-1-unity-package-manager)
 
     === "Manual download"
 
@@ -1218,7 +1218,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Download amplitude-unity.unitypackage
         ```
 
-        Learn more about the [Unity package download](../sdks/unity/#option-2-manual-download-and-add-dependency).
+        Learn more about the [Unity package download](../unity/#option-2-manual-download-and-add-dependency).
 
     ### Initialization
 
@@ -1268,7 +1268,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more in [Unity SDK](../sdks/unity/).
+    Learn more in [Unity SDK](../unity/).
 
 === "Unreal"
 
@@ -1298,19 +1298,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Settings > Plugins > Project > Analytics
     
-    Learn more about [how to enable SDK plugin](../sdks/unreal/#enable-the-sdk-plugin-in-the-editor).
+    Learn more about [how to enable SDK plugin](../unreal/#enable-the-sdk-plugin-in-the-editor).
 
     #### Set Amplitude as your analytics provider
 
     Settings -> Project Settings -> Analytics -> Providers
 
-    Learn more about [how to set analytics provider](../sdks/unreal/#set-amplitude-as-your-analytics-provider).
+    Learn more about [how to set analytics provider](../unreal/#set-amplitude-as-your-analytics-provider).
 
     #### Add your API keys
 
     Settings -> Project Settings -> Analytics -> Amplitude
 
-    Learn more about [how to set API keys](../sdks/unreal/#add-your-api-keys).
+    Learn more about [how to set API keys](../unreal/#add-your-api-keys).
 
     === "C++"
 
@@ -1353,4 +1353,4 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
         ```
 
-    Learn more in [Unreal SDK](../sdks/unreal/).
+    Learn more in [Unreal SDK](../unreal/).
