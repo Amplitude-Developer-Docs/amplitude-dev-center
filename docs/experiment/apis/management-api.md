@@ -684,7 +684,7 @@ A successful request returns a `200 OK` response and a JSON object with the expe
 
 ## Activate experiment
 
-!!!warn "Not recommended. Use [`edit experiment`](#edit-experiment) instead."
+!!!warning "Not recommended. Use [`edit experiment`](#edit-experiment) instead."
 
 ```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/activate
@@ -713,7 +713,7 @@ Activate an inactive experiment.
 
 ## Deactivate experiment
 
-!!!warn "Not recommended. Use [`edit experiment`](#edit-experiment) instead."
+!!!warning "Not recommended. Use [`edit experiment`](#edit-experiment) instead."
 
 ```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/deactivate
@@ -742,7 +742,7 @@ Deactivate an active experiment.
 
 ## Rollout weights
 
-!!!warn "Not recommended. Use [`edit experiment variant`](#edit-experiment-variant) instead."
+!!!warning "Not recommended. Use [`edit experiment variant`](#edit-experiment-variant) instead."
 
 ```bash
 POST https://management-api.experiment.amplitude.com/experiments/{id}/rollout-weights
@@ -1245,8 +1245,9 @@ A successful request returns a `200 OK` response.
     ```bash
     curl --request PATCH \
       --url 'https://management-api.experiment.amplitude.com/flags/<id>' \
+      --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
+      --header 'Authorization: Bearer <management-api-key>' \
       --data '{"enabled":<enabled>,"rolloutPercentage":<rolloutPercentage>}'
     ```
 
