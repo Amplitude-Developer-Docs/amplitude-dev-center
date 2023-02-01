@@ -18,7 +18,7 @@ This integration combines Amplitude with Marketo's tools for in-app messaging, p
 
     !!!example "Example Keys"
 
-          - `Client Id:` 97890c99-9999-46e4-bccc-351071cd5c3b
+          - `Client ID:` 97890c99-9999-46e4-bccc-351071cd5c3b
           - `Client Secret:` xzy3XYZxyZqIroHtliA7mDKTx7NUXyZZ
           - `REST API Endpoint:` `https://133-CDN-660.mktorest.com/rest`
 

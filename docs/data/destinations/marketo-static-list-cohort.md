@@ -1,15 +1,17 @@
 ---
 title: Send Static List Cohorts to Marketo
-description: words
+description: Send behavioral cohorts from Amplitude to Marketo as static lists and better engage your users based on their patterns of interaction with your product and their lifecycle timing.
 ---
 
 !!!alpha
 
     This integration is currently in Alpha and is in active development. If you have any feedback to improve or have suggestions, please email <integrations@amplitude.com>. 
 
+This integration combines Amplitude with Marketo's tools for in-app messaging, push notifications, and email. Use it to send behavioral cohorts from Amplitude to Marketo as a static list, and better engage your users based on their patterns of interaction with your product and their lifecycle timing. Amplitude's powerful segmentation capabilities let you personalize your campaigns by targeting the right users with the right messages at the right stages of their journey.
+
 !!!info 
 
-    This page is about the Marketo Static List destination. Unlike the [Marketo](../destinations/marketo-cohort/) destination, this integration automatically exports cohorts as a static list in Marketo.
+    This page is about the Marketo Static List destination. Unlike the [Marketo Cohort](/destinations/marketo-cohort/) destination, this integration automatically exports cohorts as a static list in Marketo.
 
 ## Considerations
 
@@ -30,7 +32,13 @@ You need your Marketo Client ID, Client Secret, and REST API Endpoint. For more 
 2. Create an API-only user and associate it with the API role created previously.
 3. Go to **Admin > Integration > Launchpoint** to create a new service. Set 'Service' to 'Custom' and select the API Only User you created in the last step.
 4. On the service, click **View Details** and copy the `Client ID` and `Client Secret`.
-5. Go to **Admin > Integration > Web Services** and copy the REST API Endpoint. **Important**: Remove the `\rest` at the end of the endpoint. For example, REST URL: https://my-marketo.mktorest.com. If you don't remove it, the integration doesn't work correctly.
+5. Go to **Admin > Integration > Web Services** and copy the REST API Endpoint. **Important**: Remove the `\rest` at the end of the endpoint. If you don't remove it, the integration doesn't work correctly.
+
+!!!example "Example Keys"
+
+          - `Client ID:` 97890c99-9999-46e4-bccc-351071cd5c3b
+          - `Client Secret:` xzy3XYZxyZqIroHtliA7mDKTx7NUXyZZ
+          - `REST API Endpoint:` `https://133-CDN-660.mktorest.com`
 
 ### Amplitude setup
 
