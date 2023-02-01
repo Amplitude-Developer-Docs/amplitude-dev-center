@@ -325,7 +325,20 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Android"
 
-    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../sdks/android-kotlin/).
+    The Android SDK lets you send events to Amplitude. 
+    
+    See the full documentation at [Android SDK](../sdks/android-kotlin/) for additional configurations and advanced topics.
+
+    Skip to [a complete code example](./#complete-code-example_2)
+
+    To get started fast, check out an [example Android Kotlin project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-android-app):
+
+    - Clone the repo
+    - Open it with Android Studio 
+    - Change your API key in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts 
+    - Run `samples.kotlin-android-app` 
+    - Press the button to send events in the running applicatioan 
+    - [Check for success](./#check-for-success_2)
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_2)
@@ -336,7 +349,9 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Install dependencies
+    ### Add dependencies
+
+    Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies. If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And the sync project with Gradle files. If you are using Maven in your project, the jar is available on Maven Central using the following configuration in your pom.xml
 
     === "Gradle"
 
@@ -346,16 +361,39 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
             implementation 'com.amplitude:analytics-android:1.+'
         }
         ```
+    === "Maven"
 
-    To report events to Amplitude, add the INTERNET permission to your AndroidManifest.xml file. `<uses-permission android:name="android.permission.INTERNET" />`
+        ```bash
+        <dependency>
+            <groupId>com.amplitude</groupId>
+            <artifactId>analytics-android</artifactId>
+            <version>[1.0,2.0)</version>
+        </dependency>
+        ```
 
-    Learn more about [Add Android Permission](../sdks/android-kotlin/#2-add-permissions).
+    ### Add permissions 
+
+    To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file.
+    ```
+    <uses-permission android:name="android.permission.INTERNET" />
+    ```
+
+    For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone carrier information. If you don't add this permission, the SDK still works, but doesn't track phone carrier information.
+    ```
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    ```
+
+    The SDK internally uses a few Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) or requires a minimum API level of 16.
 
     ### Initialization
 
+    Before you can instrument, you must initialize the SDK using the [API key](../../analytics/find-api-credentials.md) for your Amplitude project. Amplitude recommends doing the initialization in the Main Activity, which never gets destroyed, or the Application class if you have one. After it's initialized, you can use the Android SDK anywhere in your Android application.
+    
     === "Kotlin"
 
         ```kotlin
+        import com.amplitude.android.Amplitude;
+
         val amplitude = Amplitude(
             Configuration(
                 apiKey = AMPLITUDE_API_KEY,
@@ -366,26 +404,70 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Java"
 
         ```java
+        import com.amplitude.android.Amplitude;
+
         Amplitude amplitude =  new Amplitude(new Configuration(
             apiKey = AMPLITUDE_API_KEY,
             context = applicationContext
         ));
         ```
 
-    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+    #### EU data residency
+
+    You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
+
+    !!!note
+        For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
 
     === "Kotlin"
 
         ```kotlin
+        import com.amplitude.android.Amplitude;
+        
+        val amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            serverZone = ServerZone.EU
+        )
+        )
+        ```
+    === "Java"
 
-        amplitude.track("eventType", mutableMapOf<String, Any?>("test" to "event property value"))
+        ```java
+        import com.amplitude.android.Amplitude;
+        
+        Amplitude amplitude =  new Amplitude(new Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            serverZone = ServerZone.EU
+        ));
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    Events tracked are buffered locally and flushed every 30 seconds. After calling track() in your app, it may take several seconds for event data to appear in Amplitude.
+
+    === "Kotlin"
+
+        ```kotlin
+        // Track a basic event
+        amplitude.track("Button Clicked")
+        // Track events with optional properties
+        amplitude.track(
+        "Button Clicked",
+        mapOf("buttonColor" to "primary")
+        )
         ```
 
     === "Java"
 
         ```java
-        amplitude.track("eventType", new HashMap() {{
-            put("test", "test event property value");
+        // Track a basic event
+        amplitude.track("Button Clicked");
+        // Track events with optional properties
+        amplitude.track("Button Clicked", new HashMap() {{
+            put("buttonColor", "primary");
         }});
         ```
 
