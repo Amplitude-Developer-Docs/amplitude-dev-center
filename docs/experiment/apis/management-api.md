@@ -567,7 +567,7 @@ The `exposureEvent` field contains these objects.
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
 |`event_type`| Required | string | Event type. |
-|`filters`| Required | object array | See the [`filters`](#filters) table for more information. |
+|`filters`| Required | object array | A list of property filters. See the [`filters`](#filters) table for more information. |
 
 #### `filters`
 
@@ -575,15 +575,26 @@ The `filters` field contains these objects.
 
 |<div class="med-big-column">Name</div>|Requirement|Type|Description|
 |---|---|---|---|
-|`group_type`| Optional | string | Group type of the filter; can be null. Currently we only use `USER` value. |
+|`group_type`| Optional | string | Group type of the filter; can be null. Can be `User` value or one of the group values, eg `org _id`, `org name` |
 |`subprop_key`| Required | string | Filter's key; can be null. |
 |`subprop_op`| Required | string | The [operation](#subprop_op) to use in this filter. |
-|`subprop_type`| Required | string | Type of filter; can be null. One of `USER`, `GROUP`, `EVENT`. |
-|`subprop_value`| Required | string array | Array of values. |
+|`subprop_type`| Required | string | Either `event`, `user` or `group` indicating that the property is either an event, user or group property, respectively. |
+|`subprop_value`| Required | string array | A list of values to filter the event property by. |
 
 #### `subprop_op`
 
-An string value representing operations on a property value. Possible values are: `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `glob match`, `glob does not match`
+A string value representing operations on a property value. Possible values are:
+
+- `is`
+- `is not`
+- `contains`
+- `does not contain`
+- `less`
+- `less or equal`
+- `greater`
+- `greater or equal`
+- `glob match`
+- `glob does not match`
 
 ### Response
 
@@ -662,7 +673,18 @@ The `conditions` field contains these objects.
 
 #### `op`
 
-An string value representing operations on a property value. Possible values are: `is`, `is not`, `contains`, `does not contain`, `less`, `less or equal`, `greater`, `greater or equal`, `glob match`, `glob does not match`
+A string value representing operations on a property value. Possible values are:
+
+- `is`
+- `is not`
+- `contains`
+- `does not contain`
+- `less`
+- `less or equal`
+- `greater`
+- `greater or equal`
+- `glob match`
+- `glob does not match`
 
 ### Response
 
