@@ -327,7 +327,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     The Android SDK lets you send events to Amplitude. 
     
-    See the full documentation at [Android SDK](../sdks/android-kotlin/) for additional configurations and advanced topics.
+    See the full documentation at [Android SDK](../android-kotlin/) for additional configurations and advanced topics.
 
     Skip to [a complete code example](./#complete-code-example_2)
 
@@ -500,7 +500,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         );
         ```
 
-    Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
+    Learn more about [Ampli Android](../android-kotlin/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -569,7 +569,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more available functionalities in [Android SDK](../sdks/android-kotlin/).
+    Learn more available functionalities in [Android SDK](../sdks/android-kotlin/index.md).
 
 === "iOS"
 
