@@ -1,17 +1,17 @@
 ---
-title: Send Static List Cohorts to Marketo
-description: Send behavioral cohorts from Amplitude to Marketo as static lists and better engage your users based on their patterns of interaction with your product and their lifecycle timing.
+title: Send Cohorts to Marketo Static List
+description: Send behavioral cohorts from Amplitude to a Marketo static lists and better engage your users based on their patterns of interaction with your product and their lifecycle timing.
 ---
 
 !!!alpha
 
     This integration is currently in Alpha and is in active development. If you have any feedback to improve or have suggestions, please email <integrations@amplitude.com>. 
 
-This integration combines Amplitude with Marketo's tools for in-app messaging, push notifications, and email. Use it to send behavioral cohorts from Amplitude to Marketo as a static list, and better engage your users based on their patterns of interaction with your product and their lifecycle timing. Amplitude's powerful segmentation capabilities let you personalize your campaigns by targeting the right users with the right messages at the right stages of their journey.
+The Marketo static list destination lets you export cohorts into Marketo as a static list, sending them to a destination folder or program of your choice. Use this to leverage Marketo’s tools for in-app messaging, push notifications, and email campaigns to better engage your users. 
 
 !!!info 
 
-    This page is about the Marketo Static List destination. Unlike the [Marketo Cohort](/destinations/marketo-cohort/) destination, this integration automatically exports cohorts as a static list in Marketo.
+    This page is about the Marketo Static List destination. Unlike the [Marketo Cohort](../destinations/marketo-cohort/) destination, this integration automatically exports cohorts as a static list in Marketo.
 
 ## Considerations
 
