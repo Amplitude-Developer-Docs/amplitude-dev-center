@@ -56,8 +56,12 @@ To sync your first cohort, follow these steps:
 1. In Amplitude, open the cohort you want to sync, then click **Sync**.
 2. Select **Marketo Static List**, then click **Next**.
 3. Choose the account you want to sync to.
-4. Choose the folder type and provide the folder/program ID.
+4. Choose the folder/program type and provide the folder/program ID.
+    a. The program ID can be found in the URL, and is the 4-5 digits between the G and A in the URL of the selected program. 
 5. Choose the sync cadence.
 6. When finished, save your work.
 
 It may take a few minutes depending on the size of your cohort to see the correct number of cohort users on Marketo's side.
+
+## Use cases
+1. Create a marketing campaign targeted at a cohort of users created on Amplitude
