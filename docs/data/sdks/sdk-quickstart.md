@@ -760,7 +760,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         amplitude.logEvent(event)
         ```
 
-    Learn more in [Java SDK](../sdks/java/).
+    Learn more in [Java SDK](../java/).
 
 === "Python"
 
@@ -1094,7 +1094,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
       ```
 
-      Learn more in [Flutter SDK](../sdks/flutter/).
+      Learn more in [Flutter SDK](../flutter/).
 
 === "Go"
 
@@ -1268,7 +1268,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more in [Unity SDK](../sdks/unity/).
+    Learn more in [Unity SDK](../unity/).
 
 === "Unreal"
 
@@ -1353,4 +1353,4 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
         ```
 
-    Learn more in [Unreal SDK](../sdks/unreal/).
+    Learn more in [Unreal SDK](../unreal/).
