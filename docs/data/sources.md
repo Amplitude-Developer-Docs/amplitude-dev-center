@@ -40,6 +40,8 @@ For more helpful SDK-related content, visit [Amplitude SDKs](../sdks)
 
 ### Cloud storage
 
+Visit [Cloud Storage Overview](source-cloud-storage-overview.md) for more details about importing data from your data warehouse provider.
+
 <!-- This content is used in several places. Make changes to includes/data-sources-cloud-storage.md -->
 
 --8<-- "includes/data-sources-cloud-storage.md"
@@ -60,6 +62,7 @@ For more helpful SDK-related content, visit [Amplitude SDKs](../sdks)
 
 ### Other sources
 
+Visit [Other Sources](source-other-overview.md) for more information on importing data from other sources.
 <!-- This content is used in several places. Make changes to includes/data-sources-other.md -->
 
 --8<-- "includes/data-sources-other.md"

@@ -274,6 +274,7 @@ nav:
         - Customer.io: data/destinations/customerio.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
+        - Kameleoon: data/destinations/kameleoon-event-streaming.md
         - Lantern: data/destinations/lantern-event-streaming.md
         - Pub/Sub: data/destinations/google-pub-sub.md
         - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
