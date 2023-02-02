@@ -64,7 +64,7 @@ To sync your first cohort, follow these steps:
 It may take a few minutes depending on the size of your cohort to see the correct number of cohort users on Marketo's side.
 
 ## Use cases
+
 1. Create a marketing campaign targeted at a cohort of users created on Amplitude
 2. Automate emails from Marketo based on activities tracked in a cohort
 3. Reduce the number of fields in Marketo by syncing cohorts to lists instead of fields
-
