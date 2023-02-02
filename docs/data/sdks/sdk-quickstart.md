@@ -936,6 +936,12 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
                 }
             )
         )
+
+        # Flush the event buffer
+        amplitude.flush()
+
+        # Shutdown the client, recommend to call before program exit 
+        amplitude.shutdown()
         ```
 
     Learn more available functionalities in [Python SDK](../python/).
