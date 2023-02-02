@@ -37,6 +37,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Site change: streamlined how the table of contents appears on page. [#556](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/556)
 - Fixed broken links in [SDK Quickstart](../data/sdks/sdk-quickstart) guide. [#565](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/565/files)
 - Made clarity and context improvements the [Android SDK Quickstart](../data/sdks/sdk-quickstart#android) guide. [#558](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/558)
+- Added missing code example to the [legacy iOS](../data/sdks/ios) doc. [#560](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/560)
 
 <!-- markdown-link-check-disable -->
 <!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
