@@ -11,7 +11,7 @@ icon: simple/react
 This is the official documentation for the Amplitude Analytics React Native SDK.
 
 !!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for React Native](../typescript-react-native/) available in Beta. The new SDK offers an improved code architecture which supports plugins and React Native Web.
+    This is a legacy SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for React Native](../typescript-react-native/) available. The new SDK offers an improved code architecture which supports plugins and React Native Web.
 
 !!!info "SDK Resources"
     - [React Native SDK Reference :material-book:](https://amplitude.github.io/Amplitude-ReactNative/)

@@ -1,5 +1,5 @@
 ---
-title: React Native SDK (Beta)
+title: React Native SDK
 description: The Amplitude React Native SDK Installation & Quick Start guide.
 icon: simple/react
 ---
@@ -8,7 +8,7 @@ icon: simple/react
 
 The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native).
 
-!!!beta "React Native SDK Resources (Beta)"
+!!!info "React Native SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
