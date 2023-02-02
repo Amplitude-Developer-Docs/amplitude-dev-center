@@ -3,6 +3,10 @@ title: Send Cohorts to Marketo
 description: Send behavioral cohorts from Amplitude to Marketo and better engage your users based on their patterns of interaction with your product and their lifecycle timing.
 ---
 
+!!!tip "Marketo Static List integration is now in beta"
+
+    Amplitude has released an alternate Marketo integration. Learn more in [Send Cohorts to Marketo Static List Integration](../marketo-static-list-cohort)
+
 This integration combines Amplitude with Marketo's tools for in-app messaging, push notifications, and email. Use it to sync behavioral cohorts from Amplitude to Marketo, and better engage your users based on their patterns of interaction with your product and their lifecycle timing. Amplitude's powerful segmentation capabilities let you personalize your campaigns by targeting the right users with the right messages at the right stages of their journey.
 
 ## Considerations
@@ -18,7 +22,7 @@ This integration combines Amplitude with Marketo's tools for in-app messaging, p
 
     !!!example "Example Keys"
 
-          - `Client Id:` 97890c99-9999-46e4-bccc-351071cd5c3b
+          - `Client ID:` 97890c99-9999-46e4-bccc-351071cd5c3b
           - `Client Secret:` xzy3XYZxyZqIroHtliA7mDKTx7NUXyZZ
           - `REST API Endpoint:` `https://133-CDN-660.mktorest.com/rest`
 
