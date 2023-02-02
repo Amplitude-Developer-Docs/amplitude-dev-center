@@ -948,7 +948,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "React Native"
 
-    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../react-native/).
+    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../typescript-react-native/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)
