@@ -20,6 +20,28 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
     - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite) for those changes.
     - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
 
+## Week of January 29, 2023
+
+**New**
+
+- Added new [Warehouse Destination Overview](../data/destination-warehouse-overview) doc to improve breadcrumb navigation. [#554](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/554)
+- Added new [Kameleoon Event Streaming](../data/destinations/kameleoon-event-streaming) doc. [#557](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/557)
+- Added new [Marketo Static List Cohort Syncing](../data/destinations/marketo-static-list-cohort) doc. [#566](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/566)
+
+**Updated** 
+
+- Updated tooltips in the keys table in [Amplitude Keys Guide](../guides/amplitude-keys-guide) docs. [#552](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/552)
+- Updated some field descriptions in the [Productboard cohort](../data/destinations/productboard-cohort) doc. [#545](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/545)
+- Fixed incorrect endpoint URI in the [Dashboard API](../analytics/apis/dashboard-rest-api) doc. [#555](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/555)
+- Added links to overview pages from the Source and Destination home pages. [#561](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/561)
+- Site change: streamlined how the table of contents appears on page. [#556](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/556)
+- Fixed broken links in [SDK Quickstart](../data/sdks/sdk-quickstart) guide. [#565](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/565/files)
+- Made clarity and context improvements the [Android SDK Quickstart](../data/sdks/sdk-quickstart#android) guide. [#558](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/558)
+- Added missing code example to the [legacy iOS](../data/sdks/ios) doc. [#560](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/560)
+
+<!-- markdown-link-check-disable -->
+<!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
+
 ## Week of January 22, 2023
 
 **New**
@@ -45,9 +67,6 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Fixed incorrect link in the [React Native](../data/sdks/typescript-react-native) doc. [#547](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/547/)
 - Fixed `setGroup` calls in several Ampli docs. [#548](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/548).
 - Added table with server URLs for all SDKs for sending data to Amplitude via [domain proxy](../analytics/domain-proxy).   
-
-<!-- markdown-link-check-disable -->
-<!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
 
 ## Week of January 16, 2023
 
