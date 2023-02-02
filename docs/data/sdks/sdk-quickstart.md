@@ -325,27 +325,28 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Android"
 
-    The Android SDK lets you send events to Amplitude. 
+    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../android-kotlin/) for additional configurations and advanced topics.
+
+    ???example "Get started fast with an example project (click to expand)"
     
-    See the full documentation at [Android SDK](../android-kotlin/) for additional configurations and advanced topics.
+        To get started fast, check out an [example Android Kotlin project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-android-app):
 
-    Skip to [a complete code example](./#complete-code-example_2)
+        1. Clone the repo.
+        2. Open it with Android Studio.
+        3. Change your API key in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
+        4. Run `samples.kotlin-android-app`.
+        5. Press the button to send events in the running application. 
+        6. [Check for success](./#check-for-success_2).
 
-    To get started fast, check out an [example Android Kotlin project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-android-app):
+    !!!info "Quickstart table of contents"
 
-    - Clone the repo
-    - Open it with Android Studio 
-    - Change your API key in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts 
-    - Run `samples.kotlin-android-app` 
-    - Press the button to send events in the running applicatioan 
-    - [Check for success](./#check-for-success_2)
+        Skip to a section: 
 
-    !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_2)
-        2. [Send data](#send-data_2)
-        3. [Check for success](#check-for-success_2)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_2)
-        5. [Complete code example](#complete-code-example_2)
+        7. [Initialize the library](#initialize-the-library_2)
+        8. [Send data](#send-data_2)
+        9. [Check for success](#check-for-success_2)
+        10. [Enforce event schemas](#enforce-event-schemas-ampli_2)
+        11. [Complete code example](#complete-code-example_2)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 

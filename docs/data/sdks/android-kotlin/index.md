@@ -18,7 +18,7 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
 
 ## Getting started
 
-Use [this quickstart guide](../../sdks/sdk-quickstart) to get started with Amplitude Android Kotlin SDK.
+Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started with Amplitude Android Kotlin SDK.
 
 ## Usage
 
