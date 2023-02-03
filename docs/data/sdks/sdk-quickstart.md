@@ -18,8 +18,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library)
         2. [Send data](#send-data)
         3. [Check for success](#check-for-success)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli)
-        5. [Complete code example](#complete-code-example)
+        4. [Complete code example](#complete-code-example)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -98,34 +98,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more about [Instrument Explorer](https://chrome.google.com/webstore/detail/amplitude-event-explorer/acehfjhnmhbmgkedjmjlobpgdicnhkbp?hl=en).
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    === "TypeScript"
-
-        ```ts
-
-        ampli.load();
-
-        ampli.yourEventType({
-            stringProp: 'Strongly typed property',
-            booleanProp: true
-        });
-
-        ```
-
-    === "JavaScript"
-
-        ```js
-        ampli.load();
-
-        ampli.yourEventType({
-            stringProp: 'Strongly typed property',
-            booleanProp: true
-        });
-        ```
-
-    Learn more about [Ampli Browser](../typescript-browser/ampli/).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "TypeScript"
@@ -165,6 +137,34 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ```
 
     Learn more available functionalities in [Browser SDK](../typescript-browser/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        ampli.load();
+
+        ampli.buttonClicked({
+            stringProp: 'Strongly typed property',
+            booleanProp: true
+        });
+
+        ```
+
+    === "JavaScript"
+
+        ```js
+        ampli.load();
+
+        ampli.yourEventType({
+            stringProp: 'Strongly typed property',
+            booleanProp: true
+        });
+        ```
+
+    Learn more about [Ampli Browser](../typescript-browser/ampli/).
 
 === "Node"
 
