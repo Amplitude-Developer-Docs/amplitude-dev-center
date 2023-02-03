@@ -144,11 +144,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```ts
 
-        ampli.load();
+        import { ampli } from './ampli';
+        ampli.load({ environment: 'production' });
 
         ampli.buttonClicked({
-            stringProp: 'Strongly typed property',
-            booleanProp: true
+            buttonColor: 'primary',
         });
 
         ```
@@ -156,15 +156,15 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "JavaScript"
 
         ```js
-        ampli.load();
+        import { ampli } from './ampli';
+        ampli.load({ environment: 'production' });
 
-        ampli.yourEventType({
-            stringProp: 'Strongly typed property',
-            booleanProp: true
+        ampli.buttonClicked({
+            buttonColor: 'primary',
         });
         ```
 
-    Learn more about [Ampli Browser](../typescript-browser/ampli/).
+    Learn more about and set up the [Ampli Browser](../typescript-browser/ampli/).
 
 === "Node"
 
