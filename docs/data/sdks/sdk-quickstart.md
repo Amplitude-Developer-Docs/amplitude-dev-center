@@ -174,8 +174,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_1)
         2. [Send data](#send-data_1)
         3. [Check for success](#check-for-success_1)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_1)
-        5. [Complete code example](#complete-code-example_1)
+        4. [Complete code example](#complete-code-example_1)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_1)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -251,36 +251,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    === "TypeScript"
-
-        ```ts
-
-        ampli.load();
-
-        ampli.yourEventType('ampli-user-id', {
-            stringProp: 'Strongly typed property',
-            booleanProp: true,
-        });
-
-        ```
-
-    === "JavaScript"
-
-        ```ts
-
-        ampli.load();
-
-        ampli.yourEventType('ampli-user-id', {
-            stringProp: 'Strongly typed property',
-            booleanProp: true,
-        });
-
-        ```
-
-    Learn more about [Ampli Node](../typescript-node/ampli/).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "TypeScript"
@@ -323,6 +293,36 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more available functionalities in [Node SDK](../typescript-node/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        ampli.load();
+
+        ampli.yourEventType('ampli-user-id', {
+            stringProp: 'Strongly typed property',
+            booleanProp: true,
+        });
+
+        ```
+
+    === "JavaScript"
+
+        ```ts
+
+        ampli.load();
+
+        ampli.yourEventType('ampli-user-id', {
+            stringProp: 'Strongly typed property',
+            booleanProp: true,
+        });
+
+        ```
+
+    Learn more about [Ampli Node](../typescript-node/ampli/).
+
 === "Android"
 
     The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../android-kotlin/) for additional configurations and advanced topics.
@@ -345,8 +345,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         7. [Initialize the library](#initialize-the-library_2)
         8. [Send data](#send-data_2)
         9. [Check for success](#check-for-success_2)
-        10. [Enforce event schemas](#enforce-event-schemas-ampli_2)
-        11. [Complete code example](#complete-code-example_2)
+        10. [Complete code example](#complete-code-example_2)
+        11. [Enforce event schemas](#enforce-event-schemas-ampli_2)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -474,35 +474,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    === "Kotlin"
-
-        ```kotlin
-
-        ampli.load()
-
-        ampli.yourEventType(
-            stringProp = "Strongly typed property",
-            booleanProp = true
-        )
-
-        ```
-    === "Java"
-
-        ```java
-        Ampli.getInstance().load();
-
-        Ampli.getInstance().yourEventType(
-            YourEventType.builder()
-                .stringProp("Strongly typed property")
-                .booleanProp(true)
-                .build()
-        );
-        ```
-
-    Learn more about [Ampli Android](../android-kotlin/ampli/).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "Kotlin"
@@ -572,6 +543,35 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more available functionalities in [Android SDK](../android-kotlin/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Kotlin"
+
+        ```kotlin
+
+        ampli.load()
+
+        ampli.yourEventType(
+            stringProp = "Strongly typed property",
+            booleanProp = true
+        )
+
+        ```
+    === "Java"
+
+        ```java
+        Ampli.getInstance().load();
+
+        Ampli.getInstance().yourEventType(
+            YourEventType.builder()
+                .stringProp("Strongly typed property")
+                .booleanProp(true)
+                .build()
+        );
+        ```
+
+    Learn more about [Ampli Android](../android-kotlin/ampli/).
+
 === "iOS"
 
     The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
@@ -580,8 +580,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_3)
         2. [Send data](#send-data_3)
         3. [Check for success](#check-for-success_3)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_3)
-        5. [Complete code example](#complete-code-example_3)
+        4. [Complete code example](#complete-code-example_3)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_3)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -640,35 +640,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    === "Objective-C"
-
-        ```obj-c title
-
-        Ampli *ampli = [Ampli instance];
-        [ampli load];
-
-        [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
-                                            booleanProp:true]];
-
-        ```
-
-    === "Swift"
-
-        ```swift
-
-        ampli.load();
-
-        ampli.yourEventType(
-            stringProp: "Strongly typed property",
-            booleanProp: true
-        )
-
-        ```
-
-    Learn more about [Ampli iOS](../ios/ampli/).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "Objective-C"
@@ -711,6 +682,35 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more available functionalities in [iOS SDK](../ios/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Objective-C"
+
+        ```obj-c title
+
+        Ampli *ampli = [Ampli instance];
+        [ampli load];
+
+        [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
+                                            booleanProp:true]];
+
+        ```
+
+    === "Swift"
+
+        ```swift
+
+        ampli.load();
+
+        ampli.yourEventType(
+            stringProp: "Strongly typed property",
+            booleanProp: true
+        )
+
+        ```
+
+    Learn more about [Ampli iOS](../ios/ampli/).
+
 === "JRE"
 
     This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../java/).
@@ -719,8 +719,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_4)
         2. [Send data](#send-data_4)
         3. [Check for success](#check-for-success_4)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_4)
-        5. [Complete code example](#complete-code-example_4)
+        4. [Complete code example](#complete-code-example_4)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_4)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -775,37 +775,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    === "Java"
-        ```java
-        Ampli.getInstance().load();
-
-        Ampli.getInstance().yourEventType("ampli-user-id",
-            YourEventType.builder("Strongly typed property")
-                .stringProp()
-                .booleanProp(false)
-                .build()
-        );
-
-        ```
-
-    === "Kotlin"
-
-        ```kotlin
-        Ampli.getInstance().load()
-
-        Ampli.getInstance().yourEventType("ampli-user-id",
-            YourEventType(
-                stringProp = "Strongly typed property",
-                booleanProp = false
-            )
-        )
-
-        ```
-
-    Learn more about [Ampli Java](../java/ampli/).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "Java"
@@ -845,14 +814,45 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more in [Java SDK](../java/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Java"
+        ```java
+        Ampli.getInstance().load();
+
+        Ampli.getInstance().yourEventType("ampli-user-id",
+            YourEventType.builder("Strongly typed property")
+                .stringProp()
+                .booleanProp(false)
+                .build()
+        );
+
+        ```
+
+    === "Kotlin"
+
+        ```kotlin
+        Ampli.getInstance().load()
+
+        Ampli.getInstance().yourEventType("ampli-user-id",
+            YourEventType(
+                stringProp = "Strongly typed property",
+                booleanProp = false
+            )
+        )
+
+        ```
+
+    Learn more about [Ampli Java](../java/ampli/).
+
 === "Python"
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_5)
         2. [Send data](#send-data_5)
         3. [Check for success](#check-for-success_5)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_5)
-        5. [Complete code example](#complete-code-example_5)
+        4. [Complete code example](#complete-code-example_5)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_5)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -893,25 +893,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    === "Python"
-
-        ```python
-
-        ampli.load()
-
-        ampli.yourEventType(
-            "user_id",
-            YourEventType(
-                stringProp= "Strongly typed property",
-                booleanProp=True
-            )
-        )
-
-        ```
-    Learn more about [Ampli Python](../python/ampli/).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "Python"
@@ -946,6 +927,25 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more available functionalities in [Python SDK](../python/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Python"
+
+        ```python
+
+        ampli.load()
+
+        ampli.yourEventType(
+            "user_id",
+            YourEventType(
+                stringProp= "Strongly typed property",
+                booleanProp=True
+            )
+        )
+
+        ```
+    Learn more about [Ampli Python](../python/ampli/).
+
 === "React Native"
 
     The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../react-native/).
@@ -954,8 +954,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_6)
         2. [Send data](#send-data_6)
         3. [Check for success](#check-for-success_6)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_6)
-        5. [Complete code example](#complete-code-example_6)
+        4. [Complete code example](#complete-code-example_6)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_6)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1036,34 +1036,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    === "TypeScript"
-
-        ```ts
-
-        ampli.load();
-
-        ampli.yourEventType({
-            stringProp: 'Strongly typed property',
-        });
-
-        ```
-
-    === "JavaScript"
-
-        ```js
-
-        ampli.load();
-
-        ampli.yourEventType({
-            stringProp: 'Strongly typed property',
-        });
-
-        ```
-
-    Learn more about [Ampli React Native](../typescript-react-native/ampli/).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "TypeScript"
@@ -1102,6 +1074,34 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more available functionalities in [React Native SDK](../typescript-react-native/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "TypeScript"
+
+        ```ts
+
+        ampli.load();
+
+        ampli.yourEventType({
+            stringProp: 'Strongly typed property',
+        });
+
+        ```
+
+    === "JavaScript"
+
+        ```js
+
+        ampli.load();
+
+        ampli.yourEventType({
+            stringProp: 'Strongly typed property',
+        });
+
+        ```
+
+    Learn more about [Ampli React Native](../typescript-react-native/ampli/).
+
 === "Flutter"
 
     The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../flutter/).
@@ -1110,8 +1110,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_7)
         2. [Send data](#send-data_7)
         3. [Check for success](#check-for-success_7)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_7)
-        5. [Complete code example](#complete-code-example_7)
+        4. [Complete code example](#complete-code-example_7)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_7)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1152,10 +1152,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    More information TBD.
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "Dart"
@@ -1185,6 +1181,10 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
       Learn more in [Flutter SDK](../flutter/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    More information TBD.
+
 === "Go"
 
     The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../go/).
@@ -1193,8 +1193,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_8)
         2. [Send data](#send-data_8)
         3. [Check for success](#check-for-success_8)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_8)
-        5. [Complete code example](#complete-code-example_8)
+        4. [Complete code example](#complete-code-example_8)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_8)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1239,10 +1239,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    Coming soon.
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "Go"
@@ -1277,6 +1273,10 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Learn more available functionalities in [Go SDK](../go/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    Coming soon.
+
 === "Unity"
 
     The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../unity/).
@@ -1285,8 +1285,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_9)
         2. [Send data](#send-data_9)
         3. [Check for success](#check-for-success_9)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_9)
-        5. [Complete code example](#complete-code-example_9)
+        4. [Complete code example](#complete-code-example_9)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_9)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1335,10 +1335,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    More information TBD.
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "C#"
@@ -1359,6 +1355,10 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more in [Unity SDK](../unity/).
 
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    More information TBD.
+
 === "Unreal"
 
     The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../unreal/).
@@ -1367,8 +1367,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         1. [Initialize the library](#initialize-the-library_10)
         2. [Send data](#send-data_10)
         3. [Check for success](#check-for-success_10)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_10)
-        5. [Complete code example](#complete-code-example_10)
+        4. [Complete code example](#complete-code-example_10)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_10)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1422,10 +1422,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
-
-    More information TBD.
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     === "C++"
@@ -1443,3 +1439,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ```
 
     Learn more in [Unreal SDK](../unreal/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    More information TBD.
