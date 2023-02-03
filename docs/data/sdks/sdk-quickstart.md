@@ -413,12 +413,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ));
         ```
 
-    #### EU data residency
-
-    You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
-
-    !!!note
-        For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
+    --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
     === "Kotlin"
 
