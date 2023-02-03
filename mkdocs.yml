@@ -429,9 +429,9 @@ nav:
       - Java:
         - data/sdks/java/index.md
         - Ampli Codegen: data/sdks/java/ampli.md
-      - React Native (Beta):
+      - React Native:
         - data/sdks/typescript-react-native/index.md
-        - Ampli Codegen (Beta): data/sdks/typescript-react-native/ampli.md
+        - Ampli Codegen: data/sdks/typescript-react-native/ampli.md
       - Flutter:
         - data/sdks/flutter/index.md
       - Python:
