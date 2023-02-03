@@ -7,7 +7,7 @@ description: The Ampli Wrapper - React Native Installation & Quick Start guide.
 
 Amplitude Data supports tracking analytics events from React Native apps written in JavaScript (ES6 and higher) and TypeScript (2.1 and higher). The generated tracking library is packaged as a CJS module.
 
-!!!beta "Ampli React Native Resources"
+!!!info "Ampli React Native Resources"
     [:material-language-typescript: TypeScript Example](https://github.com/amplitude/ampli-examples/tree/main/react-native/typescript/v2/AmpliApp) · [:material-nodejs: JavaScript Example](https://github.com/amplitude/ampli-examples/tree/main/react-native/javascript/v2/AmpliApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
