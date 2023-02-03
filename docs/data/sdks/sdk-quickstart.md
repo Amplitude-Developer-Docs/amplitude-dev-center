@@ -574,7 +574,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "iOS"
 
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios-swift/)
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_3)
@@ -587,129 +587,95 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ### Install the dependency
 
+    Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager. 
+
     === "CocoaPods"
 
+        1. Add dependency to `Podfile`. 
         ```bash
 
-        pod 'Amplitude', '~> 8.8.0'
+        pod 'AmplitudeSwift', '~> 0.3.0'
         ```
-        [Learn more](../ios/#__tabbed_1_1)
+        2. Run `pod install` in the project directory to install the dependency. 
 
     === "Swift Package Manager"
 
-        ```bash
-
-        Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
-        ```
-        [Learn more](../ios/#__tabbed_1_2)
+        1. Navigate to `File` > `Swift Package Manager` > 'Add Package Dependency`. This opens a dialog that allows you to add a package dependency. 
+        2. Enter the URL `https://github.com/amplitude/Amplitude-Swift` in the search bar. 
+        3. Xcode will automatically resolve to the latest version. Or you can select a specific version. 
+        4. Click the "Next" button to confirm the addition of the package as a dependency. 
+        5. Build your project to make sure the package is properly integrated. 
+        
     
     === "Carthage"
 
+        Add the following line to your `Cartfile`.
         ```bash
 
-        github 'amplitude/Amplitude-iOS' ~> 8.8.0
+        github "amplitude/Amplitude-Swift" ~> 0.3.0
         ```
-        [Learn more](../ios/#__tabbed_1_3)
+        Check out the [Carthage docs](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) for more info. 
 
     ### Initialization
 
-    === "Objective-C"
+    Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. You can use the iOS SDK anywhere after it's initialized in an iOS application.
 
-        ```obj-c
-        [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
-        ```
-    === "Swift"
+    ```swift
+    import Amplitude_Swift
 
-        ```swift
-        Amplitude.instance().initializeApiKey(AMPLITUDE_API_KEY)
-        ```
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "YOUR-API-KEY"
+        )
+    )
+    ```
+    --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
+
+    ```swift
+    import Amplitude_Swift
+
+    let amplitude = Amplitude(
+        Configuration(
+            apiKey: "YOUR-API-KEY",
+            serverZone: ServerZone.EU
+        )
+    )
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-    === "Objective-C"
-
-        ```obj-c
-        [[Amplitude instance] logEvent:@"Button Clicked"];
-        ```
-
-    === "Swift"
-
-        ```swift
-        Amplitude.instance().logEvent("Button Click")
-        ```
+    Events 
+    ```swift
+    amplitude.track(
+        eventType: "Button Clicked",
+        eventProperties: ["my event prop key": "my event prop value"]
+    )
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
-    === "Objective-C"
+    ```swift
+    import Amplitude_Swift
 
-        ```obj-c
-        #import "Amplitude.h"
+    let amplitude = Amplitude(
+        configuration: Configuration(
+            apiKey: "YOUR-API-KEY"
+        )
+    )
 
-        (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-            [[Amplitude instance] initializeApiKey:@"AMPLITUDE_API_KEY"];
+    amplitude.track(
+        eventType: "Button Clicked",
+        eventProperties: ["my event prop key": "my event prop value"]
+    )
+    ```
 
-            AMPIdentify *identify = [[[AMPIdentify identify] set:@"gender" value:@"female"] set:@"age"
-                value:[NSNumber numberWithInt:20]];
-            [[Amplitude instance] identify:identify];
-
-            [[Amplitude instance] logEvent:@"app_start"];
-
-            return YES;
-        }
-
-        ```
-
-    === "Swift"
-
-        ```swift
-        import Amplitude
-
-        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            Amplitude.instance().initializeApiKey("AMPLITUDE_API_KEY")
-
-            let identify = AMPIdentify()
-                .set("gender", value: "female")
-                .set("age",value: NSNumber(value: 20))
-            Amplitude.instance().identify(identify)
-
-            Amplitude.instance().logEvent("app_start")
-
-            return true
-        }
-        ```
-
-    Learn more available functionalities in [iOS SDK](../ios/).
+    Learn more available functionalities in [iOS SDK](../ios-swift/).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
-    === "Objective-C"
-
-        ```obj-c title
-
-        Ampli *ampli = [Ampli instance];
-        [ampli load];
-
-        [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
-                                            booleanProp:true]];
-
-        ```
-
-    === "Swift"
-
-        ```swift
-
-        ampli.load();
-
-        ampli.yourEventType(
-            stringProp: "Strongly typed property",
-            booleanProp: true
-        )
-
-        ```
-
-    Learn more about [Ampli iOS](../ios/ampli/).
+    Coming soon.
 
 === "JRE"
 
