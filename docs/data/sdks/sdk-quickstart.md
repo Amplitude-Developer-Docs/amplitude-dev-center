@@ -40,6 +40,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ```
 
     === "Script loader"
+        This package is also distributed through a CDN. Copy and paste this script in your HTML file.
         ```html
 
         <script type="text/javascript">
@@ -47,14 +48,14 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         </script>
         ```
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "TypeScript"
 
         ```ts
         import { init } from '@amplitude/analytics-browser';
 
-        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        init(AMPLITUDE_API_KEY);
         ```
 
     === "JavaScript"
@@ -62,7 +63,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ```js
         import { init } from '@amplitude/analytics-browser';
 
-        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+        init(AMPLITUDE_API_KEY);
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
@@ -197,7 +198,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         yarn add @amplitude/analytics-node
         ```
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "TypeScript"
 
@@ -352,10 +353,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ### Add dependencies
 
-    Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies. If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And the sync project with Gradle files. If you are using Maven in your project, the jar is available on Maven Central using the following configuration in your pom.xml
+    Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies.
 
     === "Gradle"
 
+        If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And the sync project with Gradle files.
         ```bash
 
         dependencies {
@@ -363,6 +365,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         }
         ```
     === "Maven"
+        If you are using Maven in your project, the jar is available on Maven Central using the following configuration in your pom.xml
 
         ```bash
         <dependency>
@@ -386,9 +389,9 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     The SDK internally uses a few Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) or requires a minimum API level of 16.
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
-    Before you can instrument, you must initialize the SDK using the [API key](../../analytics/find-api-credentials.md) for your Amplitude project. Amplitude recommends doing the initialization in the Main Activity, which never gets destroyed, or the Application class if you have one. After it's initialized, you can use the Android SDK anywhere in your Android application.
+    Amplitude recommends doing the initialization in the Main Activity, which never gets destroyed, or the Application class if you have one. After it's initialized, you can use the Android SDK anywhere in your Android application.
     
     === "Kotlin"
 
@@ -611,9 +614,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ```
         Check out the [Carthage docs](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) for more info. 
 
-    ### Initialization
-
-    Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. You can use the iOS SDK anywhere after it's initialized in an iOS application.
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     ```swift
     import Amplitude_Swift
@@ -704,7 +705,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Get the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases).
 
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "Java"
 
@@ -823,7 +824,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     pip install amplitude-analytics
     ```
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "Python"
 
@@ -951,7 +952,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     pod install
     ```
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "TypeScript"
 
@@ -1091,7 +1092,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more about [adding the dependency](../flutter/#add-dependencies).
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "Dart"
 
@@ -1167,7 +1168,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         go get https://github.com/amplitude/analytics-go
         ```
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "Go"
 
@@ -1270,7 +1271,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Learn more about the [Unity package download](../unity/#option-2-manual-download-and-add-dependency).
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     === "C#"
 
@@ -1342,7 +1343,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
    
     Download the latest [AmplitudeUnreal.zip](https://github.com/amplitude/Amplitude-Unreal/releases/tag/v0.1.0).
 
-    ### Initialization
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     #### Enable the SDK plugin
 
