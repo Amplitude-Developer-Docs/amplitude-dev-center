@@ -12,7 +12,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Browser"
 
-    The Browser SDK lets you send events to Amplitude. See the full documentation at [Browser SDK](../sdks/typescript-browser/).
+    The Browser SDK lets you send events to Amplitude. See the full documentation at [Browser SDK](../typescript-browser/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library)
@@ -124,7 +124,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         });
         ```
 
-    Learn more about [Ampli Browser](../sdks/typescript-browser/ampli/).
+    Learn more about [Ampli Browser](../typescript-browser/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -164,11 +164,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more available functionalities in [Browser SDK](../sdks/typescript-browser/).
+    Learn more available functionalities in [Browser SDK](../typescript-browser/).
 
 === "Node"
 
-    The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../sdks/typescript-node/).
+    The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../typescript-node/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_1)
@@ -279,7 +279,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli Node](../sdks/typescript-node/ampli/).
+    Learn more about [Ampli Node](../typescript-node/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -321,22 +321,38 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         });
         ```
 
-    Learn more available functionalities in [Node SDK](../sdks/typescript-node/).
+    Learn more available functionalities in [Node SDK](../typescript-node/).
 
 === "Android"
 
-    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../sdks/android-kotlin/).
+    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../android-kotlin/) for additional configurations and advanced topics.
 
-    !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_2)
-        2. [Send data](#send-data_2)
-        3. [Check for success](#check-for-success_2)
-        4. [Enforce event schemas](#enforce-event-schemas-ampli_2)
-        5. [Complete code example](#complete-code-example_2)
+    ???example "Get started fast with an example project (click to expand)"
+    
+        To get started fast, check out an [example Android Kotlin project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-android-app):
+
+        1. Clone the repo.
+        2. Open it with Android Studio.
+        3. Change your API key in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
+        4. Run `samples.kotlin-android-app`.
+        5. Press the button to send events in the running application. 
+        6. [Check for success](./#check-for-success_2).
+
+    !!!info "Quickstart table of contents"
+
+        Skip to a section: 
+
+        7. [Initialize the library](#initialize-the-library_2)
+        8. [Send data](#send-data_2)
+        9. [Check for success](#check-for-success_2)
+        10. [Enforce event schemas](#enforce-event-schemas-ampli_2)
+        11. [Complete code example](#complete-code-example_2)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Install dependencies
+    ### Add dependencies
+
+    Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies. If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And the sync project with Gradle files. If you are using Maven in your project, the jar is available on Maven Central using the following configuration in your pom.xml
 
     === "Gradle"
 
@@ -346,16 +362,39 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
             implementation 'com.amplitude:analytics-android:1.+'
         }
         ```
+    === "Maven"
 
-    To report events to Amplitude, add the INTERNET permission to your AndroidManifest.xml file. `<uses-permission android:name="android.permission.INTERNET" />`
+        ```bash
+        <dependency>
+            <groupId>com.amplitude</groupId>
+            <artifactId>analytics-android</artifactId>
+            <version>[1.0,2.0)</version>
+        </dependency>
+        ```
 
-    Learn more about [Add Android Permission](../sdks/android-kotlin/#2-add-permissions).
+    ### Add permissions 
+
+    To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file.
+    ```
+    <uses-permission android:name="android.permission.INTERNET" />
+    ```
+
+    For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone carrier information. If you don't add this permission, the SDK still works, but doesn't track phone carrier information.
+    ```
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    ```
+
+    The SDK internally uses a few Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) or requires a minimum API level of 16.
 
     ### Initialization
 
+    Before you can instrument, you must initialize the SDK using the [API key](../../analytics/find-api-credentials.md) for your Amplitude project. Amplitude recommends doing the initialization in the Main Activity, which never gets destroyed, or the Application class if you have one. After it's initialized, you can use the Android SDK anywhere in your Android application.
+    
     === "Kotlin"
 
         ```kotlin
+        import com.amplitude.android.Amplitude;
+
         val amplitude = Amplitude(
             Configuration(
                 apiKey = AMPLITUDE_API_KEY,
@@ -366,26 +405,70 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Java"
 
         ```java
+        import com.amplitude.android.Amplitude;
+
         Amplitude amplitude =  new Amplitude(new Configuration(
             apiKey = AMPLITUDE_API_KEY,
             context = applicationContext
         ));
         ```
 
-    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+    #### EU data residency
+
+    You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
+
+    !!!note
+        For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
 
     === "Kotlin"
 
         ```kotlin
+        import com.amplitude.android.Amplitude;
+        
+        val amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            serverZone = ServerZone.EU
+        )
+        )
+        ```
+    === "Java"
 
-        amplitude.track("eventType", mutableMapOf<String, Any?>("test" to "event property value"))
+        ```java
+        import com.amplitude.android.Amplitude;
+        
+        Amplitude amplitude =  new Amplitude(new Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            serverZone = ServerZone.EU
+        ));
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    Events tracked are buffered locally and flushed every 30 seconds. After calling track() in your app, it may take several seconds for event data to appear in Amplitude.
+
+    === "Kotlin"
+
+        ```kotlin
+        // Track a basic event
+        amplitude.track("Button Clicked")
+        // Track events with optional properties
+        amplitude.track(
+        "Button Clicked",
+        mapOf("buttonColor" to "primary")
+        )
         ```
 
     === "Java"
 
         ```java
-        amplitude.track("eventType", new HashMap() {{
-            put("test", "test event property value");
+        // Track a basic event
+        amplitude.track("Button Clicked");
+        // Track events with optional properties
+        amplitude.track("Button Clicked", new HashMap() {{
+            put("buttonColor", "primary");
         }});
         ```
 
@@ -418,7 +501,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         );
         ```
 
-    Learn more about [Ampli Android](../sdks/android-kotlin/ampli/).
+    Learn more about [Ampli Android](../android-kotlin/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -487,11 +570,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more available functionalities in [Android SDK](../sdks/android-kotlin/).
+    Learn more available functionalities in [Android SDK](../android-kotlin/).
 
 === "iOS"
 
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../sdks/ios/)
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_3)
@@ -510,7 +593,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         pod 'Amplitude', '~> 8.14'
         ```
-        [Learn more](../sdks/ios/#__tabbed_1_1)
+        [Learn more](../ios/#__tabbed_1_1)
 
     === "Swift Package Manager"
 
@@ -518,7 +601,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/Amplitude-iOS' to Package Dependency
         ```
-        [Learn more](../sdks/ios/#__tabbed_1_2)
+        [Learn more](../ios/#__tabbed_1_2)
     
     === "Carthage"
 
@@ -526,7 +609,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         github 'amplitude/Amplitude-iOS' ~> 8.14
         ```
-        [Learn more](../sdks/ios/#__tabbed_1_3)
+        [Learn more](../ios/#__tabbed_1_3)
 
     ### Initialization
 
@@ -584,7 +667,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli iOS](../sdks/ios/ampli/).
+    Learn more about [Ampli iOS](../ios/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -626,11 +709,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         }
         ```
 
-    Learn more available functionalities in [iOS SDK](../sdks/ios/).
+    Learn more available functionalities in [iOS SDK](../ios/).
 
 === "JRE"
 
-    This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../sdks/java/).
+    This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../java/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_4)
@@ -651,7 +734,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
             implementation 'com.amplitude:java-sdk:1.+'
         }
         ```
-        Learn more about [Add Dependency using Gradle](../sdks/java/#maven).
+        Learn more about [Add Dependency using Gradle](../java/#maven).
 
     === "Download"
 
@@ -721,7 +804,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli Java](../sdks/java/ampli/).
+    Learn more about [Ampli Java](../java/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -760,7 +843,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         amplitude.logEvent(event)
         ```
 
-    Learn more in [Java SDK](../sdks/java/).
+    Learn more in [Java SDK](../java/).
 
 === "Python"
 
@@ -827,7 +910,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         )
 
         ```
-    Learn more about [Ampli Python](../sdks/python/ampli/).
+    Learn more about [Ampli Python](../python/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -853,13 +936,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
                 }
             )
         )
+
+        # Flush the event buffer
+        amplitude.flush()
+
+        # Shutdown the client, recommend to call before program exit 
+        amplitude.shutdown()
         ```
 
-    Learn more available functionalities in [Python SDK](../sdks/python/).
+    Learn more available functionalities in [Python SDK](../python/).
 
 === "React Native"
 
-    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../sdks/react-native/).
+    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../typescript-react-native/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)
@@ -973,7 +1062,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli React Native](../sdks/typescript-react-native/ampli/).
+    Learn more about [Ampli React Native](../typescript-react-native/ampli/).
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
@@ -1011,11 +1100,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         track('Button Clicked', eventProperties);
         ```
 
-    Learn more available functionalities in [React Native SDK](../sdks/typescript-react-native/).
+    Learn more available functionalities in [React Native SDK](../typescript-react-native/).
 
 === "Flutter"
 
-    The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../sdks/flutter/).
+    The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../flutter/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_7)
@@ -1039,7 +1128,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     iOS installation also need to add `platform :ios, '10.0'` to your Podfile.
 
-    Learn more about [adding the dependency](../sdks/flutter/#add-dependencies).
+    Learn more about [adding the dependency](../flutter/#add-dependencies).
 
     ### Initialization
 
@@ -1094,11 +1183,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
       ```
 
-      Learn more in [Flutter SDK](../sdks/flutter/).
+      Learn more in [Flutter SDK](../flutter/).
 
 === "Go"
 
-    The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../sdks/go/).
+    The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../go/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_8)
@@ -1186,11 +1275,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-        Learn more available functionalities in [Go SDK](../sdks/go/).
+        Learn more available functionalities in [Go SDK](../go/).
 
 === "Unity"
 
-    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../sdks/unity/).
+    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../unity/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_9)
@@ -1209,7 +1298,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
         ```
-        Learn more about [Unity package manager initizalization](../sdks/unity/#option-1-unity-package-manager)
+        Learn more about [Unity package manager initizalization](../unity/#option-1-unity-package-manager)
 
     === "Manual download"
 
@@ -1218,7 +1307,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Download amplitude-unity.unitypackage
         ```
 
-        Learn more about the [Unity package download](../sdks/unity/#option-2-manual-download-and-add-dependency).
+        Learn more about the [Unity package download](../unity/#option-2-manual-download-and-add-dependency).
 
     ### Initialization
 
@@ -1268,11 +1357,11 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more in [Unity SDK](../sdks/unity/).
+    Learn more in [Unity SDK](../unity/).
 
 === "Unreal"
 
-    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../sdks/unreal/).
+    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../unreal/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_10)
@@ -1298,19 +1387,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Settings > Plugins > Project > Analytics
     
-    Learn more about [how to enable SDK plugin](../sdks/unreal/#enable-the-sdk-plugin-in-the-editor).
+    Learn more about [how to enable SDK plugin](../unreal/#enable-the-sdk-plugin-in-the-editor).
 
     #### Set Amplitude as your analytics provider
 
     Settings -> Project Settings -> Analytics -> Providers
 
-    Learn more about [how to set analytics provider](../sdks/unreal/#set-amplitude-as-your-analytics-provider).
+    Learn more about [how to set analytics provider](../unreal/#set-amplitude-as-your-analytics-provider).
 
     #### Add your API keys
 
     Settings -> Project Settings -> Analytics -> Amplitude
 
-    Learn more about [how to set API keys](../sdks/unreal/#add-your-api-keys).
+    Learn more about [how to set API keys](../unreal/#add-your-api-keys).
 
     === "C++"
 
@@ -1353,4 +1442,4 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         FAnalytics::Get().GetDefaultConfiguredProvider()->RecordEvent(TEXT("Game Started"), AppendedAttributes);
         ```
 
-    Learn more in [Unreal SDK](../sdks/unreal/).
+    Learn more in [Unreal SDK](../unreal/).

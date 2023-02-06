@@ -22,6 +22,7 @@
 - :leanplum: [Leanplum](../data/destinations/leanplum-cohort.md)
 - :mailchimp: [Mailchimp](../data/destinations/mailchimp-cohort.md)
 - :marketo: [Marketo](../data/destinations/marketo-cohort.md)
+- :marketo: [Marketo Static List](../data/destinations/marketo-static-list-cohort.md)
 - :maze: [Maze](../data/destinations/maze-cohort.md)
 - :moengage: [MoEngage](../data/destinations/moengage-cohort.md)
 - :netcore: [Netcore Cloud](../data/destinations/netcore-cohort.md)

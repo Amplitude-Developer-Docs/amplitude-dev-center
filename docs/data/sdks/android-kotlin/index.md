@@ -18,65 +18,7 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
 
 ## Getting started
 
-### Step 1: Add dependencies
-
-- Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies.
-- In `build.gradle` file, add the following dependencies with the [latest version](https://search.maven.org/artifact/com.amplitude/analytics-android) of the SDK.
-
-```txt
-dependencies {
-  implementation 'com.amplitude:analytics-android:1.+'
-}
-```
-
-- Sync project with Gradle files.
-
-### Step 2: Add permissions
-<!-- vale off -->
-To report events to Amplitude, add the INTERNET permission to your `AndroidManifest.xml` file.
-`<uses-permission android:name="android.permission.INTERNET" />`
-
-For Android 6.0 (Marshmallow) and above, explicitly add the `READ_PHONE_STATE` permission to fetch phone carrier information. If you don't add this permission, the SDK still works, but doesn't track phone carrier information.
-`<uses-permission android:name="android.permission.READ_PHONE_STATE" />`
-<!--vale on-->
-The SDK internally uses a few Java 8 language APIs through desugaring. Make sure your project either [enables desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) or requires a minimum API level of 16.
-
-### Step 3: Initialization
-
-Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. Amplitude recommends doing the initialization in the Main Activity, which never gets destroyed, or the Application class if you have one. After it's initialized, you can use the Android SDK anywhere in your Android application.
-
-```kotlin
-import com.amplitude.android.Amplitude;
-
-val amplitude = Amplitude(
-  Configuration(
-    apiKey = AMPLITUDE_API_KEY,
-    context = applicationContext,
-    minIdLength = 3 // Optional. Sets minimum length for user and device ID (Default: 5)
-  )
-)
-```
-
-#### EU data residency
-
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
-
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
-
-=== "Kotlin"
-
-    ```kotlin
-    import com.amplitude.android.Amplitude;
-    
-    val amplitude = Amplitude(
-      Configuration(
-        apiKey = AMPLITUDE_API_KEY,
-        context = applicationContext,
-        serverZone = ServerZone.EU
-      )
-    )
-    ```
+Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started with Amplitude Android Kotlin SDK.
 
 ## Usage
 
@@ -85,7 +27,10 @@ You can configure the server zone when initializing the client for sending data 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
 ```kotlin
-amplitude.track("Button Clicked", mutableMapOf<String, Any?>("my event property" to "test event property value"))
+amplitude.track(
+    "Button Clicked",
+    mutableMapOf<String, Any?>("my event property" to "test event property value")
+)
 ```
 
 ### `identify`
@@ -705,7 +650,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
 
 Don't send push notification events client-side via the Android SDK. Because a user must open the app to initialize the Amplitude SDK in order for the SDK to send the event, events aren't sent to the Amplitude servers until the next time the user opens the app. This can cause data delays.
 
-You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](https://developers.amplitude.com/docs/http-api-v2) to send push notification events to Amplitude.
+You can use [mobile marketing automation partners](https://amplitude.com/integrations?category=mobile-marketing-automation) or the [HTTP API V2](../../../analytics/apis/http-v2-api) to send push notification events to Amplitude.
 
 ### Set log callback
 

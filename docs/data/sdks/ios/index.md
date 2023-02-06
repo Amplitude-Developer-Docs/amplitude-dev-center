@@ -753,6 +753,23 @@ By default, only critical errors are logged to console. To enable debug logging 
     [[Amplitude instance] logEvent:@"Viewed Home Page"];
     ```
 
+=== "Swift"
+
+    ```swift
+    // existing project, existing settings, and existing API key
+    Amplitude.instance().initializeApiKey("12345")
+    Amplitude.instance(withName: "new_project").initializeApiKey("67890") // new project, new API key
+
+
+    Amplitude.instance(withName: "new_project").initializeApiKey("123456") // need to reconfigure new project
+    Amplitude.instance(withName: "new_project").logEvent("Clicked")
+
+    let identify = AMPIdentify()
+        .add("karma",value: NSNumber(value: 1))
+    Amplitude.instance().identify(identify)
+    Amplitude.instance().logEvent("Viewed Home Page")
+    ```
+
 ### Disable tracking
 
 By default the iOS SDK tracks several user properties such as `carrier`, `city`, `country`, `ip_address`, `language`, `platform`, etc. You can use the provided `AMPTrackingOptions` interface to customize and disable individual fields.

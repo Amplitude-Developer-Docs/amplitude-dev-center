@@ -71,7 +71,8 @@ plugins:
   - git-revision-date # enables the git revision date functionality
   #- glightbox # leave this commented out -- it enables image lightboxing but it also increases build time by 30 seconds so you don't want it messing with you locally. This plugin is enabled on insiders.
 
-# Extensions
+# Extensions 
+# Make sure to mirror changes in insiders.mkdocs.yml. 
 markdown_extensions:
   - admonition
   - abbr
@@ -84,6 +85,8 @@ markdown_extensions:
   - toc:
       permalink: true
       title: "On this page"
+      toc_depth: 3
+      permalink_title: Link to this section
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -259,6 +262,7 @@ nav:
         - Amazon S3: data/destinations/amazon-s3.md
         - Google Cloud Storage: data/destinations/google-cloud-storage.md
       - Warehouse:
+        - Overview: data/destination-warehouse-overview.md
         - Redshift: data/destinations/redshift.md
         - BigQuery: data/destinations/bigquery.md
         - Snowflake: data/destinations/snowflake.md
@@ -270,6 +274,7 @@ nav:
         - Customer.io: data/destinations/customerio.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
+        - Kameleoon: data/destinations/kameleoon-event-streaming.md
         - Lantern: data/destinations/lantern-event-streaming.md
         - Pub/Sub: data/destinations/google-pub-sub.md
         - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
@@ -307,6 +312,7 @@ nav:
         - Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
         - Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
         - Marketo: data/destinations/marketo-cohort.md
+        - Marketo Static List: data/destinations/marketo-static-list-cohort.md
         - Maze: data/destinations/maze-cohort.md
         - MoEngage: data/destinations/moengage-cohort.md
         - Netcore Cloud: data/destinations/netcore-cohort.md
@@ -423,9 +429,9 @@ nav:
       - Java:
         - data/sdks/java/index.md
         - Ampli Codegen: data/sdks/java/ampli.md
-      - React Native (Beta):
+      - React Native:
         - data/sdks/typescript-react-native/index.md
-        - Ampli Codegen (Beta): data/sdks/typescript-react-native/ampli.md
+        - Ampli Codegen: data/sdks/typescript-react-native/ampli.md
       - Flutter:
         - data/sdks/flutter/index.md
       - Python:

@@ -1,6 +1,6 @@
 ---
 title: Send Cohorts to Productboard
-description: Send Amplitude cohorts to Productboard to filter customer feedback and categorize insights based on cohorts. 
+description: Send Amplitude cohorts to Productboard to filter customer feedback and categorize insights based on cohorts.
 ---
 
 By integrating Productboard with Amplitude, you can filter customer feedback based on cohorts created within Amplitude, and categorize the insights into themes that can inform the product roadmap. Product managers can then make better decisions about what to build and who might be most affected when you ship new features .
@@ -24,8 +24,15 @@ For more details on using this integration, see [Productboard's documentation](
 
 1. In Amplitude, navigate to **Data Destinations**, then find **Productboard - Cohort**.
 2. Enter a name and paste the token you copied from Productboard.
-3. Select the Amplitude properties that map onto the Productboard user ID and email properties.
-4. Save when finished. 
+3. Select the Amplitude properties that map onto the Productboard user ID, email and external ID properties.
+   
+    !!!info "More about properties"
+
+          - **User ID**: <span class="required">Required</span>. This is a unique, immutable ID that Productboard uses to identify users. If a user has two different user IDs, two unique users appear in Productboard. Consider mapping an external ID so Productboard can deduplicate users.
+          - **Email**: <span class="optional">Optional</span>. If this is mapped, Amplitude sends user email addresses to Productboard.
+          - **External ID**: <span class="optional">Optional</span>. If this is mapped, Amplitude sends an external ID to Productboard. Productboard can merge users with the same external ID. Learn more in the [Productboard documentation](https://support.productboard.com/hc/en-us/articles/9140206978707-External-ID-Management-FAQs-and-Troubleshooting)
+      
+4. Save when finished.
 
 ## Send a cohort
 
