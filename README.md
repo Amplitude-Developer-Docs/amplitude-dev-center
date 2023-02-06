@@ -4,7 +4,7 @@
 
 # README
 
-This is the Amplitude Developer Center site. This site is currently in beta and the workflows may change.
+This is the repo for the [Amplitude developer docs site](https://docs.developers.amplitude.com).
 
 We use [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) to create our docs.
 
