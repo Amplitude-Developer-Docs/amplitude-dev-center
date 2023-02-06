@@ -7,7 +7,7 @@ Use the HTTP V2 API to send data directly from your server to the HTTP V2 endpoi
 
 The HTTP V2 API replaces the deprecated HTTP API.
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-api-key.md"
 
@@ -75,7 +75,8 @@ Override the default minimum length of 5 character by passing the `min_id_length
 
 If the event doesn't have a `user_id` or `device_id` value, the upload may be rejected with a 400 status. 
 
-??? info "Invalid IDs"
+??? info "Invalid IDs (click to expand)"
+
     These IDs are invalid, and result in a 400 error:
 
     * "anonymous"
@@ -99,21 +100,28 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
 
 ### Example request
 
+This is a simple upload request example.
+
 === "cURL"
+
     ```bash
     # You can also use wget
     curl -X POST https://api2.amplitude.com/2/httpapi \
       -H 'Content-Type: application/json' \
       -H 'Accept: */*'
     ```
+
 === "HTTP"
+
     ```bash
     POST https//api2.amplitude.com/2/httpapi HTTP/1.1
     Host: api2.amplitude.com
     Content-Type: application/json
     Accept: */*
     ```
+
 === "JavaScript"
+
     ```js
     var headers = {
       'Content-Type':'application/json',
@@ -218,6 +226,7 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
     ```
 
 === "Ruby"
+
     ```ruby
     require 'rest-client'
     require 'json'
@@ -233,7 +242,9 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
 
     p JSON.parse(result)
     ```
+
 === "Python"
+
     ```python
     import requests
     headers = {
@@ -247,7 +258,9 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
 
     print r.json()
     ```
+
 === "Java" 
+
     ```java
     URL obj = new URL("https://api2.amplitude.com/2/httpapi");
     HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -263,7 +276,9 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
     in.close();
     System.out.println(response.toString());
     ```
+
 === "Go"
+
     ```go
     package main
 
@@ -289,6 +304,364 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`
         // ...
     }
     ```
+
+???example "More examples (click to expand)"
+
+    ???code-example "Example: Simple request (click to expand)"
+
+        This example uploads a 'watch_tutorial' event with a few properities and user properties for the user `12345`.
+
+        === "cURL"
+
+            ```bash
+
+            curl --location --request POST 'https://api.amplitude.com/2/httpapi' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+                "api_key": "2a00000000002bbe81c37",
+                "events": [
+                    {
+                        "user_id": "12345",
+                        "event_type": "watch_tutorial",
+                        "user_properties": {
+                            "Cohort": "Test A"
+                        },
+                        "country": "United States",
+                        "ip": "127.0.0.1",
+                        "time": 1396381378123
+                    }
+                ]
+            }'
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            POST /2/httpapi HTTP/1.1
+            Host: api.amplitude.com
+            Content-Type: application/json
+            Content-Length: 360
+
+            {
+                "api_key": "2a00000000002bbe81c37",
+                "events": [
+                    {
+                        "user_id": "12345",
+                        "event_type": "watch_tutorial",
+                        "user_properties": {
+                            "Cohort": "Test A"
+                        },
+                        "country": "United States",
+                        "ip": "127.0.0.1",
+                        "time": 1396381378123
+                    }
+                ]
+            }
+            ```
+
+    ???code-example "Example: Request with many fields (click to expand)"
+
+        This example uploads a 'watch_tutorial' event with many event properties and user properties for the user `12345`.
+
+        === "cURL"
+
+            ```bash
+            curl --location --request POST 'https://api.amplitude.com/2/httpapi' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+              "api_key": "2a00000000002bbe81c37",
+              "events": [
+                {
+                  "user_id": "12345@gmail.com",
+                  "device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
+                  "event_type": "watch_tutorial",
+                  "time": 1396381378123,
+                  "event_properties": {
+                    "load_time": 0.8371,
+                    "source": "notification",
+                    "dates": [
+                      "monday",
+                      "tuesday"
+                    ]
+                  },
+                  "user_properties": {
+                    "age": 25,
+                    "gender": "female",
+                    "interests": [
+                      "chess",
+                      "football",
+                      "music"
+                    ]
+                  },
+                  "groups": {
+                    "team_id": "1",
+                    "company_name": [
+                      "Amplitude",
+                      "DataMonster"
+                    ]
+                  },
+                  "app_version": "2.1.3",
+                  "platform": "iOS",
+                  "os_name": "Android",
+                  "os_version": "4.2.2",
+                  "device_brand": "Verizon",
+                  "device_manufacturer": "Apple",
+                  "device_model": "iPhone 9,1",
+                  "carrier": "Verizon",
+                  "country": "United States",
+                  "region": "California",
+                  "city": "San Francisco",
+                  "dma": "San Francisco-Oakland-San Jose, CA",
+                  "language": "English",
+                  "price": 4.99,
+                  "quantity": 3,
+                  "revenue": -1.99,
+                  "productId": "Google Pay Store Product Id",
+                  "revenueType": "Refund",
+                  "location_lat": 37.77,
+                  "location_lng": -122.39,
+                  "ip": "127.0.0.1",
+                  "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "event_id": 23,
+                  "session_id": 1396381378123,
+                  "insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
+                }
+              ]
+            }'
+            ```
+
+        === "HTTP"
+
+            ```bash
+            POST /2/httpapi HTTP/1.1
+            Host: api.amplitude.com
+            Content-Type: application/json
+            Content-Length: 1719
+
+            {
+              "api_key": "2a00000000002bbe81c37",
+              "events": [
+                {
+                  "user_id": "datamonster@gmail.com",
+                  "device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
+                  "event_type": "watch_tutorial",
+                  "time": 1396381378123,
+                  "event_properties": {
+                    "load_time": 0.8371,
+                    "source": "notification",
+                    "dates": [
+                      "monday",
+                      "tuesday"
+                    ]
+                  },
+                  "user_properties": {
+                    "age": 25,
+                    "gender": "female",
+                    "interests": [
+                      "chess",
+                      "football",
+                      "music"
+                    ]
+                  },
+                  "groups": {
+                    "team_id": "1",
+                    "company_name": [
+                      "Amplitude",
+                      "DataMonster"
+                    ]
+                  },
+                  "app_version": "2.1.3",
+                  "platform": "iOS",
+                  "os_name": "Android",
+                  "os_version": "4.2.2",
+                  "device_brand": "Verizon",
+                  "device_manufacturer": "Apple",
+                  "device_model": "iPhone 9,1",
+                  "carrier": "Verizon",
+                  "country": "United States",
+                  "region": "California",
+                  "city": "San Francisco",
+                  "dma": "San Francisco-Oakland-San Jose, CA",
+                  "language": "English",
+                  "price": 4.99,
+                  "quantity": 3,
+                  "revenue": -1.99,
+                  "productId": "Google Pay Store Product Id",
+                  "revenueType": "Refund",
+                  "location_lat": 37.77,
+                  "location_lng": -122.39,
+                  "ip": "127.0.0.1",
+                  "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "event_id": 23,
+                  "session_id": 1396381378123,
+                  "insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
+                }
+              ]
+            }
+            ```
+
+    ???code-example "Example: Request with option (click to expand)"
+
+        This example uploads a 'watch_tutorial' event with many event properties and user properties for the user `12345`, but sets the `min_id_length` option to 3.
+        Notice that `device_id` is 3 characters long.
+
+        === "cURL"
+
+            ```bash hl_lines="5 6"
+
+            curl --location --request POST 'https://api.amplitude.com/2/httpapi' \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+              "api_key": "2a0d30356cbb278eee1a69b2bbe81c37",
+              "options": {
+                "min_id_length": 3
+                },
+              "events": [
+                {
+                  "user_id": "12345",
+                  "device_id": "123",
+                  "event_type": "watch_tutorial",
+                  "time": 1396381378123,
+                  "event_properties": {
+                    "load_time": 0.8371,
+                    "source": "notification",
+                    "dates": [
+                      "monday",
+                      "tuesday"
+                    ]
+                  },
+                  "user_properties": {
+                    "age": 25,
+                    "gender": "female",
+                    "interests": [
+                      "chess",
+                      "football",
+                      "music"
+                    ]
+                  },
+                  "groups": {
+                    "team_id": "1",
+                    "company_name": [
+                      "Amplitude",
+                      "DataMonster"
+                    ]
+                  },
+                  "app_version": "2.1.3",
+                  "platform": "iOS",
+                  "os_name": "Android",
+                  "os_version": "4.2.2",
+                  "device_brand": "Verizon",
+                  "device_manufacturer": "Apple",
+                  "device_model": "iPhone 9,1",
+                  "carrier": "Verizon",
+                  "country": "United States",
+                  "region": "California",
+                  "city": "San Francisco",
+                  "dma": "San Francisco-Oakland-San Jose, CA",
+                  "language": "English",
+                  "price": 4.99,
+                  "quantity": 3,
+                  "revenue": -1.99,
+                  "productId": "Google Pay Store Product Id",
+                  "revenueType": "Refund",
+                  "location_lat": 37.77,
+                  "location_lng": -122.39,
+                  "ip": "127.0.0.1",
+                  "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "event_id": 23,
+                  "session_id": 1396381378123,
+                  "insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
+                }
+              ]
+            }'
+            ```
+
+        === "HTTP"
+
+            ```bash hl_lines="8 9"
+
+            POST /2/httpapi HTTP/1.1
+            Host: api.amplitude.com
+            Content-Type: application/json
+            Content-Length: 1731
+
+            {
+              "api_key": "2a0d30356cbb278eee1a69b2bbe81c37",
+              "options": {
+                "min_id_length": 3
+                },
+              "events": [
+                {
+                  "user_id": "datamonster@gmail.com",
+                  "device_id": "123",
+                  "event_type": "watch_tutorial",
+                  "time": 1396381378123,
+                  "event_properties": {
+                    "load_time": 0.8371,
+                    "source": "notification",
+                    "dates": [
+                      "monday",
+                      "tuesday"
+                    ]
+                  },
+                  "user_properties": {
+                    "age": 25,
+                    "gender": "female",
+                    "interests": [
+                      "chess",
+                      "football",
+                      "music"
+                    ]
+                  },
+                  "groups": {
+                    "team_id": "1",
+                    "company_name": [
+                      "Amplitude",
+                      "DataMonster"
+                    ]
+                  },
+                  "app_version": "2.1.3",
+                  "platform": "iOS",
+                  "os_name": "Android",
+                  "os_version": "4.2.2",
+                  "device_brand": "Verizon",
+                  "device_manufacturer": "Apple",
+                  "device_model": "iPhone 9,1",
+                  "carrier": "Verizon",
+                  "country": "United States",
+                  "region": "California",
+                  "city": "San Francisco",
+                  "dma": "San Francisco-Oakland-San Jose, CA",
+                  "language": "English",
+                  "price": 4.99,
+                  "quantity": 3,
+                  "revenue": -1.99,
+                  "productId": "Google Pay Store Product Id",
+                  "revenueType": "Refund",
+                  "location_lat": 37.77,
+                  "location_lng": -122.39,
+                  "ip": "127.0.0.1",
+                  "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
+                  "android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
+                  "event_id": 23,
+                  "session_id": 1396381378123,
+                  "insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
+                }
+              ]
+            }
+            ```
 
 ### Upload request body parameters
 
