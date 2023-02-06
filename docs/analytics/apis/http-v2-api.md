@@ -519,7 +519,7 @@ This is a simple upload request example.
             curl --location --request POST 'https://api.amplitude.com/2/httpapi' \
             --header 'Content-Type: application/json' \
             --data-raw '{
-              "api_key": "2a0d30356cbb278eee1a69b2bbe81c37",
+              "api_key": "2a00000000002bbe81c37",
               "options": {
                 "min_id_length": 3
                 },
@@ -596,7 +596,7 @@ This is a simple upload request example.
             Content-Length: 1731
 
             {
-              "api_key": "2a0d30356cbb278eee1a69b2bbe81c37",
+              "api_key": "2a00000000002bbe81c37",
               "options": {
                 "min_id_length": 3
                 },
