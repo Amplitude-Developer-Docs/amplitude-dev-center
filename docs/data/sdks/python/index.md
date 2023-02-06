@@ -19,13 +19,7 @@ The Python SDK lets you send events to Amplitude. This library is open-source, c
 
 ## Getting started
 
-### Installation
-
-Install `amplitude-analytics` using pip:
-
-```bash
-pip install amplitude-analytics
-```
+Use [this quickstart guide](../../sdks/sdk-quickstart#python) to get started with Amplitude Python SDK.
 
 ## Usage
 

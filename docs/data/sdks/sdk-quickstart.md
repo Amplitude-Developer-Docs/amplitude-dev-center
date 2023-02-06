@@ -23,7 +23,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Install dependency
+    ### Install the dependency
         
     Install the dependency using NPM, YARN, or script loader.
 
@@ -182,7 +182,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ### Install the dependency
 
-      Install dependencies using NPM or YARN.
+      Install the dependency using NPM or YARN.
 
     === "NPM"
 
@@ -351,13 +351,13 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
-    ### Add dependencies
+    ### Install the dependency
 
     Amplitude recommends using Android Studio as an IDE and Gradle to manage dependencies.
 
     === "Gradle"
 
-        If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And the sync project with Gradle files.
+        If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And then sync project with Gradle files.
         ```bash
 
         dependencies {
@@ -675,7 +675,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "JRE"
 
-    This is the documentation for the Amplitude Analytics Java SDK. This is not the Android SDK. See the full documentation at [Java SDK](../java/).
+    This is the documentation for the **Amplitude Analytics Java SDK**. This is not the Android SDK. See the full documentation at [Java SDK](../java/).
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_4)
@@ -688,7 +688,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ### Install the dependency
 
-    === "Maven"
+    === "Gradle"
+        If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And then sync project with Gradle files. 
         ```bash
 
         dependencies {
@@ -696,20 +697,21 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
             implementation 'com.amplitude:java-sdk:1.+'
         }
         ```
-        Learn more about [Add Dependency using Gradle](../java/#maven).
 
     === "Download"
 
-        Download the latest JAR file and add it to the project's buildpath. See instructions for your IDE.
-
-        Get the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases).
-
+        Download [the latest JAR file](https://github.com/amplitude/Amplitude-Java/releases) and add it to the project's buildpath. See instructions for your IDE.
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
+
+    Import Amplitude into any file that uses it. Amplitude uses the open source `JSONObject` library to conveniently create JSON key-value objects.
 
     === "Java"
 
         ```java
+        import com.amplitude.Amplitude;
+        import org.json.JSONObject;
+
         Amplitude amplitude = Amplitude.getInstance();
         amplitude.init(AMPLITUDE_API_KEY);
         ```
@@ -717,8 +719,35 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
+        import com.amplitude.Amplitude;
+        import org.json.JSONObject;
+
         val amplitude = Amplitude.getInstance()
         amplitude.init(AMPLITUDE_API_KEY)
+        ```
+    
+    --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
+
+    === "Java"
+
+        ```java
+        import com.amplitude.Amplitude;
+        import org.json.JSONObject;
+
+        Amplitude amplitude = Amplitude.getInstance();
+        amplitude.init(AMPLITUDE_API_KEY);
+        amplitude.setServerUrl("https://api.eu.amplitude.com/2/httpapi");
+        ```
+
+    === "Kotlin"
+
+        ```kotlin
+        import com.amplitude.Amplitude;
+        import org.json.JSONObject;
+
+        val amplitude = Amplitude.getInstance()
+        amplitude.init(AMPLITUDE_API_KEY)
+        amplitude.setServerUrl("https://api.eu.amplitude.com/2/httpapi");
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
@@ -742,6 +771,9 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Java"
 
         ```java
+        import com.amplitude.Amplitude;
+        import org.json.JSONObject;
+
         Amplitude amplitude = Amplitude.getInstance();
         amplitude.init(AMPLITUDE_API_KEY);
 
@@ -762,6 +794,9 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
+        import com.amplitude.Amplitude;
+        import org.json.JSONObject;
+
         val amplitude = Amplitude.getInstance()
         amplitude.init(AMPLITUDE_API_KEY)
 
@@ -809,6 +844,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Python"
 
+    The Python SDK lets you send events to Amplitude. See the full documentation at [Pythohn SDK](../sdks/python/) for additional configurations and advanced topics.
+
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_5)
         2. [Send data](#send-data_5)
@@ -819,6 +856,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
     ### Install the dependency
+
+    Install `amplitude-analytics` using pip:
 
     ```bash
     pip install amplitude-analytics
@@ -832,6 +871,17 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         from amplitude import Amplitude
 
         amplitude = Amplitude(AMPLITUDE_API_KEY)
+        ```
+    
+    --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
+
+    === "Python"
+
+        ```python
+        from amplitude import Amplitude
+
+        amplitude = Amplitude(AMPLITUDE_API_KEY)
+        amplitude.configuration.server_zone = 'EU'
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"

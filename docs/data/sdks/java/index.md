@@ -15,32 +15,9 @@ This is the documentation for the **Amplitude Analytics Java SDK**, not the Andr
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for JRE](./ampli.md).
 
-## SDK installation
+## Getting started
 
-### Maven
-
-Use Gradle or another build system to resolve the Java SDK dependency. The following example is for Gradle:
-
-```java
-dependencies {
-    implementation 'org.json:json:20201115'
-    implementation 'com.amplitude:java-sdk:1.10.0'
-}
-```
-
-### Download (alternative)
-
-Download the [latest JAR file](https://github.com/amplitude/Amplitude-Java/releases) and add it to the project's build path. See instructions for your IDE.
-
-## EU data residency
-
-Sending data to Amplitude's EU servers, you need to configure the server URL during the initialization.
-
-```java
-Amplitude amplitude = Amplitude.getInstance();
-amplitude.init("API KEY");
-amplitude.setServerUrl("https://api.eu.amplitude.com/2/httpapi");
-```
+Use [this quickstart guide](../../sdks/sdk-quickstart#java) to get started with Amplitude Java SDK.
 
 ## Usage and examples
 
