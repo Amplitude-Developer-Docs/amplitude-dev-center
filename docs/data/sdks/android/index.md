@@ -276,7 +276,8 @@ To force the SDK to upload unsent events, the use the method `uploadEvents`.
 
 Identify is for setting the user properties of a particular user without sending any event.
  The SDK supports these operations on individual user properties: `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove`. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object.
-  The Identify object is passed to the Amplitude client to send to the server.
+  The Identify object is passed to the Amplitude client to send to the server. Starting from release v2.29.0, identify events with set operations would be batched and sent with fewer events. This change wouldn't affect running the set operations. There is a config `identifyBatchIntervalMillis` managing the interval
+  to flush the batched identify intercepts.
 
 !!!note
 
