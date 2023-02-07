@@ -26,4 +26,3 @@ When do these changes need to be live on the site?
 
 
 @amplitude-dev-docs
-@caseyamp
