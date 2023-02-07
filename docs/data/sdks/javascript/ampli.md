@@ -31,7 +31,7 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```shell
-    npm install amplitude-js
+    npm install amplitude-js@^8.21.0
     ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)
@@ -90,13 +90,13 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "npm"
 
     ```bash
-    npm install amplitude-js
+    npm install amplitude-js@^8.21.0
     ```
 
 === "Yarn"
 
     ```bash
-    yarn add amplitude-js
+    yarn add amplitude-js@^8.21.0
     ```
 
 !!!note
@@ -316,7 +316,7 @@ Migrate from an Itly Browser runtime to Ampli by following these steps.
 
 4. Add Amplitude dependencies:
   
-      `yarn add amplitude-js`
+      `yarn add amplitude-js@^8.21.0`
 
 5. Pull the latest Ampli Wrapper:
 
