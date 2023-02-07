@@ -11,7 +11,7 @@ pymdown-extensions>=9.4
 cairosvg==2.5.2
 pillow==9.3.0
 
-# Lightbox requirementss 
+# Lightbox requirements
 mkdocs-glightbox==0.2.1
 
 # Additional Pygments Lexers

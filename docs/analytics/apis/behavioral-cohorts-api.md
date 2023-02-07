@@ -5,7 +5,7 @@ description: Use the Behavioral Cohorts API to list all your cohorts in Amplitud
 
 Use the Behavioral Cohorts API to list all your cohorts in Amplitude, export a cohort in Amplitude, or upload a cohort.
 
---8<-- "includes/postman.md"
+--8<-- "includes/postman-interactive.md"
 
 --8<-- "includes/auth-basic.md"
 
@@ -22,19 +22,29 @@ Use the Behavioral Cohorts API to list all your cohorts in Amplitude, export a c
 - The limit for cohort export size is 10 million users.
 - There's a concurrency limit of 5 requests across cohort downloads and the Dashboard REST API.
 - Cohort Download uses an asynchronous API. Getting a cohort happens in three steps:
-  1. Request a single cohort.
-  2. Poll the cohort status.
-  3. Download the file.
+    1. Request a single cohort.
+    2. Poll the cohort status.
+    3. Download the file.
 
 ## Get all cohorts
 
 Get all discoverable cohorts for an app. Use the `id` for each cohort returned in the response to get a single cohort.
 
-```http
-GET /api/3/cohorts HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+
+    curl --location --request GET 'https://amplitude.com/api/3/cohorts' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/3/cohorts HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
 
 ### Get all cohorts response
 
@@ -75,11 +85,84 @@ Get a discoverable cohort using its `cohort_id`.
 
 This is step one in the download a cohort operation. Use the `request_id` returned in the response to poll export status.
 
-```http
-GET /api/5/cohorts/request/id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+
+    curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/id'
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/5/cohorts/request/id HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???example "More Examples (click to expand)"
+
+    ???code-example "Example: Simple request (click to expand)"
+
+        This example gets the cohort with ID `26umsb5`.
+
+        === "cURL"
+            ```bash
+            curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/26umsb5'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+            GET /api/5/cohorts/request/26umsb5 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+
+    ???code-example "Example: Get cohort with specific properties (click to expand)"
+
+        This example gets the cohort with ID `26umsb5` and includes the properties `Property1` and `Property2`.
+
+        === "cURL"
+
+            ```bash
+
+            curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/26umsb5?props=1&propKeys=Property1&propKeys=Property2'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/5/cohorts/request/26umsb5?props=1&propKeyss=Property1&propKeys=Property2 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
+
+    ???code-example "Example: Get cohort with all properties (click to expand)"
+
+        This example gets the cohort with ID `26umsb5` and includes all of the cohort properties.
+
+        === "cURL"
+
+            ```bash
+
+            curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/26umsb5?props=1'
+            --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+            ```
+
+        === "HTTP"
+
+            ```bash
+
+            GET /api/5/cohorts/request/26umsb5?props=1 HTTP/1.1
+            Host: amplitude.com
+            Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+            ```
 
 ### Get one cohort path parameters
 
@@ -92,7 +175,7 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 | Name|Description|
 |----|-----|
 |`props`|<span class="optional">Optional</span>. Integer. Set to 1 to include user properties in the response object.|
-|`propKeys`|<span class="optional">Optional</span>. string[]. One or more user properties to include in the response. If left undefined and props=1, response object returns all available user properties.|
+|`propKeys`|<span class="optional">Optional</span>. string[]. One or more user properties to include in the response. Add as many `propKeys` parameters as needed. If left undefined and props=1, response object returns all available user properties.|
 
 ### Get one cohort response
 
@@ -111,11 +194,38 @@ If your authorization or the `cohort_id` is invalid, the request returns an erro
 
 Poll the request status using the `request_id` retrieved for the cohort. This is the second phase in a cohort download operation.
 
-```bash
-GET /api/5/cohorts/request-status/:request_id HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-```
+=== "cURL"
+
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/5/cohorts/request-status/:request_id' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded'
+    ```
+
+=== "HTTP"
+
+    ```bash
+    GET /api/5/cohorts/request-status/:request_id HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    ```
+
+???code-example "Example: Get a request status (click to expand)"
+
+    This example gets the status of request with the ID `qfaZya`.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://amplitude.com/api/5/cohorts/request-status/qfaZya' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+        ```
+    === "HTTP"
+
+        ```bash
+        GET /api/5/cohorts/request-status/qfaZya HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        ```
 
 ### Get request status path parameters
 
@@ -149,13 +259,44 @@ If the job has finished running, polling the request status returns a 200 code a
 
 When the job has finished running, download the cohort.
 
-```bash
+This is a basic request.
 
-GET /api/5/cohorts/request/requestId/file HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
+=== "cURL"
 
-```
+    ```bash
+    curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/:requestId/file' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    ```
+
+=== "HTTP"
+
+    ```bash
+
+    GET /api/5/cohorts/request/requestId/file HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+
+    ```
+
+???code-example "Example: Download a file for a request (click to expand)"
+
+    This request downloads the file for request ID `Sf7M9j`.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/Sf7M9j/file'        
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        GET /api/5/cohorts/request/Sf7M9j/file HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        ```
 
 ### Download cohort path parameters
 
@@ -170,28 +311,98 @@ Authorization: Basic {{api-key}}:{{secret-key}}
 
 ## Upload cohort
 
-Generate a new cohort or update an existing cohort by uploading a set of User IDs or Amplitude IDs.
+Generate a new cohort or update an existing cohort by uploading a set of User IDs or Amplitude IDs. This is a basic request example with placeholder values. 
 
-```bash
-POST /api/3/cohorts/upload HTTP/1.1
-Host: amplitude.com
-Authorization: Basic {{api-key}}:{{secret-key}}
-Content-Type: application/json
-Content-Length: 280
+=== "cURL"
 
-{
-    "name": "New Cohort",
-    "app_id": 153957,
-    "id_type": "BY_AMP_ID",
-    "ids": [
-        "10101010101010ID1", 
-        "00000010101010ID2"
-    ],
-    "owner": "datamonster@amplitude.com",
-    "published": true
-}
+    ```bash
+    curl --location --request POST 'https://amplitude.com/api/3/cohorts/upload' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded'
+    --data-raw '{
+      "name": "Cohort Name",
+      "app_id": amplitude_project,
+      "id_type": "BY_AMP_ID",
+      "ids": [
+                amplitude_id,
+                amplitude_id
+      ],
+      "owner": "cohort_owner",
+      "published": true
+    }'
+    ```
 
-```
+=== "HTTP"
+
+    ```bash
+    POST /api/3/cohorts/upload HTTP/1.1
+    Host: amplitude.com
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    Content-Type: application/json
+    Content-Length: 201
+
+    {
+      "name": "Cohort Name",
+      "app_id": amplitude_project,
+      "id_type": "BY_AMP_ID",
+      "ids": [
+                amplitude_id,
+                amplitude_id
+      ],
+      "owner": "cohort_owner",
+      "published": true
+    }
+    ```
+
+???code-example "Example: Create a new cohort (click to expand)"
+
+    This example creates a new cohort named "New Cohort" and includes the Amplitude IDs  `10101010101010ID1`, and `00000010101010ID2`.
+
+    === "cURL"
+
+        ```bash
+
+        curl --location --request POST 'https://amplitude.com/api/3/cohorts/upload' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+        --data-raw '{
+          "name": "New Cohort",
+          "app_id": 153957,
+          "id_type": "BY_AMP_ID",
+          "ids": [
+                    10101010101010ID1,
+                    00000010101010ID2
+          ],
+          "owner": "datamonster@amplitude.com",
+          "published": true
+        }'
+
+        ```
+
+    === "HTTP"
+
+        ```bash
+        POST /api/3/cohorts/upload HTTP/1.1
+        Host: amplitude.com
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+        Content-Type: application/json
+        Content-Length: 280
+
+        {
+            "name": "New Cohort",
+            "app_id": 153957,
+            "id_type": "BY_AMP_ID",
+            "ids": [
+                "10101010101010ID1", 
+                "00000010101010ID2"
+            ],
+            "owner": "datamonster@amplitude.com",
+            "published": true
+        }
+
+        ```
 
 ### Upload cohort body parameters
 
@@ -219,36 +430,131 @@ The response is a JSON object with this schema:
 
 Add and remove IDs to incrementally update existing cohort membership.
 
-```bash
+=== "cURL"
 
-POST /api/3/cohorts/membership HTTP/1.1
-Host: amplitude.com
-Content-Type: application/json
-Authorization: Basic {{api-key}}:{{secret-key}}
-Content-Length: 362
+    ```bash
+    curl --location --request POST 'https://amplitude.com/api/3/cohorts/membership' \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+    --data-raw '{
+    "cohort_id":"COHORT_ID",
+    "memberships": [
+      {
+          "ids" : ["ID",”ID”],
+          "id_type" : "BY_ID",
+          "operation" : "ADD"
+        },
+        {
+          "ids" : ["ID","ID"],
+          "id_type" : "BY_ID",
+          "operation" : "REMOVE"
+        },
+        {
+          "ids" : ["name",name],
+          "id_type" : "BY_NAME",
+          "operation" : "ADD"
+        }
+      ],
+    "skip_invalid_ids":true,'
+    ```
 
-{
- "cohort_id":"1a2bc3d",
- "memberships": [
-   {
-      "ids" : ["111",”222”],
-      "id_type" : "BY_ID",
-      "operation" : "ADD"
-    },
+=== "HTTP"
+
+    ```bash
+
+    POST /api/3/cohorts/membership HTTP/1.1
+    Host: amplitude.com
+    Content-Type: application/json
+    Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
+    Content-Length: 362
+
     {
-      "ids" : ["333",”444”],
-      "id_type" : "BY_ID",
-      "operation" : "REMOVE"
-    },
-    {
-      "ids" : ["asd",”qwe”],
-      "id_type" : "BY_NAME",
-      "operation" : "ADD"
+    "cohort_id":"COHORT_ID",
+    "memberships": [
+      {
+          "ids" : ["ID",ID],
+          "id_type" : "BY_ID",
+          "operation" : "ADD"
+        },
+        {
+          "ids" : ["ID",ID],
+          "id_type" : "BY_ID",
+          "operation" : "REMOVE"
+        },
+        {
+          "ids" : ["name","name"],
+          "id_type" : "BY_NAME",
+          "operation" : "ADD"
+        }
+      ],
+    "skip_invalid_ids":true,
     }
-  ],
- "skip_invalid_ids":true,
-}
-```
+    ```
+
+???code-example "Example: Remove and add cohort members"
+
+    This example adds IDs `111` and `222` by ID, removes IDs `333` and `444` by ID, and removes IDs `asd` and `qwe` by name from the the cohort with ID `1a2bc3d`. The operation is set to skip invalid IDs.
+
+    === "cURL"
+
+        ```bash
+        curl --location --request POST 'https://amplitude.com/api/3/cohorts/membership' \
+        --header 'Content-Type: application/json' \
+        --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
+        --data-raw '{
+        "cohort_id":"1a2bc3d",
+        "memberships": [
+          {
+              "ids" : ["111",”222”],
+              "id_type" : "BY_ID",
+              "operation" : "ADD"
+            },
+            {
+              "ids" : ["333",”444”],
+              "id_type" : "BY_ID",
+              "operation" : "REMOVE"
+            },
+            {
+              "ids" : ["asd",”qwe”],
+              "id_type" : "BY_NAME",
+              "operation" : "ADD"
+            }
+          ],
+        "skip_invalid_ids":true,'
+        ```
+
+    === "HTTP"
+
+        ```bash
+
+        POST /api/3/cohorts/membership HTTP/1.1
+        Host: amplitude.com
+        Content-Type: application/json
+        Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
+        Content-Length: 362
+
+        {
+        "cohort_id":"1a2bc3d",
+        "memberships": [
+          {
+              "ids" : ["111",”222”],
+              "id_type" : "BY_ID",
+              "operation" : "ADD"
+            },
+            {
+              "ids" : ["333",”444”],
+              "id_type" : "BY_ID",
+              "operation" : "REMOVE"
+            },
+            {
+              "ids" : ["asd",”qwe”],
+              "id_type" : "BY_NAME",
+              "operation" : "ADD"
+            }
+          ],
+        "skip_invalid_ids":true,
+        }
+        ```
 
 Perform incremental update (add / remove) to existing cohort membership.
 
