@@ -13,6 +13,7 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 - The following keywords can't be used as event names when streaming events from Amplitude:
     - _all
     - _identify
+- Amplitude tracks event volume as distinct events streamed out. The same event going to multiple event streaming destinations is only counted once for billing purposes.
 
 ## Event streaming destinations
 
