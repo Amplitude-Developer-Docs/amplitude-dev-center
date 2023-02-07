@@ -316,6 +316,7 @@ nav:
         - Netcore Cloud: data/destinations/netcore-cohort.md
         - Notivize: data/destinations/notivize-cohort.md
         - OneSignal: data/destinations/onesignal-cohort.md
+        - Plotline: data/destinations/plotline-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
         - Sendgrid: data/destinations/sendgrid-cohort.md
