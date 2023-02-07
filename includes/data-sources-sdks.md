@@ -12,6 +12,6 @@
 - :react: [React Native](../../data/sdks/typescript-react-native/)
 - :unity: [Unity](../../data/sdks/unity/)
 - :unreal: [Unreal](../../data/sdks/unreal/)
-- :go: [Go (Beta)](../../data/sdks/go/index)
+- :go: [Go](../../data/sdks/go/index)
 
 </div>

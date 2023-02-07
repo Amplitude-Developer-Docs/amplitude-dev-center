@@ -1203,7 +1203,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Command Go"
 
         ```bash
-        go get https://github.com/amplitude/analytics-go
+        go get github.com/amplitude/analytics-go
         ```
 
     ### Initialization
@@ -1212,7 +1212,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```go
         import (
-        "github.com/amplitude/analytics-go/amplitude"
+            "github.com/amplitude/analytics-go/amplitude"
         )
 
         config := amplitude.NewConfig(AMPLITUDE_API_KEY)
@@ -1226,7 +1226,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-        amplitude.Track(amplitude.Event{
+        client.Track(amplitude.Event{
               EventType: "Button Clicked",
               EventOptions: amplitude.EventOptions{
               UserID:   "user-id",
@@ -1252,18 +1252,18 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         package main
 
         import (
-        "github.com/amplitude/analytics-go/amplitude"
+            "github.com/amplitude/analytics-go/amplitude"
         )
 
         func main() {
             config := amplitude.NewConfig(AMPLITUDE_API_KEY)
-            amplitude := amplitude.NewClient(config)
+            client := amplitude.NewClient(config)
 
             identifyObj := amplitude.Identify{}
             identifyObj.Set("location", "LAX")
-            amplitude.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
+            client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 
-            amplitude.Track(amplitude.Event{
+            client.Track(amplitude.Event{
                 EventType: "Button Clicked",
                 EventOptions: amplitude.EventOptions{
                     UserID:   "user-id",
