@@ -77,7 +77,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
           buttonColor: 'primary',
         };
         track('Button Clicked', eventProperties);
-
         ```
 
     === "JavaScript"
@@ -116,7 +115,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         identify(identifyObj);
 
         track('Button Clicked', eventProperties);
-
         ```
 
     === "JavaScript"
@@ -134,7 +132,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         identify(identifyObj);
 
         track('Button Clicked', eventProperties);
-
         ```
 
     Learn more available functionalities in [Browser SDK](../typescript-browser/).
@@ -151,7 +148,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ampli.buttonClicked({
             buttonColor: 'primary',
         });
-
         ```
 
     === "JavaScript"
@@ -231,7 +227,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         track('Button Clicked', eventProperties, {
           user_id: 'user@amplitude.com',
         });
-
         ```
 
     === "JavaScript"
@@ -247,7 +242,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         track('Button Clicked', eventProperties, {
           user_id: 'user@amplitude.com',
         });
-
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
@@ -306,7 +300,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
             stringProp: 'Strongly typed property',
             booleanProp: true,
         });
-
         ```
 
     === "JavaScript"
@@ -319,7 +312,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
             stringProp: 'Strongly typed property',
             booleanProp: true,
         });
-
         ```
 
     Learn more about [Ampli Node](../typescript-node/ampli/).
@@ -358,6 +350,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Gradle"
 
         If you are using Gradle in your project, include the following dependencies in `build.gradle` file. And then sync project with Gradle files.
+        
         ```bash
 
         dependencies {
@@ -396,7 +389,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
-        import com.amplitude.android.Amplitude;
+        import com.amplitude.android.Amplitude
 
         val amplitude = Amplitude(
             Configuration(
@@ -421,16 +414,17 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
-        import com.amplitude.android.Amplitude;
+        import com.amplitude.android.Amplitude
         
         val amplitude = Amplitude(
-        Configuration(
-            apiKey = AMPLITUDE_API_KEY,
-            context = applicationContext,
-            serverZone = ServerZone.EU
-        )
+            Configuration(
+                apiKey = AMPLITUDE_API_KEY,
+                context = applicationContext,
+                serverZone = ServerZone.EU
+            )
         )
         ```
+
     === "Java"
 
         ```java
@@ -454,8 +448,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         amplitude.track("Button Clicked")
         // Track events with optional properties
         amplitude.track(
-        "Button Clicked",
-        mapOf("buttonColor" to "primary")
+            "Button Clicked",
+            mapOf("buttonColor" to "primary")
         )
         ```
 
@@ -527,8 +521,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
                     context = applicationContext
                 ));
 
-                Identify identify = new Identify()
-                        .set("user-platform", "android")
+                Identify identify = new Identify().set("user-platform", "android")
                 amplitude.identify(identify);
 
                 amplitude.track("test event properties", new HashMap() {{
@@ -719,8 +712,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
-        import com.amplitude.Amplitude;
-        import org.json.JSONObject;
+        import com.amplitude.Amplitude
+        import org.json.JSONObject
 
         val amplitude = Amplitude.getInstance()
         amplitude.init(AMPLITUDE_API_KEY)
@@ -742,8 +735,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
-        import com.amplitude.Amplitude;
-        import org.json.JSONObject;
+        import com.amplitude.Amplitude
+        import org.json.JSONObject
 
         val amplitude = Amplitude.getInstance()
         amplitude.init(AMPLITUDE_API_KEY)
@@ -761,7 +754,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
-        amplitude.logEvent(Event("Button Clicked", "test_user_id"));
+        amplitude.logEvent(Event("Button Clicked", "test_user_id"))
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
@@ -794,8 +787,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Kotlin"
 
         ```kotlin
-        import com.amplitude.Amplitude;
-        import org.json.JSONObject;
+        import com.amplitude.Amplitude
+        import org.json.JSONObject
 
         val amplitude = Amplitude.getInstance()
         amplitude.init(AMPLITUDE_API_KEY)
