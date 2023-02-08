@@ -23,7 +23,7 @@ For Node projects, update your dependency list in package.json.
     ```json
     {
       "dependencies": {
-        "amplitude-js": "^8.0.0"
+        "amplitude-js": "^8"
       }
     }
     ```
@@ -33,7 +33,7 @@ For Node projects, update your dependency list in package.json.
     ```json
     {
       "dependencies": {
-        "@amplitude/analytics-browser": "^1.0.0"
+        "@amplitude/analytics-browser": "^1"
       }
     }
     ```
