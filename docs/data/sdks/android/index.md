@@ -155,6 +155,24 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
     val sameClient = Amplitude.getInstance("Andy_Client")
     ```
 
+#### Configuration
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `eventUploadPeriodMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach `eventUploadThreshold` threshold. | `30000` |
+    | `eventUploadThreshold` | SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `eventUploadPeriodMillis` interval.  | `30` |
+    | `eventUploadMaxBatchSize` | The maximum number of events sent with each upload request. | `50` |
+    | `eventMaxCount` | The maximum number of unsent events to keep on the device. | `1000` |
+    | `identifyBatchIntervalMillis` | The amount of time SDK will attempt to batch intercepted identify events. | `30000` |
+    | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
+    | `optOut` | Opt the user out of tracking. | `false` |
+    | `trackingSessionEvents` | Flushing of unsent events on app close. | `false` |
+    | `sessionTimeoutMillis` | The amount of time for session timeout if enable foreground tracking. | `1800000` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/` |
+    | `useDynamicConfig` |  Find the best server url automatically based on users' geo location. | `false` |
+
 #### EU data residency
 
 Beginning with version 2.34.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
