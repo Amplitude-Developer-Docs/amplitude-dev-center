@@ -11,7 +11,7 @@ The HTTP V2 API replaces the deprecated HTTP API.
 
 ## Getting started 
 
-Use [this quickstart guide](./index.md) to get started with Amplitude HTTP V2 API.
+Use [this quickstart guide](./http-v2-api-quickstart.md) to get started with Amplitude HTTP V2 API.
 
 --8<-- "includes/auth-api-key.md"
 
@@ -462,7 +462,7 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`.
             }
             ```
 
-Check out [more example requests](http://127.0.0.1:8000/analytics/apis/http-v2-api/#sent-data) for a quick and easy start.
+Check out [more example requests](../http-v2-api-quickstart/#sent-data) for a quick and easy start.
 
 ### Upload request headers 
 
