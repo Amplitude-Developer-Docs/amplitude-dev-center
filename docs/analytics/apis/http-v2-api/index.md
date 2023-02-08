@@ -4,11 +4,18 @@ description: Use this guide to get started with the Amplitude HTTP V2 API.
 icon: material/clock-fast
 ---
 
-Use this guide to get started with the Amplitude HTTP V2 API. Choose your target plarform:
+Use this guide to get started with the Amplitude HTTP V2 API. For a more in-depth look at more considerations and error handling, refer to the complete [HTTP V2 API Reference](./http-v2-api.md).
 
+--8<-- "includes/postman.md"
+
+<div class="sdk-hr"><hr></div>
 ## Sent data 
+<div class="sdk-hr"><hr></div>
 
-Choose your target platform to send a POST request to `https://api2.amplitude.com/httpapi`. Replace `YOUR_API_KEY` with the [API KEY](../../find-api-credentials.md) for your Amplitude project.
+!!!note
+    For EU data residency, the project must be set up inside Amplitude EU. Replace the standard endpoint `https://api2.amplitude.com/2/httpapi` with the EU residency endpoint `https://api.eu.amplitude.com/2/httpapi` in all examples to ensure proper data residency.
+
+Choose your target platform to send a POST request to `https://api2.amplitude.com/httpapi` (or `https://api.eu.amplitude.com/2/httpapi` for EU residency). Replace `YOUR_API_KEY` with the [API KEY](../../find-api-credentials.md) for your Amplitude project.
 
 === "cURL"
     ```bash
@@ -81,7 +88,7 @@ Choose your target platform to send a POST request to `https://api2.amplitude.co
     ```
 
 === "NodeJs"
-    Copy the following command and run it on your browser terminal.
+    Copy the following command and run it on your browser console.
     ```js
     fetch('https://api2.amplitude.com/2/httpapi', {
         method: 'POST',

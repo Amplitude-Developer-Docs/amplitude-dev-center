@@ -9,9 +9,15 @@ The HTTP V2 API replaces the deprecated HTTP API.
 
 --8<-- "includes/postman.md"
 
+## Getting started 
+
+Use [this quickstart guide](./index.md) to get started with Amplitude HTTP V2 API.
+
 --8<-- "includes/auth-api-key.md"
 
 ## Endpoints
+
+For EU data residency, the project must be set up inside Amplitude EU. Remember to use the EU residency endpoint in all HTTP requests.
 
 | Region | Endpoint |
 | --- | --- |
@@ -95,200 +101,11 @@ If the event doesn't have a `user_id` or `device_id` value, the upload may be re
 
 ## Upload request
 
-Send a POST request to `https://api2.amplitude.com/2/httpapi`
+Send a POST request to `https://api2.amplitude.com/2/httpapi`. Check out the [example requests](http://127.0.0.1:8000/analytics/apis/http-v2-api/#sent-data) for a quick and easy start.
 
-### Example request
+### Upload request headers 
 
-=== "cURL"
-    ```bash
-    # You can also use wget
-    curl -X POST https://api2.amplitude.com/2/httpapi \
-      -H 'Content-Type: application/json' \
-      -H 'Accept: */*'
-    ```
-=== "HTTP"
-    ```bash
-    POST https//api2.amplitude.com/2/httpapi HTTP/1.1
-    Host: api2.amplitude.com
-    Content-Type: application/json
-    Accept: */*
-    ```
-=== "JavaScript"
-    ```js
-    var headers = {
-      'Content-Type':'application/json',
-      'Accept':'*/*'
-
-    };
-
-    $.ajax({
-      url: 'https://api2.amplitude.com/2/httpapi',
-      method: 'post',
-
-      headers: headers,
-      success: function(data) {
-        console.log(JSON.stringify(data));
-      }
-    })
-    ```
-=== "NodeJs"
-
-    ```js
-    const request = require('node-fetch');
-    const inputBody = '{
-      "api_key": "my_amplitude_api_key",
-      "events": [
-        {
-          "user_id": "203201202",
-          "device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
-          "event_type": "watch_tutorial",
-          "time": 1396381378123,
-          "event_properties": {
-            "load_time": 0.8371,
-            "source": "notification",
-            "dates": [
-              "monday",
-              "tuesday"
-            ]
-          },
-          "user_properties": {
-            "age": 25,
-            "gender": "female",
-            "interests": [
-              "chess",
-              "football",
-              "music"
-            ]
-          },
-          "groups": {
-            "company_id": "123",
-            "department_id": [
-              "abc",
-              "xyz"
-            ]
-          },
-          "app_version": "2.1.3",
-          "platform": "iOS",
-          "os_name": "Android",
-          "os_version": "4.2.2",
-          "device_brand": "Verizon",
-          "device_manufacturer": "Apple",
-          "device_model": "iPhone 9,1",
-          "carrier": "Verizon",
-          "country": "United States",
-          "region": "California",
-          "city": "San Francisco",
-          "dma": "San Francisco-Oakland-San Jose, CA",
-          "language": "English",
-          "price": 4.99,
-          "quantity": 3,
-          "revenue": -1.99,
-          "productId": "Google Pay Store Product Id",
-          "revenueType": "Refund",
-          "location_lat": 37.77,
-          "location_lng": -122.39,
-          "ip": "127.0.0.1",
-          "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
-          "idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
-          "adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
-          "android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
-          "event_id": 23,
-          "session_id": 1396381378123,
-          "insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
-        }
-      ]
-    }';
-    const headers = {
-      'Content-Type':'application/json',
-      'Accept':'*/*'
-
-    };
-
-    fetch('https://api2.amplitude.com/2/httpapi',
-    {
-      method: 'POST',
-      body: inputBody,
-      headers: headers
-    })
-    .then(function(res) {
-        return res.json();
-    }).then(function(body) {
-        console.log(body);
-    });
-    ```
-
-=== "Ruby"
-    ```ruby
-    require 'rest-client'
-    require 'json'
-
-    headers = {
-      'Content-Type' => 'application/json',
-      'Accept' => '*/*'
-    }
-
-    result = RestClient.post 'https://api2.amplitude.com/2/httpapi',
-      params: {
-      }, headers: headers
-
-    p JSON.parse(result)
-    ```
-=== "Python"
-    ```python
-    import requests
-    headers = {
-      'Content-Type': 'application/json',
-      'Accept': '*/*'
-    }
-
-    r = requests.post('https://api2.amplitude.com/2/httpapi', params={
-
-    }, headers = headers)
-
-    print r.json()
-    ```
-=== "Java" 
-    ```java
-    URL obj = new URL("https://api2.amplitude.com/2/httpapi");
-    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-    con.setRequestMethod("POST");
-    int responseCode = con.getResponseCode();
-    BufferedReader in = new BufferedReader(
-        new InputStreamReader(con.getInputStream()));
-    String inputLine;
-    StringBuffer response = new StringBuffer();
-    while ((inputLine = in.readLine()) != null) {
-        response.append(inputLine);
-    }
-    in.close();
-    System.out.println(response.toString());
-    ```
-=== "Go"
-    ```go
-    package main
-
-    import (
-          "bytes"
-          "net/http"
-    )
-
-    func main() {
-
-        headers := map[string][]string{
-            "Content-Type": []string{"application/json"},
-            "Accept": []string{"*/*"},
-
-        }
-
-        data := bytes.NewBuffer([]byte{jsonReq})
-        req, err := http.NewRequest("POST", "https://api2.amplitude.com/2/httpapi", data)
-        req.Header = headers
-
-        client := &http.Client{}
-        resp, err := client.Do(req)
-        // ...
-    }
-    ```
+To send data to Amplitude HTTP V2 API, a `Content-Type` header must be set to `application/json`.
 
 ### Upload request body parameters
 
