@@ -563,10 +563,13 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more about [Ampli Android](../android-kotlin/ampli/).
 
-=== "iOS"
+=== "iOS (Beta)"
 
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios-swift/)
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK (Beta)](../ios-swift/).
 
+    !!!beta "iOS Swift SDK (Beta)"
+        This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
+    
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_3)
         2. [Send data](#send-data_3)
@@ -657,9 +660,12 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     )
     ```
 
-    Learn more available functionalities in [iOS SDK](../ios-swift/).
+    Learn more available functionalities in [iOS SDK](./ios-swift/).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    --8<-- "includes/no-ampli.md"
+        To use Ampli see the [non-Beta SDK](./ios/) and [Ampli Wrapper](./ios/ampli.md) instead.
 
     Coming soon.
 
