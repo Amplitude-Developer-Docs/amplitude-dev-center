@@ -633,7 +633,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-    Events 
     ```swift
     amplitude.track(
         eventType: "Button Clicked",

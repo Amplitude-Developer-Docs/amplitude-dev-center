@@ -19,8 +19,6 @@ The Node.js SDK lets you send events to Amplitude. This library is open-source, 
 
 ## Getting started
 
-### Installation
-
 Use [this quickstart guide](../sdk-quickstart#node) to get started with Amplitude Node SDK.
 
 ## Usage
