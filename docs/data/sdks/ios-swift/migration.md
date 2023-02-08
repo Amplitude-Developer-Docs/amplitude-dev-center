@@ -18,13 +18,13 @@ For CocoaPods installation:
 === "Amplitude-iOS"
     Add dependency to Podfile.
     ```
-    pod 'Amplitude', '~> 8.8.0'
+    pod 'Amplitude', '~> 8.14'
     ```
 
 === "Amplitude-Swift"
     Add dependency to Podfile.
     ```
-    pod 'AmplitudeSwift', '~> 0.3.0'
+    pod 'AmplitudeSwift', '~> 0.3'
     ```
 
 For Swift Package Manager installation:
@@ -41,14 +41,14 @@ For Carthage installation:
     Add the following line to your Cartfile.
 
     ```
-    github "amplitude/Amplitude-iOS" ~> 8.8.0
+    github "amplitude/Amplitude-iOS" ~> 8.14
     ```
 
 === "Amplitude-Swift"
     Add the following line to your Cartfile.
 
     ```
-    github "amplitude/Amplitude-Swift" ~> 0.3.0
+    github "amplitude/Amplitude-Swift" ~> 0.3
     ```
 
 ## Instrumentation

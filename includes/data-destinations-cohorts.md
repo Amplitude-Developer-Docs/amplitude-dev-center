@@ -28,6 +28,7 @@
 - :netcore: [Netcore Cloud](../data/destinations/netcore-cohort.md)
 - :onesignal: [OneSignal](../data/destinations/onesignal-cohort.md)
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
+- :plotline: [Plotline](../data/destinations/plotline-cohort.md)
 - :productboard: [Productboard](../data/destinations/productboard-cohort.md)
 - :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
 - :salesforce: [Salesforce Marketing Cloud v1](../data/destinations/marketing-cloud-cohort.md)

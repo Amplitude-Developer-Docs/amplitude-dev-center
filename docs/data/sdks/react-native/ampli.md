@@ -29,7 +29,7 @@ Amplitude Data supports tracking analytics events from React Native apps written
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```shell
-    npm install @amplitude/react-native
+    npm install @amplitude/react-native@^2.15.0
     ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)
@@ -88,7 +88,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "npm"
 
     ```shell
-    npm install @amplitude/react-native
+    npm install @amplitude/react-native@^2.15.0
     ```
 
 --8<-- "includes/ampli/cli-install-simple.md"

@@ -31,7 +31,7 @@ This is the official documentation for the Amplitude Analytics Android SDK.
 
     ```bash
     dependencies {
-      implementation 'com.amplitude:android-sdk:2.38.3'
+      implementation 'com.amplitude:android-sdk:2.+'
       implementation 'com.squareup.okhttp3:okhttp:4.2.2'
     }
     ```

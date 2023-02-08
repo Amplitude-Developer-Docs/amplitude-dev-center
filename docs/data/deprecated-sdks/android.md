@@ -163,7 +163,7 @@ The new Android SDK enjoys a simpler deployment model and introduces several new
 ```java
 implementation 'com.networknt:json-schema-validator:1.0.29'
 // If using Amplitude
-implementation 'com.amplitude:android-sdk:2.14.1'
+implementation 'com.amplitude:android-sdk:2.+'
 // If using Segment
 implementation 'com.segment.analytics.android:analytics:4.+'
 ```

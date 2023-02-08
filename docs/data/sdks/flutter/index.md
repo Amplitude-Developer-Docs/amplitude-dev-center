@@ -21,7 +21,7 @@ This is the official documentation for the Amplitude Analytics Flutter SDK.
 
     ```yml
     dependencies:
-      amplitude_flutter: ^3.7.0
+      amplitude_flutter: ^3.13.0
     ```
 
 2. Run `flutter pub get` in the terminal to install the SDK.

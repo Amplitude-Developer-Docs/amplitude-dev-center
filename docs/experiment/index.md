@@ -12,9 +12,9 @@ Welcome to Amplitude Experiment. This page acts as a quick reference as well as 
 
     ---
 
-    Step-by-step guide to get started developing with Amplitude Experiment.
+    Read the step-by-step guide to get started developing with Amplitude Experiment.
 
-    [:octicons-arrow-right-24: Start developing](#getting-started)
+    [:octicons-arrow-right-24: Start developing](../experiment/guides/getting-started/index.md)
 
 - :material-hexagon-multiple:{ .lg .middle } __System overview__
 
@@ -41,15 +41,6 @@ Welcome to Amplitude Experiment. This page acts as a quick reference as well as 
     [:octicons-arrow-right-24: See the APIs](#rest-apis)
 
 </div>
-
-## Getting started
-
-Guide to getting started developing for Amplitude Experiment.
-
-1. [Create a deployment](guides/getting-started/create-a-deployment.md)
-2. [Create and configure a feature flag](guides/getting-started/create-a-flag.md)
-3. [Fetch variants for a user](guides/getting-started/fetch-variants.md)
-4. [Track an exposure event](guides/getting-started/track-exposure.md)
 
 ## SDKs
 

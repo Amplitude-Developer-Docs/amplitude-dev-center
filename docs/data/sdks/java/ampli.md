@@ -26,7 +26,7 @@ Amplitude Data supports tracking analytics events from JRE programs written in J
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```java
-    implementation 'com.amplitude:java-sdk:1.10.0'
+    implementation 'com.amplitude:java-sdk:[1.8.0,2.0)'
     implementation 'org.json:json:20201115'
     ```
 
@@ -97,7 +97,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
     <dependency>
         <groupId>com.amplitude</groupId>
         <artifactId>java-sdk</artifactId>
-        <version>1.6.0</version>
+        <version>[1.8.0,2.0)</version>
     </dependency>
     <dependency>
         <groupId>org.json</groupId>
@@ -109,7 +109,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
 === "Kotlin"
 
     ```bash
-    implementation 'com.amplitude:java-sdk:1.6.0'
+    implementation 'com.amplitude:java-sdk:[1.8.0,2.0)'
     implementation 'org.json:json:20201115'
     ```
 
@@ -351,7 +351,7 @@ Migrate from an Itly JRE runtime to Ampli by following these steps.
 2. Add Amplitude dependencies.
 
     ```bash
-    implementation 'com.amplitude:java-sdk:1.6.0'
+    implementation 'com.amplitude:java-sdk:[1.8.0,2.0)'
     implementation 'org.json:json:20201115'
     ```
 
