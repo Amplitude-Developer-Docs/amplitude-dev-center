@@ -18,85 +18,9 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for iOS](./ampli.md).
 
-## Install 
+## Getting started
 
-Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
-
-=== "CocoaPods"
-
-    1. Add dependency to `Podfile`.
-
-        ```bash
-        pod 'Amplitude', '~> 8.14'
-        ```
-
-    2. Run `pod install` in the project directory to download dependency.
-
-=== "Swift Package Manager"
-
-    1. Navigate to `File` > `Swift Package Manager` > `Add Package Dependency`.
-    2. Enter `https://github.com/amplitude/Amplitude-iOS` into the search bar.
-    3. It automatically resolves to the latest version.
-
-    The Amplitude-iOS package appears as a dependency after it's added.
-
-=== "Carthage"
-
-    Add the following line to your `Cartfile`.
-      
-    ```bash
-    github "amplitude/Amplitude-iOS" ~> 8.14
-    ```
-
-After you've installed the SDK, import Amplitude into any file that uses it.
-
-=== "Objective-C"
-
-    ```obj-c
-    #import <Amplitude/Amplitude.h>
-    ```
-
-=== "Swift"
-
-    ```swift
-    import Amplitude
-    ```
-
-!!!tip "Quickstart"
-    1. [Initialize](#initialize)
-    2. [Send an event](#send-events)
-
-    === "Objective-C"
-        ```obj-c
-        (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-          // Enable sending automatic session events
-          [Amplitude instance].trackingSessionEvents = YES;
-          // Initialize SDK
-          [[Amplitude instance] initializeApiKey:@"API_KEY"];
-          // Set userId
-          [[Amplitude instance] setUserId:@"userId"];
-          // Send an event
-          [[Amplitude instance] logEvent:@"app_start"];
-
-          return YES;
-        }
-        ```
-
-    === "Swift"
-        ```swift
-        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            // Enable sending automatic session events
-            Amplitude.instance().trackingSessionEvents = true
-            // Initialize SDK
-            Amplitude.instance().initializeApiKey("API_KEY")
-            // Set userId
-            Amplitude.instance().setUserId("userId")
-            // Send an event
-            Amplitude.instance().logEvent("app_start")
-            
-            return true
-        }
-        ```
+Use [this quickstart guide](../../sdks/sdk-quickstart#ios-legacy) to get started with Amplitude iOS SDK.
 
 ## Core functions
 

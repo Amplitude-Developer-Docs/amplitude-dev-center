@@ -563,7 +563,195 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more about [Ampli Android](../android-kotlin/ampli/).
 
-=== "iOS (Beta)"
+=== "iOS-Legacy"
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
+
+    !!!deprecated "Legacy SDK"
+        This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the latest [iOS Swift SDK](../ios-swift/) which supports plugins and more. See the [Migration Guide](../ios-swift/migration/) for more help. 
+        
+        Please note that the latest iOS Swift SDK is **NOT** compatible with Objective-C projects. Use this SDK if your project requires compatibility with Objective-C. 
+
+    !!!info "Table of Contents"
+        1. [Initialize the library](#initialize-the-library_3)
+        2. [Send data](#send-data_3)
+        3. [Check for success](#check-for-success_3)
+        4. [Complete code example](#complete-code-example_3)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_3)
+
+    --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
+
+    ### Install the dependency
+
+    Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
+
+    === "CocoaPods"
+
+        Add the dependency to `Podfile`.
+
+        ```bash
+        pod 'Amplitude', '~> 8.14'
+        ```
+        Run `pod install` in the project directory to download the dependency.
+
+    === "Swift Package Manager"
+
+        1. Navigate to `File` > `Swift Package Manager` > `Add Package Dependency`.
+        2. Enter `https://github.com/amplitude/Amplitude-iOS` into the search bar.
+        3. It automatically resolves to the latest version.
+
+        The Amplitude-iOS package appears as a dependency after it's added.
+
+    === "Carthage"
+
+        Add the following line to your `Cartfile`.
+      
+        ```bash
+        github "amplitude/Amplitude-iOS" ~> 8.14
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
+
+    === "Objective-C"
+
+        ```obj-c
+        #import <Amplitude/Amplitude.h>
+
+        [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
+        ```
+
+    === "Swift"
+
+        ```swift
+        import Amplitude
+
+        Amplitude.instance().initializeApiKey("YOUR_API_KEY")
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
+
+    Beginning with version `8.5.0`, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set. The server zone configuration supports dynamic configuration as well.
+
+    For earlier versions, you need to configure the `serverURL` property after initializing the client.
+
+    === "Objective-C"
+
+        ```obj-c
+        // For versions starting from 8.5.0
+        // No need to call setServerUrl for sending data to Amplitude's EU servers
+
+        [[Amplitude instance] setServerZone:AMPServerZone.EU];
+
+        // For earlier versions
+        [[Amplitude instance] setServerUrl: @"https://api.eu.amplitude.com"];
+
+        ```
+
+    === "Swift"
+
+        ```swift
+        // For versions starting from 8.5.0
+        // No need to call setServerUrl for sending data to Amplitude's EU servers
+
+        Amplitude.instance().setServerZone(AMPServerZone.EU)
+
+        // For earlier versions
+
+        Amplitude.instance().setServerUrl("https://api.eu.amplitude.com")
+
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
+
+    === "Objective-C"
+
+        ```obj-c
+        [[Amplitude instance] logEvent:@"Button Clicked"];
+        ```
+    
+    === "Swift"
+
+        ```swift
+        Amplitude.instance().logEvent("Button Click")
+        ```
+
+    --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
+
+    --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
+
+    === "Objective-C"
+
+        ```obj-c
+        #import "Amplitude.h"
+
+        (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+            // Enable sending automatic session events
+            [Amplitude instance].trackingSessionEvents = YES;
+            
+            // Initialize SDK
+            [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
+            
+            // Set userId
+            [[Amplitude instance] setUserId:@"userId"];
+            
+            // Log an event
+            [[Amplitude instance] logEvent:@"app_start"];
+        }
+
+        ```
+
+    === "Swift"
+
+        ```swift
+        import Amplitude
+
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+            // Enable sending automatic session events
+            Amplitude.instance().trackingSessionEvents = true
+            // Initialize SDK
+            Amplitude.instance().initializeApiKey("YOUR_API_KEY")
+            // Set userId
+            Amplitude.instance().setUserId("userId")
+            // Log an event
+            Amplitude.instance().logEvent("app_start")
+
+            return true
+        }
+        ```
+
+    Learn more available functionalities in [iOS SDK](../ios/).
+
+    --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
+
+    === "Objective-C"
+
+        ```obj-c title
+
+        Ampli *ampli = [Ampli instance];
+        [ampli load];
+
+        [ampli yourEventType:[YourEventType stringProp:@[@"Strongly typed property"]
+                                            booleanProp:true]];
+
+        ```
+
+    === "Swift"
+
+        ```swift
+
+        ampli.load();
+
+        ampli.yourEventType(
+            stringProp: "Strongly typed property",
+            booleanProp: true
+        )
+
+        ```
+
+    Learn more about [Ampli iOS](../ios/ampli/).
+
+=== "iOS-Beta"
 
     The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK (Beta)](../ios-swift/).
 

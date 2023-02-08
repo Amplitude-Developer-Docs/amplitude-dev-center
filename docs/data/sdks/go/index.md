@@ -14,13 +14,7 @@ The Go SDK lets you send events to Amplitude. This library is open-source, check
 
 ## Getting started
 
-### Installation
-
-Install `analytics-go` using `go get`:
-
-```bash
-go get github.com/amplitude/analytics-go
-```
+Use [this quickstart guide](../../sdks/sdk-quickstart#go) to get started with Amplitude Go SDK.
 
 ## Usage
 

@@ -17,7 +17,7 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 
 ## Getting started
 
-Use [this quickstart guide](../../sdks/sdk-quickstart#ios) to get started with Amplitude Android iOS SDK.
+Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started with Amplitude iOS SDK.
 
 ## Usage
 
