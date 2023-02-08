@@ -156,6 +156,7 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
     ```
 
 #### Configuration
+
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
