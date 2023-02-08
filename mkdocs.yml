@@ -348,6 +348,7 @@ nav:
         - experiment/general/exposure-tracking.md
       - Guides:
         - Getting Started:
+          - experiment/guides/getting-started/index.md
           - experiment/guides/getting-started/create-a-deployment.md
           - experiment/guides/getting-started/create-a-flag.md
           - experiment/guides/getting-started/fetch-variants.md
