@@ -28,7 +28,6 @@ theme:
   include_search_page: false
   search_index_only: true
 
-  # Default values, taken from mkdocs_theme.yml
   language: en
   features:
     - content.code.copy # enables code copy to clipboard feature
@@ -46,12 +45,12 @@ theme:
     - navigation.sections # top-level sections are rendered in groups in the sidebar
     - navigation.tabs # adds the top level menu tabs in the header bar. 
     # - navigation.tabs.sticky
-    - navigation.top #back to top button
+    - navigation.top # back to top button
     - navigation.tracking # URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
     - search.highlight # highlights search term on page
     - search.share # allows users to share a deeplink to search results
     - search.suggest # enables search suggestions
-    # - toc.integrate #this is a really noisy feature, IMO.
+    # - toc.integrate #this is a really noisy feature. Disabled intentionally.
   font: false # Prevents autoloading of google fonts, for privacy reasons.
   favicon: assets/favicon.ico
   logo: assets/logo.png
@@ -65,49 +64,48 @@ extra_javascript:
   - /javascripts/statuspage.js #script for status page embed
 
 # Plugins
-# When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml too.
+# When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml and insiders.local.build.yml too.
 plugins:
-  - search
+  - search # the search plugin
   - git-revision-date # enables the git revision date functionality
-  #- glightbox # leave this commented out -- it enables image lightboxing but it also increases build time by 30 seconds so you don't want it messing with you locally. This plugin is enabled on insiders.
 
 # Extensions 
-# Make sure to mirror changes in insiders.mkdocs.yml. 
+# When you add or change an extension here, mirror changes in insiders.mkdocs.yml. 
 markdown_extensions:
-  - admonition
-  - abbr
-  - attr_list
-  - def_list
-  - footnotes
-  - meta
-  - md_in_html
-  - tables
-  - toc:
+  - admonition # enables 'callout' boxes
+  - abbr # Enables the ability to add a small tooltip to an element, by wrapping it with an abbr tag. Only plain text (no markup) is supported. Use with the "abbreviations" includes file
+  - attr_list # Enables adding HTML attributes and CSS classes to almost every Markdown inline- and block-level element with a special syntax. 
+  - def_list # Enables definition lists (more commonly known as description lists – dl in HTML. https://squidfunk.github.io/mkdocs-material/reference/lists/#using-definition-lists
+  - footnotes # Enables adding inline syntax to create footnotes
+  - meta # enables page metadata
+  - md_in_html # enables writing Markdown inside of HTML. Required for Grids and a few other features.
+  - tables # Enables Markdown tables
+  - toc: # configures the page TOC (righ-side navigation)
       permalink: true
       title: "On this page"
       toc_depth: 3
       permalink_title: Link to this section
-  - pymdownx.arithmatex:
+  - pymdownx.arithmatex: # preserves LaTeX math equations for use with MathJax
       generic: true
-  - pymdownx.betterem:
+  - pymdownx.betterem: # improves the detection of Markup to emphasize text with special characters (bold and italic text)
       smart_enable: all
-  - pymdownx.caret # Enables super scripts
+  - pymdownx.caret # Enables superscripts
   - pymdownx.details # Enables collapsible admonitions
   - pymdownx.emoji: # Enables all sorts of emoji support
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
       options:
-        custom_icons:
+        custom_icons: # sets the folder for our custom svgs that can be used as icons/emojis
           - overrides/.icons
   - pymdownx.highlight: # Enables code block syntax highlighting
       #anchor_linenums: true
-      use_pygments: true
-  - pymdownx.inlinehilite
+      use_pygments: true 
+  - pymdownx.inlinehilite # Enables syntax highlighting of inline code blocks
   - pymdownx.keys # Enables inline key display
-  - pymdownx.mark #
+  - pymdownx.mark # used with carat and tilde to allow marking content (https://squidfunk.github.io/mkdocs-material/reference/formatting/#highlighting-text)
   - pymdownx.snippets # Enables snippets (content reuse)
-  - pymdownx.smartsymbols
-  - pymdownx.superfences: # Enables more nestable codeblocks
+  - pymdownx.smartsymbols # Enables converting some sequences of characters into their corresponding symbols
+  - pymdownx.superfences: # Enables nestable codeblocks
       custom_fences:
         - name: mermaid
           class: mermaid
@@ -474,17 +472,3 @@ nav:
   - partners/sending-cohorts.md
 - Resources:
   - all-resources.md
-
-# Files Intentionally left out of nav:
-  #- Data Docs (Deprecated): These are excluded on purpose please don't add them to nav
-      #- data/deprecated-sdks/browser.md
-      #- data/deprecated-sdks/nodejs.md
-      #- data/deprecated-sdks/ios.md
-      #- data/deprecated-sdks/android.md
-      #- data/deprecated-sdks/jre.md
-      #- data/deprecated-sdks/python.md
-      #- data/deprecated-sdks/ruby.md
-      #- data/deprecated-sdks/dotnet.md
-      #- data/deprecated-sdks/jre-v3.md
-      #- data/deprecated-sdks/ruby-v2.md
-      #- data/iglu-api.md
