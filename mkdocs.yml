@@ -398,7 +398,9 @@ nav:
     - Event Streaming Metrics: analytics/apis/event-streaming-metrics-summary-api.md
     - Export: analytics/apis/export-api.md
     - Group Identify: analytics/apis/group-identify-api.md
-    - HTTP V2: analytics/apis/http-v2-api.md
+    - HTTP V2:
+      - Quickstart: analytics/apis/http-v2-api-quickstart.md
+      - Reference: analytics/apis/http-v2-api.md
     - Identify: analytics/apis/identify-api.md
     - Lookup Tables: analytics/apis/lookup-tables-api.md
     - Releases: analytics/apis/releases-api.md
