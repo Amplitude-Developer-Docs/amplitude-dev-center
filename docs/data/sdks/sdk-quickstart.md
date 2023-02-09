@@ -161,7 +161,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         });
         ```
 
-    Learn more about and set up the [Ampli Browser](../typescript-browser/ampli/).
+    Learn more about and set up the [Browser Ampli](../typescript-browser/ampli/).
 
 === "Node"
 
@@ -286,7 +286,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         });
         ```
 
-    Learn more available functionalities in [Node SDK](../typescript-node/).
+    Learn more available functionalities in [Node.js SDK](../typescript-node/).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
@@ -314,7 +314,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         });
         ```
 
-    Learn more about [Ampli Node](../typescript-node/ampli/).
+    Learn more about [Node Ampli](../typescript-node/ampli/).
 
 === "Android"
 
@@ -322,14 +322,35 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ???example "Get started fast with an example project (click to expand)"
     
-        To get started fast, check out an [example Android Kotlin project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-android-app):
+        ???code-example "Kotlin Android example project (click to expand)"
+            To get started fast, check out an [example Kotlin Android project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-android-app):
 
-        1. Clone the repo.
-        2. Open it with Android Studio.
-        3. Change your API key in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
-        4. Run `samples.kotlin-android-app`.
-        5. Press the button to send events in the running application. 
-        6. [Check for success](./#check-for-success_2).
+            1. Clone the repo.
+            2. Open it with Android Studio.
+            3. Change your [API key](../../analytics/find-api-credentials/) in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
+            4. Sync the project with Gradle files. 
+            4. Run `samples.kotlin-android-app`.
+            5. Press the button to send events in the running application. 
+            6. [Check for success](./#check-for-success_2).
+        
+        ???code-example "Java Android example project (click to expand)"
+            To get started fast, check out an [example Java Android project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/java-android-app):
+
+            1. Clone the repo.
+            2. Open it with Android Studio.
+            3. Change your [API key](../../analytics/find-api-credentials/) in `build.gradle` for `Module: samples: java-android-app` under Gradle Scripts. 
+            4. Sync the project with Gradle files. 
+            4. Run `samples.java-android-app`.
+            5. Press the button to send events in the running application. 
+            6. [Check for success](./#check-for-success_2).
+
+        ???code-example "Kotlin JVM example project (click to expand)"
+            To get started fast, check out an [example Kotlin JVM project](https://github.com/amplitude/Amplitude-Kotlin/tree/main/samples/kotlin-jvm-app):
+
+            1. Clone the repo.
+            2. Open it with Android Studio.
+            3. Change your [API key](../../analytics/find-api-credentials/) in `samples/kotlin-jvm-app/main/java/main.kt` and run the file.
+            4. [Check for success](./#check-for-success_2).
 
     !!!info "Quickstart table of contents"
 
