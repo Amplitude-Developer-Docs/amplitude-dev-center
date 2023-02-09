@@ -337,7 +337,7 @@ type addEventIDPlugin struct {
 }
 
 func (plugin *addEventIDPlugin) Name() string {
-	return "AddEventId"
+    return "AddEventId"
 }
 
 func (plugin *addEventIDPlugin) Setup(config amplitude.Config) {
@@ -385,7 +385,7 @@ type myDestinationPlugin struct {
 }
 
 func (plugin *myDestinationPlugin) Name() string {
-	return "MyDestinationPlugin"
+    return "MyDestinationPlugin"
 }
 
 // Setup is called on plugin installation
