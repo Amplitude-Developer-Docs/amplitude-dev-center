@@ -1,5 +1,5 @@
 ---
-title: Go Ampli Wrapper (Beta)
+title: Go Ampli Wrapper
 description:  Learn how to install and use the Amplitude Data Ampli Wrapper for the Go runtimes.
 ---
 
@@ -7,7 +7,7 @@ description:  Learn how to install and use the Amplitude Data Ampli Wrapper for 
 
 Amplitude Data supports tracking analytics events from Go apps. The generated tracking library is packaged as a Go package.
 
-!!!alpha "Go Ampli Resources (Beta)"
+!!!info "Go Ampli Resources"
     [:material-github: Examples](https://github.com/amplitude/ampli-examples/tree/main/go/simple/v2) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
@@ -51,15 +51,16 @@ Amplitude Data supports tracking analytics events from Go apps. The generated tr
 
     ```golang
     ampli.Instance.Identify(userID, ampli.Identify.Builder().
-        UserProp("A trait associated with this user").Build()
+        UserProp("A trait associated with this user").
+        Build(),
     )
     ```
 
 6. [Track events with strongly typed methods and classes](#track)
 
     ```golang
-    ampli.Instance.SongPlayed("user_id", SongPlayed().Builder().SongId("song-1").Build())
-    ampli.Instance.Track("user_id", SongFavorited().Builder().SongId("song-2").Build())
+    ampli.Instance.SongPlayed("user_id", ampli.SongPlayed.Builder().SongId("song-1").Build())
+    ampli.Instance.Track("user_id", ampli.SongFavorited.Builder().SongId("song-2").Build())
     ```
 
 7. [Flush events before application exit](#flush)
@@ -108,7 +109,6 @@ ampli.Instance.Load(ampli.LoadOptions{
 |-|-|
 |`Environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example,  `EnvironmentProduction` or `EnvironmentDevelopment`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `Client.ApiKey` or `Client.Instance` is provided, `Environment` is ignored, and can be omitted.|
 |`Disabled`|Specifies whether the Ampli Wrapper does any work. When true, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.|
-|`Environment`|Specifies the environment the Ampli Wrapper runs in: either `EnvironmentDevelopment` or `EnvironmentProduction`. Environment determines which Access Token is used to load the underlying analytics provider libraries.|
 |`Client`| A instance of LoadClientOptions specifies configuration options for the Amplitude core SDK client.|
 
 | <div class ="big-column">Arg of LoadClientOptions</div> | Description |
@@ -123,7 +123,7 @@ Call `Identify()` to identify a user in your app and associate all future events
 
 Just as Ampli creates types for events and their properties, it creates types for user properties.
 
-The `Identify()` function accepts a string `userID`, an Identify event instance, and `amplitude.EventOptions`.
+The `Identify()` function accepts a string `userID`, an Identify event instance, and optional `amplitude.EventOptions`.
 
 All properties are passed in as parameters of methods to `ampli.Identify.Builder()`. For example your tracking plan only contains a required user property called `role`. The property's type is a string.
 
@@ -141,7 +141,7 @@ ampli.Instance.Identify(
     "user_id",
     ampli.Identify.Builder().Role("admin").Build(),
     amplitude.EventOptions{
-        DeviceID: "divice_id",
+        DeviceID: "device_id",
     },
 )
 ```
@@ -154,42 +154,30 @@ Call `GroupIdentify()` to identify a group in your app and set/update group prop
 
 Just as Ampli creates types for events and their properties, it creates types for group properties.
 
-The `GroupIdentify()` function accepts a string `groupType`, a string `groupName`, an Group event instance, and `EventOptions`.
+The `GroupIdentify()` function accepts a string `groupType`, a string `groupName`, a Group event instance, and optional `EventOptions`.
 
-For example your tracking plan contains a group `sport:football` has a required property called `totalMember`. The property's type is a int.
-
-```Go
-ampli.Instance.GroupIdentify(
-    "sport",
-    "football",
-    ampli.NewGroup(23),
-    amplitude.EventOptions{},
-)
-```
-
-The same with `NewIdentify()`, if your tracking plan contains an optional property called `totalMember`.
+For example your tracking plan contains a group `sport:football` has a property called `totalMember`. The property's type is a int.
 
 ```Go
 ampli.Instance.GroupIdentify(
     "sport",
     "football",
-    ampli.NewGroup().OptionalTotalMember(23),
-    amplitude.EventOptions{},
+    ampli.Group.Builder().TotalMember(23).Build(),
 )
 ```
 
 ### Set group
 
-Call `SetGroup()` to associate a user with their group (for example, their department or company). The `SetGroup()` function accept `userID` `groupType`, `groupName` and EventOptions.
+Call `SetGroup()` to associate a user with their group (for example, their department or company). The `SetGroup()` function accept `userID` `groupType`, `groupName` and optional EventOptions.
 
 ```Go
-ampli.Instance.Client.SetGroup("user-id", "sport", []string{"football"}, amplitude.EventOptions{})
+ampli.Instance.SetGroup("user-id", "sport", []string{"football"})
 ```
 
 Multiple group names can be set at once.
 
 ```Go
-ampli.Instance.Client.SetGroup("user-id", "sport", []string{"football", "basketball"}, amplitude.EventOptions{})
+ampli.Instance.SetGroup("user-id", "sport", []string{"football", "basketball"})
 ```
 
 ### Track
@@ -197,39 +185,38 @@ ampli.Instance.Client.SetGroup("user-id", "sport", []string{"football", "basketb
 To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
 
 ```Go
-ampli.Instance.EventName(userID, ampli.EventName.Builder().eventProp(true).Build(), amplitude.EventOptions{})
+ampli.Instance.EventName(userID, ampli.EventName.Builder().EventProp(true).Build())
 ```
 
-`EventOptions` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument), like `DeviceID`.
+Optional `EventOptions` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument), like `DeviceID`.
 
 For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
 ```Go
-ampli.Instance.SongPlayed("user_id", SongPlayed().Builder()
-    .SongId("songId")
-    .SongPlayed(true)
-    .Build(),
+ampli.Instance.SongPlayed("user_id", ampli.SongPlayed.Builder().
+    SongId("songId").
+    SongPlayed(true).
+    Build(),
     amplitude.EventOptions{}
 )
 ```
 
-Ampli also generates a class for each event. Use `NewEventName()` to get the corresponding class for each event.
+Ampli also generates a builder for each event. Use `EventName.Builder()` to get the corresponding builder for each event.
 
 ```Go
-SongPlayed().Builder()
-    .SongId("songId")
-    .SongPlayed(true)
-    .Build()
+ampli.Instance.SongPlayed.Builder().
+    SongId("songId").
+    SongPlayed(true).
+    Build()
 ```
 
 Send event objects using the generic track method.
 
 ```Go
-ampli.Instance.Track("user-id", SongPlayed().Builder()
-    .SongId("songId")
-    .SongPlayed(true)
-    .Build(),
-    amplitude.EventOptions{},
+ampli.Instance.Track("user-id", ampli.SongPlayed.Builder().
+    SongId("songId").
+    SongPlayed(true).
+    Build(),
 )
 ```
 
@@ -239,7 +226,7 @@ ampli.Instance.Track("user-id", SongPlayed().Builder()
 
 Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type).
 
-First you need to define your plugin: [plugin examples](https://www.docs.developers.amplitude.com/data/sdks/go/#plugin-examples).
+First you need to define your plugin: [plugin examples](./index.md#plugin-examples).
 
 Add your plugin after init Ampli:
 

@@ -1,12 +1,12 @@
 ---
-title: Go SDK (Beta)
+title: Go SDK
 description: The Amplitude Go SDK installation and quick start guide.
 icon: simple/go
 ---
 
 The Go SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/analytics-go).
 
-!!!beta "Go SDK Resources (Beta)"
+!!!info "Go SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/analytics-go) · [:material-code-tags-check: Releases](https://github.com/amplitude/analytics-go/releases) · [:material-book: API Reference](https://pkg.go.dev/github.com/amplitude/analytics-go/amplitude)
 
 --8<-- "includes/ampli-vs-amplitude.md"
@@ -38,30 +38,39 @@ import (
 )
 
 func main() {
-  // Create a Config struct
-  config := amplitude.NewConfig("your-api-key")
-  // Modify your configuration if necessary
-  config.FlushQueueSize = 200
+    // Create a Config struct
+    config := amplitude.NewConfig("your-api-key")
+    // Modify your configuration if necessary
+    config.FlushQueueSize = 200
 
-  // Pass a Config struct
-  // to initialize a Client struct
-  // which implements Client interface
-  client := amplitude.NewClient(config)
+    // Pass a Config struct
+    // to initialize a Client struct
+    // which implements Client interface
+    client := amplitude.NewClient(config)
 }
 
 ```
 
 Set your configuration before a client is initialized.
 
-| <div class="big-column">Name</div> | Description  |
-| --- | --- |
-| `APIKey` | Required. `string`. The API key of the Amplitude project. Events sent by the Client `struct` are in this project. Set when you initialize the Client `struct`. |
-| `FlushQueueSize` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. Defaults to 200.|
-| `FlushInterval` | `time.Duration`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. Defaults to 10 seconds.|
-| `Logger` | Logger interface. The logger used by Amplitude client. Defaults to using a wrapper of [Go standard Logger](https://pkg.go.dev/log#Logger): `log.Logger`. |
-| `ServerURL` | `string`. The API endpoint URL to send events to.|
-| `Storage` | Storage interface. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorage`. |
-| `OptOut`  | `bool`. Opt out option. If set to `true`, client doesn't process and send events. Defaults to `false`. |
+| <div class="big-column">Name</div> | Description                                                                                                                                                                                                                                           |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `APIKey`                           | Required. `string`. The API key of the Amplitude project. Events sent by the Client `struct` are in this project. Set when you initialize the Client `struct`.                                                                                        |
+| `FlushQueueSize`                   | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. Defaults to 200.                                                                                                  |
+| `FlushInterval`                    | `time.Duration`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. Defaults to 10 seconds.                                                                                                              |
+| `Logger`                           | Logger interface. The logger used by Amplitude client. Defaults to using a wrapper of [Go standard Logger](https://pkg.go.dev/log#Logger): `log.Logger`.                                                                                              |
+| `ServerZone`                       | `string`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. Defaults to US.                                                                                                                                   |
+| `UseBatch`                         | `boolean`. Uses HTTP v2 API endpoint if set to `false`, otherwise use batch API endpoint. Read more about difference between [HTTP v2 and batch](https://developers.amplitude.com/docs/batch-event-upload-api). Defaults to `false`.                  |
+| `ServerURL`                        | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set, then `ServerZone` and `UseBatch` are ignored and the string value is used. Defaults to the HTTP API V2 endpoint. |
+| `StorageFactory`                   | `function`. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorage`.                                                                                       |
+| `OptOut`                           | `bool`. Opt out option. If set to `true`, client doesn't process and send events. Defaults to `false`.                                                                                                                                                |
+| `ConnectionTimeout`                | `time.Duration`. A time limit for API requests. Defaults to 10 seconds.                                                                                                                                                                               |
+| `FlushMaxRetries`                  | `int`. The number of times the client retries an event when the request returns an error. Defaults to 12.                                                                                                                                             |
+| `RetryBaseInterval`                | `time.Duration`. Base interval between retries when the request returns an error. Defaults to 100 milliseconds.                                                                                                                                       |
+| `RetryThrottledInterval`           | `time.Duration`. Base interval between retries for throttled requests. Defaults to 30 seconds.                                                                                                                                                        |
+| `MaxStorageCapacity`               | `int`. The maximum count of pending events in the storage. Defaults to 20000.                                                                                                                                                                         |
+| `MinIDLength`                      | `int`. The minimum length of user_id and device_id. Defaults to 5.                                                                                                                                                                                    |
+| `ExecuteCallback`                  | `function`. Client level callback function.                                                                                                                                                                                                           |
 
 ### Track an event
 
@@ -71,21 +80,21 @@ Events represent how users interact with your application. For example, "Button 
 // Track a basic event
 // EventOne of UserID and DeviceID is required as well as EventType
 client.Track(amplitude.Event{
-  UserID:    "user-id",
-  EventType: "Button Clicked",
+    UserID:    "user-id",
+    EventType: "Button Clicked",
 })
 
 // Track events with optional properties
 client.Track(amplitude.Event{
-  UserID:    "user-id",
-  EventType: "Button Clicked",
-  EventProperties: map[string]interface{}{
-    "name":       "Checkout",
-    "a property": "a value",
-  },
-  EventOptions: amplitude.EventOptions{
-    Price: 1.99,
-  },
+    UserID:    "user-id",
+    EventType: "Button Clicked",
+    EventProperties: map[string]interface{}{
+        "name":       "Checkout",
+        "a property": "a value",
+    },
+    EventOptions: amplitude.EventOptions{
+        Price: 1.99,
+    },
 })
 ```
 
@@ -214,7 +223,7 @@ Event level groups are set by `Groups` attribute of events
 event := amplitude.Event{
     UserID:          "user-id",
     EventType:       "event-type",
-    Groups: map[string][]string{"org-id": []string{"15", "21"}},
+    Groups: map[string][]string{"org-id": {"15", "21"}},
   }
 
 // set groups for an existing Event struct
@@ -234,7 +243,7 @@ The `GroupIdentify()` method accepts a group type and group name string paramete
 ```Go
 identifyObj := amplitude.Identify{}
 identifyObj.Set("local", "en-us")
-client.GroupIdentify("org-id", []string{"15"}, identifyObj)
+client.GroupIdentify("org-id", "15", identifyObj, amplitude.EventOptions{})
 ```
 
 ### Revenue Tracking
@@ -298,7 +307,7 @@ client.Add(pluginObj)
 The `Remove` method removes the given plugin from the Client `struct` if exists.
 
 ```Go
-client.Remove(pluginObj)
+client.Remove(pluginName)
 ```
 
 ### `Plugin.Setup`
@@ -321,32 +330,35 @@ package main
 import "github.com/amplitude/analytics-go/amplitude"
 
 type addEventIDPlugin struct {
-  currentID int
-  config    amplitude.Config
+    currentID int
+    config    amplitude.Config
+}
+
+func (plugin *addEventIDPlugin) Name() string {
+    return "AddEventId"
 }
 
 func (plugin *addEventIDPlugin) Setup(config amplitude.Config) {
-  plugin.config = config
+    plugin.config = config
 }
 
 func (plugin *addEventIDPlugin) Type() amplitude.PluginType {
-  return amplitude.ENRICHMENT
+    return amplitude.PluginTypeEnrichment
 }
 
 func (plugin *addEventIDPlugin) Execute(event *amplitude.Event) *amplitude.Event {
-  event.EventID = plugin.currentID
-  plugin.currentID += 1
-  return event
+    event.EventID = plugin.currentID
+    plugin.currentID += 1
+    return event
 }
 
 func main() {
-  config := amplitude.NewConfig("your-api-key")
-  client := amplitude.NewClient(config)
-  defer client.Shutdown()
+    config := amplitude.NewConfig("your-api-key")
+    client := amplitude.NewClient(config)
+    defer client.Shutdown()
 
-  client.Add(&addEventIDPlugin{})
+    client.Add(&addEventIDPlugin{})
 }
-
 ```
 
 #### Destination type plugin
@@ -357,69 +369,73 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
 package main
 
 import (
-  "bytes"
-  "encoding/json"
-  "net/http"
+    "bytes"
+    "encoding/json"
+    "net/http"
   
-  "github.com/amplitude/analytics-go/amplitude"
+    "github.com/amplitude/analytics-go/amplitude"
 )
 
 type myDestinationPlugin struct {
-  url        string
-  config     amplitude.Config
-  httpClient http.Client
+    url        string
+    config     amplitude.Config
+    httpClient http.Client
+}
+
+func (plugin *myDestinationPlugin) Name() string {
+    return "MyDestinationPlugin"
 }
 
 // Setup is called on plugin installation
 func (plugin *myDestinationPlugin) Setup(config amplitude.Config) {
-  plugin.config = config
-  plugin.httpClient = http.Client{}
+    plugin.config = config
+    plugin.httpClient = http.Client{}
 }
 
 // Type defines your amplitude.PluginType from:
-//  - amplitude.BEFORE
-//  - amplitude.ENRICHMENT
-//  - amplitude.DESTINATION
-func (plugin myDestinationPlugin) Type() amplitude.PluginType {
-  return amplitude.DESTINATION
+//  - amplitude.PluginTypeBefore
+//  - amplitude.PluginTypeEnrichment
+//  - amplitude.PluginTypeDestination
+func (plugin *myDestinationPlugin) Type() amplitude.PluginType {
+    return amplitude.PluginTypeDestination
 }
 
 // Execute is called on each event instrumented
 func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
-  payload := map[string]interface{}{"key": "secret", "events": event}
-  payloadBytes, err := json.Marshal(payload)
+    payload := map[string]interface{}{"key": "secret", "events": event}
+    payloadBytes, err := json.Marshal(payload)
 
-  if err != nil {
-    plugin.config.Logger.Error("Event encoding failed: ", err)
-  }
+    if err != nil {
+        plugin.config.Logger.Errorf("Event encoding failed: ", err)
+    }
 
-  request, err := http.NewRequest("POST", plugin.url, bytes.NewReader(payloadBytes))
-  if err != nil {
-    plugin.config.Logger.Error("Building new request failed", err)
-  }
+    request, err := http.NewRequest("POST", plugin.url, bytes.NewReader(payloadBytes))
+    if err != nil {
+        plugin.config.Logger.Errorf("Building new request failed", err)
+    }
 
-  response, err := plugin.httpClient.Do(request)
-  if err != nil {
-    plugin.config.Logger.Error("HTTP request failed", err)
-  } else {
-    defer response.Body.Close()
-  }
+    response, err := plugin.httpClient.Do(request)
+    if err != nil {
+        plugin.config.Logger.Errorf("HTTP request failed", err)
+    } else {
+        defer response.Body.Close()
+    }
 }
 
 func main() {
-  config := amplitude.NewConfig("your-api-key")
-  client := amplitude.NewClient(config)
-  defer client.Shutdown()
+    config := amplitude.NewConfig("your-api-key")
+    client := amplitude.NewClient(config)
+    defer client.Shutdown()
 
-  client.Add(&myDestinationPlugin{
-    // Change it to your target server URL
-    url: "https://custom.domain.com",
-  })
+    client.Add(&myDestinationPlugin{
+        // Change it to your target server URL
+        url: "https://custom.domain.com",
+    })
 
-  client.Track(amplitude.Event{
-    UserID: "user-id",
-    EventType: "Button Clicked",
-  })
+    client.Track(amplitude.Event{
+        UserID: "user-id",
+        EventType: "Button Clicked",
+    })
 }
 ```
 
