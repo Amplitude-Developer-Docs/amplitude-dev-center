@@ -756,7 +756,9 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK (Beta)](../ios-swift/).
 
     !!!beta "iOS Swift SDK (Beta)"
-        This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
+        This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you require support for Objective-C or have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
+
+        To migrate to the latest version of Amplitude iOS SDK, see the [Migration Guide](../ios-swift/migration/).
     
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_3)
