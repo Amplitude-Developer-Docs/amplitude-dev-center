@@ -584,13 +584,13 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     Learn more about [Ampli Android](../android-kotlin/ampli/).
 
-=== "iOS-Legacy"
+=== "iOS"
     The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
 
-    !!!deprecated "Legacy SDK"
-        This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the latest [iOS Swift SDK](../ios-swift/) which supports plugins and more. See the [Migration Guide](../ios-swift/migration/) for more help. 
-        
-        Please note that the latest iOS Swift SDK is **NOT** compatible with Objective-C projects. Use this SDK if your project requires compatibility with Objective-C. 
+    !!!warning New Version Available
+        This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](../ios-swift/) has additional features such as plugins and more. See the [Migration Guide](../ios-swift/migration/) for more help.
+
+        Please note that the latest iOS Swift SDK is **NOT** compatible with Objective-C projects. Use this SDK if your project requires compatibility with Objective-C.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_3)

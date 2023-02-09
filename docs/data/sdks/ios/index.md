@@ -1,5 +1,5 @@
 ---
-title: iOS SDK (Legacy)
+title: iOS SDK
 description: The Amplitude iOS SDK installation and quick start guide.
 icon: simple/ios
 ---
@@ -9,8 +9,10 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
-!!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the latest [iOS Swift SDK](../ios-swift/) which supports plugins and more. See the [Migration Guide](../../sdks/ios-swift/migration) for more help.
+!!!warning New Version Available
+    This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](../ios-swift/) has additional features such as plugins and more. See the [Migration Guide](../ios-swift/migration/) for more help.
+
+    Please note that the latest iOS Swift SDK is **NOT** compatible with Objective-C projects. Use this SDK if your project requires compatibility with Objective-C.
 
 !!!info "iOS SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
@@ -20,7 +22,7 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 
 ## Getting started
 
-Use [this quickstart guide](../../sdks/sdk-quickstart#ios-legacy) to get started with Amplitude iOS SDK.
+Use [this quickstart guide](../../sdks/sdk-quickstart#ios) to get started with Amplitude iOS SDK.
 
 ## Core functions
 

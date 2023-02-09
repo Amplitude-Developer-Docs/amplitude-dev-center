@@ -9,7 +9,7 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
-!!!info "iOS Swift SDK Resources (Beta)"
+!!!beta "iOS Swift SDK Resources (Beta)"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases)
 
 --8<-- "includes/no-ampli.md"
