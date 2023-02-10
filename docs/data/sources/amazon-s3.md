@@ -55,6 +55,12 @@ For each Amplitude project, AWS S3 import can ingest:
 - Up to 50 files per second.
 - Up to 30k events per second.
 
+### Deduplication with `insert_id`
+
+Amplitude uses a unique identifier, `insert_id`, to match against incoming events to prevent duplicates. If a new event with a specific `insert_id` is uploaded to Amplitude within 7 days of a previous event with the same `insert_id`, Amplitude drops the new event.
+
+Amplitude highly recommends that you set a custom `insert_id` for each event to prevent duplication. To set a custom `insert_id`, create a field that holds unique values, like random alphanumeric strings, in your dataset. Map the field as an additional property named `insert_id` in the guided converter configuration.
+
 ## Set up Amazon S3 Import in Amplitude
 
 When your dataset is ready for ingestion, you can set up Amazon S3 Import in Amplitude.
