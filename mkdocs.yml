@@ -224,7 +224,11 @@ nav:
           - Adobe:
             - Adobe Analytics: data/sources/adobe-analytics.md
             - Adobe Tag Manager: data/sources/adobe.md
-          - Google Tag Manager: data/sources/google-tag-manager.md
+          - Google Tag Manager: 
+            - Quickstart Guide: data/sources/google-tag-manager.md
+            - Amplitude Analytics Browser SDK: data/sources/google-tag-manager-client.md
+            - Amplitude Analytics: data/sources/google-tag-manager-server.md
+            - Amplitude Analytics Legacy: data/sources/google-tag-manager-client-legacy.md
         - Marketing Automation:
           - Braze: data/sources/braze.md
           - HubSpot: data/sources/hubspot.md
