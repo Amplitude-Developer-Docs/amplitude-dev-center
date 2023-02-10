@@ -27,12 +27,9 @@ To configure an Event Streaming integration from Amplitude to Iterable, you need
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data**.
-2. On the sidebar, under **Connections**, select **Catalog**.
-3. Select the **Destinations** tab.
-4. Select **Event Streaming**.
-5. Click **Iterable - Event Streaming**.
-6. Enter a sync name, then click **Create Sync**.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Iterable**.
+3. Enter a sync name, then click **Create Sync**.
 
 After you create the destination, you must configure the settings.
 

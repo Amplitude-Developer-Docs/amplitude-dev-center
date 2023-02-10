@@ -14,10 +14,11 @@ Amplitude's Appcues integration allows you to send finely targeted behavioral au
 
 ## Setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Appcues - Cohort**.
-2. Enter your Appcues account ID. You can find your account ID by following [these instructions](https://docs.appcues.com/article/254-http-api).
-3. Select the Amplitude user property to map to the Appcues `User ID` field. This property should match the `User ID` field.
-4. Save your work.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Appcues**.
+3. Enter your Appcues account ID. You can find your account ID by following [these instructions](https://docs.appcues.com/article/254-http-api).
+4. Select the Amplitude user property to map to the Appcues `User ID` field. This property should match the `User ID` field.
+5. Save your work.
 
 ## Send a cohort
 

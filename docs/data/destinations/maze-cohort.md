@@ -27,8 +27,8 @@ The Maze integration allows you to send audiences from Amplitude to Maze to crea
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Maze - Cohort**.
-2. Click **Add another destination**.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Maze**.
 3. Enter a name and Maze API key.
 4. Map an Amplitude field to the Maze User ID field.
 5. When finished, save your work.

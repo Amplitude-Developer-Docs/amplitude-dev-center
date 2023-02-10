@@ -19,8 +19,8 @@ Enterpret analyzes your customer feedback across different sources, such as supp
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Enterpret - Cohort**.
-2. Click **Add another destination**.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Enterpret**.
 3. Enter a name and Enterpret API key.
 4. Map an Amplitude field to the Enterpret User ID field.
 5. When finished, save the integration.

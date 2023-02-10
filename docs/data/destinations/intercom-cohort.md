@@ -14,10 +14,11 @@ Send behavioral cohorts from Amplitude to Intercom so that you can better engage
 
 ## Setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Intercom - Cohort**.
-2. Log into your Intercom account (via OAuth) to authenticate and select the account you want to sync the cohort to.
-3. Intercom redirects you to the Amplitude dashboard. Select the identifiers you want to use for the cohort sync.
-4. Save your work when finished.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Intercom**.
+3. Log into your Intercom account (via OAuth) to authenticate and select the account you want to sync the cohort to.
+4. Intercom redirects you to the Amplitude dashboard. Select the identifiers you want to use for the cohort sync.
+5. Save your work when finished.
 
 ## Send a cohort
 

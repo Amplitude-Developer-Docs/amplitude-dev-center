@@ -20,9 +20,10 @@ This integration lets you send targeted messages using the specific cohorts you'
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Cordial - Cohort**.
-2. Enter a name and Infobip API Key.
-3. Save the destination.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Infobip**.
+3. Enter a name and Infobip API Key.
+4. Save the destination.
 
 ## Statuses
 

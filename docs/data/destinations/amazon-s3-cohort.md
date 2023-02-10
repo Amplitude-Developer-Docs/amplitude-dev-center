@@ -20,10 +20,11 @@ Set up this integration to send cohorts to an Amazon S3 bucket. This enables you
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Amazon S3 - Cohort**. Don't select **Amazon S3 - Raw Events** for this integration. 
-2. Enter the bucket name, select a region, enter a bucket path (optional), and enter a name for the destination. The name is used when syncing a cohort from Amplitude. 
-3. Select the Amplitude user property to match users between Amazon S3 and Amplitude. 
-4.  Click **Copy Bucket Policy**. 
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Amazon S3 (Cohorts)**. Don't select **Amazon S3** for this integration. 
+3. Enter the bucket name, select a region, enter a bucket path (optional), and enter a name for the destination. The name is used when syncing a cohort from Amplitude. 
+4. Select the Amplitude user property to match users between Amazon S3 and Amplitude. 
+5. Click **Copy Bucket Policy**. 
 
 ### Amazon S3 setup
 

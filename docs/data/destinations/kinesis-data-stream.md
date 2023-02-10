@@ -78,8 +78,9 @@ Make note of the role ARN, stream region, and stream name. You need these to set
 
 Create a Kinesis destination in Amplitude.
 
-1. In Amplitude, navigate to **Data Destinations** then find **Kinesis Data Stream - Event Stream**.
-2. Enter a sync name, then click **Create Sync**.
-3. Click **Edit**, then enter your AWS region, stream name, and role name (ARN) you created during Kinesis setup.
-4. Use the _Send events_ filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones. 
-5. When finished, enable the destination and save.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Warehouse Destination section, click **Kinesis Data Stream**.
+3. Enter a sync name, then click **Create Sync**.
+4. Click **Edit**, then enter your AWS region, stream name, and role name (ARN) you created during Kinesis setup.
+5. Use the _Send events_ filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones. 
+6. When finished, enable the destination and save.

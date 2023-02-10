@@ -25,9 +25,10 @@ Contact your CSM if you want to use this integration.
 
 ### Amplitude setup 
 
-1. In Amplitude, navigate to **Data Destinations**, then find **HubSpot - Cohort**.
-2. Log into your HubSpot account (via OAuth) to authenticate. Then select the account that contains the cohort you want to sync.
-3. After you're redirected to the Amplitude dashboard, select the identifiers you want to use for the cohort sync. When you're done, save your work.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **HubSpot**.
+3. Log into your HubSpot account (via OAuth) to authenticate. Then select the account that contains the cohort you want to sync.
+4. After you're redirected to the Amplitude dashboard, select the identifiers you want to use for the cohort sync. When you're done, save your work.
 
 ## Send a cohort
 

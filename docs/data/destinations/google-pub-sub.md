@@ -38,8 +38,9 @@ Now, create a key for the service account. You need this to complete Amplitude s
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Google Pub/Sub - Event Stream**.
-2. Enter a sync name, then click **Create Sync**.
-3. Click **Edit**, then paste your Pub/Sub topic name and Google Cloud service account key.
-4. Use the **Send events** filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones.
-5. When finished, enable the destination and save.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Google Pub/Sub**.
+3. Enter a sync name, then click **Create Sync**.
+4. Click **Edit**, then paste your Pub/Sub topic name and Google Cloud service account key.
+5. Use the **Send events** filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones.
+6. When finished, enable the destination and save.

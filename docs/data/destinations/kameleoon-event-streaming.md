@@ -40,13 +40,14 @@ There are no other setup steps in Kameleoon.
 
 ### Amplitude setup
 
-1. In Amplitude Data, navigate to **Destinations**, then find Kameleoon - Event Stream.
-2. Enter a sync name, then click **Create Sync**.
-3. Toggle status to **Enabled**.
-4. Paste your API key and sitecode.
-5. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
-6. Use the Event Properties filter to select which Event Properties you would like to send.
-7. When finished, save your work.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Kameleoon**.
+3. Enter a sync name, then click **Create Sync**.
+4. Toggle status to **Enabled**.
+5. Paste your API key and sitecode.
+6. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
+7. Use the Event Properties filter to select which Event Properties you would like to send.
+8. When finished, save your work.
 
 ## Use cases
 

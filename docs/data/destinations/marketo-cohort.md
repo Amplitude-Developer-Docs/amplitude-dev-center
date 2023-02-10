@@ -31,9 +31,10 @@ This integration combines Amplitude with Marketo's tools for in-app messaging, p
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Marketo - Cohort**.
-2. Enter the API key, API secret, and base URL. The base URL is the same as the REST API endpoint.
-3. Enter the rest of the information requested by the modal:
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Marketo**.
+3. Enter the API key, API secret, and base URL. The base URL is the same as the REST API endpoint.
+4. Enter the rest of the information requested by the modal:
     - For *Name*, enter the name for the API key, so you can select the API target when syncing cohorts.
     - For *Amplitude User Property,* select the Amplitude field you want Marketo to match with.
     - For *Target,* enter the Marketo field to match to the Amplitude user property.

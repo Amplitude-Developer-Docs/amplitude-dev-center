@@ -45,14 +45,15 @@ Copy the app ID from your AppsFlyer dashboard.
 
 #### Add the destination
 
-1. In Amplitude, navigate to **Data Destinations**, then find **AppsFlyer - Cohort**.
-2. Click **Add another destination**.
-3. Enter *Name* and then paste your *AppsFlyer App ID* and *AppsFlyer API Token V2*.
-4. Choose a platform.
-5. Map your user identifier.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **AppsFlyer**.
+3. Click **Add another destination**.
+4. Enter *Name* and then paste your *AppsFlyer App ID* and *AppsFlyer API Token V2*.
+5. Choose a platform.
+6. Map your user identifier.
       - For iOS audiences: iOS Advertiser ID, Amplitude User ID, or AppsFlyer Customer User ID
       - For Android audiences: Google Advertiser ID, Amplitude User ID, or AppsFlyer Customer User ID
-6. Save the destination.
+7. Save the destination.
 
 ## Send a cohort
 

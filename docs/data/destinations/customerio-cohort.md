@@ -25,11 +25,12 @@ description: Send Amplitude cohorts to Customer.io for use in automated messagin
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Customer.io - Cohort**.
-2. Enter a name, tracking API key, site ID, and app API key. 
-3. Select a region. 
-4. Map an Amplitude property to the Customer.io user ID. 
-5. Save when finished.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Customer.io**.
+3. Enter a name, tracking API key, site ID, and app API key. 
+4. Select a region. 
+5. Map an Amplitude property to the Customer.io user ID. 
+6. Save when finished.
 
 ## Send a cohort
 
