@@ -32,7 +32,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 - Added new-format request examples to [HTTP V2 API](../analytics/apis/http-v2-api) doc. [#571](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/571).
 - Added new-format request examples to [Behavioral Cohorts API](../analytics/apis/behavioral-cohorts-api) doc. [#573](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/573)
-- Updated [Event Streaming Overview](../data/destinations/event-streaming-overview) doc to clarify how events are counted. [#562](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/562).
+- Updated [Event Streaming Overview](../data/destination-event-streaming-overview) doc to clarify how events are counted. [#562](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/562).
 - Added configuration information to [Legacy Android SDK](../data/sdks/android/) doc. [#577](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/577)
 - Made tweaks to quickstart guides. [#570](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/570)
 - Added deduplication section to [S3 Import](../data/sources/amazon-s3) doc. [#579](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/579)
