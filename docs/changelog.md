@@ -24,17 +24,18 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 
 **New**
 
-- Added [overview page](../experiment/guides/getting-started/) for Experiment Getting Started guide. [#559](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/559).
+- Added [overview page](../experiment/guides/getting-started/) for Experiment Getting Started guide. [#559](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/559)
 - Added [Plotline Cohort Syncing](../data/destinations/plotline-cohort) doc. [#575](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/575)
 - Added [HTTP V2 Quickstart guide](../analytics/apis/http-v2-api-quickstart), and added code examples in more languages to the [HTTP V2](../analytics/apis/http-v2-api) doc. [#578](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/578)
 
 **Updated**
 
 - Added new-format request examples to [HTTP V2 API](../analytics/apis/http-v2-api) doc. [#571](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/571).
-- Added new-format request examples to [Behavioral Cohorts API](../analytics/apis/behavioral-cohorts-api) doc. [#573](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/573).
+- Added new-format request examples to [Behavioral Cohorts API](../analytics/apis/behavioral-cohorts-api) doc. [#573](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/573)
 - Updated [Event Streaming Overview](../data/destinations/event-streaming-overview) doc to clarify how events are counted. [#562](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/562).
-- Added configuration information to [Legacy Android SDK](../data/sdks/android/) doc. [#577 ](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/577)
-- Made tweaks to quickstart guides. [#570](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/570).
+- Added configuration information to [Legacy Android SDK](../data/sdks/android/) doc. [#577](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/577)
+- Made tweaks to quickstart guides. [#570](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/570)
+- Added deduplication section to [S3 Import](../data/sources/amazon-s3) doc. [#579](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/579)
 
 <!-- markdown-link-check-disable -->
 <!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
