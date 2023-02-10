@@ -19,25 +19,7 @@ The Node.js SDK lets you send events to Amplitude. This library is open-source, 
 
 ## Getting started
 
-### Installation
-
-To get started with using Node SDK, install the package to your project via NPM or script loader.
-
-#### Install as Node package
-
-This package is published on NPM registry and you can install it using npm and yarn.
-
-=== "npm"
-
-    ```bash
-    npm install @amplitude/analytics-node
-    ```
-
-=== "yarn"
-
-    ```bash
-    yarn add @amplitude/analytics-node
-    ```
+Use [this quickstart guide](../sdk-quickstart#node) to get started with Amplitude Node SDK.
 
 ## Usage
 

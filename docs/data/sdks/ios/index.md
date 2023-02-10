@@ -1,5 +1,5 @@
 ---
-title: iOS SDK (Legacy)
+title: iOS SDK
 description: The Amplitude iOS SDK installation and quick start guide.
 icon: simple/ios
 ---
@@ -9,8 +9,10 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
-!!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the latest [iOS Swift SDK](../ios-swift/) which supports plugins and more. See the [Migration Guide](../../sdks/ios-swift/migration) for more help.
+!!!warning New Version Available
+    This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](../ios-swift/) has additional features such as plugins and more. See the [Migration Guide](../ios-swift/migration/) for more help.
+
+    Please note that the latest iOS Swift SDK is **NOT** compatible with Objective-C projects. Use this SDK if your project requires compatibility with Objective-C.
 
 !!!info "iOS SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-iOS) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-iOS/releases) · [:material-book: API Reference](http://amplitude.github.io/Amplitude-iOS)
@@ -18,85 +20,9 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for iOS](./ampli.md).
 
-## Install 
+## Getting started
 
-Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
-
-=== "CocoaPods"
-
-    1. Add dependency to `Podfile`.
-
-        ```bash
-        pod 'Amplitude', '~> 8.14'
-        ```
-
-    2. Run `pod install` in the project directory to download dependency.
-
-=== "Swift Package Manager"
-
-    1. Navigate to `File` > `Swift Package Manager` > `Add Package Dependency`.
-    2. Enter `https://github.com/amplitude/Amplitude-iOS` into the search bar.
-    3. It automatically resolves to the latest version.
-
-    The Amplitude-iOS package appears as a dependency after it's added.
-
-=== "Carthage"
-
-    Add the following line to your `Cartfile`.
-      
-    ```bash
-    github "amplitude/Amplitude-iOS" ~> 8.14
-    ```
-
-After you've installed the SDK, import Amplitude into any file that uses it.
-
-=== "Objective-C"
-
-    ```obj-c
-    #import <Amplitude/Amplitude.h>
-    ```
-
-=== "Swift"
-
-    ```swift
-    import Amplitude
-    ```
-
-!!!tip "Quickstart"
-    1. [Initialize](#initialize)
-    2. [Send an event](#send-events)
-
-    === "Objective-C"
-        ```obj-c
-        (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-          // Enable sending automatic session events
-          [Amplitude instance].trackingSessionEvents = YES;
-          // Initialize SDK
-          [[Amplitude instance] initializeApiKey:@"API_KEY"];
-          // Set userId
-          [[Amplitude instance] setUserId:@"userId"];
-          // Send an event
-          [[Amplitude instance] logEvent:@"app_start"];
-
-          return YES;
-        }
-        ```
-
-    === "Swift"
-        ```swift
-        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            // Enable sending automatic session events
-            Amplitude.instance().trackingSessionEvents = true
-            // Initialize SDK
-            Amplitude.instance().initializeApiKey("API_KEY")
-            // Set userId
-            Amplitude.instance().setUserId("userId")
-            // Send an event
-            Amplitude.instance().logEvent("app_start")
-            
-            return true
-        }
-        ```
+Use [this quickstart guide](../../sdks/sdk-quickstart#ios) to get started with Amplitude iOS SDK.
 
 ## Core functions
 

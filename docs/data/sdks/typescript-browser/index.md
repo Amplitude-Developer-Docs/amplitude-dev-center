@@ -21,37 +21,7 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 
 ## Getting started
 
-### Installation
-
-To get started with using Browser SDK, install the package in your project via NPM or script loader.
-
-#### Install as Node package
-
-This package is available on NPM registry and you can install it using npm or yarn.
-
-=== "npm"
-
-    ```bash
-    npm install @amplitude/analytics-browser
-    ```
-
-=== "yarn"
-
-    ```bash
-    yarn add @amplitude/analytics-browser
-    ```
-
-#### Use script loader
-
-This package is also distributed through a CDN. Copy and paste this script in your HTML file.
-
-```html
-<script type="text/javascript">
-!function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[],_iq:[]};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var n=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,r){return function(n){e._q.push({name:t,args:Array.prototype.slice.call(r,0),resolve:n})}},o=function(e,t,r){e[t]=function(){if(r)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<y.length;t++)o(e,y[t],!1);for(var r=0;r<g.length;r++)o(e,g[r],!0)};r.invoked=!0;var c=t.createElement("script");c.type="text/javascript",c.integrity="sha384-lyGcqRAilM5YOiZT3ktByF3Mv52pltOelJ66zwfcAZ/4s8cB1sSo7yMF2XWh+bzX",c.crossOrigin="anonymous",c.async=!0,c.src="https://cdn.amplitude.com/libs/analytics-browser-1.6.8-min.js.gz",c.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var a=t.getElementsByTagName("script")[0];a.parentNode.insertBefore(c,a);for(var u=function(){return this._q=[],this},l=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],p=0;p<l.length;p++)n(u,l[p]);r.Identify=u;for(var d=function(){return this._q=[],this},v=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],f=0;f<v.length;f++)n(d,v[f]);r.Revenue=d;var y=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(r),r.createInstance=function(){var e=r._iq.push({_q:[]})-1;return i(r._iq[e]),r._iq[e]},e.amplitude=r}}(window,document)}();
-
-amplitude.init("YOUR_API_KEY_HERE");
-</script>
-```
+Use [this quickstart guide](../sdk-quickstart#browser) to get started with Amplitude Browser SDK.
 
 ## Usage
 

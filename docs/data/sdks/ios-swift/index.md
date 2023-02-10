@@ -9,7 +9,7 @@ icon: simple/ios
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
 
-!!!info "iOS Swift SDK Resources (Beta)"
+!!!beta "iOS Swift SDK Resources (Beta)"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases)
 
 --8<-- "includes/no-ampli.md"
@@ -17,72 +17,7 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 
 ## Getting started
 
-### Install
-
-Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
-
-=== "CocoaPods"
-
-    1. Add dependency to `Podfile`.
-
-        ```bash
-        pod 'AmplitudeSwift', '~> 0.3'
-        ```
-
-    2. Run `pod install` in the project directory to download dependency.
-
-=== "Swift Package Manager"
-
-    1. Navigate to `File` > `Swift Package Manager` > `Add Package Dependency`.
-    2. Enter `https://github.com/amplitude/Amplitude-Swift` into the search bar.
-    3. It automatically resolves to the latest version.
-
-    The Amplitude-Swift package appears as a dependency after it's added.
-
-=== "Carthage"
-
-    Add the following line to your `Cartfile`.
-      
-    ```bash
-    github "amplitude/Amplitude-Swift" ~> 0.3
-    ```
-
-
-### Initialization
-
-Before you can instrument, you must initialize the SDK using the API key for your Amplitude project. You can use the iOS SDK anywhere after it's initialized in an iOS application.
-
-```swift
-import Amplitude_Swift
-
-let amplitude = Amplitude(
-    configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
-        logLevel: LogLevelEnum.DEBUG,
-        trackingOptions: TrackingOptions().disableCarrier().disableTrackDMA(),
-        flushEventsOnClose: true,
-        minTimeBetweenSessionsMillis: 100000
-    )
-)
-```
-
-#### EU data residency
-
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
-
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
-
-```swift
-import Amplitude_Swift
-    
-let amplitude = Amplitude(
-    Configuration(
-        apiKey: "YOUR-API-KEY",
-        serverZone: ServerZone.EU
-    )
-)
-```
+Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started with Amplitude iOS SDK.
 
 ## Usage
 
