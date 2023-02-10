@@ -20,6 +20,26 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
     - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite) for those changes.
     - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
 
+## Week of February 5, 2023
+
+**New**
+
+- Added [overview page](../experiment/guides/getting-started/) for Experiment Getting Started guide. [#559](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/559)
+- Added [Plotline Cohort Syncing](../data/destinations/plotline-cohort) doc. [#575](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/575)
+- Added [HTTP V2 Quickstart guide](../analytics/apis/http-v2-api-quickstart), and added code examples in more languages to the [HTTP V2](../analytics/apis/http-v2-api) doc. [#578](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/578)
+
+**Updated**
+
+- Added new-format request examples to [HTTP V2 API](../analytics/apis/http-v2-api) doc. [#571](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/571).
+- Added new-format request examples to [Behavioral Cohorts API](../analytics/apis/behavioral-cohorts-api) doc. [#573](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/573)
+- Updated [Event Streaming Overview](../data/destination-event-streaming-overview) doc to clarify how events are counted. [#562](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/562).
+- Added configuration information to [Legacy Android SDK](../data/sdks/android/) doc. [#577](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/577)
+- Made tweaks to quickstart guides. [#570](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/570)
+- Added deduplication section to [S3 Import](../data/sources/amazon-s3) doc. [#579](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/579)
+
+<!-- markdown-link-check-disable -->
+<!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
+
 ## Week of January 29, 2023
 
 **New**
@@ -38,9 +58,6 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Fixed broken links in [SDK Quickstart](../data/sdks/sdk-quickstart) guide. [#565](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/565/files)
 - Made clarity and context improvements the [Android SDK Quickstart](../data/sdks/sdk-quickstart#android) guide. [#558](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/558)
 - Added missing code example to the [legacy iOS](../data/sdks/ios) doc. [#560](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/560)
-
-<!-- markdown-link-check-disable -->
-<!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
 
 ## Week of January 22, 2023
 
