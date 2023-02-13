@@ -29,7 +29,7 @@ Create a webhook endpoint that can receive HTTP requests.
 
 Amplitude uses [Apache FreeMarker](https://freemarker.apache.org/) templates to customize your event payloads that you send to webhook.
 
-- Customers can use the FreeMarker Templating Language (FTL) to transform [Amplitude's JSON export event format](/analytics/apis/export-api/) into any other JSON schema expected by the Webhook destination.
+- Customers can use the FreeMarker Templating Language (FTL) to transform [Amplitude's JSON export event format](../analytics/apis/export-api/) into any other JSON schema expected by the Webhook destination.
 - FreeMarker is a free, open source templating engine with a large community.
 
 !!!tip "More FreeMarker help"
