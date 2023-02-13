@@ -29,11 +29,12 @@ To configure your Cohort integration from Amplitude to Plotline, you need the fo
 
 ### Amplitude setup
 
-1. In Amplitude Data, navigate to **Destinations**, then find **Plotline - Cohort**.
-2. Add your Plotline API key.
-3. Enter a name.
-4. Map the Amplitude User ID.
-5. Save your work.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Plotline**.
+3. Add your Plotline API key.
+4. Enter a name.
+5. Map the Amplitude User ID.
+6. Save your work.
 
 ## Use cases
 

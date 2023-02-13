@@ -24,9 +24,10 @@ description: Send Amplitude cohorts to Notivize to trigger custom, multi-channel
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Notivize - Cohort**.
-2. Paste the API Key into the Notivize destination settings. 
-3. Save when finished. 
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Notivize**.
+3. Paste the API Key into the Notivize destination settings. 
+4. Save when finished. 
 
 ## Send a cohort
 

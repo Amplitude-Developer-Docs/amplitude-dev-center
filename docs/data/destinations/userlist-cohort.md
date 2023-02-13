@@ -24,9 +24,10 @@ For more information on setting up this integration, see [Userlist](https://user
 
 ### Userlist setup
 
-1. In Userlist, navigate to **Settings > Integrations**.
-2. Click **Add integration**, then find and add **Amplitude**.
-3. Copy the **Push (API) key** to your clipboard.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Userlist**.
+3. Click **Add integration**, then find and add **Amplitude**.
+4. Copy the **Push (API) key** to your clipboard.
 
 ### Amplitude setup
 

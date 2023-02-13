@@ -36,8 +36,8 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
 
     You need admin privileges in Amplitude, as well as a role that allows you to enable resources in Snowflake.
 
-1. Navigate to **Data Destinations**.
-2. Click **Snowflake - Raw Events**. 
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Warehouse Destinations section, click **Snowflake**.
 3. Under *Export Data to Snowflake*, choose which data you'd like to include in this export: *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or export both.
 4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Snowflake Credentials For Amplitude* section, enter the following information:

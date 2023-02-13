@@ -15,14 +15,15 @@ Create a webhook endpoint that can receive HTTP requests.
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations** then find **Webhook - Event Stream**.
-2. Enter a sync name, then click **Create Sync**.
-3. Click **Edit**, then:
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Webhook**.
+3. Enter a sync name, then click **Create Sync**.
+4. Click **Edit**, then:
      - Enter the URL endpoint for the webhook. For example, `https://mycompany.com/webhook`.
      - Customize the HTTP headers to send with the event. There are two preset headers that are always sent, and you can specify up to 5 more. For example, specifying `Authorization` → `Bearer XXXXXX` for one of the headers sets the `Authorization: Bearer XXXXX` header on the outgoing HTTP requests.
      - Customize the event payload using FreeMarker Templating Language. You also have the option to forward the original JSON export event format as-is without any transformation. See [the FreeMarker Templating Language](#freemarker-templating-language) section for more help and examples.
-4. Use the *Send events* filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones.
-5. When finished, enable the destination and save.
+5. Use the *Send events* filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones.
+6. When finished, enable the destination and save.
 
 ## FreeMarker Templating Language
 

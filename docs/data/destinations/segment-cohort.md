@@ -27,10 +27,11 @@ Send Amplitude behavioral cohorts to Segment to use with your ad networks, marke
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Segment - Cohort**.
-2. Click **Add New Key** and paste the `writeKey` (the key you copied in step 2).
-3. Enter a name for the Segment `writeKey` you pasted. (You can use the same name you used for the Amplitude source in Segment). When you add multiple Segment destinations to receive cohorts, the name helps you identify which destination you're sending to. 
-4. Save when finished.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Segment**.
+3. Click **Add New Key** and paste the `writeKey` (the key you copied in step 2).
+4. Enter a name for the Segment `writeKey` you pasted. (You can use the same name you used for the Amplitude source in Segment). When you add multiple Segment destinations to receive cohorts, the name helps you identify which destination you're sending to. 
+5. Save when finished.
 
 ## Send a cohort
 
