@@ -33,9 +33,10 @@ For more details on using this integration, see [Userflow's documentation](https
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Userflow - Cohort**.
-2. Paste the Integration Secret into the Userflow destination settings.
-3. Save when finished.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Userflow**.
+3. Paste the Integration Secret into the Userflow destination settings.
+4. Save when finished.
 
 ## Send a cohort
 

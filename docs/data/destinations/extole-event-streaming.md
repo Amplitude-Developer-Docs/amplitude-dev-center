@@ -48,12 +48,13 @@ See the [Extole documentation](https://dev.extole.com/reference/client-api-overv
 
 ### Amplitude setup
 
-1. In Amplitude Data, navigate to **Destinations**, then find **Extole - Event Stream**.
-2. Toggle Status to **Enabled**.
-3. In **REST API Key**, paste your Extole access token. 
-4. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
-5. Use the Event Properties filter to select which event properties you want to send.
-6. When finished, save the destination.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Extole**.
+3. Toggle Status to **Enabled**.
+4. In **REST API Key**, paste your Extole access token. 
+5. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
+6. Use the Event Properties filter to select which event properties you want to send.
+7. When finished, save the destination.
 
 After you've saved the destination, click the **Mappings** tab to choose your user identifier to map to other properties from Amplitude to Extole.
 

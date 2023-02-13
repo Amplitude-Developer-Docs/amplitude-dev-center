@@ -38,11 +38,12 @@ For more information on setting up this integration, see the [Talon.One](https:/
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Talon.One - Cohort**.
-2. Click **Add another destination**.
-3. Enter a name and Talon.One API key.
-4. Map an Amplitude field to the Talon.One User ID field.
-5. When finished, save your work.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Talon.One**.
+3. Click **Add another destination**.
+4. Enter a name and Talon.One API key.
+5. Map an Amplitude field to the Talon.One User ID field.
+6. When finished, save your work.
 
 ## Send a cohort
 

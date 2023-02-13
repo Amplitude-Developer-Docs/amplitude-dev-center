@@ -25,10 +25,11 @@ This integration lets you sync cohorts from Amplitude to Netcore Cloud's Custome
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Netcore Cloud - Cohort**.
-2. Enter Name and paste in the API key you copied from Netcore.
-3. Map the same Amplitude `User_ID` with the primary key from Netcore Cloud CE panel.
-4. Save when finished. 
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Netcore**.
+3. Enter Name and paste in the API key you copied from Netcore.
+4. Map the same Amplitude `User_ID` with the primary key from Netcore Cloud CE panel.
+5. Save when finished. 
 
 ## Send a cohort
 

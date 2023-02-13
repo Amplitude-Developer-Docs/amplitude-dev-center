@@ -21,16 +21,17 @@ To set up this integration, you first need an access token and client-side ID fr
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **LaunchDarkly - Cohort**.
-2. Enter a name. 
-3. Paste the access token and client-side ID. 
-4. Map an Amplitude property to the LaunchDarkly user key.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **LaunchDarkly**.
+3. Enter a name. 
+4. Paste the access token and client-side ID. 
+5. Map an Amplitude property to the LaunchDarkly user key.
 
     !!!note
 
         You must make sure to choose a matching user identifier in Amplitude and LaunchDarkly. This is often `userID`, but could also be a device ID. If they don't match, it won't work.
 
-5. Save when finished. 
+6. Save when finished. 
 
 ## Send a cohort
 

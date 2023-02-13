@@ -31,10 +31,11 @@ For more information on how to set up and use this integration, see [OneSignal'
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **OneSignal - Cohort**.
-2. Enter a name, your OneSignal App ID, and API key.
-3. Map an Amplitude user ID to the OneSignal external ID.
-4. Save when finished. 
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **OneSignal**.
+3. Enter a name, your OneSignal App ID, and API key.
+4. Map an Amplitude user ID to the OneSignal external ID.
+5. Save when finished. 
 
 ## Send a cohort
 

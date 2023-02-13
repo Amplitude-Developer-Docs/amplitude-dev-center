@@ -20,12 +20,13 @@ This cohort integration allows you to sync users from Amplitude cohorts to Cordi
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Cordial - Cohort**.
-2. Enter Name and Cordial API Key.
-3. Reach out to your Cordial CSM to get your Amplitude service URL and paste it into the Endpoint field.
-4. Enter the name of your contact identifier in Cordial into the Contact identifier name field. This key identifies users in Cordial. For example, "email".
-5. In the Contact identifier mapping dropdown, select a user property name. This value is used for the contact identifier.
-6. Save the destination.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Cordial**.
+3. Enter Name and Cordial API Key.
+4. Reach out to your Cordial CSM to get your Amplitude service URL and paste it into the Endpoint field.
+5. Enter the name of your contact identifier in Cordial into the Contact identifier name field. This key identifies users in Cordial. For example, "email".
+6. In the Contact identifier mapping dropdown, select a user property name. This value is used for the contact identifier.
+7. Save the destination.
 
 ## Send a cohort
 

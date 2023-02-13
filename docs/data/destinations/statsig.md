@@ -34,9 +34,10 @@ See the [Statsig documentation](https://docs.statsig.com/feature-gates/implement
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Statsig - Event Stream**.
-2. Enter a sync name, then click **Create Sync**.
-3. Toggle Status from **Disabled** to **Enabled**.
-4. Paste your Statsig **Server Secret Key**.
-5. Toggle the **Send events** filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
-6. When finished, enable the destination and save.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Statsig**.
+3. Enter a sync name, then click **Create Sync**.
+4. Toggle Status from **Disabled** to **Enabled**.
+5. Paste your Statsig **Server Secret Key**.
+6. Toggle the **Send events** filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
+7. When finished, enable the destination and save.

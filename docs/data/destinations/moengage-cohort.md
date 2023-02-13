@@ -19,9 +19,10 @@ Amplitude's MoEngage integration allows you to send hyper-targeted behavioral au
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **MoEngage - Cohort**.
-2. Enter a name and app ID.
-3. Map your user ID and device ID. Make sure the unique user ID is the same in both Amplitude and MoEngage. This integration uses the device ID to map anonymous users, so make sure that device ID is the same in Amplitude and MoEngage.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **MoEngage**.
+3. Enter a name and app ID.
+4. Map your user ID and device ID. Make sure the unique user ID is the same in both Amplitude and MoEngage. This integration uses the device ID to map anonymous users, so make sure that device ID is the same in Amplitude and MoEngage.
 
 ## Send a cohort
 

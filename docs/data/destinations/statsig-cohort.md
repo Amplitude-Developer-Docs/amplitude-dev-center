@@ -22,10 +22,11 @@ This integration allows you to target experiments at specific cohorts you’ve a
 
 ### Amplitude setup 
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Statsig - Cohort**.
-2. Click **Add another destination**.
-3. Enter _Name_ and _Statsig API Key_.
-4. Save the destination.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Statsig**.
+3. Click **Add another destination**.
+4. Enter _Name_ and _Statsig API Key_.
+5. Save the destination.
 
 ## Send a cohort
 

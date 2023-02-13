@@ -31,9 +31,10 @@ To start sending data into Userlist, you first have to get your Push API Key fro
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Userlist - Event Stream**.
-2. Enter a sync name, then click **Create Sync**.
-3. Click **Edit**, then paste your Userlist Push Key.
-4. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
-5. Use the Event Properties filter to select event properties.
-6. When finished, enable the destination and save.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Userlist**.
+3. Enter a sync name, then click **Create Sync**.
+4. Click **Edit**, then paste your Userlist Push Key.
+5. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
+6. Use the Event Properties filter to select event properties.
+7. When finished, enable the destination and save.

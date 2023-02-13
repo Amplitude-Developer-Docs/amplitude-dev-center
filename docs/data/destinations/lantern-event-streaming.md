@@ -31,10 +31,11 @@ Get your webhook ID from Lantern. See the [Lantern documentation](https://www.wi
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Lantern - Event Stream**.
-2. Enter a sync name, then click **Create Sync**.
-3. Toggle Status to **Enabled**.
-4. Enter your Lantern Webhook ID.
-5. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
-6. Use the Event Properties filter to select which event properties you want to send.
-7. When finished, save the destination.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Event Streaming section, click **Lantern**.
+3. Enter a sync name, then click **Create Sync**.
+4. Toggle Status to **Enabled**.
+5. Enter your Lantern Webhook ID.
+6. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
+7. Use the Event Properties filter to select which event properties you want to send.
+8. When finished, save the destination.

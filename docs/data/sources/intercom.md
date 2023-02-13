@@ -27,8 +27,8 @@ Sync Intercom event data to Amplitude so that you can better engage your users b
 
 To set up the integration to send event data from Intercom to Amplitude, follow these steps:
 
-1. In Amplitude, navigate to **Data Sources.**
-2. Click **I want to import data into Amplitude.** and find Intercom.
+1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
+2. In the Other Sources section, click **Intercom**.
 3. In the modal that appears, click **Connect to Intercom**.
 4. Log into your Intercom account via OAuth. Select the dedicated workspace and click **Authorize access**.
 5. Intercom automatically redirects you back to Amplitude, where you see the *Connect Intercom* page.

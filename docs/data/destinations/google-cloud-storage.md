@@ -38,8 +38,8 @@ To set up a recurring export of your Amplitude data to GCS, follow these steps:
 
     You need admin privileges in Amplitude, as well as a role that allows you to enable resources in GCS. 
 
-1. In Amplitude, navigate to **Data Destinations**.
-2. Select **GCS - Raw Events**.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Warehouse Destination section, click **Google Cloud Storage**.
 3. On the **Getting Started** tab, select the data you'd like to export. You can *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or both. 
 
     !!!note

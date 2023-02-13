@@ -46,8 +46,8 @@ Creating a recurring data export is a simple, three-step process you can handle 
 
 To set up a recurring export of your Amplitude data to Redshift, follow these steps:
 
-1. Navigate to the *Data Destinations* page from the bottom of the left side panel.
-2. Click **View all Destinations**, click the Redshift panel.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Warehouse Destinations section, click **Redshift**.
 3. Under *Export Data to Redshift*, select the data you'd like to export. You can choose *Export events ingested today and moving forward*, *Export all merged Amplitude ID*, or both.
 4. Review the Event table and Merge IDs table schemas and click **Next**.
 5. In the *Redshift Credentials For Amplitude* section, enter the following information:

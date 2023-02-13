@@ -42,9 +42,9 @@ You need your Marketo Client ID, Client Secret, and REST API Endpoint. For more 
 
 ### Amplitude setup
 
-1. In Amplitude Data, navigate to **Destinations**, then find **Marketo Static List - Cohort**.
-2. Click **Add another destination**.
-3. Enter the name for the connection
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Marketo Static List**.
+3. Enter the name for the connection.
 4. Paste the Client ID, Client Secret, and REST API endpoint you copied from Marketo.
 5. Assign the Amplitude field mapping for email. This must be a unique identifier.
 6. Save when finished.

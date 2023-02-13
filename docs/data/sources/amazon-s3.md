@@ -167,22 +167,18 @@ To create the data source in Amplitude, gather information about your S3 bucket:
 
 When you have your bucket details, create the Amazon S3 Import source.
 
-1. In Amplitude, navigate to **Data Sources**, then select **I want to import data into Amplitude**.
-
-2. Select **Amazon S3**, then click **Next**. If this source doesn’t appear in the list, contact your Amplitude Solutions Architect.
-
-3. Complete the **Configure S3 location** section on the Set up S3 Bucket page:
+1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
+2. In the Warehouse Sources section, click **Amazon S3**.
+3. Select **Amazon S3**, then click **Next**. If this source doesn’t appear in the list, contact your Amplitude Solutions Architect.
+4. Complete the **Configure S3 location** section on the Set up S3 Bucket page:
 
     - **Bucket Name**: Name of bucket you created to store the files. For example, `com-amplitude-vacuum-<customername>.` This tells Amplitude where to look for your files.
     - **Prefix**: Prefix of files to be imported. If it's a folder, prefix must end with "/". For example, dev/event-data/. For root folder, leave it as empty.
     - **AWS Role ARN**. Required.
     - **AWS External ID**. Required.
-
-4. Optional: enable **S3 Event Notification**. See [Manage Event Notifications](#optional-manage-event-notifications) for more information.
-
-5. Click **Test Credentials** after you’ve filled out all the values. You can’t edit these values from the UI after you create the source, so make sure that all the info is correct before clicking **Next**.
-
-6. From the Enable Data Source page, enter a **Data Source Name** and a **Description** (optional) and save your source. You can edit these details from Settings.
+5. Optional: enable **S3 Event Notification**. See [Manage Event Notifications](#optional-manage-event-notifications) for more information.
+6. Click **Test Credentials** after you’ve filled out all the values. You can’t edit these values from the UI after you create the source, so make sure that all the info is correct before clicking **Next**.
+7. From the Enable Data Source page, enter a **Data Source Name** and a **Description** (optional) and save your source. You can edit these details from Settings.
 
 A banner confirms you’ve created and enabled your source. Click **Finish** to go back to the list of data sources. Next, you must create your converter configuration.
 

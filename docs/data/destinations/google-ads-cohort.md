@@ -27,9 +27,10 @@ Before you begin, log in to your [Google Ads Manager account](https://ads.googl
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Google Ads - Cohort**.
-2. Log into Google and grant Amplitude permission to manage your AdWords campaigns.
-3. Set up the fields necessary for Amplitude to begin syncing to Google Ads. There are three possible match types in Google Ads, referred to as the **upload key type**:
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Google Ads**.
+3. Log into Google and grant Amplitude permission to manage your AdWords campaigns.
+4. Set up the fields necessary for Amplitude to begin syncing to Google Ads. There are three possible match types in Google Ads, referred to as the **upload key type**:
 
     - **Contact Info**: This key type matches on a user's email address (phone number, first name, last name, country, and zip code are also supported, not recommended).
 

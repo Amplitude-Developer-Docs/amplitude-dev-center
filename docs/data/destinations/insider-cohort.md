@@ -28,11 +28,12 @@ Get an API key from the Insider platform. If you don't have one, create one.
   
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Insider - Cohort**. 
-2. Add a new destination.
-3. Enter a name and the Insider API key. 
-4. Map an Amplitude property to an Insider property. 
-5. Save when finished. 
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Insider**.
+3. Add a new destination.
+4. Enter a name and the Insider API key. 
+5. Map an Amplitude property to an Insider property. 
+6. Save when finished. 
 
 ## Send a cohort
 

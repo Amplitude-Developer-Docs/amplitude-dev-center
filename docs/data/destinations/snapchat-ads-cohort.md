@@ -30,14 +30,15 @@ The Snapchat Ads integration lets you send audiences from Amplitude to Snapchat 
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Snapchat Ads - Cohort**.
-2. Click **Connect to Snapchat Ads**. You are redirected to Snapchat Ads to authenticate.
-3. Log in, and click **Confirm** to grant Amplitude access to the following information: UserID, Name on Ads Manager, and Email Address on Ads Manager. After, you are redirected back to Amplitude. 
-4. Back in Amplitude, specify the properties you want to pass to Snapchat Ads to match users between Snapchat Ads and Amplitude. Snapchat Ads supports three keys:
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Snapchat Ads**.
+3. Click **Connect to Snapchat Ads**. You are redirected to Snapchat Ads to authenticate.
+4. Log in, and click **Confirm** to grant Amplitude access to the following information: UserID, Name on Ads Manager, and Email Address on Ads Manager. After, you are redirected back to Amplitude. 
+5. Back in Amplitude, specify the properties you want to pass to Snapchat Ads to match users between Snapchat Ads and Amplitude. Snapchat Ads supports three keys:
       1. Email: Matches on user email address
       2. Phone Number: Matches on user phone number
       3. Mobile Ad ID: Matches on user Mobile Ad ID
-5. When finished, save your work.
+6. When finished, save your work.
 
 !!!tip
     

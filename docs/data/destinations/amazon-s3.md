@@ -29,14 +29,15 @@ In this case, the export fails after several tries, and the admin and the user w
 
 To set up the Amazon S3 integration, follow these steps:
 
-1. Navigate to the **Data Destinations** panel, then click **Amazon S3 - Raw Events**.
-2. Choose which data you'd like to include in this export: *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or export both.
-3. Click **Next**.
-4. In the **Set Up Bucket Policy** tab, go through the steps listed in the *Create a Bucket* and *Add a Bucket Policy* sections. Then fill out the required information in the *S3 Bucket Information* section.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Warehouse Destination section, click **Amazon S3**.
+3. Choose which data you'd like to include in this export: *Export events ingested today and moving forward*, *Export all merged Amplitude IDs*, or export both.
+4. Click **Next**.
+5. In the **Set Up Bucket Policy** tab, go through the steps listed in the *Create a Bucket* and *Add a Bucket Policy* sections. Then fill out the required information in the *S3 Bucket Information* section.
 
     ![Screenshot of the Set Up Bucket Policy tab in Amplitude](../../assets/images/integrations-amazon-s3-export-bucket-policy.png)
 
-5. Click **Generate Bucket Policy**, then click **Next**.
+6. Click **Generate Bucket Policy**, then click **Next**.
 
 Amplitude verifies your bucket access. After access is verified, Amplitude immediately starts hourly exports.
 

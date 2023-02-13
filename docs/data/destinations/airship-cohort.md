@@ -53,10 +53,11 @@ To confirm you've configured it correctly, [look up your test user or device in
 
 ### Amplitude setup 
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Airship - Cohort**.
-2. Enter your Airship API keys.
-3. Map your Airship ID to an Amplitude ID. Amplitude recommends mapping `UAChannelID` in Amplitude to `Auto Channel ID` in Airship; however, you can map user ID, device ID, or any user property in Amplitude to any Airship ID.
-4. Save your work.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Airship**.
+3. Enter your Airship API keys.
+4. Map your Airship ID to an Amplitude ID. Amplitude recommends mapping `UAChannelID` in Amplitude to `Auto Channel ID` in Airship; however, you can map user ID, device ID, or any user property in Amplitude to any Airship ID.
+5. Save your work.
 
 !!!note
     Auto Channel maps to the channel ID of the correct platform (Android or iOS) in Airship automatically.

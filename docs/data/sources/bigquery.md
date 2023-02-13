@@ -40,8 +40,8 @@ To get started with importing from BigQuery, you need to take care of a few prer
 
 To add BigQuery as a data source in your Amplitude project, follow these steps.
 
-1. In Amplitude, navigate to the Sources section and make sure you've selected the correct project from the project list dropdown.
-2. Click **I want to import data into Amplitude**, then click **BigQuery**.
+1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
+2. In the Warehouse Sources section, click **BigQuery**.
 3. Add the service account key and specify a GCS bucket name.
 4. Click **Next** to test the connection to make sure it's working.
 5. After you confirm your credentials, click **Next** to select data. You have several configuration options to choose from here:

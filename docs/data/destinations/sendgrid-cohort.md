@@ -31,12 +31,13 @@ The type of API key must be either Full Access or Restricted Access with Marketi
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **SendGrid - Cohort**.
-2. Click **Add another destination**.
-3. Enter the name.
-4. Paste the API key into the SendGrid destination settings.
-5. Assign mappings for email (must be a unique identifier), first name, and last name.
-6. Save when finished.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **SendGrid**.
+3. Click **Add another destination**.
+4. Enter the name.
+5. Paste the API key into the SendGrid destination settings.
+6. Assign mappings for email (must be a unique identifier), first name, and last name.
+7. Save when finished.
 
 ## Send a cohort
 

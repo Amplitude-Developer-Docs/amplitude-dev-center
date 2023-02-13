@@ -22,9 +22,10 @@ For more details on using this integration, see [Productboard's documentation](
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Productboard - Cohort**.
-2. Enter a name and paste the token you copied from Productboard.
-3. Select the Amplitude properties that map onto the Productboard user ID, email and external ID properties.
+1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+2. In the Cohort section, click **Productboard**.
+3. Enter a name and paste the token you copied from Productboard.
+4. Select the Amplitude properties that map onto the Productboard user ID, email and external ID properties.
    
     !!!info "More about properties"
 
@@ -32,7 +33,7 @@ For more details on using this integration, see [Productboard's documentation](
           - **Email**: <span class="optional">Optional</span>. If this is mapped, Amplitude sends user email addresses to Productboard.
           - **External ID**: <span class="optional">Optional</span>. If this is mapped, Amplitude sends an external ID to Productboard. Productboard can merge users with the same external ID. Learn more in the [Productboard documentation](https://support.productboard.com/hc/en-us/articles/9140206978707-External-ID-Management-FAQs-and-Troubleshooting)
       
-4. Save when finished.
+5. Save when finished.
 
 ## Send a cohort
 
