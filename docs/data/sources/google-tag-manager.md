@@ -3,7 +3,7 @@ title: Google Tag Manager Template Quickstart Guide
 description: Official Google Tag Manager template for Amplitude Analytics for data collection.
 ---
 
-Use the official Google Tag Manager templates for Amplitude Analytics for data collection. 
+Use the official Google Tag Manager templates for Amplitude Analytics for data collection. Click on the template name below to access the corresponding tutorial video. 
 
 |Template|Type|Description|
 |---|---|-----------|
@@ -11,8 +11,17 @@ Use the official Google Tag Manager templates for Amplitude Analytics for data c
 |[Amplitude Analytics](./google-tag-manager-server.md)|Server-side|The tag uses the Amplitude HTTP V2 API for data collection. |
 |[Amplitude Analytics Legacy](./google-tag-manager-client-legacy.md)|Client-side|The tag uses the Amplitude JavaScript SDK for data collection. |
 
-
 Amplitude's GTM templates offer a convenient way for developers to set up event tracking in their applications. These pre-configured templates provide a streamlined solution for deploying tracking tags, reducing the time and effort required to set up event tracking. Learn more about [Google Tag Manager Templates](https://developers.google.com/tag-platform/tag-manager/templates).
+
+## Client-side vs server-side
+
+Google Tag Manager (GTM) offers both client-side and server-side templates for tag deployment. GTM client side templates and GTM server side templates differ in the way they execute the tracking plan.
+
+Client-side templates run the tracking plan directly on the user's device and use JavaScript code to manage tags. They serve tags that need to interact with the client environment, such as tracking user actions on a website. However, the client browser capabilities restrict these templates and may not be appropriate for tags that require access to server-side data. 
+
+GTM server-side templates run on the server, not on the client's browser. They control tags with server-side code and serve tags that require access to server-side data, such as monitoring server-side events. These templates offer a higher level of control over tag deployment and can handle complex tag implementations
+
+Use GTM client-side templates to track user interactions on a website. Use server-side templates if you want to track sensitive customer information or complex tags that require server-side processing.
 
 ## Getting started
 
@@ -37,14 +46,6 @@ After installing the template, you can then use that template to create a tag.
 
 ### Check for success
 
-Verify that the Amplitude tag is firing correctly by checking the Debug mode in GTM.
+Verify that the Amplitude tag is firing correctly by checking the Debug mode in GTM and [debugging Analytics](../../debugger). 
 
-## Client-side vs server-side
-
-Google Tag Manager (GTM) offers both client-side and server-side templates for tag deployment. GTM client side templates and GTM server side templates differ in the way they execute the tracking plan.
-
-Client-side templates run the tracking plan directly on the user's device and use JavaScript code to manage tags. They serve tags that need to interact with the client environment, such as tracking user actions on a website. However, the client browser capabilities restrict these templates and may not be appropriate for tags that require access to server-side data. 
-
-GTM server-side templates run on the server, not on the client's browser. They control tags with server-side code and serve tags that require access to server-side data, such as monitoring server-side events. These templates offer a higher level of control over tag deployment and can handle complex tag implementations
-
-Use GTM client-side templates to track user interactions on a website. Use server-side templates if you want to track sensitive customer information or complex tags that require server-side processing.
+To learn more about each template and access the corresponding tutorial video, click on the template name in the chart located at the top of the article.
