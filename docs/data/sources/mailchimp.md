@@ -28,11 +28,12 @@ Use this integration to import Mailchimp subscribe and unsubscribe events.
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Sources**, click **I want to import data into Amplitude,**, and then select **Mailchimp**. This opens the Mailchimp integration modal.
-2. Click **Connect to Mailchimp.** This redirects you to a Mailchimp login page.
-3. Enter your username and password on the Mailchimp login page. Then click **Log In**.
-4. Authorize Amplitude to access to your account. Click **Allow.** You are then automatically redirected back to Amplitude, to the Connect Mailchimp page.
-5. Enter your [Mailchimp audience ID](https://mailchimp.com/help/find-audience-id), then click **Next**. This automatically creates a webhook on your Mailchimp audience to send events to Amplitude.
+1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
+2. In the Other Sources section, click **Mailchimp**.
+3. Click **Connect to Mailchimp**. This redirects you to a Mailchimp login page.
+4. Enter your username and password on the Mailchimp login page. Then click **Log In**.
+5. Authorize Amplitude to access to your account. Click **Allow.** You are then automatically redirected back to Amplitude, to the Connect Mailchimp page.
+6. Enter your [Mailchimp audience ID](https://mailchimp.com/help/find-audience-id), then click **Next**. This automatically creates a webhook on your Mailchimp audience to send events to Amplitude.
 
     !!!note
         There is a limit of **one** webhook per specific Mailchimp audience and Amplitude project. If a webhook for this Mailchimp audience and Amplitude project already exists, it's reset to the default configurations supported by Amplitude. Amplitude supports only Mailchimp `subscribe` and `unsubscribe` events, from Mailchimp user sources only.

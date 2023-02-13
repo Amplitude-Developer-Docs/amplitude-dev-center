@@ -33,8 +33,8 @@ Depending on your company's network policy, you may need add these IP addresses 
 
 To add Snowflake as a data source in your Amplitude project, follow these steps:
 
-1. In Amplitude, navigate to **Data Sources**, and make sure you've selected the correct project from the project list dropdown.
-2. Click **I want to import data into Amplitude**, then click **Snowflake**.
+1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
+2. In the Warehouse Sources section, click **Snowflake**.
 3. Enter the required credentials for the Snowflake instance you want to connect:
       - **Account**: Snowflake account name. Case sensitive. This is the first part of your Snowflake URL, before `snowflakecomputing.com`. Don't include             ".snowflakecomputing.com" in your account name. 
       - **Database**: Name of the database where Amplitude can find the data.

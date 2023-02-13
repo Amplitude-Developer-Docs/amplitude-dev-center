@@ -65,7 +65,7 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 ```
 
 - FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
-- `input` is a reserved variable that refers to the event as an object, as defined [in the Export API docs](/analytics/apis/export-api/).
+- `input` is a reserved variable that refers to the event as an object, as defined [in the Export API docs](../analytics/apis/export-api/).
 - `input.event_type` refers to the `event_type` field of the event.
 - `input.user_properties` refers to the user properties dictionary.
 - `input.user_properties.email` refers to the `email` field in user properties.

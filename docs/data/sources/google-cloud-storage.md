@@ -47,8 +47,8 @@ Keep in mind that the export process requires, at a minimum, the following permi
 
 To add a new GCS data source for Amplitude to draw data from, follow these steps:
 
-1. In Amplitude, navigate to *Data Sources* and select the desired project from the dropdown menu. Then click **I want to import data into Amplitude.**
-2. Select *GCS*. If this source doesn't appear in your list, contact the Amplitude team.
+1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
+2. In the Warehouse Sources section, click **GCS**.
 3. Upload your Service Account Key file. This gives Amplitude the permissions to pull data from your GCS bucket. You can find the permissions you need to give to the GCS Service Account[here](https://help.amplitude.com/hc/en-us/articles/360061685151#create-a-gcs-service-account-and-set-permissions).
 4. After you've uploaded the Service Account Key file, enter the bucket name and folder where the data resides.
 5. Click **Next** to test the credentials. If all your information checks out, Amplitude displays a success message. Click *Next >* to continue the process.
