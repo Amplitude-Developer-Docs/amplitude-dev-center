@@ -1,6 +1,6 @@
 ---
-title: Amplitude Analytics
-description: Official Google Tag Manager template for Amplitude Analytics for data collection.
+title: Google Tag Manager Template - Amplitude Analytics
+description: Collect data with ease using Amplitude Analytics GTM template - the official server-side Google Tag Manager template for seamless data collection
 ---
 
 Server-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude HTTP V2 API](../../analytics/apis/http-v2-api/) for data collection.
