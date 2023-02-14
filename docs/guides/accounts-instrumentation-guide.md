@@ -143,7 +143,7 @@ Validate your test instrumentation using the [Taxonomy & Data QA](https://docs.g
 
 Group values must be unique and because of this are typically numeric. Amplitude recommends that you send a group property that's human-readable and clearly distinguishes the group from others so you can segment and group by this property in Amplitude.
 
-!!!example "Group prop
+!!!example "Group prop"
 
     Consider this example where an "Account Name" group property is sent. You can use the "Account Name" property for a human-readable version of the group value.
 
