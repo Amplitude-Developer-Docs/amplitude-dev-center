@@ -5,6 +5,7 @@ extra_css:
 
 plugins:
   - search
+  - optimize
   - tags #insiders
   - git-revision-date
   - glightbox # enables image light box
