@@ -48,4 +48,4 @@ After installing the template, you can then use that template to create a tag.
 
 Verify that the Amplitude tag is firing correctly by checking the Debug mode in GTM and [debugging Analytics](../../debugger). 
 
-To learn more about each template and access the corresponding tutorial video, click on the template name in the chart located at the top of the article.
+To learn more about each template and see a tutorial video, click the template name in the table at the beginning of this page.
