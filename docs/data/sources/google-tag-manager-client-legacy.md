@@ -3,7 +3,7 @@ title: Google Tag Manager Template - Amplitude Analytics Legacy
 description: Collect data with ease using Amplitude Analytics Legacy GTM template - the official client-side Google Tag Manager template for seamless data collection.
 ---
 
-Client-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude JavaScript SDK](../../sdks/javascript/index/) for data collection.
+This is the client-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude JavaScript SDK](../../sdks/javascript/index/) for data collection.
 
 !!!deprecated Legacy
     This is a legacy GTM template. Use the [latest template](./google-tag-manager-client.md) for the most up-to-date implementation.
