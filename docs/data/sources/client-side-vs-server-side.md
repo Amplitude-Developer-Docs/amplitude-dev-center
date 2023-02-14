@@ -6,6 +6,13 @@ status: new
 
 Client-side and server-side are terms that describe where an app's code runs: either on the user's device (client-side), or on a server (server-side). Amplitude has several types of sources to cover each of your needs. This doc primarily describes the differences between client-side and server-side sources, and gives a brief overview of third-party sources. 
 
+Both Amplitude client-side SDKs and server-side SDKs use API endpoints. These endpoints offers flexibility for implementing custom solutions without relying on Amplitude's SDKs, especially for programming languages not supported by Amplitude's SDKs, like PHP.
+
+|Name|API endpoints|
+|-------------|-----------|
+|[Analytics and Data SDKs](../../data/sdks/sdk-overview/#analytics-sdks)|[HTTP V2 API](../../analytics/apis/http-v2-api/) and [Batch event upload](../../analytics/apis/batch-event-upload-api/)|
+|[Experiment SDKs](../../data/sdks/sdk-overview/#experiment-sdks)|[Evaluation API](../../experiment/apis/evaluation-api/)|
+
 ## Client-side sources
 
 Use client-side sources in apps that your users run on their own devices, like mobile, web browser, and desktop apps. In these types of sources, code runs on the user's device.
@@ -14,8 +21,9 @@ Amplitude's client-side sources include these SDKs:
 
 - Web: Browser, Marketing Analytics Browser, React Native
 - Mobile: Android, iOS, Unity Plugin, Flutter, React Native
+- Game engine: Unity Plugin, Unreal
   
-See the [Analytics client-side SDKs](/data/sdks/#data-client-side-sdks) and the [Experiment client-side SDKs](/data/sdks/#experiment-client-side-sdks)
+See the [Analytics client-side SDKs](/data/sdks/sdk-overview/#analytics-client-side-sdks) and the [Experiment client-side SDKs](/data/sdks/sdk-overview/#experiment-client-side-sdks)
 
 ## Server-side sources
 
@@ -27,10 +35,8 @@ Amplitude's server-side sources include these SDKs and APIs:
 - Go SDK
 - Python SDK
 - Java SDK
-- HTTP V2 API 
-- Batch Event Upload API
 
-See the [Analytics server-side SDKs](/data/sdks/#data-server-side-sdks) and the [Experiment server-side SDKs](/data/sdks/#experiment-server-side-sdks)
+See the [Analytics server-side SDKs](/data/sdks/sdk-overview/#analytics-data-server-side-sdks) and the [Experiment server-side SDKs](/data/sdks/sdk-overview/#experiment-server-side-sdks)
 
 ## Third-party sources
 
