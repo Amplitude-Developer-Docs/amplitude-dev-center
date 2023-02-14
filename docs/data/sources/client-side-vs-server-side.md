@@ -10,8 +10,8 @@ Both Amplitude client-side SDKs and server-side SDKs use API endpoints. These en
 
 |Name|API endpoints|
 |-------------|-----------|
-|[Analytics and Data SDKs](../../data/sdks/sdk-overview/#analytics-sdks)|[HTTP V2 API](../../analytics/apis/http-v2-api/) and [Batch event upload](../../analytics/apis/batch-event-upload-api/)|
-|[Experiment SDKs](../../data/sdks/sdk-overview/#experiment-sdks)|[Evaluation API](../../experiment/apis/evaluation-api/)|
+|[Analytics and Data SDKs](../../sdks/sdk-overview/#analytics-sdks)|[HTTP V2 API](../../../analytics/apis/http-v2-api/) and [Batch event upload](../../../analytics/apis/batch-event-upload-api/)|
+|[Experiment SDKs](../../sdks/sdk-overview/#experiment-sdks)|[Evaluation API](../../../experiment/apis/evaluation-api/)|
 
 ## Client-side sources
 
@@ -23,7 +23,7 @@ Amplitude's client-side sources include these SDKs:
 - Mobile: Android, iOS, Unity Plugin, Flutter, React Native
 - Game engine: Unity Plugin, Unreal
   
-See the [Analytics client-side SDKs](/data/sdks/sdk-overview/#analytics-client-side-sdks) and the [Experiment client-side SDKs](/data/sdks/sdk-overview/#experiment-client-side-sdks)
+See the [Analytics client-side SDKs](../../sdks/sdk-overview/#analytics-client-side-sdks) and the [Experiment client-side SDKs](../../sdks/sdk-overview/#experiment-client-side-sdks)
 
 ## Server-side sources
 
@@ -36,11 +36,11 @@ Amplitude's server-side sources include these SDKs and APIs:
 - Python SDK
 - Java SDK
 
-See the [Analytics server-side SDKs](/data/sdks/sdk-overview/#analytics-data-server-side-sdks) and the [Experiment server-side SDKs](/data/sdks/sdk-overview/#experiment-server-side-sdks)
+See the [Analytics server-side SDKs](../../sdks/sdk-overview/#analytics-data-server-side-sdks) and the [Experiment server-side SDKs](../../sdks/sdk-overview/#experiment-server-side-sdks)
 
 ## Third-party sources
 
-Third-party is another kind of source. These sources let you import data from other platforms into Amplitude. These sources all require that you have an account with the third-party sources, and each have different setup requirements. You can see all third-party sources in the [Source catalog](/data/sources).
+Third-party is another kind of source. These sources let you import data from other platforms into Amplitude. These sources all require that you have an account with the third-party sources, and each have different setup requirements. You can see all third-party sources in the [Source catalog](../../sources/).
 
 ## How to choose
 
