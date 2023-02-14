@@ -3,7 +3,7 @@ title: Google Tag Manager Template Quickstart Guide
 description: Official Google Tag Manager template for Amplitude Analytics for data collection.
 ---
 
-Use the official Google Tag Manager templates for Amplitude Analytics for data collection. Click on the template name below to access the corresponding tutorial video. 
+Use the official Amplitude Analytics Google Tag Manager templates to collect data. Choose a template to visit the documentation and tutorial video.  
 
 |Template|Type|Description|
 |---|---|-----------|
