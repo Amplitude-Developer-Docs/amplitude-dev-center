@@ -30,7 +30,7 @@ Use GTM client-side templates to track user interactions on a website. Use serve
 1. [Set up and install Google Tag Manager](https://support.google.com/tagmanager/answer/6103696) if you haven't done so. 
 2. Browse to the target container. 
 3. Click the **Templates** tab on the left.
-4. Click the "Search Gallery" button in the "Tag Templates" section.
+4. In the **Tag Templates** section, click **Search Gallery**.
 5. In the search bar, type "Amplitude" and select the Amplitude GTM Template from the list of results.
 6. Click the "Add to Workspace" button to add the template.
 
