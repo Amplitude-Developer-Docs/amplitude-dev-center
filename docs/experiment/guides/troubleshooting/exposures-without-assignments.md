@@ -19,7 +19,7 @@ Exposure without assignment may also affect future experiments, so you should in
 
 !!!note
 
-    Sometimes the exposure event is delayed and is sent on a different day than the assignment event is sent. For example, the assignment event is sent today and the exposure event is sent tomorrow. The thing here to check for is if between the time the assignment event is sent and the exposure event is sent the user's user properties change where they either should not be targeted anymore or shout be targeted then there is an issue. Otherwise, you can ignore this warning.
+    Sometimes the exposure event is delayed and is sent on a different day than the assignment event. For example, the assignment event is sent today and the exposure event is sent tomorrow. You should check for an issue if between the assignment and exposure events being sent, the user's user properties have changed in a way that affects whether they should be targeted. Otherwise, you can ignore this warning.
 
 ## Causes
 
