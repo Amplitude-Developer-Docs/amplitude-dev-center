@@ -153,7 +153,7 @@ The new Android SDK enjoys a simpler deployment model and introduces several new
 
 ### Tracking Plan Changes
 
-- Update your source's runtime from **Android — Kotlin (Legacy)** to **Android — Kotlin**
+- Update your source's runtime from **Android — Kotlin (Maintenance)** to **Android — Kotlin**
 
 ### Android Studio Changes
 

@@ -3,7 +3,7 @@ title: SDK Catalog
 description: Browse all of Amplitude's current SDK offerings.
 ---
 
-Browse all Amplitude's current SDK offerings. Legacy SDKs are listed in the side navigation. 
+Browse all Amplitude's current SDK offerings. Maintenance SDKs are listed in the side navigation. 
 
 !!!tip "Quickstart Guide"
 

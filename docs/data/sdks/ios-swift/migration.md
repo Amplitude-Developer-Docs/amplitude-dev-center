@@ -1,6 +1,6 @@
 ---
 title: iOS SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's legacy iOS SDK (Amplitude-iOS) to the new SDK (Amplitude-Swift).
+description: Use this guide to easily migrate from Amplitude's maintenance iOS SDK (Amplitude-iOS) to the new SDK (Amplitude-Swift).
 ---
 
 The new version of Amplitude's iOS SDK (`Amplitude-Swift`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `Amplitude-iOS`. 
@@ -9,7 +9,7 @@ To migrate to `Amplitude-Swift`, update your dependencies and instrumentation.
 
 ## Terminology
 
-* `Amplitude-iOS`: Legacy iOS SDK
+* `Amplitude-iOS`: Maintenance iOS SDK
 * `Amplitude-Swift`: New iOS SDK
 
 ## Dependency
@@ -57,7 +57,7 @@ This SDK offers an API to instrument events. To migrate to the new SDK, you need
 
 ### Initialization
 
-Like all other calls, `instance()` has been removed. Configuration is handled differently between the legacy iOS and new iOS SDK. The new iOS SDKs use the Configuration object to set the configuration. See [Configuration](#configuration).
+Like all other calls, `instance()` has been removed. Configuration is handled differently between the maintenance iOS and new iOS SDK. The new iOS SDKs use the Configuration object to set the configuration. See [Configuration](#configuration).
 
 === "Amplitude-iOS"
 
@@ -124,7 +124,7 @@ The configurations for the new SDK are simpler and more consistent across runtim
 
 ### Tracking events
 
-The legacy iOS SDK offered a variety of `logEvent` APIs with `withEventProperties`, `withApiProperties`, `withUserProperties`, `withGroup`, `withGroupProperties`, `withTimestamp`, `outOfSession`, to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API.
+The maintenance iOS SDK offered a variety of `logEvent` APIs with `withEventProperties`, `withApiProperties`, `withUserProperties`, `withGroup`, `withGroupProperties`, `withTimestamp`, `outOfSession`, to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API.
 
 #### `logEvent()`
 

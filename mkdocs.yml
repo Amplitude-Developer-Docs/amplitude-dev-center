@@ -370,7 +370,7 @@ nav:
         - JVM SDK: experiment/sdks/jvm-sdk.md
         - Go SDK: experiment/sdks/go-sdk.md
         - Python SDK: experiment/sdks/python-sdk.md
-        - Legacy:
+        - Maintenance:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
@@ -449,7 +449,7 @@ nav:
       - Go:
         - data/sdks/go/index.md
         - Ampli Codegen: data/sdks/go/ampli.md
-    - Legacy SDKs:
+    - Maintenance SDKs:
       - Browser:
         - data/sdks/javascript/index.md
         - Ampli Codegen: data/sdks/javascript/ampli.md

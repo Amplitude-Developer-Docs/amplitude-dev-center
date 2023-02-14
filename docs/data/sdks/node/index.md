@@ -1,5 +1,5 @@
 ---
-title: Node.js SDK (Legacy)
+title: Node.js SDK (Maintenance)
 description: The Amplitude Node.js SDK installation and quick start guide.
 icon: simple/nodedotjs
 ---
@@ -18,12 +18,12 @@ The Node SDK provides:
 
 By default, the Node SDK uses the [HTTP API V2](../../../analytics/apis/http-v2-api).
 
-!!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for Node.js](../typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
+!!!deprecated "Maintenance SDK"
+    This is a Maintenance SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for Node.js](../typescript-node/) available in Beta. The new SDK offers an improved code architecture which supports plugins. 
     
     The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
-!!!info "Node SDK Resources (Legacy)"
+!!!info "Node SDK Resources (Maintenance)"
     - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
     - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
 

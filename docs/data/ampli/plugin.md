@@ -6,7 +6,7 @@ template: guide.html
 ---
 
 !!!note
-    Plugins are supported in the latest version of Ampli when used in conjunction with the [new Amlitude browser SDKs](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/). If you are using an older version of Ampli or a [legacy Amplitude SDK](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/), see **[Middleware](../middleware/)**.
+    Plugins are supported in the latest version of Ampli when used in conjunction with the [new Amplitude browser SDKs](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/). If you are using an older version of Ampli or a [Maintenance Amplitude SDK](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/), see **[Middleware](../middleware/)**.
 
 Plugins allow you to extend the Amplitude behavior. For example use plugins to modify event properties (enrichment type) or send data to a third-party APIs (destination type). This is a replacement for Middleware in Ampli legacy.
 This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more. A plugin is an object with methods `setup()` and `execute()`.
