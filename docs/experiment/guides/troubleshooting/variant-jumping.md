@@ -59,7 +59,7 @@ To combat this type of variant jumping, consider bucketing by:
 
 ### Inclusion list
 
-Say you have some user ids in the inclusion list. You call `fetch()` with the user id passed in to the `fetch()` call. You get control since that is what the inclusion list said. Then the next time you call `fetch()` you do not pass in the user id so the user does not meet the inclusion list criteria so the bucketing key gets hashed and they may see treatment. 
+Say you have some user ids in the inclusion list. You call `fetch()` with the user id passed in to the `fetch()` call. You get control since that is what the inclusion list said. Then the next time you call `fetch()` you do not pass in the user id so the user does not meet the inclusion list criteria so the bucketing key gets hashed and they may see treatment. The same thing can happen if you include device ids.
 
 ![Has a user id so matches the inclusion list and gets signin-up-new_design](../../../assets/images/experiment/inclusion-list-variant-jumping-1.png) Has a user id so matches the inclusion list and gets `signin-up-new_design`.
 
