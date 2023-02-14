@@ -3,7 +3,7 @@ title: Amplitude Analytics Browser SDK
 description: Official Google Tag Manager template for Amplitude Analytics for data collection.
 ---
 
-Client-side Google Tag Manager Template for Amplitude Analytics. The tag utilizes the [Amplitude Marketing Analytics SDK](../../data/sdks/marketing-analytics-browser/) for data collection.
+Client-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude Marketing Analytics SDK](../../sdks/marketing-analytics-browser/) for data collection.
 
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)

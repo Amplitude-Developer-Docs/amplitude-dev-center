@@ -555,7 +555,7 @@ interface ExperimentUserProvider {
 }
 ```
 
-To utilize your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
+To use your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
 
 === "Java"
 
