@@ -7,9 +7,9 @@ Use the official Amplitude Analytics Google Tag Manager templates to collect dat
 
 |Template|Type|Description|
 |---|---|-----------|
-|[Amplitude Analytics Browser SDK](./google-tag-manager-client.md)|Client-side|The tag uses the Amplitude Marketing Analytics SDK for data collection.|
-|[Amplitude Analytics](./google-tag-manager-server.md)|Server-side|The tag uses the Amplitude HTTP V2 API for data collection. |
-|[Amplitude Analytics Legacy](./google-tag-manager-client-legacy.md)|Client-side|The tag uses the Amplitude JavaScript SDK for data collection. |
+|[Amplitude Analytics Browser SDK](../sources/google-tag-manager-client/)|Client-side|The tag uses the Amplitude Marketing Analytics SDK for data collection.|
+|[Amplitude Analytics](../sources/google-tag-manager-server/)|Server-side|The tag uses the Amplitude HTTP V2 API for data collection. |
+|[Amplitude Analytics Legacy](../sources/google-tag-manager-client-legacy/)|Client-side|The tag uses the Amplitude JavaScript SDK for data collection. |
 
 Amplitude's GTM templates offer a convenient way for developers to set up event tracking in their applications. These pre-configured templates provide a streamlined solution for deploying tracking tags, reducing the time and effort required to set up event tracking. Learn more about [Google Tag Manager Templates](https://developers.google.com/tag-platform/tag-manager/templates).
 
@@ -27,21 +27,19 @@ Use GTM client-side templates to track user interactions on a website. Use serve
 
 ### Install the template
 
-1. [Set up and install Google Tag Manager](https://support.google.com/tagmanager/answer/6103696) if you haven't done so. 
-2. Browse to the target container. 
-3. Click the **Templates** tab on the left.
-4. In the **Tag Templates** section, click **Search Gallery**.
-5. In the search bar, type "Amplitude" and select the Amplitude GTM Template from the list of results.
-6. Click the "Add to Workspace" button to add the template.
+1. Go to [Tag Manager](https://tagmanager.google.com/) and select your container or [set up a new one](https://support.google.com/tagmanager/answer/6103696).
+2. Open the **Templates** tab and click **Search Gallery** in the **Tag Templates** section.
+3. Type "Amplitude" in the search bar and select the Amplitude GTM Template.
+4. Add the template to your workspace by clicking "Add to Workspace".
 
 ### Create a tag
 
 After installing the template, you can then use that template to create a tag. 
 
-1. In Google Tag Manager Workspace, click the **Tags** tab on the left, then click **New**.
-2. Click **Tag Configuration** to select the Amplitude GTM Template from the list of available templates. If you haven't installed a Amplitude GTM Template, [install the template](./google-tag-manager/#install-the-template) first.
-3. In the Configuration section, enter your [Amplitude API Key](../../analytics/find-api-credentials.md).
-4. In the Triggers section, select the triggers that you want to use to fire the Amplitude tag. For example, you may want to fire the tag when a user visits a specific page on your website.
+1. Go to the **Tags** tab in your Google Tag Manager Workspace and click **New**.
+2. Select the Amplitude GTM Template from the list of available templates under **Tag Configuration**. If you haven't installed a Amplitude GTM Template, [install the template](../sources/google-tag-manager/#install-the-template) first.
+3. Enter your [Amplitude API Key](../../analytics/find-api-credentials/) in the **Tag Configuration** section.
+4. Choose a trigger that you want to use to fire the tag in the **Triggering** section.
 5. Save your tag and publish your GTM container.
 
 ### Check for success
