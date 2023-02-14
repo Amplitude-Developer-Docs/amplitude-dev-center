@@ -57,6 +57,14 @@ To combat this type of variant jumping, consider bucketing by:
 * User ID: If you're only targeting user who are logged in, and have a user ID.
 * Device ID: If you're only targeting anonymous users. For example, a sign up experiment.
 
+### Inclusion list
+
+Say you have some user ids in the inclusion list. You call `fetch()` with the user id passed in to the `fetch()` call. You get control since that is what the inclusion list said. Then the next time you call `fetch()` you do not pass in the user id so the user does not meet the inclusion list criteria so the bucketing key gets hashed and they may see treatment. The same thing can happen if you include device ids.
+
+![Has a user id so matches the inclusion list and gets signin-up-new_design](../../../assets/images/experiment/inclusion-list-variant-jumping-1.png) Has a user id so matches the inclusion list and gets `signin-up-new_design`.
+
+![Does not have a user id so does not match the inclusion list and hits the all other users segment and gets signin-up-original-view](../../../assets/images/experiment/inclusion-list-variant-jumping-2.png) Does not have a user id so does not match the inclusion list and hits the all other users segment and gets `signin-up-original-view`.
+
 ## Abnormal variant jumping
 
 Abnormal variant jumping is unexpected variant jumping that can't be explained by any [normal means](#normal-variant-jumping). Abnormal variant jumping can be tough to track down, however most abnormal variant jumping is caused by some form of identity mismatch: **when the user identity used in assignment is different from the identity used to track the exposure.** In short, abnormal variant jumping is almost always due to an inconsistency in implementation.
