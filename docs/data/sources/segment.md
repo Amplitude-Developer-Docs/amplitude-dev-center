@@ -33,7 +33,7 @@ There are advantages and disadvantages to taking the client-side bundled approac
 - Events logged during the same user session are grouped together when viewing that user's stream on Amplitude Dashboard. This also allows for [session length calculations](https://help.amplitude.com/hc/en-us/articles/115002323627#how-sessions-are-tracked).
 - The SDKs automatically record several user properties such as device type, operating system, and user agent. Here is a list of the [user properties](https://help.amplitude.com/hc/en-us/articles/215562387-Appendix-Amplitude-User-Property-Definitions) tracked automatically by Amplitude's SDKs.
 - By enabling Track Session Events, you can ensure the SDKs automatically send `Start Session` and `End Session` events to mark the start and end of a user's mobile session.
-- When Amplitude's SDKs are installed, you can directly interact with them. See the docs for [iOS SDK](../sdks/ios) and [Android SDK](../sdks/android-kotlin) to learn more.
+- When Amplitude's SDKs are installed, you can directly interact with them. See the docs for [iOS SDK](../../sdks/ios) and [Android SDK](../../sdks/android-kotlin) to learn more.
 
 Keep in mind that adding more SDKs increases the size of your application (each one is <200kb). You may have to account for this if you are already using several libraries in your app. These SDKs are optional, and you can still conduct almost the same analysis in Amplitude by using only Segment's libraries. 
 
@@ -50,7 +50,7 @@ Without Amplitude's SDKs, you have to map user properties such as device type an
 
 #### JavaScript (client-side)
 
-Follow [Segment's Analytics.js quickstart guide](https://segment.com/docs/sources/website/analytics.js/quickstart/#step-1-copy-the-snippet) and paste the snippet onto your website. Don't forget to put your Segment write key in the snippet.
+Follow [Segment's Analytics.js quickstart guide](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/#step-2-add-the-segment-snippet) and paste the snippet onto your website. Don't forget to put your Segment write key in the snippet.
 
 You are now ready to use `track` and `identify` to track users. Analytics.js also automatically installs Amplitude's JavaScript SDK onto your website, so you can access the JavaScript SDK directly.
 
@@ -72,7 +72,7 @@ There are settings for the JavaScript integration you can configure in the Advan
 
 Follow [Segment's iOS quickstart guide.](https://segment.com/docs/sources/mobile/ios/quickstart/#step-1-install-the-sdk) Install the Analytics pod using CocoaPods, import the `SEGAnalytics.h` header file, and initialize Segment's library in your iOS app.
 
-At this point, you can start calling `track` and `identify` to track users in your app. You also have the option to [install Amplitude's iOS SDK](https://segment.com/docs/sources/mobile/ios/#packaging-destinations-with-device-based-connection-modes) alongside Segment's library to supplement with more tracking capabilities. The pros and cons of adding Amplitude's SDK are explained [Client-side bundled integration](#client-side-bundled-integration). If you choose to add the Amplitude SDK, follow these steps:
+At this point, you can start calling `track` and `identify` to track users in your app. You also have the option to [install Amplitude's iOS SDK]() alongside Segment's library to supplement with more tracking capabilities. The pros and cons of adding Amplitude's SDK are explained [Client-side bundled integration](#client-side-bundled-integration). If you choose to add the Amplitude SDK, follow these steps:
 
 1. Install a second pod 'Segment-Amplitude' in CocoaPods:
     `pod 'Segment-Amplitude'` 
@@ -116,18 +116,18 @@ For examples of how your code should look, see the [Android demo code](https://g
 
 Follow the appropriate instructions in Segment's [documentation](https://segment.com/docs/sources/).
 
-## Mappings between Segment and Amplitude APIs
+## Mappings between Segment and Amplitude SDK methods
 
-Segment and Amplitude use slightly different terms to describe the same concepts. The following table shows the mapping between the two APIs:
+Segment and Amplitude use slightly different terms to describe the same concepts. The following table shows the mapping between the two:
 
-| Segment's API | Amplitude's API | Description |
+| Segment SDK method | Amplitude SDK method | Description |
 | --- | --- | --- |
-| `track` (with properties) | `logEvent` (with properties) | Logs an event with the specified event properties. |
-| track with property "revenue" | `logRevenueV2` | Logs a revenue event to record a revenue amount. |
-| `identify` with traits | `setUserId`, `setUserProperties` | Assigns a `userId` and set any traits as user properties. |
-| `screen` / page with name | `logEvent "Viewed" + name` | Logs an event "Viewed [page]" where [page] is the name provided. |
-| `alias` | `usermap` | UserId aliasing lets you merge two users together that would otherwise have different User IDs tracked in Amplitude. |
-| `group` | `setGroup` (with GroupName) | Lets you designate user groups. |
+| `track` (with properties) | `track` (with properties) | Logs an event with the specified event properties. |
+| track with property "revenue" | `revenue` | Logs a revenue event to record a revenue amount. |
+| `identify` with traits | `setUserId`, `identify` | Assigns a `userId` and set any traits as user properties. |
+| `screen` / page with name | `trak "Viewed" + name` | Logs an event "Viewed [page]" where [page] is the name provided. |
+| `alias` | [User Mapping (Aliasing)](../../../analytics/apis/aliasing-api/) | UserId aliasing lets you merge two users together that would otherwise have different User IDs tracked in Amplitude. |
+| `group` | `groupIdentify` (with GroupName) | Lets you designate user groups. |
 
 For more information, see the [Segment documentation.](https://segment.com/docs/integrations/amplitude/)
 
