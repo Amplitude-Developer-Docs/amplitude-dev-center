@@ -83,7 +83,7 @@ Usually, you can initialize the SDK in the `application:didFinishLaunchingWithO
     | `trackingSessionEvents` |  Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `NO` |
     | `setServerUrl` | Sends events to a custom URL . | `Amplitude HTTP API URL` |
     | `setOptOut` | Opt the user out of tracking. | `NO` |
-    | `setTrackingOptions` |  default the iOS SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. You can use the provided AMPTrackingOptions interface to customize and disable individual fields. | `NO` |
+    | `setTrackingOptions` | By default the iOS SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. You can use the provided AMPTrackingOptions interface to customize and disable individual fields. | `NO` |
     | `setOffline` | Disables sending logged events to Amplitude servers. Events will be sent when set to `true` | `NO` |
     | `setIdentifyUploadPeriodSeconds` | The amount of time SDK will attempt to batch intercepted identify events. | `30` |
 
