@@ -344,7 +344,7 @@ interface ExperimentUserProvider {
 }
 ```
 
-To utilize your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
+To use your custom user provider, set the `userProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
 
 ```js
 const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
@@ -364,7 +364,7 @@ export interface ExposureTrackingProvider {
 
 The implementation of `track()` should track an event of type `$exposure` (a.k.a name) with two event properties, `flag_key` and `variant`, corresponding to the two fields on the `Exposure` object argument. Finally, the event tracked must eventually end up in Amplitude Analytics for the same project that the [deployment] used to [initialize](#initialize) the SDK client lives within, and for the same user that variants were [fetched](#fetch) for.
 
-To utilize your custom user provider, set the `exposureTrackingProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
+To use your custom user provider, set the `exposureTrackingProvider` [configuration](#configuration) option with an instance of your custom implementation on SDK initialization.
 
 ```js
 const experiment = Experiment.initialize('<DEPLOYMENT_KEY>', {
