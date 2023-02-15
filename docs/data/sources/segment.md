@@ -72,7 +72,7 @@ There are settings for the JavaScript integration you can configure in the Advan
 
 Follow [Segment's iOS quickstart guide.](https://segment.com/docs/sources/mobile/ios/quickstart/#step-1-install-the-sdk) Install the Analytics pod using CocoaPods, import the `SEGAnalytics.h` header file, and initialize Segment's library in your iOS app.
 
-At this point, you can start calling `track` and `identify` to track users in your app. You also have the option to [install Amplitude's iOS SDK]() alongside Segment's library to supplement with more tracking capabilities. The pros and cons of adding Amplitude's SDK are explained [Client-side bundled integration](#client-side-bundled-integration). If you choose to add the Amplitude SDK, follow these steps:
+At this point, you can start calling `track` and `identify` to track users in your app. You also have the option to [install Amplitude's iOS SDK](https://segment.com/docs/connections/sources/catalog/libraries/mobile/ios/#packaging-device-mode-destination-sdks) alongside Segment's library to supplement with more tracking capabilities. The pros and cons of adding Amplitude's SDK are explained [Client-side bundled integration](#client-side-bundled-integration). If you choose to add the Amplitude SDK, follow these steps:
 
 1. Install a second pod 'Segment-Amplitude' in CocoaPods:
     `pod 'Segment-Amplitude'` 
