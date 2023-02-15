@@ -81,10 +81,10 @@ Usually, you can initialize the SDK in the `application:didFinishLaunchingWithO
     | `eventMaxCount` | The maximum number of unsent events to keep on the device. | `1000` |
     | `minTimeBetweenSessionsMillis` |  When a user closes and reopens the app within minTimeBetweenSessionsMillis milliseconds, the reopen is considered part of the same session and the session continues. Otherwise, a new session is created. The default is 5 minutes. | `5 minutes` |
     | `trackingSessionEvents` |  Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `NO` |
-    | `setServerUrl` | Sends events to a custom URL . | `Amplitude HTTP API URL` |
+    | `setServerUrl` | Sends events to a custom URL. | `Amplitude HTTP API URL` |
     | `setOptOut` | Opt the user out of tracking. | `NO` |
     | `setTrackingOptions` | By default the iOS SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. You can use the provided AMPTrackingOptions interface to customize and disable individual fields. | `NO` |
-    | `setOffline` | Disables sending logged events to Amplitude servers. Events will be sent when set to `true` | `NO` |
+    | `setOffline` | Disables sending logged events to Amplitude servers. Events will be sent when set to `true`. | `NO` |
     | `setIdentifyUploadPeriodSeconds` | The amount of time SDK will attempt to batch intercepted identify events. | `30` |
 
 #### EU data residency
