@@ -70,6 +70,23 @@ Usually, you can initialize the SDK in the `application:didFinishLaunchingWithO
     }
     ```
 
+#### Configuration
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `eventUploadPeriodSeconds` | The amount of time SDK will attempt to upload the unsent events to the server or reach `eventUploadThreshold` threshold. | `30` |
+    | `eventUploadThreshold` | SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `eventUploadPeriodSeconds` interval.  | `30` |
+    | `eventUploadMaxBatchSize` | The maximum number of events sent with each upload request. | `100` |
+    | `eventMaxCount` | The maximum number of unsent events to keep on the device. | `1000` |
+    | `minTimeBetweenSessionsMillis` |  When a user closes and reopens the app within minTimeBetweenSessionsMillis milliseconds, the reopen is considered part of the same session and the session continues. Otherwise, a new session is created. The default is 5 minutes. | `5 minutes` |
+    | `trackingSessionEvents` |  Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `NO` |
+    | `setServerUrl` | Sends events to a custom URL . | `Amplitude HTTP API URL` |
+    | `setOptOut` | Opt the user out of tracking. | `NO` |
+    | `setTrackingOptions` |  default the iOS SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. You can use the provided AMPTrackingOptions interface to customize and disable individual fields. | `NO` |
+    | `setOffline` | Disables sending logged events to Amplitude servers. Events will be sent when set to `true` | `NO` |
+    | `setIdentifyUploadPeriodSeconds` | The amount of time SDK will attempt to batch intercepted identify events. | `30` |
+
 #### EU data residency
 
 Beginning with version 8.5.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
@@ -143,13 +160,15 @@ Events can also contain properties, which give more context about the event. For
 
 ### User properties
 
-User properties help you understand your users at the time they performed some action within your app. For example, you can learn about their device details, their preferences, or language.
-
- Amplitude-iOS's `AMPIdentity` class manages these features.
-
 !!!warning "User privacy warning"
 
     Don't track any user data that may be against your privacy terms.
+
+User properties help you understand your users at the time they performed some action within your app. For example, you can learn about their device details, their preferences, or language.
+
+Amplitude-iOS's `AMPIdentity` class manages these features. Identify is for setting the user properties of a particular user without sending any event. The SDK supports these operations on individual user properties: `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove`. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object.
+
+The `AMPIdentify` object is passed to the Amplitude client to send to the server. Starting from release v8.15.0, identify events with set operations will be batched and sent with fewer events. This change doesn't affect the result the set operations. The flush interval for batched Identify's can be managed with `setIdentifyUploadPeriodSeconds`.
 
 #### Set a user property
 
