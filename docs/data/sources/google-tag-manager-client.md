@@ -8,7 +8,7 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
 
-With this template, you can defer the `init` tag until you receive a signal, like a consent grant. But make sure to fire the `init` tag before any other tags. The legacy template automatically calls init, so there's no need to do it yourself.
+With this template, you can defer the `init` tag until you receive a signal, like a consent grant. It's also common to fire the `init` tag using `All Pages` or `Initialization - All Pages` triggers. But make sure to fire the `init` tag **before** any other tags. The legacy template automatically calls init, so there's no need to do it yourself.
 
 This video tutorial walks through the implementation basics. 
 
