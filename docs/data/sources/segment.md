@@ -55,7 +55,7 @@ Follow [Segment's Analytics.js quickstart guide](https://segment.com/docs/conne
 You are now ready to use `track` and `identify` to track users. Analytics.js also automatically installs Amplitude's JavaScript SDK onto your website, so you can access the JavaScript SDK directly.
 
 !!!tip
-    See the [JavaScript SDK documentation](../sdks/javascript) for all capabilities provided directly by the JavaScript SDK.
+    See the [JavaScript SDK documentation](../../sdks/javascript/) for all capabilities provided directly by the JavaScript SDK.
 
 There are settings for the JavaScript integration you can configure in the Advanced Settings of your Segment Amplitude integration panel, without needing to change your instrumentation:
 
