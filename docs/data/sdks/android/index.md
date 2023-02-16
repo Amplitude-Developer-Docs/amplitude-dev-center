@@ -1,5 +1,5 @@
 ---
-title: Android SDK (Legacy)
+title: Android SDK (Maintenance)
 description: The Amplitude Android SDK installation and quick start guide.
 icon: simple/android
 ---
@@ -10,10 +10,10 @@ icon: simple/android
 
 This is the official documentation for the Amplitude Analytics Android SDK.
 
-!!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the [Android Kotlin SDK](../android-kotlin) which supports plugins, SDK integrations, and more.
+!!!deprecated "Maintenance SDK"
+    This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the [Android Kotlin SDK](../android-kotlin) which supports plugins, SDK integrations, and more.
 
-!!!info "Android SDK Resources (Legacy)"
+!!!info "Android SDK Resources (Maintenance)"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Android) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Android/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-Android)
 
 --8<-- "includes/ampli-vs-amplitude.md"

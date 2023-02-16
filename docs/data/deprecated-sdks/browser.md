@@ -497,7 +497,7 @@ The new Browser SDK introduces several new features to help developers implement
 
 ### Tracking Plan Changes
 
-- Update your source's runtime to **Browser — JavaScript** or **Browser — TypeScript** (from **Browser — JavaScript (Legacy)** or **Browser — TypeScript (Legacy)**, respectively)
+- Update your source's runtime to **Browser — JavaScript** or **Browser — TypeScript** (from **Browser — JavaScript (Maintenance)** or **Browser — TypeScript (Maintenance)**, respectively)
 
 ### CLI & Code Changes
 

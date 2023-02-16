@@ -1,6 +1,6 @@
 ---
 title: Browser SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's legacy browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
+description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
 ---
 
 The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `amplitude-js`. 
@@ -9,7 +9,7 @@ To migrate to `@amplitude/analytics-browser`, update your dependencies and instr
 
 ### Terminology
 
-* `amplitude-js`: Legacy Browser SDK
+* `amplitude-js`: Maintenance Browser SDK
 * `@amplitude/analytics-browser`: New Browser SDK
 
 ## Dependency
@@ -120,7 +120,7 @@ The new Browser SDK configuration comes in a different shape. The configurations
 
 ### Tracking events
 
-The legacy Browser SDK offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API in `@amplitude/analytics-browser`.
+The maintenance Browser SDK offered a variety of `logEvent` APIs like `logEventWithTimestamp`, `logEventWithGroups` to override specific properties in the event payload. Amplitude has simplified all these variations into a unified `track` API in `@amplitude/analytics-browser`.
 
 #### `logEvent()`
 

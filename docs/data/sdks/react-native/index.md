@@ -1,5 +1,5 @@
 ---
-title: React Native SDK (Legacy)
+title: React Native SDK (Maintenance)
 description: The Amplitude React Native SDK installation and quick start guide.
 icon: simple/react
 ---
@@ -10,8 +10,8 @@ icon: simple/react
 
 This is the official documentation for the Amplitude Analytics React Native SDK.
 
-!!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for React Native](../typescript-react-native/) is available. The new SDK offers an improved code architecture which supports plugins and React Native Web.
+!!!deprecated "Maintenance SDK"
+    This is a maintenance SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for React Native](../typescript-react-native/) is available. The new SDK offers an improved code architecture which supports plugins and React Native Web.
 
 !!!info "SDK Resources"
     - [React Native SDK Reference :material-book:](https://amplitude.github.io/Amplitude-ReactNative/)

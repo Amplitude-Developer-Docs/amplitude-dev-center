@@ -1,5 +1,5 @@
 ---
-title: JavaScript SDK (Legacy)
+title: JavaScript SDK (Maintenance)
 description: The Amplitude JavaScript SDK installation and quick start guide.
 icon: simple/javascript
 ---
@@ -9,10 +9,10 @@ icon: simple/javascript
 
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
-!!!deprecated "Legacy SDK"
-    This is a legacy SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK](../typescript-browser/) which supports plugins and more. See the [Migration Guide](../../sdks/typescript-browser/migration) for more help.
+!!!deprecated "Maintenance SDK"
+    This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK](../typescript-browser/) which supports plugins and more. See the [Migration Guide](../../sdks/typescript-browser/migration) for more help.
 
-!!!info "Browser SDK Resources (Legacy)"
+!!!info "Browser SDK Resources (Maintenance)"
     - [JavaScript Browser SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
     - [JavaScript Browser SDK Repository :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
     - [JavaScript Browser SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)
