@@ -5,24 +5,32 @@ description: By tracking events and users via Segment's API and libraries, you c
 
 With Segment, you can manage data and integrations with services across your Growth, Product, and Marketing stack. By tracking events and users via Segment's API and libraries, you can send your product's data to all your analytics and marketing platforms, with minimal instrumentation. They offer support for most platforms, including iOS, Android, JavaScript, Node.js, PHP, and more.
 
-This guide complements [Segment's integration documentation](https://segment.com/docs/integrations/amplitude/). It provides more details on the different types of Segment integrations you can use, how they affect your data in Amplitude, and instructions for setting up the integrations.
+This guide complements [Segment's Amplitude (Actions)](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/) documentation. It is most up-to-update with Segment, provides more details on how they affect your data in Amplitude, and instructions for setting up the integrations.
+
+!!!warning "Segment's Amplitude (Classic)"
+    Segment has an old destination, [Segment's Amplitude (Classic)](https://segment.com/docs/connections/destinations/catalog/amplitude/). Future updates are limited to security updates and bug fixes. This document is mainly focused on the new destination, Segment's Amplitude (Actions).
 
 !!!note "Other Amplitude + Segment integrations"
-
-    This integration imports Segment data into Amplitude. Amplitude offers other integrations with Segment: 
-
+    Segment's Amplitude Destination imports Segment data into Amplitude. Amplitude also offers other integrations with Segment: 
     - [Send Cohorts to Segment](/data/destinations/segment-cohort)
 
 ## Setup overview
 
-To set up this integration between Segment and Amplitude, follow these steps:
+To send data to Amplitude, you can: 
 
-1. In your Segment workspace, create a project for your application and enable Amplitude as one of your integrations.
-2. Next, create a project for your data in Amplitude. This generates an API key for you.
-3. Enter the Amplitude API key into Segment's Amplitude integration settings panel.
-4. Decide how you would like to integrate Amplitude and Segment and install the correct Segment library. See the setup guide at the end of this article for more detailed steps.
-5. Start tracking events. Call Segment's `identify` and `track` methods in your application to assign user IDs and track events.
-6. Build a chart in Amplitude and start exploring your data.
+- Install Amplitude's SDKs and send data directly to Amplitude by [client-side bundled integration](./#client-side-bundled-integration).
+- Set up a [Segment destination](./#set-up-segment-destinations) and connect it with a [Segment source](#set-up-segment-sources). 
+
+### Set up Segment Destinations
+
+Follow [these steps](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/#getting-started) with your [Amplitude API key](../../../analytics/find-api-credentials/). 
+
+To ensure that Segment can send data to Amplitude, make sure your Segment's Amplitude destination is connected to one of your Segment sources:
+
+- In your Segment workspace, click **Connections** -> **Sources**. 
+- Verify the status of your Amplitude destination is set to **Enable** to allow Segment to send data to Amplitude
+
+Send data to your Segment source, and [validate your events in Amplitude](../../debugger/).
 
 ### Client-side bundled integration
 
@@ -46,7 +54,9 @@ Without session tracking:
 
 Without Amplitude's SDKs, you have to map user properties such as device type and operating system manually to track them, as described in [Segment's docs](https://segment.com/docs/integrations/amplitude/#special-properties).
 
-### Set up integrations (sources) in Amplitude
+### Set up Segment Sources
+
+Set up a [Segment Source](https://segment.com/docs/connections/sources/) to send data to Segment.
 
 #### JavaScript (client-side)
 
