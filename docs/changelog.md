@@ -20,6 +20,24 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
     - This changelog covers only documentation changes, and doesn't cover product changes. See [Product Updates](https://community.amplitude.com/product-updates?utm_source=devdocs&utm_medium=helpcontent&utm_campaign=devdocswebsite) for those changes.
     - This changelog is incomplete and in January 2023. For a complete history of the Amplitude Developer Docs, see the [GitHub repo](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center).
 
+## Week of February 12, 2023
+
+**New**
+
+- Added [Quickstart guide for Google Tag Manager](../data/sources/google-tag-manager/), and new documentation for the [Amplitude Analytics Legacy](../data/sources/google-tag-manager-client-legacy/) template, [Browser SDK template](../data/sources/google-tag-manager-client/), and the [Amplitude Analytics](../data/sources/google-tag-manager-server/) template. [#583](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/583)
+
+**Updated**
+
+- Updated navigation paths in integration docs to reflect the new Data UI experience. [#584](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/584)
+- Added info on batching and configuration to the [iOS SDK](../data/sdks/ios-swift/) doc. [#592](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/592)
+- Added section for inclusion lists to the [Variant Jumping](../experiment/guides/troubleshooting/variant-jumping) doc. [#581](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/581)
+- Changed "Legacy" to "Maintenance" in previous-generation SDKs. We did this to prevent confusion. [#589](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/589)
+- Added clarifications to the [Client-side vs Server-side](../data/sources/client-side-vs-server-side) guide. [#586](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/586)
+- Fixed a formatting issue in the [Accounts Instrumentation](../guides/accounts-instrumentation-guide/) guide. [#585](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/585)
+
+<!-- markdown-link-check-disable -->
+<!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
+
 ## Week of February 5, 2023
 
 **New**
@@ -36,9 +54,6 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Added configuration information to [Legacy Android SDK](../data/sdks/android/) doc. [#577](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/577)
 - Made tweaks to quickstart guides. [#570](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/570)
 - Added deduplication section to [S3 Import](../data/sources/amazon-s3) doc. [#579](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/579)
-
-<!-- markdown-link-check-disable -->
-<!-- turn off link checking for old entries cause otherwise it takes forever. The cron job runs daily and will catch busted links elsewhere-->
 
 ## Week of January 29, 2023
 
