@@ -55,7 +55,6 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 - Made tweaks to quickstart guides. [#570](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/570)
 - Added deduplication section to [S3 Import](../data/sources/amazon-s3) doc. [#579](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/579)
 
-
 ## Week of January 29, 2023
 
 **New**
