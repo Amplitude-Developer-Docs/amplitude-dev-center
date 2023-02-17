@@ -59,4 +59,12 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
     [:octicons-arrow-right-24: Read the guide](../data/debugger)
 
+- :material-tools:{ .lg .middle } __SDK Migration Guide__
+
+    ---
+
+    Learn how to create sources in Amplitude and update SDK instrumentation.  
+
+    [:octicons-arrow-right-24: Read the guide](../data/segment-sdk-migration-guide)
+
 </div>
