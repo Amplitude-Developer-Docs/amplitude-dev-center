@@ -29,7 +29,7 @@ See what's new and changed in the Amplitude Developer Center. Updates are typica
 **Updated**
 
 - Updated navigation paths in integration docs to reflect the new Data UI experience. [#584](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/584)
-- Added info on batching and configuration to the [iOS SDK](../data/sources/sdks/ios-swift) doc. [#592](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/592)
+- Added info on batching and configuration to the [iOS SDK](../data/sdks/ios-swift/) doc. [#592](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/592)
 - Added section for inclusion lists to the [Variant Jumping](../experiment/guides/troubleshooting/variant-jumping) doc. [#581](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/581)
 - Changed "Legacy" to "Maintenance" in previous-generation SDKs. We did this to prevent confusion. [#589](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/589)
 - Added clarifications to the [Client-side vs Server-side](../data/sources/client-side-vs-server-side) guide. [#586](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/pull/586)
