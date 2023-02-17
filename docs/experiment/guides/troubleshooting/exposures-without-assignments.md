@@ -17,6 +17,10 @@ Exposure without assignment may also affect future experiments, so you should in
 
     This chart doesn't appear if you selected assignment event as the exposure event or if you are using [local evaluation](../../general/evaluation/local-evaluation.md). 
 
+!!!note
+
+    Sometimes the exposure event is delayed and is sent on a different day than the assignment event. For example, the assignment event is sent today and the exposure event is sent tomorrow. There may be an issue if, between the assignment and exposure events being sent, the user's user properties have changed in a way that affects whether they should be targeted. Otherwise, you can ignore this warning.
+
 ## Causes
 
 A significant number of users in the Exposures without Assignments chart could be caused by a few different scenarios, such as: 
