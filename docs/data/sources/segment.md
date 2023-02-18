@@ -130,7 +130,7 @@ Follow the appropriate instructions in Segment's [documentation](https://segmen
 
 Segment and Amplitude use slightly different terms to describe the same concepts. The following table shows the mapping between the two:
 
-| Segment SDK | Amplitude SDK | Description |
+| Segment | Amplitude | Description |
 | --- | --- | --- |
 | `track` (with properties) | `track` (with properties) | Logs an event with the specified event properties. |
 | track with property "revenue" | `revenue` | Logs a revenue event to record a revenue amount. |
