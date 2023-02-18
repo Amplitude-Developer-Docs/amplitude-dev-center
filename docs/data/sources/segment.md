@@ -5,7 +5,7 @@ description: By tracking events and users via Segment's API and libraries, you c
 
 With Segment, you can manage data and integrations with services across your Growth, Product, and Marketing stack. By tracking events and users via Segment's API and libraries, you can send your product's data to all your analytics and marketing platforms, with minimal instrumentation. They offer support for most platforms, including iOS, Android, JavaScript, Node.js, PHP, and more.
 
-This guide complements [Segment's Amplitude (Actions)](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/) documentation. It is most up-to-update with Segment, provides more details on how they affect your data in Amplitude, and instructions for setting up the integrations.
+This guide complements [Segment's Amplitude (Actions)](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/) documentation. It provides more details on how they affect your data in Amplitude, and instructions for setting up the integrations.
 
 !!!warning "Segment's Amplitude (Classic)"
     Segment has an old destination, [Segment's Amplitude (Classic)](https://segment.com/docs/connections/destinations/catalog/amplitude/). Future updates are limited to security updates and bug fixes. This document is mainly focused on the new destination, Segment's Amplitude (Actions).
