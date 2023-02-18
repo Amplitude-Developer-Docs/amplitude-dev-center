@@ -8,7 +8,7 @@ With Segment, you can manage data and integrations with services across your Gro
 This guide complements [Segment's Amplitude (Actions)](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/) documentation. It provides more details on how they affect your data in Amplitude, and instructions for setting up the integrations.
 
 !!!warning "Segment's Amplitude (Classic)"
-    Segment has an old destination, [Segment's Amplitude (Classic)](https://segment.com/docs/connections/destinations/catalog/amplitude/). Future updates are limited to security updates and bug fixes. This document is mainly focused on the new destination, Segment's Amplitude (Actions).
+    Segment has an old destination, [Segment's Amplitude (Classic)](https://segment.com/docs/connections/destinations/catalog/amplitude/). Future updates are limited to security updates and bug fixes. This document is mainly focused on the new destination, [Segment's Amplitude (Actions)](https://segment.com/docs/connections/destinations/catalog/actions-amplitude/).
 
 !!!note "Other Amplitude + Segment integrations"
     Segment's Amplitude Destination imports Segment data into Amplitude. Amplitude also offers other integrations with Segment: 
@@ -126,11 +126,11 @@ For examples of how your code should look, see the [Android demo code](https://g
 
 Follow the appropriate instructions in Segment's [documentation](https://segment.com/docs/sources/).
 
-## Mappings between Segment and Amplitude SDK methods
+## Mappings between Segment and Amplitude SDK functions
 
 Segment and Amplitude use slightly different terms to describe the same concepts. The following table shows the mapping between the two:
 
-| Segment SDK method | Amplitude SDK method | Description |
+| Segment SDK | Amplitude SDK | Description |
 | --- | --- | --- |
 | `track` (with properties) | `track` (with properties) | Logs an event with the specified event properties. |
 | track with property "revenue" | `revenue` | Logs a revenue event to record a revenue amount. |
