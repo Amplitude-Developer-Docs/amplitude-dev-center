@@ -8,13 +8,11 @@ Amplitude is a powerful product analytics platform that enables you to build bet
 
 With Amplitude, you can track user data and gain insights into user engagement, retention, and revenue. Amplitude keeps your data trustworthy and secure, ensuring that you have access to accurate and reliable information. Amplitude offers powerful analytics tools that help answer questions about what happened, why it happened, and which actions to take next. With Amplitude, you can seamlessly share your work across teams, facilitating collaboration and driving growth.
 
-If you are new to Amplitude, it's recommended to complete [this course](https://academy.amplitude.com/path/getting-started-with-amplitude-analytics-learning-path) to get started.
-
 ## Key concepts
 
-Before you get started with Amplitude, it's important to know the key concepts used in Amplitude. 
+Amplitude is an event-based analytics tool that tracks the behaviors of users based on in-product interactions and analyzes user behavior in real-time. Event-based analytics is the method of tracking and analyzing interactions between users and your product, also known as events. Before you get started with Amplitude, it's important to know the key concepts used in Amplitude. 
 
-|Name|Description|A music player app example)|
+|Name|Description|A music player app example|
 |---|-----------|-----------|
 |Users|A user is the specific individual that interacts with your product|A user uses the app to play music|
 |Events|An event is an action a user has taken|A user presses the "Play Song" button|
@@ -32,7 +30,7 @@ You can learn more about how to [identify your users](https://help.amplitude.com
 
 ### Events
 
-An event is an action a user has taken. For example, you could send an “Play Song” event every time a user presses the Play button in a music player application.
+Events are actions that users take in your product, such as clicking a button, making a purchase, or signing up for an account. You need to define which events you want to track in Amplitude, and what data you want to capture for each event. For example, you could send an “Play Song” event every time a user presses the Play button in a music player application.
 
 You can learn more about how to [track events and understand your users' actions](https://help.amplitude.com/hc/en-us/articles/206404698).
 
@@ -54,4 +52,4 @@ A session is the period of time a user has your app in the foreground or has you
 
 You can learn more about [how Amplitude tracks sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Tracking-Sessions).
 
-Learn more [helpful definitions](https://help.amplitude.com/hc/en-us/articles/204620508-Helpful-definitions).
+If you are new to Amplitude, it's recommended to complete [this course](https://academy.amplitude.com/path/getting-started-with-amplitude-analytics-learning-path) to get started and learn more [helpful definitions](https://help.amplitude.com/hc/en-us/articles/204620508-Helpful-definitions).
