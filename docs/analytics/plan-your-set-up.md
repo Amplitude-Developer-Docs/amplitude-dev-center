@@ -50,6 +50,8 @@ Here are some sample questions to get you thinking:
 !!!note "Know key concepts before you get started"
     For more details on the definitions of users, events, and properties, see [What is Amplitude?](../what-is-amplitude/) article.
 
+Know what events to track now? Check out [Amplitude SDK Quickstart Guide](../../data/sdks/sdk-quickstart/) for a quick and easy way to get started.
+
 After successfully tracking these events, you can start to [track more](https://help.amplitude.com/hc/en-us/articles/115000465251-Data-taxonomy-playbook-part-one-Getting-started).
 
 ## Create a tracking plan
