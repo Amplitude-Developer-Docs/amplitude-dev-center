@@ -14,10 +14,10 @@ Amplitude is an event-based analytics tool that tracks the behaviors of users ba
 
 |Name|Description|A music player app example|
 |---|-----------|-----------|
-|Users|A user is the specific individual that interacts with your product|A user uses the app to play music|
 |Events|An event is an action a user has taken|A user presses the "Play Song" button|
-|User Properties|User properties are details about users|Whether a user is on a paid or free plan|
-|Event Properties|Event properties are details about events|The genre of the music|
+|Event Properties|Event properties are details about an event.|The genre of the music|
+|Users|A user is the specific individual that interacts with your product|A user uses the app to play music|
+|User Properties|User properties are details about a user|Whether a user is on a paid or free plan|
 |Sessions|A session is the period of time a user has your app|A user uses the app to play music|
 
 TL;DR: If you aren't interested in the details of these concepts you can stop reading now. 
