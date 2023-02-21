@@ -15,7 +15,7 @@ This document covers the necessary steps to:
 3. Validate the migration is successfully
 
 !!!note "Table of Contents"
-    1. [Add a Source](#set-up-a-source)
+    1. [Add a Source](#add-a-source)
     2. [Update SDK implementation](#update-sdk-implementation)
     3. [Validate events](#validate-events)
     4. [Add a Destination](#add-a-destination)
