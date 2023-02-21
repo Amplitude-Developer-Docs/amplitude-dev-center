@@ -11,7 +11,7 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
 <div class="grid cards" markdown>
 
-- :material-clock-fast:{ .lg .middle } __SDK Quickstart__
+- :material-clock-fast:{ .lg .middle } __SDK quickstart__
 
     ---
 
@@ -58,5 +58,13 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
     Learn how to validate and debug your Analytics instrumentation.  
 
     [:octicons-arrow-right-24: Read the guide](../data/debugger)
+
+- :material-tools:{ .lg .middle } __Migration Guide__
+
+    ---
+
+    Learn how to migrate from Segment to Amplitude CDP.  
+
+    [:octicons-arrow-right-24: Read the guide](../guides/segment-migration-guide)
 
 </div>

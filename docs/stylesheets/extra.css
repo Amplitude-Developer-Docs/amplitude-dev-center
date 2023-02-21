@@ -553,3 +553,9 @@ textarea.at-field {
   font-weight: 400;
   font-style: italic;
 }
+
+/* allow wrapping of codeblocks in tables  */
+
+table code {
+  white-space : pre-wrap !important;
+}
