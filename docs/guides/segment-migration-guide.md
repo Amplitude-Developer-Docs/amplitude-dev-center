@@ -125,9 +125,9 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     setGroup('Working Group', 'UNIVAC');
     const groupIdentifyObj = new Identify()
     groupIdentifyObj.set('principles', ['Eckert', 'Mauchly']);
-    groupIdentifyObj.set('site', 'Eckert–Mauchly Computer Corporation');
-    groupIdentifyObj.set('statedGoals', 'Develop the first commercial computer');
-    groupIdentifyObj.set('industry', 'Technology');
+     .set('site', 'Eckert–Mauchly Computer Corporation');
+     .set('statedGoals', 'Develop the first commercial computer');
+     .set('industry', 'Technology');
     groupIdentify('Working Group', 'UNIVAC' , groupIdentifyObj);
     ``` 
     </td>
