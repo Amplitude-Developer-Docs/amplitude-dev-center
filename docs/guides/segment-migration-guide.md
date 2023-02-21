@@ -82,10 +82,7 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```typescript
     setUserId('12091906-01011992');
-    const identifyObj = new Identify();
-    identifyObj.set('name', 'Grace Hopper');
-    identifyObj.set('email', 'grace@usnavy.gov');
-    identify(identifyObj);
+    identify(Identify().set('name', 'Grace Hopper').set('email', 'grace@usnavy.gov'))
     ```
     </td>
     </tr>
