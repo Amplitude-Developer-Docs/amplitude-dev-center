@@ -3,7 +3,7 @@ site_name: Amplitude Developer Center
 site_url: https://docs.developers.amplitude.com
 site_author: Amplitude
 site_description: >-
-    Developer resources for Amplitude's digital optimization products.
+    Developer resources for Amplitude's digital analytics platform.
 
 # Repository
 repo_name: amplitude-dev-center
@@ -385,6 +385,7 @@ nav:
   - Accounts Guide: guides/accounts-instrumentation-guide.md
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
+  - Segment Migration Guide: guides/segment-migration-guide.md
 - APIs:
   - analytics/apis/index.md
   - Find your API credentials: analytics/find-api-credentials.md
