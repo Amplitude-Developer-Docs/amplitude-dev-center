@@ -67,7 +67,7 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
 
     <table>
     <tr>
-    <td>  </td> <td> Segment </td> <td> Amplitude </td>
+    <td>  </td> <td> <b>Segment</b> </td> <td> <b>Amplitude</b> </td>
     </tr>
     <tr>
     <td> Identify </td>
@@ -140,7 +140,7 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
 
     <table>
     <tr>
-    <td>  </td> <td> Segment </td> <td> Amplitude </td>
+    <td>  </td> <td> <b>Segment</b> </td> <td> <b>Amplitude</b> </td>
     </tr>
     <tr>
     <td> Identify </td>
@@ -200,7 +200,7 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
 
     <table>
     <tr>
-    <td>  </td> <td> Segment </td> <td> Amplitude </td>
+    <td>  </td> <td> <b>Segment</b> </td> <td> <b>Amplitude</b> </td>
     </tr>
     <tr>
     <td> Identify </td>
