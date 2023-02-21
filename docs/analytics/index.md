@@ -14,7 +14,7 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
 - :material-book-open-variant:{ .lg .middle } __Getting started__
 
-    --- 
+    ---
 
     Learn the basics of Amplitude Analytics.
 
