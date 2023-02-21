@@ -2,145 +2,50 @@
 title: What is Amplitude?
 description: Amplitude Analytics is the leading product analytics tool. It helps you gather and democratize data about how users engage with your apps.
 ---
+<script src="https://fast.wistia.com/embed/medias/g704qzqk6e.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_g704qzqk6e videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/g704qzqk6e/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></div></div>
 
-To understand how Amplitude works, let’s walk through a hypothetical example.
+Amplitude is a powerful product analytics platform that enables you to build better products by tracking and understanding user behavior. 
 
-Tunes is a standard music player for mobile devices that has common actions like playing a song, skipping a song, shuffling play, and sharing a song.
+With Amplitude, you can track user data and gain insights into user engagement, retention, and revenue. Amplitude keeps your data trustworthy and secure, ensuring that you have access to accurate and reliable information. Amplitude offers powerful analytics tools that help answer questions about what happened, why it happened, and which actions to take next. With Amplitude, you can seamlessly share your work across teams, facilitating collaboration and driving growth.
 
-Using Amplitude, you can track all the actions your users make in detail and better understand what’s working and what’s not.
+## Key concepts
 
-### What to track
+Amplitude is an event-based analytics tool that tracks the behaviors of users based on in-product interactions and analyzes user behavior in real-time. Event-based analytics is the method of tracking and analyzing interactions between users and your product, also known as events. Before you get started with Amplitude, it's important to know the key concepts used in Amplitude. 
 
-Amplitude gives you the power to decide what actions you want to track. You can choose to track anything and everything.
+|Name|Description|A music player app example|
+|---|-----------|-----------|
+|Events|An event is an action a user has taken|A user presses the "Play Song" button|
+|Event Properties|Event properties are details about an event.|The genre of the music|
+|Users|A user is the specific individual that interacts with your product|A user uses the app to play music|
+|User Properties|User properties are details about a user|Whether a user is on a paid or free plan|
+|Sessions|A session is the period of time a user has your app|A user uses the app to play music|
 
-For example, in Tunes, you could track the music control buttons the users presses or the number of songs each user has listened to in their sessions.
+TL;DR: If you aren't interested in the details of these concepts you can stop reading now. 
 
-#### Events represent actions users have taken
+### Events
 
-Every time an action happens that you wish to keep track of, you send an Event to Amplitude. Events can be as easy as choosing the text string that defines them.
-For example, in Tunes, you could send an “Play Song” event every time a user presses the Play button.
+Events are actions that users take in your product, such as clicking a button, making a purchase, or signing up for an account. You need to define which events you want to track in Amplitude, and what data you want to capture for each event. For example, you could send an “Play Song” event every time a user presses the Play button in a music player application.
 
-=== "JavaScript"
+You can learn more about how to [track events and understand your users' actions](https://help.amplitude.com/hc/en-us/articles/206404698).
 
-    ```js
-    amplitude.getInstance().logEvent(‘play song’);
-    ```
+#### Event properties
 
-=== "iOS"
+Event Properties are details about events. For example, when someone presses the “Play Song” event in a music player application, you can use event properties to track the genre. Any detail related to the event can be an event property.
 
-    ```swift
-    [[Amplitude instance] logEvent:@"play song"];
-    ```
+### Users
 
-=== "Android"
+A user is the specific individual that completed an interaction with your product. Amplitude analyses depend on accurately tracking **unique users**. This is often trickier than it sounds, because your users can log in and out at will, browse anonymously, or use multiple devices. 
 
-    ```kotlin
-    Amplitude.getInstance().logEvent("play song");
-    ```
+You can learn more about how to [identify your users](https://help.amplitude.com/hc/en-us/articles/206404628) and [how Amplitude tracks unique users](https://help.amplitude.com/hc/en-us/articles/115003135607-Track-unique-users-in-Amplitude) by using a combination of device IDs, user IDs, and Amplitude IDs.
 
-=== "Unity"
+#### User properties
 
-    ```C#
-    Amplitude.Instance.logEvent("play song");
-    ```
+User properties are details about users. For example, you could keep track of whether a user was on a paid or free plan in a music player application.
 
-Here is a chart with the number of songs played on each day:
+### Sessions
 
-![An example chart showing songs the number of songs played on each day](../assets/images/analytics-chart-songs-played.png)
+A session is the period of time a user has your app in the foreground or has your website open. Sessions are a useful metric in Amplitude for understanding the frequency and duration of your users' engagement with your product. Amplitude assigns a session ID to each session, and all events within the same session share the same session ID. To send data, Amplitude SDKs automatically generate and manage session IDs. However, you have to manage session IDs yourself, you use HTTP APIs. 
 
-#### Event properties give context
+You can learn more about [how Amplitude tracks sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Tracking-Sessions).
 
-Event Properties give you context about events, like where in your app they occur or what state the app is in when it occurred.
-For example, in Tunes, when someone presses the “Play Song” event, you can use event properties to track the
- title of the song, the artist, the genre, and more. Any detail related to the event can be an event property.
-
-=== "JavaScript"
-
-    ```js
-    amplitude.getInstance().logEvent('play song',
-    { title: 'Here comes the Sun',
-      artist: 'The Beatles', genre: 'Rock'});
-    ```
-
-=== "iOS"
-
-    ```swift
-    NSMutableDictionary *songProperties = [NSMutableDictionary dictionary];
-    [songProperties setValue:@"title" forKey:@"Here comes the Sun"];
-    [songProperties setValue:@"artist" forKey:@"The Beatles"];
-    [songProperties setValue:@"genre" forKey:@"Rock"];
-    [[Amplitude instance] logEvent:@"play song" withEventProperties:songProperties];
-    ```
-
-=== "Android"
-
-    ```kotlin
-    JSONObject songProperties = new JSONObject();
-    try {
-        songProperties.put("title", "Here comes the Sun");
-        songProperties.put("artist", "The Beatles");
-        songProperties.put("genre", "Rock");
-    } catch (JSONException exception) {
-    }
-    Amplitude.getInstance().logEvent("play song", songProperties);
-    ```
-
-=== "Unity"
-
-    ```c#
-    Dictionary<string, object> songProperties = new Dictionary<string, object>() {
-      {"title" , "Here comes the Sun" },
-      {"artist" , "The Beatles"},
-      {"genre" , "Rock"}
-    };
-    Amplitude.Instance.logEvent("play song", songProperties);
-    ```
-
-Here is a chart with the songs played per day in each genre:
-
-![An example chart of songs played per day in each genre](../assets/images/analytics-chart-songs-played-by-genre.png)
-
-#### User Sessions are a series of Events in a single visit
-
-User Sessions let you track series of events performed in a single visit or interaction with your application.
-
-Most often, Amplitude keeps track of session automatically for you. If you are using the HTTP API, you must handle sessions manually.
-
-#### User properties are details about your user
-
-User Properties help understand your User at the time they performed actions within your application.
- What state they were in, their preferences, or their device details, are all examples of common user properties.
-
-For example, in Tunes, you could keep track of whether a user was on a paid or free plan.
- This lets you to segment these users by this property, and compare paid vs free users (to consider just the behavior of paying users).
-
-=== "JavaScript"
-
-    ```js
-    var identify = new amplitude.Identify().set('plan', 'premium');
-    amplitude.getInstance().identify(identify);
-    ```
-
-=== "iOS"
-
-    ```swift
-    AMPIdentify *identify = [[[AMPIdentify identify] set:@"plan" value:@"premium"]];
-    [[Amplitude instance] identify:identify];
-    ```
-
-=== "Android"
-
-    ```kotlin
-    Identify identify = new Identify().set("plan", "premium");
-    Amplitude.getInstance().identify(identify);
-    ```
-
-=== "Unity"
-
-    ```c#
-    Amplitude.Instance.setUserProperty("plan", "premium");
-    ```
-
-Here is an example of a chart segmented on the user property "gender":
-
-![An example chart that's segmented by the user property "gender"](../asssets/images/../../assets/images/analytics-chart-songs-played-by-gender.png)
+If you are new to Amplitude, it's recommended to complete [this course](https://academy.amplitude.com/path/getting-started-with-amplitude-analytics-learning-path) to get started and learn more [helpful definitions](https://help.amplitude.com/hc/en-us/articles/204620508-Helpful-definitions).
