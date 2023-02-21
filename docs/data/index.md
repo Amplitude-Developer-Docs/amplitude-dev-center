@@ -49,7 +49,7 @@ Amplitude Data makes it easy for you to configure Sources and Destinations. Sour
 Get started with Amplitude Data in a few steps.
 
 1. [Configure sources](../data/sources)
-2. [Instrument analytics](../data/ampli)
+2. [Set up analytics](../data/ampli)
 3. [Validate your data](../data/debugger)
 4. [Configure destinations](../data/destinations)
 
