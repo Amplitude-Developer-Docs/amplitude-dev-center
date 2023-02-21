@@ -25,7 +25,7 @@ toplevel: true
 
     ---
 
-    Amplitude Data lets you integrate, resolve and manage a complete, comprehensive view of your customer and product data. 
+    Amplitude Data lets you collect and govern user data, build customer profiles with CDP integrated with analytics. 
 
     [:octicons-arrow-right-24: See the Data docs](../data/)
 
