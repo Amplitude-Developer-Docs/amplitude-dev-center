@@ -32,7 +32,7 @@ Below the ingestion debugger is the list of throttled users and devices. Here yo
 After you have instrumented your events, the first step is to manually fire some of those events on your own device. After you have done so, follow these steps:
 
 1. Navigate to the **User Look-Up** tab in the nav bar at the top of your Amplitude.
-2. Make sure you're viewing user-level details, and not account-level details.
+2. Click on the **User** tab to make sure you're viewing user-level details, and not account-level details.
 3. Search by user ID, device ID, Amplitude ID, or user property values.
 
 ![Amplitude User Look-Up](/../assets/images/user-lookup.png)
@@ -50,7 +50,7 @@ You can view more information and the raw data of an event by clicking Raw.
 
 ## Instrumentation Explorer
 
-The Amplitude Instrumentation Explorer is an extension in the Google Chrome Web Store that helps you examine and debug your Amplitude Browser SDK instrumentation just by interacting with your product. It captures each Amplitude event you trigger and display it in the extension popup. [Download it here.](https://chrome.google.com/webstore/detail/amplitude-event-explorer/acehfjhnmhbmgkedjmjlobpgdicnhkbp)
+The Amplitude Instrumentation Explorer is an extension in the Google Chrome Web Store that helps you examine and **debug your Amplitude Browser SDK instrumentation** just by interacting with your product. It captures each Amplitude event you trigger and display it in the extension popup. [Download it here.](https://chrome.google.com/webstore/detail/amplitude-event-explorer/acehfjhnmhbmgkedjmjlobpgdicnhkbp)
 
 ### View your triggered events
 
