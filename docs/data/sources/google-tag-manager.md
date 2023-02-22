@@ -34,7 +34,10 @@ Use GTM client-side templates to track user interactions on a website. Use serve
 
 ### Create a tag
 
-After installing the template, you can then use that template to create a tag. 
+After installing the template, you can then use that template to create a tag.
+
+!!!note EU data residency
+    Consult the corresponding template document for more information and EU configuration.
 
 1. Go to the **Tags** tab in your Google Tag Manager Workspace and click **New**.
 2. Select the Amplitude GTM Template from the list of available templates under **Tag Configuration**. If you haven't installed an Amplitude GTM Template, [install the template](./#install-the-template) first.
