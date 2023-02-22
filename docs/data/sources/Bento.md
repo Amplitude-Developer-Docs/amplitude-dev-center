@@ -25,7 +25,7 @@ Copy your project's API key. There are no other setup steps in Amplitude. [Find 
 
 ### Bento setup
 
-1.Log into your Bento dashboard.
+1. Log into your Bento dashboard.
 2. Visit the Integrations page and click on Amplitude.
 3. Paste your Amplitude API key and click Connect.
 
