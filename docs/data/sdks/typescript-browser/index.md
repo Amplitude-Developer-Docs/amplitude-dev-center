@@ -5,7 +5,7 @@ icon: simple/typescript
 ---
 
 
-![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)
+![npm version](https://badge.fury.io/js/amplitude.svg)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
