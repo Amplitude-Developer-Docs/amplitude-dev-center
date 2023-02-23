@@ -28,7 +28,7 @@ The Amplitude Developer Center has everything you need to instrument Amplitude. 
 
     ---
 
-    Amplitude Data lets you collect and govern user data, build customer profiles with CDP integrated with analytics.
+    Amplitude Data lets you capture, manage, and improve the quality of your customer and product data across Amplitude.
 
     [:octicons-arrow-right-24: See the Data docs](../data/)
 
