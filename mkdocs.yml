@@ -157,6 +157,7 @@ nav:
     - analytics/index.md
     - Overview: analytics/index.md
     - What is Amplitude Analytics?: analytics/what-is-amplitude.md
+    - Plan Your Set Up: analytics/plan-your-set-up.md
     - Debugging Analytics: "data/debugger.md"
     - SDKs: /../data/sdks/
     - APIs: analytics/apis/index.md
