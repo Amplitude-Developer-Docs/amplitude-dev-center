@@ -25,7 +25,7 @@ toplevel: true
 
     ---
 
-    Amplitude Data lets you integrate, resolve and manage a complete, comprehensive view of your customer and product data. 
+    Amplitude Data lets you capture, manage, and improve the quality of your customer and product data across Amplitude.
 
     [:octicons-arrow-right-24: See the Data docs](../data/)
 

@@ -20,7 +20,7 @@ Amplitude Analytics is the leading product analytics tool. It helps you gather a
 
     [:octicons-arrow-right-24: Understand the basics](../analytics/what-is-amplitude)
 
-- :material-code-braces:{ .lg .middle } __Instrument Analytics__
+- :material-code-braces:{ .lg .middle } __Set up Analytics__
 
     ---
 
@@ -54,14 +54,14 @@ Guide to getting started with Amplitude Analytics.
 
 1. [Plan your implementation]()
 2. [Define your tracking plan]()
-3. [Instrument analytics](/data/sources#sdks)
+3. [Set up analytics](/data/sources#sdks)
 4. [Validate your data]()
 
 -->
 
 <!-- - Data Model: "https://foo"
 - Creating a Tracking Plan: "https://foo"
-- Instrumenting Analytics: "https://foo"
+- Setting up Analytics: "https://foo"
 - Testing & Debugging: "https://foo"
 - Sending Data to Destinations: "https://foo" -->
 
