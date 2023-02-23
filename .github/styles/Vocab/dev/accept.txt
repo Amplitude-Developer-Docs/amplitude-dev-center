@@ -127,7 +127,6 @@ performant
 [Ee]valuate
 snake_case
 dev
-Iglu
 backgrounded
 discoverability
 [Ss]lugify
