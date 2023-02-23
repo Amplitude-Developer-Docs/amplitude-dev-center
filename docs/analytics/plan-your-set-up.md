@@ -44,7 +44,7 @@ Here are some sample questions to get you thinking:
 |---------------|---------------|
 |How many daily active users or how many logins per week do I get? | **Login** event|
 |What percentage of users who add an item to their cart successfully checkout? | **Add to Cart** event and **Checkout** event|
-|What percentage of sign ups request a demo? | **Sign Up** event and Request Demo event|
+|What percentage of sign ups request a demo? | **Sign Up** event and **Request Demo** event|
 |What's the retention rate? How many users come back to the product after signing up 2 weeks later? | **Sign Up** event and **Session Start** event|
 
 !!!note "Know key concepts before you get started"
