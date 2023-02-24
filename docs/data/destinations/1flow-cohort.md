@@ -6,7 +6,7 @@ status: new
 
 !!!info "This integration is maintained by 1Flow"
 
-    This integration is maintained by Toplyne. Contact the [1Flow support team](https://help.trybento.co/en/articles/6978743-send-events-to-amplitude](https://1flow.app/) with any questions about this integration.
+    This integration is maintained by 1Flow. Contact the [1Flow support team](https://1flow.app/) with any questions about this integration.
 
 [1Flow](https://1flow.app/) enables product-led customer everboarding through embedded onboarding checklists, contextual guides, and empty states. Our powerful data model allows guides to be customized per customer via attributes or even human tailoring. Customers are able to get set up at their own speed, track progress, and collaborate across their team. 
 With the Bento ingestion integration, you can send events to Amplitude to understand the impact of engagement with guides on user activation.
@@ -40,6 +40,7 @@ This guide is complementary to 1Flow’s instructions. Visit [1Flow's documentat
 ## Send a cohort
 
 To sync your first cohort, follow these steps:
+
 1. In Amplitude, open the cohort you want to sync, then click **Sync**.
 2. Select **1Flow**, then click **Next**.
 3. Choose the account you want to sync to.
