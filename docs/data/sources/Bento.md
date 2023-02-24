@@ -4,7 +4,7 @@ description: With the Bento ingestion integration, you can send events to Amplit
 status: new
 ---
 
-[Bento](https://www.trybento.co/) enables product led customer everboarding through embedded onboarding checklists, contextual guides, and empty states. Our powerful data model allows guides to be customized per customer via attributes or even human tailoring. Customers are able to get set up at their own speed, track progress, and collaborate across their team. 
+[Bento](https://www.trybento.co/) enables product-led customer everboarding through embedded onboarding checklists, contextual guides, and empty states. Our powerful data model allows guides to be customized per customer via attributes or even human tailoring. Customers are able to get set up at their own speed, track progress, and collaborate across their team. 
 With the Bento ingestion integration, you can send events to Amplitude to understand the impact of engagement with guides on user activation.
 
 !!!tip "This integration is maintained by Bento"
