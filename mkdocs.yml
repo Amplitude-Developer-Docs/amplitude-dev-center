@@ -215,6 +215,7 @@ nav:
           - Radar: data/sources/radar.md
           - SendGrid: data/sources/sendgrid.md
           - Userflow: data/sources/userflow.md
+          - Bento: data/sources/bento.md
         - Experimentation: 
           - Optimizely: data/sources/optimizely.md
           - Split: data/sources/split.md
@@ -293,6 +294,7 @@ nav:
         - Webhooks: data/destinations/webhooks-streaming.md
       - Cohorts:
         - Overview: data/destination-cohort-overview.md
+        - 1FLOW: data/destinations/1flow-cohort.md
         - Airship: data/destinations/airship-cohort.md
         - Amazon S3: data/destinations/amazon-s3-cohort.md
         - Appcues: data/destinations/appcues-cohort.md

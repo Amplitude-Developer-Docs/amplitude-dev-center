@@ -8,6 +8,7 @@
 - :airbridge: [Airbridge](../data/sources/airbridge.md)
 - :apphud: [Apphud](../data/sources/apphud.md)
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
+- :bento: [Bento](../data/sources/bento.md)
 - :branch: [Branch](../data/sources/branch.md)
 - :braze: [Braze](../data/sources/braze.md)
 - :census: [Census](../data/sources/census.md)
