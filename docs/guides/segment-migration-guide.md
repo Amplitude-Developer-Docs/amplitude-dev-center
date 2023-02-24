@@ -82,9 +82,11 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```typescript
     setUserId('12091906-01011992');
-    identify(Identify()
-      .set('name', 'Grace Hopper')
-      .set('email', 'grace@usnavy.gov'));
+    identify(
+      Identify()
+        .set('name', 'Grace Hopper')
+        .set('email', 'grace@usnavy.gov')
+    );
     ```
     </td>
     </tr>
@@ -93,8 +95,8 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```typescript
     analytics.track('Article Completed', {
-        title: 'How to Create a Tracking Plan',
-        course: 'Intro to Analytics',
+      title: 'How to Create a Tracking Plan',
+      course: 'Intro to Analytics',
     });
     ``` 
     </td>
@@ -121,14 +123,15 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     </td>
     <td>
     ```typescript
-    setGroup('Working Group', 'UNIVAC');
-    const groupIdentifyObj = new Identify();
-    groupIdentifyObj
-      .set('principles', ['Eckert', 'Mauchly']);
-      .set('site', 'Eckert–Mauchly Computer Corporation');
-      .set('statedGoals', 'Develop the first commercial computer');
-      .set('industry', 'Technology');
-    groupIdentify('Working Group', 'UNIVAC' , groupIdentifyObj);
+    groupIdentify(
+      'Working Group',
+      'UNIVAC' ,
+      new Identify()
+        .set('principles', ['Eckert', 'Mauchly']);
+        .set('site', 'Eckert–Mauchly Computer Corporation');
+        .set('statedGoals', 'Develop the first commercial computer');
+        .set('industry', 'Technology')
+    );
     ``` 
     </td>
     </tr>
@@ -147,15 +150,16 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> 
     ```swift
     Analytics.shared().identify("abc", traits: ["email": "abc@domain.com"])
-    ```     
+    ```
     </td>
     <td>
     ```swift
     Amplitude.instance().setUserId("abc")
-    let identify = AMPIdentify()
-      .set("email", value: "female")
-      .set("age",value: NSNumber(value: 20))
-    Amplitude.instance().identify(identify)
+    Amplitude.instance().identify(
+      AMPIdentify()
+        .set("email", value: "female")
+        .set("age",value: NSNumber(value: 20))
+    )
     ```
     </td>
     </tr>
@@ -177,15 +181,16 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```swift
     Analytics.shared().group("OrgName-xyz", traits: ["plan": "enterprise"])
-
     ```
     </td>
     <td>
     ```swift
     Amplitude.instance().setGroup("orgName", groupName:NSString(string:"xyz"))
-    let identify = AMPIdentify()
-        .set("plan", value: "enterprise")
-    Amplitude.instance().groupIdentifyWithGroupType("orgName", groupName:NSString(string:"xyz"), groupIdentify:identify)
+    Amplitude.instance().groupIdentifyWithGroupType(
+      "orgName",
+      groupName:NSString(string:"xyz"),
+      groupIdentify:AMPIdentify().set("plan", value: "enterprise")
+    )
     ``` 
     </td>
     </tr>
@@ -205,13 +210,12 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> 
     ```kotlin
     Analytics.with(context).identify("abc", Traits().putEmail("abc@domain.com"), null)
-    ```     
+    ```
     </td>
     <td>
     ```kotlin
     amplitude.setUserId("abc")
-    val identify = Identify().set("email", "abc@domain.com")
-    amplitude.identify(identify)
+    amplitude.identify(Identify().set("email", "abc@domain.com"))
     ```
     </td>
     </tr>
@@ -241,8 +245,7 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```kotlin
     amplitude.setGroup("orgName", "xyz");
-    val identify = Identify().set("plan", "enterprise")
-    amplitude.groupIdentify("orgName", "xyz", identify)
+    amplitude.groupIdentify("orgName", "xyz", Identify().set("plan", "enterprise"))
     ``` 
     </td>
     </tr>
