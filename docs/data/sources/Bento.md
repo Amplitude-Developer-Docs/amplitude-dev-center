@@ -17,7 +17,7 @@ With the Bento ingestion integration, you can send events to Amplitude to unders
 
 ## Setup
 
-This guide is complementary to Bento’s instructions. Visit the [Bento documentation(https://help.trybento.co/en/articles/6978743-send-events-to-amplitude) for more.
+This guide is complementary to Bento’s instructions. Visit the [Bento documentation](https://help.trybento.co/en/articles/6978743-send-events-to-amplitude) for more.
 
 ### Amplitude setup
 
