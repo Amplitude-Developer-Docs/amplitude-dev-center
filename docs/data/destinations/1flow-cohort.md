@@ -4,12 +4,12 @@ description: 1Flow and Amplitude work together to enable you to sync cohorts fro
 status: new
 ---
 
-[1Flow](https://1flow.app/) enables product led customer everboarding through embedded onboarding checklists, contextual guides, and empty states. Our powerful data model allows guides to be customized per customer via attributes or even human tailoring. Customers are able to get set up at their own speed, track progress, and collaborate across their team. 
+!!!info "This integration is maintained by 1Flow"
+
+    This integration is maintained by Toplyne. Contact the [1Flow support team](https://help.trybento.co/en/articles/6978743-send-events-to-amplitude](https://1flow.app/) with any questions about this integration.
+
+[1Flow](https://1flow.app/) enables product-led customer everboarding through embedded onboarding checklists, contextual guides, and empty states. Our powerful data model allows guides to be customized per customer via attributes or even human tailoring. Customers are able to get set up at their own speed, track progress, and collaborate across their team. 
 With the Bento ingestion integration, you can send events to Amplitude to understand the impact of engagement with guides on user activation.
-
-!!!tip "This integration is maintained by 1Flow"
-
-    Contact the [1Flow support team](https://help.trybento.co/en/articles/6978743-send-events-to-amplitude](https://1flow.app/) with any questions about this integration.
 
 ## Considerations
 
@@ -19,7 +19,7 @@ With the Bento ingestion integration, you can send events to Amplitude to unders
 
 ## Setup
 
-This guide is complementary to 1Flow’s instructions. Visit the [1Flow documentation](https://docs.1flow.app/) for more detail.
+This guide is complementary to 1Flow’s instructions. Visit [1Flow's documentation](https://docs.1flow.app/) for more detail.
 
 ### 1Flow setup
 
