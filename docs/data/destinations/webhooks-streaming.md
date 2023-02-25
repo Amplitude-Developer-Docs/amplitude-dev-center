@@ -82,12 +82,9 @@ We have a target for a minute latency from receiving the event and then sending 
 
 We don’t have a single ip address for the events, we have multiple hosts streaming them out.
 
-### Should the Ampli generated code and the ampli.json file be checked into git?
+### What is our error handling mechanism?
 
-We have a roboust retry approach. we make a delivery attempt first at the time we see the event, and then on failures we make 9 more attempts over 4 hours, regardless what the error is. We do have a retry mechanism within each attempt too: on 5xx errors and 429 throttling. We do attempt an immediate retry with these policies:
-- Max attempts 3
-- Exponential retry with initial wait duration of 100 ms, doubling each time, and with a 50% jitter
-- We won’t make another attempt after 4 seconds
+We have a robust retry approach as we make a delivery attempt first when we see the event, and then on failures, we make nine more attempts over 4 hours, regardless of the error. We also have a retry mechanism within each attempt: on 5xx errors and 429 throttling. We do attempt an immediate retry with these policies (i) Max attempts: 3 (ii) Exponential retry with initial wait duration of 100 ms, doubling each time, and with a 50% jitter (iii) We won’t make another attempt after 4 seconds.
 
 So in summary
 - On failures that look to be retryable ( 5xx errors and 429) we can make up to 27 attempts in batches of 3 over 4 hours.
