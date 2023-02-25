@@ -21,6 +21,38 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started w
 
 ## Usage
 
+### Initialize
+
+You must initialize the SDK before you can instrument. The API key for your Amplitude project is required.
+```swift
+let amplitude = Amplitude(configuration: Configuration(
+    apiKey: 'YOUR-API-KEY'
+))
+```
+
+### `Configuration`
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `flushIntervalMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. | `30000` |
+    | `flushQueueSize` | SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
+    | `flushMaxRetries` | Maximum retry times.  | `5` |
+    | `minIdLength` | The minimum length for user id or device id. | `5` |
+    | `partnerId` | The partner id for partner integration. | `nil` |
+    | `identifyBatchIntervalMillis` | The amount of time SDK will attempt to batch intercepted identify events. | `30000` |
+    | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
+    | `callback` | Callback function after event sent. | `nil` |
+    | `optOut` | Opt the user out of tracking. | `false` |
+    | `trackingSessionEvents` | Flushing of unsent events on app close. | `false` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
+    | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
+    | `useBatch` |  Whether to use batch api. | `false` |
+    | `useAppSetIdForDeviceId` |  Whether to use app ser id as device id. Need to include the module and permission. | `false` |
+    | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
+    | `enableCoppaControl` |  Whether to enable coppa control for tracking options. | `false` |'
+
 ### `track`
 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
@@ -44,7 +76,8 @@ amplitude.track(
 
 ### `identify`
 
-Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
+Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
+Starting from release v0.4.0, identify events with only set operations will be batched and sent with fewer events. This change won't affect running the set operations. There is a config `identifyBatchIntervalMillis` for managing the interval to flush the batched identify intercepts.
 
 !!!note
 
