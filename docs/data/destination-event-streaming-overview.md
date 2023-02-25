@@ -14,6 +14,7 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
     - _all
     - _identify
 - Amplitude tracks event volume as distinct events streamed out. The same event going to multiple event streaming destinations is only counted once for billing purposes.
+- For latency, Amplitude is targeting an end-to-end p95 latency of 60s. This means 95% of Events streamed must be delivered within 60s or less. We have internal processes, monitors, and alerts in place to monitor and maintain this target.
 
 ## Event streaming destinations
 
