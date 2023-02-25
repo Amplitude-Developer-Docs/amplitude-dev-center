@@ -50,7 +50,7 @@ After you create the destination, you must configure the settings.
 
 1. On the **Settings** tab, click **Edit**.
 2. Enter your **API Key**.
-3. **Create & Update Users** creates users in Intercom and update the properties of existing users when an Amplitude Identify API call is made.
+3. **Create & Update Users** creates users in Intercom and update the properties of existing users when a user is created or user properties are updated in Amplitude.
       1. To create and update users, toggle Create & Update Users to Enabled.
       2. To select user properties to send, expand the Specify user properties to send panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
 4. **Send Events** sends events ingested by Amplitude to Intercom.
