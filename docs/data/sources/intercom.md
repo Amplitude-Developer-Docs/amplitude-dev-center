@@ -22,6 +22,7 @@ Sync Intercom event data to Amplitude so that you can better engage your users b
 - Users in Amplitude and Intercom must either have the same user ID or email for this integration to work. You can choose which property to match on. If the property doesn't match for the same user between Amplitude and Intercom, Amplitude interprets the user as new. 
     - If there is no email or user ID for the user at all, Amplitude drops the events. 
 - This integration must be enabled on a per-project basis.
+- This integration requires OAuth during the setup phase, available on Amplitude paid plans only.
 
 ## Setup
 
