@@ -11,6 +11,7 @@
 - :fivetran: [Fivetran](/data/destinations/fivetran-event-forwarding)
 - :google-analytics-4: [Google Analytics 4 (iOS/Android)](/data/destinations/google-analytics-4-firebase)
 - :google-analytics-4: [Google Analytics 4 (Web)](/data/destinations/google-analytics-4-gtag)
+- :google-ads: [Google Ads](/data/destinations/google-ads-event-streaming)
 - :google-pub-sub: [Google Pub/Sub](/data/destinations/google-pub-sub)
 - :intercom: [Intercom](/data/destinations/intercom)
 - :iterable: [Iterable](/data/destinations/iterable)

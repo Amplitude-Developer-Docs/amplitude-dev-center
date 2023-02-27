@@ -3,7 +3,7 @@ title: Send Events to Webhooks
 description: Use this integration to stream Amplitude event data to your custom webhooks.
 ---
 
-Amplitude Data's Webhook integration lets you stream your Amplitude event data to custom webhooks.
+Amplitude Data's Webhook integration lets you stream your Amplitude event data to custom webhooks. This is a light-weight way to set a stream of event data out of Amplitude, which you can then pick up from the Webhook destination, and transform/configure to how you like.
 
 --8<-- "includes/closed-beta.md"
 
@@ -71,3 +71,21 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 - `input.user_properties.email` refers to the `email` field in user properties.
 - the `if` directive is used to check wether the `input.user_id` exists. if it doesn't, the `external_id` field is omitted from the output.
 - the `!` mark in the expression after `input.user_properties.email` can be used to include a default value if there is no such field in the `input`. If you don't add a default value, the output contains an empty string instead.
+
+## FAQs
+
+### How long does it take for events to be streamed? 
+
+We have a target for a minute latency from receiving the event and then sending this event. Please note that results may vary based on their load, their endpoints error rate / capacity, if they have batch processing or not, etc.
+
+### Do the forwarded events come from a single IP address?
+
+We don’t have a single ip address for the events, we have multiple hosts streaming them out.
+
+### What is our error handling mechanism?
+
+We have a robust retry approach as we make a delivery attempt first when we see the event, and then on failures, we make nine more attempts over 4 hours, regardless of the error. We also have a retry mechanism within each attempt: on 5xx errors and 429 throttling. We do attempt an immediate retry with these policies (i) Max attempts: 3 (ii) Exponential retry with initial wait duration of 100 ms, doubling each time, and with a 50% jitter (iii) We won’t make another attempt after 4 seconds.
+
+So in summary
+- On failures that look to be retryable ( 5xx errors and 429) we can make up to 27 attempts in batches of 3 over 4 hours.
+- Other failures will still be attempted 9 separate times over 4 hours

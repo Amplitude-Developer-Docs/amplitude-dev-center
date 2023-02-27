@@ -23,6 +23,7 @@ Keep these things in mind when sending events to [Customer.io:](http://customer.
   - Maximum number of Unique Identify attributes: 300
   - Maximum size of event data: 100K bytes
 - Amplitude sends events to Customer.io as an `event` event type, including mobile and webpage views. See the [Customer.io API reference](https://www.customer.io/docs/api/#tag/Track-Events) for more details.
+- An identifier for each user is required by Customer.io. Customer.io will see failed events in their sync for anonymous users.
 
 ## Setup
 

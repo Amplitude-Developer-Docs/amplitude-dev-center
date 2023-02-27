@@ -215,6 +215,7 @@ nav:
           - Radar: data/sources/radar.md
           - SendGrid: data/sources/sendgrid.md
           - Userflow: data/sources/userflow.md
+          - Userguiding: data/sources/userguiding.md
           - Bento: data/sources/bento.md
         - Experimentation: 
           - Optimizely: data/sources/optimizely.md
@@ -232,6 +233,7 @@ nav:
             - Server-side: data/sources/google-tag-manager-server.md
             - Client-side (Legacy): data/sources/google-tag-manager-client-legacy.md
         - Marketing Automation:
+          - Airship: data/sources/airship.md
           - Braze: data/sources/braze.md
           - HubSpot: data/sources/hubspot.md
           - Iterable: data/sources/iterable.md
@@ -283,6 +285,7 @@ nav:
         - Pub/Sub: data/destinations/google-pub-sub.md
         - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
         - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
+        - Google Ads: data/destinations/google-ads-event-streaming.md
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
         - Kinesis: data/destinations/kinesis-data-stream.md
