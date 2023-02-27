@@ -13,7 +13,7 @@ Airship Real-Time Data Streaming (RTDS) delivers user-level information about pu
 
 ## About Airship
 
-[Airship](https://www.airship.com/) provides mobile advertising attribution and analytics, helping marketers to pinpoint their targeting optimize their ad spend and boost their ROI. Send your AppsFlyer data to Amplitude to see how your different acquisition sources are performing.
+[Airship](https://www.airship.com/) The Airship App Experience Platform’s no-code approach and intuitive visual UIs empower the entire team to create and adapt customer journeys, native app experiences and app UX to capture more value from mobile apps.
 
 ## Considerations
 
