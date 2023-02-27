@@ -31,7 +31,7 @@ Below the ingestion debugger is the list of throttled users and devices. Here yo
 
 After you have instrumented your events, the first step is to manually fire some of those events on your own device. After you have done so, follow these steps:
 
-1. Navigate to the **User Look-Up** tab in the nav bar at the top of your Amplitude.
+1. Navigate to the [**User Look-Up**](http://analytics.amplitude.com/amp-dev-docs/activity) tab in the nav bar at the top of your Amplitude.
 2. Click on the **User** tab to make sure you're viewing user-level details, and not account-level details.
 3. Search by user ID, device ID, Amplitude ID, or user property values.
 
