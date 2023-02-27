@@ -24,6 +24,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started w
 ### Initialize
 
 You must initialize the SDK before you can instrument. The API key for your Amplitude project is required.
+
 ```swift
 let amplitude = Amplitude(configuration: Configuration(
     apiKey: 'YOUR-API-KEY'
@@ -166,7 +167,6 @@ With an empty `userId` and a completely new `deviceId`, the current user would a
 ```swift
 amplitude.reset()
 ```
-
 
 ## Amplitude SDK plugin
 
