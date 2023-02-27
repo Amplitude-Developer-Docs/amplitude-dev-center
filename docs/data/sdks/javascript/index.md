@@ -939,3 +939,10 @@ You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance()
     [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
 
 --8<-- "includes/abbreviations.md"
+
+### Content Security Policy (CSP)
+
+If your web app configures the strict Content Security Policy (CSP) for security concerns, adjust the policy to whitelist the Amplitude domains:
+
+- When using ["Snippet"](#install), add `https://*.amplitude.com` to `script-src`.
+- Add `https://*.amplitude.com` to `connect-src`.
