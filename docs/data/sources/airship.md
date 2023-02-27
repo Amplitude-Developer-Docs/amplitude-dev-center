@@ -7,9 +7,9 @@ Airship Real-Time Data Streaming (RTDS) delivers user-level information about pu
 
 !!!note "Other Amplitude + Airship integrations"
 
-    This integration imports Airship data into Amplitude. Amplitude offers one other integrations with AppsFlyer: 
+    This integration imports Airship data into Amplitude. Amplitude offers one other integrations with Airship: 
 
-    - [Send cohorts to AppsFlyer](/data/destinations/airship-cohort)
+    - [Send cohorts to Airship](/data/destinations/airship-cohort)
 
 ## About Airship
 
