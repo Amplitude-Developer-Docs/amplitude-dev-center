@@ -113,7 +113,6 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    
     </td>
     <td>
     ```typescript
@@ -176,7 +175,6 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    
     </td>
     <td>
     ```swift
@@ -242,7 +240,6 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    
     </td>
     <td>
     ```kotlin

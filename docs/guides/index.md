@@ -71,8 +71,7 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
     ---
 
-    Learn how to migrate from Segment to Amplitude CDP.
+    Learn how to migrate from mParticle to Amplitude CDP.
 
     [:octicons-arrow-right-24: Read the guide](../guides/mParticle-migration-guide)
-
 </div>
