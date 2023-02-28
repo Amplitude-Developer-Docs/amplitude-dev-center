@@ -59,12 +59,20 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
     [:octicons-arrow-right-24: Read the guide](../data/debugger)
 
-- :material-tools:{ .lg .middle } __Migration Guide__
+- :material-tools:{ .lg .middle } __Segment Migration Guide__
 
     ---
 
     Learn how to migrate from Segment to Amplitude CDP.  
 
     [:octicons-arrow-right-24: Read the guide](../guides/segment-migration-guide)
+
+- :material-tools:{ .lg .middle } __mParticle Migration Guide__
+
+    ---
+
+  Learn how to migrate from mParticle to Amplitude CDP.
+
+  [:octicons-arrow-right-24: Read the guide](../guides/mParticle-migration-guide)
 
 </div>
