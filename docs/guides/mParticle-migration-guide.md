@@ -28,7 +28,7 @@ Quickly review the offerings that are available for mParticle and how that stack
 |-----------------------------------------------------------------------------------| ----------- |
 | [Connections](https://docs.mparticle.com/guides/platform-guide/connections/)      | [Sources](/data/sources/) & [Destinations](/data/destinations/) |
 | [Audiences](https://docs.mparticle.com/guides/platform-guide/audiences/overview/) | [Audiences](https://help.amplitude.com/hc/en-us/sections/360011146031-Amplitude-Audiences) |
-| N/A                                                                               | [Data Management](https://help.amplitude.com/hc/en-us/categories/5078631395227-Amplitude-CDP) |
+|                                                                              | [Data Management](https://help.amplitude.com/hc/en-us/categories/5078631395227-Amplitude-CDP) |
 
 !!!info "Recommended Best Practice"
     Follow a strict release process and [configure multiple environments](https://help.amplitude.com/hc/en-us/articles/5078848559259-Configure-and-manage-your-Amplitude-Data-settings#the-environments-tab). Validate changes within each environment before deploying.
@@ -48,17 +48,17 @@ For detailed instructions, see the documentation for the [source](/data/sources/
 
 Both mParticle and Amplitude SDKs are meant to capture first party data by tracking user interactions. For the most part both work pretty similarly except some nuances around syntax. Here is high level mapping of concepts between mParticle & Amplitude.
 
-| mParticle         | Amplitude | Notes                                      |
-|-------------------|-----------|--------------------------------------------|
-| app_key/write_key | api_key   | Unique key to validate source of the data. |
-| Workspace         | Project   | [Projects](https://help.amplitude.com/hc/en-us/articles/360058073772-Create-and-manage-organizations-and-projects#create-a-project) allow you to organize your data.  |
-| User              | User      | User who is performing action.             |
-| Identify          | Identify  | [Identify](/analytics/what-is-amplitude/#user-properties-are-details-about-your-user) updates properties/attributes of the user.|
-| logEvent          | Event     | [Event](/analytics/apis/http-v2-api-quickstart/) in Amplitude tracks the action user is performing.|
-| Screen            | Event     | Create an Event to track Screen views.|
-| Page              | Event     | Create an Event to track Page views.|
-| N/A               | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
-| Kits              | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
+| mParticle | Amplitude | Notes                                      |
+|----------|-----------|--------------------------------------------|
+| app_key  | api_key   | Unique key to validate source of the data. |
+| Workspace | Project   | [Projects](https://help.amplitude.com/hc/en-us/articles/360058073772-Create-and-manage-organizations-and-projects#create-a-project) allow you to organize your data.  |
+| User     | User      | User who is performing action.             |
+| Identify | Identify  | [Identify](/analytics/what-is-amplitude/#user-properties-are-details-about-your-user) updates properties/attributes of the user.|
+| logEvent | Event     | [Event](/analytics/apis/http-v2-api-quickstart/) in Amplitude tracks the action user is performing.|
+| Screen   | Event     | Create an Event to track Screen views.|
+| Page     | Event     | Create an Event to track Page views.|
+|          | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
+| Kits     | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
 
 
 === "Browser"
@@ -113,7 +113,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    N/A
+    -
     </td>
     <td>
     ```typescript
@@ -176,7 +176,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    N/A. mParticle doesn't have groups support.
+    -
     </td>
     <td>
     ```swift
@@ -244,7 +244,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    N/A
+    -
     </td>
     <td>
     ```kotlin
