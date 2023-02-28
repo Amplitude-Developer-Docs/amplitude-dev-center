@@ -13,7 +13,7 @@ Keep these things in mind when sending events to [Branch:](https://branch.io/)
 
 - Events sent to Branch by Amplitude are "Custom Events". See the [Branch Custom Events documentation](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#track-custom-events).
 - Relevant limits for Branch events are:
-  - Maximum length of event name: 40 characters
+    - Maximum length of event name: 40 characters
 
 ## Setup
 
@@ -44,10 +44,10 @@ After you create the destination, you must configure the settings.
       1. To send an event, toggle **Send Events** to **Enabled**.
       2. Expand the **Select and filter events** panel, and select which events to send.
       3. Select a mapping for your Branch identifier. There are several options for a valid identifier in Branch. Include *one* of the following:
-            - Developer Identity
-            - Browser Fingerprint ID
-            - OS (if iOS) *AND* (IDFA *OR* IDFV)
-            - OS (if Android) *AND* (Android ID *OR* AAID)
+        - Developer Identity
+        - Browser Fingerprint ID
+        - OS (if iOS) *AND* (IDFA *OR* IDFV)
+        - OS (if Android) *AND* (Android ID *OR* AAID)
       4. Select other optional mappings to increase attribution success rates
       5. Select custom data to forward with your events. Expand the **Specify event properties to send** panel, and select properties you want to include. If you don't select any properties here, Amplitude doesn't send any.
 4. Save when finished.
@@ -62,27 +62,27 @@ The final step is enabling the destination. You must enable the destination to s
 
 ## List of available mappings
 
-| Parameter Name                | Required                                                                    |
-|-------------------------------|:---------------------------------------------------------------------------:|
-| **OS**                        | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) |
-| **Developer Identity**        | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) |
-| **Browser Fingerprint ID**    | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) |
-| **iOS advertising ID (IDFA)** | :octicons-check-16: (If using OS=iOS, one of IDFA or IDFV)                  |
-| **iOS vendor ID (IDFV)**      | :octicons-check-16: (If using OS=iOS, one of IDFA or IDFV)                  |
-| **Android ID**                | :octicons-check-16: (If using OS=Android, one of Android ID or AAID)        |
-| **AAID**                      | :octicons-check-16: (If using OS=Android, one of Android ID or AAID)        |
-| **OS Version**                |                                                                             |
-| **Environment**               |                                                                             |
-| **User Agent**                |                                                                             |
-| **HTTP Origin**               |                                                                             |
-| **HTTP Referrer**             |                                                                             |
-| **Country**                   |                                                                             |
-| **IP Address**                |                                                                             |
-| **Language**                  |                                                                             |
-| **Device Brand**              |                                                                             |
-| **Branch Device Token**       |                                                                             |
-| **Downloaded App Version**    |                                                                             |
-| **Device Model**              |                                                                             |
-| **Screen DPI**                |                                                                             |
-| **Screen Height**             |                                                                             |
-| **Screen Width**              |                                                                             |
+| Parameter Name                | Required                                                                    | Default Amplitude Property |
+|-------------------------------|:---------------------------------------------------------------------------:|:--------------------------:|
+| **OS**                        | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) | **OS Name**                |
+| **Developer Identity**        | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) |                            |
+| **Browser Fingerprint ID**    | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) |                            |
+| **iOS advertising ID (IDFA)** | :octicons-check-16: (If using OS=iOS, one of IDFA or IDFV)                  |                            |
+| **iOS vendor ID (IDFV)**      | :octicons-check-16: (If using OS=iOS, one of IDFA or IDFV)                  |                            |
+| **Android ID**                | :octicons-check-16: (If using OS=Android, one of Android ID or AAID)        |                            |
+| **AAID**                      | :octicons-check-16: (If using OS=Android, one of Android ID or AAID)        |                            |
+| **OS Version**                |                                                                             | **OS Version**             |
+| **Environment**               |                                                                             |                            |
+| **User Agent**                |                                                                             |                            |
+| **HTTP Origin**               |                                                                             |                            |
+| **HTTP Referrer**             |                                                                             |                            |
+| **Country**                   |                                                                             |                            |
+| **IP Address**                |                                                                             | **IP Address**             |
+| **Language**                  |                                                                             | **Language**               |
+| **Device Brand**              |                                                                             |                            |
+| **Branch Device Token**       |                                                                             |                            |
+| **Downloaded App Version**    |                                                                             |                            |
+| **Device Model**              |                                                                             |                            |
+| **Screen DPI**                |                                                                             |                            |
+| **Screen Height**             |                                                                             |                            |
+| **Screen Width**              |                                                                             |                            |
