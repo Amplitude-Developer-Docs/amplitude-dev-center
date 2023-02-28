@@ -12,7 +12,7 @@ This document covers the necessary steps to:
 
 1. Migrate your Source and Destination configuration
 2. Update SDK implementation to send data to Amplitude
-3. Validate the migration is successfully
+3. Validate the migration is successful
 
 !!!note "Table of Contents"
     1. [Add a Source](#add-a-source)

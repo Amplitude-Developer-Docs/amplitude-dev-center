@@ -12,7 +12,7 @@ This document covers the necessary steps to:
 
 1. Migrate your Source and Destination configuration
 2. Update SDK implementation to send data to Amplitude
-3. Validate the migration is successfully
+3. Validate the migration is successful
 
 !!!note "Table of Contents"
     1. [Add a Source](#add-a-source)
@@ -113,7 +113,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    -
+    
     </td>
     <td>
     ```typescript
@@ -164,7 +164,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     if let event = MPEvent(name: "Video Watched", type: MPEventType.navigation) {
     event.customAttributes = ["category": "Destination Intro", "title": "Paris"]
     MParticle.sharedInstance().logEvent(event)
-}
+    }
     ``` 
     </td>
     <td>
@@ -176,7 +176,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    -
+    
     </td>
     <td>
     ```swift
@@ -190,8 +190,6 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     </td>
     </tr>
     </table>
-
-
 
 
 === "Android"
@@ -244,7 +242,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <tr>
     <td> Group </td>
     <td>
-    -
+    
     </td>
     <td>
     ```kotlin
