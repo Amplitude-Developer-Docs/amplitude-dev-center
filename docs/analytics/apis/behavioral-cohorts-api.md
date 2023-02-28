@@ -35,7 +35,7 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
     ```bash
 
     curl --location --request GET 'https://amplitude.com/api/3/cohorts' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -90,7 +90,7 @@ This is step one in the download a cohort operation. Use the `request_id` return
     ```bash
 
     curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/id'
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
 
     ```
 
@@ -198,7 +198,7 @@ Poll the request status using the `request_id` retrieved for the cohort. This is
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/5/cohorts/request-status/:request_id' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded'
+    -u '{api_key}:{secret_key}''
     ```
 
 === "HTTP"
@@ -265,7 +265,7 @@ This is a basic request.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/:requestId/file' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -318,7 +318,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
     ```bash
     curl --location --request POST 'https://amplitude.com/api/3/cohorts/upload' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded'
+    -u '{api_key}:{secret_key}''
     --data-raw '{
       "name": "Cohort Name",
       "app_id": amplitude_project,
@@ -365,7 +365,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
         curl --location --request POST 'https://amplitude.com/api/3/cohorts/upload' \
         --header 'Content-Type: application/json' \
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
-        --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+        -u '{api_key}:{secret_key}' \
         --data-raw '{
           "name": "New Cohort",
           "app_id": 153957,
@@ -435,7 +435,7 @@ Add and remove IDs to incrementally update existing cohort membership.
     ```bash
     curl --location --request POST 'https://amplitude.com/api/3/cohorts/membership' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --data-raw '{
     "cohort_id":"COHORT_ID",
     "memberships": [
