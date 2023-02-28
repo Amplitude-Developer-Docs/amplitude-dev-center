@@ -57,7 +57,7 @@ After you create the destination, you must configure the settings.
 4. **Create & Update Users** creates users in Customer.io and update the properties of existing users when a user is created or user properties are updated in Amplitude.
       1. To create and update users, toggle Create & Update Users to Enabled.
       2. To select user properties to send, expand the Specify user properties to send panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
-5. **Send Events** sends events ingested by Amplitude to Customer.io.
+5. Configure **Send Events** to send events ingested by Amplitude to Customer.io.
       1. To send an event, toggle **Send Events** to **Enabled**.
       2. Expand the **Select and filter events** panel, and select which events to send.
       3. To select event properties to send, expand the **Specify event properties to send** panel, and select properties you want to include. If you don't select any properties here, Amplitude doesn't send any.
