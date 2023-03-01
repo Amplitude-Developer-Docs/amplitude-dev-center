@@ -107,12 +107,13 @@ Starting on version 1.9.0, Browser SDK now tracks default events. Browser SDK ca
 * Form interactions
 * File downloads
 
-|<div class="big-column">Name</div>|Value|Description|
-|-|-|-|
-`config.defaultTracking.pageViews` | Optional. `boolean` | Enables default page view tracking. If value is `true`, Amplitude tracks page view events on initialization. Default value is `false`.<br /><br />Event properties tracked includes: page_domain, page_location, page_path, page_title, page_url<br /><br />See [Tracking page views](#tracking-page-views) for more information.|
-`config.defaultTracking.sessions` | Optional. `boolean` | Enables session tracking. If value is `true`, Amplitude tracks session start and session end events. Default value is `false`.<br /><br />See [Tracking sessions](#tracking-sessions) for more information.|
-`config.defaultTracking.formInteractions` | Optional. `boolean` | Enables form interaction tracking. If value is `true`, Amplitude tracks form start and form submit events. Default value is `false`.<br /><br />Event properties tracked includes: form_id, form_name, form_destination<br /><br />See [Tracking form interactions](#tracking-form-interactions) for more information.|
-`config.defaultTracking.fileDownloads` | Optional. `boolean` | Enables file download tracking. If value is `true`, Amplitude tracks file download events. Default value is `false`.<br /><br />Event properties tracked includes: file_extension, file_name, link_id, link_text, link_url<br /><br />See [Tracking file downloads](#tracking-file-downloads) for more information.|
+???config "Tracking default events options"
+    |<div class="big-column">Name</div>|Value|Description|
+    |-|-|-|
+    `config.defaultTracking.pageViews` | Optional. `boolean` | Enables default page view tracking. If value is `true`, Amplitude tracks page view events on initialization. Default value is `false`.<br /><br />Event properties tracked includes: page_domain, page_location, page_path, page_title, page_url<br /><br />See [Tracking page views](#tracking-page-views) for more information.|
+    `config.defaultTracking.sessions` | Optional. `boolean` | Enables session tracking. If value is `true`, Amplitude tracks session start and session end events. Default value is `false`.<br /><br />See [Tracking sessions](#tracking-sessions) for more information.|
+    `config.defaultTracking.formInteractions` | Optional. `boolean` | Enables form interaction tracking. If value is `true`, Amplitude tracks form start and form submit events. Default value is `false`.<br /><br />Event properties tracked includes: form_id, form_name, form_destination<br /><br />See [Tracking form interactions](#tracking-form-interactions) for more information.|
+    `config.defaultTracking.fileDownloads` | Optional. `boolean` | Enables file download tracking. If value is `true`, Amplitude tracks file download events. Default value is `false`.<br /><br />Event properties tracked includes: file_extension, file_name, link_id, link_text, link_url<br /><br />See [Tracking file downloads](#tracking-file-downloads) for more information.|
 
 You can enable Amplitude to start tracking all events mentioned above, use the code sample below. Otherwise, you can omit the configuration to keep them disabled.
 
@@ -200,11 +201,11 @@ By setting `config.defaultEvents.pageViews` to `true`, you enable Amplitude to u
 
 You can also use advanced configuration for better control of when page views event are sent.
 
-
-|<div class="big-column">Name</div>|Value|Description|
-|-|-|-|
-`defaultTracking.pageViews.trackOn` | Optional. `"attribution"` or `() => boolean` | Provides advanced control on when page view events are tracked.<br /><br />You can omit or set the value to `undefined`,  and configure page view events to be tracked on initialization.<br /><br />You can set the value to `"attribution"` and configure page view events to be tracked only when web attribution are tracked.<br /><br />You can set the value to a function that returns a boolean (`true` or `false`) and configure page view events to be tracked based on your criteria.|
-`defaultTracking.pageViews.trackHistoryChanges` | Optional. `"pathOnly"` or `"all"` | Track the page view only on the path changes, track all URL changes by defaultProvides advanced control for single page application on when page views are tracked.<br /><br />You can omit or set the value to `"all"`,  and configure page view events to be tracked on any navigation change to the URL within your single page application. For example: navigating from `https://amplitude.com/#company` to `https://amplitude.com/#blog`.<br /><br />You can omit or set the value to "pathOnly",  and configure page view events to be tracked on navigation change to the URL path only within your single page application. For example: navigating from `https://amplitude.com/company` to `https://amplitude.com/blog`.|
+???config "Tracking page views options"
+    |<div class="big-column">Name</div>|Value|Description|
+    |-|-|-|
+    `defaultTracking.pageViews.trackOn` | Optional. `"attribution"` or `() => boolean` | Provides advanced control on when page view events are tracked.<br /><br />You can omit or set the value to `undefined`,  and configure page view events to be tracked on initialization.<br /><br />You can set the value to `"attribution"` and configure page view events to be tracked only when web attribution are tracked.<br /><br />You can set the value to a function that returns a boolean (`true` or `false`) and configure page view events to be tracked based on your criteria.|
+    `defaultTracking.pageViews.trackHistoryChanges` | Optional. `"pathOnly"` or `"all"` | Track the page view only on the path changes, track all URL changes by defaultProvides advanced control for single page application on when page views are tracked.<br /><br />You can omit or set the value to `"all"`,  and configure page view events to be tracked on any navigation change to the URL within your single page application. For example: navigating from `https://amplitude.com/#company` to `https://amplitude.com/#blog`.<br /><br />You can omit or set the value to "pathOnly",  and configure page view events to be tracked on navigation change to the URL path only within your single page application. For example: navigating from `https://amplitude.com/company` to `https://amplitude.com/blog`.|
 
 For example, you can configure Amplitude to track page views only when the URL path contains a certain substring, let’s say “home”. Refer to the code sample for how to achieve this.
 
