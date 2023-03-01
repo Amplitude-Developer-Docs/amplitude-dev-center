@@ -27,8 +27,8 @@ If you already collect data outside of Amplitude, you can stream events directly
 You can track your product data using Amplitude SDKs or APIs:
 
 1. Determine which data source works best for your product (refer to [client-side vs server-side sources](../../data/sources/client-side-vs-server-side/))
-2. Install the Amplitude using our [SDK Quick Start](../../data/sdks/sdk-quickstart/) Guide or [API Guide](../../analytics/apis/http-v2-api-quickstart/) 
-3. Tag a few [important events]((./#what-events-to-track)) upfront.
+2. Install a data source using [SDK Quick Start](../../data/sdks/sdk-quickstart/) Guide or [API Guide](../../analytics/apis/http-v2-api-quickstart/) 
+3. Tag a few [important events](./#what-events-to-track) upfront.
 
 ## What events to track
 
