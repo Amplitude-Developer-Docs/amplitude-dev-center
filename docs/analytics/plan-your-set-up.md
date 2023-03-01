@@ -5,7 +5,7 @@ description: Get started with Amplitude and set up instrumentation.
 
 Welcome to Amplitude! This document walks you through each of the steps needed to successfully set up and get familiar with Amplitude basics.
 
-Amplitude is an event-based analytics tool that tracks the behaviors of users based on in-product interactions and analyzes user behaviors in real-time. It's highly recommended to review [What is Amplitude](../what-is-amplitude/) for a high-level overview before proceeding.
+Amplitude is an event-based analytics tool that tracks the behaviors of users based on in-product interactions and analyzes user behaviors in real-time. It's highly recommended to review [What is Amplitude?](../what-is-amplitude/) for a high-level overview before proceeding.
 
 ## Send data
 
@@ -27,7 +27,7 @@ If you already collect data outside of Amplitude, you can stream events directly
 You can track your product data using Amplitude SDKs or APIs:
 
 1. Determine which data source works best for your product (refer to [client-side vs server-side sources](../../data/sources/client-side-vs-server-side/))
-2. Install a data source using [SDK Quick Start](../../data/sdks/sdk-quickstart/) Guide or [API Guide](../../analytics/apis/http-v2-api-quickstart/) 
+2. Install a data source using [SDK Quick Start Guide](../../data/sdks/sdk-quickstart/) or [API Guide](../../analytics/apis/http-v2-api-quickstart/) 
 3. Tag a few [important events](./#what-events-to-track) upfront.
 
 ## What events to track
