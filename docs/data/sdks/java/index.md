@@ -46,7 +46,7 @@ Amplitude client = Amplitude.getInstance("YOUR_INSTANCE_NAME");
 client.init("YOUR_API_KEY");
 ```
 
-### `Configuration`
+### Configuration
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
@@ -57,9 +57,9 @@ client.init("YOUR_API_KEY");
     | `logMode` |  Whether to use batch api. | `LogMode.ERROR` |
     | `eventUploadThreshold` |  SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. | `10` |
     | `eventUploadPeriodMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. | `10 seconds` |
-    | `callbacks` | Event callback which are triggered after event sent | `null`|
-    | `proxy` | custom proxy for https requests | `Proxy.NO_PROXY`|
-    | `flushTimeout` | events flushing thread timeout in milliseconds | `0` |
+    | `callbacks` | Event callback which are triggered after event sent. | `null`|
+    | `proxy` | custom proxy for https requests. | `Proxy.NO_PROXY`|
+    | `flushTimeout` | events flushing thread timeout in milliseconds. | `0` |
 
 #### Configure batching behavior
 
