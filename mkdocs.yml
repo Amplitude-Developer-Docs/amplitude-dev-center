@@ -43,7 +43,7 @@ theme:
     - navigation.path # enables breadcrumbs
     - navigation.indexes # enables attaching a page to section head: the "index" pages
     - navigation.sections # top-level sections are rendered in groups in the sidebar
-    - navigation.tabs # adds the top level menu tabs in the header bar. 
+    - navigation.tabs # adds the top level menu tabs in the header bar.
     # - navigation.tabs.sticky
     - navigation.top # back to top button
     - navigation.tracking # URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
@@ -69,12 +69,12 @@ plugins:
   - search # the search plugin
   - git-revision-date # enables the git revision date functionality
 
-# Extensions 
-# When you add or change an extension here, mirror changes in insiders.mkdocs.yml. 
+# Extensions
+# When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
 markdown_extensions:
   - admonition # enables 'callout' boxes
   - abbr # Enables the ability to add a small tooltip to an element, by wrapping it with an abbr tag. Only plain text (no markup) is supported. Use with the "abbreviations" includes file
-  - attr_list # Enables adding HTML attributes and CSS classes to almost every Markdown inline- and block-level element with a special syntax. 
+  - attr_list # Enables adding HTML attributes and CSS classes to almost every Markdown inline- and block-level element with a special syntax.
   - def_list # Enables definition lists (more commonly known as description lists – dl in HTML. https://squidfunk.github.io/mkdocs-material/reference/lists/#using-definition-lists
   - footnotes # Enables adding inline syntax to create footnotes
   - meta # enables page metadata
@@ -99,7 +99,7 @@ markdown_extensions:
           - overrides/.icons
   - pymdownx.highlight: # Enables code block syntax highlighting
       #anchor_linenums: true
-      use_pygments: true 
+      use_pygments: true
   - pymdownx.inlinehilite # Enables syntax highlighting of inline code blocks
   - pymdownx.keys # Enables inline key display
   - pymdownx.mark # used with carat and tilde to allow marking content (https://squidfunk.github.io/mkdocs-material/reference/formatting/#highlighting-text)
@@ -111,7 +111,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed: # Enables content tabs
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.tasklist: # Enables task lists
       custom_checkbox: true
   - pymdownx.tilde # enables strikthrough (<del> tags) and subscripts https://facelessuser.github.io/pymdown-extensions/extensions/tilde/
@@ -151,7 +151,7 @@ extra:
 
 # Navigation
 nav:
-- Documentation: 
+- Documentation:
   - Documentation Home: documentation-home.md
   - Analytics:
     - analytics/index.md
@@ -166,7 +166,7 @@ nav:
       - Use AMP with Amplitude: analytics/use-amp-pages.md
   - Data:
     - data/index.md
-    - Overview: data/index.md  
+    - Overview: data/index.md
     - Getting Started: "getting-started.md"
     - Sources:
       - Overview: data/sources.md
@@ -217,7 +217,7 @@ nav:
           - Userflow: data/sources/userflow.md
           - Userguiding: data/sources/userguiding.md
           - Bento: data/sources/bento.md
-        - Experimentation: 
+        - Experimentation:
           - Optimizely: data/sources/optimizely.md
           - Split: data/sources/split.md
           - Taplytics: data/sources/taplytics.md
@@ -227,7 +227,7 @@ nav:
           - Adobe:
             - Adobe Analytics: data/sources/adobe-analytics.md
             - Adobe Tag Manager: data/sources/adobe.md
-          - Google Tag Manager: 
+          - Google Tag Manager:
             - Quickstart Guide: data/sources/google-tag-manager.md
             - Client-side: data/sources/google-tag-manager-client.md
             - Server-side: data/sources/google-tag-manager-server.md
@@ -254,12 +254,12 @@ nav:
         - Reverse ETL:
           - Census: data/sources/census.md
           - Hightouch: data/sources/hightouch.md
-        - Sales: 
+        - Sales:
           - Salesforce: data/sources/salesforce-group.md
         - Subscription Management:
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
-        - Website: 
+        - Website:
           - Convizit: data/sources/convizit.md
     - Destinations:
       - Overview: data/destinations.md
@@ -273,9 +273,10 @@ nav:
         - BigQuery: data/destinations/bigquery.md
         - Snowflake: data/destinations/snowflake.md
         - Snowflake Data Share: data/destinations/snowflake-data-share.md
-      - Event Streaming: 
+      - Event Streaming:
         - Overview: data/destination-event-streaming-overview.md
         - AppsFlyer: data/destinations/appsflyer.md
+        - Branch: data/destinations/branch.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
         - Extole: data/destinations/extole-event-streaming.md
@@ -398,7 +399,7 @@ nav:
   #- Authentication: analytics/apis/authentication.md
   #- Limits: analytics/apis/rate-limits.md
   #- Use Postman with the APIs: analytics/apis/rate-limits.md
-  - API References: 
+  - API References:
     - Overview: analytics/api-reference-overview.md
     - Attribution: analytics/apis/attribution-api.md
     - Batch Event Upload: analytics/apis/batch-event-upload-api.md
@@ -420,10 +421,10 @@ nav:
     - User Mapping (Aliasing): analytics/apis/aliasing-api.md
     - User Privacy: analytics/apis/user-privacy-api.md
     - User Profile: analytics/apis/user-profile-api.md
-- SDKs: 
+- SDKs:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
-    - SDK References: 
+    - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
         - data/sdks/typescript-browser/index.md

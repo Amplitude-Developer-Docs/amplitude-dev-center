@@ -42,7 +42,7 @@ After you create the destination, you must configure the settings.
 1. On the **Settings** tab, click **Edit**.
 2. Enter your **AppsFlyer App ID**.
 3. Enter your **REST API Key**.
-4. **Send Events** sends events ingested by Amplitude to AppsFlyer.
+4. Configure **Send Events** to send events ingested by Amplitude to AppsFlyer.
       1. To send an event, toggle **Send Events** to **Enabled**.
       2. Expand the **Select and filter events** panel, and select which events to send.
       3. To select event properties to send, expand the **Specify event properties to send** panel, and select properties you want to include. If you don't select any properties here, Amplitude doesn't send any.

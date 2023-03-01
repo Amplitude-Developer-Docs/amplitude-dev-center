@@ -15,13 +15,13 @@ Amplitude Data's Google Ads integration enables you to stream your Amplitude eve
 
 ### Prerequisites
 
-To set up event streaming to Google Ads, you need the following: 
+To set up event streaming to Google Ads, you need the following:
 
-- A `Google Ads Customer ID` 
+- A `Google Ads Customer ID`
 - A `Google Ads Conversion Action ID`
 - A `Google Cloud Service Account`
 
-### Amplitude setup 
+### Amplitude setup
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Event Streaming section, click **Google Ads**.
@@ -35,14 +35,14 @@ After you create the destination, you must configure the settings.
 2. Enter your **Google Ads Customer ID**.
 3. Enter your **Google Ads Conversion Action ID**.
 4. Enter your **Google Cloud Service Account**.
-5. **Send Events** sends events ingested by Amplitude to Google Ads. 
+5. Configure **Send Events** to send events ingested by Amplitude to Google Ads.
       1. To send events, toggle **Send Events** to **Enabled**.
       2. Expand the **Select and filter events** panel, and select which events to send. Amplitude recommends that you send only the events you need in Google Ads, rather than selecting **All Events**.
 6. Save when finished.
 
 #### Enable integration
 
-The final step is enabling the destination. You must enable the destination to start streaming events. 
+The final step is enabling the destination. You must enable the destination to start streaming events.
 
 1. Navigate back to the **Settings** tab and click **Edit**.
 2. Toggle **Status** from **Disabled** to **Enabled**.
