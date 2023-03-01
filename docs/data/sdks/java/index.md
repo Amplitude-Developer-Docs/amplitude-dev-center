@@ -51,15 +51,17 @@ client.init("YOUR_API_KEY");
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
-    | `minIdLength` | The minimum length for user id or device id. | `5` |
+    | `serverUrl` | The server url events are uploaded to. | `https://api2.amplitude.com/2/httpapi` |
     | `isBatchMode` |  Whether to use batch api. | `false` |
-    | `logMode` |  Whether to use batch api. | `LogMode.ERROR` |
+    | `logMode` |  The level at which to filter out debug messages. | `LogMode.ERROR` |
     | `eventUploadThreshold` |  SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. | `10` |
     | `eventUploadPeriodMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. | `10 seconds` |
     | `callbacks` | Event callback which are triggered after event sent. | `null`|
     | `proxy` | custom proxy for https requests. | `Proxy.NO_PROXY`|
     | `flushTimeout` | events flushing thread timeout in milliseconds. | `0` |
+    | `options.minIdLength` | The minimum length for user id or device id. | `5` |
+    | `options.headers` | The custom headers. | `{"Content-Type", "application/json",
+                                                  "Accept", "application/json"}` |
 
 #### Configure batching behavior
 
@@ -120,6 +122,17 @@ client.setLogger(new AmplitudeLog() {
     }
   }
 });
+```
+
+#### Config minIdLength and header 
+
+Amplitude Java SDK supports customizing the min length of ID and header on the version later than 1.7.0.
+
+```java
+// Set logger 
+client.setOptions(new Options()
+      .addHeader("Custom Header", "value")
+      .setMinIdLength(5));
 ```
 
 #### Config events flushing thread timeout
