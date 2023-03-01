@@ -292,7 +292,7 @@ You can enable Amplitude to start tracking form interaction events by setting co
     });
     ```
 
-By setting `config.defaultEvents.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Start". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submit". If a form is submitted with no initial change to any form fields, both [Amplitude] Form Start and [Amplitude] Form Submit are tracked.
+By setting `config.defaultEvents.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Start". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submit". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Start" and "[Amplitude] Form Submit" are tracked.
 
 Amplitude can track forms that are constructed with `<form>` tags and `<input>` tags nested. For example:
 
