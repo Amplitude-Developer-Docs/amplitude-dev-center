@@ -101,127 +101,59 @@ Amplitude tracks the following as user properties:
 
 For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If you prefer a different initial value, set `attriubtion.initialEmptyValue` to any string value.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        initialEmptyValue: 'none',
-      }
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        initialEmptyValue: 'none',
-      }
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    initialEmptyValue: 'none',
+  }
+});
+```
 
 #### Exclude the referrers from specific domain
 
 You can configure Amplitude to opt out of collection of attribution data for a given list of referrers.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        excludeReferrers: ['www.test.com'],
-      }
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        excludeReferrers: ['www.test.com'],
-      }
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    excludeReferrers: ['www.test.com'],
+  }
+});
+```
 
 #### Reset the session on a new campaign
 
 You can configure Amplitude to reset the session on a new campaign. Do this by setting `attribution.resetSessionOnNewCampaign` to `true`. By default `attribution.resetSessionOnNewCampaign` is set to `false`.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        resetSessionOnNewCampaign: true,
-      }
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        resetSessionOnNewCampaign: true,
-      }
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    resetSessionOnNewCampaign: true,
+  }
+});
+```
 
 #### Disable attribution tracking
 
 You can configure Amplitude to opt out of automatic collection of attribution data. Do this by setting `attribution.disabled` to `true`. By default `attribution.disabled` is set to `false`.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        disabled: true,
-      }
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      attribution: {
-        disabled: true,
-      }
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  attribution: {
+    disabled: true,
+  }
+});
+```
 
 ### Page view
 
 Enable page view tracking by setting `pageViewTracking` to `true`. The page view event is fired when the page loads.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: true
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: true
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  pageViewTracking: true
+});
+```
 
 You can set `pageViewTracking` to an object to pass more options.
 
@@ -229,57 +161,27 @@ You can set `pageViewTracking` to an object to pass more options.
 
 Set the `trackOn` option to `'attribution'` to send Page View events _only_ when attribution information changes.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: {
-        trackOn: 'attribution',
-      }
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: {
-        trackOn: 'attribution',
-      }
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  pageViewTracking: {
+    trackOn: 'attribution',
+  }
+});
+```
 
 #### Track the page view event based on specific criteria
 
 `trackOn` can also be set to a function callback to fully customize when a Page View event is sent.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: {
-        trackOn: () => {
-          return window.location.pathname === '/landing_page'
-        },
-      }
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: {
-        trackOn: () => {
-          return window.location.pathname === '/landing_page'
-        },
-      }
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  pageViewTracking: {
+    trackOn: () => {
+      return window.location.pathname === '/landing_page'
+    },
+  }
+});
+```
 
 #### Single page app page view tracking
 
@@ -293,24 +195,10 @@ Possible values for `trackHistoryChanges`:
 
 You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page URL is considered into the page view changes.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: {
-        trackHistoryChanges: 'pathOnly' // or 'all'
-      }
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/marketing-analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      pageViewTracking: {
-        trackHistoryChanges: 'pathOnly' // or 'all'
-      }
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  pageViewTracking: {
+    trackHistoryChanges: 'pathOnly' // or 'all'
+  }
+});
+```

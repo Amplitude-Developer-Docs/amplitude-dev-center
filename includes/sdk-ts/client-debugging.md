@@ -8,66 +8,30 @@ You can control the level of logs printed to the developer console.
 
 Set the log level by configuring the `logLevel` with the level you want.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      logLevel: amplitude.Types.LogLevel.Warn,
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      logLevel: amplitude.Types.LogLevel.Warn,
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  logLevel: amplitude.Types.LogLevel.Warn,
+});
+```
 
 The default logger outputs logs to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
 
 Set the logger by configuring the `loggerProvider` with your own implementation.
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      loggerProvider: new MyLogger(),
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      loggerProvider: new MyLogger(),
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  loggerProvider: new MyLogger(),
+});
+```
 
 #### Debug Mode
 Enable the debug mode by setting the `logLevel` to "Debug", example:
 
-=== "Classic script"
-
-    ```ts
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      logLevel: amplitude.Types.LogLevel.Debug,
-    });
-    ```
-
-=== "Module script"
-
-    ```ts
-    import * as amplitude from '@amplitude/analytics-browser';
-
-    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-      logLevel: amplitude.Types.LogLevel.Debug,
-    });
-    ```
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  logLevel: amplitude.Types.LogLevel.Debug,
+});
+```
 
 With the default logger, extra function context information will be output to the developer console when invoking any SDK public method, including:
 
