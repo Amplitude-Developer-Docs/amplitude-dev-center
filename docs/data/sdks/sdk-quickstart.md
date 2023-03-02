@@ -49,77 +49,35 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
-    === "Classic script"
-
-        ```ts
-        amplitude.init(AMPLITUDE_API_KEY);
-        ```
-
-    === "Module script"
-
-        ```js
-        import * as amplitude from '@amplitude/analytics-browser';
-
-        amplitude.init(AMPLITUDE_API_KEY);
-        ```
+    ```ts
+    amplitude.init(AMPLITUDE_API_KEY);
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-    === "Classic script"
-
-        ```ts
-        const eventProperties = {
-          buttonColor: 'primary',
-        };
-        amplitude.track('Button Clicked', eventProperties);
-        ```
-
-    === "Module script"
-
-        ```js
-        import * as amplitude from '@amplitude/analytics-browser';
-
-        const eventProperties = {
-          buttonColor: 'primary',
-        };
-        amplitude.track('Button Clicked', eventProperties);
-        ```
+    ```ts
+    const eventProperties = {
+        buttonColor: 'primary',
+    };
+    amplitude.track('Button Clicked', eventProperties);
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
-    === "Classic script"
+    ```ts
+    amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+    const eventProperties = {
+        buttonColor: 'primary',
+    };
 
-        ```ts
-        amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-        const eventProperties = {
-            buttonColor: 'primary',
-        };
+    const identifyObj = new Identify();
+    identifyObj.set('location', 'LAX');
+    amplitude.identify(identifyObj);
 
-        const identifyObj = new Identify();
-        identifyObj.set('location', 'LAX');
-        amplitude.identify(identifyObj);
-
-        amplitude.track('Button Clicked', eventProperties);
-        ```
-
-    === "Module script"
-
-        ```js
-        import * as amplitude from '@amplitude/analytics-browser';
-
-        amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-        const eventProperties = {
-            buttonColor: 'primary',
-        };
-
-        const identifyObj = new Identify();
-        identifyObj.set('location', 'LAX');
-        amplitude.identify(identifyObj);
-
-        amplitude.track('Button Clicked', eventProperties);
-        ```
+    amplitude.track('Button Clicked', eventProperties);
+    ```
 
     Learn more available functionalities in [Browser SDK](../typescript-browser/).
 
