@@ -37,14 +37,25 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         ```
     === "NPM"
         ```bash
-
         npm install @amplitude/analytics-browser
-
         ```
+
+        Import Amplitude to your project
+
+        ```ts
+        import * as amplitude from '@amplitude/analytics-browser;
+        ```
+
     === "YARN"
         ```bash
 
         yarn add @amplitude/analytics-browser
+        ```
+
+        Import Amplitude to your project
+
+        ```ts
+        import * as amplitude from '@amplitude/analytics-browser;
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
