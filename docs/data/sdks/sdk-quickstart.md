@@ -43,7 +43,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Import Amplitude to your project
 
         ```ts
-        import * as amplitude from '@amplitude/analytics-browser;
+        import * as amplitude from '@amplitude/analytics-browser';
         ```
 
     === "YARN"
@@ -55,7 +55,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Import Amplitude to your project
 
         ```ts
-        import * as amplitude from '@amplitude/analytics-browser;
+        import * as amplitude from '@amplitude/analytics-browser';
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
