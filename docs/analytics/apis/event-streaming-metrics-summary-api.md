@@ -33,7 +33,7 @@ Here is a basic request with only the required parameters.
 
     ```bash
     curl --location --request GET 'https://analytics.amplitude.com/api/2/event-streaming/delivery-metrics-summary?sync_id=SYNC_ID&time_period=TIME_PERIOD' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64-encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"

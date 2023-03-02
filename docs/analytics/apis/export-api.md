@@ -32,7 +32,7 @@ Send a GET request to `https://amplitude.com/api/2/export` with two required que
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/export?start=<starttime>&end=<endtime>' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
