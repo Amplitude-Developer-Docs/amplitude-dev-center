@@ -27,18 +27,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         
     Install the dependency using NPM, YARN, or script loader.
 
-    === "NPM"
-        ```bash
-
-        npm install @amplitude/analytics-browser
-
-        ```
-    === "YARN"
-        ```bash
-
-        yarn add @amplitude/analytics-browser
-        ```
-
     === "Script loader"
         This package is also distributed through a CDN. Copy and paste this script in your HTML file.
         ```html
@@ -47,113 +35,73 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         !function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[],_iq:[]};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var n=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,r){return function(n){e._q.push({name:t,args:Array.prototype.slice.call(r,0),resolve:n})}},o=function(e,t,r){e[t]=function(){if(r)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<y.length;t++)o(e,y[t],!1);for(var r=0;r<g.length;r++)o(e,g[r],!0)};r.invoked=!0;var c=t.createElement("script");c.type="text/javascript",c.integrity="sha384-lyGcqRAilM5YOiZT3ktByF3Mv52pltOelJ66zwfcAZ/4s8cB1sSo7yMF2XWh+bzX",c.crossOrigin="anonymous",c.async=!0,c.src="https://cdn.amplitude.com/libs/analytics-browser-1.6.8-min.js.gz",c.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var a=t.getElementsByTagName("script")[0];a.parentNode.insertBefore(c,a);for(var u=function(){return this._q=[],this},l=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],p=0;p<l.length;p++)n(u,l[p]);r.Identify=u;for(var d=function(){return this._q=[],this},v=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],f=0;f<v.length;f++)n(d,v[f]);r.Revenue=d;var y=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(r),r.createInstance=function(){var e=r._iq.push({_q:[]})-1;return i(r._iq[e]),r._iq[e]},e.amplitude=r}}(window,document)}();
         </script>
         ```
+    === "NPM"
+        ```bash
+        npm install @amplitude/analytics-browser
+        ```
+
+        Import Amplitude to your project
+
+        ```ts
+        import * as amplitude from '@amplitude/analytics-browser';
+        ```
+
+    === "YARN"
+        ```bash
+
+        yarn add @amplitude/analytics-browser
+        ```
+
+        Import Amplitude to your project
+
+        ```ts
+        import * as amplitude from '@amplitude/analytics-browser';
+        ```
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
-    === "TypeScript"
-
-        ```ts
-        import { init } from '@amplitude/analytics-browser';
-
-        init(AMPLITUDE_API_KEY);
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { init } from '@amplitude/analytics-browser';
-
-        init(AMPLITUDE_API_KEY);
-        ```
+    ```ts
+    amplitude.init(AMPLITUDE_API_KEY);
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-    === "TypeScript"
-
-        ```ts
-        import { track } from '@amplitude/analytics-browser';
-
-        const eventProperties = {
-          buttonColor: 'primary',
-        };
-        track('Button Clicked', eventProperties);
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { track } from '@amplitude/analytics-browser';
-
-        const eventProperties = {
-          buttonColor: 'primary',
-        };
-        track('Button Clicked', eventProperties);
-        ```
+    ```ts
+    const eventProperties = {
+        buttonColor: 'primary',
+    };
+    amplitude.track('Button Clicked', eventProperties);
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
-    === "TypeScript"
+    ```ts
+    amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+    const eventProperties = {
+        buttonColor: 'primary',
+    };
 
-        ```ts
-        import { init, identify, Identify, track } from '@amplitude/analytics-browser';
+    const identifyObj = new Identify();
+    identifyObj.set('location', 'LAX');
+    amplitude.identify(identifyObj);
 
-        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-        const eventProperties = {
-            buttonColor: 'primary',
-        };
-
-        const identifyObj = new Identify();
-        identifyObj.set('location', 'LAX');
-        identify(identifyObj);
-
-        track('Button Clicked', eventProperties);
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { init, identify, Identify, track } from '@amplitude/analytics-browser';
-
-        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-        const eventProperties = {
-            buttonColor: 'primary',
-        };
-
-        const identifyObj = new Identify();
-        identifyObj.set('location', 'LAX');
-        identify(identifyObj);
-
-        track('Button Clicked', eventProperties);
-        ```
+    amplitude.track('Button Clicked', eventProperties);
+    ```
 
     Learn more available functionalities in [Browser SDK](../typescript-browser/).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
-    === "TypeScript"
+    ```ts
+    import { ampli } from './ampli';
+    ampli.load({ environment: 'production' });
 
-        ```ts
-
-        import { ampli } from './ampli';
-        ampli.load({ environment: 'production' });
-
-        ampli.buttonClicked({
-            buttonColor: 'primary',
-        });
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { ampli } from './ampli';
-        ampli.load({ environment: 'production' });
-
-        ampli.buttonClicked({
-            buttonColor: 'primary',
-        });
-        ```
+    ampli.buttonClicked({
+        buttonColor: 'primary',
+    });
+    ```
 
     Learn more about and set up the [Browser Ampli](../typescript-browser/ampli/).
 

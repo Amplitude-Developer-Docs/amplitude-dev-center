@@ -102,9 +102,9 @@ Amplitude tracks the following as user properties:
 For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If you prefer a different initial value, set `attriubtion.initialEmptyValue` to any string value.
 
 ```ts
-init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
-    initialEmptyValue: "none",
+    initialEmptyValue: 'none',
   }
 });
 ```
@@ -114,7 +114,7 @@ init(API_KEY, OPTIONAL_USER_ID, {
 You can configure Amplitude to opt out of collection of attribution data for a given list of referrers.
 
 ```ts
-init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
     excludeReferrers: ['www.test.com'],
   }
@@ -126,7 +126,7 @@ init(API_KEY, OPTIONAL_USER_ID, {
 You can configure Amplitude to reset the session on a new campaign. Do this by setting `attribution.resetSessionOnNewCampaign` to `true`. By default `attribution.resetSessionOnNewCampaign` is set to `false`.
 
 ```ts
-init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
     resetSessionOnNewCampaign: true,
   }
@@ -138,7 +138,7 @@ init(API_KEY, OPTIONAL_USER_ID, {
 You can configure Amplitude to opt out of automatic collection of attribution data. Do this by setting `attribution.disabled` to `true`. By default `attribution.disabled` is set to `false`.
 
 ```ts
-init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   attribution: {
     disabled: true,
   }
@@ -148,8 +148,9 @@ init(API_KEY, OPTIONAL_USER_ID, {
 ### Page view
 
 Enable page view tracking by setting `pageViewTracking` to `true`. The page view event is fired when the page loads.
+
 ```ts
-init(API_KEY, 'user@amplitude.com', {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   pageViewTracking: true
 });
 ```
@@ -161,7 +162,7 @@ You can set `pageViewTracking` to an object to pass more options.
 Set the `trackOn` option to `'attribution'` to send Page View events _only_ when attribution information changes.
 
 ```ts
-init(API_KEY, 'user@amplitude.com', {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   pageViewTracking: {
     trackOn: 'attribution',
   }
@@ -173,7 +174,7 @@ init(API_KEY, 'user@amplitude.com', {
 `trackOn` can also be set to a function callback to fully customize when a Page View event is sent.
 
 ```ts
-init(API_KEY, 'user@amplitude.com', {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   pageViewTracking: {
     trackOn: () => {
       return window.location.pathname === '/landing_page'
@@ -195,7 +196,7 @@ Possible values for `trackHistoryChanges`:
 You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page URL is considered into the page view changes.
 
 ```ts
-init(API_KEY, 'user@amplitude.com', {
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   pageViewTracking: {
     trackHistoryChanges: 'pathOnly' // or 'all'
   }
