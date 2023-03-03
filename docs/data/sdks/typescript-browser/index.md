@@ -81,10 +81,10 @@ Starting on version 1.9.0, Browser SDK now tracks default events. Browser SDK ca
 ???config "Tracking default events options"
     |<div class="big-column">Name</div>|Value|Description|
     |-|-|-|
-    `config.defaultTracking.pageViews` | Optional. `boolean` | Enables default page view tracking. If value is `true`, Amplitude tracks page view events on initialization. Default value is `false`.<br /><br />Event properties tracked includes: `page_domain`, `page_location`, `page_path`, `page_title`, `page_url`<br /><br />See [Tracking page views](#tracking-page-views) for more information.|
+    `config.defaultTracking.pageViews` | Optional. `boolean` | Enables default page view tracking. If value is `true`, Amplitude tracks page view events on initialization. Default value is `false`.<br /><br />Event properties tracked includes: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`<br /><br />See [Tracking page views](#tracking-page-views) for more information.|
     `config.defaultTracking.sessions` | Optional. `boolean` | Enables session tracking. If value is `true`, Amplitude tracks session start and session end events. Default value is `false`.<br /><br />See [Tracking sessions](#tracking-sessions) for more information.|
-    `config.defaultTracking.formInteractions` | Optional. `boolean` | Enables form interaction tracking. If value is `true`, Amplitude tracks form start and form submit events. Default value is `false`.<br /><br />Event properties tracked includes: `form_id`, `form_name`, `form_destination`<br /><br />See [Tracking form interactions](#tracking-form-interactions) for more information.|
-    `config.defaultTracking.fileDownloads` | Optional. `boolean` | Enables file download tracking. If value is `true`, Amplitude tracks file download events. Default value is `false`.<br /><br />Event properties tracked includes: `file_extension`, `file_name`, `link_id`, `link_text`, `link_url`<br /><br />See [Tracking file downloads](#tracking-file-downloads) for more information.|
+    `config.defaultTracking.formInteractions` | Optional. `boolean` | Enables form interaction tracking. If value is `true`, Amplitude tracks form start and form submit events. Default value is `false`.<br /><br />Event properties tracked includes: `[Amplitude]  Form ID`, `[Amplitude] Form Name`, `[Amplitude] Form Destination`<br /><br />See [Tracking form interactions](#tracking-form-interactions) for more information.|
+    `config.defaultTracking.fileDownloads` | Optional. `boolean` | Enables file download tracking. If value is `true`, Amplitude tracks file download events. Default value is `false`.<br /><br />Event properties tracked includes: `[Amplitude] File Extension`, `[Amplitude] File Name`, `[Amplitude] Link ID`, `[Amplitude] Link Text`, `[Amplitude] Link URL`<br /><br />See [Tracking file downloads](#tracking-file-downloads) for more information.|
 
 You can enable Amplitude to start tracking all events mentioned above, use the code sample below. Otherwise, you can omit the configuration to keep them disabled.
 
@@ -122,7 +122,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-By setting `config.defaultEvents.pageViews` to `true`, you enable Amplitude to use default page view tracking behavior. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page View".
+By setting `config.defaultEvents.pageViews` to `true`, you enable Amplitude to use default page view tracking behavior. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
 
 ##### Advanced configuration for tracking page views
 
@@ -174,7 +174,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-By setting `config.defaultEvents.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Start". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submit". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Start" and "[Amplitude] Form Submit" are tracked.
+By setting `config.defaultEvents.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
 
 Amplitude can track forms that are constructed with `<form>` tags and `<input>` tags nested. For example:
 
@@ -197,7 +197,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-By setting `config.defaultEvents.fileDownloads` to `true`, you enable Amplitude to track file download events. A file download event is tracked when an anchor or `<a>` tag linked to a file is clicked. The event type for file download is "[Amplitude] File Download". Amplitude determines that the anchor or `<a>` tag linked to a file if the file extension matches the following regex:
+By setting `config.defaultEvents.fileDownloads` to `true`, you enable Amplitude to track file download events. A file download event is tracked when an anchor or `<a>` tag linked to a file is clicked. The event type for file download is "[Amplitude] File Downloaded". Amplitude determines that the anchor or `<a>` tag linked to a file if the file extension matches the following regex:
 
 `pdf|xlsx?|docx?|txt|rtf|csv|exe|key|pp(s|t|tx)|7z|pkg|rar|gz|zip|avi|mov|mp4|mpe?g|wmv|midi?|mp3|wav|wma`
 
