@@ -71,7 +71,7 @@ amplitude.track('Button Clicked', eventProperties);
 
 ### Tracking default events
 
-Starting on version 1.9.0, Browser SDK now tracks default events. Browser SDK can be configured to track the following events automatically:
+Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can be configured to track the following events automatically:
 
 * Page views
 * Sessions
