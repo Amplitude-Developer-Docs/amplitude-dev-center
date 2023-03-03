@@ -7,8 +7,8 @@ An exposure event is a [strictly defined](#exposure-event) analytics event sent 
 
 When Amplitude ingests an [exposure event](#exposure-event), it uses the flag key and variant to **set or unset user properties** on the user associated with the event. Setting user properties is essential for experiment analysis queries on primary and secondary success metrics.
 
-!!!info "Event Volume"
-    Amplitude defined [exposure events](#exposure-event) **don't count** toward your organization's event volume billing.
+!!!info "Event Volume Billing"
+    If you've purchased Amplitude Experiment's *End-to-end* feature flagging and experimentation solution, Amplitude defined [exposure events](#exposure-event) **don't count** toward your organization's event volume billing. If you have purchased *Experiment Results* or have not purchased Experiment then all events will be billed in full.
 
 ## Automatic exposure tracking
 
