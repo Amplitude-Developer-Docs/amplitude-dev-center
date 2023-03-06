@@ -23,6 +23,6 @@ The variant result of a mutual exclusion group's evaluation isn't returned and n
 
 ![Diagram of a holdout exclusion group with 10% of traffic held out and three experiments.](../../assets/images/experiment/holdout-group.drawio.svg)
 
-A holdout group withholds a percentage of traffic from a group of experiments, allowing measurement if the long-term and combined impact of multiple experiments. In Amplitude Experiment, a holdout group is implemented using a flag with two variants: `holdout` and `on`, where the `holdout` variant is allocated the holdout percentage defined on creation. Experiments in the group depend on the holdout group's variant `on`.
+A holdout group withholds a percentage of traffic from a group of experiments, allowing measurement of the long-term and combined impact of multiple experiments. In Amplitude Experiment, a holdout group is implemented using a flag with two variants: `holdout` and `on`, where the `holdout` variant is allocated the holdout percentage defined on creation. Experiments in the group depend on the holdout group's variant `on`.
 
 The variant result of a holdout group's evaluation isn't returned but is assigned as a user property to enable holdout analysis.
