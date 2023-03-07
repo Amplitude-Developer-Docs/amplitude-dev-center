@@ -193,7 +193,6 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     ```swift
     Amplitude.instance().setGroup("orgName", groupName:NSString(string:"xyz"))
     ```
-
     Update properties of a group:
     ```swift
     Amplitude.instance().groupIdentifyWithGroupType(
