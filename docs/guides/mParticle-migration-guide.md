@@ -1,6 +1,6 @@
 ---
-title: Migrating from Segment to Amplitude
-description: This document explains the step-by-step process of migrating from Segment to Amplitude. It covers the necessary steps for replacing your instrumentation code using the Amplitude SDKs to track your events with minimal code changes.
+title: Migrating from mParticle to Amplitude
+description: This document explains the step-by-step process of migrating from mParticle to Amplitude. It covers the necessary steps for replacing your instrumentation code using the Amplitude SDKs to track your events with minimal code changes.
 status: new
 hide:
   - toc #unhide if more headings are added
@@ -22,13 +22,13 @@ This document covers the necessary steps to:
     5. [Migration checklist](#migration-checklist)
     6. [Frequently asked questions](#frequently-asked-questions)
 
-Quickly review the offerings that are available for Segment and how that stacks up to Amplitude. 
+Quickly review the offerings that are available for mParticle and how that stacks up to Amplitude. 
 
-| Segment      | Amplitude |
-| ----------- | ----------- |
-| [Connections](https://segment.com/product/connections/) | [Sources](/data/sources/) & [Destinations](/data/destinations/) |
-| [Profiles](https://segment.com/product/profiles/)   | [Audiences](https://help.amplitude.com/hc/en-us/sections/360011146031-Amplitude-Audiences) |
-| [Protocols](https://segment.com/product/protocols/) | [Data Management](https://help.amplitude.com/hc/en-us/categories/5078631395227-Amplitude-CDP) |
+| mParticle                                                                         | Amplitude |
+|-----------------------------------------------------------------------------------| ----------- |
+| [Connections](https://docs.mparticle.com/guides/platform-guide/connections/)      | [Sources](/data/sources/) & [Destinations](/data/destinations/) |
+| [Audiences](https://docs.mparticle.com/guides/platform-guide/audiences/overview/) | [Audiences](https://help.amplitude.com/hc/en-us/sections/360011146031-Amplitude-Audiences) |
+|                                                                              | [Data Management](https://help.amplitude.com/hc/en-us/categories/5078631395227-Amplitude-CDP) |
 
 !!!info "Recommended Best Practice"
     Follow a strict release process and [configure multiple environments](https://help.amplitude.com/hc/en-us/articles/5078848559259-Configure-and-manage-your-Amplitude-Data-settings#the-environments-tab). Validate changes within each environment before deploying.
@@ -46,19 +46,19 @@ For detailed instructions, see the documentation for the [source](/data/sources/
 
 ## Update SDK implementation
 
-Both Segment and Amplitude SDKs are meant to capture first party data by tracking user interactions. For the most part both work pretty similarly except some nuances around syntax. Here is high level mapping of concepts between Segment & Amplitude.
+Both mParticle and Amplitude SDKs are meant to capture first party data by tracking user interactions. For the most part both work pretty similarly except some nuances around syntax. Here is high level mapping of concepts between mParticle & Amplitude.
 
-| Segment   | Amplitude | Notes                                      |
-|-----------|-----------|--------------------------------------------|
-| write_key | api_key   | Unique key to validate source of the data. |
+| mParticle | Amplitude | Notes                                      |
+|----------|-----------|--------------------------------------------|
+| app_key  | api_key   | Unique key to validate source of the data. |
 | Workspace | Project   | [Projects](https://help.amplitude.com/hc/en-us/articles/360058073772-Create-and-manage-organizations-and-projects#create-a-project) allow you to organize your data.  |
-| User      | User      | User who is performing action.             |
-| Identify  | Identify  | [Identify](/analytics/what-is-amplitude/#user-properties-are-details-about-your-user) updates properties/attributes of the user.|
-| Track     | Event     | [Event](/analytics/apis/http-v2-api-quickstart/) in Amplitude tracks the action user is performing.|
-| Screen    | Event     | Create an Event to track Screen views.|
-| Page      | Event     | Create an Event to track Page views.|
-| Group     | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
-| Plugins   | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
+| User     | User      | User who is performing action.             |
+| Identify | Identify  | [Identify](/analytics/what-is-amplitude/#user-properties-are-details-about-your-user) updates properties/attributes of the user.|
+| logEvent | Event     | [Event](/analytics/apis/http-v2-api-quickstart/) in Amplitude tracks the action user is performing.|
+| Screen   | Event     | Create an Event to track Screen views.|
+| Page     | Event     | Create an Event to track Page views.|
+|          | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
+| Kits     | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
 
 
 === "Browser"
@@ -67,16 +67,16 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
 
     <table>
     <tr>
-    <td>  </td> <td> <b>Segment</b> </td> <td> <b>Amplitude</b> </td>
+    <td>  </td> <td> <b>mParticle</b> </td> <td> <b>Amplitude</b> </td>
     </tr>
     <tr>
     <td> Identify </td>
     <td> 
     ```typescript
-    analytics.identify('12091906-01011992', {
-      name: 'Grace Hopper',
-      email: 'grace@usnavy.gov'
-    });
+    var identityRequest = {
+    userIdentities: { email: 'updated-email@example.com' }
+    }
+    mParticle.Identity.modify(identityRequest, identityCallback);
     ```
     </td>
     <td>
@@ -84,8 +84,7 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     setUserId('12091906-01011992');
     identify(
       Identify()
-        .set('name', 'Grace Hopper')
-        .set('email', 'grace@usnavy.gov')
+        .set('email', 'updated-email@example.com')
     );
     ```
     </td>
@@ -94,10 +93,12 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> Track </td>
     <td>
     ```typescript
-    analytics.track('Article Completed', {
-      title: 'How to Create a Tracking Plan',
-      course: 'Intro to Analytics',
-    });
+    mParticle.logEvent('Article Completed',
+        mParticle.EventType.EVENT-TYPE,
+        {
+            'title':'How to Create a Tracking Plan',
+            'course':'Intro to Analytics'}
+    );
     ``` 
     </td>
     <td>
@@ -112,14 +113,6 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <tr>
     <td> Group </td>
     <td>
-    ```typescript
-    analytics.group('UNIVAC Working Group', {
-      principles: ['Eckert', 'Mauchly'],
-      site: 'Eckert–Mauchly Computer Corporation',
-      statedGoals: 'Develop the first commercial computer',
-      industry: 'Technology'
-    });
-    ```
     </td>
     <td>
     ```typescript
@@ -137,28 +130,28 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     </tr>
     </table>
 
+
 === "iOS"
 
     Documentation for [iOS SDK](/data/sdks/ios/).
 
     <table>
     <tr>
-    <td>  </td> <td> <b>Segment</b> </td> <td> <b>Amplitude</b> </td>
+    <td>  </td> <td> <b>mParticle</b> </td> <td> <b>Amplitude</b> </td>
     </tr>
     <tr>
     <td> Identify </td>
     <td> 
     ```swift
-    Analytics.shared().identify("abc", traits: ["email": "abc@domain.com"])
-    ```
+    currentUser?.setUserAttribute("top_region", value: "Europe")
+    ```     
     </td>
     <td>
     ```swift
     Amplitude.instance().setUserId("abc")
     Amplitude.instance().identify(
       AMPIdentify()
-        .set("email", value: "female")
-        .set("age",value: NSNumber(value: 20))
+        .set("top_region", value: "Europe")
     )
     ```
     </td>
@@ -167,21 +160,21 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> Track </td>
     <td>
     ```swift
-    Analytics.shared().track("Button Clicked", properties: ["Hover Time": "100ms"])
+    if let event = MPEvent(name: "Video Watched", type: MPEventType.navigation) {
+    event.customAttributes = ["category": "Destination Intro", "title": "Paris"]
+    MParticle.sharedInstance().logEvent(event)
+    }
     ``` 
     </td>
     <td>
     ```swift
-    Amplitude.instance().logEvent("Button Clicked", withEventProperties: ["Hover Time": "100ms"] )
+    Amplitude.instance().logEvent("Video Watched", withEventProperties: ["category": "Destination Intro", "title": "Paris"] )
     ``` 
     </td>
     </tr>
     <tr>
     <td> Group </td>
     <td>
-    ```swift
-    Analytics.shared().group("OrgName-xyz", traits: ["plan": "enterprise"])
-    ```
     </td>
     <td>
     ```swift
@@ -203,19 +196,23 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
 
     <table>
     <tr>
-    <td>  </td> <td> <b>Segment</b> </td> <td> <b>Amplitude</b> </td>
+    <td>  </td> <td> <b>mParticle</b> </td> <td> <b>Amplitude</b> </td>
     </tr>
     <tr>
     <td> Identify </td>
     <td> 
     ```kotlin
-    Analytics.with(context).identify("abc", Traits().putEmail("abc@domain.com"), null)
+    IdentityApiRequest modifyRequest = IdentityApiRequest.withEmptyUser()
+        .email("updated-email@example.com")
+        .build()
+
+    MParticle.getInstance().Identity().modify(modifyRequest)
     ```
     </td>
     <td>
     ```kotlin
     amplitude.setUserId("abc")
-    amplitude.identify(Identify().set("email", "abc@domain.com"))
+    amplitude.identify(Identify().set("email", "updated-email@example.com"))
     ```
     </td>
     </tr>
@@ -223,7 +220,12 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> Track </td>
     <td>
     ```kotlin
-    Analytics.with(context).track("Product Viewed", Properties().putValue("name", "Moto 360"))
+    val customAttributes: MutableMap<String, String> = HashMap()
+    customAttributes["name"] = "Moto 360"
+    val event = MPEvent.Builder("Product Viewed", MParticle.EventType.Navigation)
+                .customAttributes(customAttributes)
+                .build()
+    MParticle.getInstance()?.logEvent(event)
     ``` 
     </td>
     <td>
@@ -238,9 +240,6 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <tr>
     <td> Group </td>
     <td>
-    ```kotlin
-    Analytics.with(context).group("abc", "orgName-xyz", Traits().putplan("enterprise"))
-    ```
     </td>
     <td>
     ```kotlin
