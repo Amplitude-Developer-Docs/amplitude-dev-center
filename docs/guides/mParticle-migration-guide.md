@@ -49,16 +49,16 @@ For detailed instructions, see the documentation for the [source](/data/sources/
 Both mParticle and Amplitude SDKs are meant to capture first party data by tracking user interactions. For the most part both work pretty similarly except some nuances around syntax. Here is high level mapping of concepts between mParticle & Amplitude.
 
 | mParticle | Amplitude | Notes                                      |
-|----------|-----------|--------------------------------------------|
-| app_key  | api_key   | Unique key to validate source of the data. |
+|-----------|-----------|--------------------------------------------|
+| app_key   | api_key   | Unique key to validate source of the data. |
 | Workspace | Project   | [Projects](https://help.amplitude.com/hc/en-us/articles/360058073772-Create-and-manage-organizations-and-projects#create-a-project) allow you to organize your data.  |
-| User     | User      | User who is performing action.             |
-| Identify | Identify  | [Identify](/analytics/what-is-amplitude/#user-properties-are-details-about-your-user) updates properties/attributes of the user.|
-| logEvent | Event     | [Event](/analytics/apis/http-v2-api-quickstart/) in Amplitude tracks the action user is performing.|
-| Screen   | Event     | Create an Event to track Screen views.|
-| Page     | Event     | Create an Event to track Page views.|
-|          | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
-| Kits     | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
+| User      | User      | User who is performing action.             |
+| Identify  | Identify  | [Identify](/analytics/what-is-amplitude/#user-properties-are-details-about-your-user) updates properties/attributes of the user.|
+| Event     | Event     | [Event](/analytics/apis/http-v2-api-quickstart/) in Amplitude tracks the action user is performing.|
+| Screen    | Event     | Create an Event to track Screen views.|
+| Page      | Event     | Create an Event to track Page views.|
+|           | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
+| Kits      | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
 
 
 === "Browser"
@@ -115,6 +115,11 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <td>
     </td>
     <td>
+    Assign user to a group:
+    ```typescript
+    amplitude.setGroup('Working Group', 'UNIVAC')
+    ```
+    Update properties of a group:
     ```typescript
     groupIdentify(
       'Working Group',
@@ -177,14 +182,19 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <td>
     </td>
     <td>
+    Assign user to a group:
     ```swift
     Amplitude.instance().setGroup("orgName", groupName:NSString(string:"xyz"))
+    ```
+
+    Update properties of a group:
+    ```swift
     Amplitude.instance().groupIdentifyWithGroupType(
       "orgName",
       groupName:NSString(string:"xyz"),
       groupIdentify:AMPIdentify().set("plan", value: "enterprise")
     )
-    ``` 
+    ```
     </td>
     </tr>
     </table>
@@ -242,10 +252,14 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     <td>
     </td>
     <td>
+    Assign user to a group:
     ```kotlin
     amplitude.setGroup("orgName", "xyz");
+    ```
+    Update properties of a group:
+    ```kotlin
     amplitude.groupIdentify("orgName", "xyz", Identify().set("plan", "enterprise"))
-    ``` 
+    ```
     </td>
     </tr>
     </table>
@@ -254,7 +268,7 @@ For all other SDKs view the [Quickstart Guide](/data/sdks/sdk-quickstart/) and t
 
 ## Validate events
 
-Data validation is a critical step in the instrumentation process. Amplitude lets validate your event data via Amplitude's [User Lookup](/data/debugger/#user-lookup) or using the [Instrumentation Explorer](/data/debugger/#instrumentation-explorer) Chrome extension.
+Data validation is a critical step in the instrumentation process. Amplitude lets validate your event data via Amplitude's debugging [tools](/data/debugger/).
 
 ## Add a destination
 
