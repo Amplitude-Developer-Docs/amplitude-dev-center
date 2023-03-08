@@ -1,7 +1,7 @@
 ---
 title: Browser SDK
 description: The Amplitude Browser SDK Installation & Quick Start guide.
-icon: simple/typescript
+icon: simple/javascript
 ---
 
 

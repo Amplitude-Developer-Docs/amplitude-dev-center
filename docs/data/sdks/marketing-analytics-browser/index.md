@@ -1,7 +1,7 @@
 ---
 title: Marketing Analytics Browser
 description: The Amplitude Marketing Analytics Browser SDK Installation & Quick Start guide.
-icon: simple/typescript
+icon: simple/javascript
 ---
 
 

@@ -3,8 +3,8 @@
 <div class="grid cards" markdown>
 
 - :android: [Android](/data/sdks/android-kotlin/)
-- :typescript: [Browser](/data/sdks/typescript-browser/)
-- :typescript: [Marketing Analytics Browser](/data/sdks/marketing-analytics-browser/)
+- :javascript-color: [Browser](/data/sdks/typescript-browser/)
+- :javascript-color: [Marketing Analytics Browser](/data/sdks/marketing-analytics-browser/)
 - :material-apple-ios: [iOS Swift (Beta)](/data/sdks/ios-swift/)
 - :material-apple-ios: [iOS](/data/sdks/ios/)
 - :flutter: [Flutter](/data/sdks/flutter)
