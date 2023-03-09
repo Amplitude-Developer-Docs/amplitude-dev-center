@@ -9,7 +9,7 @@ Flag dependencies are currently used to implement mutual exclusion and holdout g
 
 ## Mutual exclusion groups
 
-!!!info "Learn more about [mutual exclusion group creation, management, and best practices](#TODO-link-to-help-center) at Amplitude's help center."
+!!!info "Learn more about [mutual exclusion group creation, management, and best practices](https://help.amplitude.com/hc/en-us/articles/360061270712-Set-up-and-run-mutually-exclusive-experiments) at Amplitude's help center."
 
 ![Diagram of a mutual exclusion group with three slots and three experiments. One experiment in each slot.](../../assets/images/experiment/mutex-group.drawio.svg)
 
@@ -19,7 +19,7 @@ The variant result of a mutual exclusion group's evaluation isn't returned and n
 
 ## Holdout groups
 
-!!!info "Learn more about [holdout group creation, management, and best practices](#TODO-link-to-help-center) at Amplitude's help center."
+!!!info "Learn more about [holdout group creation, management, and best practices](https://help.amplitude.com/hc/en-us/articles/13508918823835) at Amplitude's help center."
 
 ![Diagram of a holdout exclusion group with 10% of traffic held out and three experiments.](../../assets/images/experiment/holdout-group.drawio.svg)
 
