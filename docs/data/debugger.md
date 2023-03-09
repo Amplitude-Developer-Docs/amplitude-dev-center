@@ -18,7 +18,7 @@ Data validation is a critical step in the instrumentation process. Amplitude let
 Use the Ingestion Debugger in Amplitude to check your requests, events and identify counts, and throttled users or devices:
 
 1. Log in to Amplitude.
-2. Click on **Data** in the top nav bar and select **Source** from the left nav bar.
+2. Click on **Data** in the top nav bar and select [**Source**](https://data.amplitude.com/amp-dev-docs/sources) from the left nav bar.
 3. Click on the **Ingestion Debugger** tab to access it.
 
 The ingestion debugger is a trio of charts showing data for successful requests, events and identify counts, and error requests for the endpoints you specify. You can specify a timeframe of either one hour or one week. 
