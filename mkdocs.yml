@@ -284,8 +284,8 @@ nav:
         - Kameleoon: data/destinations/event-streaming/kameleoon.md
         - Lantern: data/destinations/event-streaming/lantern.md
         - Pub/Sub: data/destinations/event-streaming/google-pub-sub.md
-        - Google Analytics 4 (iOS/Android): data/destinations/event-streaming/google-analytics-4-firebase.md
-        - Google Analytics 4 (Web): data/destinations/event-streaming/google-analytics-4-gtag.md
+        - Google Analytics 4 (iOS/Android): data/destinations/event-streaming/google-analytics-4-ios-android.md
+        - Google Analytics 4 (Web): data/destinations/event-streaming/google-analytics-4-web.md
         - Google Ads: data/destinations/event-streaming/google-ads.md
         - Intercom: data/destinations/event-streaming/intercom.md
         - Iterable: data/destinations/event-streaming/iterable.md
