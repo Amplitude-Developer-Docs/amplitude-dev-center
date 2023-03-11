@@ -22,6 +22,6 @@
 - :statsig: [Statsig](/data/destinations/event-streaming/statsig)
 - :toplyne: [Toplyne](/data/destinations/event-streaming/toplyne)
 - :userlist: [Userlist](/data/destinations/event-streaming/userlist)
-- :material-webhook: [Webhooks](/data/destinations/event-streaming/webhooks)
+- :material-webhook: [Webhook](/data/destinations/event-streaming/webhook)
 
 </div>

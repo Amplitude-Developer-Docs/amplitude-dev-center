@@ -295,7 +295,7 @@ nav:
         - Statsig: data/destinations/event-streaming/statsig.md
         - Toplyne: data/destinations/event-streaming/toplyne.md
         - Userlist: data/destinations/event-streaming/userlist.md
-        - Webhooks: data/destinations/event-streaming/webhooks.md
+        - Webhook: data/destinations/event-streaming/webhook.md
       - Cohorts:
         - Overview: data/destination-cohort-overview.md
         - 1FLOW: data/destinations/1flow-cohort.md
