@@ -36,8 +36,8 @@ Flag dependencies (mutual exclusion and holdout groups) is only supported after 
 
 | SDK | Local Evaluation Flag Dependencies Support |
 | --- | --- |
-| [:material-nodejs: Node.js](../../sdks/nodejs-sdk.md) | `1.4.0+` |
-| [:material-language-ruby: Ruby](../../sdks/ruby-sdk.md) | `1.1.0+` |
-| [:material-language-java: JVM](../../sdks/jvm-sdk.md) | `1.1.0+` |
-| [:fontawesome-brands-golang: Go](../../sdks/go-sdk.md) | `1.1.0+` |
-| [:material-language-python: Python](../../sdks/python-sdk.md) | `1.1.0+` |
+| [:material-nodejs: Node.js](../sdks/nodejs-sdk.md) | `1.4.0+` |
+| [:material-language-ruby: Ruby](../sdks/ruby-sdk.md) | `1.1.0+` |
+| [:material-language-java: JVM](../sdks/jvm-sdk.md) | `1.1.0+` |
+| [:fontawesome-brands-golang: Go](../sdks/go-sdk.md) | `1.1.0+` |
+| [:material-language-python: Python](../sdks/python-sdk.md) | `1.1.0+` |
