@@ -18,9 +18,25 @@ A flag may be active or inactive. Inactive flags never return a variant as a res
 !!!info "Best Practice"
     For simple on/off flags, Amplitude recommends using the [all users segment](#all-users-segment) allocation set to either 100% or 0% rather than using the activation toggle to control traffic. The activation toggle should be used to sunset a feature that has been fully rolled out or rolled back after the flag's instrumentation has been removed.
 
+### Flag dependencies
+
+A flag may define a [dependency](../flag-dependencies.md) on another flag's evaluation. If the dependency isn't met then no variant returns, otherwise the evaluation continues. Flag dependencies are currently utilized to implement [mutual exclusion groups](../flag-dependencies.md#mutual-exclusion-groups) and [holdout groups](../flag-dependencies.md#holdout-groups).
+
+!!!example
+
+    For example, Flag-2 may define a dependency on Flag-1 evaluating to the variant `on`.
+
+    * Flag-1 (50% `on`)
+    * Flag-2 (50% `control`, 50% `treatment`)
+        * Depends on Flag-1=`on`
+
+    The dependency ensures that Flag-1 will always be evaluated before Flag-2. Further, if Flag-1 evaluates to `on`, then Flag-2 will be fully evaluated. If Flag-1 does not evaluate to a variant, or to a variant other than `on`, the evaluation of Flag-2 fails the dependency check and no variant is assigned.
+
+    In this example, 50% of evaluated users will be assigned a variant for Flag-2.
+
 ### Individual inclusions
 
-Inclusions allow you to force bucket specific users (identified by either their user ID or device ID) into a variant. This feature is primarily used for development purposes. For example if you are the developer on a new multi-variate feature and you want to test each variant in your application, add your user or device ID to the inclusions and refresh the application.
+Inclusions allow you to force bucket specific users (identified by either their user ID or device ID) into a variant. This feature is primarily used for development purposes. For example, if you are the developer on a new multi-variate feature and you want to test each variant in your application, add your user or device ID to the inclusions and refresh the application.
 
 ### Sticky bucketing
 

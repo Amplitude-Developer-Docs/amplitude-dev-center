@@ -358,6 +358,7 @@ nav:
           - Local Evaluation: experiment/general/evaluation/local-evaluation.md
         - experiment/general/performance-and-caching.md
         - experiment/general/exposure-tracking.md
+        - experiment/general/flag-dependencies.md
       - Guides:
         - Getting Started:
           - experiment/guides/getting-started/index.md
