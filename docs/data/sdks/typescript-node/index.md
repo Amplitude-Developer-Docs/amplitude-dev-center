@@ -7,7 +7,7 @@ search:
 ---
 
 
-![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-node.svg)
+[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-node.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-node)
 
 The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 

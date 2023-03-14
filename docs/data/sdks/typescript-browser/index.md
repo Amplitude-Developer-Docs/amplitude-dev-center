@@ -5,7 +5,7 @@ icon: simple/javascript
 ---
 
 
-![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)
+[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-browser)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
@@ -425,8 +425,8 @@ amplitude.setDeviceId(uuid());
 
 `reset` is a shortcut to anonymize users after they log out, by:
 
-- setting `userId` to `undefined`
-- setting `deviceId` to a new UUID value
+* setting `userId` to `undefined`
+* setting `deviceId` to a new UUID value
 
 With an undefined `userId` and a completely new `deviceId`, the current user would appear as a brand new user in dashboard.
 

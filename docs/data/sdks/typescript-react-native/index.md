@@ -4,7 +4,7 @@ description: The Amplitude React Native SDK Installation & Quick Start guide.
 icon: simple/react
 ---
 
-![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native.svg)
+[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native)
 
 The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native).
 

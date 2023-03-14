@@ -4,8 +4,7 @@ description: The Amplitude Marketing Analytics Browser SDK Installation & Quick 
 icon: simple/javascript
 ---
 
-
-![npm version](https://badge.fury.io/js/@amplitude%2Fmarketing-analytics-browser.svg)
+[![npm version](https://badge.fury.io/js/@amplitude%2Fmarketing-analytics-browser.svg)](https://badge.fury.io/js/@amplitude%2Fmarketing-analytics-browser)
 
 The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
 

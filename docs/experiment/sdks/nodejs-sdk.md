@@ -9,6 +9,8 @@ Official documentation for Amplitude Experiment's server-side Node.js SDK implem
 !!!info "SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
 
+[![npm version](https://badge.fury.io/js/@amplitude%2Fexperiment-node-server.svg)](https://badge.fury.io/js/@amplitude%2Fexperiment-node-server)
+
 This documentation has separate sections for [remote](../general/evaluation/remote-evaluation.md) and [local](../general/evaluation/local-evaluation.md) evaluation:
 
 * [Remote evaluation](#remote-evaluation)
