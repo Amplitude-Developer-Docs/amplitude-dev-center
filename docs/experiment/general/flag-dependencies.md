@@ -26,3 +26,18 @@ The variant result of a mutual exclusion group's evaluation isn't returned and n
 A holdout group withholds a percentage of traffic from a group of experiments, allowing measurement of the long-term and combined impact of multiple experiments. In Amplitude Experiment, a holdout group is implemented using a flag with two variants: `holdout` and `on`, where the `holdout` variant is allocated the holdout percentage defined on creation. Experiments in the group depend on the holdout group's variant `on`.
 
 The variant result of a holdout group's evaluation isn't returned but is assigned as a user property to enable holdout analysis.
+
+## Local evaluation support
+
+Flag dependencies (mutual exclusion and holdout groups) is only supported after certain version of SDKs. 
+
+!!!warning "Older local evaluation SDK versions"
+    Prior local evaluation SDK versions don't consider mutual exclusion or holdout groups at all. In other words, **two experiments in a mutual exclusion group evaluated with an old local evaluation SDK version aren't mutually exclusive**.
+
+| SDK | Local Evaluation Flag Dependencies Support |
+| --- | --- |
+| [:material-nodejs: Node.js](../../sdks/nodejs-sdk.md) | `1.4.0+` |
+| [:material-language-ruby: Ruby](../../sdks/ruby-sdk.md) | `1.1.0+` |
+| [:material-language-java: JVM](../../sdks/jvm-sdk.md) | `1.1.0+` |
+| [:fontawesome-brands-golang: Go](../../sdks/go-sdk.md) | `1.1.0+` |
+| [:material-language-python: Python](../../sdks/python-sdk.md) | `1.1.0+` |
