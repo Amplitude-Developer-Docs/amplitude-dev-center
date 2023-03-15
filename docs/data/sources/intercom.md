@@ -12,7 +12,7 @@ Sync Intercom event data to Amplitude so that you can better engage your users b
     This integration imports Intercom data into Amplitude. Amplitude offers other integrations with Intercom: 
 
     - [Send Amplitude Cohorts to Intercom](/data/destinations/intercom-cohort)
-    - [Send Amplitude Event Data to Intercom](/data/destinations/intercom)
+    - [Event streaming to Intercom](/data/destinations/event-streaming/intercom)
 
 ## Considerations
 

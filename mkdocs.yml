@@ -274,28 +274,28 @@ nav:
         - Snowflake: data/destinations/snowflake.md
         - Snowflake Data Share: data/destinations/snowflake-data-share.md
       - Event Streaming:
-        - Overview: data/destination-event-streaming-overview.md
-        - AppsFlyer: data/destinations/appsflyer.md
-        - Branch: data/destinations/branch.md
-        - Braze: data/destinations/braze.md
-        - Customer.io: data/destinations/customerio.md
-        - Extole: data/destinations/extole-event-streaming.md
-        - Fivetran: data/destinations/fivetran-event-forwarding.md
-        - Kameleoon: data/destinations/kameleoon-event-streaming.md
-        - Lantern: data/destinations/lantern-event-streaming.md
-        - Pub/Sub: data/destinations/google-pub-sub.md
-        - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
-        - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
-        - Google Ads: data/destinations/google-ads-event-streaming.md
-        - Intercom: data/destinations/intercom.md
-        - Iterable: data/destinations/iterable.md
-        - Kinesis: data/destinations/kinesis-data-stream.md
-        - Kinesis Firehose: data/destinations/kinesis-firehose.md
-        - Meta Pixel: data/destinations/meta-pixel.md
-        - Statsig: data/destinations/statsig.md
-        - Toplyne: data/destinations/toplyne.md
-        - Userlist: data/destinations/userlist-event-streaming.md
-        - Webhooks: data/destinations/webhooks-streaming.md
+        - Overview: data/destinations/event-streaming/overview.md
+        - AppsFlyer: data/destinations/event-streaming/appsflyer.md
+        - Branch: data/destinations/event-streaming/branch.md
+        - Braze: data/destinations/event-streaming/braze.md
+        - Customer.io: data/destinations/event-streaming/customerio.md
+        - Extole: data/destinations/event-streaming/extole.md
+        - Fivetran: data/destinations/event-streaming/fivetran.md
+        - Kameleoon: data/destinations/event-streaming/kameleoon.md
+        - Lantern: data/destinations/event-streaming/lantern.md
+        - Pub/Sub: data/destinations/event-streaming/google-pub-sub.md
+        - Google Analytics 4 (iOS/Android): data/destinations/event-streaming/google-analytics-4-ios-android.md
+        - Google Analytics 4 (Web): data/destinations/event-streaming/google-analytics-4-web.md
+        - Google Ads: data/destinations/event-streaming/google-ads.md
+        - Intercom: data/destinations/event-streaming/intercom.md
+        - Iterable: data/destinations/event-streaming/iterable.md
+        - Kinesis: data/destinations/event-streaming/kinesis-data-stream.md
+        - Kinesis Firehose: data/destinations/event-streaming/kinesis-firehose.md
+        - Meta Pixel: data/destinations/event-streaming/meta-pixel.md
+        - Statsig: data/destinations/event-streaming/statsig.md
+        - Toplyne: data/destinations/event-streaming/toplyne.md
+        - Userlist: data/destinations/event-streaming/userlist.md
+        - Webhook: data/destinations/event-streaming/webhook.md
       - Cohorts:
         - Overview: data/destination-cohort-overview.md
         - 1FLOW: data/destinations/1flow-cohort.md
