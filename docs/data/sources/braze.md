@@ -12,4 +12,4 @@ See [Amplitude for Currents](https://www.braze.com/docs/partners/data_and_infras
     This integration imports Braze events into Amplitude. Amplitude offers other integrations with Braze: 
 
     - [Send Cohorts to Braze](/data/destinations/braze-cohort)
-    - [Event streaming to Braze](/data/destinations/event-streaming/braze)
+    - [Braze Event Streaming](/data/destinations/braze)
