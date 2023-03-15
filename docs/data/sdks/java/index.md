@@ -52,7 +52,7 @@ client.init("YOUR_API_KEY");
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     | `setServerUrl` | The server url events are uploaded to. | `https://api2.amplitude.com/2/httpapi` |
-    | `useBatchMode` |  Whether to use [batch api](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl` | `false` |
+    | `useBatchMode` |  Whether to use [batch api](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. | `false` |
     | `setLogMode` |  The level at which to filter out debug messages. | `LogMode.ERROR` |
     | `setEventUploadThreshold` |  SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. | `10` |
     | `setEventUploadPeriodMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. | `10 seconds` |
