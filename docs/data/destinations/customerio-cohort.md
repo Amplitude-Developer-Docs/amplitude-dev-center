@@ -9,12 +9,6 @@ description: Send Amplitude cohorts to Customer.io for use in automated messagin
 
     This integration sends Amplitude cohorts to Customer.io. There is a separate integration to send Amplitude events. See [Send events to Customer.io](customerio.md) for information.
 
-!!!note "Other Amplitude + Customer.io Integrations"
-
-    This integration sends cohorts to Customer.io. Amplitude offers other integrations with Customer.io: 
-
-    - [Event streaming to Customer.io](/data/destinations/event-streaming/customer-io)
-
 ## Considerations
 
 - This integration is only available for customers who have paid plans with Amplitude. 

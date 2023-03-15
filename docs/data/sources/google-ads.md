@@ -12,7 +12,6 @@ Amplitude Data's Google Ads integration lets you import your Google Ad spend, cl
     This integration imports Google Ads data into Amplitude. Amplitude offers other integrations with Google Ads: 
 
     - [Send Cohorts to Google Ads](/data/destinations/google-ads-cohort)
-    - [Event streaming to Google Ads](/data/destinations/event-streaming/google-ads)
 
 ## Setup
 
