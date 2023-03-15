@@ -103,15 +103,15 @@ The SDKs point to special endpoints for their custom payloads. Find the endpoint
 
 |<div class="big-column">SDK</div> | Endpoint | Set server url |
 | --- | --- | --- |
-| [Amplitude-JavaScript](../data/sdks/javascript/) | `https://api.amplitude.com` | Set the `apiEndpoint` option when initializing the SDK. |
-| [Amplitude-Node](../data/sdks/node/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
-| [Amplitude-Android](../data/sdks/android/)| `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
-| [Amplitude-Java](../data/sdks/java/) | `https://api2.amplitude.com/2/httpapi` | Use the `setServerUrl` function to configure the server URL. |
-| [Amplitude-iOS](../data/sdks/ios/) | `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
-| [Amplitude-TypeScript](../data/sdks/typescript-browser/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
-| [Amplitude-Kotlin](../data/sdks/android-kotlin/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
-| [Amplitude-Swift](../data/sdks/ios-swift/) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
-| [Amplitude-Python](../data/sdks/python/) | `https://api2.amplitude.com/2/httpapi` | Set the `server_url` option when initializing the SDK.|
-| [Amplitude-Go](../data/sdks/go/) | `https://api2.amplitude.com/2/httpapi` |  Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-JavaScript](../data/sdks/javascript/index.md) | `https://api.amplitude.com` | Set the `apiEndpoint` option when initializing the SDK. |
+| [Amplitude-Node](../data/sdks/node/index.md) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-Android](../data/sdks/android/index.md)| `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
+| [Amplitude-Java](../data/sdks/java/index.md) | `https://api2.amplitude.com/2/httpapi` | Use the `setServerUrl` function to configure the server URL. |
+| [Amplitude-iOS](../data/sdks/ios/index.md) | `https://api2.amplitude.com/` | Use the `setServerUrl` function to configure the server URL. |
+| [Amplitude-TypeScript](../data/sdks/typescript-browser/index.md) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-Kotlin](../data/sdks/android-kotlin/index.md) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-Swift](../data/sdks/ios-swift/index.md) | `https://api2.amplitude.com/2/httpapi` | Set the `serverUrl` option when initializing the SDK. |
+| [Amplitude-Python](../data/sdks/python/index.md) | `https://api2.amplitude.com/2/httpapi` | Set the `server_url` option when initializing the SDK.|
+| [Amplitude-Go](../data/sdks/go/index.md) | `https://api2.amplitude.com/2/httpapi` |  Set the `serverUrl` option when initializing the SDK. |
 
 After you configure the SDK, you can send events through your proxy and see them logged in Amplitude.

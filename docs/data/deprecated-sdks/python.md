@@ -19,7 +19,7 @@ Amplitude Data supports tracking analytics events from Python 3 applications.
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](../ampli/cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./itly/`.
 
@@ -75,13 +75,13 @@ As a result, our SDK will be initialized to:
 - Set the required *version* property to 1.0
 - Send events to a custom destination implemented in the `CustomDestination` class
 
-Note: if your tracking plan doesn't take advantage of [source templates](/working-with-templates#adding-a-template-to-a-source) and you haven't configured a [custom destination](#custom-destination), you can simply call `itly.load()`.
+Note: if your tracking plan doesn't take advantage of source templates and you haven't configured a [custom destination](#custom-destination), you can simply call `itly.load()`.
 
 <br/>
 
 | <div class="big-column">Options</div> | Description |
 |-|-|
-| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
+| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one source template associated with your your team's tracking plan.|
 | `destinations` | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.<br /><br />Optional.|
 | `options` | Specifies additional configuration options for the Itly SDK. Optional.<br /><br />`disabled`<br />Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.<br /><br />`environment`<br />Specifies the environment the Itly SDK is running in: either `itly.Environment.PRODUCTION` or `itly.Environment.DEVELOPMENT`. Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it will log an error but still let the event through. In development, the SDK will throw an exception to alert you that something is wrong.<br /><br />Optional. Defaults to `itly.Environment.DEVELOPMENT`.<br /><br />`plugins`<br />An array of additional plugins to load into the Itly SDK. Plugins allow you to extend the Itly SDK's event validation and event tracking functionality with your own. For example, a plugin can be used to implement a custom destination or a custom event validator.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/python-v2/custom.py) to see a sample custom destination plugin.<br /><br />Optional.<br /><br />`logger`<br />To log Itly's logs to a custom logger, implement the `ItlyLogger` protocol and set `logger` to an instance of your class. The Itly SDK will call into your class with all debug, info, warn, and error-level messages.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/python-v2/logger.py) to see a a sample custom logger.<br /><br />Optional. |
 

@@ -21,7 +21,7 @@ This guide is complementary to Bento’s instructions. Visit the [Bento document
 
 ### Amplitude setup
 
-Copy your project's API key. There are no other setup steps in Amplitude. [Find your project API key](../analytics/find-api-credentials).
+Copy your project's API key. There are no other setup steps in Amplitude. [Find your project API key](../../analytics/find-api-credentials.md).
 
 ### Bento setup
 

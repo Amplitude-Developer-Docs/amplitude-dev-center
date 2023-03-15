@@ -233,7 +233,7 @@ nav:
             - Server-side: data/sources/google-tag-manager-server.md
             - Client-side (Legacy): data/sources/google-tag-manager-client-legacy.md
         - Marketing Automation:
-          - Airship: data/sources/airship.md
+          #- Airship: data/sources/airship.md
           - Braze: data/sources/braze.md
           - HubSpot: data/sources/hubspot.md
           - Iterable: data/sources/iterable.md
@@ -387,7 +387,6 @@ nav:
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API (Beta): experiment/apis/management-api.md
-  - Docs Changelog: changelog.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md

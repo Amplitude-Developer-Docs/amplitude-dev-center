@@ -269,7 +269,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
             1. Clone the repo.
             2. Open it with Android Studio.
-            3. Change your [API key](../../analytics/find-api-credentials/) in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
+            3. Change your [API key](../../analytics/find-api-credentials.md) in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
             4. Sync the project with Gradle files. 
             4. Run `samples.kotlin-android-app`.
             5. Press the button to send events in the running application. 
@@ -280,7 +280,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
             1. Clone the repo.
             2. Open it with Android Studio.
-            3. Change your [API key](../../analytics/find-api-credentials/) in `build.gradle` for `Module: samples: java-android-app` under Gradle Scripts. 
+            3. Change your [API key](../../analytics/find-api-credentials.md) in `build.gradle` for `Module: samples: java-android-app` under Gradle Scripts. 
             4. Sync the project with Gradle files. 
             4. Run `samples.java-android-app`.
             5. Press the button to send events in the running application. 
@@ -291,7 +291,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
             1. Clone the repo.
             2. Open it with Android Studio.
-            3. Change your [API key](../../analytics/find-api-credentials/) in `samples/kotlin-jvm-app/main/java/main.kt` and run the file.
+            3. Change your [API key](../../analytics/find-api-credentials.md) in `samples/kotlin-jvm-app/main/java/main.kt` and run the file.
             4. [Check for success](./#check-for-success_2).
 
     !!!info "Quickstart table of contents"
@@ -527,10 +527,10 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     Learn more about [Ampli Android](../android-kotlin/ampli/).
 
 === "iOS"
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](./ios/index.md)
 
     !!!warning New Version Available
-        This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](../ios-swift/) has additional features such as plugins and more. See the [Migration Guide](../ios-swift/migration/) for more help.
+        This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](./ios-swift/index.md) has additional features such as plugins and more. See the [Migration Guide](./ios-swift/migration.md) for more help.
 
         Please note that the latest iOS Swift SDK is **NOT** compatible with Objective-C projects. Use this SDK if your project requires compatibility with Objective-C.
 
@@ -683,7 +683,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         }
         ```
 
-    Learn more available functionalities in [iOS SDK](../ios/).
+    Learn more available functionalities in [iOS SDK](./ios/index.md).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
@@ -712,16 +712,16 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli iOS](../ios/ampli/).
+    Learn more about [Ampli iOS](./ios/ampli.md).
 
 === "iOS-Beta"
 
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK (Beta)](../ios-swift/).
+    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK (Beta)](./ios-swift/index.md).
 
     !!!beta "iOS Swift SDK (Beta)"
         This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you require support for Objective-C or have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
 
-        To migrate to the latest version of Amplitude iOS SDK, see the [Migration Guide](../ios-swift/migration/).
+        To migrate to the latest version of Amplitude iOS SDK, see the [Migration Guide](./ios-swift/migration.md).
     
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_4)
@@ -813,12 +813,12 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     )
     ```
 
-    Learn more available functionalities in [iOS SDK](./ios-swift/).
+    Learn more available functionalities in [iOS SDK](./ios-swift/index.md).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
     --8<-- "includes/no-ampli.md"
-        To use Ampli see the [non-Beta SDK](./ios/) and [Ampli Wrapper](./ios/ampli.md) instead.
+        To use Ampli see the [non-Beta SDK](./ios/index.md) and [Ampli Wrapper](./ios/ampli.md) instead.
 
     Coming soon.
 
@@ -993,7 +993,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Python"
 
-    The Python SDK lets you send events to Amplitude. See the full documentation at [Pythohn SDK](../sdks/python/) for additional configurations and advanced topics.
+    The Python SDK lets you send events to Amplitude. See the full documentation at [Pythohn SDK](./python/index.md) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)

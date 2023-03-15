@@ -5,7 +5,7 @@ description: The Batch Event Upload API lets you upload large amounts of event d
 <!-- markdownlint-disable-file MD037 -->
 The Batch Event Upload API lets you upload large amounts of event data.
 
-The event JSON format follows the [HTTP API format](../analytics/apis/http-v2-api), and has the same requirements.
+The event JSON format follows the [HTTP API format](./http-v2-api.md), and has the same requirements.
 
 --8<-- "includes/postman-interactive.md"
 

@@ -27,7 +27,7 @@ Since JavaScript is not a type-safe language, the library won't expose type-safe
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](../ampli/cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the folder with your package.json file. By default, the SDK will be generated in `./src/itly/`.
 
@@ -129,7 +129,7 @@ Load the Itly SDK once when your application starts. The `load()` function accep
 
 | <div class="big-column">Option</div> ||||
 |-|-|-|-|
-| `context`| Object<br />`Context` | required | An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
+| `context`| Object<br />`Context` | required | An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one source template associated with your your team's tracking plan.|
 | `disabled`| Boolean | optional | Specifies whether the Itly SDK does any work. When `true`, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.|
 | `environment` | String | optional | Specifies the environment the Itly SDK is running in: `production` or `development`.<br /><br />Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it will log an error but still let the event through. In development, the SDK will throw an exception to alert you that something is wrong.<br /><br />Defaults to `development`.|
 | `destinations` | Object<br />`DestinationsOptions` | optional | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.|
@@ -517,7 +517,7 @@ The new Node.js SDK introduces several new features to help developers implement
 
 ### CLI & Code Changes
 
-- Make sure you have downloaded the [Ampli CLI](/using-the-ampli-cli)
+- Make sure you have downloaded the [Ampli CLI](../ampli/cli.md)
 
 - Pull down the new SDK inside your project's folder (the one with the .itlyrc file):
 

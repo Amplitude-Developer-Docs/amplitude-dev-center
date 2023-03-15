@@ -5,6 +5,6 @@
 - :java: [Java](/data/sdks/java/)
 - :node: [Node.js](/data/sdks/typescript-node/)
 - :python: [Python](/data/sdks/python/)
-- :go: [Go](/data/sdks/go/index)
+- :go: [Go](/data/sdks/go/)
 
 </div>

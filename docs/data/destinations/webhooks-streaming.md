@@ -29,7 +29,7 @@ Create a webhook endpoint that can receive HTTP requests.
 
 Amplitude uses [Apache FreeMarker](https://freemarker.apache.org/) templates to customize your event payloads that you send to webhook.
 
-- Customers can use the FreeMarker Templating Language (FTL) to transform [Amplitude's JSON export event format](../analytics/apis/export-api/) into any other JSON schema expected by the Webhook destination.
+- Customers can use the FreeMarker Templating Language (FTL) to transform [Amplitude's JSON export event format](../../analytics/apis/export-api.md) into any other JSON schema expected by the Webhook destination.
 - FreeMarker is a free, open source templating engine with a large community.
 
 !!!tip "More FreeMarker help"
@@ -65,7 +65,7 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 ```
 
 - FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
-- `input` is a reserved variable that refers to the event as an object, as defined [in the Export API docs](../analytics/apis/export-api/).
+- `input` is a reserved variable that refers to the event as an object, as defined [in the Export API docs](../../analytics/apis/export-api.md).
 - `input.event_type` refers to the `event_type` field of the event.
 - `input.user_properties` refers to the user properties dictionary.
 - `input.user_properties.email` refers to the `email` field in user properties.

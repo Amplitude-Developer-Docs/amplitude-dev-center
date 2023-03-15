@@ -20,7 +20,7 @@ This guide is complementary to Userguiding's instructions. Visit the [Userguidin
 
 ### Amplitude setup
 
-Copy your project's API key. There are no other setup steps in Amplitude. [Find your project API key](../analytics/find-api-credentials).
+Copy your project's API key. There are no other setup steps in Amplitude. [Find your project API key](../../analytics/find-api-credentials.md).
 
 ### Userguiding setup
 

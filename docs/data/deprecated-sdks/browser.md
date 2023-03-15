@@ -25,7 +25,7 @@ Since JavaScript is not a type-safe language, the library won't expose type-safe
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](../ampli/cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the folder with your package.json file. By default, the SDK will be generated in `./src/itly/`.
 
@@ -501,7 +501,7 @@ The new Browser SDK introduces several new features to help developers implement
 
 ### CLI & Code Changes
 
-- Make sure you have downloaded the [Ampli CLI](/using-the-ampli-cli)
+- Make sure you have downloaded the [Ampli CLI](../ampli/cli.md)
 - Pull down the new SDK inside your project's folder (the one with the .itlyrc file):
 
 ```bash
