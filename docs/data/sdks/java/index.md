@@ -72,7 +72,7 @@ client.init("YOUR_API_KEY");
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUpdloadThreshfold` and `setEventUploadPeriodMillis`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, please check the `useBatchMode`. Both the regular mode and the batch mode use the same events upload threshold and flush time intervals.
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshfold` and `setEventUploadPeriodMillis`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, please check the `useBatchMode`. Both the regular mode and the batch mode use the same events upload threshold and flush time intervals.
 
 ```java
 Amplitude client = Amplitude.getInstance();
