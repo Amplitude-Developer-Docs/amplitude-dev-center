@@ -47,6 +47,7 @@ To set up a recurring export of your Amplitude data to Snowflake, follow these s
       - **Database**: The database where the data should be stored. Dedicate this database specifically to Amplitude data.
       - **Username**: The username Amplitude uses to connect to the Snowflake account.
       - **Password**: The password associate with the username.
+      - **Role**: The role that the connection will use to write this data. The default value of role is `AMPLITUDE` only.
 
     !!!warning
 
