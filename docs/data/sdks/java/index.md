@@ -51,21 +51,28 @@ client.init("YOUR_API_KEY");
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `serverUrl` | The server url events are uploaded to. | `https://api2.amplitude.com/2/httpapi` |
-    | `isBatchMode` |  Whether to use batch api. | `false` |
-    | `logMode` |  The level at which to filter out debug messages. | `LogMode.ERROR` |
-    | `eventUploadThreshold` |  SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. | `10` |
-    | `eventUploadPeriodMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. | `10 seconds` |
-    | `callbacks` | Event callback which are triggered after event sent. | `null`|
-    | `proxy` | custom proxy for https requests. | `Proxy.NO_PROXY`|
-    | `flushTimeout` | events flushing thread timeout in milliseconds. | `0` |
-    | `options.minIdLength` | The minimum length for user id or device id. | `5` |
-    | `options.headers` | The custom headers. | `{"Content-Type", "application/json",
-                                                  "Accept", "application/json"}` |
+    | `setServerUrl` | The server url events are uploaded to. | `https://api2.amplitude.com/2/httpapi` |
+    | `useBatchMode` |  Whether to use [batch api](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl` | `false` |
+    | `setLogMode` |  The level at which to filter out debug messages. | `LogMode.ERROR` |
+    | `setEventUploadThreshold` |  SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. | `10` |
+    | `setEventUploadPeriodMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. | `10 seconds` |
+    | `setCallbacks` | Event callback which are triggered after event sent. | `null`|
+    | `setProxy` | Custom proxy for https requests. | `Proxy.NO_PROXY`|
+    | `setFlushTimeout` | Events flushing thread timeout in milliseconds. | `0` |
+    | `setOptions` | A dictionary of key-value pairs that represent additional instructions for server save operation.| Please check [available options](data/sdks/java/#options). |
+
+### Options
+
+???config "Availabe Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `Options.setMinIdLength` | Set the minimum length for user id or device id. | 5 |
+    | `Options.setHeaders` | Set the custom headers. | `{"Content-Type", "application/json","Accept", "application/json"}` |
+    | `Options.addHeaders` | Add more custom headers. | `{"Content-Type", "application/json", "Accept", "application/json"}` |
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUpdloadThreshfold` and `setEventUploadPeriodMillis`.
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUpdloadThreshfold` and `setEventUploadPeriodMillis`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time. please check the `useBatchMode`. Both the regular mode and the batch mode use the same events upload threshold and flush time intervals.
 
 ```java
 Amplitude client = Amplitude.getInstance();
