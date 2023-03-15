@@ -59,7 +59,7 @@ client.init("YOUR_API_KEY");
     | `setCallbacks` | Event callback which are triggered after event sent. | `null`|
     | `setProxy` | Custom proxy for https requests. | `Proxy.NO_PROXY`|
     | `setFlushTimeout` | Events flushing thread timeout in milliseconds. | `0` |
-    | `setOptions` | A dictionary of key-value pairs that represent additional instructions for server save operation.| Please check [available options](data/sdks/java/#options). |
+    | `setOptions` | A dictionary of key-value pairs that represent additional instructions for server save operation.| Please check [available options](/#options). |
 
 ### Options
 
