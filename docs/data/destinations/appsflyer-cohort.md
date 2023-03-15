@@ -16,7 +16,7 @@ By sending Amplitude cohorts to AppsFlyer Audiences, you can leverage your first
     This integration sends Amplitude cohorts into AppsFlyer. Amplitude offers two other integrations with AppsFlyer: 
 
     - [Import AppsFlyer data](/data/sources/appsflyer)
-    - [Send event data to AppsFlyer](/data/destinations/appsflyer)
+    - [Event streaming to AppsFlyer](/data/destinations/event-streaming/appsflyer)
 
 ## Considerations
 

@@ -9,6 +9,12 @@ Statsig is a modern feature-management and product experimentation platform that
 
 This integration allows you to target experiments at specific cohorts you’ve already created in Amplitude.
 
+!!!note "Other Amplitude + Statsig integrations"
+
+    This integration sends Amplitude cohorts to Statsig. Amplitude offers other integrations with Statsig: 
+
+    - [Event streaming to Statsig](/data/destinations/event-streaming/statsig)
+
 !!!note
 
     For any issues with Statsig, contact support@statsig.com.

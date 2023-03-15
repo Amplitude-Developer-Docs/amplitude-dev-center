@@ -5,6 +5,12 @@ description: Integrate Amplitude with Branch's attribution tools to measure the 
 
 This integration combines Amplitude's analytics with Branch's attribution tools into one unified system. Use it to share user data in real-time and help team members measure the value of your marketing channels and features.
 
+!!!note "Other Amplitude + Branch Integrations"
+
+    This integration imports Branch data into Amplitude. Amplitude offers other integrations with Branch: 
+
+    - [Event streaming to Branch](/data/destinations/event-streaming/branch)
+
 !!!note
 
     This Branch integration uses the [Amplitude Attribution API](../../analytics/apis/attribution-api.md) to send data to Amplitude. Make sure you understand how the Attribution API works before setting up this integration.

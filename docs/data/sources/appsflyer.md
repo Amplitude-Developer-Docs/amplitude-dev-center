@@ -10,7 +10,7 @@ This integration combines Amplitude's analytics with AppsFlyer's attribution too
     This integration imports AppsFlyer data into Amplitude. Amplitude offers two other integrations with AppsFlyer: 
 
     - [Send cohorts to AppsFlyer](/data/destinations/appsflyer-cohort)
-    - [Send event data to AppsFlyer](/data/destinations/appsflyer)
+    - [Event streaming to AppsFlyer](/data/destinations/event-streaming/appsflyer)
 
 ## About AppsFlyer
 

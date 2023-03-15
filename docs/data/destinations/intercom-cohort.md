@@ -9,8 +9,8 @@ Send behavioral cohorts from Amplitude to Intercom so that you can better engage
 
     This integration sends Amplitude cohorts to Intercom. Amplitude offers other integrations with Intercom: 
 
-    - [Stream Amplitude Events to Intercom](/data/destinations/intercom)
     - [Import Intercom Data](/data/sources/intercom)
+    - [Event streaming to Intercom](/data/destinations/event-streaming/intercom)
 
 ## Setup
 

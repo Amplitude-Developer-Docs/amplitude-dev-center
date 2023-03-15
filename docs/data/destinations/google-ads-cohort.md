@@ -10,6 +10,7 @@ Send Amplitude cohorts to Google Ads to create audiences for more personalized c
     This integration sends cohorts to Google Ads. Amplitude offers other integrations with Google Ads: 
 
     - [Import Google Ads Data](/data/sources/google-ads)
+    - [Event streaming to Google Ads](/data/destinations/event-streaming/google-ads)
 
 ## Considerations
 

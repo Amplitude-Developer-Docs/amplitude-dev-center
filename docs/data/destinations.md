@@ -32,7 +32,7 @@ Visit [Warehouse Overview](destination-cloud-storage-overview.md) for more detai
 
 ### Event streaming
 
-Visit [Event Streaming Overview](destination-event-streaming-overview.md) for more details about streaming Amplitude events. 
+Visit [Event Streaming Overview](data/destinations/event-streaming/overview.md) for more details about streaming Amplitude events. 
 
 <!-- This content is used in several places. Make changes to includes/data-destinations-event-streaming.md -->
 
