@@ -59,6 +59,24 @@ class YourClass {
 }
 ```
 
+### Configuration
+
+Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options. For more configurations on Android side, please check the [Android Configuration](../android-kotlin/#configuration). For more configurations on iOS side, please check the [iOS configuration](../ios/#configuration). For more configurations on browser side, please check the [browser configuration](../javascript/#configuration). 
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `enableCoppaControl` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| `false` |
+    | `disableCoppaControl` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| `true` |
+    | `setOptOut` | Opt the user out of tracking. | `false` |
+    | `trackingSessionEvents` |  Flushing of unsent events on app close. | `false` |
+    | `setServerUrl` | The server url events are uploaded to. | `https://api2.amplitude.com/2/httpapi` |
+    | `setEventUploadThreshold` | SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `eventUploadPeriodMillis` interval.  | `30` |
+    | `setUseDynamicConfig` | Find the best server url automatically based on users' geo location. | `false` |
+    | `useAppSetIdForDeviceId` | Whether to use app ser id as device id on Android side. Need to include the module and permission. | `false` |
+    | `setMinTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `5 minutes` |
+    | `setServerZone` | The server zone to send to, will adjust server url based on this config. | `US` |
+
 ### EU data residency
 
 Beginning with version 3.6.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.

@@ -58,22 +58,22 @@ client.configuration.use_batch = True
 client.configuration.server_url = "proxy url that forwarding the requests"
 client.configuration.opt_out = False
 ```
-<!--vale off-->
-| <div class="big-column">Name</div> | Description  |
-| --- | --- |
-| `api_key` | Required. String. The API key of the Amplitude project. Events sent by the client instance are in this project. Set when you initialize the client instance. |
-| `flush_queue_size` | Integer. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `flush_queue_size`. Defaults to 200.|
-| `flush_interval_millis` | Integer. Events wait in the buffer and are sent in a batch. The buffer is flushed every `flush_interval_millis` milliseconds. Defaults to 10,000 (10 seconds).|
-| `flush_max_retries` | Integer. The number of times the client retries an event when the request returns an error. Defaults to 12 |
-| `logger` | Logger. The logger instance used by Amplitude client. Defaults to using [python built-in logging](https://docs.python.org/3/library/logging.html#logger-objects): `logging.getLogger(name)`. |
-| `min_id_length` | Integer. The minimum length of `user_id` and `device_id`. Defaults to 5.|
-| `callback`  | Callable. Optional. Client level callback function. Takes three parameters:<br> 1. event: a Event instance<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. Defaults to `None`. |
-| `server_zone` |String. The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. Defaults to `US`. |
-| `use_batch` | Boolean. Uses HTTP v2 API endpoint if set to `False`, otherwise use batch API endpoint. Read more about difference between [HTTP v2 and batch](https://developers.amplitude.com/docs/batch-event-upload-api). Defaults to `False` |
-| `server_url` | String. The API endpoint URL that events are sent to. Automatically selected by `server_zone` and `use_batch`. If this field is set with a string value instead of `None`, then `server_zone` and `use_batch` are ignored and the string value is used. Defaults to the HTTP API V2 endpoint. |
-| `storage_provider` | StorageProvider. Used to create storage instance to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorageProvider`. |
-| `opt_out`  | Boolean. Opt out option. If set to `True`, client doesn't process and send events. Defaults to `False`. |
-<!-- vale on-->
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `api_key` | Required. String. The API key of the Amplitude project. Events sent by the client instance are in this project. Set when you initialize the client instance. | `None`|
+    | `flush_queue_size` | Integer. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `flush_queue_size`. | `200` |
+    | `flush_interval_millis` | Integer. Events wait in the buffer and are sent in a batch. The buffer is flushed every `flush_interval_millis` milliseconds. | `10 seconds` |
+    | `flush_max_retries` | Integer. The number of times the client retries an event when the request returns an error. | `12` |
+    | `logger` | Logger. The logger instance used by Amplitude client. | `[python built-in logging](https://docs.python.org/3/library/logging.html#logger-objects): logging.getLogger(name)`. |
+    | `min_id_length` | Integer. The minimum length of `user_id` and `device_id`. | `5` |
+    | `callback`  | Callable. Optional. Client level callback function. Takes three parameters:<br> 1. event: a Event instance<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. | `None` |
+    | `server_zone` |String. The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. | `US` |
+    | `use_batch` | Boolean. Uses HTTP v2 API endpoint if set to `False`, otherwise use batch API endpoint. Read more about difference between [HTTP v2 and batch](https://developers.amplitude.com/docs/batch-event-upload-api).  | `False` |
+    | `server_url` | String. The API endpoint URL that events are sent to. Automatically selected by `server_zone` and `use_batch`. If this field is set with a string value instead of `None`, then `server_zone` and `use_batch` are ignored and the string value is used. | `https://api2.amplitude.com/2/httpapi` |
+    | `storage_provider` | StorageProvider. Used to create storage instance to hold events in the storage buffer. Events in storage buffer are waiting to be sent. | `InMemoryStorageProvider` |
+    | `opt_out`  | Boolean. Opt out option. If set to `True`, client doesn't process and send events. | `False` |
 
 ### Track an event
 
