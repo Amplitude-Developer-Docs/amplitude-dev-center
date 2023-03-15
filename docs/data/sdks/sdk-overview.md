@@ -21,7 +21,7 @@ Browse all Amplitude's current SDK offerings. Maintenance SDKs are listed in the
 
 ## Experiment SDKs
 
-Learn more in the [Experiment documentation](../../experiment/)
+Learn more in the [Experiment documentation](../../experiment/index.md#sdks)
 
 ### Experiment client-side SDKs
 

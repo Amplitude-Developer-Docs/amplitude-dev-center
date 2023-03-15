@@ -20,7 +20,7 @@ In Kotlin and Java, the tracking library exposes a type-safe function for every 
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](../ampli/cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./app/src/main/java/ly/iterative/itly/`.
 
@@ -107,7 +107,7 @@ As a result, our SDK will be initialized to:
 
 | <div class="big-column">Arg</div> | Description |
 |-|-|
-| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
+| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one source template associated with your your team's tracking plan.|
 | `destinations` | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.<br /><br />Optional.|
 | `options` | Specifies additional configuration options for the Itly SDK. Optional.<br /><br />`disabled`<br />Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.<br /><br />`environment`<br />Specifies the environment the Itly SDK is running in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it will log an error but still let the event through. In development, the SDK will throw an exception to alert you that something is wrong.<br /><br />Optional. Defaults to `development`.<br /><br />`plugins`<br />An array of additional plugins to load into the Itly SDK. Plugins allow you to extend the Itly SDK's event validation and event tracking functionality with your own. For example, a plugin can be used to implement a custom destination or a custom event validator.<br /><br />[Click here](#custom-destination) to learn about writing a custom destination plugin.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/android-kotlin-v3/app/src/main/java/ly/iterative/examples/kotlin/MyCustomDestination.kt) to see a sample custom destination plugin.<br /><br />`logger`<br />To log Itly's logs to a custom logger, implement the `ItlyLogger` protocol and set `logger` to an instance of your class. The Itly SDK will call into your class with all debug, info, warn, and error-level messages.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/android-kotlin/app/src/main/java/io/itly/ItlyBase.kt) to see an example written in Kotlin.<br /><br />[Click here](https://bitbucket.org/seasyd/examples/src/master/android-java/app/src/main/java/io/itly/Itly.java) to see an example written in Java.<br /><br />Optional. Defaults to standard out. |
 

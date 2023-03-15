@@ -12,7 +12,7 @@ description: Import Chameleon events into Amplitude to analyze tour performance 
 ## Considerations
 
 - You must enable this integration in each Amplitude project.
-- For this integration to work, you must use the [Amplitude's client-side browser SDK](../sdks/typescript-browser) in your web app. This SDK must be available at the root property of `window.amplitude`. Events then go to whichever Amplitude project loaded on the page where the event took place.
+- For this integration to work, you must use the [Amplitude's client-side browser SDK](../sdks/typescript-browser/index.md) in your web app. This SDK must be available at the root property of `window.amplitude`. Events then go to whichever Amplitude project loaded on the page where the event took place.
 - Use this [Google Sheet](https://docs.google.com/spreadsheets/d/1qBiAojhSoUSEGLlwvzAhO5CxFLTNeutA_h2iV9gsvRk/copy) schema to understand the full details of all Chameleon data sent to Amplitude.
 
 ## Setup

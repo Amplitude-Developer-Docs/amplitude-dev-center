@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Rebuild the site
+mkdocs build
+
+# Run the link checker on the local site
+if [ "$1" = "external" ]; then
+    echo "Running full link check, including external links. This may take some time..."
+    npx -y broken-link-checker-local@latest ./site -ro > out.txt
+else
+    echo "Running internal link check..."
+    npx -y broken-link-checker-local@latest ./site -roe > out.txt
+fi
+
+# Filter the log for broken links, file names, and exclude 403 errors.
+log=$(grep 'BROKEN\|Getting links from' out.txt | grep -v 'HTTP_403')
+# Count broken links
+fail_count=$(echo "$log" | grep -o BROKEN | wc -l)
+rm out.txt
+
+echo "$log"
+echo "Found $fail_count broken links."
+
+if [[ $fail_count -gt 0 ]]
+then
+    exit 1
+else
+    exit 0
+fi

@@ -1,0 +1,33 @@
+name: Internal Link Check
+
+on:
+  # Trigger at every push. Action will also be visible from Pull Requests to master
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  build:
+    name: Internal Link Check
+    runs-on: ubuntu-latest
+    steps:
+      # Git Checkout
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      # Setup Node
+      - name: Setup Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      # Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      # Internal Link Check
+      - name: Internal Link Check
+        run: ./linkchecker

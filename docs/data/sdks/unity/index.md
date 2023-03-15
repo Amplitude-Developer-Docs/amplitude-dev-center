@@ -121,7 +121,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ## EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](../dynamic-configuration/) as well.
+ The server zone configuration supports [dynamic configuration](../../dynamic-configuration.md) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 
@@ -415,7 +415,7 @@ client.setOptOut(true); //No events will be tracked for this user
 
 ### Dynamic configuration
 
-Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration). This feature finds the best Amplitude server URL automatically based the user's location.
+Unity SDK allows users to configure their apps to use [dynamic configuration](../../dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, Amplitude recommends that you use dynamic configuration.

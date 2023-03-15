@@ -21,7 +21,7 @@ In Java, the tracking library exposes a type-safe function for every event in yo
 
 ### Generate the SDK
 
-If you have not yet installed the Ampli CLI, [install it now](/data/using-the-ampli-cli).
+If you have not yet installed the Ampli CLI, [install it now](../ampli/cli.md).
 
 To generate the Itly SDK, run `ampli pull {source}` in the top-most folder of your project. By default, the SDK will be generated in `./src/main/java/io/itly/`.
 
@@ -86,7 +86,7 @@ Load the Itly SDK once when your application starts. The `init()` method accepts
 
 | <div class="big-column">Options</div> | Description |
 |-|-|
-| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one [source template](/working-with-templates#adding-a-template-to-a-source) associated with your your team's tracking plan.|
+| `context`| An object with a set of properties to add to every event sent by the Itly SDK.<br /><br />Only available if there is at least one source template associated with your your team's tracking plan.|
 | `disabled`| Specifies whether the Itly SDK does any work. When true, all calls to the Itly SDK will be no-ops. Useful in local or development environments.<br /><br />Optional. Defaults to `false`.|
 | `environment` | Specifies the environment the Itly SDK is running in: either `production` or `development`. Environment determines which Access Token is used to load the underlying analytics provider libraries.<br /><br />The option also determines safe defaults for handling event validation errors. In production, when the SDK detects an invalid event, it will log an error but still let the event through. In development, the SDK will throw an exception to alert you that something is wrong.<br /><br />Optional. Defaults to `development`.|
 | `destinations` | Specifies any analytics provider-specific configuration. The Itly SDK passes these objects in when loading the underlying analytics provider libraries.<br /><br />Optional.|

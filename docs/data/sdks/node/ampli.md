@@ -14,7 +14,7 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
     Click here for more documentation on the [Amplitude Node SDK](./index.md).
 
 !!!note "Deprecated Itly runtime"
-    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
+    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/nodejs.md)**.
 
 --8<-- "includes/beta-not-supported.md"
 
@@ -31,8 +31,8 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 
     Jetbrains provides similar support:
 
-    1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
-    2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
+    3. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
+    4. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
@@ -163,7 +163,7 @@ For example, your tracking plan contains a user property called `role`. The prop
     });
     ```
 
-The options argument allows you to pass [Amplitude fields](../analytics/apis/http-v2-api#keys-for-the-event-argument) for this call, such as `deviceId`.
+The options argument allows you to pass [Amplitude fields](../../../analytics/apis/http-v2-api.md#keys-for-the-event-argument) for this call, such as `deviceId`.
 
 === "TypeScript"
 

@@ -11,7 +11,7 @@ The Marketo static list destination lets you export cohorts into Marketo as a st
 
 !!!info 
 
-    This page is about the Marketo Static List destination. Unlike the [Marketo Cohort](../destinations/marketo-cohort/) destination, this integration automatically exports cohorts as a static list in Marketo.
+    This page is about the Marketo Static List destination. Unlike the [Marketo Cohort](./marketo-cohort.md) destination, this integration automatically exports cohorts as a static list in Marketo.
 
 ## Considerations
 

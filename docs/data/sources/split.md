@@ -11,7 +11,7 @@ See more detailed instructions in the [Split documentation](https://help.split.i
 
     This integration imports Split data into Amplitude. Amplitude offers other integrations with Split: 
 
-    - [Send Cohorts to Split](/data/destinations/split-cohorts)
+    - [Send Cohorts to Split](../destinations/split-cohort.md)
 
 ### Amplitude setup
 
