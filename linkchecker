@@ -1,11 +1,23 @@
 #!/bin/bash
 
-npx -y broken-link-checker-local@latest ./site -roe | grep 'BROKEN\|Getting links from\|Finished' > out.txt
-failures=$(grep -o BROKEN out.txt | wc -l)
-cat out.txt
+if [ "$1" = "external" ]; then
+    echo "Running full link check, including external links. This may take some time..."
+    npx -y broken-link-checker-local@latest ./site -ro > out.txt
+else
+    echo "Running internal link check..."
+    npx -y broken-link-checker-local@latest ./site -roe > out.txt
+fi
+
+# Filter the log for broken links, file names, and exclude 403 errors.
+log=$(grep 'BROKEN\|Getting links from' out.txt | grep -v 'HTTP_403')
+# Count broken links
+fail_count=$(echo "$log" | grep -o BROKEN | wc -l)
 rm out.txt
 
-if [[ $failures -gt 0 ]]
+echo "$log"
+echo "Found $fail_count broken links."
+
+if [[ $fail_count -gt 0 ]]
 then
     exit 1
 else
