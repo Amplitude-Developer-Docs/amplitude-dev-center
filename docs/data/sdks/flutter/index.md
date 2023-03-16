@@ -71,7 +71,7 @@ Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](.
     | `setMinTimeBetweenSessionsMillis` | `int`. The amount of time for session timeout if disable foreground tracking. | `5 minutes` |
     | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `eventUploadPeriodMillis` interval. | `30 seconds` |
     | `setServerZone` | `String`. The server zone to send to, will adjust server url based on this config. | `US` |
-    | `setServerUrl` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` | `https://api2.amplitude.com/2/httpapi` |
+    | `setServerUrl` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` | `https://api2.amplitude.com/` |
     | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. | `false` |
     | `setOptOut` | `bool`. Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | `bool`. Flushing of unsent events on app close. | `false` |
