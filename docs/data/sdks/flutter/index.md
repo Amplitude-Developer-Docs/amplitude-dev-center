@@ -66,7 +66,7 @@ For more configurations:
 
 - on Android side, check the [Android Configuration](../android-kotlin/#configuration)
 - on iOS side, check the [iOS configuration](../ios/#configuration)
-- on browser side, please check the [browser configuration](../javascript/#configuration)```
+- on browser side, please check the [browser configuration](../javascript/#configuration)
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |

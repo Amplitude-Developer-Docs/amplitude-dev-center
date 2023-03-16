@@ -120,7 +120,11 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 
 ### Configuration
 
-Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/) and [Amplitude iOS Mantaince SDK](../ios/). The following are the settable config options. For more configurations on Android side, please check the [Android Configuration](../android-kotlin/#configuration). For more configurations on iOS side, please check the [iOS configuration](../ios/#configuration).
+Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), and [Amplitude iOS Mantaince SDK](../ios/). The following are the C# settable config options.
+For more configurations:
+
+- on Android side, check the [Android Configuration](../android-kotlin/#configuration)
+- on iOS side, check the [iOS configuration](../ios/#configuration)
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
