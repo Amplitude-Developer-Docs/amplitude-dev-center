@@ -61,13 +61,18 @@ class YourClass {
 
 ### Configuration
 
-Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options. For more configurations on Android side, please check the [Android Configuration](../android-kotlin/#configuration). For more configurations on iOS side, please check the [iOS configuration](../ios/#configuration). For more configurations on browser side, please check the [browser configuration](../javascript/#configuration).
+Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options.
+For more configurations:
+
+- on Android side, check the [Android Configuration](../android-kotlin/#configuration)
+- on iOS side, check the [iOS configuration](../ios/#configuration)
+- on browser side, please check the [browser configuration](../javascript/#configuration)```
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `enableCoppaControl` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| By default, coppa control is disabled. |
-    | `disableCoppaControl` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.|  By default, coppa control is disabled. |
+    | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Default behavior is disabled coppa control. |
+    | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Default behavior is disabled coppa control. |
     | `setMinTimeBetweenSessionsMillis` | `int`. The amount of time for session timeout if disable foreground tracking. | `5 minutes` |
     | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach the 30 seconds. | `30` |
     | `setServerZone` | `String`. The server zone to send to, will adjust server url based on this config. | `US` |
