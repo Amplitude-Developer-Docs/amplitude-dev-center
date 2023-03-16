@@ -125,16 +125,16 @@ Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
+    | `enableCoppaControl` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.  | `null` |
+    | `disableCoppaControl` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. | `null` |
+    | `setTrackingOptions`| `IDictionary<string, bool>`. By default the SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. | `All tracking options enabled.` |
     | `setMinTimeBetweenSessionsMillis` | `long`. The amount of time for session timeout if disable foreground tracking. | `5 minutes` |
+    | `setEventUploadPeriodSeconds` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `eventUploadPeriodSeconds`. | `30 seconds` |
     | `setServerZone` | `AmplitudeServerZone`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. | `AmplitudeServerZone.US` |
-    | `setServerUrl` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set, then `ServerZone`. | `https://api2.amplitude.com/2/httpapi` |
+    | `setServerUrl` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. If this field is set, then `ServerZone`. | `https://api2.amplitude.com/2/httpapi` |
     | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. | `false` |   
     | `setOffline` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. | `false` |
     | `useAdvertisingIdForDeviceId` | `bool`. Whether to use advertising id as device id. Need to include the module and permission. | `false` |
-    | `disableCoppaControl` | `bool`. Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. | `true` |
-    | `enableCoppaControl` | `bool`. Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.  | `false` |
-    | `setTrackingOptions`| `IDictionary<string, bool>`. By default the SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. | `All tracking options enabled.` |
-    | `setEventUploadPeriodSeconds` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `eventUploadPeriodSeconds`. | `30 seconds` |
     | `useAppSetIdForDeviceId` | `bool`. Only for Android. Whether use appset id as a deviceId.  | `false` |
 
 #### EU data residency

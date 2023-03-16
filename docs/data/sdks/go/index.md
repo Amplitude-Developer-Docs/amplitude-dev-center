@@ -30,6 +30,9 @@ You must initialize the SDK before you can instrument any events. The API key fo
     | `APIKey` | Required. `string`. The API key of the Amplitude project. Events sent by the Client `struct` are in this project. Set when you initialize the Client `struct`. | `nil` |
     | `FlushQueueSize` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. |`200` |
     | `FlushInterval` | `time.Duration`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. | `10 seconds` |
+    | `FlushMaxRetries` | `int`. The number of times the client retries an event when the request returns an error. | `12` |
+    | `RetryBaseInterval` | `time.Duration`. Base interval between retries when the request returns an error. | `100 milliseconds`|
+    | `RetryThrottledInterval` | `time.Duration`. Base interval between retries for throttled requests. | `30 seconds` |
     | `Logger` | Logger interface. The logger used by Amplitude client. | `[Go standard Logger](https://pkg.go.dev/log#Logger): log.Logger.`|
     | `ServerZone` | `string`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. | `US` |
     | `ServerURL` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set, then `ServerZone` and `UseBatch` are ignored and the string value is used. | `https://api2.amplitude.com/2/httpapi` |
@@ -37,9 +40,6 @@ You must initialize the SDK before you can instrument any events. The API key fo
     | `StorageFactory` | `function`. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. | `InMemoryStorage` |
     | `OptOut` | `bool`. Opt out option. If set to `true`, client doesn't process and send events.| `false` |
     | `ConnectionTimeout` | `time.Duration`. A time limit for API requests. | `10 seconds` |
-    | `FlushMaxRetries` | `int`. The number of times the client retries an event when the request returns an error. | `12` |
-    | `RetryBaseInterval` | `time.Duration`. Base interval between retries when the request returns an error. | `100 milliseconds`|
-    | `RetryThrottledInterval` | `time.Duration`. Base interval between retries for throttled requests. | `30 seconds` |
     | `MaxStorageCapacity` | `int`. The maximum count of pending events in the storage.  | `20000` |
     | `MinIDLength` | `int`. The minimum length of user_id and device_id. | `5` |
     | `ExecuteCallback`| `function`. Client level callback function. | `nil` |
