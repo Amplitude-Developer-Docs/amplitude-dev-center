@@ -46,9 +46,35 @@ Amplitude client = Amplitude.getInstance("YOUR_INSTANCE_NAME");
 client.init("YOUR_API_KEY");
 ```
 
-### Configure batching behavior
+### Configuration
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUpdloadThreshfold` and `setEventUploadPeriodMillis`.
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `setServerUrl` | `String`. The server url events are uploaded to. | `https://api2.amplitude.com/2/httpapi` |
+    | `useBatchMode` | `Boolean`. Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. | `false` |
+    | `setLogMode` | `AmplitudeLog.LogMode`. The level at which to filter out debug messages. | `LogMode.ERROR` |
+    | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. | `10` |
+    | `setEventUploadPeriodMillis` | `int`. The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. | `10 seconds` |
+    | `setCallbacks` | `Function`. Event callback which are triggered after event sent. | `null`|
+    | `setProxy` | `Proxy`. Custom proxy for https requests. | `Proxy.NO_PROXY`|
+    | `setFlushTimeout` | `long`. Events flushing thread timeout in milliseconds. | `0` |
+    | `setOptions` | `Options`. A dictionary of key-value pairs that represent additional instructions for server save operation.| Please check [available options](/#options). |
+
+### Options
+
+???config "Availabe Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `Options.setMinIdLength` | `Integer`. Set the minimum length for user id or device id. | `5` |
+    | `Options.setHeaders` | `Map<String, String>`. Set the custom headers. | `{"Content-Type", "application/json", "Accept", "application/json"}` |
+    | `Options.addHeaders` | `String, String`. Add more custom headers. | `{"Content-Type", "application/json", "Accept", "application/json"}` |
+
+#### Configure batching behavior
+
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold` and `setEventUploadPeriodMillis`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, set `useBatchMode` to true to set setServerUrl to batch event upload api `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same events upload threshold and flush time intervals.
+
+For customers who want to send large batches of data at a time, 
 
 ```java
 Amplitude client = Amplitude.getInstance();
@@ -79,7 +105,7 @@ client.useBatchMode(true);
 client.useBatchMode(false);
 ```
 
-## Config custom HTTP proxy
+#### Config custom HTTP proxy
 
 New in version 1.9.0. Set and unset custom proxy for HTTP requests.
 
@@ -91,7 +117,7 @@ client.setProxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.domain.c
 client.setProxy(Proxy.NO_PROXY);
 ```
 
-## Config custom logger
+#### Config custom logger
 
 New in version 1.10.0. Set a customized logger for amplitude client.
 
@@ -107,7 +133,18 @@ client.setLogger(new AmplitudeLog() {
 });
 ```
 
-## Config events flushing thread timeout
+#### Config minIdLength and header 
+
+Amplitude Java SDK supports customizing the min length of ID and header on the version later than 1.7.0.
+
+```java
+// Set logger 
+client.setOptions(new Options()
+      .addHeader("Custom Header", "value")
+      .setMinIdLength(5));
+```
+
+#### Config events flushing thread timeout
 
 New in version 1.10.0. Set events flushing thread timeout in milliseconds. If set to a positive long integer, events flushing tasks time out and trigger callbacks for those events.
 
@@ -115,7 +152,7 @@ New in version 1.10.0. Set events flushing thread timeout in milliseconds. If se
 client.setFlushTimeout(2000L); // 2 seconds
 ```
 
-## Shutdown client and release resource
+### Shutdown client and release resource
 
 New in version 1.10.0. Stops the Amplitude client from accepting new events and shuts down the threadspool. Events in the buffer trigger callbacks. A new instance is created and returned if you call `Amplitude.getInstance(INSTANCE_NAME)` with the same instance name.
 
@@ -123,7 +160,7 @@ New in version 1.10.0. Stops the Amplitude client from accepting new events and 
 client.shutdown();
 ```
 
-## Send events
+### Send events
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -138,7 +175,7 @@ Amplitude client = Amplitude.getInstance();
 client.logEvent(new Event("Button Clicked", "test_user_id"));
 ```
 
-### Events with properties
+#### Events with properties
 
 Events can also contain properties. They provide context about the event taken. For example, "hover time" may be a relevant event property to "button click."
 
@@ -158,7 +195,7 @@ event.eventProperties = eventProps;
 client.logEvent(event);
 ```
 
-### Set user properties
+#### Set user properties
 
 !!!warning "Privacy and tracking"
 
@@ -182,7 +219,7 @@ event.userProperties = userProps;
 client.logEvent(event);
 ```
 
-### Set device information
+#### Set device information
 
 Unlike the Android SDK or iOS SDK, device information in Java SDK isn't collected via SDK. Device information like device id, device brand, device manufacturer, and device model can be set as properties in each event.
 
@@ -195,7 +232,7 @@ event.deviceModel = "device_model";
 client.logEvent(event);
 ```
 
-### Set session information
+#### Set session information
 
 You can set `sessionId` in an event. This pattern also applies to other properties like `city` and `price`. You can see a full list of events properties in [Event.java](https://github.com/amplitude/Amplitude-Java/blob/main/src/main/java/com/amplitude/Event.java).
 
