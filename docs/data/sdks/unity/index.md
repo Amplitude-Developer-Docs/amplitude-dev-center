@@ -118,7 +118,26 @@ Amplitude amplitude2 = Amplitude.getInstance("client_2");
 Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ```
 
-## EU data residency
+### Configuration
+
+Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/) and [Amplitude iOS Mantaince SDK](../ios/). The following are the settable config options. For more configurations on Android side, please check the [Android Configuration](../android-kotlin/#configuration). For more configurations on iOS side, please check the [iOS configuration](../ios/#configuration).
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `setMinTimeBetweenSessionsMillis` | `long`. The amount of time for session timeout if disable foreground tracking. | `5 minutes` |
+    | `setServerZone` | `AmplitudeServerZone`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. | `AmplitudeServerZone.US` |
+    | `setServerUrl` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set, then `ServerZone`. | `https://api2.amplitude.com/2/httpapi` |
+    | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. | `false` |   
+    | `setOffline` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. | `false` |
+    | `useAdvertisingIdForDeviceId` | `bool`. Whether to use advertising id as device id. Need to include the module and permission. | `false` |
+    | `disableCoppaControl` | `bool`. Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. | `true` |
+    | `enableCoppaControl` | `bool`. Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.  | `false` |
+    | `setTrackingOptions`| `IDictionary<string, bool>`. By default the SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. | `All tracking options enabled.` |
+    | `setEventUploadPeriodSeconds` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `eventUploadPeriodSeconds`. | `30 seconds` |
+    | `useAppSetIdForDeviceId` | `bool`. Only for Android. Whether use appset id as a deviceId.  | `false` |
+
+#### EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
  The server zone configuration supports [dynamic configuration](../../dynamic-configuration.md) as well.
