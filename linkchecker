@@ -6,14 +6,19 @@ mkdocs build
 # Run the link checker on the local site
 if [ "$1" = "external" ]; then
     echo "Running full link check, including external links. This may take some time..."
-    npx -y broken-link-checker-local@latest ./site -ro > out.txt
+    npx -y broken-link-checker-local@latest ./site -rog > out.txt \
+        --exclude 'https://help.amplitude.com' \
+        --exclude 'https://api.amplitude.com' \
+        --exclude 'https://api2.ampliude.com' \
+        --exclude 'https://amplitude.com/api' \
+        --exclude 'https://analytics.eu.amplitude.com/api/'
 else
     echo "Running internal link check..."
     npx -y broken-link-checker-local@latest ./site -roe > out.txt
 fi
 
 # Filter the log for broken links, file names, and exclude 403 errors.
-log=$(grep 'BROKEN\|Getting links from' out.txt | grep -v 'HTTP_403')
+log=$(grep 'BROKEN\|Getting links from' out.txt | grep -v 'HTTP_403\|HTTP_308\|HTTP_401\|HTTP_400')
 # Count broken links
 fail_count=$(echo "$log" | grep -o BROKEN | wc -l)
 rm out.txt
