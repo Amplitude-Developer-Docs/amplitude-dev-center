@@ -103,6 +103,7 @@ The **Event** table schema includes the following columns:
 | `event_id` | INT64 | A counter that distinguishes events. Example: 1 |
 | `event_properties` | SUPER |    |
 | `event_time` | TIMESTAMP | Amplitude timestamp (UTC) which is the `client_event_time` adjusted by the difference between `server_received_time` and `client_upload_time`, specifically: `event_time` = `client_event_time` + (`server_received_time` - `client_upload_time`)   Amplitude uses this timestamp to organize events on Amplitude charts. NOTE: If the difference between `server_received_time` and `client_upload_time` is less than 60 seconds, the `event_time` isn't adjusted and is equal to the `client_event_time`. Example: `2015-08-10T12:00:00.000000` |
+| `event_type` | STRING |    |
 | `followed_an_identify` | BOOL | True if there was an identify event between this current SDK event and the last SDK event seen. Example: `True` |
 | `group_properties` | SUPER |    |
 | `groups` | SUPER | Group types. See the Accounts documentation for more information.   |
