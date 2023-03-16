@@ -61,11 +61,11 @@ func main() {
     // Create a Config struct
     config := amplitude.NewConfig("your-api-key")
     
-    // events queued in memory will flush when number of events exceed upload threshold
-    // default value is 200
+    // Events queued in memory will flush when number of events exceed upload threshold
+    // Default value is 200
     config.FlushQueueSize = 100
-    // events queue will flush every certain milliseconds based on setting
-    // default value is 10,000 milliseconds
+    // Events queue will flush every certain milliseconds based on setting
+    // Default value is 10 seconds
     config.FlushInterval = 5000
     // Pass a Config struct
     // to initialize a Client struct

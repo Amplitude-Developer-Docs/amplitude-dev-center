@@ -66,28 +66,28 @@ Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](.
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `enableCoppaControl` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| `null` |
-    | `disableCoppaControl` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| `null` |
+    | `enableCoppaControl` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| By default, coppa control is disabled. |
+    | `disableCoppaControl` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.|  By default, coppa control is disabled. |
     | `setMinTimeBetweenSessionsMillis` | `int`. The amount of time for session timeout if disable foreground tracking. | `5 minutes` |
-    | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `eventUploadPeriodMillis` interval. | `30 seconds` |
+    | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach the 30 seconds. | `30` |
     | `setServerZone` | `String`. The server zone to send to, will adjust server url based on this config. | `US` |
     | `setServerUrl` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` | `https://api2.amplitude.com/` |
     | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. | `false` |
     | `setOptOut` | `bool`. Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | `bool`. Flushing of unsent events on app close. | `false` |
-    | `useAppSetIdForDeviceId` | Only for Android. Whether to use app ser id as device id on Android side. Need to include the module and permission. | `null` |
+    | `useAppSetIdForDeviceId` | Only for Android. Whether to use app ser id as device id on Android side. Need to include the module and permission. | By default, the deviceId will be UUID+"R" |
     
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold` and `setEventUploadPeriodMillis`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. This SDK not support [batch api](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```dart
-// events queued in memory will flush when number of events exceed upload threshold
-// default value is 10
+// Events queued in memory will flush when number of events exceed upload threshold
+// Default value is 10
 Amplitude.getInstance().setEventUploadThreshold(20);
 
-// events queue will flush every certain milliseconds based on setting
-// default value is 10,000 milliseconds
+// Events queue will flush every certain milliseconds based on setting
+// Default value is 10,000 milliseconds
 Amplitude.getInstance().setEventUploadPeriodMillis(5000);
 ```
 

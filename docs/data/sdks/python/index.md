@@ -74,7 +74,7 @@ client.configuration.opt_out = False
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `track` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `flush_queue_size` and `flush_interval_millis`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, please check the `use_batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
+To support high performance environments, the SDK sends events in batches. Every event logged by `track` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `flush_queue_size` and `flush_interval_millis`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, set `use_batch` to true to set setServerUrl to batch event upload api `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
 
 ```Python
 from amplitude import Amplitude
@@ -82,11 +82,11 @@ from amplitude import Amplitude
 
 client = Amplitude('API_KEY')
 
-# events queued in memory will flush when number of events exceed upload threshold
-# default value is 200
+# Events queued in memory will flush when number of events exceed upload threshold
+# Default value is 200
 client.configuration.flush_queue_size = 100
-# events queue will flush every certain milliseconds based on setting
-# default value is 10 milliseconds
+# Events queue will flush every certain milliseconds based on setting
+# Default value is 10 milliseconds
 client.configuration.flush_interval_millis = 20000 # 20 seconds
 ```
 
