@@ -31,15 +31,27 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
-### Debugging
-
---8<-- "includes/sdk-ts/client-debugging.md"
-
 ### Configuration
 
---8<-- "includes/sdk-ts-browser/shared-configurations.md"
+???config "Configuration Options"
+    --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
-### EU data residency
+ --8<-- "includes/sdk-ts/shared-batch-configuration.md"
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 30, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+  // Using batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
+  useBatch: true
+});
+```
+
+#### EU data residency
 
 You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
 
@@ -48,9 +60,13 @@ You can configure the server zone when initializing the client for sending data 
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: amplitude.Types.ServerZone.EU,
+  serverZone: `EU`,
 });
 ```
+
+#### Debugging
+
+--8<-- "includes/sdk-ts/client-debugging.md"
 
 ### Tracking an event
 

@@ -11,7 +11,7 @@ The Marketing Analytics Browser SDK extends the Browser SDK to identify users an
 !!!info "Marketing Analytics Browser SDK Resources"
 
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
-
+ 
 !!!note "Marketing Analytics Browser SDK versus the Browser SDK"
 
     The Marketing Analytics Browser SDK extends the Browser SDK with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Browser SDK](../typescript-browser).
@@ -56,18 +56,36 @@ The Marketing Analytics Browser SDK has the same functionalities as the Browser 
 
 ### Configuration
 
-In addition to the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
+???config "Basic Configuration Options"
+    --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
-|<div class="big-column">Name</div>| Description|
-|---|----|
-|`attribution.disabled`| Optional. `boolean`. Disable the attribution tracking, attribution is enabled by default |
-|`attribution.excludeReferrers`|  Optional. `string[]`. Exclude the attribution tracking for the provided referrers string |
-|`attribution.initialEmptyValue`| Optional. `string`. Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
-|`attribution.resetSessionOnNewCampaign`| Optional. `boolean`. Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default. |
-|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
-|`pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all`. Track the page view only on the path changes, track `all` URL changes by default|
+In addition to the basic configuration options, the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
 
---8<-- "includes/sdk-ts-browser/marketing-analytics.md"
+|<div class="big-column">Name</div>| Description| Default Value|
+|---|----|---|
+|`attribution.disabled`| `boolean`. Whether disable the attribution tracking.| `false` |
+|`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. | 
+|`attribution.initialEmptyValue`| `string`. Whether reset the `sessionId` on a new campaign. | `EMPTY` |
+|`attribution.resetSessionOnNewCampaign`| `boolean`. Whether reset the `sessionId` on a new campaign. | SDK won't create a new session for new campaign by default. | 
+|`pageViewTracking.trackOn`| `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions| `undefined` |
+|`pageViewTracking.trackHistoryChanges`  | `pathOnly` or `all` or `undefined`. Use this option to subscribe to page view changes in a single page application like React.js. `pathOnly` - Compare the path only changes for page view tracking. `all`- Compare the full url changes for page view tracking. `undefined` - Default behavior. Page view changes in single page applications does not trigger a page view event. | `undefined` |
+
+ --8<-- "includes/sdk-ts/shared-batch-configuration.md"
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 30, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+  // Using batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
+  useBatch: true
+});
+```
+
+---8<-- "includes/sdk-ts-browser/marketing-analytics.md"
 
 ### Use the Marketing Analytics SDK with Ampli
 

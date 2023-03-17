@@ -75,11 +75,27 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-### Debugging
+### Configuration
 
---8<-- "includes/sdk-ts/client-debugging.md"
+???config "Configuration Options"
+    --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
-### EU data residency
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-react-native';
+
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 20, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+});
+```
+
+#### EU data residency
 
 You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
 
@@ -93,6 +109,10 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   serverZone: amplitude.Types.ServerZone.EU,
 });
 ```
+
+#### Debugging
+
+--8<-- "includes/sdk-ts/client-debugging.md"
 
 ### Tracking an event
 

@@ -24,7 +24,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-#### Debug Mode
+##### Debug Mode
 Enable the debug mode by setting the `logLevel` to "Debug", example:
 
 ```ts

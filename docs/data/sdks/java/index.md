@@ -74,17 +74,18 @@ client.init("YOUR_API_KEY");
 
 To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold` and `setEventUploadPeriodMillis`. By default, the SDK is in regular mode with `serverUrl` to `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, switch to batch mode by setting `useBatchMode` to `true` to set setServerUrl to batch event upload API `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
 
-For customers who want to send large batches of data at a time, 
-
 ```java
 Amplitude client = Amplitude.getInstance();
-// events queued in memory will flush when number of events exceed upload threshold
-// default value is 10
+// Events queued in memory will flush when number of events exceed upload threshold
+// Default value is 10
 client.setEventUploadThreshold(20);
 
-// events queue will flush every certain milliseconds based on setting
-// default value is 10,000 milliseconds
+// Events queue will flush every certain milliseconds based on setting
+// Default value is 10,000 milliseconds
 client.setEventUploadPeriodMillis(5000);
+
+// Using batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
+client.useBatchMode(true);
 ```
 
 You can also flush events on demand.

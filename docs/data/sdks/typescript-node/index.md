@@ -39,9 +39,25 @@ init(API_KEY, {
 });
 ```
 
-### Debugging
+### Configuration
 
---8<-- "includes/sdk-ts/server-debugging.md"
+???config "Configuration Options"
+    --8<-- "includes/sdk-ts/shared-ts-configurations.md"  
+
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-node';
+
+amplitude.init(API_KEY, {
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 20, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+});
+```
 
 #### EU data residency
 
@@ -57,6 +73,10 @@ amplitude.init(API_KEY, {
   serverZone: amplitude.Types.ServerZone.EU,
 });
 ```
+
+#### Debugging
+
+--8<-- "includes/sdk-ts/server-debugging.md"
 
 ### Tracking an event
 
