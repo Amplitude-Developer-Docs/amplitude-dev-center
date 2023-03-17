@@ -5,7 +5,7 @@ icon: simple/javascript
 ---
 
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-browser)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser.svg)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
@@ -33,10 +33,9 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 ### Configuration
 
-???config "Configuration Options"
-    --8<-- "includes/sdk-ts-browser/shared-configurations.md"
+--8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
- --8<-- "includes/sdk-ts/shared-batch-configuration.md"
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -53,16 +52,8 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 #### EU data residency
 
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
+--8<-- "includes/sdk-ts/client-eu-residency.md"
 
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
-
-```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: `EU`,
-});
-```
 
 #### Debugging
 

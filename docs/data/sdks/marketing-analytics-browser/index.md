@@ -4,14 +4,14 @@ description: The Amplitude Marketing Analytics Browser SDK Installation & Quick 
 icon: simple/javascript
 ---
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fmarketing-analytics-browser.svg)](https://badge.fury.io/js/@amplitude%2Fmarketing-analytics-browser)
+![npm version](https://img.shields.io/npm/v/@amplitude/marketing-analytics-browser)
 
 The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
 
 !!!info "Marketing Analytics Browser SDK Resources"
 
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
- 
+
 !!!note "Marketing Analytics Browser SDK versus the Browser SDK"
 
     The Marketing Analytics Browser SDK extends the Browser SDK with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Browser SDK](../typescript-browser).
@@ -56,8 +56,7 @@ The Marketing Analytics Browser SDK has the same functionalities as the Browser 
 
 ### Configuration
 
-???config "Basic Configuration Options"
-    --8<-- "includes/sdk-ts-browser/shared-configurations.md"
+--8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
 In addition to the basic configuration options, the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
 
@@ -70,7 +69,7 @@ In addition to the basic configuration options, the Marketing Analytics Browser 
 |`pageViewTracking.trackOn`| `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions| `undefined` |
 |`pageViewTracking.trackHistoryChanges`  | `pathOnly` or `all` or `undefined`. Use this option to subscribe to page view changes in a single page application like React.js. `pathOnly` - Compare the path only changes for page view tracking. `all`- Compare the full url changes for page view tracking. `undefined` - Default behavior. Page view changes in single page applications does not trigger a page view event. | `undefined` |
 
- --8<-- "includes/sdk-ts/shared-batch-configuration.md"
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -85,7 +84,11 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
----8<-- "includes/sdk-ts-browser/marketing-analytics.md"
+#### EU data residency
+
+--8<-- "includes/sdk-ts/client-eu-residency.md"
+
+--8<-- "includes/sdk-ts-browser/marketing-analytics.md"
 
 ### Use the Marketing Analytics SDK with Ampli
 

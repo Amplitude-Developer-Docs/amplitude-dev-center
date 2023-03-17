@@ -22,31 +22,92 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
 
 ## Usage
 
-### `Configuration`
+### Configuration
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `flushIntervalMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. | `30000` |
-    | `flushQueueSize` | SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
-    | `flushMaxRetries` | Maximum retry times.  | `5` |
-    | `minIdLength` | The minimum length for user id or device id. | `5` |
-    | `partnerId` | The partner id for partner integration. | `null` |
-    | `identifyBatchIntervalMillis` | The amount of time SDK will attempt to batch intercepted identify events. | `30000` |
-    | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
-    | `callback` | Callback function after event sent. | `null` |
-    | `optOut` | Opt the user out of tracking. | `false` |
-    | `trackingSessionEvents` | Flushing of unsent events on app close. | `false` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
-    | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
-    | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
-    | `useBatch` |  Whether to use batch api. | `false` |
-    | `useAdvertisingIdForDeviceId` |  Whether to use advertising id as device id. Need to include the module and permission. | `false` |
-    | `useAppSetIdForDeviceId` |  Whether to use app ser id as device id. Need to include the module and permission. | `false` |
-    | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` |  Whether to enable coppa control for tracking options. | `false` |'
+    | `flushIntervalMillis` | `Int`. The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. | `30000` |
+    | `flushQueueSize` | `Int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
+    | `flushMaxRetries` | `Int`. Maximum retry times.  | `5` |
+    | `minIdLength` | `Int`. The minimum length for user id or device id. | `5` |
+    | `partnerId` | `Int`. The partner id for partner integration. | `null` |
+    | `identifyBatchIntervalMillis` | `Long`. The amount of time SDK will attempt to batch intercepted identify events. | `30000` |
+    | `flushEventsOnClose` | `Boolean`. Flushing of unsent events on app close. | `true` |
+    | `callback` | `EventCallBack`. Callback function after event sent. | `null` |
+    | `optOut` | `Boolean`. Opt the user out of tracking. | `false` |
+    | `trackingSessionEvents` | `Boolean`. Flushing of unsent events on app close. | `false` |
+    | `minTimeBetweenSessionsMillis` | `Long`. The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `serverUrl` | `String`. The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
+    | `serverZone` | `ServerZone.US` or `ServerZone.EU`. The server zone to send to, will adjust server url based on this config. | `ServerZone.US` |
+    | `useBatch` | `Boolean` Whether to use batch api. | `false` |
+    | `useAdvertisingIdForDeviceId` | `Boolean`. Whether to use advertising id as device id. Need to include the module and permission. | `false` |
+    | `useAppSetIdForDeviceId` | `Boolean`.  Whether to use app ser id as device id. Need to include the module and permission. | `false` |
+    | `trackingOptions` | `TrackingOptions`. Options to control the values tracked in SDK. | `enable` |
+    | `enableCoppaControl` | `Boolean`. Whether to enable coppa control for tracking options. | `false` |'
 
-### `track`
+#### Configure batching behavior
+
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
+
+=== "Java"
+
+    ```java 
+    import com.amplitude.android.Amplitude;
+
+    Amplitude amplitude =  new Amplitude(new Configuration(
+        apiKey = AMPLITUDE_API_KEY,
+        context = applicationContext,
+        flushIntervalMillis = 50000,
+        flushQueueSize = 20,
+    ));
+    ```
+=== "Kotlin"
+
+    ```kotlin
+    import com.amplitude.android.Amplitude
+
+    val amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            flushIntervalMillis = 50000,
+            flushQueueSize = 20,
+
+        )
+    )
+    ```
+
+#### EU data residency
+
+--8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
+
+=== "Java"
+
+    ```java
+    import com.amplitude.android.Amplitude;
+
+    Amplitude amplitude =  new Amplitude(new Configuration(
+        apiKey = AMPLITUDE_API_KEY,
+        context = applicationContext,
+        serverZone = ServerZone.EU
+    ));
+    ```
+=== "Kotlin"
+
+    ```kotlin
+    import com.amplitude.android.Amplitude
+
+    val amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+            serverZone = ServerZone.EU
+        )
+    )
+    ```
+
+### track
 
 Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
 
@@ -57,7 +118,7 @@ amplitude.track(
 )
 ```
 
-### `identify`
+### identify
 
 Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
 Starting from release v1.7.0, identify events with only set operations will be batched and sent with fewer events. This change won't affect running the set operations. There is a config `identifyBatchIntervalMillis` managing the interval to flush the batched identify intercepts.

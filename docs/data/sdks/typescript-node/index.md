@@ -6,8 +6,7 @@ search:
   boost: 2
 ---
 
-
-[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-node.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-node)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-node)
 
 The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
@@ -41,8 +40,7 @@ init(API_KEY, {
 
 ### Configuration
 
-???config "Configuration Options"
-    --8<-- "includes/sdk-ts/shared-ts-configurations.md"  
+--8<-- "includes/sdk-ts/shared-ts-configuration.md"
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -61,10 +59,7 @@ amplitude.init(API_KEY, {
 
 #### EU data residency
 
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
-
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
+--8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
 ```ts
 import * as amplitude from '@amplitude/analytics-node';
