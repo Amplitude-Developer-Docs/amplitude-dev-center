@@ -51,24 +51,24 @@ client.init("YOUR_API_KEY");
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `setServerUrl` | `String`. The server url events are uploaded to. | `https://api2.amplitude.com/2/httpapi` |
-    | `useBatchMode` | `Boolean`. Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. | `false` |
-    | `setLogMode` | `AmplitudeLog.LogMode`. The level at which to filter out debug messages. | `LogMode.ERROR` |
-    | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. | `10` |
-    | `setEventUploadPeriodMillis` | `int`. The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. | `10 seconds` |
-    | `setCallbacks` | `Function`. Event callback which are triggered after event sent. | `null`|
-    | `setProxy` | `Proxy`. Custom proxy for https requests. | `Proxy.NO_PROXY`|
-    | `setFlushTimeout` | `long`. Events flushing thread timeout in milliseconds. | `0` |
-    | `setOptions` | `Options`. A dictionary of key-value pairs that represent additional instructions for server save operation.| Please check [available options](/#options). |
+    | `setServerUrl()` | `String`. The server url events are uploaded to. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/2/httpapi` |
+    | `useBatchMode()` | `Boolean`. Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. For example, `Amplitude.getInstance().useBatchMode(true)`. | `false` |
+    | `setLogMode()` | `AmplitudeLog.LogMode`. The level at which to filter out debug messages. For example, `Amplitude.getInstance().setLogMode(AmplitudeLog.LogMode.DEBUG)`. | `AmplitudeLog.LogMode.ERROR` |
+    | `setEventUploadThreshold()` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. For example, `Amplitude.getInstance().setEventUploadThreshold(50)`. | `10` |
+    | `setEventUploadPeriodMillis()` | `int`. The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. The input parameter is in millionseconds. For example, `Amplitude.getInstance().setEventUploadPeriodMillis(200000)`. | `10 seconds` |
+    | `setCallbacks()` | `AmplitudeCallbacks`. Event callback which are triggered after event sent. | `null`|
+    | `setProxy()` | `Proxy`. Custom proxy for https requests. For example, `Amplitude.getInstance().setProxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.domain.com", port)));`. | `Proxy.NO_PROXY` |
+    | `setFlushTimeout()` | `long`. Events flushing thread timeout in milliseconds.  For example, `Amplitude.getInstance().setFlushTimeout(2000L)`. | `0` |
+    | `setOptions()` | `Options`. A dictionary of key-value pairs that represent additional instructions for server save operation. For example, `Amplitude.getInstance().setOptions(new Options().setMinIdLength(8));`. | Please check [available options](/#options). |
 
 ### Options
 
 ???config "Availabe Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `Options.setMinIdLength` | `Integer`. Set the minimum length for user id or device id. | `5` |
-    | `Options.setHeaders` | `Map<String, String>`. Set the custom headers. | `{"Content-Type", "application/json", "Accept", "application/json"}` |
-    | `Options.addHeaders` | `String, String`. Add more custom headers. | `{"Content-Type", "application/json", "Accept", "application/json"}` |
+    | `Options.setMinIdLength()` | `Integer`. Set the minimum length for user id or device id. For example, `Amplitude.getInstance().setOptions(new Options().setMinIdLength(8));`. | `5` |
+    | `Options.setHeaders()` | `Map<String, String>`. Set the custom headers. For example, `Amplitude.getInstance().setOptions(new Options().setHeaders(new HashMap<>(Map.of("Custom Header", "value"))));`. | `{"Content-Type", "application/json", "Accept", "application/json"}` |
+    | `Options.addHeader()` | `String, String`. Add more custom headers. For example, `Amplitude.getInstance().setOptions(new Options().addHeader("Custom Header", "value"));`. | `{"Content-Type", "application/json", "Accept", "application/json"}` |
 
 #### Configure batching behavior
 

@@ -27,17 +27,17 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `flushIntervalMillis` | `Int`. The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. | `30000` |
+    | `flushIntervalMillis` | `Int`. The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. The value is in milliseconds. | `30000` |
     | `flushQueueSize` | `Int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
     | `flushMaxRetries` | `Int`. Maximum retry times.  | `5` |
     | `minIdLength` | `Int`. The minimum length for user id or device id. | `5` |
     | `partnerId` | `Int`. The partner id for partner integration. | `null` |
-    | `identifyBatchIntervalMillis` | `Long`. The amount of time SDK will attempt to batch intercepted identify events. | `30000` |
+    | `identifyBatchIntervalMillis` | `Long`. The amount of time SDK will attempt to batch intercepted identify events. The value is in milliseconds| `30000` |
     | `flushEventsOnClose` | `Boolean`. Flushing of unsent events on app close. | `true` |
     | `callback` | `EventCallBack`. Callback function after event sent. | `null` |
     | `optOut` | `Boolean`. Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | `Boolean`. Flushing of unsent events on app close. | `false` |
-    | `minTimeBetweenSessionsMillis` | `Long`. The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `minTimeBetweenSessionsMillis` | `Long`. The amount of time for session timeout if disable foreground tracking. The value is in milliseconds. | `300000` |
     | `serverUrl` | `String`. The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` | `ServerZone.US` or `ServerZone.EU`. The server zone to send to, will adjust server url based on this config. | `ServerZone.US` |
     | `useBatch` | `Boolean` Whether to use batch api. | `false` |
