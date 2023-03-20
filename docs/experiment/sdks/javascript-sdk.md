@@ -11,7 +11,7 @@ Official documentation for Amplitude Experiment's Client-side JavaScript SDK imp
 
 ## Install
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fexperiment-js-client.svg)](https://badge.fury.io/js/@amplitude%2Fexperiment-js-client)
+![npm version](https://img.shields.io/npm/v/@amplitude/experiment-js-client)
 
 Install the Experiment JavaScript Client SDK.
 

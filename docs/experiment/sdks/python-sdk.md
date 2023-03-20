@@ -6,7 +6,7 @@ icon: simple/python
 
 Official documentation for Amplitude Experiment's server-side Python SDK implementation.
 
-[![PyPI version](https://badge.fury.io/py/amplitude-experiment.svg)](https://badge.fury.io/py/amplitude-experiment)
+![PyPI version](https://img.shields.io/pypi/v/amplitude-experiment)
 
 !!!info "SDK Resources"
      [:material-github: GitHub](https://github.com/amplitude/experiment-python-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-python-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-python-server/)
