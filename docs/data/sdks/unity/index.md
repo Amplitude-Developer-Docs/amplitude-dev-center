@@ -121,7 +121,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ### Configuration
 
 Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), and [Amplitude iOS Mantaince SDK](../ios/). The following are the C# settable config options.
-For more configurations:
+For other default configurations:
 
 - on Android side, check the [Android Configuration](../android-kotlin/#configuration)
 - on iOS side, check the [iOS configuration](../ios/#configuration)
@@ -136,10 +136,10 @@ For more configurations:
     | `setEventUploadPeriodSeconds` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `eventUploadPeriodSeconds` or reach 30 events threshold. For example, `Amplitude.getInstance().setEventUploadPeriodSeconds(50)`. | `30 seconds` |
     | `setServerZone` | `AmplitudeServerZone`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. For example, `Amplitude.getInstance().setServerZone(AmplitudeServerZone.US)`. | `AmplitudeServerZone.US` |
     | `setServerUrl` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
-    | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. For example, `amplitude.setUseDynamicConfig(true)`. | `false` |
-    | `setOffline` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. For example, `amplitude.setOffline(true)`. | `false` |
-    | `useAdvertisingIdForDeviceId` | `bool`. Whether to use advertising id as device id. Need to include the module and permission. For example, `amplitude.useAdvertisingIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
-    | `useAppSetIdForDeviceId` | `bool`. Only for Android. Whether use appset id as a deviceId. For example, `amplitude.useAppSetIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+    | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. For example, `Amplitude.getInstance().setUseDynamicConfig(true)`. | `false` |
+    | `setOffline` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. For example, `Amplitude.getInstance().setOffline(true)`. | `false` |
+    | `useAdvertisingIdForDeviceId` | `bool`. Whether to use advertising id as device id. Need to include the module and permission. For example, `Amplitude.getInstance().useAdvertisingIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+    | `useAppSetIdForDeviceId` | `bool`. Only for Android. Whether use appset id as a deviceId. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
 
 #### Configure batching behavior
 
