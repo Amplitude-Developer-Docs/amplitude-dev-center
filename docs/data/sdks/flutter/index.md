@@ -80,7 +80,7 @@ For other default configurations:
     | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
     | `setOptOut()` | `bool`. Opt the user out of tracking. For example, `Amplitude.getInstance().setOptOut(true)`.| `false` |
     | `trackingSessionEvents()` | `bool`. Flushing of unsent events on app close. For example, `Amplitude.getInstance().trackingSessionEvents(true)`. | `false` |
-    | `useAppSetIdForDeviceId()` | Only for Android. Whether to use app ser id as device id on Android side. Need to include the module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
+    | `useAppSetIdForDeviceId()` | Only for Android. Whether to use app ser id as device id on Android side. Please check [here](../android/#app-set-id) for the required module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
     
 #### Configure batching behavior
 

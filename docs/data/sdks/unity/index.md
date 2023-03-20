@@ -138,8 +138,8 @@ For other default configurations:
     | `setServerUrl()` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
     | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `Amplitude.getInstance().setUseDynamicConfig(true)`. | `false` |
     | `setOffline()` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. For example, `Amplitude.getInstance().setOffline(true)`. | `false` |
-    | `useAdvertisingIdForDeviceId()` | `bool`. Whether to use advertising id as device id. Need to include the module and permission. For example, `Amplitude.getInstance().useAdvertisingIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
-    | `useAppSetIdForDeviceId()` | `bool`. Only for Android. Whether use appset id as a deviceId. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+    | `useAdvertisingIdForDeviceId()` | `bool`. Whether to use advertising id as device id. Please check [here](../android/#advertiser-id) for the required module and permission. For example, `Amplitude.getInstance().useAdvertisingIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+    | `useAppSetIdForDeviceId()` | `bool`. Only for Android. Whether use appset id as a deviceId. Please check [here](../android/#app-set-id) for the required module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
 
 #### Configure batching behavior
 
