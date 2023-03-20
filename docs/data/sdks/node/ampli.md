@@ -13,9 +13,6 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Click here for more documentation on the [Amplitude Node SDK](./index.md).
 
-!!!note "Deprecated Itly runtime"
-    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/nodejs.md)**.
-
 --8<-- "includes/beta-not-supported.md"
 
 ???tip "Enable type checking"
@@ -335,31 +332,3 @@ Track Event objects using Ampli `track`:
 --8<-- "includes/ampli/flush/ampli-flush-snippet-typescript.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
-
-## Migrate from an Itly runtime
-
-Migrate from an Itly Node.js runtime to Ampli by following these steps.
-
-1. Update Source runtime. In the web app open the **Connections > Source** modal. From the dropdown, update the source to a non-`(Itly)` runtime.
-2. Follow steps on this page for detailed setup and usage instructions.
-3. Remove legacy Itly dependencies from your project. This includes anything that contains `@itly`:
-
-      `yarn remove @itly/sdk @itly/plugin-schema-validator @itly/plugin-amplitude-node ...`
-4. Add Amplitude dependencies:
-
-    `yarn add @amplitude/node@^1.10.2`
-
-5. Pull the latest Ampli Wrapper:
-
-    `ampli pull`
-
-6. Check your Ampli Wrapper path.
-
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-
-7. Find and replace:
-    - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
-    - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
-    - `itly.load()` => `ampli.load()`
-    - All `itly.` with `ampli.`
-8. See updated Event tracking details on your Implementation page in the web app.

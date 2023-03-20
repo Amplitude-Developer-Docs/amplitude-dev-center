@@ -13,9 +13,6 @@ Amplitude Data supports tracking analytics events from Python apps (Python 3.6 o
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Click here for more documentation on the [Amplitude Python SDK](./index.md).
 
-!!!note "Deprecated Itly runtime"
-    This page covers the Python Ampli runtimes. All Python Itly runtimes are deprecated. If you are still using an Python Itly runtime, see the **[migration guide](#migrate-from-an-itly-python-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/python.md)**.
-
 ## Quick Start
 
 0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
@@ -245,40 +242,3 @@ ampli.client.add(SegmentPlugin("write_key"))
 ```
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
-
-## Migrate from an Itly Python runtime
-
-Migrate from an Itly Python runtime to Ampli by following these steps.
-
-1. Update Source runtime. In the web app open the **Connections > Source** modal. From the dropdown, update the source to a non-`(Itly)` runtime.
-
-2. Follow steps on this page for detailed setup and usage instructions.
-
-3. Remove legacy Itly dependencies from your project.
-
-    ```bash
-    pip uninstall -r itly/requirements.txt
-    rm -rf ./itly
-    ```
-
-4. Add Amplitude dependencies.
-
-    ```bash
-    pip install amplitude-analytics
-    ```
-
-5. Pull the latest Ampli Wrapper.
-
-    ```bash
-    ampli pull
-    ```
-
-6. Check your Ampli Wrapper path.
-    `ampli pull` prints the download location of the new SDK. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-
-7. Find and replace:
-
-    - `import itly` => `from ampli import *`
-    - `itly.` => `ampli.`
-
-8. See updated Event tracking details on your Implementation page in the web app.

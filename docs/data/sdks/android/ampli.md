@@ -14,9 +14,6 @@ Amplitude Data supports tracking analytics events from Android apps written in K
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Visit the [Amplitude Android SDK](./index.md) documentation.
 
-!!!note "Deprecated Itly runtime"
-    This page covers the Android Java and Kotlin runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-android-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/android.md)**.
-
 ## Quick Start
 
 0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
@@ -316,55 +313,3 @@ Send event objects using the generic track method.
 --8<-- "includes/ampli/flush/ampli-flush-snippet-java.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
-
-## Migrate from an Itly Android runtime
-
-Migrate from an Itly Android runtime to Ampli by following these steps.
-
-1. Remove legacy Itly dependencies from your project. This includes anything with a `ly.iterative.itly`.
-
-    ```bash
-    implementation "ly.iterative.itly:sdk-android:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-iteratively:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-schema-validator:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-amplitude-android:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-mixpanel-android:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-mparticle-android:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-segment-android:$itlySdkVersion"
-    ```
-
-2. Add Amplitude dependencies.
-
-    ```bash
-    implementation 'com.amplitude:android-sdk:[2.37.0,3.0)'
-    // https://github.com/amplitude/Amplitude-Android/issues/309
-    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
-    ```
-
-3. Pull the latest Ampli Wrapper.
-
-    ```bash
-    ampli pull
-    ```
-
-4. Check your Ampli Wrapper path.
-    `ampli pull` prints the new wrapper's location. If this still contains `itly` you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-
-5. Find and replace:
-
-    **Kotlin and Java:**
-    - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
-    - `itly.` => `ampli.`
-    - `itly.group(groupId)` => `ampli.setGroup(groupType, groupValue)`
-
-    **Kotlin only:**
-
-    - `Itly.load()` => `ampli.load()`
-    - `Itly.` => `ampli.`
-
-    **Java only:**
-
-    - `Itly.getInstance().load()` => `Ampli.getInstance().load()`
-    - `Itly.` => `Ampli.`
-
-6. See updated Event tracking details on your Implementation page in the web app.
