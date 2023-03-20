@@ -203,6 +203,15 @@ Configure and update source runtime. Follow the prompts to select a specific pla
 ✔ Successfully configured source.
 ```
 
+```shell
+USAGE
+  $ ampli configure
+OPTIONS
+  None
+EXAMPLES
+  $ ampli configure
+```
+
 ### `ampli init`
 
 Initialize your workspace.
