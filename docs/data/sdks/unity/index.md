@@ -131,15 +131,15 @@ For other default configurations:
     | --- | --- | --- |
     | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.  | Coppa control is disabled by default. |
     | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. | Coppa control is disabled by default. |
-    | `setTrackingOptions`| `IDictionary<string, bool>`. By default the SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. | `All tracking options enabled.` |
-    | `setMinTimeBetweenSessionsMillis` | `long`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. | `5 minutes` |
-    | `setEventUploadPeriodSeconds` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `eventUploadPeriodSeconds` or reach 30 events threshold. For example, `Amplitude.getInstance().setEventUploadPeriodSeconds(50)`. | `30 seconds` |
-    | `setServerZone` | `AmplitudeServerZone`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. For example, `Amplitude.getInstance().setServerZone(AmplitudeServerZone.US)`. | `AmplitudeServerZone.US` |
-    | `setServerUrl` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
-    | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. For example, `Amplitude.getInstance().setUseDynamicConfig(true)`. | `false` |
-    | `setOffline` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. For example, `Amplitude.getInstance().setOffline(true)`. | `false` |
-    | `useAdvertisingIdForDeviceId` | `bool`. Whether to use advertising id as device id. Need to include the module and permission. For example, `Amplitude.getInstance().useAdvertisingIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
-    | `useAppSetIdForDeviceId` | `bool`. Only for Android. Whether use appset id as a deviceId. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+    | `setTrackingOptions()`| `IDictionary<string, bool>`. By default the SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. | `All tracking options enabled.` |
+    | `setMinTimeBetweenSessionsMillis()` | `long`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. The input parameter is in milliseconds. | `5 minutes` |
+    | `setEventUploadPeriodSeconds()` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `eventUploadPeriodSeconds` or reach 30 events threshold. For example, `Amplitude.getInstance().setEventUploadPeriodSeconds(50)`. The input parameter is in seconds.| `30 seconds` |
+    | `setServerZone()` | `AmplitudeServerZone`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. For example, `Amplitude.getInstance().setServerZone(AmplitudeServerZone.US)`. | `AmplitudeServerZone.US` |
+    | `setServerUrl()` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
+    | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `Amplitude.getInstance().setUseDynamicConfig(true)`. | `false` |
+    | `setOffline()` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. For example, `Amplitude.getInstance().setOffline(true)`. | `false` |
+    | `useAdvertisingIdForDeviceId()` | `bool`. Whether to use advertising id as device id. Need to include the module and permission. For example, `Amplitude.getInstance().useAdvertisingIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+    | `useAppSetIdForDeviceId()` | `bool`. Only for Android. Whether use appset id as a deviceId. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
 
 #### Configure batching behavior
 

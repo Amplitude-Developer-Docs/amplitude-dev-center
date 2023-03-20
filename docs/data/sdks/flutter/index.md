@@ -73,14 +73,14 @@ For other default configurations:
     | --- | --- | --- |
     | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
     | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
-    | `setMinTimeBetweenSessionsMillis` | `int`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. | `5 minutes` |
-    | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach the 30 seconds. For example, `Amplitude.getInstance().setEventUploadThreshold(50)`.| `30` |
-    | `setServerZone` | `String`. The server zone to send to, will adjust server url based on this config. For example, `Amplitude.getInstance().setServerZone(EU)`.| `US` |
-    | `setServerUrl` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
-    | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
-    | `setOptOut` | `bool`. Opt the user out of tracking. For example, `Amplitude.getInstance().setOptOut(true)`.| `false` |
-    | `trackingSessionEvents` | `bool`. Flushing of unsent events on app close. For example, `Amplitude.getInstance().trackingSessionEvents(true)`. | `false` |
-    | `useAppSetIdForDeviceId` | Only for Android. Whether to use app ser id as device id on Android side. Need to include the module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
+    | `setMinTimeBetweenSessionsMillis()` | `int`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. The input parameter is in milliseconds. | `5 minutes` |
+    | `setEventUploadThreshold()` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach the 30 seconds. For example, `Amplitude.getInstance().setEventUploadThreshold(50)`.| `30` |
+    | `setServerZone()` | `String`. The server zone to send to, will adjust server url based on this config. For example, `Amplitude.getInstance().setServerZone(EU)`.| `US` |
+    | `setServerUrl()` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
+    | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
+    | `setOptOut()` | `bool`. Opt the user out of tracking. For example, `Amplitude.getInstance().setOptOut(true)`.| `false` |
+    | `trackingSessionEvents()` | `bool`. Flushing of unsent events on app close. For example, `Amplitude.getInstance().trackingSessionEvents(true)`. | `false` |
+    | `useAppSetIdForDeviceId()` | Only for Android. Whether to use app ser id as device id on Android side. Need to include the module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
     
 #### Configure batching behavior
 
