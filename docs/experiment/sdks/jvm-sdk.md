@@ -20,7 +20,7 @@ Implements fetching variants for a user via [remote evaluation](../general/evalu
 
 ### Install
 
-![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server.svg?label=Maven%20Central)
+![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server?versionPrefix=1.1)
 
 Install the JVM Server SDK using Gradle.
 
