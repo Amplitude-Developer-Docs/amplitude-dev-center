@@ -41,8 +41,8 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `serverUrl` | `String`. The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` | `ServerZone.US` or `ServerZone.EU`. The server zone to send to, will adjust server url based on this config. | `ServerZone.US` |
     | `useBatch` | `Boolean` Whether to use batch api. | `false` |
-    | `useAdvertisingIdForDeviceId` | `Boolean`. Whether to use advertising id as device id. Need to include the module and permission. | `false` |
-    | `useAppSetIdForDeviceId` | `Boolean`.  Whether to use app ser id as device id. Need to include the module and permission. | `false` |
+    | `useAdvertisingIdForDeviceId` | `Boolean`. Whether to use advertising id as device id. Please check [here](data/sdks/android-kotlin/#advertiser-id) for required module and permission. | `false` |
+    | `useAppSetIdForDeviceId` | `Boolean`.  Whether to use app set id as device id. Please check [here](data/sdks/android-kotlin/#app-set-id) for required module and permission. | `false` |
     | `trackingOptions` | `TrackingOptions`. Options to control the values tracked in SDK. | `enable` |
     | `enableCoppaControl` | `Boolean`. Whether to enable coppa control for tracking options. | `false` |'
 

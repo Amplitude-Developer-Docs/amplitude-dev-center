@@ -56,6 +56,8 @@ The Marketing Analytics Browser SDK has the same functionalities as the Browser 
 
 ### Configuration
 
+Basic configuration options are the same as the standard Browser SDK.
+
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
 In addition to the basic configuration options, the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
