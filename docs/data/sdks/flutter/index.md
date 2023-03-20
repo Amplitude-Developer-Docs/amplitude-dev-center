@@ -62,7 +62,7 @@ class YourClass {
 ### Configuration
 
 Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options.
-For more configurations:
+For other default configurations:
 
 - on Android side, check the [Android Configuration](../android-kotlin/#configuration)
 - on iOS side, check the [iOS configuration](../ios/#configuration)
@@ -71,16 +71,16 @@ For more configurations:
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Default behavior is disabled coppa control. |
-    | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Default behavior is disabled coppa control. |
-    | `setMinTimeBetweenSessionsMillis` | `int`. The amount of time for session timeout if disable foreground tracking. | `5 minutes` |
-    | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach the 30 seconds. | `30` |
-    | `setServerZone` | `String`. The server zone to send to, will adjust server url based on this config. | `US` |
-    | `setServerUrl` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` | `https://api2.amplitude.com/` |
-    | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. | `false` |
-    | `setOptOut` | `bool`. Opt the user out of tracking. | `false` |
-    | `trackingSessionEvents` | `bool`. Flushing of unsent events on app close. | `false` |
-    | `useAppSetIdForDeviceId` | Only for Android. Whether to use app ser id as device id on Android side. Need to include the module and permission. | By default, the deviceId will be UUID+"R" |
+    | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
+    | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
+    | `setMinTimeBetweenSessionsMillis` | `int`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. | `5 minutes` |
+    | `setEventUploadThreshold` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach the 30 seconds. For example, `Amplitude.getInstance().setEventUploadThreshold(50)`.| `30` |
+    | `setServerZone` | `String`. The server zone to send to, will adjust server url based on this config. For example, `Amplitude.getInstance().setServerZone(EU)`.| `US` |
+    | `setServerUrl` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
+    | `setUseDynamicConfig` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
+    | `setOptOut` | `bool`. Opt the user out of tracking. For example, `Amplitude.getInstance().setOptOut(true)`.| `false` |
+    | `trackingSessionEvents` | `bool`. Flushing of unsent events on app close. For example, `Amplitude.getInstance().trackingSessionEvents(true)`. | `false` |
+    | `useAppSetIdForDeviceId` | Only for Android. Whether to use app ser id as device id on Android side. Need to include the module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
     
 #### Configure batching behavior
 
@@ -93,7 +93,7 @@ Amplitude.getInstance().setEventUploadThreshold(20);
 
 // Events queue will flush every certain milliseconds based on setting
 // Default value is 10,000 milliseconds
-Amplitude.getInstance().setEventUploadPeriodMillis(5000);
+Amplitude.getInstance().setEventUploadPeriodMillis(20000);
 ```
 
 #### EU data residency
