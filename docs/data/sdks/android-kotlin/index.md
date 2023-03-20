@@ -46,8 +46,6 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `trackingOptions` | `TrackingOptions`. Options to control the values tracked in SDK. | `enable` |
     | `enableCoppaControl` | `Boolean`. Whether to enable coppa control for tracking options. | `false` |'
 
-#### Configure batching behavior
-
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 === "Java"
@@ -77,8 +75,6 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
         )
     )
     ```
-
-#### EU data residency
 
 --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
