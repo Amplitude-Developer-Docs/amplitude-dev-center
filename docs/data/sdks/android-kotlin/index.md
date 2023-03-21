@@ -71,7 +71,6 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
             context = applicationContext,
             flushIntervalMillis = 50000,
             flushQueueSize = 20,
-
         )
     )
     ```

@@ -52,7 +52,6 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 --8<-- "includes/sdk-ts/client-eu-residency.md"
 
-
 #### Debugging
 
 --8<-- "includes/sdk-ts/client-debugging.md"
@@ -711,8 +710,8 @@ The page view plugin sends a Page View event on each page a user visits by defau
 
 You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
 
-- Site 1: `www.example.com`
-- Site 2: `www.example.org`
+* Site 1: `www.example.com`
+* Site 2: `www.example.org`
 
 Users who start on Site 1 and then navigate to Site 2 must have the device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then needs to initialize the SDK with the device ID.
  The SDK can parse the URL parameter automatically if `deviceId` is in the URL query parameters.
@@ -743,7 +742,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 If your web app configures the strict Content Security Policy (CSP) for security concerns, adjust the policy to whitelist the Amplitude domains:
 
-- When using ["Script Loader"](../sdk-quickstart/#install-the-dependency), add `https://*.amplitude.com` to `script-src`.
-- Add `https://*.amplitude.com` to `connect-src`.
+* When using ["Script Loader"](../sdk-quickstart/#install-the-dependency), add `https://*.amplitude.com` to `script-src`.
+* Add `https://*.amplitude.com` to `connect-src`.
 
 --8<-- "includes/abbreviations.md"
