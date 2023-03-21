@@ -9,10 +9,6 @@
     |`loggerProvider`| `Logger`. Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.| `Amplitude Logger` |
     |`minIdLength`| `number` | Overrides the minimum length of `user_id` & `device_id` fields. | `5` |
     |`optOut`| `boolean`. If `optOut` is `true`, the event isn't sent to Amplitude's servers. | `false` |
-    |`plan`| `Plan` | Tracking plan properties. Amplitude supports only branch, source, version properties. | `{}` |
-    |`plan.branch`| `string`. The tracking plan branch name. For example: "main". | `undefined` |
-    |`plan.source`| `string`. The tracking plan source. For example: "web". | `undefined` |
-    |`plan.version`| `string`. The tracking plan version. For example: "1", "15". | `undefined` |
     |`serverUrl`| `string`. The server url events upload to. | `https://api2.amplitude.com/2/httpapi` | 
     |`serverZone`| `EU` or  `US`. Set Amplitude Server Zone, switch to zone related configuration. To send data to Amplitude's EU servers should configure to `EU` | `US` |
     |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `MemoryStorage` |

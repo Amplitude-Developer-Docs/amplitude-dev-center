@@ -51,7 +51,7 @@ client.init("YOUR_API_KEY");
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `setServerUrl()` | `String`. The server url events are uploaded to. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/2/httpapi` |
+    | `setServerUrl()` | `String`. The server url events are uploaded to. For example, `Amplitude.getInstance().setServerUrl("https://www.your-server-url.com")`. | `https://api2.amplitude.com/2/httpapi` |
     | `useBatchMode()` | `Boolean`. Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. For example, `Amplitude.getInstance().useBatchMode(true)`. | `false` |
     | `setLogMode()` | `AmplitudeLog.LogMode`. The level at which to filter out debug messages. For example, `Amplitude.getInstance().setLogMode(AmplitudeLog.LogMode.DEBUG);`. | `AmplitudeLog.LogMode.ERROR` |
     | `setEventUploadThreshold()` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. For example, `Amplitude.getInstance().setEventUploadThreshold(50);`. | `10` |
