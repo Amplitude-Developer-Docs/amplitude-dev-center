@@ -5,7 +5,7 @@ icon: simple/javascript
 ---
 
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-browser)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser.svg)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
@@ -31,26 +31,30 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
-### Debugging
-
---8<-- "includes/sdk-ts/client-debugging.md"
-
 ### Configuration
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
-### EU data residency
-
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
-
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: amplitude.Types.ServerZone.EU,
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 50, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+  // Using batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
+  useBatch: true
 });
 ```
+
+--8<-- "includes/sdk-ts/client-eu-residency.md"
+
+#### Debugging
+
+--8<-- "includes/sdk-ts/client-debugging.md"
 
 ### Tracking an event
 
@@ -706,8 +710,8 @@ The page view plugin sends a Page View event on each page a user visits by defau
 
 You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
 
-- Site 1: `www.example.com`
-- Site 2: `www.example.org`
+* Site 1: `www.example.com`
+* Site 2: `www.example.org`
 
 Users who start on Site 1 and then navigate to Site 2 must have the device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then needs to initialize the SDK with the device ID.
  The SDK can parse the URL parameter automatically if `deviceId` is in the URL query parameters.
@@ -738,7 +742,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 If your web app configures the strict Content Security Policy (CSP) for security concerns, adjust the policy to whitelist the Amplitude domains:
 
-- When using ["Script Loader"](../sdk-quickstart/#install-the-dependency), add `https://*.amplitude.com` to `script-src`.
-- Add `https://*.amplitude.com` to `connect-src`.
+* When using ["Script Loader"](../sdk-quickstart/#install-the-dependency), add `https://*.amplitude.com` to `script-src`.
+* Add `https://*.amplitude.com` to `connect-src`.
 
 --8<-- "includes/abbreviations.md"

@@ -4,7 +4,7 @@ description: The Amplitude React Native SDK Installation & Quick Start guide.
 icon: simple/react
 ---
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-react-native)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-react-native)
 
 The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native).
 
@@ -75,24 +75,30 @@ init(API_KEY, 'user@amplitude.com', {
 });
 ```
 
-### Debugging
+### Configuration
 
---8<-- "includes/sdk-ts/client-debugging.md"
+--8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
-### EU data residency
-
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
-
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 ```ts
 import * as amplitude from '@amplitude/analytics-react-native';
 
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: amplitude.Types.ServerZone.EU,
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 50, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
 });
 ```
+
+--8<-- "includes/sdk-ts/client-eu-residency.md"
+
+#### Debugging
+
+--8<-- "includes/sdk-ts/client-debugging.md"
 
 ### Tracking an event
 
