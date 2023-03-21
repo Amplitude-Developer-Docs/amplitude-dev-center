@@ -4,7 +4,7 @@ description: The Amplitude Node.js SDK installation and quick start guide.
 icon: simple/nodedotjs
 ---
 
-![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg)
+![npm version](https://img.shields.io/npm/v/@amplitude/node)
 
 This is Amplitude Node.js SDK written in Typescript, the first backend SDK for Amplitude.
 

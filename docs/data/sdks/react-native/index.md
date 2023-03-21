@@ -6,7 +6,7 @@ icon: simple/react
 
 <!-- vale off-->
 
-![npm version](https://badge.fury.io/js/%40amplitude%2Freact-native.svg)
+![npm version](https://img.shields.io/npm/v/@amplitude/react-native)
 
 This is the official documentation for the Amplitude Analytics React Native SDK.
 
