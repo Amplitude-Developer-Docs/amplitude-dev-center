@@ -6,6 +6,8 @@ icon: material/language-java
 
 Official documentation for Amplitude Experiment's server-side JVM SDK implementation. This SDK may be used in **either Java or Kotlin** server-side implementations.
 
+![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server?versionPrefix=1.1)
+
 !!!info "SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/experiment-jvm-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-jvm-server/releases)
 
@@ -19,8 +21,6 @@ This documentation has separate sections for [remote](../general/evaluation/remo
 Implements fetching variants for a user via [remote evaluation](../general/evaluation/remote-evaluation.md).
 
 ### Install
-
-![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server?versionPrefix=1.1)
 
 Install the JVM Server SDK using Gradle.
 
@@ -246,8 +246,6 @@ Implements evaluating variants for a user via [local evaluation](../general/eval
     The local evaluation client can only evaluation flags which are [set to local evaluation mode](../guides/create-local-evaluation-flag.md).
 
 ### Install
-
-![Maven Central](https://img.shields.io/maven-central/v/com.amplitude/experiment-jvm-server.svg?label=Maven%20Central)
 
 Install the JVM Server SDK using Gradle.
 
