@@ -34,7 +34,7 @@ Enter your **Iterable API Key**.
 
 ### Configure mappings
 
-_This applies to both event and user forwarding._
+_This applies to both event and user forwarding. Transformed user properties aren't supported._
 
 1. Select an Amplitude user property that corresponds to your Iterable user ID, from the left dropdown.
 2. Select the type of your Iterable user ID, from the right dropdown.
@@ -50,7 +50,7 @@ See the full list of [Iterable properties that are supported by Amplitude](#supp
 
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Iterable") if you want to stream events to Iterable. When enabled, events are automatically forwarded to Iterable when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 
-1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Iterable.
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Iterable. _Transformed events aren't supported._
 
     !!!warning "Events for non-Iterable users cannot be streamed"
 
@@ -58,13 +58,13 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Iter
 
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
-2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Iterable. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Iterable as [Iterable data fields](https://support.iterable.com/hc/en-us/articles/208183076-Field-Data-Types).
+2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Iterable. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Iterable as [Iterable data fields](https://support.iterable.com/hc/en-us/articles/208183076-Field-Data-Types). _Transformed event properties and transformed user properties aren't supported._
 
 ### Configure user forwarding
 
 Under **Send Users**, make sure the toggle is enabled ("Users are sent to Iterable") if you want to stream users and their properties to Iterable. When enabled, users are automatically created or updated in Iterable when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Iterable. Users aren't sent on a schedule or on-demand using this integration.
 
-(optional) In **Select additional properties**, select any more user properties you want to send to Iterable. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Iterable as [Iterable data fields](https://support.iterable.com/hc/en-us/articles/208183076-Field-Data-Types)
+(optional) In **Select additional properties**, select any more user properties you want to send to Iterable. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Iterable as [Iterable data fields](https://support.iterable.com/hc/en-us/articles/208183076-Field-Data-Types). _Transformed user properties aren't supported._
 
 ### Enable sync
 

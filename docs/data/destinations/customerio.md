@@ -37,7 +37,7 @@ See the [Customer.io documentation](https://www.customer.io/docs/api/track/#sect
 
 ### Configure mappings
 
-_This applies to both event and user forwarding._
+_This applies to both event and user forwarding. Transformed user properties aren't supported._
 
 Select an Amplitude user property that corresponds to your **Customer.io User Identifier**, from the left dropdown.
 
@@ -49,7 +49,7 @@ Select an Amplitude user property that corresponds to your **Customer.io User Id
 
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Customer.io") if you want to stream events to Customer.io. When enabled, events are automatically forwarded to Customer.io when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Customer.io as [Customer.io events](https://www.customer.io/docs/api/track/#tag/Track-Events), including web page views and mobile screen views. Customer.io automatically creates a new user in Customer.io if the provided **Customer.io User Identifier** doesn't exist in Customer.io.
 
-1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Customer.io.
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Customer.io. _Transformed events aren't supported._
 
     !!!warning "Events for anonymous users cannot be streamed"
 
@@ -57,13 +57,13 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Cust
 
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
-2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Customer.io. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Customer.io as [Customer.io event data](https://www.customer.io/docs/events/#event-name-and-data).
+2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Customer.io. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Customer.io as [Customer.io event data](https://www.customer.io/docs/events/#event-name-and-data). _Transformed event properties and transformed user properties aren't supported._
 
 ### Configure user forwarding
 
 Under **Send Users**, make sure the toggle is enabled ("Users are sent to Customer.io") if you want to stream users and their properties to Customer.io. When enabled, users are automatically created or updated in Customer.io when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Customer.io. Users aren't sent on a schedule or on-demand using this integration.
 
-(optional) In **Select additional properties**, select any more user properties you want to send to Customer.io. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Customer.io as [Customer.io user attributes](https://www.customer.io/docs/attributes/).
+(optional) In **Select additional properties**, select any more user properties you want to send to Customer.io. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Customer.io as [Customer.io user attributes](https://www.customer.io/docs/attributes/). _Transformed user properties aren't supported._
 
 ### Enable sync
 

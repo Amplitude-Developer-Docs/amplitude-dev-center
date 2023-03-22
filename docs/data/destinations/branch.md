@@ -29,7 +29,7 @@ Enter your **Branch Key**.
 
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Branch") if you want to stream events to Branch. When enabled, events are automatically forwarded to Branch when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Branch as [Branch custom events](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#track-custom-events) and can have a maximum event name length of 40 characters.
 
-1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Branch.
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Branch. _Transformed events aren't supported._
 
     !!!warning "Events for anonymous users cannot be streamed"
 
@@ -37,7 +37,9 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Bran
 
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
-2. In **Map properties to destination**:    
+2. In **Map properties to destination**:
+    _Transformed user properties aren't supported._
+
     1. Choose one of the following ways to identify your users in Branch.
         - **Developer ID**: Any unique identifier for each user in Branch.
             1. Select an Amplitude user property that corresponds to your Branch **Developer ID**, from the left dropdown.
@@ -62,7 +64,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Bran
 
     See the full list of [Branch properties that are supported by Amplitude](#supported-branch-properties).
 
-3. (optional) In **Select additional properties**, select any more event and user properties you want to send to Branch. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Branch as Branch custom data.
+3. (optional) In **Select additional properties**, select any more event and user properties you want to send to Branch. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Branch as Branch custom data. _Transformed event properties and transformed user properties aren't supported._
 
 ### Enable sync
 

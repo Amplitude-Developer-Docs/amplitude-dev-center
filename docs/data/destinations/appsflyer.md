@@ -38,7 +38,7 @@ To configure streaming from Amplitude to AppsFlyer, you need the following infor
 
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to AppsFlyer") if you want to stream events to AppsFlyer. When enabled, events are automatically forwarded to AppsFlyer when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 
-1. In **Select and filter events** choose which events you want to send. Choose only the events you need in AppsFlyer.
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in AppsFlyer. _Transformed events aren't supported._
 
     !!!warning "Events for non-AppsFlyer users cannot be streamed"
 
@@ -47,6 +47,8 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Apps
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
 2. In **Map properties to destination**:
+    _Transformed user properties aren't supported._
+
     1. Select an Amplitude user property that corresponds to your [**AppsFlyer ID**](https://support.appsflyer.com/hc/en-us/articles/4408847686161-Device-identifiers#appsflyer-id), from the left dropdown.
     2. (recommended) Map an Amplitude user property to [AppsFlyer **Customer User ID**](https://support.appsflyer.com/hc/en-us/articles/4408847686161-Device-identifiers#customer-user-id).
         1. Select an Amplitude user property that corresponds to your AppsFlyer **Customer User ID**, from the left dropdown.
@@ -60,7 +62,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Apps
 
     See the full list of [AppsFlyer properties that are supported by Amplitude](#supported-appsflyer-properties).
 
-3. (optional) In **Select additional properties**, select any more event and user properties you want to send to AppsFlyer. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to AppsFlyer as [AppsFlyer event values](https://dev.appsflyer.com/hc/reference/post_s2s_inappevent).
+3. (optional) In **Select additional properties**, select any more event and user properties you want to send to AppsFlyer. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to AppsFlyer as [AppsFlyer event values](https://dev.appsflyer.com/hc/reference/post_s2s_inappevent). _Transformed event properties and transformed user properties aren't supported._
 
 ### Enable sync
 
