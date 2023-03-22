@@ -7,7 +7,7 @@ description: Amplitude CDP's Customer.io streaming integration enables you to fo
 
 Amplitude CDP's Customer.io streaming integration enables you to forward your Amplitude events and users straight to [Customer.io](https://customer.io/) with just a few clicks.
 
-!!!note "Other Amplitude CDP + Customer.io Integrations"
+!!!note "Other Amplitude CDP + Customer.io integrations"
 
     This integration streams Amplitude events and users to Customer.io. Amplitude CDP offers other integrations with Customer.io:
 
@@ -45,11 +45,9 @@ Select an Amplitude user property that corresponds to your **Customer.io User Id
 - If the selected Amplitude user property values are prefixed with `cio_`, Customer.io will match users on the [Customer.io canonical identifier](https://customer.io/docs/identifying-people/#cio_id), a unique identifier provided by Customer.io for each user.
 - The selected Amplitude user property values can be no more than 150 bytes in size.
 
-_Customer.io automatically creates a new user in Customer.io if the provided **Customer.io User Identifier** doesn't exist in Customer.io._
-
 ### Configure event forwarding
 
-Under **Send Events**, make sure the toggle is enabled ("Events are sent to Customer.io") if you want to stream events to Customer.io. When enabled, events are automatically forwarded to Customer.io when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Customer.io as [Customer.io events](https://www.customer.io/docs/api/track/#tag/Track-Events), including web page views and mobile screen views.
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Customer.io") if you want to stream events to Customer.io. When enabled, events are automatically forwarded to Customer.io when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Customer.io as [Customer.io events](https://www.customer.io/docs/api/track/#tag/Track-Events), including web page views and mobile screen views. Customer.io automatically creates a new user in Customer.io if the provided **Customer.io User Identifier** doesn't exist in Customer.io.
 
 1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Customer.io.
 
