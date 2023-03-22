@@ -1,9 +1,11 @@
 ---
 title: Meta Pixel Event Streaming
-description: Amplitude Data's Meta Pixel integration lets you stream your Amplitude event data straight to Meta Pixel with just a few clicks.
+description: Amplitude CDP's Meta Pixel streaming integration enables you to forward your Amplitude events and users straight to Meta Pixel with just a few clicks.
 ---
 
 --8<-- "includes/open-beta.md"
+
+Amplitude CDP's Meta Pixel streaming integration enables you to forward your Amplitude events and users straight to Meta Pixel with just a few clicks.
 
 ## Setup
 
