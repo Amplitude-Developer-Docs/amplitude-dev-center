@@ -52,20 +52,6 @@ In any file that involves instrumentation, you should include the necessary Unre
 #include "Runtime/Analytics/Analytics/Public/Interfaces/IAnalyticsProvider.h"
 ```
 
-optOut
-useDynamicConfig
-eventUploadThreshold
-eventUploadMaxBatchSize
-eventMaxCount
-eventUploadPeriodSeconds
-minTimeBetweenSessionsMillis
-trackingSessionEvents
-libraryName
-libraryVersion
-adSupportBlock
-
-
-
 ## Usage and examples
 
 The API of Amplitude Unreal follows the [analytics provider interface](https://docs.unrealengine.com/en-US/API/Runtime/Analytics/Interfaces/IAnalyticsProvider/index.html) defined by the Unreal Engine.
