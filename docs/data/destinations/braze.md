@@ -54,13 +54,14 @@ See the Braze documentation for more information on [External ID and Braze ID](h
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braze") if you want to stream events to Braze. When enabled, events are automatically forwarded to Braze when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 
 1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Braze.
+
+    !!!warning "Events for anonymous users cannot be streamed"
+
+        Braze requires that all events have a user ID present. If you have selected any events to send to Braze that may not have a user ID, add a filter on those events to keep only events where the user ID is present. Otherwise, your delivery metrics may be affected.
+
+        ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
+
 2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom event properties](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties).
-
-!!!warning "Events for anonymous users cannot be streamed"
-
-    Braze requires that all events have a user ID present. If you have selected any events to send to Braze that may not have a user ID, add a filter on those events to keep only events where the user ID is present. Otherwise, your delivery metrics may be affected.
-
-    ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
 ### Configure user forwarding
 
