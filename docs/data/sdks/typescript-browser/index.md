@@ -35,15 +35,19 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
-In addition to the basic configuration options, there also has options to configure web attribution and page view tracking. However, we are migrating the web attribution and page view tracking logic to `webAttributionPlugin` and `pageViewTrackingPlugin`, which was adopted by `Marketing Analytics Browser SDK`. We highly recommend using [Marketing Analytics Browser SDK](../marketing-analytics-browser/) for better attribution and page view tracking. 
+In addition to the basic configuration options, there also has options to configure web attribution and page view tracking. 
 
-|<div class="big-column">Name</div>| Description| Default Value|
-|---|----|---|
-|`attribution.disabled`| `boolean`. Whether disable the attribution tracking.| `false` |
-|`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
-|`attribution.initialEmptyValue`| `string`. Custom the init empty value for attribution related user properties to any string value | `EMPTY` |
-|`attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
-|`attribution.trackPageViews`| `boolean`. Whether track page views. | `false` |
+!!!warning "Using Marketing Analytics Browser SDK for better campaign tracking"
+    We are migrating the web attribution and page view tracking logic to `webAttributionPlugin` and `pageViewTrackingPlugin`, which was adopted by `Marketing Analytics Browser SDK`. We highly recommend using [Marketing Analytics Browser SDK](../marketing-analytics-browser/) for better attribution and page view tracking. 
+
+???config "Other Options"
+    |<div class="big-column">Name</div>| Description| Default Value|
+    |---|----|---|
+    |`attribution.disabled`| `boolean`. Whether disable the attribution tracking.| `false` |
+    |`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
+    |`attribution.initialEmptyValue`| `string`. Custom the init empty value for attribution related user properties to any string value | `EMPTY` |
+    |`attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
+    |`attribution.trackPageViews`| `boolean`. Whether track page views. | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
