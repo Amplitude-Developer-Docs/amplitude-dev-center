@@ -41,7 +41,7 @@ To configure streaming from Amplitude to Braze, you need the following informati
 
 _This applies to both event and user forwarding._
 
-1. Select an Amplitude property that corresponds to your Braze user ID.
+1. Select an Amplitude user property that corresponds to your Braze user ID.
 2. Select the type of your Braze user ID.
     - **External ID**: Any unique identifier for each user in Braze.
     - **Braze ID**: A unique identifier provided by Braze for each user.
