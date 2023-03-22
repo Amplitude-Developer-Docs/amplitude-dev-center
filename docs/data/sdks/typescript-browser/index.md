@@ -38,8 +38,8 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 In addition to the basic configuration options, there also has options to configure web attribution and page view tracking. 
 
 !!!warning "Using Marketing Analytics Browser SDK for better campaign tracking"
-    We are migrating the web attribution and page view tracking logic to `webAttributionPlugin` and `pageViewTrackingPlugin`, which was adopted by `Marketing Analytics Browser SDK`. We highly recommend using [Marketing Analytics Browser SDK](../marketing-analytics-browser/) for better attribution and page view tracking. 
-
+    We are in the process of migrating web attribution and page view tracking logic to webAttributionPlugin and pageViewTrackingPlugin as adopted by Marketing Analytics Browser SDK. For improved attribution and page view monitoring, we highly recommend using [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
+    
 ???config "Other Options"
     |<div class="big-column">Name</div>| Description| Default Value|
     |---|----|---|
