@@ -14,9 +14,9 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
     This is a maintenance SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for React Native](../typescript-react-native/) is available. The new SDK offers an improved code architecture which supports plugins and React Native Web.
 
 !!!info "SDK Resources"
-    - [React Native SDK Reference :material-book:](https://amplitude.github.io/Amplitude-ReactNative/)
-    - [React Native SDK Repository :material-github:](https://github.com/amplitude/Amplitude-ReactNative)
-    - [React Native SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-ReactNative/releases)
+    - [Github :material-github:](https://github.com/amplitude/Amplitude-ReactNative)
+    - [Release :material-code-tags-check:](https://github.com/amplitude/Amplitude-ReactNative/releases)
+    - [API Reference :material-book:](https://amplitude.github.io/Amplitude-ReactNative/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 
@@ -63,6 +63,12 @@ Before you can instrument, you must initialize the SDK using the API key for you
     ```
 
 ### Configuration
+
+Amplitude React Native SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/). The following are the ts/js settable config options.
+For other default configurations:
+
+- on Android side, check the [Android Configuration](../android-kotlin/#configuration)
+- on iOS side, check the [iOS configuration](../ios/#configuration)
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
