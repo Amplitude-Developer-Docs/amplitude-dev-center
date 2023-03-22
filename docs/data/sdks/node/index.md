@@ -4,7 +4,7 @@ description: The Amplitude Node.js SDK installation and quick start guide.
 icon: simple/nodedotjs
 ---
 
-![npm version](https://img.shields.io/npm/v/@amplitude/node)
+[![npm](https://img.shields.io/npm/v/@amplitude/node)](https://www.npmjs.com/package/@amplitude/node)
 
 This is Amplitude Node.js SDK written in Typescript, the first backend SDK for Amplitude.
 
@@ -24,8 +24,8 @@ By default, the Node SDK uses the [HTTP API V2](../../../analytics/apis/http-v2
     The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
 !!!info "Node SDK Resources (Maintenance)"
-    - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
-    - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
+    - [Github :material-github:](https://github.com/amplitude/Amplitude-Node)
+    - [Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Node](./ampli.md).

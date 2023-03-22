@@ -6,7 +6,7 @@ icon: simple/react
 
 <!-- vale off-->
 
-![npm version](https://img.shields.io/npm/v/@amplitude/react-native)
+[![npm](https://img.shields.io/npm/v/@amplitude/react-native)](https://www.npmjs.com/package/@amplitude/react-native)
 
 This is the official documentation for the Amplitude Analytics React Native SDK.
 
