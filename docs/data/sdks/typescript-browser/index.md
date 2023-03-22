@@ -43,9 +43,9 @@ In addition to the basic configuration options, there also has options to config
 ???config "Other Options"
     |<div class="big-column">Name</div>| Description| Default Value|
     |---|----|---|
-    |`attribution.disabled`| `boolean`. Whether disable the attribution tracking.| `false` |
+    |`attribution.disabled`| `boolean`. Whether disable the attribution tracking. | `false` |
     |`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
-    |`attribution.initialEmptyValue`| `string`. Custom the init empty value for attribution related user properties to any string value | `EMPTY` |
+    |`attribution.initialEmptyValue`| `string`. Custom the init empty value for attribution related user properties to any string value. | `EMPTY` |
     |`attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
     |`attribution.trackPageViews`| `boolean`. Whether track page views. | `false` |
 
