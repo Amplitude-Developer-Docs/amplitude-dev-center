@@ -13,6 +13,8 @@ if [ "$1" = "external" ]; then
         --exclude 'https://api2.ampliude.com' \
         --exclude 'https://amplitude.com/api' \
         --exclude 'https://analytics.eu.amplitude.com/api/' \
+        --exclude 'https://help.adjust.com/' \
+        --exclude 'https://forum.unity.com/' \
         | grep --line-buffered 'BROKEN\|Getting links from' \
         | grep --line-buffered -v 'HTTP_403\|HTTP_308\|HTTP_401\|HTTP_400' \
         | tee /dev/tty )
