@@ -39,7 +39,7 @@ To configure streaming from Amplitude to Braze, you need the following informati
 
 ### Configure mappings
 
-_This applies to both event and user forwarding._
+_This applies to both event and user forwarding. Transformed user properties aren't supported._
 
 1. Select an Amplitude user property that corresponds to your Braze user ID, from the left dropdown.
 2. Select the type of your Braze user ID, from the right dropdown.
@@ -51,7 +51,7 @@ _This applies to both event and user forwarding._
 
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braze") if you want to stream events to Braze. When enabled, events are automatically forwarded to Braze when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 
-1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Braze.
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Braze. _Transformed events aren't supported._
 
     !!!warning "Events for anonymous users cannot be streamed"
 
@@ -59,13 +59,13 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braz
 
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
-2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom event properties](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties).
+2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom event properties](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties). _Transformed event properties and transformed user properties aren't supported._
 
 ### Configure user forwarding
 
 Under **Send Users**, make sure the toggle is enabled ("Users are sent to Braze") if you want to stream users and their properties to Braze. When enabled, users are automatically created or updated in Braze when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Braze. Users aren't sent on a schedule or on-demand using this integration.
 
-(optional) In **Select additional properties**, select any more user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/).
+(optional) In **Select additional properties**, select any more user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _Transformed user properties aren't supported._
 
 ### Enable sync
 
