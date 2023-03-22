@@ -43,7 +43,7 @@ Select an Amplitude user property that corresponds to your **Customer.io User Id
 
 - If the selected Amplitude user property values contains email addresses, Customer.io will match users on the [Customer.io email](https://customer.io/docs/identifying-people/#identifiers) (case-insensitive).
 - If the selected Amplitude user property values are prefixed with `cio_`, Customer.io will match users on the [Customer.io canonical identifier](https://customer.io/docs/identifying-people/#cio_id), a unique identifier provided by Customer.io for each user.
-- The selected Amplitude user property values can be no more than 150 bytes in size.
+- Customer.io limits the **Customer.io User Identifier** values to be no more than 150 bytes in size.
 
 ### Configure event forwarding
 
