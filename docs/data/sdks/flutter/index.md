@@ -64,7 +64,7 @@ class YourClass {
 Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options.
 For other default configurations:
 
-- on Android side, check the [Android Configuration](../android-kotlin/#configuration)
+- on Android side, check the [Android Configuration](../android/#configuration)
 - on iOS side, check the [iOS configuration](../ios/#configuration)
 - on browser side, please check the [browser configuration](../javascript/#configuration)
 

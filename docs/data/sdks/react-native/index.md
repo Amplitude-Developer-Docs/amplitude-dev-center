@@ -65,7 +65,7 @@ Before you can instrument, you must initialize the SDK using the API key for you
 Amplitude React Native SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/). The following are the ts/js settable config options.
 For other default configurations:
 
-- on Android side, check the [Android Configuration](../android-kotlin/#configuration)
+- on Android side, check the [Android Configuration](../android/#configuration)
 - on iOS side, check the [iOS configuration](../ios/#configuration)
 
 ???config "Configuration Options"
