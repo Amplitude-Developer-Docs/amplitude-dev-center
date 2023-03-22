@@ -43,11 +43,9 @@ _This applies to both event and user forwarding._
 
 1. Select an Amplitude user property that corresponds to your Braze user ID, from the left dropdown.
 2. Select the type of your Braze user ID, from the right dropdown.
-    - **External ID**: Any unique identifier for each user in Braze.
-    - **Braze ID**: A unique identifier provided by Braze for each user.
-    - **User Alias**: An alternative unique identifier for each user in Braze.
-
-See the Braze documentation for more information on [External ID and Braze ID](https://www.braze.com/docs/api/basics/#user-ids) and [user aliases](https://www.braze.com/docs/api/objects_filters/user_alias_object).
+    - [**External ID**](https://www.braze.com/docs/api/basics/#user-ids): Any unique identifier for each user in Braze.
+    - [**Braze ID**](https://www.braze.com/docs/api/basics/#user-ids): A unique identifier provided by Braze for each user.
+    - [**User Alias**](https://www.braze.com/docs/api/objects_filters/user_alias_object): An alternative unique identifier for each user in Braze.
 
 ### Configure event forwarding
 
