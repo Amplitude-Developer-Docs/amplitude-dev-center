@@ -156,14 +156,14 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
     | `secureCookie` | `boolean`. If `true`, the amplitude cookie will be set with the Secure flag. | `false` |
     | `sessionTimeout` | `number`. The time between logged events before a new session starts in milliseconds. | `30 minutes` |
     | `storage` | `string`. Options are `cookies`, `localStorage`, `sessionStorage`, or `none`. Sets storage strategy. Will override `disableCookies` option. | `Empty String` |
-    | `trackingOptions` | `Object`. Type of data associated with a user. | `{ city: true, country: true, carrier: true, device_manufacturer: true, device_model: true, dma: true, ip_address: true, language: true, os_name: true, os_version: true, platform: true, region: true, version_name: true}` |
+    | `trackingOptions` | `Object`. Type of data associated with a user. | Enable all tracking options by default. Please check [here](/#disable-tracking-specific-fields) for more details. |
     | `transport` | `string`. `http` or `beacon`.  Network transport mechanism used to send events. | `http` |
     | `unsetParamsReferrerOnNewSession` | `boolean`. If `false`, the existing `referrer` and `utm_parameter` values will be carried through each new session. If set to `true`, the `referrer` and `utm_parameter` user properties, which include `referrer`, `referring_domain`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content`, will be set to `null` upon instantiating a new session. Note: This only works if `includeReferrer` or `includeUtm` is set to `true`. | `false` |
     | `unsentKey` | `string`. localStorage key that stores unsent events. | `amplitude_unsent` |
     | `unsentIdentifyKey` | `string`. localStorage key that stores unsent identifies. | `amplitude_unsent_identify` |
     | `uploadBatchSize` | `number`. The maximum number of events to send to the server per request. | `100` |
     | `headers` | `Object`. Headers attached to an event(s) upload network request. Custom header properties are merged with this object. | `{ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }` |
-    | `serverZone` | `string`. localStorage key that stores unsent events. | `amplitude_unsent` |
+    | `serverZone` | `string`. `US` or `EU`. The server zone to send to, will adjust server url based on this config.| `US` |
     | `useDynamicConfig` | `boolean`. To update api endpoint with serverZone change or not. For data residency, recommend to enable it unless using own proxy server. | `false` |
     | `serverZoneBasedApi` | `boolean`. localStorage key that stores unsent events. | `false` |
     | `sessionId` | `number`. The custom Session ID for the current session. *Note: This is not recommended unless you know what you are doing because the Session ID of a session is utilized for all session metrics in Amplitude. | `null` |
