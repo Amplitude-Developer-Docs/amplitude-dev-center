@@ -5,7 +5,7 @@ description: Amplitude CDP's AppsFlyer streaming integration enables you to forw
 
 --8<-- "includes/open-beta.md"
 
-Amplitude CDP's AppsFlyer streaming integration enables you to forward your Amplitude events straight to AppsFlyer with just a few clicks.
+Amplitude CDP's AppsFlyer streaming integration enables you to forward your Amplitude events straight to [AppsFlyer](https://www.appsflyer.com/) with just a few clicks.
 
 !!!note "Other Amplitude + AppsFlyer integrations"
 
@@ -20,7 +20,7 @@ Amplitude CDP's AppsFlyer streaming integration enables you to forward your Ampl
 
 To configure streaming from Amplitude to AppsFlyer, you need the following information from AppsFlyer.
 
-- **REST API Key**: The AppsFlyer dev key used for authentication. See the [AppsFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/211719806-App-settings-#sdk-authentication-dev-key) for help locating your dev key.
+- **AppsFlyer Dev Key**: The AppsFlyer Dev Key used for authentication. See the [AppsFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/211719806-App-settings-#sdk-authentication-dev-key) for help locating your Dev Key.
 - **AppsFlyer App ID**: The AppsFlyer identifier for your app. It's located in AppsFlyer App Settings and can also be retrieved from the URL in your AppsFlyer Dashboards.
 
 ### Create a new sync
@@ -31,7 +31,7 @@ To configure streaming from Amplitude to AppsFlyer, you need the following infor
 
 ### Enter credentials
 
-1. Select your **REST API Key**.
+1. Select your **AppsFlyer Dev Key**.
 2. Enter your **AppsFlyer App ID**.
 
 ### Configure event forwarding
@@ -51,11 +51,13 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Apps
     2. (recommended) Map an Amplitude user property to [AppsFlyer **Customer User ID**](https://support.appsflyer.com/hc/en-us/articles/4408847686161-Device-identifiers#customer-user-id).
         1. Select an Amplitude user property that corresponds to your AppsFlyer **Customer User ID**, from the left dropdown.
         2. Select **Customer User ID**, from the corresponding right dropdown.
-    3. (recommended) Map Amplitude user properties to AppsFlyer device identifiers. It's recommended that you map Amplitude properties to as many of AppsFlyer [Advertising ID (GAID), Amazon AID, OAID, and IMEI](https://support.appsflyer.com/hc/en-us/articles/4408847686161-Device-identifiers#android-device-identifiers) (for Android) or [IDFA and IDFV](https://support.appsflyer.com/hc/en-us/articles/4408847686161-Device-identifiers#apple-device-identifiers) (for Apple) as possible.
+    3. (recommended) Map Amplitude user properties to AppsFlyer device identifiers. It's recommended that you map Amplitude properties to as many of AppsFlyer [GAID, Amazon Advertising ID, OAID, and IMEI](https://support.appsflyer.com/hc/en-us/articles/4408847686161-Device-identifiers#android-device-identifiers) (for Android) or [IDFA and IDFV](https://support.appsflyer.com/hc/en-us/articles/4408847686161-Device-identifiers#apple-device-identifiers) (for Apple) as possible.
         1. Select an Amplitude user property that corresponds to an AppsFlyer device identifier, from the left dropdown.
         2. Select the AppsFlyer device identifier, from the corresponding right dropdown.
     4. (optional) Map other Amplitude user properties to AppsFlyer properties.
-    
+        1. Select an Amplitude user property that corresponds to an AppsFlyer property, from the left dropdown.
+        2. Select the AppsFlyer property, from the corresponding right dropdown.
+
     See the full list of [AppsFlyer properties that are supported by Amplitude](#supported-appsflyer-properties).
 
 3. (optional) In **Select additional properties**, select any more event and user properties you want to send to AppsFlyer. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to AppsFlyer as [AppsFlyer event values](https://dev.appsflyer.com/hc/reference/post_s2s_inappevent).
@@ -68,20 +70,20 @@ When satisfied with your configuration, at the top of the page toggle the **Stat
 
 _You can map Amplitude user properties directly to all the following AppsFlyer properties._
 
-| Parameter Name        | Required              | Recommended         | Default Amplitude Property |
-|-----------------------|:---------------------:|:-------------------:| -------------------------- |
-| **AppsFlyer ID**      | :octicons-check-16:   |                     | **User ID**                |
-| Customer User ID      |                       | :octicons-check-16: | **User ID**                |
-| Advertising ID (GAID) |                       | :octicons-check-16: |                            |
-| Amazon AID            |                       | :octicons-check-16: |                            |
-| OAID                  |                       | :octicons-check-16: |                            |
-| IMEI                  |                       | :octicons-check-16: |                            |
-| IDFA                  |                       | :octicons-check-16: |                            |
-| IDFV                  |                       | :octicons-check-16: |                            |
-| AF Content ID         |                       |                     |                            |
-| AF Content Type       |                       |                     |                            |
-| AF Currency           |                       |                     |                            |
-| AF Revenue            |                       |                     |                            |
-| Event Currency        |                       |                     |                            |
-| iOS ATTrackingManager |                       |                     |                            |
-| IP Address            |                       |                     |                            |
+| Parameter Name        | Required              | Recommended         |
+|-----------------------|:---------------------:|:-------------------:|
+| **AppsFlyer ID**      | :octicons-check-16:   |                     |
+| Customer User ID      |                       | :octicons-check-16: |
+| Advertising ID (GAID) |                       | :octicons-check-16: |
+| Amazon AID            |                       | :octicons-check-16: |
+| OAID                  |                       | :octicons-check-16: |
+| IMEI                  |                       | :octicons-check-16: |
+| IDFA                  |                       | :octicons-check-16: |
+| IDFV                  |                       | :octicons-check-16: |
+| AF Content ID         |                       |                     |
+| AF Content Type       |                       |                     |
+| AF Currency           |                       |                     |
+| AF Revenue            |                       |                     |
+| Event Currency        |                       |                     |
+| iOS ATTrackingManager |                       |                     |
+| IP Address            |                       |                     |
