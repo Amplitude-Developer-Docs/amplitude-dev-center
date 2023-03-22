@@ -93,15 +93,10 @@ The new Browser SDK configuration comes in a different shape. The configurations
 |`config.optOut`|`config.optOut`|
 |`config.onError`|NOT SUPPORTED|
 |`config.onExitPage`|NOT SUPPORTED. See [Flush](#flush-or-onexitpage).|
-|`config.plan`|`config.plan`|
-|`config.plan.branch`|`config.plan.branch`|
-|`config.plan.source`|`config.plan.source`|
-|`config.plan.version`|`config.plan.version`|
-|`config.plan.versionId`|`config.plan.versionId`|
 |`config.platform`|NOT SUPPORTED. See [Plugins](#plugins).|
 |`config.savedMaxCount`|NOT SUPPORTED|
 |`config.saveEvents`|NOT SUPPORTED|
-|`config.saveParamsReferrerOncePerSession`|`config.attribution.trackNewCampaigns`|
+|`config.saveParamsReferrerOncePerSession`|`config.attribution.trackNewCampaigns`. Opposite with `saveParamsReferrerOncePerSession`. See [configuration](../typescript-browser/#configuration). |
 |`config.secureCookie`|`config.cookieSecure`|
 |`config.sessionTimeout`|`config.sessionTimeout`|
 |`config.storage`|`config.storageProvider`|
