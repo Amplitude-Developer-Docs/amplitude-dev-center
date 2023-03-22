@@ -35,7 +35,7 @@ Enter your **Branch Key**.
 
 ### Configure event forwarding
 
-Under **Send Events**, make sure the toggle is enabled ("Events are sent to Branch") if you want to stream events to Branch. When enabled, events are automatically forwarded to Branch when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Branch as [Branch custom events](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#track-custom-events).
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Branch") if you want to stream events to Branch. When enabled, events are automatically forwarded to Branch when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Branch as [Branch custom events](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#track-custom-events) and can have a maximum event name length of 40 characters.
 
 1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Branch.
 
