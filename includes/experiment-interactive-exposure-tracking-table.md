@@ -15,7 +15,7 @@
 | <textarea class="at-field" spellcheck="false" placeholder="user_id" id="user_id"></textarea> | The user's ID. |
 | <textarea class="at-field" spellcheck="false" placeholder="device_id" id="device_id"></textarea> | The user's device ID. |
 | <textarea class="at-field" spellcheck="false" placeholder="flag_key" id="flag_key"></textarea> | The flag key of the flag or experiment the user has been exposed to. |
-| <textarea class="at-field" spellcheck="false" placeholder="variant" id="variant"></textarea> | The variant key (e.g. `on`, `control`, `treatment`). |
+| <textarea class="at-field" spellcheck="false" placeholder="variant" id="variant"></textarea> | The variant value (e.g. `on`, `control`, `treatment`). |
 | <a class="md-button" id="at-action-button">Track Exposure</a> | |
 
 Result: <span id="failure_tip"></span>

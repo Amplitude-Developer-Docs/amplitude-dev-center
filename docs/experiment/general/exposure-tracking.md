@@ -12,13 +12,13 @@ When Amplitude ingests an [exposure event](#exposure-event), it uses the flag ke
 
 ## Automatic exposure tracking
 
-Client-side Experiment SDKs higher than a certain version support automatic exposure tracking through an exposure tracking provider, often implemented through an analytics SDK integration.
+Client-side Experiment SDKs support automatic exposure tracking through an exposure tracking provider implementation. Without an integration or custom implementation, exposure events aren't tracked automatically.
 
 !!!tip "Integrations"
     Client-side SDKs currently support two integrations, Amplitude and Segment. You can also implement your own custom integration.
 
 <!--vale off-->
-| <div class='big-column'>SDK</div> | Version |
+| <div class='big-column'>SDK Integrations</div> | Minimum Version |
 | --- | --- |
 | [:material-language-javascript: JavaScript SDK](../sdks/javascript-sdk.md#integrations) | `1.4.1+` |
 | [:material-android: Android SDK](../sdks/android-sdk.md#integrations) | `1.5.1+` |
