@@ -6,7 +6,7 @@ icon: simple/ruby
 
 Official documentation for Amplitude Experiment's server-side Ruby SDK implementation.
 
-[![Gem Version](https://badge.fury.io/rb/amplitude-experiment.svg)](https://badge.fury.io/rb/amplitude-experiment)
+![gem version](https://img.shields.io/gem/v/amplitude-experiment)
 
 !!!info "SDK Resources"
      [:material-github: GitHub](https://github.com/amplitude/experiment-ruby-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ruby-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ruby-server/)

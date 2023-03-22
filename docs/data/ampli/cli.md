@@ -111,7 +111,6 @@ OPTIONS
   -v, --version=version  the version to pull
   --include-api-keys     include api keys to the tracking library (default true)
   --omit-api-keys        omit api keys from the tracking library (default false)
-  --deprecated-runtimes  show deprecated SDK options for source configuration (for legacy Itly users).
 
 EXAMPLES
   $ ampli pull
@@ -206,12 +205,11 @@ Configure and update source runtime. Follow the prompts to select a specific pla
 
 ```shell
 USAGE
-  $ ampli configure [--deprecated-runtimes]
+  $ ampli configure
 OPTIONS
-  --deprecated-runtimes  show deprecated SDK options for source configuration (for Itly users).
+  None
 EXAMPLES
   $ ampli configure
-  $ ampli configure --deprecated-runtimes
 ```
 
 ### `ampli init`

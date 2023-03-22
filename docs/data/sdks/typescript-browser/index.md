@@ -5,7 +5,7 @@ icon: simple/javascript
 ---
 
 
-[![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-browser.svg)](https://badge.fury.io/js/@amplitude%2Fanalytics-browser)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser.svg)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
@@ -31,26 +31,30 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
-### Debugging
-
---8<-- "includes/sdk-ts/client-debugging.md"
-
 ### Configuration
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
-### EU data residency
-
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
-
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  serverZone: amplitude.Types.ServerZone.EU,
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 50, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+  // Using batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
+  useBatch: true
 });
 ```
+
+--8<-- "includes/sdk-ts/client-eu-residency.md"
+
+#### Debugging
+
+--8<-- "includes/sdk-ts/client-debugging.md"
 
 ### Tracking an event
 
@@ -90,7 +94,7 @@ You can enable Amplitude to start tracking all events mentioned above, use the c
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultEvents: {
+  defaultTracking: {
     pageViews: true,
     sessions: true,
     formInteractions: true,
@@ -99,30 +103,30 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-Alternatively, you can enable Amplitude to track all events mentioned above by setting `config.defaultEvents` to `true`.
+Alternatively, you can enable Amplitude to track all events mentioned above by setting `config.defaultTracking` to `true`.
 
 !!!note
     Amplitude may add more events in a future version, and this configuration enables tracking for those events as well.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultEvents: true,
+  defaultTracking: true,
 });
 ```
 
 #### Tracking page views
 
-You can enable Amplitude to start tracking page view events by setting `config.defaultEvents.pageViews` to `true`. Refer to the code sample below.
+You can enable Amplitude to start tracking page view events by setting `config.defaultTracking.pageViews` to `true`. Refer to the code sample below.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultEvents: {
+  defaultTracking: {
     pageViews: true,
   },
 });
 ```
 
-By setting `config.defaultEvents.pageViews` to `true`, you enable Amplitude to use default page view tracking behavior. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
+By setting `config.defaultTracking.pageViews` to `true`, you enable Amplitude to use default page view tracking behavior. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
 
 ##### Advanced configuration for tracking page views
 
@@ -138,7 +142,7 @@ For example, you can configure Amplitude to track page views only when the URL p
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultEvents: {
+  defaultTracking: {
     pageViews: {
       trackOn: () => {
         return window.location.pathname.includes('home');
@@ -150,31 +154,31 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 #### Tracking sessions
 
-You can enable Amplitude to start tracking session events by setting `config.defaultEvents.sessions` to `true`. Refer to the code sample below.
+You can enable Amplitude to start tracking session events by setting `config.defaultTracking.sessions` to `true`. Refer to the code sample below.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultEvents: {
+  defaultTracking: {
     sessions: true,
   },
 });
 ```
 
-By setting `config.defaultEvents.sessions` to `true`, you enable Amplitude to track session start and session end events. A session is the period of time a user has your website open. See [How Amplitude defines sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) for more information. When a new session starts, Amplitude tracks a session start event is and is the first event of the session. The event type for session start is "[Amplitude] Start Session". When an existing session ends, a session start end is tracked and is the last event of the session. The event type for session end is "[Amplitude] End Session".
+By setting `config.defaultTracking.sessions` to `true`, you enable Amplitude to track session start and session end events. A session is the period of time a user has your website open. See [How Amplitude defines sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) for more information. When a new session starts, Amplitude tracks a session start event is and is the first event of the session. The event type for session start is "[Amplitude] Start Session". When an existing session ends, a session start end is tracked and is the last event of the session. The event type for session end is "[Amplitude] End Session".
 
 #### Tracking form interactions
 
-You can enable Amplitude to start tracking form interaction events by setting config.defaultEvents.formInteractions to true. Refer to the code sample below.
+You can enable Amplitude to start tracking form interaction events by setting config.defaultTracking.formInteractions to true. Refer to the code sample below.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultEvents: {
+  defaultTracking: {
     formInteractions: true,
   },
 });
 ```
 
-By setting `config.defaultEvents.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
+By setting `config.defaultTracking.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
 
 Amplitude can track forms that are constructed with `<form>` tags and `<input>` tags nested. For example:
 
@@ -187,17 +191,17 @@ Amplitude can track forms that are constructed with `<form>` tags and `<input>` 
 
 #### Tracking file downloads
 
-You can enable Amplitude to start tracking file download events by setting `config.defaultEvents.fileDownloads` to `true`. Refer to the code sample below.
+You can enable Amplitude to start tracking file download events by setting `config.defaultTracking.fileDownloads` to `true`. Refer to the code sample below.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultEvents: {
+  defaultTracking: {
     fileDownloads: true,
   },
 });
 ```
 
-By setting `config.defaultEvents.fileDownloads` to `true`, you enable Amplitude to track file download events. A file download event is tracked when an anchor or `<a>` tag linked to a file is clicked. The event type for file download is "[Amplitude] File Downloaded". Amplitude determines that the anchor or `<a>` tag linked to a file if the file extension matches the following regex:
+By setting `config.defaultTracking.fileDownloads` to `true`, you enable Amplitude to track file download events. A file download event is tracked when an anchor or `<a>` tag linked to a file is clicked. The event type for file download is "[Amplitude] File Downloaded". Amplitude determines that the anchor or `<a>` tag linked to a file if the file extension matches the following regex:
 
 `pdf|xlsx?|docx?|txt|rtf|csv|exe|key|pp(s|t|tx)|7z|pkg|rar|gz|zip|avi|mov|mp4|mpe?g|wmv|midi?|mp3|wav|wma`
 
@@ -706,8 +710,8 @@ The page view plugin sends a Page View event on each page a user visits by defau
 
 You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
 
-- Site 1: `www.example.com`
-- Site 2: `www.example.org`
+* Site 1: `www.example.com`
+* Site 2: `www.example.org`
 
 Users who start on Site 1 and then navigate to Site 2 must have the device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then needs to initialize the SDK with the device ID.
  The SDK can parse the URL parameter automatically if `deviceId` is in the URL query parameters.
@@ -738,7 +742,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 If your web app configures the strict Content Security Policy (CSP) for security concerns, adjust the policy to whitelist the Amplitude domains:
 
-- When using ["Script Loader"](../sdk-quickstart/#install-the-dependency), add `https://*.amplitude.com` to `script-src`.
-- Add `https://*.amplitude.com` to `connect-src`.
+* When using ["Script Loader"](../sdk-quickstart/#install-the-dependency), add `https://*.amplitude.com` to `script-src`.
+* Add `https://*.amplitude.com` to `connect-src`.
 
 --8<-- "includes/abbreviations.md"

@@ -45,12 +45,11 @@ let amplitude = Amplitude(configuration: Configuration(
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `callback` | Callback function after event sent. | `nil` |
     | `optOut` | Opt the user out of tracking. | `false` |
-    | `trackingSessionEvents` | Flushing of unsent events on app close. | `false` |
+    | `trackingSessionEvents` | Flushing of unsent events on app close. | `true` |
     | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
     | `useBatch` |  Whether to use batch api. | `false` |
-    | `useAppSetIdForDeviceId` |  Whether to use app ser id as device id. Need to include the module and permission. | `false` |
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
     | `enableCoppaControl` |  Whether to enable coppa control for tracking options. | `false` |'
 
