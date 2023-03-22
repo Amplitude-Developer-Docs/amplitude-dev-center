@@ -66,7 +66,7 @@ In addition to the basic configuration options, the Marketing Analytics Browser 
 |---|----|---|
 |`attribution.disabled`| `boolean`. Whether disable the attribution tracking.| `false` |
 |`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. | 
-|`attribution.initialEmptyValue`| `string`. Custom the init empty value for attribution related user properties to any string value | `EMPTY` |
+|`attribution.initialEmptyValue`| `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY` |
 |`attribution.resetSessionOnNewCampaign`| `boolean`. Whether reset the `sessionId` on a new campaign. | SDK won't create a new session for new campaign by default. | 
 |`pageViewTracking.trackOn`| `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions| `undefined` |
 |`pageViewTracking.trackHistoryChanges`  | `pathOnly` or `all` or `undefined`. Use this option to subscribe to page view changes in a single page application like React.js. `pathOnly` - Compare the path only changes for page view tracking. `all`- Compare the full url changes for page view tracking. `undefined` - Default behavior. Page view changes in single page applications does not trigger a page view event. | `undefined` |
