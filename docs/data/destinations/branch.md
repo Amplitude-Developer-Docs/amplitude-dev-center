@@ -7,14 +7,6 @@ description: Amplitude CDP's Branch streaming integration enables you to forward
 
 Amplitude CDP's Branch streaming integration enables you to forward your Amplitude events straight to [Branch](https://branch.io/) with just a few clicks.
 
-## Considerations
-
-Keep these things in mind when sending events to [Branch:](https://branch.io/)
-
-- Events sent to Branch by Amplitude are "Custom Events". See the [Branch Custom Events documentation](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#track-custom-events).
-- Relevant limits for Branch events are:
-    - Maximum length of event name: 40 characters
-
 ## Setup
 
 ### Prerequisites
