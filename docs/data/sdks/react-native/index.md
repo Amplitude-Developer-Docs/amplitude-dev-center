@@ -14,9 +14,7 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
     This is a maintenance SDK and will only receive bug fixes until deprecation. A new [Analytics SDK for React Native](../typescript-react-native/) is available. The new SDK offers an improved code architecture which supports plugins and React Native Web.
 
 !!!info "SDK Resources"
-    - [Github :material-github:](https://github.com/amplitude/Amplitude-ReactNative)
-    - [Release :material-code-tags-check:](https://github.com/amplitude/Amplitude-ReactNative/releases)
-    - [API Reference :material-book:](https://amplitude.github.io/Amplitude-ReactNative/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-ReactNative) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-ReactNative/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-ReactNative/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
 

@@ -7,15 +7,14 @@ icon: simple/javascript
 <!-- vale off-->
 [![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://www.npmjs.com/package/amplitude-js)
 
+
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
 !!!deprecated "Maintenance SDK"
     This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK](../typescript-browser/) which supports plugins and more. See the [Migration Guide](../../sdks/typescript-browser/migration) for more help.
 
 !!!info "Browser SDK Resources (Maintenance)"
-    - [Github :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
-    - [Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)
-    - [API Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-JavaScript) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Javascript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-JavaScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
