@@ -20,9 +20,9 @@ Amplitude CDP's Braze streaming integration enables you to forward your Amplitud
 
 To configure streaming from Amplitude to Braze, you need the following information from Braze.
 
-- **Braze REST API Endpoint**: The Braze endpoint for REST operations. See the [Braze documentation](https://www.braze.com/docs/api/basics/#endpoints) for help determining your endpoint.
-- **REST API Key**: The Braze REST API key used for authentication. See the [Braze documentation](https://www.braze.com/docs/api/basics/#rest-api-key) for help locating your API key.
-- **Braze Application API Key**: The Braze App Identifier for the app receiving Amplitude events. See the [Braze documentation](https://www.braze.com/docs/api/identifier_types/#the-app-identifier-api-key) for help locating your app ID.
+- **Braze API Endpoint**: The Braze endpoint for REST operations. See the [Braze documentation](https://www.braze.com/docs/api/basics/#endpoints) for help determining your endpoint.
+- **Braze API Key**: The Braze API key used for authentication. See the [Braze documentation](https://www.braze.com/docs/api/basics/#rest-api-key) for help locating your API key.
+- **Braze App ID**: The Braze App ID for the app receiving Amplitude events. See the [Braze documentation](https://www.braze.com/docs/api/identifier_types/#the-app-identifier-api-key) for help locating your app ID.
 
 ### Create a new sync
 
@@ -32,9 +32,9 @@ To configure streaming from Amplitude to Braze, you need the following informati
 
 ### Enter credentials
 
-1. Select your **Braze REST API Endpoint**.
-2. Enter your **REST API Key**.
-3. Enter your **Braze Application API Key**.
+1. Select your **Braze API Endpoint**.
+2. Enter your **Braze API Key**.
+3. Enter your **Braze App ID**.
 4. Check **Update Users Only** to only update users that exist in Braze, and not create new ones. If you're sending alias-only user profiles, don't check this field. If you check **Update Users Only**, your alias-only user profiles aren't created in Braze. More information available in the [Braze documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
 
 ### Configure mappings
