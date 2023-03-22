@@ -96,7 +96,7 @@ The new Browser SDK configuration comes in a different shape. The configurations
 |`config.platform`|NOT SUPPORTED. See [Plugins](#plugins).|
 |`config.savedMaxCount`|NOT SUPPORTED|
 |`config.saveEvents`|NOT SUPPORTED|
-|`config.saveParamsReferrerOncePerSession`|`config.attribution.trackNewCampaigns`. Opposite with `saveParamsReferrerOncePerSession`. See [configuration](../typescript-browser/#configuration). |
+|`config.saveParamsReferrerOncePerSession`|`config.attribution.trackNewCampaigns`. Opposite with `saveParamsReferrerOncePerSession`. See [configuration](../#configuration). |
 |`config.secureCookie`|`config.cookieSecure`|
 |`config.sessionTimeout`|`config.sessionTimeout`|
 |`config.storage`|`config.storageProvider`|
