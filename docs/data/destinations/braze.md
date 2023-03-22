@@ -55,7 +55,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braz
 
     !!!warning "Events for anonymous users cannot be streamed"
 
-        Braze requires that all events have a user ID present. If you have selected any events to send to Braze that may not have a user ID, add a filter on those events to keep only events where the user ID is present. Otherwise, your delivery metrics may be affected.
+        Braze requires that all events have a user ID present. If you have selected any events to send to Braze that may not have a user ID, add a filter to send only events where the user ID is present. Otherwise, your delivery metrics may be affected.
 
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
