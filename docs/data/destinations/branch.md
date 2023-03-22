@@ -1,11 +1,11 @@
 ---
 title: Branch Event Streaming
-description: Amplitude Data's Branch integration lets you stream your Amplitude event and user data straight to Branch with just a few clicks.
+description: Amplitude CDP's Branch streaming integration enables you to forward your Amplitude events straight to Branch with just a few clicks.
 ---
 
 --8<-- "includes/open-beta.md"
 
-Amplitude Data's Branch integration lets you stream your Amplitude event and user data straight to Branch with just a few clicks.
+Amplitude CDP's Branch streaming integration enables you to forward your Amplitude events straight to [Branch](https://branch.io/) with just a few clicks.
 
 ## Considerations
 
@@ -19,70 +19,84 @@ Keep these things in mind when sending events to [Branch:](https://branch.io/)
 
 ### Prerequisites
 
-To configure an Event Streaming integration from Amplitude to Branch, you need the following information from Branch:
+To configure streaming from Amplitude to Branch, you need the following information from Branch.
 
-- Branch Key
+**Branch Key**: The Branch Key used for authentication. See the [Branch documentation](https://help.branch.io/using-branch/docs/profile-settings#branch-key-and-secret) for help locating your Branch Key.
 
-### Branch setup
-
-1. In your Branch dashboard, click on **Account Settings**
-2. Copy your Branch Key
-
-### Amplitude setup
+### Create a new sync
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Event Streaming section, click **Branch**.
 3. Enter a sync name, then click **Create Sync**.
 
-After you create the destination, you must configure the settings.
+### Enter credentials
 
-### Configure settings
+Enter your **Branch Key**.
 
-1. On the **Settings** tab, click **Edit**.
-2. Enter your **Branch Key**.
-3. Configure **Send Events** to send events ingested by Amplitude to Branch.
-      1. To send an event, toggle **Send Events** to **Enabled**.
-      2. Expand the **Select and filter events** panel, and select which events to send.
-      3. Select a mapping for your Branch identifier. There are several options for a valid identifier in Branch. Include *one* of the following:
-        - Developer Identity
-        - Browser Fingerprint ID
-        - OS (if iOS) *AND* (IDFA *OR* IDFV)
-        - OS (if Android) *AND* (Android ID *OR* AAID)
-      4. Select other optional mappings to increase attribution success rates
-      5. Select custom data to forward with your events. Expand the **Specify event properties to send** panel, and select properties you want to include. If you don't select any properties here, Amplitude doesn't send any.
-4. Save when finished.
+### Configure event forwarding
 
-#### Enable integration
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Branch") if you want to stream events to Branch. When enabled, events are automatically forwarded to Branch when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Branch as [Branch custom events](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#track-custom-events).
 
-The final step is enabling the destination. You must enable the destination to start streaming events.
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Branch.
 
-1. Click **Edit**.
-2. Toggle **Status** from **Disabled** to **Enabled**.
-3. Click **Save**.
+    !!!warning "Events for anonymous users cannot be streamed"
 
-## List of available mappings
+        Branch requires that all events have a user ID present. If you have selected any events to send to Branch that may not have a user ID, add a filter to send only events where the user ID is present. Otherwise, your delivery metrics may be affected.
 
-| Parameter Name                | Required                                                                    | Default Amplitude Property |
-|-------------------------------|:---------------------------------------------------------------------------:|:--------------------------:|
-| **OS**                        | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) | **OS Name**                |
-| **Developer Identity**        | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) |                            |
-| **Browser Fingerprint ID**    | :octicons-check-16: (One of OS, Developer Identity, Browser Fingerprint ID) |                            |
-| **iOS advertising ID (IDFA)** | :octicons-check-16: (If using OS=iOS, one of IDFA or IDFV)                  |                            |
-| **iOS vendor ID (IDFV)**      | :octicons-check-16: (If using OS=iOS, one of IDFA or IDFV)                  |                            |
-| **Android ID**                | :octicons-check-16: (If using OS=Android, one of Android ID or AAID)        |                            |
-| **AAID**                      | :octicons-check-16: (If using OS=Android, one of Android ID or AAID)        |                            |
-| **OS Version**                |                                                                             | **OS Version**             |
-| **Environment**               |                                                                             |                            |
-| **User Agent**                |                                                                             |                            |
-| **HTTP Origin**               |                                                                             |                            |
-| **HTTP Referrer**             |                                                                             |                            |
-| **Country**                   |                                                                             |                            |
-| **IP Address**                |                                                                             | **IP Address**             |
-| **Language**                  |                                                                             | **Language**               |
-| **Device Brand**              |                                                                             |                            |
-| **Branch Device Token**       |                                                                             |                            |
-| **Downloaded App Version**    |                                                                             |                            |
-| **Device Model**              |                                                                             |                            |
-| **Screen DPI**                |                                                                             |                            |
-| **Screen Height**             |                                                                             |                            |
-| **Screen Width**              |                                                                             |                            |
+        ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
+
+2. In **Map properties to destination**:    
+    1. Choose one of the following ways to identify your users in Branch.
+        - **Developer ID**: Any unique identifier for each user in Branch.
+            1. Select an Amplitude user property that corresponds to your Branch **Developer ID**, from the left dropdown.
+            2. Select **Developer ID**, from the corresponding right dropdown.
+        - **Browser Fingerprint ID**: A Branch internal-only field for tracking browsers.
+            1. Select an Amplitude user property that corresponds to your Branch **Browser Fingerprint ID**, from the left dropdown.
+            2. Select **Developer ID**, from the corresponding right dropdown.
+        - **IDFA** or **IDFV**: A Branch iOS advertising ID or iOS vendor ID.
+            1. Select an Amplitude user property with the value `iOS`, from the left dropdown.
+            2. Select **OS**, from the corresponding right dropdown.
+            3. Select an Amplitude user property that corresponds to your Branch **IDFA** or **IDFV**, from the left dropdown.
+            4. Select **IDFA** or **IDFV**, from the corresponding right dropdown.
+        - **Android ID** or **AAID**: A Branch Android hardware ID or Android/Google advertising ID.
+            1. Select an Amplitude user property with the value `Android`, from the left dropdown.
+            2. Select **OS**, from the corresponding right dropdown.
+            3. Select an Amplitude user property that corresponds to your Branch **Android ID** or **AAID**, from the left dropdown.
+            4. Select **Android ID** or **AAID**, from the corresponding right dropdown.
+
+    2. (optional) Map other Amplitude user properties to Branch properties.
+        1. Select an Amplitude user property that corresponds to a Branch property, from the left dropdown.
+        2. Select the Branch property, from the corresponding right dropdown.
+
+    See the full list of [Branch properties that are supported by Amplitude](#supported-branch-properties).
+
+3. (optional) In **Select additional properties**, select any more event and user properties you want to send to Branch. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Branch as Branch custom data.
+
+### Enable sync
+
+When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
+
+### Supported Branch properties
+
+- **Developer Identity**    
+- **Browser Fingerprint ID**
+- **IDFA**              
+- **IDFV**              
+- **OS**                
+- **Android ID**        
+- **AAID**              
+- OS Version            
+- Environment           
+- User Agent            
+- HTTP Origin           
+- HTTP Referrer         
+- Country               
+- IP Address            
+- Language              
+- Device Brand          
+- Branch Device Token   
+- Downloaded App Version
+- Device Model          
+- Screen DPI            
+- Screen Height         
+- Screen Width          
