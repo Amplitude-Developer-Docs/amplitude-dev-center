@@ -122,6 +122,11 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     ```
     </td>
     <td>
+    Assign user to a group:
+    ```typescript
+    amplitude.setGroup('Working Group', 'UNIVAC')
+    ```
+    Update properties of a group:
     ```typescript
     groupIdentify(
       'Working Group',
@@ -184,14 +189,18 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     ```
     </td>
     <td>
+    Assign user to a group:
     ```swift
     Amplitude.instance().setGroup("orgName", groupName:NSString(string:"xyz"))
+    ```
+    Update properties of a group:
+    ```swift
     Amplitude.instance().groupIdentifyWithGroupType(
       "orgName",
       groupName:NSString(string:"xyz"),
       groupIdentify:AMPIdentify().set("plan", value: "enterprise")
     )
-    ``` 
+    ```
     </td>
     </tr>
     </table>
@@ -243,10 +252,14 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     ```
     </td>
     <td>
+    Assign user to a group:
     ```kotlin
     amplitude.setGroup("orgName", "xyz");
+    ```
+    Update properties of a group:
+    ```kotlin
     amplitude.groupIdentify("orgName", "xyz", Identify().set("plan", "enterprise"))
-    ``` 
+    ```
     </td>
     </tr>
     </table>
@@ -255,7 +268,7 @@ For all other SDKs view the [Quickstart Guide](/data/sdks/sdk-quickstart/) and t
 
 ## Validate events
 
-Data validation is a critical step in the instrumentation process. Amplitude lets validate your event data via Amplitude's [User Lookup](/data/debugger/#user-lookup) or using the [Instrumentation Explorer](/data/debugger/#instrumentation-explorer) Chrome extension.
+Data validation is a critical step in the instrumentation process. Amplitude lets validate your event data via Amplitude's debugging [tools](/data/debugger/).
 
 ## Add a destination
 
