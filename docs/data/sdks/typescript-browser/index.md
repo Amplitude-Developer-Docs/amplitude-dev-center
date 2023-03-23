@@ -35,6 +35,17 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
 
+In addition to the basic configuration options, there also has options to configure attribution.
+    
+???config "Attribution Options"
+    |<div class="big-column">Name</div>| Description| Default Value|
+    |---|----|---|
+    |`attribution.disabled`| `boolean`. Whether disable the attribution tracking. | `false` |
+    |`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
+    |`attribution.initialEmptyValue`| `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY` |
+    |`attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
+    |`attribution.trackPageViews`| `boolean`. Whether track page view on attribution. | `false` |
+
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 ```ts
