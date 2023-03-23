@@ -5,8 +5,7 @@ icon: simple/javascript
 ---
 
 <!-- vale off-->
-[![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://www.npmjs.com/package/amplitude-js)
-
+[![npm version](https://img.shields.io/npm/v/amplitude-js)](https://www.npmjs.com/package/amplitude-js)
 
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
