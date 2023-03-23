@@ -70,8 +70,6 @@ When satisfied with your configuration, at the top of the page toggle the **Stat
 
 ### Supported AppsFlyer properties
 
-_You can map Amplitude user properties directly to all the following AppsFlyer properties._
-
 | Parameter Name        | Required              | Recommended         |
 |-----------------------|:---------------------:|:-------------------:|
 | **AppsFlyer ID**      | :octicons-check-16:   |                     |
