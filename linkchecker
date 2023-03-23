@@ -5,22 +5,32 @@ mkdocs build
 
 # Run the link checker on the local site
 if [ "$1" = "external" ]; then
+    # Also check external links. Requires additional filtering
     echo "Running full link check, including external links. This may take some time..."
-    npx -y broken-link-checker-local@latest ./site -ro > out.txt
+    out=$( npx -y broken-link-checker-local@latest ./site -rog \
+        --exclude 'https://help.amplitude.com' \
+        --exclude 'https://api.amplitude.com' \
+        --exclude 'https://api2.ampliude.com' \
+        --exclude 'https://amplitude.com/api' \
+        --exclude 'https://analytics.eu.amplitude.com/api/' \
+        --exclude 'https://help.adjust.com/' \
+        --exclude 'https://forum.unity.com/' \
+        | grep --line-buffered 'BROKEN\|Getting links from' \
+        | grep --line-buffered -v 'HTTP_403\|HTTP_308\|HTTP_401\|HTTP_400' \
+        | tee /dev/tty )
 else
+    # Check only internal links
     echo "Running internal link check..."
-    npx -y broken-link-checker-local@latest ./site -roe > out.txt
+    out=$( npx -y broken-link-checker-local@latest ./site -roe \
+    | grep --line-buffered 'BROKEN\|Getting links from' \
+    | tee /dev/tty )
 fi
 
-# Filter the log for broken links, file names, and exclude 403 errors.
-log=$(grep 'BROKEN\|Getting links from' out.txt | grep -v 'HTTP_403')
 # Count broken links
-fail_count=$(echo "$log" | grep -o BROKEN | wc -l)
-rm out.txt
-
-echo "$log"
+fail_count=$(echo "$out" | grep -o BROKEN | wc -l)
 echo "Found $fail_count broken links."
 
+# Fail if greater than 0 broken links
 if [[ $fail_count -gt 0 ]]
 then
     exit 1

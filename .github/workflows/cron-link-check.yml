@@ -1,17 +1,13 @@
 ---
-# MegaLinter GitHub Action configuration file for our daily link check. 
+# MegaLinter GitHub Action configuration file for our daily link check.
 # This action runs a link check on our entire doc set every day at 12:00 AM so we're warned when a link breaks.
-# This is a separate workflow file from main Megalinter checks because we needed to use different settings for this run. 
+# This is a separate workflow file from main Megalinter checks because we needed to use different settings for this run.
 
-name: Daily Link Check 
+name: Daily Link Check
 on:
   schedule:
   # Run everyday at 12:00 AM
   - cron: "0 0 * * *"
-
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -25,12 +21,18 @@ jobs:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      # MegaLinter
-      - name: MegaLinter
-        id: ml
-        uses: oxsecurity/megalinter/flavors/documentation@v6
-        env:
-          VALIDATE_ALL_CODEBASE: true # Scans all doc files for broken links.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DISABLE_LINTERS: MARKDOWNLINT
-          # ADD YOUR CUSTOM ENV VARIABLES HERE TO OVERRIDE VALUES OF .mega-linter.yml AT THE ROOT OF YOUR REPOSITORY
+      # Setup Node
+      - name: Setup Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      # Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      # External Link Check
+      - name: Internal Link Check
+        run: ./linkchecker external
