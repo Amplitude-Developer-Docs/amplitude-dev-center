@@ -47,7 +47,13 @@ Select an Amplitude user property that corresponds to your **Customer.io User Id
 
 ### Configure event forwarding
 
-Under **Send Events**, make sure the toggle is enabled ("Events are sent to Customer.io") if you want to stream events to Customer.io. When enabled, events are automatically forwarded to Customer.io when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Customer.io as [Customer.io events](https://www.customer.io/docs/api/track/#tag/Track-Events), including web page views and mobile screen views. Customer.io automatically creates a new user in Customer.io if the provided **Customer.io User Identifier** doesn't exist in Customer.io.
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Customer.io") if you want to stream events to Customer.io. When enabled, events are automatically forwarded to Customer.io when they're ingested in Amplitude.
+
+!!!info "Considerations"
+
+    - Events aren't sent on a schedule or on-demand using this integration.
+    - Events are sent to Customer.io as [Customer.io events](https://www.customer.io/docs/api/track/#tag/Track-Events), including web page views and mobile screen views.
+    - Customer.io automatically creates a new user in Customer.io if the provided **Customer.io User Identifier** doesn't exist in Customer.io.
 
 1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Customer.io. _Transformed events aren't supported._
 
