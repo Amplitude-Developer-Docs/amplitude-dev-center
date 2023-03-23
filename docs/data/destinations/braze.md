@@ -1,87 +1,72 @@
 ---
 title: Braze Event Streaming
-description: Amplitude Data's Braze integration lets you stream your Amplitude event and user data straight to Braze with just a few clicks.
+description: Amplitude CDP's Braze streaming integration enables you to forward your Amplitude events and users straight to Braze with just a few clicks.
 ---
 
 --8<-- "includes/open-beta.md"
 
-Amplitude Data's Braze integration lets you stream your Amplitude event and user data straight to Braze with just a few clicks.
+Amplitude CDP's Braze streaming integration enables you to forward your Amplitude events and users straight to [Braze](https://www.braze.com/) with just a few clicks.
 
-!!!note "Other Amplitude + Braze Integrations"
+!!!note "Other Amplitude CDP + Braze integrations"
 
-    This integration streams Amplitude events and users to Braze. Amplitude offers other integrations with Braze:
+    This integration streams Amplitude events and users to Braze. Amplitude CDP offers other integrations with Braze:
 
-    - [Send Cohorts to Braze](/data/destinations/braze-cohort)
-    - [Braze Event Import](/data/sources/braze)
-
-## Considerations
-
-- If a user with the provided Braze identifier doesn't exist within Braze, Braze creates a user with that ID. If this isn't the desired behaviour, check the **Update Users Only** option.
+    - [Export Amplitude cohorts to Braze](/data/destinations/braze-cohort)
+    - [Import Braze events into Amplitude](/data/sources/braze)
 
 ## Setup
 
 ### Prerequisites
 
-To configure an Event Streaming integration from Amplitude to Braze, you need the following information from Braze:
+To configure streaming from Amplitude to Braze, you need the following information from Braze.
 
-- Endpoint: the endpoint for the REST operations. It looks like : `https://rest.iad-##.braze.com`, See the [Braze documentation](https://www.braze.com/docs/api/basics/#endpoints) to find your endpoint.
-- `app_id`: ID for the Braze app that should receive Amplitude events. Find this in your Braze Developer Console under **Settings**. See the [Braze documentation](https://www.braze.com/docs/api/identifier_types/#the-app-identifier-api-key) for more help.
-- `api_key`: The REST API Key used for authentication. Find this in your Braze Developer Console under **Settings**. See the [Braze documentation](https://www.braze.com/docs/api/basics/#rest-api-key) for more help.
+- **Braze API Endpoint**: The Braze endpoint for REST operations. See the [Braze documentation](https://www.braze.com/docs/api/basics/#endpoints) for help determining your endpoint.
+- **Braze API Key**: The Braze API key used for authentication. See the [Braze documentation](https://www.braze.com/docs/api/basics/#rest-api-key) for help locating your API key.
+- **Braze App ID**: The Braze App ID for the app receiving Amplitude events. See the [Braze documentation](https://www.braze.com/docs/api/identifier_types/#the-app-identifier-api-key) for help locating your app ID.
 
-### Amplitude setup
+### Create a new sync
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Event Streaming section, click **Braze**.
 3. Enter a sync name, then click **Create Sync**.
 
-After you create the destination, you must configure the settings.
+### Enter credentials
 
-#### Configure settings
+1. Select your **Braze API Endpoint**.
+2. Enter your **Braze API Key**.
+3. Enter your **Braze App ID**.
+4. Check **Update Users Only** to only update users that exist in Braze, and not create new ones. If you're sending alias-only user profiles, don't check this field. If you check **Update Users Only**, your alias-only user profiles aren't created in Braze. More information available in the [Braze documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
 
-1. On the **Settings** tab, click **Edit**.
-2. Select your **Braze REST API Endpoint**.
-3. Enter your **REST API Key**.
-4. Enter your **Braze App Identifier API Key**.
-5. **Create & Update Users** creates users in Braze and update the properties of existing users when a user is created or user properties are updated in Amplitude.
-      1. To create and update users, toggle **Create & Update Users** to **Enabled**.
-      2. To select user properties to send, expand the **Specify user properties to send** panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
-      3. Check the **Update Users Only** box to not create users if they don't exist in Braze. If you're sending alias-only user profiles, this field shouldn't be checked. If **Update Users Only** is checked, your alias-only user profiles won't be created in Braze. More information available in the [Braze API documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
-6. Configure **Send Events** to send events ingested by Amplitude to Braze.
-      1. To send an event, toggle **Send Events** to **Enabled**.
-      2. Expand the **Select and filter events** panel, and select which events to send.
-      3. To select event properties to send, expand the **Specify event properties to send** panel, and select properties you want to include. If you don't select any properties here, Amplitude doesn't send any.
-7. Save when finished.
+### Configure mappings
 
-After you configure your settings, configure your mappings.
+_This applies to both event and user forwarding. Transformed user properties aren't supported._
 
-#### Configure mappings (recommended)
+1. Select an Amplitude user property that corresponds to your Braze user ID, from the left dropdown.
+2. Select the type of your Braze user ID, from the right dropdown.
+    - [**External ID**](https://www.braze.com/docs/api/basics/#user-ids): Any unique identifier for each user in Braze.
+    - [**Braze ID**](https://www.braze.com/docs/api/basics/#user-ids): A unique identifier provided by Braze for each user.
+    - [**User Alias**](https://www.braze.com/docs/api/objects_filters/user_alias_object): An alternative unique identifier for each user in Braze.
 
-For newer versions of the Braze destination, you can map Amplitude properties to fields in Braze. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
+### Configure event forwarding
 
-1. Click the **Mappings** tab, then click **Edit**.
-2. Select a **Braze User ID** field for your users in Braze. Your choice for a Braze identifier are:
-    1. **External ID** (a unique identifier that's assigned by you to a user in Braze)
-    2. **Braze ID** (a unique identifier that's automatically set by Braze)
-    3. **User Alias** (an identifier that's assigned by you to a user in Braze)
-3. Save when finished.
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braze") if you want to stream events to Braze. When enabled, events are automatically forwarded to Braze when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 
-See the [full list of available mappings](#list-of-available-mappings).
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Braze. _Transformed events aren't supported._
 
-After you configure mappings, enable the destination.
+    !!!warning "Events for anonymous users cannot be streamed"
 
-#### Enable integration
+        Braze requires that all events have a user ID present. If you have selected any events to send to Braze that may not have a user ID, add a filter to send only events where the user ID is present. Otherwise, your delivery metrics may be affected.
 
-The final step is enabling the destination. You must enable the destination to start streaming events.
+        ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
-1. Navigate back to the **Settings** tab.
-2. Click **Edit**.
-3. Toggle **Status** from **Disabled** to **Enabled**.
-4. Click **Save**.
+2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom event properties](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties). _Transformed event properties and transformed user properties aren't supported._
 
-## List of available mappings
+### Configure user forwarding
 
-| Parameter Name  | Required                                                          | Recommended | Default Amplitude Property |
-|-----------------|:-----------------------------------------------------------------:|:-----------:|----------------------------|
-| **External ID** | :octicons-check-16: (one of External ID, Braze ID, or User Alias) |             | **User ID**                |
-| **Braze ID**    | :octicons-check-16: (one of External ID, Braze ID, or User Alias) |             | **User ID**                |
-| **User Alias**  | :octicons-check-16: (one of External ID, Braze ID, or User Alias) |             | **User ID**                |
+Under **Send Users**, make sure the toggle is enabled ("Users are sent to Braze") if you want to stream users and their properties to Braze. When enabled, users are automatically created or updated in Braze when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Braze. Users aren't sent on a schedule or on-demand using this integration.
+
+(optional) In **Select additional properties**, select any more user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _Transformed user properties aren't supported._
+
+### Enable sync
+
+When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
