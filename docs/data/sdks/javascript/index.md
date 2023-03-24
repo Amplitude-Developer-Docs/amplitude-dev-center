@@ -5,7 +5,7 @@ icon: simple/javascript
 ---
 
 <!-- vale off-->
-[![npm version](https://badge.fury.io/js/amplitude-js.svg)](https://badge.fury.io/js/amplitude-js)
+[![npm version](https://img.shields.io/npm/v/amplitude-js)](https://www.npmjs.com/package/amplitude-js)
 
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
@@ -13,9 +13,7 @@ This is the official documentation for the Amplitude Analytics JavaScript SDK.
     This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK](../typescript-browser/) which supports plugins and more. See the [Migration Guide](../../sdks/typescript-browser/migration) for more help.
 
 !!!info "Browser SDK Resources (Maintenance)"
-    - [JavaScript Browser SDK Reference :material-book:](https://amplitude.github.io/Amplitude-JavaScript/)
-    - [JavaScript Browser SDK Repository :material-github:](https://github.com/amplitude/Amplitude-JavaScript)
-    - [JavaScript Browser SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Javascript/releases)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-JavaScript) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Javascript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-JavaScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
@@ -122,6 +120,96 @@ var options = {};
 var instance = amplitude.getInstance("instance").init("API_KEY", null, options); // initializes with the given options
 ```
 
+### Configuration
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `apiEndpoint` | `string`. Endpoint to send amplitude event requests to. | `https://api.amplitude.com` |
+    | `batchEvents` | `boolean`. Whether batch send events. If `true`, then events are batched together and uploaded only when the number of unsent events is greater than or equal to eventUploadThreshold or after eventUploadPeriodMillis milliseconds have passed since the first unsent event was logged. | `false` |
+    | `cookieExpiration` | `number`. The number of days after which the Amplitude cookie will expire. 12 months is for GDPR compliance. | `365` |
+    | `sameSiteCookie` | `string`. Sets the SameSite flag on the amplitude cookie. Decides cookie privacy policy. | `Lax` |
+    | `cookieForceUpgrade` | `boolean`. Forces pre-v6.0.0 instances to adopt post-v6.0.0 compat cookie formats. | `false` |
+    | `disableCookies` |  `boolean`. Whether disable Ampllitude cookies altogether. | `false` |
+    | `deferInitialization` | `boolean`.  Whether defer initialization. If `true`, disables the core functionality of the sdk, including saving a cookie and all logging, until explicitly enabled. | `false` |
+    | `deviceIdFromUrlParam` | `boolean`. If `true`, then the SDK will parse Device ID values from the URL parameter amp_device_id if available. Device IDs defined in the configuration options during init will take priority over Device IDs from URL parameters. | `false` |
+    | `domain` | `string`. Set a custom domain for the Amplitude cookie. To include subdomains, add a preceding period, eg: `.amplitude.com`. | `null` |
+    | `eventUploadPeriodMillis` | `number`. Amount of time in milliseconds that the SDK waits before uploading events if batchEvents is true. | 30 seconds |
+    | `eventUploadThreshold` | `number`. Minimum number of events to batch together per request if batchEvents is true. | `30` |
+    | `forceHttps` | `boolean`. Whether force to upload toHTTPS endpoint. If `true`, the events will always be uploaded to HTTPS endpoint. Otherwise, it will use the embedding site's protocol. | `true` |
+    | `includeFbclid` | `boolean`.  If `true`, captures the fbclid URL parameter as well as the user's initial_fbclid via a setOnce operation. | `false` |
+    | `includeGclid` | `boolean`. If `true`, captures the gclid URL parameter as well as the user's initial_gclid via a setOnce operation. | `false` |
+    | `includeReferrer` | `boolean`. If `true`, captures the referrer and referring_domain for each session, as well as the user's initial_referrer and initial_referring_domain via a setOnce operation. | `false` |
+    | `includeUtm` | `boolean`. If `true`, finds UTM parameters in the query string or the _utmz cookie, parses, and includes them as user properties on all events uploaded. This also captures initial UTM parameters for each session via a setOnce operation.| `false` |
+    | `language` | `string`. Custom language to set. | The language determined by the browser. |
+    | `library` | `Object`. Values for the library version | `{ name: 'amplitude-js', version: packageJsonVersion }` |
+    | `logLevel` | `string`. 'DISABLE', 'ERROR', 'WARN', 'INFO'. Level of logs to be printed in the developer console.| `WARN` |
+    | `logAttributionCapturedEvent` | `boolean`. If `true`, the SDK will log an Amplitude event anytime new attribution values are captured from the user. **Note: These events count towards your event volume.** Event name being logged: [Amplitude] Attribution Captured. Event Properties that can be logged: `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, `utm_content`, `referrer`, `referring_domain`, `gclid`, `fbclid`. | `false`|
+    | `optOut` | `boolean`. Whether or not to disable tracking for the current user. | `false` | 
+    | `onError` | `function`. Function to call on error. | `() => {}` |
+    | `onExitPage` | `function`. Function called when the user exits the browser. Useful logging on page exit. | `() => {}` |
+    | `platform` | `string`.  Platform device is running on.| `Web` (browser, including mobile browsers). |
+    | `savedMaxCount` | `number`. Maximum number of events to save in localStorage. If more events are logged while offline, then old events are removed. | `1000` |
+    | `saveEvents` | `boolean`. If `true`, saves events to localStorage and removes them upon successful upload. Without saving events, events may be lost if the user navigates to another page before the events are uploaded.  | `true` |
+    | `saveParamsReferrerOncePerSession` | `boolean`. If `true`, then includeGclid, includeFbclid, includeReferrer, and includeUtm will only track their respective properties once per session. New values that come in during the middle of the user's session will be ignored. Set to false to always capture new values. | `true` |
+    | `secureCookie` | `boolean`. If `true`, the amplitude cookie will be set with the Secure flag. | `false` |
+    | `sessionTimeout` | `number`. The time between logged events before a new session starts in milliseconds. | `30 minutes` |
+    | `storage` | `string`. Options are `cookies`, `localStorage`, `sessionStorage`, or `none`. Sets storage strategy. Will override `disableCookies` option. | `Empty String` |
+    | `trackingOptions` | `Object`. Type of data associated with a user. | Enable all tracking options by default. Please check [here](/#disable-tracking-specific-fields) for more details. |
+    | `transport` | `string`. `http` or `beacon`.  Network transport mechanism used to send events. | `http` |
+    | `unsetParamsReferrerOnNewSession` | `boolean`. If `false`, the existing `referrer` and `utm_parameter` values will be carried through each new session. If set to `true`, the `referrer` and `utm_parameter` user properties, which include `referrer`, `referring_domain`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content`, will be set to `null` upon instantiating a new session. Note: This only works if `includeReferrer` or `includeUtm` is set to `true`. | `false` |
+    | `unsentKey` | `string`. localStorage key that stores unsent events. | `amplitude_unsent` |
+    | `unsentIdentifyKey` | `string`. localStorage key that stores unsent identifies. | `amplitude_unsent_identify` |
+    | `uploadBatchSize` | `number`. The maximum number of events to send to the server per request. | `100` |
+    | `headers` | `Object`. Headers attached to an event(s) upload network request. Custom header properties are merged with this object. | `{ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }` |
+    | `serverZone` | `string`. `US` or `EU`. The server zone to send to, will adjust server url based on this config.| `US` |
+    | `useDynamicConfig` | `boolean`. To update api endpoint with serverZone change or not. For data residency, recommend to enable it unless using own proxy server. | `false` |
+    | `serverZoneBasedApi` | `boolean`. localStorage key that stores unsent events. | `false` |
+    | `sessionId` | `number`. The custom Session ID for the current session. *Note: This is not recommended unless you know what you are doing because the Session ID of a session is utilized for all session metrics in Amplitude. | `null` |
+    | `partnerId` | `number`. The partner id value. | `null` |
+
+#### Configure batching behavior
+
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `eventUploadThreshold` and `eventUploadPeriodMillis`. By default, the serverUrl will be `https://api.amplitude.com`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+
+```js
+amplitude.getInstance().init(apiKey, null, {
+    // Events queued in memory will flush when number of events exceed upload threshold
+    // Default value is 30
+    eventUploadThreshold: 50,
+    // Events queue will flush every certain milliseconds based on setting
+    // Default value is 30000 milliseconds
+    eventUploadPeriodMillis: 100000,
+});
+```
+
+#### EU data residency
+
+Beginning with version 8.9.0, you can configure the server zone to send data to Amplitude's EU server after initializing the client.
+ The server zone configuration supports dynamic configuration as well.
+
+For earlier versions, you need to configure the `apiEndpoint` property after initializing the client.
+
+!!!note
+    For EU data residency, you must initialize the SDK with the API key from Amplitude EU. Your project must be set up from inside Amplitude EU. 
+
+=== "Version 8.9.0 and higher"
+
+    ```js
+    // No need to call setServerUrl for sending data to Amplitude's EU servers
+    amplitude.getInstance().init(euApiKey, null, {
+        serverZone: 'EU',
+        serverZoneBasedApi: true,
+    });
+    ```
+=== "Earlier versions"
+
+    ```js
+    amplitude.getInstance().init(euApiKey, null, {
+    apiEndpoint: 'https://api.eu.amplitude.com'
+    });
+    ```
+
 #### Set `userID`
 
 Set `userID` when initializing the client, or after initialization with the `setUserId` method.
@@ -140,33 +228,6 @@ Set `userID` when initializing the client, or after initialization with the `set
     amplitude.getInstance().setUserId(userId);
     ```
     There is an optional `startNewSession` parameter for `setUserId`. Set it to `true` to start a new user session.
-
-#### EU data residency
-
-Beginning with version 8.9.0, you can configure the server zone to send data to Amplitude's EU server after initializing the client.
- The server zone configuration supports dynamic configuration as well.
-
-For earlier versions, you need to configure the `apiEndpoint` property after initializing the client.
-
-!!!note
-    For EU data residency, you must initialize the SDK with the API key from Amplitude EU. Your project must be set up from inside Amplitude EU. 
-
-=== "Version 8.9.0 and higher"
-
-    ```js
-    // No need to call setServerUrl for sending data to Amplitude's EU servers
-    amplitude.getInstance().init(euApiKey, null, {
-    serverZone: 'EU',
-    serverZoneBasedApi: true,
-    });
-    ```
-=== "Earlier versions"
-
-    ```js
-    amplitude.getInstance().init(euApiKey, null, {
-    apiEndpoint: 'https://api.eu.amplitude.com'
-    });
-    ```
 
 ### Send events
 
