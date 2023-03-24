@@ -3,8 +3,6 @@ title: Iterable Event Streaming
 description: Amplitude CDP's Iterable streaming integration enables you to forward your Amplitude events and users straight to Iterable with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
-
 Amplitude CDP's Iterable streaming integration enables you to forward your Amplitude events and users straight to [Iterable](https://iterable.com/) with just a few clicks.
 
 !!!note "Other Amplitude CDP + Iterable integrations"

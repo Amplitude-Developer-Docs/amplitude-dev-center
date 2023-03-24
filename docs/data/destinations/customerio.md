@@ -3,8 +3,6 @@ title: Customer.io Event Streaming
 description: Amplitude CDP's Customer.io streaming integration enables you to forward your Amplitude events and users straight to Customer.io with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
-
 Amplitude CDP's Customer.io streaming integration enables you to forward your Amplitude events and users straight to [Customer.io](https://customer.io/) with just a few clicks.
 
 !!!note "Other Amplitude CDP + Customer.io integrations"

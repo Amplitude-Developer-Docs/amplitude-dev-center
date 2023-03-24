@@ -3,8 +3,6 @@ title: Braze Event Streaming
 description: Amplitude CDP's Braze streaming integration enables you to forward your Amplitude events and users straight to Braze with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
-
 Amplitude CDP's Braze streaming integration enables you to forward your Amplitude events and users straight to [Braze](https://www.braze.com/) with just a few clicks.
 
 !!!note "Other Amplitude CDP + Braze integrations"
