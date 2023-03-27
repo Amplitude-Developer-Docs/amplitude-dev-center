@@ -79,7 +79,7 @@ For other default configurations:
     | `setServerUrl()` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
     | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
     | `setOptOut()` | `bool`. Opt the user out of tracking. For example, `Amplitude.getInstance().setOptOut(true)`.| `false` |
-    | `trackingSessionEvents()` | `bool`. Flushing of unsent events on app close. For example, `Amplitude.getInstance().trackingSessionEvents(true)`. | `false` |
+    | `trackingSessionEvents()` | `bool`. Whether to automatically log start and end session events corresponding to the start and end of a user's session. For example, `Amplitude.getInstance().trackingSessionEvents(true)`. | `false` |
     | `useAppSetIdForDeviceId()` | Only for Android. Whether to use app ser id as device id on Android side. Please check [here](../android/#app-set-id) for the required module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
     
 #### Configure batching behavior
@@ -419,7 +419,7 @@ These features aren't supported in Flutter web:
 
 - `enableCoppaControl`
 - `disableCoppaControl`
-- `trackingSessionEvents`
+- `trackingSessionEvents`. We are still tracking the sessionId in Flutter Web, but whether to automatically log start and end session events corresponding to the start and end of a user's session is not supported in Flutter Web.
 - `useAppSetIdForDeviceId`
 
 #### Usage
