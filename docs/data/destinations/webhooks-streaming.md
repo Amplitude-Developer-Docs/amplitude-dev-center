@@ -3,40 +3,74 @@ title: Send Events to Webhooks
 description: Use this integration to stream Amplitude event data to your custom webhooks.
 ---
 
-Amplitude Data's Webhook integration lets you stream your Amplitude event data to custom webhooks. This is a light-weight way to set a stream of event data out of Amplitude, which you can then pick up from the Webhook destination, and transform/configure to how you like.
-
---8<-- "includes/closed-beta.md"
+Amplitude CDP's Webhook integration enables you to forward your Amplitude events and users to custom webhooks. This is a light-weight way to set a stream of event and user data out of Amplitude, to a URL of your choosing to enable any of your usecases.
 
 ## Setup
 
-### Webhook setup
+### Prerequisites
 
-Create a webhook endpoint that can receive HTTP requests. 
+To configure streaming from Amplitude to your webhook, you need the following information.
 
-### Amplitude setup
+- **Webhook URL** The destination URL Amplitude should use to send events and users.
+- **Header Information** You can set up to five extra headers for the webhook request.
+
+### Create a new sync
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Event Streaming section, click **Webhook**.
 3. Enter a sync name, then click **Create Sync**.
-4. Click **Edit**, then:
-     - Enter the URL endpoint for the webhook. For example, `https://mycompany.com/webhook`.
-     - Customize the HTTP headers to send with the event. There are two preset headers that are always sent, and you can specify up to 5 more. For example, specifying `Authorization` → `Bearer XXXXXX` for one of the headers sets the `Authorization: Bearer XXXXX` header on the outgoing HTTP requests.
-     - Customize the event payload using FreeMarker Templating Language. You also have the option to forward the original JSON export event format as-is without any transformation. See [the FreeMarker Templating Language](#freemarker-templating-language) section for more help and examples.
-5. Use the *Send events* filter to select the events you want to send. You can send all events, but Amplitude recommends choosing the most important ones.
-6. When finished, enable the destination and save.
+
+### Enter webhook URL
+
+Enter the URL endpoint for the webhook. For example, `https://mycompany.com/webhook`.
+Note that Amplitude doesn't have a single IP address for forwarding events and users, so ensure that your URL can receive payloads from any Amplitude hosts.
+
+See more details on [Amplitude's retry mechanism](#amplitudes-retry-mechanism).
+
+### Select headers
+
+There are two preset headers for every webhook sync:
+
+- `Content-Type`: `application/json`
+- `User-Agent`: `Amplitude/Webhook/1.0`
+
+After these preset headers, you can define five more headers. To create a new header:
+
+1. Enter the header name on the left side text box
+2. Enter the header value on the right side text box
+3. A new header row appears if limit isn't reached
+
+### Configure event forwarding
+
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Webhook") if you want to stream events to the webhook. When enabled, events are automatically forwarded to the webhook when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
+
+1. Define the event payload you want to receive in the webhook. You can choose to:
+    1. Send the default Amplitude payload which follows the Amplitude [event format](../../analytics/apis/export-api.md).
+    2. Customize the payload using an [Apache FreeMarker](https://freemarker.apache.org/) template. [See more details below](#freemarker-templating-language).
+
+2. In **Select and filter events** choose which events you want to send. Choose only the events you need in the webhook. _Transformed events aren't supported._
+
+### Configure user forwarding
+
+Under **Send Users**, make sure the toggle is enabled ("Users are sent to Webhook") if you want to stream users and their properties to the webhook. When enabled, users are sent to the webhook when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to the webhook. Users aren't sent on a schedule or on-demand using this integration.
+
+- Define the user payload you want to receive in the webhook. You can choose to:
+    1. Send the default Amplitude payload which follows the Amplitude [user format](../../analytics/apis/identify-api.md).
+    2. Customize the payload using an [Apache FreeMarker](https://freemarker.apache.org/) template. [See more details below](#freemarker-templating-language).
 
 ## FreeMarker Templating Language
 
 Amplitude uses [Apache FreeMarker](https://freemarker.apache.org/) templates to customize your event payloads that you send to webhook.
 
-- Customers can use the FreeMarker Templating Language (FTL) to transform [Amplitude's JSON export event format](../../analytics/apis/export-api.md) into any other JSON schema expected by the Webhook destination.
-- FreeMarker is a free, open source templating engine with a large community.
+- You can use the FreeMarker Templating Language (FTL) to transform Amplitude's events and user payloads into any other JSON schema expected by the Webhook destination.
+- Amplitude's [event format](../../analytics/apis/export-api.md).
+- Amplitude's [user format](../../analytics/apis/identify-api.md). Keep in mind that based on how you use the Identify API some fields might be different (for example, if you use `device_id` instead of `user_id` in your identify calls, you will not see `user_id` in the payload).
 
 !!!tip "More FreeMarker help"
 
-    See the FreeMarker [guide to creating templates](https://freemarker.apache.org/docs/dgui.html) for more help. 
+    See the FreeMarker [guide to creating templates](https://freemarker.apache.org/docs/dgui.html) for more help.
 
-### Example template
+### Example template for sending events
 
 ```text
 {
@@ -55,37 +89,61 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 
 ```json
 {
-    "external_id" : "some user id",
+    "external_id" : "some user id", // if `input.user_id` exists
     "name" : "click event",
     "time" : "2022-10-24 20:07:32.123",
     "properties" : {
-            "email" : "some@email.com"
+        "email" : "some@email.com"
+    }
+}
+```
+
+### Example template for sending users
+
+```text
+{
+      <#if input.user_id??>
+      "external_id" : "${input.user_id}",
+      </#if>
+      <#if input.device_id??>
+      "device_id" : "${input.device_id}",
+      </#if>
+      "time" : "${input.event_time}",
+      "properties" : {
+            "email" : "${input.user_properties.email!}"
+      }
+}
+```
+
+Using this template results in sending this JSON payload to the Webhook endpoint:
+
+```json
+{
+    "external_id" : "some user id", // if `input.user_id` exists
+    "device_id" : "some user id", // if `input.user_id` exists
+    "time" : "2022-10-24 20:07:32.123",
+    "properties" : {
+        "email" : "some@email.com"
     }
 }
 ```
 
 - FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
 - `input` is a reserved variable that refers to the event as an object, as defined [in the Export API docs](../../analytics/apis/export-api.md).
-- `input.event_type` refers to the `event_type` field of the event.
+- `input.event_type` refers to the `event_type` field of event.
 - `input.user_properties` refers to the user properties dictionary.
 - `input.user_properties.email` refers to the `email` field in user properties.
-- the `if` directive is used to check wether the `input.user_id` exists. if it doesn't, the `external_id` field is omitted from the output.
+- the `if` directive is used to check wether the field exists. if it doesn't, the field is omitted from the output.
 - the `!` mark in the expression after `input.user_properties.email` can be used to include a default value if there is no such field in the `input`. If you don't add a default value, the output contains an empty string instead.
 
-## FAQs
+### Enable sync
 
-### How long does it take for events to be streamed? 
+When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
 
-We have a target for a minute latency from receiving the event and then sending this event. Please note that results may vary based on their load, their endpoints error rate / capacity, if they have batch processing or not, etc.
+### Amplitude's retry mechanism
 
-### Do the forwarded events come from a single IP address?
+Amplitude makes a delivery attempt first on each event or user, and then on failures, Amplitude make nine more attempts over 4 hours, regardless of the error. Amplitude also has a retry mechanism within each attempt: on 5xx errors and 429 throttling. Amplitude does attempt an immediate retry with these policies
 
-We don’t have a single ip address for the events, we have multiple hosts streaming them out.
-
-### What is our error handling mechanism?
-
-We have a robust retry approach as we make a delivery attempt first when we see the event, and then on failures, we make nine more attempts over 4 hours, regardless of the error. We also have a retry mechanism within each attempt: on 5xx errors and 429 throttling. We do attempt an immediate retry with these policies (i) Max attempts: 3 (ii) Exponential retry with initial wait duration of 100 ms, doubling each time, and with a 50% jitter (iii) We won’t make another attempt after 4 seconds.
-
-So in summary
-- On failures that look to be retryable ( 5xx errors and 429) we can make up to 27 attempts in batches of 3 over 4 hours.
-- Other failures will still be attempted 9 separate times over 4 hours
+1. Max attempts: 3.
+2. Exponential retry with initial wait duration of 100 ms, doubling each time, and with a 50% jitter.
+3. Amplitude won’t make another attempt after 4 seconds.
