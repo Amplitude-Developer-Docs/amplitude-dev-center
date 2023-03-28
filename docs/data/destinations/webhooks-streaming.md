@@ -1,5 +1,5 @@
 ---
-title: Send Events to Webhooks
+title: Webhook Event Streaming
 description: Use this integration to stream Amplitude event data to your custom webhooks.
 ---
 
@@ -52,11 +52,23 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Webh
 
 ### Configure user forwarding
 
-Under **Send Users**, make sure the toggle is enabled ("Users are sent to Webhook") if you want to stream users and their properties to the webhook. When enabled, users are sent to the webhook when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to the webhook. Users aren't sent on a schedule or on-demand using this integration.
+Under **Send Users**, make sure the toggle is enabled ("Users are sent to Webhook") if you want to stream users and their properties to the webhook. When enabled, users are sent to the webhook when an event is sent to Amplitude. [Amplitude Identify API](../../analytics/apis/identify-api.md) calls are also forwarded to the webhook. Users aren't sent on a schedule or on-demand using this integration.
 
 - Define the user payload you want to receive in the webhook. You can choose to:
     1. Send the default Amplitude payload which follows the Amplitude [user format](../../analytics/apis/identify-api.md).
     2. Customize the payload using an [Apache FreeMarker](https://freemarker.apache.org/) template. [See more details below](#freemarker-templating-language).
+
+### Enable sync
+
+When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
+
+### Amplitude's retry mechanism
+
+Amplitude makes a delivery attempt first on each event or user, and then on failures, Amplitude make nine more attempts over 4 hours, regardless of the error. Amplitude also has a retry mechanism within each attempt: on 5xx errors and 429 throttling. Amplitude does attempt an immediate retry with these policies
+
+1. Max attempts: 3.
+2. Exponential retry with initial wait duration of 100 ms, doubling each time, and with a 50% jitter.
+3. Amplitude won’t make another attempt after 4 seconds.
 
 ## FreeMarker Templating Language
 
@@ -91,7 +103,7 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 {
     "external_id" : "some user id", // if `input.user_id` exists
     "name" : "click event",
-    "time" : "2022-10-24 20:07:32.123",
+    "time" : "2022-10-24T20:07:32.123",
     "properties" : {
         "email" : "some@email.com"
     }
@@ -121,12 +133,37 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 {
     "external_id" : "some user id", // if `input.user_id` exists
     "device_id" : "some user id", // if `input.user_id` exists
-    "time" : "2022-10-24 20:07:32.123",
+    "time" : "2022-10-24T20:07:32.123",
     "properties" : {
         "email" : "some@email.com"
     }
 }
 ```
+
+### Handling event time formats
+
+Amplitude by default sends the time as a UTC ISO-8601 formatted string such as `"2022-02-28T20:07:01.795Z"`.
+
+To modify this in different formats, first set a datetime format setting:
+`<#setting datetime_format="yyyy-MM-ddTHH:mm:ss.SZ">`
+
+Use the following examples for conversion to different time formats:
+
+- Custom string format
+
+`"${input.event_time?datetime?string["dd.MM.yyyy, HH:mm"]}"`
+
+results in:
+
+`"28.02.2022, 20:07"`
+
+- Millisecond timestamp
+
+`"${input.event_time?datetime?long}"`
+
+results in:
+
+`"1646107621000"`
 
 - FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
 - `input` is a reserved variable that refers to the event as an object, as defined [in the Export API docs](../../analytics/apis/export-api.md).
@@ -135,15 +172,3 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 - `input.user_properties.email` refers to the `email` field in user properties.
 - the `if` directive is used to check wether the field exists. if it doesn't, the field is omitted from the output.
 - the `!` mark in the expression after `input.user_properties.email` can be used to include a default value if there is no such field in the `input`. If you don't add a default value, the output contains an empty string instead.
-
-### Enable sync
-
-When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
-
-### Amplitude's retry mechanism
-
-Amplitude makes a delivery attempt first on each event or user, and then on failures, Amplitude make nine more attempts over 4 hours, regardless of the error. Amplitude also has a retry mechanism within each attempt: on 5xx errors and 429 throttling. Amplitude does attempt an immediate retry with these policies
-
-1. Max attempts: 3.
-2. Exponential retry with initial wait duration of 100 ms, doubling each time, and with a 50% jitter.
-3. Amplitude won’t make another attempt after 4 seconds.
