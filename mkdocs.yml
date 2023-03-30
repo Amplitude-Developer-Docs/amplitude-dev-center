@@ -428,7 +428,7 @@ nav:
 - SDKs:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
-    - Next Generation SDKs vs Maintenance SDKs: data/sdks/sdk-comparision.md
+    - Next Generation SDKs: data/sdks/sdks-comparison.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
