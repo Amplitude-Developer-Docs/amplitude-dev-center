@@ -5,8 +5,6 @@ description: Use this integration to stream Amplitude event data to your custom 
 
 Amplitude Data's Webhook integration lets you stream your Amplitude event data to custom webhooks. This is a light-weight way to set a stream of event data out of Amplitude, which you can then pick up from the Webhook destination, and transform/configure to how you like.
 
---8<-- "includes/closed-beta.md"
-
 ## Setup
 
 ### Webhook setup
