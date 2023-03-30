@@ -25,7 +25,7 @@ To configure streaming from Amplitude to your webhook, you need the following in
 Enter the URL endpoint for the webhook. For example, `https://mycompany.com/webhook`.
 Note that Amplitude doesn't have a single IP address for forwarding events and users, so ensure that your URL can receive payloads from any Amplitude hosts.
 
-See more details on [Amplitude's retry mechanism](#amplitudes-retry-mechanism).
+See details on [Amplitude's retry mechanism](#amplitudes-retry-mechanism) in case a webhook call fails.
 
 ### Select headers
 
@@ -144,26 +144,19 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 
 Amplitude by default sends the time as a UTC ISO-8601 formatted string such as `"2022-02-28T20:07:01.795Z"`.
 
-To modify this in different formats, first set a datetime format setting:
-`<#setting datetime_format="yyyy-MM-ddTHH:mm:ss.SZ">`
+To modify this in different formats:
 
-Use the following examples for conversion to different time formats:
+1. first set a datetime format setting: `<#setting datetime_format="yyyy-MM-ddTHH:mm:ss.SZ">`
+2. Use the following examples for conversion to different time formats:
+    - Custom string format: `"${input.event_time?datetime?string["dd.MM.yyyy, HH:mm"]}"`
 
-- Custom string format
+        - results in: `"28.02.2022, 20:07"`
 
-`"${input.event_time?datetime?string["dd.MM.yyyy, HH:mm"]}"`
+    - Millisecond timestamp: `"${input.event_time?datetime?long}"`
 
-results in:
+        - results in: `"1646107621000"`
 
-`"28.02.2022, 20:07"`
-
-- Millisecond timestamp
-
-`"${input.event_time?datetime?long}"`
-
-results in:
-
-`"1646107621000"`
+### Other useful information for templates
 
 - FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
 - `input` is a reserved variable that refers to the event as an object, as defined [in the Export API docs](../../analytics/apis/export-api.md).
