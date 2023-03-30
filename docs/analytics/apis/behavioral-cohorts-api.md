@@ -25,6 +25,7 @@ Use the Behavioral Cohorts API to list all your cohorts in Amplitude, export a c
     1. Request a single cohort.
     2. Poll the cohort status.
     3. Download the file.
+- There is limit on Cohort Download to request a single cohort: 60 requests per 10 minutes per app, and 4 parallel request per minute per app.
 
 ## Get all cohorts
 
@@ -46,6 +47,17 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
     Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
     ```
 
+### Get all cohorts query parameters
+
+| Name|Description|
+|----|-----|
+|`includeSyncInfo`|<span class="optional">Optional</span>. Boolean. Set to true to include cohort sync metadata in response (one-time + disabled sync will be excluded) .|
+
+!!!note "Notes about query parameters"
+
+    - This feature is currently in Beta and require whitelist, please contact Amplitude Support, or your Amplitude account manager if you need this
+
+
 ### Get all cohorts response
 
 The response is a JSON object with this schema:
@@ -64,18 +76,46 @@ Each COHORT_OBJECT returned has this schema:
 
 ```json
 {
-    "lastComputed": timestamp,
-    "owners": string[],
+    "appId": integer,
+    "archived": boolean, // whether cohort is archived
+    "definition": { COHORT_DEFINITION }, // Amplitude internal representation of Cohort Definintion
     "description": string,
-    "definition": { COHORT_DEFINITION },
-    "published": boolean,
-    "archived": boolean,
-    "name": string,
-    "appId": string,
-    "lastMod": timestamp,
-    "type": string,
+    "finished": boolean, // Amplitude internal use to decide whether a training cohort has finished ML training
     "id": string,
-    "size": integer
+    "name": string,
+    "owners": string[],
+    "viewers": string[],
+    "published": boolean, // whether cohort is discoverable by other users
+    "size": integer,
+    "type": string, // Amplitude internal representation on different cohort types
+    "lastMod": timestamp, // last modified date
+    "createdAt": timestamp,
+    "lastComputed": timestamp,
+    "hidden": boolean, // Amplitude internal use case to hide a cohort
+    "metadata": string[], // cohort created from funnel/microscope might have this
+    "view_count": integer,
+    "popularity": integer, // cohort created from chart might have this
+    "last_viewed": timestamp,
+    "chart_id": string, // cohort created from chart will have this
+    "edit_id": string, // cohort created from chart will have this
+    "is_predictive": boolean,
+    "is_official_content": boolean,
+    "location_id": string, // cohort created from chart might have this
+    "shortcut_ids": string[],
+    "syncMetadata": COHORT_SYNC_METADATA[]
+}
+```
+
+Each COHORT_SYNC_METADATA has this schema:
+
+```json
+{
+
+    "target": string,
+    "frequency": string, // support minute (real-time), hourly, daily
+    "last_successful": timestamp,
+    "last_failure": timestamp,
+    "params": { COHORT_SYNC_LEVEL_PARAM }
 }
 ```
 
@@ -285,7 +325,7 @@ This is a basic request.
     === "cURL"
 
         ```bash
-        curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/Sf7M9j/file'        
+        curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/Sf7M9j/file'
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
         ```
 
@@ -311,7 +351,7 @@ This is a basic request.
 
 ## Upload cohort
 
-Generate a new cohort or update an existing cohort by uploading a set of User IDs or Amplitude IDs. This is a basic request example with placeholder values. 
+Generate a new cohort or update an existing cohort by uploading a set of User IDs or Amplitude IDs. This is a basic request example with placeholder values.
 
 === "cURL"
 
@@ -395,7 +435,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
             "app_id": 153957,
             "id_type": "BY_AMP_ID",
             "ids": [
-                "10101010101010ID1", 
+                "10101010101010ID1",
                 "00000010101010ID2"
             ],
             "owner": "datamonster@amplitude.com",
