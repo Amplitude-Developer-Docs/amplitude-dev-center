@@ -142,11 +142,11 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 
 ### Handling event time formats
 
-Amplitude by default sends the time as a UTC ISO-8601 formatted string such as `"2022-02-28T20:07:01.795Z"`.
+Amplitude by default sends the time as a UTC ISO-8601 formatted string such as `"2022-02-28 20:07:01.795"`.
 
 To modify this in different formats:
 
-1. first set a datetime format setting: `<#setting datetime_format="yyyy-MM-ddTHH:mm:ss.SZ">`
+1. first set a datetime format setting: `<#setting datetime_format="yyyy-MM-dd HH:mm:ss.S">`
 2. Use the following examples for conversion to different time formats:
     - Custom string format: `"${input.event_time?datetime?string["dd.MM.yyyy, HH:mm"]}"`
 
