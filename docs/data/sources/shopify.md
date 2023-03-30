@@ -96,8 +96,8 @@ Users who start on Site 1 and then navigate to Site 2 have their Device ID gener
 
 1. Go to the [Amplitude app](https://www.google.com/url?q=https://apps.shopify.com/amplitude?surface_detail%3Damplitude%26surface_inter_position%3D1%26surface_intra_position%3D2%26surface_type%3Dsearch&sa=D&source=docs&ust=1639610653341000&usg=AOvVaw2Z_lud4-S1WhAHoDKWdJKC) in the Shopify app store.
 2. Click **Add app** to begin the installation process.
-3. Go to your Amplitude project, then navigate to **Sources and Destinations > Destinations**.
-4. Under **Add More Destinations …**, click **Shopify**.
+3. Go to your Amplitude project, then navigate to **Settings => Projects**.
+4. Navigate to the project you want to import events into (portfolio views cannot be used as a destination).
 5. Copy the Amplitude project’s API key.
 6. In the Shopify admin portal, enter the API key in **Amplitude API Key** field. Then click **Connect**.
 7. Choose a `User_ID` for known customers. To support a broader range of use cases, the app lets you choose which of the following fields you want to send as the `User_ID` for known customers.
