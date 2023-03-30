@@ -67,17 +67,7 @@ Amplitude recommends taking the following approach for event level groups.
 
 <div class="grid cards" markdown>
 
-- :material-numeric-1-circle:{ .lg .middle } **Group Identify**
-
-    ---
-
-    **Set and update group properties** via group identify calls. 
-
-    Send group identify calls server-side to the [Group Identify API](../../analytics/apis/group-identify-api) or using an SDK. 
-
-    Group properties persist for the group until they're explicitly updated or unset. Updates to group properties aren't retroactive. 
-
-- :material-numeric-2-circle:{ .lg .middle } **Events**
+- :material-numeric-1-circle:{ .lg .middle } **Events**
 
     ---
 
