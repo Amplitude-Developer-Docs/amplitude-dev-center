@@ -53,9 +53,9 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
 |----|-----|
 |`includeSyncInfo`|<span class="optional">Optional</span>. Boolean. Set to true to include cohort sync metadata in response (one-time + disabled sync will be excluded) .|
 
-!!!note "Notes about query parameters"
+!!!beta "Notes about query parameters"
 
-    - This feature is currently in Beta and require whitelist, please contact Amplitude Support, or your Amplitude account manager if you need this
+    - This feature is currently in Beta and requires whitelisting. Please contact Amplitude Support, or your Amplitude account manager for access.
 
 
 ### Get all cohorts response
