@@ -38,7 +38,7 @@ amplitude = Amplitude('API_KEY')
 
 Configuration includes the options to configure Client behavior. 
 
-You can pass a Configuration when Client initialization.
+You can pass a Configuration on Client initialization.
 
 ```python
 # Next-gen Python SDK example: initialize a Client with a Configuration
