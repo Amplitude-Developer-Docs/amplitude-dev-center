@@ -14,9 +14,28 @@ Amplitude also has "**Maintenance SDKs**". These are the time tested, stable SDK
 
 Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK is next-gen or in maintenance. 
 
+## Next-gen benefits 
+
+- Next-gen SDKs uses **modern languages** for each platform and with **modern tools/frameworks**
+    - It's easier for develpers to onboard Amplitude and also gain more confidence on data quality
+    - Next-gen Browser, Node.js, React Native SDK use TypeScript. Next-gen Android uses Kotlin. Next-gen iOS uses Swift
+    - Improved the code readability can speed up your the developement cycle
+    - Browser SDK implements tree-shaking technique to reduce the bundle size
+
+- Next-gen SDKs are designed with a solid and **extensible architecture**
+    - Next generation SDKs allow more customization based on your needs. You can implement [a custom logger](./#logger-provider) and [a custom storage](./#storage-provider), [enrich your data](./#enrichment-plugin), and [send your data to other destination](./#destination-plugin) by using Plugins
+
+- Next-gen SDKs has **cleaner and aligned interfaces**
+    - Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names. For example, before next-gen SDKs, to track an event with different properties, you need to use different functions, for example `logEvent()`, `logEventWithTimestamp()`, `logEventWithGroup()`, etc. Right now with next-gen SDKs, you can just use by `track()` with all properties in `EventOptions`
+    
+- Next-gen SDKs are **more reliable and robust**
+    - Next-gen SDKs don't require any external dependencies, which enhances performance, mitigate potential issues caused by dependencies, and makes them more lightweight
+    - Next-gen SDKs use file storage instead of database to improve performance
+    - Next-gen Android SDK removes OkHttp which addresses dependency compatibility issues
+
 ## Architecture
 
-Next-gen SDKs share the same architecture and interfaces across platform. Refer to specific next-gen SDK documentation for more details. 
+The next-gen SDKs share the same architecture and interfaces across platform. This page covers the high-level functionality across all next-gen SDKs. Refer to the individual SDK documentation for more detailed examples.
 
 ![Next-gen Architecture](/../assets/images/data-next-gen-sdk-architecture.drawio.svg)
 
@@ -122,6 +141,10 @@ A plugin is an object with methods `setup()` and `execute()`:
 
 - `execute()` method the logic for processing events and has event instance as parameter. The expected return value for an Enrichment Plugin is the modified/enriched event, while the expected return value for a Destination Plugin is a map with keys: event (BaseEvent), code (HTTP response status code), and message (string). This method is called for each event that's instrumented using the client interface.
 
+#### Enrichment Plugin
+
+#### Destination Plugin
+
 ## Common methods
 
 Next-gen SDKs share the same architecture as well as the same interfaces. Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names.
@@ -140,25 +163,6 @@ This a list of shared interfaces of next-gen SDKs.
 - `add(Plugin)`
 - `remove(Plugin)`
 - `shutdown()`
-
-## Next-gen benefits 
-
-- Next-gen SDKs uses **modern languages** for each platform and with **modern tools/frameworks**
-    - It's easier for develpers to onboard Amplitude and also gain more confidence on data quality
-    - Next-gen Browser, Node.js, React Native SDK use TypeScript. Next-gen Android uses Kotlin. Next-gen iOS uses Swift
-    - Improved the code readability can speed up your the developement cycle
-    - Browser SDK implements tree-shaking technique to reduce the bundle size
-
-- Next-gen SDKs are designed with a solid and **extensible architecture**
-    - Next generation SDKs allow more customization based on your needs. You can implement a custom logger, enrich your data, and send your data to other destination by using Plugins
-
-- Next-gen SDKs has **cleaner and aligned interfaces**
-    - Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names. For example, before next-gen SDKs, to track an event with different properties, you need to use different functions, for example `logEvent()`, `logEventWithTimestamp()`, `logEventWithGroup()`, etc. Right now with next-gen SDKs, you can just use by `track()` with all properties in `EventOptions`
-    
-- Next-gen SDKs are **more reliable and robust**
-    - Next-gen SDKs don't require any external dependencies, which enhances performance, mitigate potential issues caused by dependencies, and makes them more lightweight
-    - Next-gen SDKs use file storage instead of database to improve performance
-    - Next-gen Android SDK removes OkHttp which addresses dependency compatibility issues
 
 ## Comparison with maintenance SDK
 
