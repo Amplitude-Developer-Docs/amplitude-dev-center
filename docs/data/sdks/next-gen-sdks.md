@@ -77,7 +77,7 @@ You can configure the storage provider in the Client Configuration. Refer to the
 
 A logger provider configures the logger instance used by the Amplitude Client. It helps to collect debugging and error messages from the SDK in both development and production environments.
 
-You can configure the logger provider in the Configuration of your Client. Refer to the "Configuration Options" section of a specific next-gen SDK full documentation for more details.
+You can configure the logger provider in the Client Configuration. Refer to the "Configuration Options" section of a specific next-gen SDK full documentation for more details.
 
 ### Event 
 
