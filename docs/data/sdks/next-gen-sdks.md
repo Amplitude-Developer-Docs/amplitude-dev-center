@@ -18,7 +18,7 @@ Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK is n
 
 Next-gen SDKs share the same architecture and interfaces across platform. Refer to each SDK full documentation for more details. 
 
-![Next-gen Architecture](/../assets/images/data-next-gen-sdk-architecture.png)
+![Next-gen Architecture](/../assets/images/data-next-gen-sdk-architecture.drawio.svg)
 
 ### Client
 
