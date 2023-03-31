@@ -11,7 +11,7 @@ The Experiment management API can be used to programmatically create and control
 
 ## Management API Key
 
-You can manage your management API keys by going to `https://experiment.amplitude.com/<org-url>/management-api` or by clicking on "Management API" in the bottom left of the sidebar. Here you can create keys, revoke keys, and delete keys. You can read more about the Management API Key [here](../../guides/amplitude-keys-guide/?h=keys#management-api-key).
+You can manage your management API keys by going to `https://experiment.amplitude.com/<org-url>/management-api` or by clicking on "Management API" in the bottom left of the sidebar. Here you can create keys, revoke keys, and delete keys. You can read more about the Management API Key [here](../../../guides/amplitude-keys-guide/?h=keys#management-api-key).
 
 ## Endpoints
 
