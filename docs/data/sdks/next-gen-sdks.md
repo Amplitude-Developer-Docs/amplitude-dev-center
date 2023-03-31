@@ -69,7 +69,7 @@ client.configuration.flush_interval_millis = 20000
 
 ### Storage provider
 
-A storage provider holds events in a designated storage buffer. The default storage provider only queues events in memory. To prevent data lose, you can customize your own storage provider to persist events, for example to a disk, in case of unexpected shutdown. This way, you can ensure that you can recover un-sent events even in the event of a system failure. 
+A storage provider holds events in a designated storage buffer. The default storage provider only queues events in memory. To prevent data loss, you can customize your own storage provider to persist events, for example to a disk, in case of unexpected shutdown. This way, you can ensure that you can recover un-sent events even in the event of a system failure. 
 
 You can configure the storage provider in the Configuration of your Client. Refer to the "Configuration Options" section of a specific next-gen SDK full documentation for more details.
 
