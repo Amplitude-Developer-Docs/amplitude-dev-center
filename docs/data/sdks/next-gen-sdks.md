@@ -7,7 +7,7 @@ This article helps you remove confusion around various Amplitude Analytics SDKs 
 
 The **Next Generation (next-gen) SDKs** are a group of Amplitude Analytics SDKs that share the same architecture and interfaces. 
 
-Amplitude puts an SDK into maintenance status and under the "**Maintenance SDKs**" section in the left bar if another same-platform next-gen SDK is available, for example, Browser, Android, React Native, and Node.js. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to adopt next-gen SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each next-gen SDK documentation. 
+Amplitude also has "**Maintenance SDKs**". These are the time tested, stable SDKs of old. Once a next-gen SDK is available for a given platform, older SDKs are moved to maintenance status and under the **Maintenance SDKs** section in the site navigation. For example, Browser, Android, React Native, and Node.js. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to adopt next-gen SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each next-gen SDK documentation. 
 
 !!!note 
     There are still some SDKs that aren't nex-gen while also not in maintenance, for example Flutter, Java, and iOS. 
