@@ -65,11 +65,11 @@ When you [create a deployment](../../experiment/guides/getting-started/create-a-
 
 !!!tip "Client-side Deployment Keys are public"
 
-    These deployments run on a client device, such as a web browser or mobile app. The API key associated with client deployments can be viewed publicly and should be used in client-side SDKs. These keys are prepended with `client-`. Because this key is already public, you don't have to worry about it being compromised.
+    These deployments run on a client device, such as a web browser or mobile app. The key associated with client deployments can be viewed publicly and should be used in client-side SDKs. These keys are prepended with `client-`. Because this key is already public, you don't have to worry about it being compromised.
 
 !!!warning "Server-side Deployment Keys are private"
 
-    These deployments run on a server you control, such as a web server or batch processing system. The API key associated with server deployments should be kept secret and are for use in server-side SDKs. These keys are prepended with `server-`. If a server-side key is compromised, create a new deployment key, replace the old key with the new key on all flags and experiments, and delete the old key.
+    These deployments run on a server you control, such as a web server or batch processing system. The key associated with server deployments should be kept secret and are for use in server-side SDKs. These keys are prepended with `server-`. If a server-side key is compromised, create a new deployment key, replace the old key with the new key on all flags and experiments, and delete the old key.
 
 Manage your Deployment keys in **Experiment** > **Deployments**. 
 
