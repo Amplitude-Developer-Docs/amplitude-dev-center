@@ -56,7 +56,7 @@ amplitude = Amplitude("API_KEY",
 You can also get access to the Configuration of your Client after initialization.
 
 ```python
-Next-gen Python SDK example: get access to the Configuration of your Client
+# Next-gen Python SDK example: get access to the Configuration of your Client
 
 from amplitude import Amplitude
 
