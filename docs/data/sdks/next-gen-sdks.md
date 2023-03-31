@@ -24,7 +24,7 @@ Next-gen SDKs share the same architecture and interfaces across platform. Refer 
 
 Amplitude Client stores configurations and is also the entry point for developers to track events. 
 
-Before instrument, you must initialize a SDK using the API key for your Amplitude project, which creates an Amplitude Client. 
+Before instrumenting events, you must initialize a SDK client instance using the API key for your Amplitude project. 
 
 ```python 
 # Next-gen Python SDK example: initialize a Client
