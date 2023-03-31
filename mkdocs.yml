@@ -281,16 +281,16 @@ nav:
         - Customer.io: data/destinations/customerio.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
-        - Kameleoon: data/destinations/kameleoon-event-streaming.md
-        - Lantern: data/destinations/lantern-event-streaming.md
-        - Pub/Sub: data/destinations/google-pub-sub.md
         - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
         - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
         - Google Ads: data/destinations/google-ads-event-streaming.md
+        - Google Pub/Sub: data/destinations/google-pub-sub.md
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
+        - Kameleoon: data/destinations/kameleoon-event-streaming.md
         - Kinesis: data/destinations/kinesis-data-stream.md
         - Kinesis Firehose: data/destinations/kinesis-firehose.md
+        - Lantern: data/destinations/lantern-event-streaming.md
         - Meta Pixel: data/destinations/meta-pixel.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
