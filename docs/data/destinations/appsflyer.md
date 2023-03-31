@@ -3,8 +3,6 @@ title: AppsFlyer Event Streaming
 description: Amplitude CDP's AppsFlyer streaming integration enables you to forward your Amplitude events straight to AppsFlyer with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
-
 Amplitude CDP's AppsFlyer streaming integration enables you to forward your Amplitude events straight to [AppsFlyer](https://www.appsflyer.com/) with just a few clicks.
 
 !!!note "Other Amplitude + AppsFlyer integrations"

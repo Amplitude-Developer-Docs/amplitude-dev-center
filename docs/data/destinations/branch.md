@@ -3,8 +3,6 @@ title: Branch Event Streaming
 description: Amplitude CDP's Branch streaming integration enables you to forward your Amplitude events straight to Branch with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
-
 Amplitude CDP's Branch streaming integration enables you to forward your Amplitude events straight to [Branch](https://branch.io/) with just a few clicks.
 
 ## Setup
