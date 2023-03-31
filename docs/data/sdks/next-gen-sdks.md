@@ -16,7 +16,7 @@ Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK is n
 
 ## Architecture
 
-Next-gen SDKs share the same architecture and interfaces across platform. Refer to each SDK full documentation for more details. 
+Next-gen SDKs share the same architecture and interfaces across platform. Refer to specific next-gen SDK documentation for more details. 
 
 ![Next-gen Architecture](/../assets/images/data-next-gen-sdk-architecture.drawio.svg)
 
@@ -71,13 +71,13 @@ client.configuration.flush_interval_millis = 20000
 
 A storage provider holds events in a designated storage buffer. The default storage provider only queues events in memory. To prevent data loss, you can customize your own storage provider to persist events, for example to a disk, in case of unexpected shutdown. This way, you can ensure that you can recover un-sent events even in the event of a system failure. 
 
-You can configure the storage provider in the Client Configuration. Refer to the "Configuration Options" section of a specific next-gen SDK full documentation for more details.
+You can configure the storage provider in the Client Configuration. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
 
 ### Logger provider
 
 A logger provider configures the logger instance used by the Amplitude Client. It helps to collect debugging and error messages from the SDK in both development and production environments.
 
-You can configure the logger provider in the Client Configuration. Refer to the "Configuration Options" section of a specific next-gen SDK full documentation for more details.
+You can configure the logger provider in the Client Configuration. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
 
 ### Event 
 
