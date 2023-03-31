@@ -36,7 +36,7 @@ amplitude = Amplitude('API_KEY')
 
 ### Configuration
 
-Configuration includes the configurable options to configure Client behavior. 
+Configuration includes the options to configure Client behavior. 
 
 You can pass a Configuration when Client initialization.
 
