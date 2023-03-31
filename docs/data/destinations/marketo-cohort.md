@@ -22,7 +22,7 @@ This integration combines Amplitude with Marketo's tools for in-app messaging, p
           - `Client Secret:` xzy3XYZxyZqIroHtliA7mDKTx7NUXyZZ
           - `REST API Endpoint:` `https://133-CDN-660.mktorest.com/rest`
 
-2. Create a new custom Boolean field in Marketo to identify your cohorts. This field flags whether a user in Marketo belongs to your Amplitude cohort. See the [Marketo documentation](https://developers.marketo.com/blog/create-a-custom-field-in-marketo-and-update-this-field-via-api/) for help creating the field. You must a custom field for **each** cohort you want to sync. 
+2. Create a new custom Boolean field in Marketo to identify your cohorts. This field flags whether a user in Marketo belongs to your Amplitude cohort. See the [Marketo documentation](https://developers.marketo.com/blog/create-a-custom-field-in-marketo-and-update-this-field-via-api/) for help creating the field. You must create a custom field for **each** cohort you want to sync. 
 3. Copy the API name of your field. You need this to configure the integration. 
 
 ### Amplitude setup
