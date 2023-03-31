@@ -14,6 +14,6 @@ Before creating a [feature-flag or experiment](../../general/data-model.md#flags
 1. From Experiment, click **Deployments** in left nav bar, then click **+ Add Deployment**.
 2. Choose the Amplitude Analytics project you'd like the deployment to be associated with. If you want to create deployments in multiple projects at once, just select all the relevant projects from the drop-down list.
 3. Choose a name (for example: `android`, `ios`, `web`) for your deployment and specify its type. Deployments are generally named after the platform (client-side) or service (server-side) which variants are served to.
-    - **Client-side**: These deployments run on a client device, such as a web browser or mobile app. The API key associated with client deployments can be viewed publicly and should be used in client-side SDKs.
-    - **Server-side**: These deployments run on a server you control, such as a web server or batch processing system. The API key associated with server deployments should be kept secret and are for use in server-side SDKs.
+    - **Client-side**: These deployments run on a client device, such as a web browser or mobile app. The deployment key associated with client deployments can be viewed publicly and should be used in client-side SDKs.
+    - **Server-side**: These deployments run on a server you control, such as a web server or batch processing system. The deployment key associated with server deployments should be kept secret and are for use in server-side SDKs.
 4. Click **Add Deployment**.
