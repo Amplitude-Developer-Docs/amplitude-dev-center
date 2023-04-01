@@ -23,9 +23,9 @@ The evaluation proxy requires keys as environment variables to run. Otherwise, t
 
 | <div class="big-column">Environment Variable</div> | Description |
 | --- | --- |
-| `AMPLITUDE_API_KEY` | The project's API key. |
-| `AMPLITUDE_SECRET_KEY` | The project's secret key. |
-| `AMPLITUDE_DEPLOYMENT_KEY` | The key for the deployment to manage. The deployment key must exist within the same project as the API and secret key. |
+| `AMPLITUDE_API_KEY` | The project's [API key](../../guides/amplitude-keys-guide.md#api-key). |
+| `AMPLITUDE_SECRET_KEY` | The project's [secret key](../../guides/amplitude-keys-guide.md#secret-key). |
+| `AMPLITUDE_DEPLOYMENT_KEY` | The key for the deployment to manage. The [deployment key](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key. |
 
 ## Deployment
 
@@ -34,7 +34,7 @@ For example, a kubernetes deployment with greater than one replica.
 
 ### Docker
 
-The service is deployed via a [docker image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy).
+The service is generally deployed via [the docker image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy).
 
 #### Pull
 
@@ -51,22 +51,6 @@ docker run \
     -e AMPLITUDE_DEPLOYMENT_KEY=${AMPLITUDE_DEPLOYMENT_KEY} \
     -p 3546:3546 \
     amplitudeinc/evaluation-proxy
-```
-
-### Source
-
-Build and run the service from source.
-
-#### Build
-
-```bash
-./gradlew assemble
-```
-
-#### Run
-
-```bash
-./gradlew run
 ```
 
 ## Evaluation
