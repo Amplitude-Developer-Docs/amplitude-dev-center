@@ -382,6 +382,7 @@ nav:
         - JVM SDK: experiment/sdks/jvm-sdk.md
         - Go SDK: experiment/sdks/go-sdk.md
         - Python SDK: experiment/sdks/python-sdk.md
+        - Evaluation Proxy: experiment/infra/evaluation-proxy.md
         - Maintenance:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
