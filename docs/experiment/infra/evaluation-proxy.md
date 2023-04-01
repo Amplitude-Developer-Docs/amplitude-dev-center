@@ -21,11 +21,12 @@ The Evaluation Proxy is a Service to enable, enhance, and optimize [local evalua
 
 The evaluation proxy requires keys as environment variables to run. Otherwise, the service crashes on startup.
 
-| <div class="big-column">Environment Variable</div> | Description |
+| Environment Variable | Description |
 | --- | --- |
 | `AMPLITUDE_API_KEY` | The project's [API key](../../guides/amplitude-keys-guide.md#api-key). |
 | `AMPLITUDE_SECRET_KEY` | The project's [secret key](../../guides/amplitude-keys-guide.md#secret-key). |
-| `AMPLITUDE_DEPLOYMENT_KEY` | The key for the deployment to manage. The [deployment key](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key. |
+| `AMPLITUDE_DEPLOYMENT_KEY` | <span style="max-width:450px;display:inline-block">The key for the deployment to manage. The [deployment key](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key.</span> |
+
 
 ## Deployment
 
