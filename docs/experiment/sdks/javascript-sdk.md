@@ -46,6 +46,8 @@ Install the Experiment JavaScript Client SDK.
     3. [Access a flag's variant](#variant)
 
     ```js
+    import { Experiment } from '@amplitude/experiment-js-client';
+
     // (1) Initialize the experiment client
     const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 
@@ -92,6 +94,8 @@ initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
 The initializer returns a singleton instance, so subsequent initializations for the same instance name will always return the initial instance. To create multiple instances, use the `instanceName` [configuration](#configuration).
 
 ```js
+import { Experiment } from '@amplitude/experiment-js-client';
+
 const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 ```
 
