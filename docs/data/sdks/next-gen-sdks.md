@@ -7,7 +7,7 @@ This article helps you remove confusion around various Amplitude Analytics SDKs 
 
 The **Next Generation (next-gen) SDKs** are a group of Amplitude Analytics SDKs that share the same architecture and interfaces. 
 
-Amplitude also has "**Maintenance SDKs**". These are the time tested, stable SDKs of old. Once a next-gen SDK is available for a given platform, older SDKs are moved to maintenance status and under the **Maintenance SDKs** section in the site navigation. For example, Browser, Android, React Native, and Node.js. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to adopt next-gen SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each next-gen SDK documentation. 
+Amplitude also has "**Maintenance SDKs**". These are the time tested, stable SDKs of old. Once a next-gen SDK is available for a given platform, older SDKs are moved to maintenance status and under the **Maintenance SDKs** section in the site navigation. For example, Browser, Android, React Native, and Node.js. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to adopt next-gen SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation.
 
 !!!note 
     There are still some SDKs that aren't nex-gen while also not in maintenance, for example Flutter, Java, and iOS. 
@@ -170,21 +170,16 @@ If you are migrating from maintenance SDKs, you may notice that next-gen SDKs di
 
 ## SDK status table
 
-|Platform|Next-gen|Maintenance|Which SDK (repo name)|SDK Package|
-|--------|---|---|---------------------|-----------|
-|[Browser](./javascript/index.md)|:material-close:|:material-check:|[Amplitude-JavaScript](https://github.com/amplitude/Amplitude-JavaScript)|`@amplitude/amplitude-js`|
-|[Browser](./typescript-browser/index.md)|:material-check:|:material-close:|[Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript)|`@amplitude/analytics-browser`|
-|[Android](./android/index.md)|:material-close:|:material-check:|[Amplitude-Android](https://github.com/amplitude/Amplitude-Android)|`com.amplitude:android-sdk`|
-|[Android](./android-kotlin/index.md)|:material-check:|:material-close:|[Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin)|`com.amplitude:analytics-android`|
-|[Node.js](./node/index.md)|:material-close:|:material-check:|[Amplitude-Node](https://github.com/amplitude/Amplitude-Node)|`@amplitude/node`|
-|[Node.js](./typescript-node/index.md)|:material-check:|:material-close:|[Amplitude-Typescript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)|`@amplitude/analytics-node`|
-|[React Native](./react-native/index.md)|:material-close:|:material-check:|[Amplitude-ReactNative](https://github.com/amplitude/Amplitude-ReactNative)|`@amplitude/react-native`|
-|[React Native](./typescript-react-native/index.md)|:material-check:|:material-close:|[Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native)|`@amplitude/analytics-react-native`|
-|[iOS](./ios/index.md)|:material-close:|:material-check:|[Amplitude-iOS](https://github.com/amplitude/Amplitude-iOS)|`Amplitude`|
-|[iOS](./ios-swift/index.md)|:material-check:|:material-close:|[Amplitude-Swift](https://github.com/amplitude/Amplitude-Swift)|`AmplitudeSwift`|
-|[Python](./python/index.md)|:material-check:|:material-close:|[Amplitude-Python](https://github.com/amplitude/Amplitude-Python)|`amplitude-analytics`|
-|[Go](./go/index.md)|:material-check:|:material-close:|[analytics-go](https://github.com/amplitude/analytics-go)|`github.com/amplitude/analytics-go`|
-|[Flutter](./flutter/index.md)|:material-close:|:material-close:|[Amplitude-Flutter](https://github.com/amplitude/Amplitude-Flutter)|`amplitude_flutter`|
-|[Java](./java/index.md)|:material-close:|:material-close:|[Amplitude-Java](https://github.com/amplitude/Amplitude-Java)|`com.amplitude.Amplitude`|
-|[Unity](./unity/index.md)|:material-check:|:material-close:|[unity-plugin](https://github.com/amplitude/unity-plugin)|`amplitude-unity.unitypackage`|
-|[Unreal](./unreal/index.md)|:material-check:|:material-close:|[Amplitude-Unreal](https://www.docs.developers.amplitude.com/data/sdks/unreal/)|`AmplitudeUnreal`|
+|Platform|Next-gen|Not next-gen|
+|--------|--------|-----------|
+|Browser|:octicons-package-16: `@amplitude/analytics-browser`<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript)<br/>[:material-file-document: Document](./typescript-browser/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `@amplitude/amplitude-js`<br/>[:material-github: Amplitude-JavaScript](https://github.com/amplitude/Amplitude-JavaScript)<br/>[:material-file-document: Document](./javascript/index.md)|
+|Android|:octicons-package-16: `com.amplitude:analytics-android`<br/>[:material-github: Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin)<br/>[:material-file-document: Document](./android-kotlin/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `com.amplitude:android-sdk`<br/>[:material-github: Amplitude-Android](https://github.com/amplitude/Amplitude-Android)<br/>[:material-file-document: Document](./android/index.md)
+|Node.js|:octicons-package-16: `@amplitude/analytics-node`<br/>[:material-github: Amplitude-Typescript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)<br/>[:material-file-document: Document](./typescript-node/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `@amplitude/node`<br/>[:material-github: Amplitude-Node](https://github.com/amplitude/Amplitude-Node)<br/>[:material-file-document: Document](./node/index.md)
+|React Native|:octicons-package-16: `@amplitude/analytics-react-native`<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native)<br/>[:material-file-document: Document](./typescript-react-native/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `@amplitude/react-native`<br/>[:material-github: Amplitude-ReactNative](https://github.com/amplitude/Amplitude-ReactNative)<br/>[:material-file-document: Document](./react-native/index.md)
+|iOS|:octicons-package-16: `AmplitudeSwift`<br/>[:material-github: Amplitude-Swift](https://github.com/amplitude/Amplitude-Swift)<br/>[:material-file-document: Document](./ios-swift/index.md)|:octicons-package-16: `Amplitude`<br/>[:material-github: Amplitude-iOS](https://github.com/amplitude/Amplitude-iOS)<br/>[:material-file-document: Document](./ios/index.md)
+|Python|:octicons-package-16: `amplitude-analytics`<br/>[:material-github: Amplitude-Python](https://github.com/amplitude/Amplitude-Python)<br/>[:material-file-document: Document](./python/index.md)||
+|Go|:octicons-package-16: `github.com/amplitude/analytics-go`<br/>[:material-github: analytics-go](https://github.com/amplitude/analytics-go)<br/>[:material-file-document: Document](./go/index.md)||
+|Unity|:octicons-package-16: `amplitude-unity.unitypackage`<br/>[:material-github: unity-plugin](https://github.com/amplitude/unity-plugin)<br/>[:material-file-document: Document](./unity/index.md)||
+|Unreal|:octicons-package-16: `AmplitudeUnreal`<br/>[:material-github: Amplitude-Unreal](https://github.com/amplitude/Amplitude-Unreal)<br/>[:material-file-document: Document](./unreal/index.md)||
+|Flutter||:octicons-package-16: `amplitude_flutter`<br/>[:material-github: Amplitude-Flutter](https://github.com/amplitude/Amplitude-Flutter)<br/>[:material-file-document: Document](./flutter/index.md)|
+|Java||:octicons-package-16: `com.amplitude.Amplitude`<br/>[:material-github: Amplitude-Java](https://github.com/amplitude/Amplitude-Java)<br/>[:material-file-document: Document](./java/index.md)|
