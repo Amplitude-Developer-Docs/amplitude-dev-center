@@ -154,6 +154,7 @@ This a list of shared interfaces of next-gen SDKs.
 !!!note 
     Different SDKs follow different naming conventions. Here use camel case for methods and parameters and use pascal case for classes. 
 
+- `init(apiKey)`
 - `track(BaseEvent)`
 - `identify(IdentifyEvent)`
 - `setGroup(groupType, groupName)`
