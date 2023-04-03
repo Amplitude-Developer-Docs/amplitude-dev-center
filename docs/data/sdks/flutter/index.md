@@ -330,7 +330,7 @@ A session is a period of time that a user has the app in the foreground. Events 
  Sessions are handled automatically so you don't have to manually call an API like `startSession()` or `endSession()`.
 Amplitude groups events together by session. A session represents a single period of user activity, with a start and end time.
  Different SDKs track sessions differently, depending on the requirements of the platform.
-On both Android and iOS side, you can choose to automatically log start and end session events corresponding to the start and end of a user's session.
+On Android and iOS, you can choose to automatically log start and end session events corresponding to the start and end of a user's session. This is not supported on Flutter Web.
 
 ```dart
 //Enable automatically log start and end session events
