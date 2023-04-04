@@ -428,7 +428,6 @@ nav:
 - SDKs:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
-    - Next Generation SDKs: data/sdks/next-gen-sdks.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
@@ -480,7 +479,8 @@ nav:
         - data/sdks/node/index.md
         - Ampli Codegen: data/sdks/node/ampli.md
     - Other Topics:
-      - data/dynamic-configuration.md
+      - Dynamic Configuration: data/dynamic-configuration.md
+      - Next Generation SDKs: data/sdks/next-gen-sdks.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
