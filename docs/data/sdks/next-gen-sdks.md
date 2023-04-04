@@ -45,12 +45,12 @@ Amplitude Client stores configurations and is also the entry point for developer
 
 Before instrumenting events, you must initialize a SDK client instance using the API key for your Amplitude project. 
 
-```python 
-# Next-gen Python SDK example: initialize a Client
+```typescript
+// Next-gen Browser SDK example: initialize a Client
 
-from amplitude import Amplitude
+import * as amplitude from '@amplitude/analytics-browser';
 
-amplitude = Amplitude('API_KEY')
+amplitude.init('API_KEY');
 ```
 
 ### Configuration
@@ -59,31 +59,16 @@ Configuration includes the options to configure Client behavior.
 
 You can pass a Configuration on Client initialization.
 
-```python
-# Next-gen Python SDK example: initialize a Client with a Configuration
+```typescript
+// Next-gen Browser SDK example: initialize a Client with a Configuration
 
-from amplitude import Amplitude
-from amplitude import Config
-
-amplitude = Amplitude("API_KEY", 
-                      configuration=Config(
-                            flush_queue_size=100, # flush queued events when there are 100 or more
-                            flush_interval_millis=20000 # flush queued events every 20 seconds
-                    )) 
-```
-
-You can also get access to the Configuration of your Client after initialization.
-
-```python
-# Next-gen Python SDK example: get access to the Configuration of your Client
-
-from amplitude import Amplitude
-
-client = Amplitude('API_KEY')
-# flush queued events when there are 100 or more
-client.configuration.flush_queue_size = 100
-# flush queued events every 20 seconds
-client.configuration.flush_interval_millis = 20000
+import * as amplitude from '@amplitude/analytics-browser';
+ 
+amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
+  flushQueueSize: 50, // flush queued events when there are 100 or more
+  flushIntervalMillis: 20000, // flush queued events every 20 seconds
+  useBatch: true //use batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
+});
 ```
 
 ### Storage provider
@@ -104,28 +89,19 @@ Events represent how users interact with your application.
 
 `BaseEvent` represents a basic event with optional properties. You can also track other event properties in the field of `EventProperties`
 
-```python
-# Next-gen Python SDK example: Event
+```typescript
+// Next-gen Browser SDK example: track events
 
-from amplitude import Amplitude, BaseEvent
+import * as amplitude from '@amplitude/analytics-browser';
 
-client = Amplitude('API_KEY')
+// Track a basic event
+amplitude.track('Button Clicked');
 
-# Track a basic event
-# One of user_id and device_id is required
-event = BaseEvent(event_type="Button Clicked", user_id="USER_ID")
-client.track(event)
-
-# Track events with optional properties
-client.track(
-    BaseEvent(
-        event_type="Button Clicked",
-        user_id="USER_ID",
-        app_version="1.2.1" # optional, the current version of your application
-        event_properties={ # other event properties you want to track 
-            "color": "red"
-        }
-))
+// Track events with optional properties
+const eventProperties = {
+  buttonColor: 'primary',
+};
+amplitude.track('Button Clicked', eventProperties);
 ```
 
 ### Plugin
