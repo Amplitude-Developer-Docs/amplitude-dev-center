@@ -75,13 +75,91 @@ amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
 
 A storage provider holds events in a designated storage buffer. The default storage provider only queues events in memory. To prevent data loss, you can customize your own storage provider to persist events, for example to a disk, in case of unexpected shutdown. This way, you can ensure that you can recover un-sent events even in the event of a system failure. 
 
-You can configure the storage provider in the Client Configuration. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
+You can configure the storage provider in the Client Configuration. Storage providers in different SDKs follows slightly different interfaces. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
+
+```typescript
+// Next-gen Browser SDK example: Customize the storage
+
+class MyStorage<T> {
+  isEnabled(): Promise<boolean> {
+    // Whether the storage is enabled
+  }
+
+  get(key: string): Promise<T | undefined> {
+    // get the value associated with the given key in the storage
+  }
+
+  getRaw(key: string): Promise<string | undefined> {
+    // get the string associated with the given key in the storage
+  }
+
+  set(key: string, value: T): Promise<void> {
+    // set an item in the storage by key
+  }
+
+  remove(key: string): Promise<void> {
+    // remove an item in the storage by key
+  }
+
+  reset(): Promise<void> {
+    // clear the storage
+}
+
+amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
+  storageProvider: new MyStorage(),
+});
+```
 
 ### Logger provider
 
-A logger provider configures the logger instance used by the Amplitude Client. It helps to collect debugging and error messages from the SDK in both development and production environments.
+A logger provider configures the logger instance used by the Amplitude Client. It helps to collect debugging and error messages from the SDK in both development and production environments. Logger providers in different SDKs follows slightly different interfaces. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
 
-You can configure the logger provider in the Client Configuration. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
+```typescript
+// Next-gen Browser SDK example: Customize the logger 
+
+import * as amplitude from '@amplitude/analytics-browser';
+
+// Log levels defined:
+// None = 0,
+// Error = 1,
+// Warn = 2,
+// Verbose = 3,
+// Debug = 4,
+
+class MyLogger{
+  disable(): void {
+    console.log('Logger has been disabled');
+  }
+
+  enable(logLevel: amplitude.Types.LogLevel): void {
+    console.log('Logger has been enabled with level:', logLevel);
+  }
+
+  log(...args: any[]): void {
+    // Implementation for the log method
+    console.log(...args);
+  }
+
+  warn(...args: any[]): void {
+    // Implementation for the warn method
+    console.log(...args);
+  }
+
+  error(...args: any[]): void {
+    // Implementation for the error method
+    console.log(...args);
+  }
+
+  debug(...args: any[]): void {
+    // Implementation for the debug method
+    console.log(...args);
+  }
+}
+
+amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
+  loggerProvider: new MyLogger(),
+});
+```
 
 ### Event 
 
