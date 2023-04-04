@@ -32,6 +32,7 @@ See the [Customer.io documentation](https://www.customer.io/docs/api/track/#sect
 
 1. Enter your **Customer.io Tracking Site ID**.
 2. Enter your **Customer.io Tracking API Key**.
+3. Select your **Customer.io Account Region**.
 
 ### Configure mappings
 
