@@ -133,17 +133,107 @@ client.track(
 Plugins allow you to extend Amplitude SDK's behavior by, for example:
 
 - Use an Enrichment Plugin to modify event properties
+!!!example "Enrichment plugin examples"
+    
+    ???code-example "Remove PII (Personally Identifiable Information) (click to expand)"
+        
+        ```typescript
+        import * as amplitude from '@amplitude/analytics-browser';
+        import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
+
+        class RemovePIIPlugin implements EnrichmentPlugin {
+        name = 'remove-PII-destination';
+        type = PluginType.ENRICHMENT as any;
+
+        async setup(config: BrowserConfig): Promise<void> {
+            return undefined;
+        }
+
+        async execute(event: Event): Promise<Event> {
+            // remove PII here 
+
+            // return modified events with PII removed
+            return event
+        }
+        }
+
+        amplitude.init('API-KEY');
+        amplitude.add(new RemovePIIPlugin());
+        ```
 - Use a Destination Plugin to send events to a third-party APIs
+!!!example "Destination plugin examples"
+    Follow Segment's guide to install [Segment Analytics.js 2.0 Web SDK](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/) first.
+
+    ???code-example "Send to Segment (click to expand)"
+
+        ```typescript
+        import * as amplitude from '@amplitude/analytics-browser';
+        import { AnalyticsBrowser } from '@segment/analytics-next';
+        import { DestinationPlugin, BrowserConfig, PluginType, Event, Result } from '@amplitude/analytics-types';
+
+        class SegmentDestinationPlugin implements DestinationPlugin {
+        name = 'segment-destination';
+        type = PluginType.DESTINATION as any;
+
+        segment: AnalyticsBrowser;
+
+        constructor(writeKey: string) {
+            // Create Segment tracker
+            this.segment = AnalyticsBrowser.load({ writeKey: writeKey });
+        }
+
+        async setup(config: BrowserConfig): Promise<void> {
+            return undefined;
+        }
+
+        execute(context: Event): Promise<Result> {
+            return new Promise<Result>((resolve) => {
+            const { event_type, event_properties, user_id, user_properties } = context;
+            const callback = (err: Error) => {
+                resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
+            };
+
+            switch (event_type) {
+                case amplitude.Types.SpecialEventType.IDENTIFY:
+                this.segment.identify({
+                    userId: user_id,
+                    traits: user_properties?.[amplitude.Types.IdentifyOperation.SET],
+                }, callback);
+                break;
+
+                case amplitude.Types.SpecialEventType.GROUP_IDENTIFY:
+                // not implemented
+                break;
+
+                default:
+                this.segment.track(event_type,{
+                    userId: user_id,
+                    event: event_type,
+                    properties: event_properties,
+                }, callback);
+                break;
+            }
+            });
+        }
+        }
+
+        amplitude.init('AMPLITUDE-API-KEY');
+        const segmentDestination = new SegmentDestinationPlugin('YOUR-SEGMENT-WRITE-KEY');
+        amplitude.add(segmentDestination);
+        ```
+
+Enrichment Plugins are executed before Destination Plugins. All Enrichment Plugins are executed in the same order in which they were added, and then all Destination Plugins are executed in the order they were added. This ensures that all data is enriched before being sent to its final destination. 
 
 A plugin is an object with methods `setup()` and `execute()`:
 
 - `setup()` method contains logic for preparing the plugin for use and has Client instance as a parameter. The expected return value is None. A typical use for this method is to copy configuration from `client.configuration` or instantiate plugin dependencies. This method is called when you register the plugin to the client via `client.add()`.
 
-- `execute()` method the logic for processing events and has event instance as parameter. The expected return value for an Enrichment Plugin is the modified/enriched event, while the expected return value for a Destination Plugin is a map with keys: event (BaseEvent), code (HTTP response status code), and message (string). This method is called for each event that's instrumented using the client interface.
+- `execute()` method contains the logic for processing events and has event instance as parameter. The expected return value for an Enrichment Plugin is the modified/enriched event, while the expected return value for a Destination Plugin is a map with keys: `event` (BaseEvent), `code` (HTTP response status code), and `message` (string). This method is called for each event that's instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
 
-#### Enrichment Plugin
+!!!note
+    if `execute()` doesn't returns an event, the event will **NOT** propagate through the remaining plugins
 
-#### Destination Plugin
+    ???code-example "a drop-event plugin example (click to expand)"
 
 ## Common methods
 
