@@ -25,6 +25,10 @@ Depending on your company's network policy, you may need add these IP addresses 
 
 - Maximum running time for a single Snowflake SQL query is 12 hours.
 
+!!!warning "User and Group Properties Sync"
+
+      Amplitude's Data Warehouse Import sometimes processes events in parallel, so time-ordered syncing of user and group properties on events is not guaranteed in the same way as submitting events directly to the Identify and Group Identify APIs. 
+
 ## Add Snowflake as a source
 
 !!!note "Time-based Import"
