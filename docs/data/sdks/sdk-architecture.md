@@ -15,6 +15,7 @@ Most Amplitude Analytics SDKs share the same architecture and interfaces **excep
 - iOS
 - Flutter
 - Java
+{ .annotate }
 
 1. They are the time tested, stable SDKs of old. Once a new SDK is available for a given platform, the older SDK is moved to maintenance status and under the Maintenance SDKs section in the site navigation. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to new SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation
 
