@@ -42,7 +42,7 @@ The next-gen SDKs share the same architecture and interfaces across platform. Th
 
 ### Client
 
-Amplitude Client stores configurations and is also the entry point for developers to track events. 
+Amplitude Client stores configurations and is the entry point for developers to interact with Amplitude. All major functionally is exposed on the Client including `init`, `track`, and `flush`. 
 
 Before instrumenting events, you must initialize a SDK client instance using the API key for your Amplitude project. 
 
