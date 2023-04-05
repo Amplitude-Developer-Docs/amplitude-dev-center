@@ -1,27 +1,17 @@
 ---
 title: SDK Architecture
-description: Introduction to Amplitude Analytics SDK architecture, common methods and benefits
+description: Overview to Amplitude Analytics SDK architecture and common usage
 ---
 
 This article helps you remove confusion around various Amplitude Analytics SDKs and introduces their architecture, common methods and benefits.
 
-Most Amplitude Analytics SDKs share the same architecture and interfaces **except**:
+Most Amplitude Analytics SDKs share the same architecture that works similarly across all platforms making it easy to understand how the Analytics works regardless of the exact environment and runtime. (1)
+{ .annotate }
 
-<div class="annotate" markdown>
-- Maintenance SDKs (1)
-    - Browser
-    - Android
-    - React Native
-    - Node.js
-- iOS
-- Flutter
-- Java
-</div>
+1.  There are still some SDKs that don't follow this architecture: iOS, Flutter, Java, Unity, Unreal and Maintenance SDKs (1) (Browser, Andorid, React Native, and Node.js)
+    { .annotate }
 
-1.  Maintenance SDKs are time tested, stable SDKs of old. Once a new SDK is available for a given platform, the older SDK is moved to maintenance status and under the Maintenance SDKs section in the site navigation. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to new SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation
-
-!!!note 
-    There are still some SDKs that aren't nex-gen while also not in maintenance, for example Flutter, Java, and iOS. 
+    1.  Maintenance SDKs are time tested, stable SDKs of old. Once a new SDK is available for a given platform, the older SDK is moved to maintenance status and under the Maintenance SDKs section in the site navigation. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to new SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation
 
 Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK is next-gen or in maintenance. 
 
