@@ -74,7 +74,8 @@ For other default configurations:
     | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
     | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
     | `setMinTimeBetweenSessionsMillis()` | `int`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. The input parameter is in milliseconds. | `5 minutes` |
-    | `setEventUploadThreshold()` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach the 30 seconds. For example, `Amplitude.getInstance().setEventUploadThreshold(50)`.| `30` |
+    | `setEventUploadThreshold()` | `int`. The maximum number of events that can be stored locally before forcing an upload. For example, `Amplitude.getInstance().setEventUploadThreshold(30)`.| `30` |
+    | `setEventUploadPeriodMillis()` | `int`. The amount of time waiting to upload pending events to the server in milliseconds. For example, `Amplitude.getInstance().setEventUploadPeriodMillis(30000)`.| `30000` |
     | `setServerZone()` | `String`. The server zone to send to, will adjust server url based on this config. For example, `Amplitude.getInstance().setServerZone(EU)`.| `US` |
     | `setServerUrl()` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
     | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
