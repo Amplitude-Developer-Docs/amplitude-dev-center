@@ -176,10 +176,28 @@ amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
 
 Events represent how users interact with your application. 
 
-`BaseEvent` represents a basic event with optional properties. You can also track other event properties in the field of `EventProperties`
+`BaseEvent` represents a basic event with optional properties. You can also track other event properties in the field of `event_properties`
 
 ```typescript
-// Next-gen Browser SDK example: track events
+// Next-gen Browser SDK example: track an event
+
+import * as amplitude from '@amplitude/analytics-browser';
+import {BaseEvent} from '@amplitude/analytics-types';
+
+const buttonClickedEvent: BaseEvent = {
+  event_type: 'Button Clicked',
+  event_properties: {
+    buttonColor: 'primary',
+  }
+}
+
+amplitude.track(buttonClickedEvent);
+```
+
+Some SDKs also allow you to track an event without creating one but just pass the event type as a string.
+
+```typescript
+// Next-gen Browser SDK example: track an event without creating one 
 
 import * as amplitude from '@amplitude/analytics-browser';
 
