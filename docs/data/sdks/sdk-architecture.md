@@ -56,13 +56,7 @@ import * as amplitude from '@amplitude/analytics-browser';
 amplitude.init('API_KEY');
 ```
 
-But you can also create one on your own. 
-
-```typescript
-import { AmplitudeBrowser } from '@amplitude/analytics-browser/lib/esm/browser-client'
-
-const client = new AmplitudeBrowser();
-```
+But you can also create one Amplitude Client on your own . Refer to each SDK document for more details.
 
 ### Configuration
 
@@ -77,15 +71,11 @@ Configuration includes the options to configure Client behavior.
     |`flushMaxRetries`| `number`. The max retry limits. | 5 times.|
     |`loggerProvider`| `Logger`. Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.| `Amplitude Logger` |
     |`minIdLength`| `number` | Overrides the minimum length of `user_id` & `device_id` fields. | `5` |
-    |`plan`|`Plan`. Tracking plan information. |`null`|
-    |`ingestionMetadata`|`IngestionMetadata`. It holds metadata information|`null`|
     |`optOut`| `boolean`. If `optOut` is `true`, the event isn't sent to Amplitude's servers. | `false` |
     |`serverUrl`| `string`. The server url events upload to. | `https://api2.amplitude.com/2/httpapi` | 
     |`serverZone`| `EU` or  `US`. Set Amplitude Server Zone, switch to zone related configuration. To send data to Amplitude's EU servers should configure to `EU` | `US` |
     |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `MemoryStorage` |
     |`useBatch`| `boolean`. When `true`, uses the Batch API instead of the HTTP V2 API.| `false` |
-    |`transportProvider`| `Transport`. Custom HTTP client. For example, sending requests to your proxy server with customized HTTP request headers.| `Transport` |
-    |`useBatch`|`boolean`. True to use batch API endpoint, False to use HTTP V2 API endpoint|`false`|
 
 You can pass a Configuration on Client initialization.
 
