@@ -13,7 +13,7 @@ Most Amplitude Analytics SDKs share the same architecture that works similarly a
 
     1.  Maintenance SDKs are time tested, stable SDKs of old. Once a new SDK is available for a given platform, the older SDK is moved to maintenance status and under the Maintenance SDKs section in the site navigation. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to new SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation
 
-Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK is next-gen or in maintenance. 
+Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK follows the architecture
 
 ## Next-gen benefits 
 
@@ -46,12 +46,22 @@ Amplitude Client stores configurations and is the entry point for developers to 
 
 Before instrumenting events, you must initialize a SDK client instance using the API key for your Amplitude project. 
 
+Some SDKs exposes a default Client instance that can be used across the entire application.
+
 ```typescript
 // Next-gen Browser SDK example: initialize a Client
 
 import * as amplitude from '@amplitude/analytics-browser';
 
 amplitude.init('API_KEY');
+```
+
+But you can also create one on your own. 
+
+```typescript
+import { AmplitudeBrowser } from '@amplitude/analytics-browser/lib/esm/browser-client'
+
+const client = new AmplitudeBrowser();
 ```
 
 ### Configuration
@@ -66,8 +76,8 @@ You can pass a Configuration on Client initialization.
 import * as amplitude from '@amplitude/analytics-browser';
  
 amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
-  flushQueueSize: 50, // flush queued events when there are 100 or more
-  flushIntervalMillis: 20000, // flush queued events every 20 seconds
+  flushQueueSize: 30, // flush queued events when there are 30 or more
+  flushIntervalMillis: 10000, // flush queued events every 1 seconds
   useBatch: true //use batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
 });
 ```
@@ -316,7 +326,7 @@ If you are migrating from maintenance SDKs, you may notice that next-gen SDKs di
 
 ## SDK status table
 
-|Platform|Next-gen|Not next-gen|
+|Platform|Follow the latest architecture|Not follow the latest architecture|
 |--------|--------|-----------|
 |Browser|:octicons-package-16: `@amplitude/analytics-browser`<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript)<br/>[:material-file-document: Document](./typescript-browser/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `@amplitude/amplitude-js`<br/>[:material-github: Amplitude-JavaScript](https://github.com/amplitude/Amplitude-JavaScript)<br/>[:material-file-document: Document](./javascript/index.md)|
 |Android|:octicons-package-16: `com.amplitude:analytics-android`<br/>[:material-github: Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin)<br/>[:material-file-document: Document](./android-kotlin/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `com.amplitude:android-sdk`<br/>[:material-github: Amplitude-Android](https://github.com/amplitude/Amplitude-Android)<br/>[:material-file-document: Document](./android/index.md)
