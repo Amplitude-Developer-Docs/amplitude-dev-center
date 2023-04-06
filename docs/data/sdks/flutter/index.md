@@ -71,8 +71,8 @@ For other default configurations:
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
-    | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.| Coppa control is disabled by default. |
+    | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. Not supported on Flutter Web. | Coppa control is disabled by default. |
+    | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. Not supported on Flutter Web. | Coppa control is disabled by default. |
     | `setMinTimeBetweenSessionsMillis()` | `int`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. The input parameter is in milliseconds. | `5 minutes` |
     | `setEventUploadThreshold()` | `int`. The maximum number of events that can be stored locally before forcing an upload. For example, `Amplitude.getInstance().setEventUploadThreshold(30)`.| `30` |
     | `setEventUploadPeriodMillis()` | `int`. The amount of time waiting to upload pending events to the server in milliseconds. For example, `Amplitude.getInstance().setEventUploadPeriodMillis(30000)`.| `30000` |
@@ -80,7 +80,7 @@ For other default configurations:
     | `setServerUrl()` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
     | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
     | `setOptOut()` | `bool`. Opt the user out of tracking. For example, `Amplitude.getInstance().setOptOut(true)`.| `false` |
-    | `trackingSessionEvents()` | `bool`. Whether to automatically log "[Amplitude] Session Start" and "[Amplitude] Session End" session events corresponding to the start and end of a user's session. | `false` |
+    | `trackingSessionEvents()` | `bool`. Whether to automatically log "[Amplitude] Session Start" and "[Amplitude] Session End" session events corresponding to the start and end of a user's session. Not supported on Flutter Web. [Learn more](/#flutter-web-support). | `false` |
     | `useAppSetIdForDeviceId()` | Only for Android. Whether to use app ser id as device id on Android side. Please check [here](../android/#app-set-id) for the required module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
     
 #### Configure batching behavior
@@ -331,7 +331,7 @@ A session is a period of time that a user has the app in the foreground. Events 
  Sessions are handled automatically so you don't have to manually call an API like `startSession()` or `endSession()`.
 Amplitude groups events together by session. A session represents a single period of user activity, with a start and end time.
  Different SDKs track sessions differently, depending on the requirements of the platform.
-You can choose to automatically log start and end session events corresponding to the start and end of a user's session.
+On Android and iOS, you can choose to automatically log start and end session events corresponding to the start and end of a user's session. This is not supported on Flutter Web.
 
 ```dart
 //Enable automatically log start and end session events
@@ -339,6 +339,8 @@ Ampiltidue.getInstance().trackingSessionEvents(true);
 //Disable automatically log start and end session events
 Amplitidue.getInstance().trackingSessionEvents(false);
 ```
+
+`trackingSessionEvents()` is not supported on Flutter web. Please check [here](/#flutter-web-support) to learn more.
 
 ### Set custom user ID
 
@@ -420,7 +422,7 @@ These features aren't supported in Flutter web:
 
 - `enableCoppaControl`
 - `disableCoppaControl`
-- `trackingSessionEvents`. Flutter Web will still track the sessionId, but it is not possible to automatically log start and end session events corresponding to the start and end of a user's session.
+- `trackingSessionEvents`. While Flutter Web doesn’t support the ability to send `Start Session` and `End Session` events automatically, the SDK will automatically track session IDs. You can use this for common session-based analyses like the User Session and Pathfinder charts. See our help docs on tracking sessions in Amplitude to [learn more](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude).
 - `useAppSetIdForDeviceId`
 
 #### Usage
