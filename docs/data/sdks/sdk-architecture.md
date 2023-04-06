@@ -225,7 +225,7 @@ Plugins allow you to extend Amplitude SDK's behavior by, for example:
         import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
 
         class RemovePIIPlugin implements EnrichmentPlugin {
-        name = 'remove-PII-destination';
+        name = 'remove-PII-plugin';
         type = PluginType.ENRICHMENT as any;
 
         async setup(config: BrowserConfig): Promise<void> {
@@ -255,7 +255,7 @@ Plugins allow you to extend Amplitude SDK's behavior by, for example:
         import { DestinationPlugin, BrowserConfig, PluginType, Event, Result } from '@amplitude/analytics-types';
 
         class SegmentDestinationPlugin implements DestinationPlugin {
-        name = 'segment-destination';
+        name = 'segment-destination-plugin';
         type = PluginType.DESTINATION as any;
 
         segment: AnalyticsBrowser;
