@@ -44,7 +44,7 @@ Install the Python Server SDK with pip.
     from amplitude_experiment import Experiment, RemoteEvaluationConfig, RemoteEvaluationClient, User
 
     # (1) Initialize the experiment client
-    experiment = Experiment.initialize('<DEPLOYMENT_KEY>')
+    experiment = Experiment.initialize_remote('<DEPLOYMENT_KEY>')
 
     # (2) Fetch variants for a user
     user = User(
