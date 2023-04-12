@@ -53,15 +53,14 @@ query OrgQuery {
 
 ## Tracking plan
 
-Every tracking plan consists of one or more branches and each branch consists of multiple versions. Amplitude creates a branch called `main` by default, and you can create more branches as needed. All versions in each branch are _published_ and immutable except for the _staging_ version, which you can modify. To make changes to a tracking plan, you need the ID of the branch you're making changes to and the ID of staging version on that branch. Then, to save your changes and make them available in Amplitude Analytics, you need to publish the staging version. The latest published version is also known as _current_ version.
+Every tracking plan consists of one or more branches and each branch consists of multiple versions. Amplitude creates a branch called `main` by default, and you can create more branches as needed. All versions in each branch are _published_ and immutable except for the _current_ version, which you can modify. To make changes to a tracking plan, you need the ID of the branch you're making changes to and the ID of current version on that branch.
 
 To import taxonomy you should:
 
 1. Retrieve Data workspace's ID and `main` branch's ID
 2. Upload CSV file to a separate branch called `import` created off `main` branch
-3. Publish pending changes in `import` branch
-4. Create a new pull request from `import` branch to `main` branch
-5. Merge the pull request
+3. Create a new pull request from `import` branch to `main` branch
+4. Merge the pull request
 
 The following examples show how to do this.
 
@@ -86,7 +85,6 @@ Authorization: Bearer {personal-access-token}
         branches (default: true) {
           id
           name
-          stagingVersionId
           currentVersionId
         }
       }
@@ -112,8 +110,7 @@ A successful request returns a `200 OK` status with a JSON body:
               {
                 "id": "21311db5-6396-4bbd-92c9-01df946d2a11",
                 "name": "main",
-                "stagingVersionId": "8358649b-2a1d-48fc-852b-64b404cbdc87",
-                "currentVersionId": "1088e89d-ed9f-46cc-98d3-9896e3bd2151"
+                "currentVersionId": "8358649b-2a1d-48fc-852b-64b404cbdc87"
               }
             ]
           }
@@ -154,56 +151,7 @@ A successful request returns a `200 OK` status with a JSON body:
   "templateCount": 0,
   "branchId": "5a8c4928-f090-4244-a5fc-ee856b33fc0d",
   "branchName": "import",
-  "stagingVersionId": "6c006657-0ee7-43e6-9c1e-97b3ddaada07",
-  "currentVersionId": "f3d6b525-7916-437f-bf5b-1b8e137892ae"
-}
-```
-
-## Publish staging version changes
-
-The imported tracking plan is stored in the `staging` version of the `import` branch. It must be published before it can be merged into the `main` branch. To publish the staging version, you need to provide the branch ID and staging version ID retrieved from the previous step. The following example shows how to do this.
-
-### Example mutation
-
-```bash
-POST /graphql HTTP/1.1
-Host: data-api.amplitude.com
-Content-Type: application/json
-Authorization: Bearer {personal-access-token}
-
-{
-  "query": "mutation PublishVersion($input: PublishVersionInput!) {
-    publishVersion(input: $input) {
-      id
-      name
-      currentVersionId
-      stagingVersionId
-    }
-  }",
-  "variables": {
-    "input": {
-      "branchId": "5a8c4928-f090-4244-a5fc-ee856b33fc0d",
-      "versionId": "6c006657-0ee7-43e6-9c1e-97b3ddaada07",
-      "description": ""
-    }
-  }
-}
-```
-
-### Response
-
-A successful request returns a `200 OK` status and a JSON body. The response contains new staging version id available for the next set of changes.
-
-```json
-{
-  "data": {
-    "publishVersion": {
-      "id": "574c4710-d85d-4a6f-bc41-8d55ca9445ec",
-      "name": "main",
-      "currentVersionId": "f030d1a5-ca67-4bac-8322-334c0231422a",
-      "stagingVersionId": "f90c0ee9-80a4-443c-b1d5-25f2af9b7a2e"
-    }
-  }
+  "currentVersionId": "6c006657-0ee7-43e6-9c1e-97b3ddaada07"
 }
 ```
 
@@ -260,7 +208,7 @@ A successful request returns a `200 OK` status with a JSON body:
 }
 ```
 
-Use the retrieved pull request ID to merge the pull request. `originVersionId` represents the current version in the `import` and `targetVersionId` represents the current version in the `main` branch, both retrieved on the previous steps. The `import` branch as well as the pull request will be deleted after the merge automatically.
+Use the retrieved pull request ID to merge the pull request. The `import` branch as well as the pull request will be deleted after the merge automatically.
 
 ### Example mutation
 
@@ -279,8 +227,6 @@ Authorization: Bearer {personal-access-token}
   "variables": {
     "input": {
       "id": "74508151-4177-472a-9831-81e7027cb9f0",
-      "originVersionId": "f030d1a5-ca67-4bac-8322-334c0231422a",
-      "targetVersionId": "1088e89d-ed9f-46cc-98d3-9896e3bd2151",
       "description": ""
     }
   }
