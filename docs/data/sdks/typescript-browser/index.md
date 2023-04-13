@@ -2,8 +2,16 @@
 title: Browser SDK
 description: The Amplitude Browser SDK Installation & Quick Start guide.
 icon: simple/javascript
+foo: bar
 ---
 
+@{% from 'macros.md' import input %}
+@{% from 'sdk-configuration-ts.md' import sdk_configuration_ts %}
+
+<p>Name: @{{ input('username') }}</p>
+<p>Password: @{{ input('password', type='password') }}</p>
+
+@{{foo}}
 
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser.svg)
 
@@ -33,7 +41,7 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 ### Configuration
 
---8<-- "includes/sdk-ts-browser/shared-configurations.md"
+@{{ sdk_configuration_ts() }}
 
 In addition to the basic configuration options, there also has options to configure attribution.
     

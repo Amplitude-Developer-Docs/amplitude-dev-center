@@ -4,6 +4,8 @@ description: The Amplitude React Native SDK Installation & Quick Start guide.
 icon: simple/react
 ---
 
+@{% from 'sdk-configuration-ts.md' import sdk_configuration_ts %}
+
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-react-native)
 
 The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native).
@@ -77,7 +79,7 @@ init(API_KEY, 'user@amplitude.com', {
 
 ### Configuration
 
---8<-- "includes/sdk-ts-browser/shared-configurations.md"
+@{{ sdk_configuration_ts() }}
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
