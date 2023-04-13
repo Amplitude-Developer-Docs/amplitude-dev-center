@@ -6,7 +6,7 @@ status: new
 
 !!!beta "This feature is in open beta"
 
-    This feature is in open beta and is in active development. Contact the [Planhat support team]([https://userlist.com/](https://www.google.com/url?q=https://support.planhat.com/en/&sa=D&source=docs&ust=1681362728518389&usg=AOvVaw0HZBKn1FHVmfkZ7_tigFKN)) for support with this integration.
+    This feature is in open beta and is in active development. Contact the [Planhat support team](https://support.planhat.com/en/) for support with this integration.
 
 [Planhat](https://www.planhat.com/) is a customer platform built to give insights, manage workflow and drive customer experience. Planhat is helping hundreds of modern technology companies worldwide center their business around their customers in order to maximize customer success and customer lifetime value. 
 
