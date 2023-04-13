@@ -20,7 +20,7 @@
 - :lantern: [Lantern](/data/destinations/lantern-event-streaming)
 - :meta: [Meta Pixel](/data/destinations/meta-pixel)
 - :moengage: [Meta Pixel](/data/destinations/moengage-event-streaming)
-- :planhat: [Meta Pixel](/data/destinations/planhat-event-streaming)
+- :planhat: [Planhat](/data/destinations/planhat-event-streaming)
 - :statsig: [Statsig](/data/destinations/statsig)
 - :toplyne: [Toplyne](/data/destinations/toplyne)
 - :userlist: [Userlist](/data/destinations/userlist-event-streaming)
