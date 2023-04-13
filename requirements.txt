@@ -18,7 +18,7 @@ mkdocs-glightbox==0.2.1
 pygments-graphql-lexer==0.1.0
 
 # Requirements for plugins
-mkdocs-git-revision-date-plugin==0.3.2
+mkdocs-git-revision-date-localized-plugin==1.2.0
 mkdocs-macros-plugin==0.7.0
 babel>=2.10.3
 lxml>=4.6
