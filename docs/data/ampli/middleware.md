@@ -54,9 +54,9 @@ ampli.client.addEventMiddleware(filteringMiddleware)
 Middleware access to event fields may vary by platform. To ensure comprehensive access, we recommend updating to the latest Ampli version and utilizing the [Plugins](./plugin.md) feature.
 
 For browser ampli, the following are the accessable keys under `payload`.
-<div class="big-column">Name</div>  | Type |
+|<div class="med-column">Name</div>|Type|
 | --- | --- |
-| `event.event_type` | string ||
+| `event.event_type` | string |
 | `event.event_properties` | { [key: string]: any } |
 | `event.user_id` | string |
 | `event.device_id` | string |
