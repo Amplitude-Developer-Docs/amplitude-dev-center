@@ -19,39 +19,111 @@ The Evaluation Proxy is a Service to enable, enhance, and optimize [local evalua
 
 ## Configuration
 
-The evaluation proxy requires keys as environment variables to run. Otherwise, the service crashes on startup.
+The evaluation proxy is either configured via a `yaml` file (recommended, more configuration options), or using environment variables.
 
-| Environment Variable | Description |
+The default location for the configuration yaml file is `/etc/evaluation-proxy-config.yaml`. You may also configure the file location using the `PROXY_CONFIG_FILE_PATH` environment variable.
+
+The `yaml` configuration file base is an object with two primary sub objects:
+
+* [`projects`](#projects) (required)
+* [`configuration`](#configuration-1) (optional).
+
+!!!tip "Recommended configuration"
+
+    Replace the fields in the configuration with values specific to your account/infrastructure.
+
+    ```yaml
+    projects:
+      - id: "YOUR PROJECT ID"
+        apiKey: "YOUR API KEY"
+        secretKey: " YOUR SECRET KEY"
+        deploymentKeys:
+          - "YOUR DEPLOYMENT KEY 1"
+          - "YOUR DEPLOYMENT KEY 2"
+
+    configuration:
+      redis:
+        uri: "YOUR REDIS URI" # e.g. "redis://localhost:6379"
+    ```
+
+???config "Environment variable configuration (click to open)"
+
+    Environment configuration can only configure a single deployment within a single project. Environment variable configuration is only considered if the configuration file is not found.
+
+    | Environment Variable | Description |
+    | --- | --- |
+    | `AMPLITUDE_PROJECT_ID` | The project's ID. Found in the project settings. |
+    | `AMPLITUDE_API_KEY` | The project's [API key](../../guides/amplitude-keys-guide.md#api-key). |
+    | `AMPLITUDE_SECRET_KEY` | The project's [secret key](../../guides/amplitude-keys-guide.md#secret-key). |
+    | `AMPLITUDE_EXPERIMENT_DEPLOYMENT_KEY` | <span style="max-width:450px;display:inline-block">The key for the deployment to manage. The [deployment key](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key.</span> |
+    | `AMPLITUDE_REDIS_URI` | The entire URI to connect to redis. Include the protocol, host, port, and optional username, password, and path (for example `redis://localhost:6379`). |
+    | `AMPLITUDE_REDIS_PREFIX` | The prefix to connect  |
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `projects` | array | Required. See [`projects`](#projects). |
+| `configuration` | object | Optional. See [`configuration`](#configuration-1) |
+
+### `projects`
+
+A required array of objects with the following fields, all which are required.
+
+| <div class="big-column">Field</div> | <div style="max-width:450px;display:inline-block">Description</div> |
 | --- | --- |
-| `AMPLITUDE_API_KEY` | The project's [API key](../../guides/amplitude-keys-guide.md#api-key). |
-| `AMPLITUDE_SECRET_KEY` | The project's [secret key](../../guides/amplitude-keys-guide.md#secret-key). |
-| `AMPLITUDE_DEPLOYMENT_KEY` | <span style="max-width:450px;display:inline-block">The key for the deployment to manage. The [deployment key](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key.</span> |
+| `id` | The project's ID. Found in the project settings. |
+| `apiKey` | The project's [API key](../../guides/amplitude-keys-guide.md#api-key). |
+| `secretKey` | The project's [secret key](../../guides/amplitude-keys-guide.md#secret-key). |
+| `deploymentKeys` | The keys of the deployments to manage within the project. The [deployment keys](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key. |
 
+### `configuration`
+
+An optional object of extra configuration.
+
+| <div class="big-column">Field</div> | <div style="max-width:450px;display:inline-block">Description</div> |
+| --- | --- |
+| `redis` | Optional (Recommended). See [`redis`](#redis). Configure the proxy to use redis as persistent storage. |
+| `flagSyncIntervalMillis` | Optional. The polling interval to update flag configurations (default `10000`). |
+| `maxCohortSize` | Optional. The maximum size of targeted cohorts that the proxy can download (default `2147483647`). |
+
+#### `redis`
+
+Configure the evaluation proxy to use redis as a persistent storage. Highly recommended to enable the evaluation proxy to run efficiently.
+
+| <div class="big-column">Field</div> | <div style="max-width:450px;display:inline-block">Description</div> |
+| --- | --- |
+| `uri` | Required. The full URI to connect to redis with. Include the protocol, host, port, and optional username, password, and path. |
+| `readOnlyUri` | Optional. Optional URI to connect to read only replicas for high scaling high volume reads to redis read replicas. |
+| `prefix` | Optional. A prefix for all keys saved by the evaluation proxy (default `amplitude`). |
 
 ## Deployment
 
 The evaluation proxy is stateless, and should be deployed with multiple instances behind a load balancer for high availability and scalability.
 For example, a kubernetes deployment with greater than one replica.
 
+### Kubernetes
+
+TODO
+
 ### Docker
 
 The service is generally deployed via [the docker image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy).
 
-#### Pull
+#### File configuration
 
-```bash
-docker pull amplitudeinc/evaluation-proxy
+```dockerfile
+TODO
 ```
 
-#### Run
+#### Environment variable configuration
 
 ```bash
 docker run \
+    -e AMPLITUDE_PROJECT_ID=${AMPLITUDE_PROJECT_ID} \
     -e AMPLITUDE_API_KEY=${AMPLITUDE_API_KEY} \
     -e AMPLITUDE_SECRET_KEY=${AMPLITUDE_SECRET_KEY} \
-    -e AMPLITUDE_DEPLOYMENT_KEY=${AMPLITUDE_DEPLOYMENT_KEY} \
-    -p 3546:3546 \
-    amplitudeinc/evaluation-proxy
+    -e AMPLITUDE_EXPERIMENT_DEPLOYMENT_KEY=${AMPLITUDE_EXPERIMENT_DEPLOYMENT_KEY} \
+    -e AMPLITUDE_REDIS_URL=${AMPLITUDE_REDIS_URL} \
+    -p 3546:3546 amplitudeinc/evaluation-proxy
 ```
 
 ## Evaluation
