@@ -6,6 +6,7 @@ mkdocs build
 # Run the link checker on the local site
 if [ "$1" = "external" ]; then
     # Also check external links. Requires additional filtering
+    exec 5>&1
     echo "Running full link check, including external links. This may take some time..."
     out=$( npx -y broken-link-checker-local@latest ./site -rog \
         --exclude 'https://help.amplitude.com' \
@@ -17,13 +18,14 @@ if [ "$1" = "external" ]; then
         --exclude 'https://forum.unity.com/' \
         | grep --line-buffered 'BROKEN\|Getting links from' \
         | grep --line-buffered -v 'HTTP_403\|HTTP_308\|HTTP_401\|HTTP_400' \
-        | tee /dev/tty )
+        | tee >(cat - >&5) )
 else
     # Check only internal links
+    exec 5>&1
     echo "Running internal link check..."
     out=$( npx -y broken-link-checker-local@latest ./site -roe \
     | grep --line-buffered 'BROKEN\|Getting links from' \
-    | tee /dev/tty )
+    | tee >(cat - >&5) )
 fi
 
 # Count broken links
