@@ -257,6 +257,7 @@ nav:
         - Sales:
           - Salesforce: data/sources/salesforce-group.md
         - Subscription Management:
+          - Adapty: data/sources/adapty.md
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
         - Website:
