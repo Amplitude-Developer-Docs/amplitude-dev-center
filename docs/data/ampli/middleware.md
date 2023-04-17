@@ -51,7 +51,7 @@ ampli.client.addEventMiddleware(filteringMiddleware)
 
 ## Middleware Payload Customization
 
-Middleware access to event fields may vary by platform. To ensure comprehensive access, we recommend updating to the latest Ampli version and utilizing the [Plugins](./plugin.md) feature.
+Middleware access to event fields may vary by platform. To ensure comprehensive access, we recommend updating to the latest Ampli version and utilizing the [Plugins](../plugin) feature.
 
 For browser ampli, the following are the accessable keys under `payload`.
 
@@ -64,7 +64,7 @@ For browser ampli, the following are the accessable keys under `payload`.
 | `event.user_properties` | { [key: string]: any } |
 | `extra` | { [x: string]: any } |
 
-For other platforms, middleware can access and modify the entire Event JSON object, allowing for comprehensive adjustments as needed. Learn more at [here](../../analytics/apis/http-v2-api/#keys-for-the-event-argument).
+For other platforms, middleware can access and modify the entire Event JSON object, allowing for comprehensive adjustments as needed. Learn more at [here](../../../analytics/apis/http-v2-api/#keys-for-the-event-argument).
 
 ## Middleware examples
 
