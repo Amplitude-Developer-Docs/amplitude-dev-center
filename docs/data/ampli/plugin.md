@@ -123,6 +123,85 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
     }
     ```
 
+### Hotjar Example
+
+=== "JavaScript"
+
+    ```js
+    import { PluginType } from "@amplitude/analytics-types"
+    import { default as hj } from "@hotjar/browser"
+
+    export class HotjarPlugin {
+      name = "hotjar"
+      type = PluginType.DESTINATION
+
+      constructor(siteId, hotjarVersion, debug = false) {
+        this.siteId = siteId
+        this.hotjarVersion = hotjarVersion
+      }
+
+      async setup() {
+        hj.init(this.siteId, this.hotjarVersion)
+      }
+
+      async execute(event) {
+        if (event.event_type === "$identify") {
+          const { user_id, device_id, user_properties } = event
+          const hotjarId = user_id || device_id || ""
+          hj.identify(hotjarId, user_properties || {})
+        } else {
+          hj.event(event.event_type)
+        }
+
+        return {
+          code: 0,
+          event: event,
+          message: "hi"
+        }
+      }
+    }
+    ```
+
+=== "Typescript"
+
+    ```ts
+    import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+    import { default as hj } from '@hotjar/browser';
+
+    export class HotjarPlugin implements DestinationPlugin {
+      name = 'hotjar';
+      type = PluginType.DESTINATION as const;
+      siteId: number;
+      hotjarVersion: number;
+
+      constructor(siteId: number, hotjarVersion: number, debug: boolean = false) {
+        this.siteId = siteId;
+        this.hotjarVersion = hotjarVersion;
+      }
+
+      async setup(): Promise<void> {
+        hj.init(this.siteId, this.hotjarVersion);
+      }
+
+      async execute(event: Event): Promise<Result> {
+
+        if (event.event_type === '$identify') {
+          const { user_id, device_id, user_properties } = event;
+          const hotjarId = user_id || device_id || '';
+          hj.identify(hotjarId, user_properties || {});
+        } else {
+          hj.event(event.event_type);
+        }
+
+        return {
+          code: 0,
+          event: event,
+          message: 'hi',
+        };
+      }
+    }
+    ```
+
 ## Enrichment type plugin
 
 Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
