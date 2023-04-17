@@ -198,7 +198,7 @@ client.logEvent(event);
 
 ### Events with groups
 
-You can also use `track` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
+You can also use `logEvent` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
 
 ```java
 Event event = New Event('Button Clicked', 'test_user_id');
