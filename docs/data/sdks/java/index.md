@@ -165,7 +165,7 @@ client.shutdown();
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
-Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to track.
+Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to track. In Java, `logEvent` only accepts an event object. Please check [here](../../../analytics/apis/http-v2-api/#keys-for-the-event-argument) for available keys for the Event object.
 
 !!!note
 
@@ -192,6 +192,23 @@ try {
 }
 
 event.eventProperties = eventProps;
+
+client.logEvent(event);
+```
+
+### Events with groups
+
+You can also use `track` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
+
+```java
+Event event = New Event('Button Clicked', 'test_user_id');
+
+JsonObject groups = new JSONObject();
+groups.put("groupKey", "groupValue");
+JsonObject groups_properties = new JSONObject();
+groups_properties.put("groupProperty", "groupPropertyValue");
+event.groups = groups;
+event.groups_properties = groups_properties;
 
 client.logEvent(event);
 ```
