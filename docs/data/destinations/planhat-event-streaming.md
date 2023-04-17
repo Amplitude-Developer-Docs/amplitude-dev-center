@@ -16,6 +16,7 @@ status: new
 Amplitude Data’s Planhat integration allows you to send a continuous, real-time stream of events as User Activities on the End User, Asset or Project level.
 
 Keep these things in mind when sending events to [Planhat](https://support.planhat.com/en/articles/7181975-setting-up-the-amplitude-integration#h_87f475e94b):
+
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need to be an admin of a paid Planhat plan to enable this integration.
 - Amplitude matches the **user_id** to the End User **externalId** within Planhat for associated events. If a user with that **externalId** doesn't exist within Planhat, a user with that **externalId** is created. Make sure that the Amplitude **user_id** field matches the Planhat user **externalId** field to avoid user duplication.
