@@ -2,6 +2,7 @@
 
 <div class="grid cards" markdown>
 
+- :adapty: [Adapty](../data/sources/adapty.md)
 - :adjust: [Adjust](../data/sources/adjust.md)
 - :adobe-analytics: [Adobe Analytics](../data/sources/adobe-analytics.md)
 - :adobe-experience-cloud: [Adobe Launch](../data/sources/adobe.md)
