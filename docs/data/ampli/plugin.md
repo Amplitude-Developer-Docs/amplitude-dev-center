@@ -196,7 +196,7 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
         return {
           code: 0,
           event: event,
-          message: 'hi',
+          message: 'Event forwarded to Hotjar API',
         };
       }
     }
