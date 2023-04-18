@@ -163,7 +163,7 @@ Here's an example of a Destination plugin that forwards events to Hotjar using t
         return {
           code: 0,
           event: event,
-          message: "hi"
+          message: "Event forwarded to Hotjar SDK"
         }
       }
     }
