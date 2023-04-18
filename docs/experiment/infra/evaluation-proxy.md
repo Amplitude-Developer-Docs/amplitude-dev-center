@@ -102,7 +102,39 @@ For example, a kubernetes deployment with greater than one replica.
 
 ### Kubernetes
 
-TODO
+Use the evaluation proxy [Helm chart](https://github.com/amplitude/evaluation-proxy-helm) to install the proxy service on kubernetes or generate the files needed to deploy the service manually. The repository also contains an [example of running the evaluation proxy on kubernetes](https://github.com/amplitude/tree/main/example) locally using `minikube`.
+
+#### Add helm repo
+
+```bash
+helm repo add amplitude/evaluation-proxy https://amplitude.github.io/evaluation-proxy-helm
+```
+
+#### Configure `values.yaml`
+
+Configure the chart values. The recommended approach to configuring and installing the helm chart is using a values.yaml configuration file.
+
+The chart's `evaluationHeader` value contents exactly match the evaluation proxy's configuration file fields. Amplitude's developer docs contains [additional information and configuration options](https://docs.developers.amplitude.com/experiment/infra/evaluation-proxy#configuration).
+
+```yaml title="values.yaml"
+evaluationProxy:
+  # At least one project is required.
+  projects:
+    - id: "TODO"
+      apiKey: "TODO"
+      secretKey: "TODO"
+      deploymentKeys:
+        - "TODO"
+  configuration: {}
+#    redis:
+#      uri: "redis://redis-master.default.svc.cluster.local:6379"
+```
+
+#### Install helm chart
+
+```bash
+helm install -f values.yaml evaluation-proxy amplitude/evaluation-proxy
+```
 
 ### Docker
 
