@@ -10,7 +10,7 @@ There are still some SDKs that haven't updated to the latest architecture, while
 
 1.  Maintenance SDKs are time-tested, stable versions of older SDKs. Once a new SDK is available for a given platform, the older SDK is moved to maintenance status and under the Maintenance SDKs section in the site navigation. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to new SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation.
 
-Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK follows the architecture
+Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK follows the architecture.
 
 ## Benefits of the latest architecture
 
@@ -35,7 +35,7 @@ Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK foll
 
 The latest SDKs share the same architecture and interfaces across platform. This page covers the high-level functionality across all latest SDKs. Refer to the individual SDK documentation for more detailed examples.
 
-![Latest Architecture Architecture](/../assets/images/data-latest-sdk-architecture.drawio.svg).
+![Latest Architecture Architecture](/../assets/images/data-latest-sdk-architecture.drawio.svg)
 
 ### Client
 
@@ -183,7 +183,7 @@ amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
 
 Events represent how users interact with your application. 
 
-`BaseEvent` represents a basic event with optional properties. You can also track other event properties in the field of `event_properties`
+`BaseEvent` represents a basic event with optional properties. You can also track other event properties in the field of `event_properties`.
 
 ```typescript
 // Latest Browser SDK example: track an event
@@ -224,9 +224,9 @@ Plugins allow you to extend Amplitude SDK's behavior. For example, you can:
 
 - Use an Enrichment Plugin to modify event properties
 !!!example "Enrichment plugin examples"
-    
-    ???code-example "a drop-event plugin example(click to expand)"
-        
+
+    ???code-example "Drop-event plugin example(click to expand)"
+
         ```typescript
         import * as amplitude from '@amplitude/analytics-browser';
 
@@ -256,8 +256,8 @@ Plugins allow you to extend Amplitude SDK's behavior. For example, you can:
         amplitude.add(new FilterEventsPlugin());
         ```
 
-     ???code-example "Remove PII (Personally Identifiable Information) (click to expand)"
-        
+    ???code-example "Remove PII (Personally Identifiable Information) (click to expand)"
+
         ```typescript
         import * as amplitude from '@amplitude/analytics-browser';
 
@@ -361,8 +361,6 @@ A plugin is an object with methods `setup()` and `execute()`:
 
 !!!note
     if `execute()` doesn't returns an event, the event will **NOT** propagate through the remaining plugins
-
-    ???code-example "a drop-event plugin example (click to expand)"
 
 ## Common methods
 
