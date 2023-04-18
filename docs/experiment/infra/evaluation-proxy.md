@@ -162,11 +162,7 @@ docker run \
 
 The Evaluation Proxy exposes remote [Evaluation API](../apis/evaluation-api.md) and [SDK](../index.md#sdks) endpoints to run local evaluation within your cluster. This is useful to enable platforms and languages which aren't supported by local evaluation SDKs. As an added benefit, fetch requests made to the evaluation proxy can target cohorts of users, and have assignment events tracked automatically to Amplitude.
 
-**Requests must be sent to the service using `http` on port `3546`.** For example, a deployed Evaluation Proxy service (named `evaluation-proxy`) running within a kubernetes namespace `prod` may be accessed from within the cluster at:
-
-```
-http://evaluation-proxy.prod.svc.cluster.local:3546
-```
+**Requests must be sent to the service using `http` on port `3546`.** For example, a deployed Evaluation Proxy service (named `evaluation-proxy`) running within a kubernetes namespace `prod` may be accessed from within the cluster at: `http://evaluation-proxy.prod.svc.cluster.local:3546`
 
 ## SDK proxy mode
 
