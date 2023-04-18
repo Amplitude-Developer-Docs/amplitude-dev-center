@@ -35,10 +35,11 @@ If you use Google Mobile Ads SDK version 17.0.0 or higher, you need to add `AD_M
     `-keep class com.google.android.gms.ads.** { *; }`
 
 4. `AD_ID` Permission 
+
     When apps update their target to Android 13 or above will need to declare a Google Play services normal permission in the manifest file as follows if you are trying to use the ADID as a deviceId:
 
     ```xml
-        <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
     ```
     
-    [Learn More](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en).
+    Learn More at [here](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en).
