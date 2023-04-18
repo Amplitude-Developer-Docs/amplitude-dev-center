@@ -49,6 +49,23 @@ ampli.client.addEventMiddleware(loggingMiddleware)
 ampli.client.addEventMiddleware(filteringMiddleware)
 ```
 
+## Middleware Payload Customization
+
+Middleware access to event fields may vary by platform. To ensure comprehensive access, we recommend updating to the latest Ampli version and utilizing the [Plugins](../plugin) feature.
+
+For browser ampli, the following are the accessable keys under `payload`.
+
+|<div class="med-column">Name</div>|Type|
+| - | - |
+| `event.event_type` | string |
+| `event.event_properties` | { [key: string]: any } |
+| `event.user_id` | string |
+| `event.device_id` | string |
+| `event.user_properties` | { [key: string]: any } |
+| `extra` | { [x: string]: any } |
+
+For other platforms, middleware can access and modify the entire Event JSON object, allowing for comprehensive adjustments as needed. Learn more at [here](../../../analytics/apis/http-v2-api/#keys-for-the-event-argument).
+
 ## Middleware examples
 
 ### Modify events
@@ -56,8 +73,8 @@ ampli.client.addEventMiddleware(filteringMiddleware)
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
   const { event } = payload;
-  if (hasPii(event.properties)) {
-    obfuscate(payload.event.properties);
+  if (hasPii(event.event_properties)) {
+    obfuscate(payload.event.event_properties);
   }
   next(payload);
 });
@@ -80,7 +97,7 @@ ampli.client.addEventMiddleware((payload, next) => {
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
   const { event } = payload;
-  if (event.name !== 'Event to Skip') {
+  if (event.event_type !== 'Event to Skip') {
     next(payload);
   }
 });
@@ -97,9 +114,9 @@ import snowplow from 'snowplow';
 
 ampli.client.addEventMiddleware((payload, next) => {
   const { event, extra } = payload;
-  segment.track(event.name, event.properties, { extra.anonymousId })
+  segment.track(event.event_type, event.event_properties, { extra.anonymousId })
   adroll.track();
-  snowplow.track(event.name, event.properties, extra.snowplow.context);
+  snowplow.track(event.event_type, event.event_properties, extra.snowplow.context);
   // next();
 });
 ```
@@ -109,14 +126,14 @@ ampli.client.addEventMiddleware((payload, next) => {
 ```js
 ampli.client.addEventMiddleware((payload, next) => {
   if (isDevelopment && !SchemaValidator.isValid(payload.event)) {
-    throw Error(`Invalid event ${event.name}`);
+    throw Error(`Invalid event ${event.event_type}`);
   }
   next(payload);
 });
 
 ampli.client.addEventMiddleware((payload, next) => {
   const { event, extra } = payload;
-  segment.track(event.name, event.properties, { extra.segment.anonymousId })
+  segment.track(event.event_type, event.event_properties, { extra.segment.anonymousId })
   next(payload);
 });
 ```
