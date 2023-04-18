@@ -5,10 +5,6 @@ search:
   exclude: true
 ---
 
-!!!alpha "This feature is in closed alpha release"
-
-    This feature is in closed alpha release, and is invite-only.
-
 <!-- --8<-- "includes/editions-all-editions.md" -->
 
 With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project.
@@ -45,7 +41,7 @@ To add BigQuery as a data source in your Amplitude project, follow these steps.
 3. Add the service account key and specify a GCS bucket name.
 4. Click **Next** to test the connection to make sure it's working.
 5. After you confirm your credentials, click **Next** to select data. You have several configuration options to choose from here:
-    - Type of data: This tells Amplitude whether you're ingesting event data or user property data.
+    - Type of data: This tells Amplitude whether you're ingesting event data, user property or group property data.
     - Type of import:
           - Full Sync: Amplitude periodically imports the entire dataset, regardless of whether the data is already imported. This is good for data sets where the row data changes over time, but there is no easy way to tell which rows have changed. Otherwise, the more efficient option would be a time-based import. This option isn't supported for ingesting event data.
           - Time-based: Amplitude periodically ingests the most recent rows in the data, as determined by the provided Timestamp column. The first import ingests all available data, and later imports ingest any data with timestamps after the time of the most recent import. To use this option, include the timestamp column in the output of your SQL statement.
