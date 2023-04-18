@@ -5,7 +5,7 @@ template: guide.html
 ---
 
 !!!note
-Plugins are supported in the latest version of Ampli when used in conjunction with the [new Amplitude browser SDKs](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/). If you are using an older version of Ampli or a [Maintenance Amplitude SDK](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/), see **[Middleware](../middleware/)**.
+    Plugins are supported in the latest version of Ampli when used in conjunction with the [new Amlitude browser SDKs](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/). If you are using an older version of Ampli or a [legacy Amplitude SDK](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/migration/), see **[Middleware](../middleware/)**.
 
 Plugins allow you to extend the Amplitude behavior. For example use plugins to modify event properties (enrichment type) or send data to a third-party APIs (destination type). This is a replacement for Middleware in Ampli legacy.
 This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more. A plugin is an object with methods `setup()` and `execute()`.
@@ -20,8 +20,13 @@ This method contains the logic for processing events and has event as parameter.
 
 Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you like. Each plugin runs in the order based on the plugin type.
 
-=== "Typescript/Javascript"
+=== "TypeScript"
     ```ts
+    ampli.client.add(yourPlugin())
+    ```
+
+=== "JavaScript"
+    ```js
     ampli.client.add(yourPlugin())
     ```
 
@@ -29,11 +34,11 @@ Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you 
 
 Here's an example of a plugin that sends each event that's instrumented to a target server URL using your preferred HTTP client.
 
-=== "Javascript"
+=== "JavaScript"
 
     ```js
     export class MyDestinationPlugin {
-      name = 'my-destination-plugin
+      name = 'my-destination-plugin'
       type = PluginType.DESTINATION
 
       constructor(serverUrl) {
@@ -75,7 +80,7 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
     }
     ```
 
-=== "Typescript"
+=== "TypeScript"
 
     ```ts
     export class MyDestinationPlugin implements DestinationPlugin {
@@ -162,7 +167,7 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
     }
     ```
 
-=== "Typescript"
+=== "TypeScript"
 
     ```ts
     import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
@@ -206,7 +211,7 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
 
 Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
 
-=== "Javascript"
+=== "JavaScript"
 
     ```js
     export class AddEventIdPlugin implements EnrichmentPlugin {
@@ -233,7 +238,7 @@ Here's an example of a plugin that modifies each event that's instrumented by ad
     }
     ```
 
-=== "Typescript"
+=== "TypeScript"
 
     ```ts
     import { BrowserConfig, EnrichmentPlugin, Event, PluginType } from '@amplitude/analytics-types';
