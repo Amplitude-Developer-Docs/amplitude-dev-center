@@ -1,44 +1,41 @@
 ---
-title: SDK Architecture
+title: Analytics SDK Architecture
 description: Overview to Amplitude Analytics SDK architecture and common usage
 ---
 
-This article helps you remove confusion around various Amplitude Analytics SDKs and introduces their architecture, common methods and benefits.
+This article provides a high level overview of the Amplitude Analytics SDKs. Our latest SDKs share a common architecture that works similarly across all platforms making it easy to understand how the Analytics works regardless of the exact environment and runtime.
 
-Most Amplitude Analytics SDKs share the same architecture that works similarly across all platforms making it easy to understand how the Analytics works regardless of the exact environment and runtime. (1)
+There are still some SDKs that haven't updated to the latest architecture, while also not in maintenance (1), for example Flutter, Java, and iOS. 
 { .annotate }
 
-1.  There are still some SDKs that don't follow this architecture: iOS, Flutter, Java, Unity, Unreal and Maintenance SDKs (1) (Browser, Andorid, React Native, and Node.js)
-    { .annotate }
-
-    1.  Maintenance SDKs are time tested, stable SDKs of old. Once a new SDK is available for a given platform, the older SDK is moved to maintenance status and under the Maintenance SDKs section in the site navigation. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to new SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation
+1.  Maintenance SDKs are time-tested, stable versions of older SDKs. Once a new SDK is available for a given platform, the older SDK is moved to maintenance status and under the Maintenance SDKs section in the site navigation. Maintenance SDKs only receives bug fixes until deprecation. It's strongly recommended to new SDKs to take advantage of their benefits. To migrate from a maintenance SDK, refer to the migration guide under each maintenance SDK documentation.
 
 Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK follows the architecture
 
-## Next-gen benefits 
+## Benefits of the latest architecture
 
-- Next-gen SDKs uses **modern languages** for each platform and with **modern tools/frameworks**
+- Uses **modern languages** for each platform and with **modern tools/frameworks**
     - It's easier for develpers to onboard Amplitude and also gain more confidence on data quality
-    - Next-gen Browser, Node.js, React Native SDK use TypeScript. Next-gen Android uses Kotlin. Next-gen iOS uses Swift
+    - Latest Browser, Node.js, React Native SDK use TypeScript. Latest Android uses Kotlin. Latest iOS uses Swift
     - Improved the code readability can speed up your the developement cycle
     - Browser SDK implements tree-shaking technique to reduce the bundle size
 
-- Next-gen SDKs are designed with a solid and **extensible architecture**
+- Designed with a solid and **extensible architecture**
     - Next generation SDKs allow more customization based on your needs. You can implement [a custom logger](./#logger-provider) and [a custom storage](./#storage-provider), [enrich your data](./#enrichment-plugin), and [send your data to other destination](./#destination-plugin) by using Plugins
 
-- Next-gen SDKs has **cleaner and aligned interfaces**
-    - Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names. For example, before next-gen SDKs, to track an event with different properties, you need to use different functions, for example `logEvent()`, `logEventWithTimestamp()`, `logEventWithGroup()`, etc. Right now with next-gen SDKs, you can just use by `track()` with all properties in `EventOptions`
+- Has **cleaner and aligned interfaces**
+    - Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names. For example, before latest SDKs, to track an event with different properties, you need to use different functions, for example `logEvent()`, `logEventWithTimestamp()`, `logEventWithGroup()`, etc. Right now with latest SDKs, you can just use by `track()` with all properties in `EventOptions`
     
-- Next-gen SDKs are **more reliable and robust**
-    - Next-gen SDKs don't require any external dependencies, which enhances performance, mitigate potential issues caused by dependencies, and makes them more lightweight
-    - Next-gen SDKs use file storage instead of database to improve performance
-    - Next-gen Android SDK removes OkHttp which addresses dependency compatibility issues
+- Is **more reliable and robust**
+    - Latest SDKs don't require any external dependencies, which enhances performance, mitigate potential issues caused by dependencies, and makes them more lightweight
+    - Latest SDKs use file storage instead of database to improve performance
+    - Latest Android SDK removes OkHttp which addresses dependency compatibility issues
 
-## Architecture
+## Latest Architecture
 
-The next-gen SDKs share the same architecture and interfaces across platform. This page covers the high-level functionality across all next-gen SDKs. Refer to the individual SDK documentation for more detailed examples.
+The latest SDKs share the same architecture and interfaces across platform. This page covers the high-level functionality across all latest SDKs. Refer to the individual SDK documentation for more detailed examples.
 
-![Next-gen Architecture](/../assets/images/data-next-gen-sdk-architecture.drawio.svg)
+![Latest Architecture Architecture](/../assets/images/data-latest-sdk-architecture.drawio.svg).
 
 ### Client
 
@@ -49,7 +46,7 @@ Before instrumenting events, you must initialize a SDK client instance using the
 Some SDKs exposes a default Client instance that can be used across the entire application.
 
 ```typescript
-// Next-gen Browser SDK example: initialize a Client
+// Latest Browser SDK example: initialize a Client
 
 import * as amplitude from '@amplitude/analytics-browser';
 
@@ -80,7 +77,7 @@ Configuration includes the options to configure Client behavior.
 You can pass a Configuration on Client initialization.
 
 ```typescript
-// Next-gen Browser SDK example: initialize a Client with a Configuration
+// Latest Browser SDK example: initialize a Client with a Configuration
 
 import * as amplitude from '@amplitude/analytics-browser';
  
@@ -95,10 +92,10 @@ amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
 
 A storage provider holds events in a designated storage buffer. The default storage provider only queues events in memory. To prevent data loss, you can customize your own storage provider to persist events, for example to a disk, in case of unexpected shutdown. This way, you can ensure that you can recover un-sent events even in the event of a system failure. 
 
-You can configure the storage provider in the Client Configuration. Storage providers in different SDKs follows slightly different interfaces. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
+You can configure the storage provider in the Client Configuration. Storage providers in different SDKs follows slightly different interfaces. Refer to the "Configuration Options" section of a specific latest SDK documentation for more details.
 
 ```typescript
-// Next-gen Browser SDK example: Customize the storage
+// Latest Browser SDK example: Customize the storage
 
 class MyStorage<T> {
   isEnabled(): Promise<boolean> {
@@ -123,6 +120,7 @@ class MyStorage<T> {
 
   reset(): Promise<void> {
     // clear the storage
+  }
 }
 
 amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
@@ -132,10 +130,10 @@ amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
 
 ### Logger provider
 
-A logger provider configures the logger instance used by the Amplitude Client. It helps to collect debugging and error messages from the SDK in both development and production environments. Logger providers in different SDKs follows slightly different interfaces. Refer to the "Configuration Options" section of a specific next-gen SDK documentation for more details.
+A logger provider configures the logger instance used by the Amplitude Client. It helps to collect debugging and error messages from the SDK in both development and production environments. Logger providers in different SDKs follows slightly different interfaces. Refer to the "Configuration Options" section of a specific latest SDK documentation for more details.
 
 ```typescript
-// Next-gen Browser SDK example: Customize the logger 
+// Latest Browser SDK example: Customize the logger 
 
 import * as amplitude from '@amplitude/analytics-browser';
 
@@ -188,7 +186,7 @@ Events represent how users interact with your application.
 `BaseEvent` represents a basic event with optional properties. You can also track other event properties in the field of `event_properties`
 
 ```typescript
-// Next-gen Browser SDK example: track an event
+// Latest Browser SDK example: track an event
 
 import * as amplitude from '@amplitude/analytics-browser';
 import {BaseEvent} from '@amplitude/analytics-types';
@@ -206,7 +204,7 @@ amplitude.track(buttonClickedEvent);
 Some SDKs also allow you to track an event without creating one but just pass the event type as a string.
 
 ```typescript
-// Next-gen Browser SDK example: track an event without creating one 
+// Latest Browser SDK example: track an event without creating one 
 
 import * as amplitude from '@amplitude/analytics-browser';
 
@@ -222,36 +220,75 @@ amplitude.track('Button Clicked', eventProperties);
 
 ### Plugin
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example:
+Plugins allow you to extend Amplitude SDK's behavior. For example, you can:
 
 - Use an Enrichment Plugin to modify event properties
 !!!example "Enrichment plugin examples"
     
-    ???code-example "Remove PII (Personally Identifiable Information) (click to expand)"
+    ???code-example "a drop-event plugin example(click to expand)"
         
         ```typescript
         import * as amplitude from '@amplitude/analytics-browser';
+
         import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
 
-        class RemovePIIPlugin implements EnrichmentPlugin {
-        name = 'remove-PII-plugin';
-        type = PluginType.ENRICHMENT as any;
+        class FilterEventsPlugin implements EnrichmentPlugin {
+          name = 'filter-events-plugin';
+          type = PluginType.ENRICHMENT as any;
 
-        async setup(config: BrowserConfig): Promise<void> {
+          async setup(config: BrowserConfig): Promise<void> {
             return undefined;
+          }
+
+          async execute(event: Event): Promise<Event | null> {
+            // ignore events with a certain property
+            if (event.event_properties['ignore'] === true){
+            // returning null will prevent this event from being processed by subsequent plugins
+            return null;
+          }
+
+          // Allow other events to be processed and sent to destination plugins
+          return event;
+          }
         }
 
-        async execute(event: Event): Promise<Event> {
-            // remove PII here 
-
-            // return modified events with PII removed
-            return event
-        }
-        }
-
-        amplitude.init('API-KEY');
-        amplitude.add(new RemovePIIPlugin());
+        amplitude.init('API_KEY');
+        amplitude.add(new FilterEventsPlugin());
         ```
+
+     ???code-example "Remove PII (Personally Identifiable Information) (click to expand)"
+        
+        ```typescript
+        import * as amplitude from '@amplitude/analytics-browser';
+
+        import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
+
+        class FilterEventsPlugin implements EnrichmentPlugin {
+          name = 'remove-PII-plugin';
+          type = PluginType.ENRICHMENT as any;
+
+          async setup(config: BrowserConfig): Promise<void> {
+            return undefined;
+          }
+
+          async execute(event: Event): Promise<Event> {
+              // remove PII on the event
+              if(event.user_properties['phone']) {
+                delete event.user_properties['phone'];
+                
+                // set a new prop to mark this event as modified
+                event.event_properties['pii-removed'] = true;
+              }
+  
+              // return modified event with PII removed
+              return event
+          }
+        }
+
+        amplitude.init('API_KEY');
+        amplitude.add(new FilterEventsPlugin());
+        ```
+  
 - Use a Destination Plugin to send events to a third-party APIs
 !!!example "Destination plugin examples"
     Follow Segment's guide to install [Segment Analytics.js 2.0 Web SDK](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/) first.
@@ -264,49 +301,49 @@ Plugins allow you to extend Amplitude SDK's behavior by, for example:
         import { DestinationPlugin, BrowserConfig, PluginType, Event, Result } from '@amplitude/analytics-types';
 
         class SegmentDestinationPlugin implements DestinationPlugin {
-        name = 'segment-destination-plugin';
-        type = PluginType.DESTINATION as any;
+            name = 'segment-destination-plugin';
+            type = PluginType.DESTINATION as any;
 
-        segment: AnalyticsBrowser;
+            segment: AnalyticsBrowser;
 
-        constructor(writeKey: string) {
-            // Create Segment tracker
-            this.segment = AnalyticsBrowser.load({ writeKey: writeKey });
-        }
-
-        async setup(config: BrowserConfig): Promise<void> {
-            return undefined;
-        }
-
-        execute(context: Event): Promise<Result> {
-            return new Promise<Result>((resolve) => {
-            const { event_type, event_properties, user_id, user_properties } = context;
-            const callback = (err: Error) => {
-                resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
-            };
-
-            switch (event_type) {
-                case amplitude.Types.SpecialEventType.IDENTIFY:
-                this.segment.identify({
-                    userId: user_id,
-                    traits: user_properties?.[amplitude.Types.IdentifyOperation.SET],
-                }, callback);
-                break;
-
-                case amplitude.Types.SpecialEventType.GROUP_IDENTIFY:
-                // not implemented
-                break;
-
-                default:
-                this.segment.track(event_type,{
-                    userId: user_id,
-                    event: event_type,
-                    properties: event_properties,
-                }, callback);
-                break;
+            constructor(writeKey: string) {
+                // Create Segment tracker
+                this.segment = AnalyticsBrowser.load({ writeKey: writeKey });
             }
-            });
-        }
+
+            async setup(config: BrowserConfig): Promise<void> {
+                return undefined;
+            }
+
+            execute(context: Event): Promise<Result> {
+              return new Promise<Result>((resolve) => {
+                const { event_type, event_properties, user_id, user_properties } = context;
+                const callback = (err: Error) => {
+                    resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
+                };
+
+                switch (event_type) {
+                    case amplitude.Types.SpecialEventType.IDENTIFY:
+                    this.segment.identify({
+                        userId: user_id,
+                        traits: user_properties?.[amplitude.Types.IdentifyOperation.SET],
+                    }, callback);
+                    break;
+
+                    case amplitude.Types.SpecialEventType.GROUP_IDENTIFY:
+                    // not implemented
+                    break;
+
+                    default:
+                      this.segment.track(event_type,{
+                        userId: user_id,
+                        event: event_type,
+                        properties: event_properties,
+                      }, callback);
+                    break;
+                }
+              });
+            }
         }
 
         amplitude.init('AMPLITUDE-API-KEY');
@@ -329,9 +366,9 @@ A plugin is an object with methods `setup()` and `execute()`:
 
 ## Common methods
 
-Next-gen SDKs share the same architecture as well as the same interfaces. Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names.
+Latest SDKs share the same architecture as well as the same interfaces. Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names.
 
-This a list of shared interfaces of next-gen SDKs. 
+This a list of shared interfaces of latest SDKs. 
 
 !!!note 
     Different SDKs follow different naming conventions. Here use camel case for methods and parameters and use pascal case for classes. 
@@ -349,7 +386,7 @@ This a list of shared interfaces of next-gen SDKs.
 
 ## Comparison with maintenance SDK
 
-If you are migrating from maintenance SDKs, you may notice that next-gen SDKs differ from maintenance SDKs not only in terms of interfaces but also in their Middleware vs Plugin architecture . You can think of Middleware as being equal to Enrichment Plugin and Destination Plugin.
+If you are migrating from maintenance SDKs, you may notice that latest SDKs differ from maintenance SDKs not only in terms of interfaces but also in their Middleware vs Plugin architecture . You can think of Middleware as being equal to Enrichment Plugin and Destination Plugin.
 
 ## SDK status table
 
