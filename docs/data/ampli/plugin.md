@@ -130,7 +130,7 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
 
 ### Hotjar Example
 
-Here's an example of a Destination plugin that modifies that forwards events to Hotjar using their [tracking code](https://help.hotjar.com/hc/en-us/articles/115011639927-What-is-the-Hotjar-Tracking-Code-).
+Here's an example of a Destination plugin that forwards events to Hotjar using their [tracking code](https://help.hotjar.com/hc/en-us/articles/115011639927-What-is-the-Hotjar-Tracking-Code-).
 
 === "JavaScript"
 
