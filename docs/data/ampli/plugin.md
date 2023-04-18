@@ -20,13 +20,13 @@ This method contains the logic for processing events and has event as parameter.
 
 Add plugin to Ampli via `ampli.client.add()`. You can add as many plugin as you like. Each plugin runs in the order based on the plugin type.
 
-=== "TypeScript"
-    ```ts
+=== "JavaScript"
+    ```js
     ampli.client.add(yourPlugin())
     ```
 
-=== "JavaScript"
-    ```js
+=== "TypeScript"
+    ```ts
     ampli.client.add(yourPlugin())
     ```
 
@@ -129,6 +129,8 @@ Here's an example of a plugin that sends each event that's instrumented to a tar
     ```
 
 ### Hotjar Example
+
+Here's an example of a Destination plugin that modifies that forwards events to Hotjar using their [tracking code](https://help.hotjar.com/hc/en-us/articles/115011639927-What-is-the-Hotjar-Tracking-Code-).
 
 === "JavaScript"
 
