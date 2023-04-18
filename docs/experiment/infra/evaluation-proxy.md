@@ -107,7 +107,7 @@ Use the evaluation proxy [Helm chart](https://github.com/amplitude/evaluation-pr
 #### Add helm repo
 
 ```bash
-helm repo add amplitude/evaluation-proxy https://amplitude.github.io/evaluation-proxy-helm
+helm repo add evaluation-proxy-helm https://amplitude.github.io/evaluation-proxy-helm
 ```
 
 #### Configure `values.yaml`
@@ -133,7 +133,7 @@ evaluationProxy:
 #### Install helm chart
 
 ```bash
-helm install -f values.yaml evaluation-proxy amplitude/evaluation-proxy
+helm install -f values.yaml evaluation-proxy evaluation-proxy-helm/evaluation-proxy
 ```
 
 ### Docker
