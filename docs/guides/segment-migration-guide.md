@@ -60,7 +60,6 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
 | Group     | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
 | Plugins   | Plugins   | [Plugins](/data/sdk-plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
 
-
 === "Browser"
 
     Documentation for [Browser Typescript SDK](/data/sdks/typescript-browser/).
@@ -205,7 +204,6 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     </tr>
     </table>
 
-
 === "Android"
 
     Documentation for [Android Kotlin SDK](/data/sdks/android-kotlin/).
@@ -280,7 +278,6 @@ You can add a [new destination](/data/destinations/) in just a few clicks.
 4. Follow the on-screen prompts. 
 
 For detailed instructions, see the documentation for the [destination](/data/destinations/) you want to add. 
-
 
 ## Migration checklist
 
