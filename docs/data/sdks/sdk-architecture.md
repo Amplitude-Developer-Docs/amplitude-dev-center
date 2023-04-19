@@ -220,7 +220,7 @@ amplitude.track('Button Clicked', eventProperties);
 
 ### Plugin
 
-Plugins allow you to extend Amplitude SDK's behavior. Please check [here] for more details(../sdk-plugin.md). 
+Plugins allow you to extend Amplitude SDK's behavior. Please check [here](../../sdk-plugin) for more details. 
 
 ## Common methods
 
