@@ -26,7 +26,7 @@ Add plugin to Ampli via `amplitude.add()`. You can add as many plugin as you lik
     ```js
     amplitude.add(yourPlugin())
     ```
-    
+
 === "Typescript"
     ```js
     amplitude.add(yourPlugin())
@@ -37,10 +37,13 @@ Add plugin to Ampli via `amplitude.add()`. You can add as many plugin as you lik
 
 ## Plugin types
 
-There have `Enrichment Plugin` and `Destination Plugin`:
+### Enrichment type plugin
 
-- Enrichment Plugin: for modifying properties in Event object or drop an Event. Here are the [availabe keys for Event Object](../../analytics/apis/http-v2-api/#keys-for-the-event-argument) which you can enrich in the Enrichment Plugin.
-- Destination Plugin: for sending events to a third-party API.
+Enrichment Plugin is for modifying properties in Event object or drop an Event. Here are the [availabe keys for Event Object](../../analytics/apis/http-v2-api/#keys-for-the-event-argument) which you can enrich in the Enrichment Plugin. Please check [here](/#destination-type-plugin) for more examples.
+
+### Destination type plugin
+
+Destination Plugin is for sending events to a third-party API. Please check [here](/#destination-type-plugin_1) for more examples.
 
 Enrichment Plugins are executed before Destination Plugins. All Enrichment Plugins are executed in the same order in which they were added, and then all Destination Plugins are executed in the order they were added. This ensures that all data is enriched before being sent to its final destination. 
 
@@ -53,67 +56,131 @@ Use an Enrichment Plugin to modify event properties:
 
     ???code-example "Drop-event plugin example(click to expand)"
 
-        ```typescttssript
-        import * as amplitude from '@amplitude/analytics-browser';
+        === "JavaScript"
+            ```js
+            import * as amplitude from '@amplitude/analytics-browser';
+    
+            import {PluginType} from '@amplitude/analytics-types';
+    
+            class FilterEventsPlugin {
+              name = 'filter-events-plugin';
+              type = PluginType.ENRICHMENT;
+    
+              async setup(config) {
+                return undefined;
+              }
+    
+              async execute(event) {
+                // ignore events with a certain property
+                if (event.event_properties['ignore'] === true){
+                // returning null will prevent this event from being processed by subsequent plugins
+                return null;
+              }
+    
+              // Allow other events to be processed and sent to destination plugins
+              return event;
+              }
+            }
+    
+            amplitude.init('API_KEY');
+            amplitude.add(new FilterEventsPlugin());
+            ```
 
-        import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
+        === "TypeScript"
+            ```ts
+            import * as amplitude from '@amplitude/analytics-browser';
 
-        class FilterEventsPlugin implements EnrichmentPlugin {
-          name = 'filter-events-plugin';
-          type = PluginType.ENRICHMENT as any;
+            import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
 
-          async setup(config: BrowserConfig): Promise<void> {
-            return undefined;
-          }
+            class FilterEventsPlugin implements EnrichmentPlugin {
+              name = 'filter-events-plugin';
+              type = PluginType.ENRICHMENT as any;
 
-          async execute(event: Event): Promise<Event | null> {
-            // ignore events with a certain property
-            if (event.event_properties['ignore'] === true){
-            // returning null will prevent this event from being processed by subsequent plugins
-            return null;
-          }
+              async setup(config: BrowserConfig): Promise<void> {
+                return undefined;
+              }
 
-          // Allow other events to be processed and sent to destination plugins
-          return event;
-          }
-        }
+              async execute(event: Event): Promise<Event | null> {
+                // ignore events with a certain property
+                if (event.event_properties['ignore'] === true){
+                // returning null will prevent this event from being processed by subsequent plugins
+                return null;
+              }
 
-        amplitude.init('API_KEY');
-        amplitude.add(new FilterEventsPlugin());
-        ```
+              // Allow other events to be processed and sent to destination plugins
+              return event;
+              }
+            }
+
+            amplitude.init('API_KEY');
+            amplitude.add(new FilterEventsPlugin());
+            ```
 
     ???code-example "Remove PII (Personally Identifiable Information) (click to expand)"
 
-        ```ts
-        import * as amplitude from '@amplitude/analytics-browser';
-
-        import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
-
-        class FilterEventsPlugin implements EnrichmentPlugin {
-          name = 'remove-PII-plugin';
-          type = PluginType.ENRICHMENT as any;
-
-          async setup(config: BrowserConfig): Promise<void> {
-            return undefined;
-          }
-
-          async execute(event: Event): Promise<Event> {
-              // remove PII on the event
-              if(event.user_properties['phone']) {
-                delete event.user_properties['phone'];
-                
-                // set a new prop to mark this event as modified
-                event.event_properties['pii-removed'] = true;
+        === "JavaScript"
+            ```js
+            import * as amplitude from '@amplitude/analytics-browser';
+            import {PluginType} from '@amplitude/analytics-types';
+    
+            class FilterEventsPlugin {
+              name = 'remove-PII-plugin';
+              type = PluginType.ENRICHMENT;
+    
+              async setup(config) {
+                return undefined;
               }
-  
-              // return modified event with PII removed
-              return event
-          }
-        }
+    
+              async execute(event) {
+                  // remove PII on the event
+                  if(event.user_properties['phone']) {
+                    delete event.user_properties['phone'];
+                    
+                    // set a new prop to mark this event as modified
+                    event.event_properties['pii-removed'] = true;
+                  }
+      
+                  // return modified event with PII removed
+                  return event
+              }
+            }
+    
+            amplitude.init('API_KEY');
+            amplitude.add(new FilterEventsPlugin());
+            ```
 
-        amplitude.init('API_KEY');
-        amplitude.add(new FilterEventsPlugin());
-        ```
+        === "TypeScript"
+
+            ```ts
+            import * as amplitude from '@amplitude/analytics-browser';
+    
+            import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
+    
+            class FilterEventsPlugin implements EnrichmentPlugin {
+              name = 'remove-PII-plugin';
+              type = PluginType.ENRICHMENT as any;
+    
+              async setup(config: BrowserConfig): Promise<void> {
+                return undefined;
+              }
+    
+              async execute(event: Event): Promise<Event> {
+                  // remove PII on the event
+                  if(event.user_properties['phone']) {
+                    delete event.user_properties['phone'];
+
+                    // set a new prop to mark this event as modified
+                    event.event_properties['pii-removed'] = true;
+                  }
+
+                  // return modified event with PII removed
+                  return event
+              }
+            }
+    
+            amplitude.init('API_KEY');
+            amplitude.add(new FilterEventsPlugin());
+            ```
   
 ### Destination type plugin
 
@@ -121,101 +188,182 @@ Use a Destination Plugin to send events to a third-party APIs
 !!!example "Destination plugin examples"
 
     ???code-example "Send to Segment (click to expand)"
-        // Follow Segment's guide to install [Segment Analytics.js 2.0 Web SDK](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/) first.
+        Follow Segment's guide to install [Segment Analytics.js 2.0 Web SDK](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/) first.
+    
+        === "JavaScript"
 
-        ```ts
-        import * as amplitude from '@amplitude/analytics-browser';
-        import { AnalyticsBrowser } from '@segment/analytics-next';
-        import { DestinationPlugin, BrowserConfig, PluginType, Event, Result } from '@amplitude/analytics-types';
+            ```js
+            import { PluginType, SpecialEventType, IdentifyOperation } from "@amplitude/analytics-types"
+            import { AnalyticsBrowser } from '@segment/analytics-next';
 
-        class SegmentDestinationPlugin implements DestinationPlugin {
-            name = 'segment-destination-plugin';
-            type = PluginType.DESTINATION as any;
+            class SegmentDestinationPlugin {
+              name = 'segment-destination-plugin';
+              type = PluginType.DESTINATION;
 
-            segment: AnalyticsBrowser;
-
-            constructor(writeKey: string) {
+              constructor(writeKey) {
                 // Create Segment tracker
                 this.segment = AnalyticsBrowser.load({ writeKey: writeKey });
-            }
+              }
 
-            async setup(config: BrowserConfig): Promise<void> {
+              async setup(config) {
                 return undefined;
+              }
+
+              async execute(context) {
+                  return new Promise<Result>((resolve) => {
+                    const { event_type, event_properties, user_id, user_properties } = context;
+                    const callback = (err) => {
+                        resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
+                    };
+    
+                    switch (event_type) {
+                        case SpecialEventType.IDENTIFY:
+                        this.segment.identify({
+                            userId: user_id,
+                            traits: user_properties?.[IdentifyOperation.SET],
+                        }, callback);
+                        break;
+    
+                        case SpecialEventType.GROUP_IDENTIFY:
+                        // not implemented
+                        break;
+    
+                        default:
+                          this.segment.track(event_type,{
+                            userId: user_id,
+                            event: event_type,
+                            properties: event_properties,
+                          }, callback);
+                        break;
+                    }
+                  });
+              }
             }
+            ```
 
-            execute(context: Event): Promise<Result> {
-              return new Promise<Result>((resolve) => {
-                const { event_type, event_properties, user_id, user_properties } = context;
-                const callback = (err: Error) => {
-                    resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
-                };
-
-                switch (event_type) {
-                    case amplitude.Types.SpecialEventType.IDENTIFY:
-                    this.segment.identify({
-                        userId: user_id,
-                        traits: user_properties?.[amplitude.Types.IdentifyOperation.SET],
-                    }, callback);
-                    break;
-
-                    case amplitude.Types.SpecialEventType.GROUP_IDENTIFY:
-                    // not implemented
-                    break;
-
-                    default:
-                      this.segment.track(event_type,{
-                        userId: user_id,
-                        event: event_type,
-                        properties: event_properties,
-                      }, callback);
-                    break;
+        === "TypeScript"
+            ```ts
+            import * as amplitude from '@amplitude/analytics-browser';
+            import { DestinationPlugin, BrowserConfig, PluginType, Event, Result } from '@amplitude/analytics-types';
+    
+            class SegmentDestinationPlugin implements DestinationPlugin {
+                name = 'segment-destination-plugin';
+                type = PluginType.DESTINATION as any;
+    
+                segment: AnalyticsBrowser;
+    
+                constructor(writeKey: string) {
+                    // Create Segment tracker
+                    this.segment = AnalyticsBrowser.load({ writeKey: writeKey });
                 }
-              });
+    
+                async setup(config: BrowserConfig): Promise<void> {
+                    return undefined;
+                }
+    
+                execute(context: Event): Promise<Result> {
+                  return new Promise<Result>((resolve) => {
+                    const { event_type, event_properties, user_id, user_properties } = context;
+                    const callback = (err: Error) => {
+                        resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
+                    };
+    
+                    switch (event_type) {
+                        case amplitude.Types.SpecialEventType.IDENTIFY:
+                        this.segment.identify({
+                            userId: user_id,
+                            traits: user_properties?.[amplitude.Types.IdentifyOperation.SET],
+                        }, callback);
+                        break;
+    
+                        case amplitude.Types.SpecialEventType.GROUP_IDENTIFY:
+                        // not implemented
+                        break;
+    
+                        default:
+                          this.segment.track(event_type,{
+                            userId: user_id,
+                            event: event_type,
+                            properties: event_properties,
+                          }, callback);
+                        break;
+                    }
+                  });
+                }
             }
-        }
-
-        amplitude.init('AMPLITUDE-API-KEY');
-        const segmentDestination = new SegmentDestinationPlugin('YOUR-SEGMENT-WRITE-KEY');
-        amplitude.add(segmentDestination);
-        ```
+    
+            amplitude.init('AMPLITUDE-API-KEY');
+            const segmentDestination = new SegmentDestinationPlugin('YOUR-SEGMENT-WRITE-KEY');
+            amplitude.add(segmentDestination);
+            ```
 
     ???code-example "Send to Hotjar using their [tracking code](https://help.hotjar.com/hc/en-us/articles/115011639927-What-is-the-Hotjar-Tracking-Code-) (click to expand)"
 
-        ```ts
-        import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
-        import { default as hj } from '@hotjar/browser';
+        === "JavaScript"
+        
+            ```js
+            import { PluginType } from "@amplitude/analytics-types"
+            import { default as hj } from "@hotjar/browser"
+            export class HotjarPlugin {
+              name = "hotjar"
+              type = PluginType.DESTINATION
+              constructor(siteId, hotjarVersion, debug = false) {
+                this.siteId = siteId
+                this.hotjarVersion = hotjarVersion
+              }
+              async setup() {
+                hj.init(this.siteId, this.hotjarVersion)
+              }
+              async execute(event) {
+                if (event.event_type === "$identify") {
+                  const { user_id, device_id, user_properties } = event
+                  const hotjarId = user_id || device_id || ""
+                  hj.identify(hotjarId, user_properties || {})
+                } else {
+                  hj.event(event.event_type)
+                }
+                return {
+                  code: 0,
+                  event: event,
+                  message: "Event forwarded to Hotjar SDK"
+                }
+              }
+            }
+            ```
+        
+        === "TypeScript"
+        
+            ```ts
+            import { BrowserConfig, DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+            import { default as hj } from '@hotjar/browser';
+            export class HotjarPlugin implements DestinationPlugin {
+              name = 'hotjar';
+              type = PluginType.DESTINATION as const;
+              siteId: number;
+              hotjarVersion: number;
 
-        export class HotjarPlugin implements DestinationPlugin {
-            name = 'hotjar';
-            type = PluginType.DESTINATION as const;
-            siteId: number;
-            hotjarVersion: number;
-
-            constructor(siteId: number, hotjarVersion: number, debug: boolean = false) {
+              constructor(siteId: number, hotjarVersion: number, debug: boolean = false) {
                 this.siteId = siteId;
                 this.hotjarVersion = hotjarVersion;
-            }
+              }
 
-            async setup(): Promise<void> {
+              async setup(): Promise<void> {
                 hj.init(this.siteId, this.hotjarVersion);
-            }
+              }
 
-            async execute(event: Event): Promise<Result> {
-
+              async execute(event: Event): Promise<Result> {
                 if (event.event_type === '$identify') {
-                    const { user_id, device_id, user_properties } = event;
-                    const hotjarId = user_id || device_id || '';
-                    hj.identify(hotjarId, user_properties || {});
+                  const { user_id, device_id, user_properties } = event;
+                  const hotjarId = user_id || device_id || '';
+                  hj.identify(hotjarId, user_properties || {});
                 } else {
-                    hj.event(event.event_type);
+                  hj.event(event.event_type);
                 }
-
                 return {
-                    code: 0,
-                    event: event,
-                    message: 'Event forwarded to Hotjar API',
+                  code: 0,
+                  event: event,
+                  message: 'Event forwarded to Hotjar API',
                 };
+              }
             }
-        }
-        ```
-
+            ```
