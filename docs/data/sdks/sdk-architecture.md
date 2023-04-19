@@ -3,7 +3,7 @@ title: Analytics SDK Architecture
 description: Overview to Amplitude Analytics SDK architecture and common usage
 ---
 
-This article provides a high level overview of the Amplitude Analytics SDKs. Our latest SDKs share a common architecture that works similarly across all platforms making it easy to understand how the Analytics works regardless of the exact environment and runtime.
+This article provides a high level overview of the Amplitude Analytics SDKs. Our latest SDKs share a common architecture that works similarly across all platforms making it easy to understand how Analytics works regardless of the exact environment and runtime.
 
 There are still some SDKs that haven't updated to the latest architecture, while also not in maintenance (1), for example Flutter, Java, and iOS. 
 { .annotate }
@@ -23,11 +23,11 @@ Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK foll
 - Designed with a solid and **extensible architecture**
     - Next generation SDKs allow more customization based on your needs. You can implement [a custom logger](./#logger-provider) and [a custom storage](./#storage-provider), [enrich your data](./#enrichment-plugin), and [send your data to other destination](./#destination-plugin) by using Plugins
 
-- Has **cleaner and aligned interfaces**
-    - Aligned interfaces benefit using Amplitude SDKs on multiple platforms without memorizing different function names. For example, before latest SDKs, to track an event with different properties, you need to use different functions, for example `logEvent()`, `logEventWithTimestamp()`, `logEventWithGroup()`, etc. Right now with latest SDKs, you can just use by `track()` with all properties in `EventOptions`
-    
-- Is **more reliable and robust**
-    - Latest SDKs don't require any external dependencies, which enhances performance, mitigate potential issues caused by dependencies, and makes them more lightweight
+- **Cleaner and aligned interfaces**
+    - Aligned interfaces makes it easy to use the Amplitude SDKs on multiple platforms without memorizing different function names. For example, to track an event with different properties before the latest SDK, you needed to use different functions such as `logEvent()`, `logEventWithTimestamp()`, `logEventWithGroup()`, etc.  With the latest SDKs, you can use now use `track()` to set all available event properties.
+
+- **More reliable and robust**
+    - Latest SDKs don't require any external dependencies, which enhances performance, mitigates potential issues caused by dependencies, and makes them more lightweight
     - Latest SDKs use file storage instead of database to improve performance
     - Latest Android SDK removes OkHttp which addresses dependency compatibility issues
 
@@ -57,7 +57,7 @@ But you can also create one Amplitude Client on your own . Refer to each SDK doc
 
 ### Configuration
 
-Configuration includes the options to configure Client behavior.
+All the latest SDKs allow for configuration of Client behavior. Below is a short list of common configuration settings and how to use them. Individual platforms may include additional configuration settings. Refer to the platform specific SDK documentation for a full list.
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
@@ -218,9 +218,9 @@ const eventProperties = {
 amplitude.track('Button Clicked', eventProperties);
 ```
 
-### Plugin
+### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior. Please check [here](../../sdk-plugin) for more details. 
+Plugins allow you to extend Amplitude SDK's behavior. You can create a custom Plugin to modify or filter events, or send events to a custom destination. Please check [here](../../sdk-plugin) for more details. 
 
 ## Common methods
 
@@ -245,19 +245,23 @@ This a list of shared interfaces of latest SDKs.
 ## Comparison with maintenance SDK
 
 If you are migrating from maintenance SDKs, you may notice that latest SDKs differ from maintenance SDKs not only in terms of interfaces but also in their Middleware vs Plugin architecture . You can think of Middleware as being equal to Enrichment Plugin and Destination Plugin.
+If you are migrating from maintenance SDKs, you may notice that latest SDKs differ in terms of interfaces.
+
+- `logEvent()` has been renamed `track()`.
+- Middleware has been replaced by [Plugins](../../sdk-plugin) . When migrating from Middleware, it be easily be converted to an Enrichment or Destination Plugin by overriding the `execute()` method.
 
 ## SDK status table
 
-|Platform|Follow the latest architecture|Not follow the latest architecture|
+|Platform|Latest architecture|Not on latest architecture|
 |--------|--------|-----------|
-|Browser|:octicons-package-16: `@amplitude/analytics-browser`<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript)<br/>[:material-file-document: Document](./typescript-browser/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `@amplitude/amplitude-js`<br/>[:material-github: Amplitude-JavaScript](https://github.com/amplitude/Amplitude-JavaScript)<br/>[:material-file-document: Document](./javascript/index.md)|
-|Android|:octicons-package-16: `com.amplitude:analytics-android`<br/>[:material-github: Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin)<br/>[:material-file-document: Document](./android-kotlin/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `com.amplitude:android-sdk`<br/>[:material-github: Amplitude-Android](https://github.com/amplitude/Amplitude-Android)<br/>[:material-file-document: Document](./android/index.md)
-|Node.js|:octicons-package-16: `@amplitude/analytics-node`<br/>[:material-github: Amplitude-Typescript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)<br/>[:material-file-document: Document](./typescript-node/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `@amplitude/node`<br/>[:material-github: Amplitude-Node](https://github.com/amplitude/Amplitude-Node)<br/>[:material-file-document: Document](./node/index.md)
-|React Native|:octicons-package-16: `@amplitude/analytics-react-native`<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native)<br/>[:material-file-document: Document](./typescript-react-native/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: `@amplitude/react-native`<br/>[:material-github: Amplitude-ReactNative](https://github.com/amplitude/Amplitude-ReactNative)<br/>[:material-file-document: Document](./react-native/index.md)
-|iOS|:octicons-package-16: `AmplitudeSwift`<br/>[:material-github: Amplitude-Swift](https://github.com/amplitude/Amplitude-Swift)<br/>[:material-file-document: Document](./ios-swift/index.md)|:octicons-package-16: `Amplitude`<br/>[:material-github: Amplitude-iOS](https://github.com/amplitude/Amplitude-iOS)<br/>[:material-file-document: Document](./ios/index.md)
-|Python|:octicons-package-16: `amplitude-analytics`<br/>[:material-github: Amplitude-Python](https://github.com/amplitude/Amplitude-Python)<br/>[:material-file-document: Document](./python/index.md)||
-|Go|:octicons-package-16: `github.com/amplitude/analytics-go`<br/>[:material-github: analytics-go](https://github.com/amplitude/analytics-go)<br/>[:material-file-document: Document](./go/index.md)||
-|Unity||:octicons-package-16: `amplitude-unity.unitypackage`<br/>[:material-github: unity-plugin](https://github.com/amplitude/unity-plugin)<br/>[:material-file-document: Document](./unity/index.md)|
-|Unreal||:octicons-package-16: `AmplitudeUnreal`<br/>[:material-github: Amplitude-Unreal](https://github.com/amplitude/Amplitude-Unreal)<br/>[:material-file-document: Document](./unreal/index.md)|
-|Flutter||:octicons-package-16: `amplitude_flutter`<br/>[:material-github: Amplitude-Flutter](https://github.com/amplitude/Amplitude-Flutter)<br/>[:material-file-document: Document](./flutter/index.md)|
-|Java||:octicons-package-16: `com.amplitude.Amplitude`<br/>[:material-github: Amplitude-Java](https://github.com/amplitude/Amplitude-Java)<br/>[:material-file-document: Document](./java/index.md)|
+|Browser|:octicons-package-16: [`@amplitude/analytics-browser`](https://www.npmjs.com/package/@amplitude/analytics-browser)<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript)<br/>[:material-file-document: Document](./typescript-browser/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: [`@amplitude/amplitude-js`](https://www.npmjs.com/package/amplitude-js)<br/>[:material-github: Amplitude-JavaScript](https://github.com/amplitude/Amplitude-JavaScript)<br/>[:material-file-document: Document](./javascript/index.md)|
+|Android|:octicons-package-16: [`com.amplitude:analytics-android`](https://mvnrepository.com/artifact/com.amplitude/analytics-android)<br/>[:material-github: Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin)<br/>[:material-file-document: Document](./android-kotlin/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: [`com.amplitude:android-sdk`](https://mvnrepository.com/artifact/com.amplitude/android-sdk)<br/>[:material-github: Amplitude-Android](https://github.com/amplitude/Amplitude-Android)<br/>[:material-file-document: Document](./android/index.md)
+|Node.js|:octicons-package-16: [`@amplitude/analytics-node`](https://www.npmjs.com/package/@amplitude/analytics-node)<br/>[:material-github: Amplitude-Typescript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)<br/>[:material-file-document: Document](./typescript-node/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: []`@amplitude/node`](https://www.npmjs.com/package/@amplitude/node)<br/>[:material-github: Amplitude-Node](https://github.com/amplitude/Amplitude-Node)<br/>[:material-file-document: Document](./node/index.md)
+|React Native|:octicons-package-16: [`@amplitude/analytics-react-native`](https://www.npmjs.com/package/@amplitude/analytics-react-native)<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native)<br/>[:material-file-document: Document](./typescript-react-native/index.md)|:material-hammer-screwdriver:{.red} Maintenance SDK<br/>:octicons-package-16: [`@amplitude/react-native`](https://www.npmjs.com/package/@amplitude/react-native)<br/>[:material-github: Amplitude-ReactNative](https://github.com/amplitude/Amplitude-ReactNative)<br/>[:material-file-document: Document](./react-native/index.md)
+|iOS|:octicons-package-16: `AmplitudeSwift`<br/>[:material-github: Amplitude-Swift](https://github.com/amplitude/Amplitude-Swift)<br/>[:material-file-document: Document](./ios-swift/index.md)|:octicons-package-16: [`Amplitude`](https://cocoapods.org/pods/Amplitude-iOS)<br/>[:material-github: Amplitude-iOS](https://github.com/amplitude/Amplitude-iOS)<br/>[:material-file-document: Document](./ios/index.md)
+|Python|:octicons-package-16: [`amplitude-analytics`](https://pypi.org/project/amplitude-analytics/)<br/>[:material-github: Amplitude-Python](https://github.com/amplitude/Amplitude-Python)<br/>[:material-file-document: Document](./python/index.md)||
+|Go|:octicons-package-16: [`github.com/amplitude/analytics-go`](https://pkg.go.dev/github.com/amplitude/analytics-go)<br/>[:material-github: analytics-go](https://github.com/amplitude/analytics-go)<br/>[:material-file-document: Document](./go/index.md)||
+|Unity||:octicons-package-16: [`amplitude-unity.unitypackage`](https://github.com/amplitude/unity-plugin/releases)<br/>[:material-github: unity-plugin](https://github.com/amplitude/unity-plugin)<br/>[:material-file-document: Document](./unity/index.md)|
+|Unreal||:octicons-package-16: [`AmplitudeUnreal`](https://github.com/amplitude/Amplitude-Unreal/releases)<br/>[:material-github: Amplitude-Unreal](https://github.com/amplitude/Amplitude-Unreal)<br/>[:material-file-document: Document](./unreal/index.md)|
+|Flutter||:octicons-package-16: [`amplitude_flutter`](https://pub.dev/packages/amplitude_flutter)<br/>[:material-github: Amplitude-Flutter](https://github.com/amplitude/Amplitude-Flutter)<br/>[:material-file-document: Document](./flutter/index.md)|
+|Java||:octicons-package-16: [`com.amplitude.:java-sdk`](https://mvnrepository.com/artifact/com.amplitude/java-sdk)<br/>[:material-github: Amplitude-Java](https://github.com/amplitude/Amplitude-Java)<br/>[:material-file-document: Document](./java/index.md)|

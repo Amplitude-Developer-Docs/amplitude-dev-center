@@ -480,7 +480,7 @@ nav:
         - Ampli Codegen: data/sdks/node/ampli.md
     - Other Topics:
       - Dynamic Configuration: data/dynamic-configuration.md
-      - Plugin: data/sdk-plugin.md
+      - Plugins: data/sdk-plugin.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
