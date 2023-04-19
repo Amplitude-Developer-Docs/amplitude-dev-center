@@ -7,6 +7,9 @@ icon: simple/docker
 !!!beta "Evaluation Proxy is in closed beta."
     Reach out to your customer success manager or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to request access to this feature.
 
+!!!info "Resources"
+    [:material-github: GitHub](https://github.com/amplitude/evaluation-proxy) · [:material-code-tags-check: Releases](https://github.com/amplitude/evaluation-proxy/releases) · [:simple-docker: Docker Image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy) · [:simple-helm: Helm Chart](https://github.com/amplitude/evaluation-proxy-helm)
+<br />
 The Evaluation Proxy is a Service to enable, enhance, and optimize [local evaluation](../general/evaluation/local-evaluation.md) running within your infrastructure.
 
 ![Architectural diagram showing how the evaluation proxy interacts with your services and Amplitude.](../../../assets/images/experiment/evaluation-proxy.drawio.svg)
@@ -102,19 +105,20 @@ For example, a kubernetes deployment with greater than one replica.
 
 ### Kubernetes
 
-Use the evaluation proxy [Helm chart](https://github.com/amplitude/evaluation-proxy-helm) to install the proxy service on kubernetes or generate the files needed to deploy the service manually. The repository also contains an [example of running the evaluation proxy on kubernetes](https://github.com/amplitude/tree/main/example) locally using `minikube`.
+Use the evaluation proxy [Helm chart](https://github.com/amplitude/evaluation-proxy-helm) to install the proxy service on kubernetes or generate the files needed to deploy the service manually. The repository also contains an [example of running the evaluation proxy on kubernetes](https://github.com/amplitude/evaluation-proxy-helm/tree/main/example) locally using `minikube`.
 
 #### Add helm repo
 
 ```bash
-helm repo add evaluation-proxy-helm https://amplitude.github.io/evaluation-proxy-helm
+helm repo add \
+    evaluation-proxy-helm https://amplitude.github.io/evaluation-proxy-helm
 ```
 
 #### Configure `values.yaml`
 
 Configure the chart values. The recommended approach to configuring and installing the helm chart is using a values.yaml configuration file.
 
-The chart's `evaluationHeader` value contents exactly match the evaluation proxy's configuration file fields. Amplitude's developer docs contains [additional information and configuration options](https://docs.developers.amplitude.com/experiment/infra/evaluation-proxy#configuration).
+The chart's `evaluationProxy` value contents exactly match the evaluation proxy's configuration file fields.
 
 ```yaml title="values.yaml"
 evaluationProxy:
@@ -133,36 +137,31 @@ evaluationProxy:
 #### Install helm chart
 
 ```bash
-helm install -f values.yaml evaluation-proxy evaluation-proxy-helm/evaluation-proxy
+helm install -f values.yaml \
+    evaluation-proxy evaluation-proxy-helm/evaluation-proxy
 ```
 
 ### Docker
 
-The service is generally deployed via [the docker image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy).
-
-#### File configuration
-
-```dockerfile
-TODO
-```
-
-#### Environment variable configuration
+You may run [the docker image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy) directly. First, create a [configuration](#configuration) file, then run the docker image mounting the file as a volume to the expected directory in the container.
 
 ```bash
 docker run \
-    -e AMPLITUDE_PROJECT_ID=${AMPLITUDE_PROJECT_ID} \
-    -e AMPLITUDE_API_KEY=${AMPLITUDE_API_KEY} \
-    -e AMPLITUDE_SECRET_KEY=${AMPLITUDE_SECRET_KEY} \
-    -e AMPLITUDE_EXPERIMENT_DEPLOYMENT_KEY=${AMPLITUDE_EXPERIMENT_DEPLOYMENT_KEY} \
-    -e AMPLITUDE_REDIS_URL=${AMPLITUDE_REDIS_URL} \
-    -p 3546:3546 amplitudeinc/evaluation-proxy
+    -v CONFIG_FILE_PATH:/etc/evaluation-proxy-config.yaml \
+    amplitudeinc/evaluation-proxy
 ```
+
+!!!tip "Docker compose example"
+    The [evaluation-proxy GitHub repository](https://github.com/amplitude/evaluation-proxy) also contains an example using `docker compose` to run the proxy alongside a local redis image.
 
 ## Evaluation
 
 The Evaluation Proxy exposes remote [Evaluation API](../apis/evaluation-api.md) and [SDK](../index.md#sdks) endpoints to run local evaluation within your cluster. This is useful to enable platforms and languages which aren't supported by local evaluation SDKs. As an added benefit, fetch requests made to the evaluation proxy can target cohorts of users, and have assignment events tracked automatically to Amplitude.
 
-**Requests must be sent to the service using `http` on port `3546`.** For example, a deployed Evaluation Proxy service (named `evaluation-proxy`) running within a kubernetes namespace `prod` may be accessed from within the cluster at: `http://evaluation-proxy.prod.svc.cluster.local:3546`
+**Requests must be sent to the service using `http` on port `3546`.** 
+
+!!!example "Kubernetes" 
+    A Kubernetes deployed Evaluation Proxy service (named `evaluation-proxy`) running within a kubernetes namespace `prod` may be accessed from within the cluster at: `http://evaluation-proxy.prod.svc.cluster.local:3546`
 
 ## SDK proxy mode
 
