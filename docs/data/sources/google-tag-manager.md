@@ -19,7 +19,7 @@ Amplitude's GTM templates offer a convenient way for developers to set up event 
 
 The data layer is an object used by Google Tag Manager and Google tag (gtag.js) to pass information to tags. Events or variables can be passed via the data layer, and triggers can be set up based on the values of variables. 
 
-Amplitude GTM templates are custom templates which defines tags and variables so that you can reuse them alongside the built-in tags and variables. 
+Amplitude GTM templates are custom templates which define tags and variables so that you can reuse them alongside the built-in tags and variables. 
 
 Google tags are snippets of code that measure user activity such as time on page, clicks, and purchases.
 
