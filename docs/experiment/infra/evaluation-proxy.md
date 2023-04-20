@@ -4,8 +4,7 @@ description: Containerized service to enhance local evaluation running in your i
 icon: simple/docker
 ---
 
-!!!beta "Evaluation Proxy is in closed beta."
-    Reach out to your customer success manager or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to request access to this feature.
+!!!beta "Evaluation Proxy is in beta."
 
 !!!info "Resources"
     [:material-github: GitHub](https://github.com/amplitude/evaluation-proxy) · [:material-code-tags-check: Releases](https://github.com/amplitude/evaluation-proxy/releases) · [:simple-docker: Docker Image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy) · [:simple-helm: Helm Chart](https://github.com/amplitude/evaluation-proxy-helm)
@@ -143,6 +142,8 @@ helm install -f values.yaml \
 
 ### Docker
 
+[![docker image version](https://img.shields.io/docker/v/amplitudeinc/evaluation-proxy?color=blue&label=docker&logo=docker&logoColor=white)](https://hub.docker.com/r/amplitudeinc/evaluation-proxy)
+
 You may run [the docker image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy) directly. First, create a [configuration](#configuration) file, then run the docker image mounting the file as a volume to the expected directory in the container.
 
 ```bash
@@ -167,10 +168,10 @@ The Evaluation Proxy exposes remote [Evaluation API](../apis/evaluation-api.md) 
 
 Certain local evaluation SDKs are configurable to run in proxy mode. In proxy mode, flag configurations, full cohorts, and cohort memberships are synced from the evaluation proxy rather than from Amplitude directly. This reduces SDK startup time and provides redundancy for flags and cohorts for local evaluation SDKs running within your infrastructure.
 
-| SDK | Proxy Mode Support |
-| --- |:---:|
-| [:material-language-java: Java/Kotlin](../sdks/jvm-sdk.md) |  :material-check-bold:{ .green } |
-| [:material-nodejs: Node.js](../sdks/nodejs-sdk.md) |  :material-close-thick:{ .red } |
-| [:material-language-ruby: Ruby](../sdks/ruby-sdk.md) |  :material-close-thick:{ .red } |
-| [:fontawesome-brands-golang: Go](../sdks/go-sdk.md) |  :material-close-thick:{ .red } |
-| [:material-language-python: Python](../sdks/python-sdk.md) |  :material-close-thick:{ .red } |
+| SDK | Proxy Mode Support | Supported Version |
+| --- |:---:| --- |
+| [:material-language-java: Java/Kotlin](../sdks/jvm-sdk.md) |  :material-check-bold:{ .green } | `1.2.0-beta.3` |
+| [:material-nodejs: Node.js](../sdks/nodejs-sdk.md) |  :material-close-thick:{ .red } | - |
+| [:material-language-ruby: Ruby](../sdks/ruby-sdk.md) |  :material-close-thick:{ .red } | - |
+| [:fontawesome-brands-golang: Go](../sdks/go-sdk.md) |  :material-close-thick:{ .red } | - |
+| [:material-language-python: Python](../sdks/python-sdk.md) |  :material-close-thick:{ .red } | - |
