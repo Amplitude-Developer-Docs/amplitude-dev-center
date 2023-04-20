@@ -178,7 +178,6 @@ nav:
         - data/ampli/integrating-with-ci.md
         - Source Control: data/ampli/git-workflow.md
         - data/ampli/middleware.md
-        - data/ampli/plugin.md
         - data/ampli/migration.md
       - SDKs: data/sdks/sdk-overview.md
       - Cloud Storage:
@@ -429,6 +428,7 @@ nav:
 - SDKs:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
+    - SDK Architecture: data/sdks/sdk-architecture.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
@@ -480,7 +480,8 @@ nav:
         - data/sdks/node/index.md
         - Ampli Codegen: data/sdks/node/ampli.md
     - Other Topics:
-      - data/dynamic-configuration.md
+      - Dynamic Configuration: data/dynamic-configuration.md
+      - Plugins: data/sdk-plugins.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

@@ -12,7 +12,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Browser"
 
-    The Browser SDK lets you send events to Amplitude. See the full documentation at [Browser SDK](../typescript-browser/).
+    The Browser SDK lets you send events to Amplitude. See the [Browser SDK documentation](../typescript-browser/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library)
@@ -107,7 +107,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Node"
 
-    The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../typescript-node/).
+    The Node.js SDK lets you send events to Amplitude. See the [Node.js SDK documentation](../typescript-node/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_1)
@@ -260,7 +260,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Android"
 
-    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../android-kotlin/) for additional configurations and advanced topics.
+    The Android SDK lets you send events to Amplitude. See the [Android SDK documentation](../android-kotlin/) for additional configurations and advanced topics.
 
     ???example "Get started fast with an example project (click to expand)"
     
@@ -527,7 +527,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     Learn more about [Ampli Android](../android-kotlin/ampli/).
 
 === "iOS"
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](./ios/index.md)
+    The iOS SDK lets you send events to Amplitude. See the [iOS SDK documentation](./ios/index.md) for additional configurations and advanced topics.
 
     !!!warning New Version Available
         This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](./ios-swift/index.md) has additional features such as plugins and more. See the [Migration Guide](./ios-swift/migration.md) for more help.
@@ -716,7 +716,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "iOS-Beta"
 
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK (Beta)](./ios-swift/index.md).
+    The iOS SDK lets you send events to Amplitude. See the [iOS SDK (Beta) documentation](./ios-swift/index.md) for additional configurations and advanced topics.
 
     !!!beta "iOS Swift SDK (Beta)"
         This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you require support for Objective-C or have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
@@ -824,7 +824,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "JRE"
 
-    This is the documentation for the **Amplitude Analytics Java SDK**. This is not the Android SDK. See the full documentation at [Java SDK](../java/).
+    This is the documentation for the **Amplitude Analytics Java SDK**. This is not the Android SDK. See the [Java SDK documentation](../java/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_5)
@@ -993,7 +993,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Python"
 
-    The Python SDK lets you send events to Amplitude. See the full documentation at [Pythohn SDK](./python/index.md) for additional configurations and advanced topics.
+    The Python SDK lets you send events to Amplitude. See the [Pythohn SDK documentation](./python/index.md) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)
@@ -1109,7 +1109,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "React Native"
 
-    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../typescript-react-native/).
+    The React Native SDK lets you send events to Amplitude. See the [React Native SDK documentation](../typescript-react-native/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_7)
@@ -1265,7 +1265,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Flutter"
 
-    The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../flutter/).
+    The Flutter SDK lets you send events to Amplitude. See the [Flutter SDK documentation](../flutter/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_8)
@@ -1348,7 +1348,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Go"
 
-    The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../go/).
+    The Go SDK lets you send events to Amplitude. See the [Go SDK documentation](../go/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_9)
@@ -1440,7 +1440,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Unity"
 
-    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../unity/).
+    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the [Unity SDK documentation](../unity/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_10)
@@ -1522,7 +1522,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Unreal"
 
-    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../unreal/).
+    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the [Unreal Engine SDK documentation](../unreal/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_11)
