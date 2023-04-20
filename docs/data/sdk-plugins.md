@@ -193,108 +193,145 @@ Use a Destination Plugin to send events to a third-party APIs
         === "JavaScript"
 
             ```js
-            import { PluginType, SpecialEventType, IdentifyOperation } from "@amplitude/analytics-types"
             import { AnalyticsBrowser } from '@segment/analytics-next';
-
-            class SegmentDestinationPlugin {
-              name = 'segment-destination-plugin';
-              type = PluginType.DESTINATION;
-
-              constructor(writeKey) {
+            import { Types } from '@amplitude/analytics-browser';
+            
+            export default class SegmentPlugin {
+              name = 'segment';
+              type = Types.PluginType.DESTINATION;
+            
+              constructor(private readonly writeKey) {
                 // Create Segment tracker
-                this.segment = AnalyticsBrowser.load({ writeKey: writeKey });
+                this.segment = new AnalyticsBrowser();
               }
-
+            
               async setup(config) {
-                return undefined;
+                this.segment.load({
+                  writeKey: this.writeKey,
+                });
+                return;
               }
-
-              async execute(context) {
-                  return new Promise<Result>((resolve) => {
-                    const { event_type, event_properties, user_id, user_properties } = context;
-                    const callback = (err) => {
-                        resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
-                    };
-    
-                    switch (event_type) {
-                        case SpecialEventType.IDENTIFY:
-                        this.segment.identify({
-                            userId: user_id,
-                            traits: user_properties?.[IdentifyOperation.SET],
-                        }, callback);
-                        break;
-    
-                        case SpecialEventType.GROUP_IDENTIFY:
-                        // not implemented
-                        break;
-    
-                        default:
-                          this.segment.track(event_type,{
-                            userId: user_id,
-                            event: event_type,
-                            properties: event_properties,
-                          }, callback);
-                        break;
-                    }
-                  });
+            
+              execute(context) {
+                return new Promise(resolve => {
+                  const {
+                    event_type,
+                    event_properties,
+                    user_id,
+                    user_properties,
+                    groups,
+                    group_properties,
+                  } = context;
+                  const callback = (ctx) => {
+                    resolve({ event: context, code: 200, message: '' });
+                  };
+            
+                  switch (event_type) {
+                    case Types.SpecialEventType.IDENTIFY:
+                    case Types.SpecialEventType.GROUP_IDENTIFY:
+                      const groupValues = groups ? Object.values(groups) : [];
+                      if (groupValues.length === 0) {
+                        this.segment.identify(
+                          user_id,
+                          user_properties?.[Types.IdentifyOperation.SET],
+                          {},
+                          callback,
+                        );
+                      } else {
+                        this.segment.group(
+                          groupValues[0],
+                          group_properties?.[Types.IdentifyOperation.SET],
+                          {},
+                          callback,
+                        );
+                      }
+                      break;
+            
+                    case 'page':
+                      // @ts-ignore
+                      const { name, category, ...properties } = event_properties;
+                      this.segment.page(category, name, properties, {}, callback);
+                      break;
+            
+                    default:
+                      this.segment.track(event_type, event_properties, {}, callback);
+                      break;
+                  }
+                });
               }
             }
             ```
 
         === "TypeScript"
             ```ts
-            import * as amplitude from '@amplitude/analytics-browser';
-            import { DestinationPlugin, BrowserConfig, PluginType, Event, Result } from '@amplitude/analytics-types';
-    
-            class SegmentDestinationPlugin implements DestinationPlugin {
-                name = 'segment-destination-plugin';
-                type = PluginType.DESTINATION as any;
-    
-                segment: AnalyticsBrowser;
-    
-                constructor(writeKey: string) {
-                    // Create Segment tracker
-                    this.segment = AnalyticsBrowser.load({ writeKey: writeKey });
-                }
-    
-                async setup(config: BrowserConfig): Promise<void> {
-                    return undefined;
-                }
-    
-                execute(context: Event): Promise<Result> {
-                  return new Promise<Result>((resolve) => {
-                    const { event_type, event_properties, user_id, user_properties } = context;
-                    const callback = (err: Error) => {
-                        resolve({ event: context, code: err ? 0 : 200, message: err ? err.message : '' });
-                    };
-    
-                    switch (event_type) {
-                        case amplitude.Types.SpecialEventType.IDENTIFY:
-                        this.segment.identify({
-                            userId: user_id,
-                            traits: user_properties?.[amplitude.Types.IdentifyOperation.SET],
-                        }, callback);
-                        break;
-    
-                        case amplitude.Types.SpecialEventType.GROUP_IDENTIFY:
-                        // not implemented
-                        break;
-    
-                        default:
-                          this.segment.track(event_type,{
-                            userId: user_id,
-                            event: event_type,
-                            properties: event_properties,
-                          }, callback);
-                        break;
-                    }
-                  });
-                }
+            import { AnalyticsBrowser } from '@segment/analytics-next';
+            import { Types } from '@amplitude/analytics-browser';
+            
+            export default class SegmentPlugin implements Types.DestinationPlugin {
+              name = 'segment';
+              type = Types.PluginType.DESTINATION as any;
+              segment: AnalyticsBrowser;
+            
+              constructor(private readonly writeKey: string) {
+                // Create Segment tracker
+                this.segment = new AnalyticsBrowser();
+              }
+            
+              async setup(config: Types.Config): Promise<undefined> {
+                this.segment.load({
+                  writeKey: this.writeKey,
+                });
+                return;
+              }
+            
+              execute(context: Types.Event): Promise<Types.Result> {
+                return new Promise<Types.Result>(resolve => {
+                  const {
+                    event_type,
+                    event_properties,
+                    user_id,
+                    user_properties,
+                    groups,
+                    group_properties,
+                  } = context;
+                  const callback = (ctx: any) => {
+                    resolve({ event: context, code: 200, message: '' });
+                  };
+            
+                  switch (event_type) {
+                    case Types.SpecialEventType.IDENTIFY:
+                    case Types.SpecialEventType.GROUP_IDENTIFY:
+                      const groupValues = groups ? Object.values(groups) : [];
+                      if (groupValues.length === 0) {
+                        this.segment.identify(
+                          user_id,
+                          user_properties?.[Types.IdentifyOperation.SET],
+                          {},
+                          callback,
+                        );
+                      } else {
+                        this.segment.group(
+                          groupValues[0],
+                          group_properties?.[Types.IdentifyOperation.SET],
+                          {},
+                          callback,
+                        );
+                      }
+                      break;
+            
+                    case 'page':
+                      // @ts-ignore
+                      const { name, category, ...properties } = event_properties;
+                      this.segment.page(category, name, properties, {}, callback);
+                      break;
+            
+                    default:
+                      this.segment.track(event_type, event_properties, {}, callback);
+                      break;
+                  }
+                });
+              }
             }
-    
-            amplitude.init('AMPLITUDE-API-KEY');
-            const segmentDestination = new SegmentDestinationPlugin('YOUR-SEGMENT-WRITE-KEY');
-            amplitude.add(segmentDestination);
             ```
 
     ???code-example "Send to Hotjar using their [tracking code](https://help.hotjar.com/hc/en-us/articles/115011639927-What-is-the-Hotjar-Tracking-Code-) (click to expand)"

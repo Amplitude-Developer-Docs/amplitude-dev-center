@@ -220,7 +220,7 @@ amplitude.track('Button Clicked', eventProperties);
 
 ### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior. You can create a custom Plugin to modify or filter events, or send events to a custom destination. Please check [here](../../sdk-plugin) for more details. 
+Plugins allow you to extend Amplitude SDK's behavior. You can create a custom Plugin to modify or filter events, or send events to a custom destination. Please check [here](../../sdk-plugins) for more details. 
 
 ## Common methods
 
@@ -248,7 +248,7 @@ If you are migrating from maintenance SDKs, you may notice that latest SDKs diff
 If you are migrating from maintenance SDKs, you may notice that latest SDKs differ in terms of interfaces.
 
 - `logEvent()` has been renamed `track()`.
-- Middleware has been replaced by [Plugins](../../sdk-plugin) . When migrating from Middleware, it be easily be converted to an Enrichment or Destination Plugin by overriding the `execute()` method.
+- Middleware has been replaced by [Plugins](../../sdk-plugins) . When migrating from Middleware, it be easily be converted to an Enrichment or Destination Plugin by overriding the `execute()` method.
 
 ## SDK status table
 

@@ -6,7 +6,7 @@ template: guide.html
 ---
 
 !!!note
-    Middleware is only supported in Ampli legacy. **[Plugins](../../sdk-plugin/)** replaced middleware in the latest Ampli version.
+    Middleware is only supported in Ampli legacy. **[Plugins](../../sdk-plugins/)** replaced middleware in the latest Ampli version.
 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event.
  This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
@@ -51,7 +51,7 @@ ampli.client.addEventMiddleware(filteringMiddleware)
 
 ## Middleware Payload Customization
 
-Middleware access to event fields may vary by platform. To ensure comprehensive access, we recommend updating to the latest Ampli version and utilizing the [Plugins](../../sdk-plugin) feature.
+Middleware access to event fields may vary by platform. To ensure comprehensive access, we recommend updating to the latest Ampli version and utilizing the [Plugins](../../sdk-plugins) feature.
 
 For browser ampli, the following are the accessable keys under `payload`.
 
