@@ -13,6 +13,20 @@ Use the official Amplitude Analytics Google Tag Manager templates to collect dat
 
 Amplitude's GTM templates offer a convenient way for developers to set up event tracking in their applications. These pre-configured templates provide a streamlined solution for deploying tracking tags, reducing the time and effort required to set up event tracking. Learn more about [Google Tag Manager Templates](https://developers.google.com/tag-platform/tag-manager/templates).
 
+## How Amplitude GTM templates fit into your workflow
+
+![How Amplitude GTM templates fit into your workflow](../../assets/images/marketing-analytics/google-tag-manager-workflow.drawio.svg)
+
+The data layer is an object used by Google Tag Manager and Google tag (gtag.js) to pass information to tags. Events or variables can be passed via the data layer, and triggers can be set up based on the values of variables. 
+
+Amplitude GTM templates are custom templates which define tags and variables so that you can reuse them alongside the built-in tags and variables. 
+
+Google tags are snippets of code that measure user activity such as time on page, clicks, and purchases.
+
+!!! warning "Messages are queued"
+
+    To enfore the processing order of messages pushed to the data layer, add an event name to a message as it is pushed to the data layer, and then listen for that event name with a Custom Event trigger. Learn more about [how Google processes data layer information](https://developers.google.com/tag-platform/devguides/datalayer?hl=en#how_data_layer_information_is_processed).
+
 ## Client-side vs server-side
 
 Google Tag Manager (GTM) offers both client-side and server-side templates for tag deployment. GTM client side templates and GTM server side templates differ in the way they execute the tracking plan.
