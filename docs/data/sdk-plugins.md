@@ -4,7 +4,7 @@ description: Use plugins to extend Amplitude by running a sequence of custom cod
 ---
 
 !!!note
-    Plugins are supported in the latest version of Ampli and the latest SDKs. If you are using an older version of Ampli or a [Maintenance Amplitude SDK](https://www.docs.developers.amplitude.com/data/sdks/javascript/), see **[Middleware](../../data/ampli/middleware/)**.
+    Plugins are supported in the latest version of Ampli and the latest SDKs. If you are using an older version of Ampli or a [Maintenance Amplitude SDK](https://www.docs.developers.amplitude.com/data/sdks/javascript/), see **[Middleware](../../sdk-middleware/)**.
 
 Plugins allow you to extend the Amplitude behavior. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more. 
 

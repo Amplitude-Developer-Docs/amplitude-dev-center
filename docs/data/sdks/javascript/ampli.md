@@ -226,7 +226,7 @@ For example, in the following code snippet, your tracking plan contains an event
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
- The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../ampli/middleware.md).
+ The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../../sdk-middleware).
 
 === "TypeScript"
 
