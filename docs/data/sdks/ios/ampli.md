@@ -262,7 +262,7 @@ The event has two Amplitude fields defined: `price`, and `quantity`. Learn more 
     SongPlayed* event = [SongPlayed
         songId:'songId', // NSString *
         songFavorited:true, // NSNumber *
-    ]];
+    ];
 
     EventOptions* options = [EventOptions builderBlock:^(EventOptionsBuilder *builder) {
         builder.deviceId = deviceId;
