@@ -13,7 +13,6 @@ This document provides a high-level overview of Ampli. A [video demo](https://ac
 
 The **Ampli Wrapper** provides types and methods that prevent human error by strictly enforcing event names and property values. The wrapper code enables autocompletion for all events and properties in your tracking plan, as well as static type checks at development and compile time.
 
-
 ```typescript
 import { ampli, SongPlayed } from './ampli';
 
@@ -27,7 +26,6 @@ ampli.songPlayed({ name: 'I Knew You Were Trouble' }));
 ampli.songPlayed({ title: true }));
 // => Error: Property 'title' received 'boolean' expected type 'String'
 ```
-
 
 Compare this to the general purpose **Amplitude SDK**. Sending events with hand entered values can create data quality issues and require close coordination between data governors and engineers.
 
@@ -47,7 +45,6 @@ amplitude.track('Song Played', { name: 'I Knew You Were Trouble' })
 amplitude.track('sonG Playd', { title: true })
 // => Typos and property errors are easy to create, and hard to find & fix
 ```
-
 
 The **Ampli CLI** generates the **Ampli Wrapper** and can verify the instrumentation status of your events. This makes it easy to know if you missed any event tracking calls giving you confidence that you successfully completed your implementation.
 
@@ -125,6 +122,7 @@ The generated Ampli Wrapper will then be available in the provided path. If no p
 ```
 
 ### Verify event instrumentation in your project with `ampli status`
+
 Running `ampli status` scans the source code in your project directory and checks for event tracking calls e.g. `ampli.songPlayed({ ... })`. It will output the number of times each event is detected.
 
 ```shell
