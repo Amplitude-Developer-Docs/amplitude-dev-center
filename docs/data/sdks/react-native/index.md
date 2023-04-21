@@ -415,9 +415,9 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 === "TypeScript"
 
     ```ts
-    //Enable COPPA Control
+    // Enable COPPA Control
     Amplitude.instance().enableCoppaControl();
-    //Disable COPPA Control
+    // Disable COPPA Control
     Amplitude.instance().disableCoppaControl();
     ```
 

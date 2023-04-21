@@ -374,9 +374,9 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
  Remember that apps asking for information from children under 13 years of age must comply with COPPA.
 
 ```dart
-//Enable COPPA Control
+// Enable COPPA Control
 Amplitude.getInstance().enableCoppaControl();
-//Disable COPPA Control
+// Disable COPPA Control
 Amplitude.getInstance().disableCoppaControl();
 ```
 

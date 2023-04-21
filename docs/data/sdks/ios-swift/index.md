@@ -51,7 +51,7 @@ let amplitude = Amplitude(configuration: Configuration(
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
     | `useBatch` |  Whether to use batch api. | `false` |
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` |  Whether to enable coppa control for tracking options. | `false` |'
+    | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |'
 
 ### `track`
 
