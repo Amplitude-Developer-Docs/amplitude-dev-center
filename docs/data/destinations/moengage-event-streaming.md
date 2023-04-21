@@ -13,6 +13,7 @@ status: new
 ## Considerations
 
 Keep these things in mind when sending events to [MoEngage](https://www.moengage.com/?utm_source=linkedin&utm_medium=social&utm_content=profile):
+
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a MoEngage account to enable this integration.
 - Relevant limits for MoEngage events are:
