@@ -343,7 +343,7 @@ nav:
         - TikTok: data/destinations/tiktok-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
-        - Userlist: data/destinations/user.com-cohort.md
+        - User.com: data/destinations/user.com-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
     - Privacy and PII:
