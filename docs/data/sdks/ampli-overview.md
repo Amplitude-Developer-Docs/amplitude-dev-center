@@ -137,7 +137,7 @@ The generated Ampli Wrapper will then be available in the provided path. If no p
   ↳ Path: ./ampli
 ```
 
-### Verify event instrumentation in your project with `ampli status`
+### Verify event instrumentation with `ampli status`
 
 Running `ampli status` scans the source code in your project directory and checks for event tracking calls e.g. `ampli.songPlayed({ ... })`. It will output the number of times each event is detected.
 
