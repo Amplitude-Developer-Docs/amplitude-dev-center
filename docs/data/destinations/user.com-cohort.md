@@ -22,7 +22,7 @@ This User.com integration allows you to send audiences from Amplitude to User.co
 
 ## Setup
 
-### Userflow setup
+### User.com setup
 
 1. Log into your User.com dashboard and copy your API key.
 
