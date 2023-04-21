@@ -63,10 +63,10 @@ The **Ampli CLI** generates the **Ampli Wrapper** and can verify the instrumenta
 
 The following examples will reference this tracking plan.
 
- - Browser SDK source named `web`
- - Event `Song Played` with required property `title` of type `String`
- - Event `Song Played` is added to source `web`
- - Environment named `production`
+- Browser SDK source named `web`
+- Event `Song Played` with required property `title` of type `String`
+- Event `Song Played` is added to source `web`
+- Environment named `production`
 
 | ![Create a Source for your desired platform](../../assets/images/ampli/overview/data-create-source-modal.png)  | ![Create Events in your tracking plan and assign them to your Source](../../assets/images/ampli/overview/data-events.png)  | ![View Source settings and instructions](../../assets/images/ampli/overview/data-source-setup.png)  |
 |:--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|
