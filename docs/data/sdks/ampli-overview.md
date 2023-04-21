@@ -1,6 +1,6 @@
 ---
 title: Ampli
-description: Overview to Amplitude Analytics SDK architecture and common usage
+description: Overview of Ampli architecture, workflow, and common usage
 ---
 
 ## Overview
