@@ -44,7 +44,8 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `useAdvertisingIdForDeviceId` | `Boolean`. Whether to use advertising id as device id. Please check [here](../android-kotlin/#advertiser-id) for required module and permission. | `false` |
     | `useAppSetIdForDeviceId` | `Boolean`.  Whether to use app set id as device id. Please check [here](../android-kotlin/#app-set-id) for required module and permission. | `false` |
     | `trackingOptions` | `TrackingOptions`. Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` | `Boolean`. Whether to enable coppa control for tracking options. | `false` |'
+    | `enableCoppaControl` | `Boolean`. Whether to enable coppa control for tracking options. | `false` |
+    | `instanceName` | `String`. The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance.  | `$default_instance`|
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -793,3 +794,21 @@ Implements a customized `loggerProvider` class from the LoggerProvider, and pass
         )
     )
     ```
+
+
+### Multiple Instances
+
+It is possible to create multiple instances of Amplitude. Instances with the same `instanceName` will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance. For more details see [Configuration](#configuration).
+
+```kotlin
+val amplitude1 = Amplitude(Configuration(
+    instanceName = "one",
+    apiKey = "api-key-1",
+    context = applicationContext,
+))
+val amplitude2 = Amplitude(Configuration(
+    instanceName = "two",
+    apiKey = "api-key-2",
+    context = applicationContext,
+))
+```
