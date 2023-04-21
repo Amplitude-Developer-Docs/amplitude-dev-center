@@ -9,7 +9,10 @@ description: Overview to Amplitude Analytics SDK architecture and common usage
 
 This document provides a high-level overview of Ampli. A [video demo](https://academy.amplitude.com/instrumenting-events-with-amplitude-data-and-the-ampli-cli) is also available in Amplitude Academy.
 
-![How Ampli fits into your workflow](../../assets/images/ampli/overview/ampli-overview.drawio.svg){ align=center }
+<figure markdown>
+  ![How Ampli fits into your workflow](../../assets/images/ampli/overview/ampli-overview.drawio.svg)
+  <figcaption>How Ampli fits into your workflow</figcaption>
+</figure>
 
 The **Ampli Wrapper** provides types and methods that prevent human error by strictly enforcing event names and property values. The wrapper code enables autocompletion for all events and properties in your tracking plan, as well as static type checks at development and compile time.
 
@@ -68,21 +71,34 @@ The following examples will reference this tracking plan.
 - Event `Song Played` is added to source `web`
 - Environment named `production`
 
-| ![Create a Source for your desired platform](../../assets/images/ampli/overview/data-create-source-modal.png)  | ![Create Events in your tracking plan and assign them to your Source](../../assets/images/ampli/overview/data-events.png)  | ![View Source settings and instructions](../../assets/images/ampli/overview/data-source-setup.png)  |
-|:--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|
-|                                   Create a Source for your desired platform                                    |                             Create Events in your tracking plan and assign them to your Source                             |                                View Source settings and instructions                                |
+<figure markdown>
+  ![Create a Source for your desired platform](../../assets/images/ampli/overview/data-create-source-modal.png){ width="300" }
+  <figcaption>Create a Source for your desired platform</figcaption>
+</figure>
+
+<figure markdown>
+  ![Create Events in your tracking plan and assign them to your Source](../../assets/images/ampli/overview/data-events.png){ width="300" }
+  <figcaption>Create Events in your tracking plan</figcaption>
+</figure>
+
+<figure markdown>
+  ![View Source settings and instructions](../../assets/images/ampli/overview/data-source-setup.png){ width="300" }
+  <figcaption>View Source settings and instructions</figcaption>
+</figure>
 
 ## Ampli CLI
 
 The Ampli CLI connects to Amplitude Data and uses the schema information for a given Source to generate and verify the Ampli Wrapper in your project.
 
-=== "ampli pull"
+<figure markdown>
+  ![ampli pull](../../assets/images/ampli/overview/ampli-pull-amplisongs.png){ width="300" }
+  <figcaption>ampli pull</figcaption>
+</figure>
 
-    ![ampli pull](../../assets/images/ampli/overview/ampli-pull-amplisongs.png)
-
-=== "ampli status"
-
-    ![ampli status](../../assets/images/ampli/overview/ampli-status-amplisongs.png)
+<figure markdown>
+  ![ampli status](../../assets/images/ampli/overview/ampli-status-amplisongs.png){ width="300", align=center }
+  <figcaption>ampli status</figcaption>
+</figure>
 
 ### Install the Ampli CLI
 
