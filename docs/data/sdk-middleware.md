@@ -6,7 +6,7 @@ description: Use middleware to extend Amplitude by running a sequence of custom 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
 
 !!!note
-    Middleware is only supported in maintance SDK except the maintance Browser SDKand legacy Ampli. **[Plugins](../sdk-plugins/)** replaced middleware in the latest SDK or latest Ampli version.
+    Middleware is only supported in maintenance SDK except the maintenance Browser SDK and legacy Ampli. Middleware has been replaced by **[Plugins](../sdk-plugins/)** in the latest SDK and Ampli versions.
 
 ## Middleware Structure
  
@@ -30,10 +30,9 @@ function (payload: MiddlewarePayload: next: MiddlewareNext): void;
     | - | - | - |
     | `MiddlewarePayload.event` | Event | The event data being sent. The event may vary by platform. |
     | `MiddlewarePayload.extra` | { [x: string]: any } | Unstructured object to let users pass extra data to middleware. |
+    | `MiddlewareNext` | (payload: MiddlewarePayload) => void | Function called at the end of each Middleware to run the next middleware in the chain. |
 
 To invoke the next middleware in the queue, use the `next` function. You must call `next(payload)` to continue the middleware chain. If a middleware doesn't call `next`, then the event processing stops executing after the current middleware completes.
-
-Add middleware to Ampli via `amplitude.addEventMiddleware()`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
 
 ### Payload Customization
 
@@ -52,12 +51,20 @@ For browser ampli, the following are the accessable keys under `payload`.
 
 For other platforms, middleware can access and modify the entire Event JSON object, allowing for comprehensive adjustments as needed. Learn more at [here](../../../analytics/apis/http-v2-api/#keys-for-the-event-argument).
 
+### Usage
+
+Add middleware to Ampli via `amplitude.addEventMiddleware()`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
+
+```js
+amplitude.addEventMiddleware(yourMiddleware());
+```
+
 ## Middleware examples
 
 Use an Middleware to modify event properties, transformation, filtering, routing to third-party destinations, and more:
 !!!example
 
-    ???code-example "Drop-event middleware example(click to expand)"
+    ???code-example "Filtering middleware example (click to expand)"
 
         ```ts
          amplitude.addEventMiddleware((payload, next) => {
@@ -77,7 +84,7 @@ Use an Middleware to modify event properties, transformation, filtering, routing
         amplitude.addEventMiddleware((payload, next) => {
           const { event } = payload;
           if (hasPii(event.event_properties)) {
-            obfuscate(payload.event.event_properties);
+            payload.event.event_properties = obfuscate(payload.event.event_properties);
           }
           next(payload);
         });
