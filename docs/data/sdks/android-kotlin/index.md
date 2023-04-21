@@ -795,7 +795,6 @@ Implements a customized `loggerProvider` class from the LoggerProvider, and pass
     )
     ```
 
-
 ### Multiple Instances
 
 It is possible to create multiple instances of Amplitude. Instances with the same `instanceName` will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance. For more details see [Configuration](#configuration).
