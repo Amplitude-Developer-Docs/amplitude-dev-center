@@ -321,8 +321,6 @@ nav:
         - LaunchDarkly: data/destinations/launchdarkly-cohort.md
         - Leanplum: data/destinations/leanplum-cohort.md
         - Mailchimp: data/destinations/mailchimp-cohort.md
-        - Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
-        - Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
         - Marketo: data/destinations/marketo-cohort.md
         - Marketo Static List: data/destinations/marketo-static-list-cohort.md
         - Maze: data/destinations/maze-cohort.md
@@ -333,6 +331,8 @@ nav:
         - Plotline: data/destinations/plotline-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
+        - Salesforce Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
+        - Salesforce Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
         - Sendgrid: data/destinations/sendgrid-cohort.md
         - Split: data/destinations/split-cohort.md
         - Segment: data/destinations/segment-cohort.md
@@ -342,6 +342,7 @@ nav:
         - TikTok: data/destinations/tiktok-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
+        - User.com: data/destinations/user.com-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
     - Privacy and PII:
