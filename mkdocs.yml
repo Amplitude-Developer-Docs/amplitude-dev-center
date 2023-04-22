@@ -331,8 +331,8 @@ nav:
         - Plotline: data/destinations/plotline-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
-        - Salesforce Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
-        - Salesforce Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
+        - Salesforce Marketing V1: data/destinations/marketing-cloud-cohort.md
+        - Salesforce Marketing V2: data/destinations/marketing-cloud-cohort-v2.md
         - Sendgrid: data/destinations/sendgrid-cohort.md
         - Split: data/destinations/split-cohort.md
         - Segment: data/destinations/segment-cohort.md
