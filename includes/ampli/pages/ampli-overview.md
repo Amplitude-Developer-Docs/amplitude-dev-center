@@ -66,34 +66,13 @@ The following examples will reference this tracking plan.
 - Event `Song Played` is added to source `web`
 - Environment named `production`
 
-<figure markdown>
-  ![Create a Source for your desired platform](../../assets/images/ampli/overview/data-create-source-modal.png){ width="300" }
-  <figcaption>Create a Source for your desired platform</figcaption>
-</figure>
-
-<figure markdown>
-  ![Create Events in your tracking plan and assign them to your Source](../../assets/images/ampli/overview/data-events.png){ width="300" }
-  <figcaption>Create Events in your tracking plan</figcaption>
-</figure>
-
-<figure markdown>
-  ![View Source settings and instructions](../../assets/images/ampli/overview/data-source-setup.png){ width="300" }
-  <figcaption>View Source settings and instructions</figcaption>
-</figure>
+| ![Create a Source for your desired platform](../../assets/images/ampli/overview/data-create-source-modal.png)  | ![Create Events in your tracking plan and assign them to your Source](../../assets/images/ampli/overview/data-events.png)  | ![View Source settings and instructions](../../assets/images/ampli/overview/data-source-setup.png)  |
+|:--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|
+|                                   Create a Source for your desired platform                                    |                             Create Events in your tracking plan and assign them to your Source                             |                                View Source settings and instructions                                |
 
 ## Ampli CLI
 
 The Ampli CLI connects to Amplitude Data and uses the schema information for a given Source to generate and verify the Ampli Wrapper in your project.
-
-<figure markdown>
-  ![ampli pull](../../assets/images/ampli/overview/ampli-pull-amplisongs.png){ width="300" }
-  <figcaption>ampli pull</figcaption>
-</figure>
-
-<figure markdown>
-  ![ampli status](../../assets/images/ampli/overview/ampli-status-amplisongs.png){ width="300", align=center }
-  <figcaption>ampli status</figcaption>
-</figure>
 
 ### Install the Ampli CLI
 
@@ -132,6 +111,11 @@ The generated Ampli Wrapper will then be available in the provided path. If no p
   ↳ Path: ./ampli
 ```
 
+<figure markdown>
+  ![ampli pull](../../assets/images/ampli/overview/ampli-pull-amplisongs.png){ width="300" }
+  <figcaption>Example run of "ampli pull"</figcaption>
+</figure>
+
 ### Verify event instrumentation with `ampli status`
 
 Running `ampli status` scans the source code in your project directory and checks for event tracking calls e.g. `ampli.songPlayed({ ... })`. It will output the number of times each event is detected.
@@ -152,6 +136,11 @@ If there are events in your tracking plan that are not implemented ampli status 
   ✘ Song Favorited
 ✘ ERROR Event tracking incomplete: 1 missed, 2 total
 ```
+
+<figure markdown>
+  ![ampli status](../../assets/images/ampli/overview/ampli-status-amplisongs.png){ width="300", align=center }
+    <figcaption>Example run of "ampli status"</figcaption>
+</figure>
 
 ## Ampli Wrapper
 
