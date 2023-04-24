@@ -30,11 +30,22 @@ After you have created your flag, you are ready to define its [variants](../../g
 
 ![Screenshot of variants in configure tab](../../../assets/images/experiment/create-flag-2.png)
 
+!!!tip "Experiment variants"
+    By default, flags are created with a single "on" variant and experiments come with two default variants, "control" and "treatment".
+
 ### Configure targeting rules
 
 Your flag won't target any users by default. To target users, set the **Percentage Rollout** to 100%. Now all evaluated users will be assigned the "on" variant for this feature flag.
 
 ![Screenshot of allocation card with percentage rollout](../../../assets/images/experiment/create-flag-3.png)
+
+If you would like to target specific segments of users instead of all users, switch to the "Targeted Users" view and create your segments.
+
+![Screenshot of allocation card with targeted users control](../../../assets/images/experiment/create-flag-3b.png)
+
+If your flag has more than one variant, you will also be able to adjust distribution.
+
+![Screenshot of allocation card with distribution control](../../../assets/images/experiment/create-flag-3c.png)
 
 ### Activate the flag
 
