@@ -242,6 +242,8 @@ After you have added all the fields you wish to bring into Amplitude, you can vi
 
 ![Screenshot of a converter preview](../../assets/images/converter-preview.png)
 
+!!!note
+    The group properties import feature requires that groups are set in the [HTTP API event format](../../analytics/apis/http-v2-api.md). The converter expects a `groups` object and a `group_properties` object.
 ### Manual converter creation
 
 The converter file tells Amplitude how to process the ingested files. Create it in two steps: first, configure the compression type, file name, and escape characters for your files.
