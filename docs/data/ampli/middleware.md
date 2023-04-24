@@ -16,6 +16,7 @@ Each middleware is a simple function with this signature:
 ```js
 function (payload: MiddlewarePayload: next: MiddlewareNext): void;
 ```
+
 The `payload` contains the `event` to send and an optional `extra` that lets you pass custom data to your own middleware implementations.
 To invoke the next middleware in the queue, use the `next` function.
  You must call `next(payload)` to continue the middleware chain. If a middleware doesn't call `next`, then the event processing stops executing after the current middleware completes.
@@ -23,6 +24,7 @@ Add middleware to Ampli via `ampli.client.addEventMiddleware()`. You can add as 
 !!!note
     In Amplitude's Browser SDKs, add Middleware directly via `ampli` instead of `ampli.client`. To add Middleware in these
     SDKs you should use `ampli.addEventMiddlware()`.
+
 ```js
 const loggingMiddleware: Middleware = (payload, next) => {
   console.log(`[ampli] event=${payload.event} extra=${payload.extra}`);
