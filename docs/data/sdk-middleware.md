@@ -40,14 +40,14 @@ Middleware access to event fields may vary by platform. To ensure comprehensive 
 
 For browser ampli, the following are the accessable keys under `payload`.
 
-|<div class="med-column">Name</div>|Type|
-| - | - |
-| `event.event_type` | string |
-| `event.event_properties` | { [key: string]: any } |
-| `event.user_id` | string |
-| `event.device_id` | string |
-| `event.user_properties` | { [key: string]: any } |
-| `extra` | { [x: string]: any } |
+|<div class="med-column">Name</div>|Type|Description|
+| - | - | - |
+| `event.event_type` | string | The event name. |
+| `event.event_properties` | { [key: string]: any } | The event properties. |
+| `event.user_id` | string | The event level user ID. |
+| `event.device_id` | string | The event level device ID. |
+| `event.user_properties` | { [key: string]: any } | The event level user properties. |
+| `extra` | { [x: string]: any } | The extra information you want to send that letes you pass custom data to your own middleware implementations. |
 
 For other platforms, middleware can access and modify the entire Event JSON object, allowing for comprehensive adjustments as needed. Learn more at [here](../../../analytics/apis/http-v2-api/#keys-for-the-event-argument).
 
@@ -62,7 +62,7 @@ amplitude.addEventMiddleware(yourMiddleware());
 ## Middleware examples
 
 Use an Middleware to modify event properties, transformation, filtering, routing to third-party destinations, and more:
-!!!example
+!!!example "Modify event properties, transformation, filtering"
 
     ???code-example "Filtering middleware example (click to expand)"
 
@@ -102,6 +102,8 @@ Use an Middleware to modify event properties, transformation, filtering, routing
         });
         ```
 
+!!!example "Routing to third-party destinations example"
+
     ???code-example "Forward data to other services, but not Amplitude (click to expand)"
 
         ```js
@@ -118,6 +120,8 @@ Use an Middleware to modify event properties, transformation, filtering, routing
           // next();
         });
         ```
+
+!!!example "client side validation example"
 
     ???code-example "Use client-side validation (click to expand)"
 
