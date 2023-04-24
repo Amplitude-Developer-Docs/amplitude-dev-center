@@ -430,6 +430,7 @@ nav:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
     - SDK Architecture: data/sdks/sdk-architecture.md
+    - Ampli: data/sdks/ampli-overview.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
