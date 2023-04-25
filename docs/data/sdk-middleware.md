@@ -62,7 +62,7 @@ amplitude.addEventMiddleware(yourMiddleware());
 ## Middleware examples
 
 Use an Middleware to modify event properties, transformation, filtering, routing to third-party destinations, and more:
-!!!example "Modify event properties, transformation, filtering"
+!!!example "Modify event properties, transformation, filtering examples"
 
     ???code-example "Filtering middleware example (click to expand)"
 
