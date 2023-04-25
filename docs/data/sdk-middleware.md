@@ -136,10 +136,10 @@ Use an Middleware to modify event properties, transformation, filtering, routing
 
 ## Supported SDKs
 
-|Platform| SDK | Document |
-|--------|--------|-----------|
-|Android|:octicons-package-16: [`com.amplitude:android-sdk`](https://mvnrepository.com/artifact/com.amplitude/android-sdk)<br/>[:material-github: Amplitude-Android](https://github.com/amplitude/Amplitude-Android)<br/> | [:material-file-document: Document](../sdks/android/#middleware) |
-|Node.js|:octicons-package-16: [`@amplitude/node`](https://www.npmjs.com/package/@amplitude/node)<br/>[:material-github: Amplitude-Node](https://github.com/amplitude/Amplitude-Node)<br/> |[:material-file-document: Document](../sdks/node/#middleware)
-|React Native|:octicons-package-16: [`@amplitude/react-native`](https://www.npmjs.com/package/@amplitude/react-native)<br/>[:material-github: Amplitude-ReactNative](https://github.com/amplitude/Amplitude-ReactNative)<br/>| [:material-file-document: Document](../sdks/react-native)
-|iOS|:octicons-package-16: [`Amplitude`](https://cocoapods.org/pods/Amplitude-iOS)<br/>[:material-github: Amplitude-iOS](https://github.com/amplitude/Amplitude-iOS)<br/>| [:material-file-document: Document](../sdks/ios/#middleware)|
-|Java|:octicons-package-16: [`com.amplitude.:java-sdk`](https://mvnrepository.com/artifact/com.amplitude/java-sdk)<br/>[:material-github: Amplitude-Java](https://github.com/amplitude/Amplitude-Java)<br/> | [:material-file-document: Document](../sdks/java/#middleware)|
+|Platform|SDK|Github|Documentation|
+|--------|--------|--------|-----------|
+|Android|:octicons-package-16: [`com.amplitude:android-sdk`](https://mvnrepository.com/artifact/com.amplitude/android-sdk) | [:material-github: Amplitude-Android](https://github.com/amplitude/Amplitude-Android) | [:material-file-document: Document](../sdks/android/#middleware) |
+|Node.js|:octicons-package-16: [`@amplitude/node`](https://www.npmjs.com/package/@amplitude/node) | [:material-github: Amplitude-Node](https://github.com/amplitude/Amplitude-Node) | [:material-file-document: Document](../sdks/node/#middleware) |
+|React Native|:octicons-package-16: [`@amplitude/react-native`](https://www.npmjs.com/package/@amplitude/react-native) | [:material-github: Amplitude-ReactNative](https://github.com/amplitude/Amplitude-ReactNative) | [:material-file-document: Document](../sdks/react-native) |
+|iOS|:octicons-package-16: [`Amplitude`](https://cocoapods.org/pods/Amplitude-iOS) | [:material-github: Amplitude-iOS](https://github.com/amplitude/Amplitude-iOS) | [:material-file-document: Document](../sdks/ios/#middleware)|
+|Java|:octicons-package-16: [`com.amplitude.:java-sdk`](https://mvnrepository.com/artifact/com.amplitude/java-sdk) | [:material-github: Amplitude-Java](https://github.com/amplitude/Amplitude-Java) | [:material-file-document: Document](../sdks/java/#middleware)|
