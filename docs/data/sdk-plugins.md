@@ -405,9 +405,7 @@ Use a Destination Plugin to send events to a third-party APIs
             }
             ```
 
-## SDKs with plugins support
-
-The SDKs listed below support plugins: 
+## Supported SDKs
 
 |Platform| SDK |Documents|
 |--------|--------|-----------|

@@ -134,9 +134,7 @@ Use an Middleware to modify event properties, transformation, filtering, routing
         });
         ```
 
-## SDKs with middleware support
-
-The SDKs listed below support middleware: 
+## Supported SDKs
 
 |Platform| SDK | Document |
 |--------|--------|-----------|
