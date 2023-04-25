@@ -47,7 +47,7 @@ For browser ampli, the following are the accessable keys under `payload`.
 | `event.user_id` | string | The event level user ID. |
 | `event.device_id` | string | The event level device ID. |
 | `event.user_properties` | { [key: string]: any } | The event level user properties. |
-| `extra` | { [x: string]: any } | The extra information you want to send that letes you pass custom data to your own middleware implementations. |
+| `extra` | { [x: string]: any } | The extra information you want to send that lets you pass custom data to your own middleware implementations. |
 
 For other platforms, middleware can access and modify the entire Event JSON object, allowing for comprehensive adjustments as needed. Learn more at [here](../../../analytics/apis/http-v2-api/#keys-for-the-event-argument).
 
