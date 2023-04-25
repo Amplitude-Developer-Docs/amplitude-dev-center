@@ -53,7 +53,7 @@ For other platforms, middleware can access and modify the entire Event JSON obje
 
 ### Usage
 
-Add middleware to Ampli via `amplitude.addEventMiddleware()`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
+Add middleware to Amplitude via `amplitude.addEventMiddleware()`. You can add as many middleware as you like. Each middleware runs in the order in which it's added.
 
 ```js
 amplitude.addEventMiddleware(yourMiddleware());
@@ -132,10 +132,16 @@ Use an Middleware to modify event properties, transformation, filtering, routing
           }
           next(payload);
         });
-        
-        amplitude.addEventMiddleware((payload, next) => {
-          const { event, extra } = payload;
-          segment.track(event.event_type, event.event_properties, { extra.segment.anonymousId })
-          next(payload);
-        });
         ```
+
+## SDKs with middleware support
+
+The SDKs listed below support middleware: 
+
+|Platform| SDK | Document |
+|--------|--------|-----------|
+|Android|:octicons-package-16: [`com.amplitude:android-sdk`](https://mvnrepository.com/artifact/com.amplitude/android-sdk)<br/>[:material-github: Amplitude-Android](https://github.com/amplitude/Amplitude-Android)<br/> | [:material-file-document: Document](../sdks/android/#middleware) |
+|Node.js|:octicons-package-16: [`@amplitude/node`](https://www.npmjs.com/package/@amplitude/node)<br/>[:material-github: Amplitude-Node](https://github.com/amplitude/Amplitude-Node)<br/> |[:material-file-document: Document](../sdks/node/#middleware)
+|React Native|:octicons-package-16: [`@amplitude/react-native`](https://www.npmjs.com/package/@amplitude/react-native)<br/>[:material-github: Amplitude-ReactNative](https://github.com/amplitude/Amplitude-ReactNative)<br/>| [:material-file-document: Document](../sdks/react-native)
+|iOS|:octicons-package-16: [`Amplitude`](https://cocoapods.org/pods/Amplitude-iOS)<br/>[:material-github: Amplitude-iOS](https://github.com/amplitude/Amplitude-iOS)<br/>| [:material-file-document: Document](../sdks/ios/#middleware)|
+|Java|:octicons-package-16: [`com.amplitude.:java-sdk`](https://mvnrepository.com/artifact/com.amplitude/java-sdk)<br/>[:material-github: Amplitude-Java](https://github.com/amplitude/Amplitude-Java)<br/> | [:material-file-document: Document](../sdks/java/#middleware)|

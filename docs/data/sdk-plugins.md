@@ -404,3 +404,17 @@ Use a Destination Plugin to send events to a third-party APIs
               }
             }
             ```
+
+## SDKs with plugins support
+
+The SDKs listed below support plugins: 
+
+|Platform| SDK |Documents|
+|--------|--------|-----------|
+|Browser|:octicons-package-16: [`@amplitude/analytics-browser`](https://www.npmjs.com/package/@amplitude/analytics-browser)<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript) | [:material-file-document: Document](../sdks/typescript-browser/#plugins)|
+|Android|:octicons-package-16: [`com.amplitude:analytics-android`](https://mvnrepository.com/artifact/com.amplitude/analytics-android)<br/>[:material-github: Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin)<br/>[:material-file-document: Document](./android-kotlin/index.md)| [:material-file-document: Document](../sdks/android-kotlin/#amplitude-sdk-plugin) |
+|Node.js|:octicons-package-16: [`@amplitude/analytics-node`](https://www.npmjs.com/package/@amplitude/analytics-node)<br/>[:material-github: Amplitude-Typescript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node)<br/> | [:material-file-document: Document](../sdks/typescript-node/#plugins)
+|React Native|:octicons-package-16: [`@amplitude/analytics-react-native`](https://www.npmjs.com/package/@amplitude/analytics-react-native)<br/>[:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native)<br/> | [:material-file-document: Document](../sdks/typescript-react-native/#plugins) |
+|iOS|:octicons-package-16: `AmplitudeSwift`<br/>[:material-github: Amplitude-Swift](https://github.com/amplitude/Amplitude-Swift)<br/> | [:material-file-document: Document](../sdks/ios-swift/#amplitude-sdk-plugin) |
+|Python|:octicons-package-16: [`amplitude-analytics`](https://pypi.org/project/amplitude-analytics/)<br/>[:material-github: Amplitude-Python](https://github.com/amplitude/Amplitude-Python)<br/> | [:material-file-document: Document](../python/#amplitude-sdk-plugin)|
+|Go|:octicons-package-16: [`github.com/amplitude/analytics-go`](https://pkg.go.dev/github.com/amplitude/analytics-go)<br/>[:material-github: analytics-go](https://github.com/amplitude/analytics-go)<br/> | [:material-file-document: Document](../sdks/go/#amplitude-sdk-plugin)|
