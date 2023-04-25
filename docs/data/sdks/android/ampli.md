@@ -247,7 +247,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 For example, in the following code snippets, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
- The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../ampli/middleware.md).
+ The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../../sdk-middleware).
 
 === "Java"
 
