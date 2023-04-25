@@ -6,7 +6,7 @@ description: Use middleware to extend Amplitude by running a sequence of custom 
 Middleware lets you extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
 
 !!!note
-    Middleware is only supported in maintenance SDK except the maintenance Browser SDK and legacy Ampli. Middleware has been replaced by **[Plugins](../sdk-plugins/)** in the latest SDK and Ampli versions.
+    Middleware is only supported in [Maintenance Amplitude SDK](../sdks/javascript/) except the maintenance Browser SDK and legacy Ampli. Middleware has been replaced by **[Plugins](../sdk-plugins/)** in the latest SDK and Ampli versions.
 
 ## Middleware Structure
  
