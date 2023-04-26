@@ -407,8 +407,8 @@ Use a Destination Plugin to send events to a third-party APIs
 
 ## Supported SDKs
 
-|Platform|SDK|Github|Documentation|
-|--------|--------|--------|--------|
+|Platform|SDK|Github|
+|--------|--------|--------|
 |[Browser](../sdks/typescript-browser/#plugin)|:octicons-package-16: [`@amplitude/analytics-browser`](https://www.npmjs.com/package/@amplitude/analytics-browser) | [:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript)|
 |[Android](../sdks/android-kotlin/#amplitude-sdk-plugin)|:octicons-package-16: [`com.amplitude:analytics-android`](https://mvnrepository.com/artifact/com.amplitude/analytics-android) | [:material-github: Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin) |
 |[Node.js](../sdks/typescript-node/#plugins)|:octicons-package-16: [`@amplitude/analytics-node`](https://www.npmjs.com/package/@amplitude/analytics-node) | [:material-github: Amplitude-Typescript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node) |
