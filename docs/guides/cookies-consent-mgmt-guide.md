@@ -333,7 +333,7 @@ const hasCookie = hasNewCookie || hasOldCookie;
 
 ??? note "When a user is opted-out, how can we opt-them back?"
 
-    Besides the method *`amplitude.getInstance().enableTracking()`* previously discussed, once a user has been opted-out, it can be opted-in by programmatically calling the method *`amplitude.setOptOut(false)`*. This will set the option *`optOut`* to *`false`*, re-setting the cookie with the new options and enabling the tracking. You can find the following code in the amplitude client:
+    Besides the method *`amplitude.getInstance().enableTracking()`* previously discussed, once a user has been opted-out, it can be opted-in programmatically by calling the method *`amplitude.setOptOut(false)`*. This will set the option *`optOut`* to *`false`*, re-setting the cookie with the new options and enabling the tracking. You can find the following code in the amplitude client:
 
     ```js
     /**
