@@ -443,7 +443,7 @@ Use a Destination Plugin to send events to a third-party APIs
                 window.dataLayer.push(event)
 
                 return {
-                  code: 0,
+                  code: 200,
                   event: event,
                   message: "Event pushed onto GTM Data Layer"
                 }
@@ -483,7 +483,7 @@ Use a Destination Plugin to send events to a third-party APIs
                 window.dataLayer.push(event);
 
                 return {
-                  code: 0,
+                  code: 200,
                   event: event,
                   message: 'Event pushed onto GTM Data Layer',
                 };
