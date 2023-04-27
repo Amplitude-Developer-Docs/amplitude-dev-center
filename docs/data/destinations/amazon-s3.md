@@ -174,7 +174,7 @@ How to update existing export to utilize KMS encryption:
 1. Create a KMS key in your AWS account by following the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html).
 2. Log in to your Amplitude account and navigate to the existing S3 export that you want to migrate.
 3. In the manage settings model change the toggle to **disable** in order to turn off the export momentary. Wait for all in-progress export jobs to complete to avoid unexpected results when a new S3 export connection is created.
-4. Create a new S3 export by following the [Amplitude S3 Export Setup Guide](https://www.docs.developers.amplitude.com/data/destinations/amazon-s3/). 
+4. Create a new S3 export by following the [Amplitude S3 Export Setup Guide](#set-up-the-integration). 
 5. In the export connection setup flow, generate the updated bucket policy and the KMS policy. *The updated policy will now contain a new AWS IAM Role principal to trust.*
 6. Backup the current bucket policy in your S3 bucket in AWS for rollback procedure if needed.
 7. Update the S3 bucket policy and KMS key policy that was generated in Step 5 in your AWS account.
