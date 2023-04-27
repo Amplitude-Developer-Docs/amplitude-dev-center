@@ -190,7 +190,7 @@ client.addEventMiddleware(loggingMiddleware)
 client.addEventMiddleware(filteringMiddleware)
 ```
 
-You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app/src/middleware) and [JavaScript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app/src/middleware).
+You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app/src/middleware) and [JavaScript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app/src/sdk-middleware).
 
 ## More resources
 

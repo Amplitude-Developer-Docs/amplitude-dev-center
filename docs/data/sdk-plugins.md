@@ -4,7 +4,7 @@ description: Use plugins to extend Amplitude by running a sequence of custom cod
 ---
 
 !!!note
-    Plugins are supported in the latest version of Ampli and the latest SDKs. If you are using an older version of Ampli or a [Maintenance Amplitude SDK](https://www.docs.developers.amplitude.com/data/sdks/javascript/), see **[Middleware](../../data/ampli/middleware/)**.
+    Plugins are supported in the latest version of Ampli and the latest SDKs. If you are using an older version of Ampli or a [Maintenance Amplitude SDK](../sdks/javascript/), see **[Middleware](../sdk-middleware/)**.
 
 Plugins allow you to extend the Amplitude behavior. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more. 
 
@@ -404,3 +404,15 @@ Use a Destination Plugin to send events to a third-party APIs
               }
             }
             ```
+
+## Supported SDKs
+
+|Platform|SDK|Github|
+|--------|--------|--------|
+|[Browser](../sdks/typescript-browser/#plugin)|:octicons-package-16: [`@amplitude/analytics-browser`](https://www.npmjs.com/package/@amplitude/analytics-browser) | [:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript)|
+|[Android](../sdks/android-kotlin/#amplitude-sdk-plugin)|:octicons-package-16: [`com.amplitude:analytics-android`](https://mvnrepository.com/artifact/com.amplitude/analytics-android) | [:material-github: Amplitude-Kotlin](https://github.com/amplitude/Amplitude-Kotlin) |
+|[Node.js](../sdks/typescript-node/#plugins)|:octicons-package-16: [`@amplitude/analytics-node`](https://www.npmjs.com/package/@amplitude/analytics-node) | [:material-github: Amplitude-Typescript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-node) |
+|[React Native](../sdks/typescript-react-native/#plugins)|:octicons-package-16: [`@amplitude/analytics-react-native`](https://www.npmjs.com/package/@amplitude/analytics-react-native) | [:material-github: Amplitude-TypeScript](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) |
+|[iOS](../sdks/ios-swift/#amplitude-sdk-plugin)|:octicons-package-16: `AmplitudeSwift` | [:material-github: Amplitude-Swift](https://github.com/amplitude/Amplitude-Swift) |
+|[Python](../sdks/python/#amplitude-sdk-plugin)|:octicons-package-16: [`amplitude-analytics`](https://pypi.org/project/amplitude-analytics/) | [:material-github: Amplitude-Python](https://github.com/amplitude/Amplitude-Python) |
+|[Go](../sdks/go/#amplitude-sdk-plugin)|:octicons-package-16: [`github.com/amplitude/analytics-go`](https://pkg.go.dev/github.com/amplitude/analytics-go) | [:material-github: analytics-go](https://github.com/amplitude/analytics-go)|
