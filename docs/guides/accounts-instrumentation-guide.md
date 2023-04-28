@@ -105,14 +105,6 @@ Amplitude recommends taking the following approach for user level groups.
 
     Group properties persist for the group until they're explicitly updated or unset. Updates to group properties aren't retroactive. 
 
-- :material-numeric-3-circle:{ .lg .middle } **Events**
-
-    ---
-
-    **Send events** server-side to the [HTTP V2 API](../../analytics/apis/http-v2-api) or [Batch API](../../analytics/apis/batch-event-upload-api), or using an SDK. 
-
-    Users are associated with a group and group properties are assigned.
-
 </div>
 
 ## Dynamic group properties
