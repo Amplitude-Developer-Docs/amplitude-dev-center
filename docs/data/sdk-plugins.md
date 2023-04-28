@@ -428,13 +428,10 @@ Use a Destination Plugin to send events to a third-party APIs
                     event: "gtm.js"
                   })
                   const head = document.getElementsByTagName("head")[0],
-                    script = document.createElement("script"),
-                    dataLayer = "datalayer" != "dataLayer" ? "&l=" + "datalayer" : ""
+                    script = document.createElement("script");
                   script.async = true
                   script.src =
-                    "https://www.googletagmanager.com/gtm.js?id=" +
-                    this.containerId +
-                    dataLayer
+                    `https://www.googletagmanager.com/gtm.js?id=${this.containerId}&l=datalayer`
                   head.insertBefore(script, head.firstChild)
                 }
               }
