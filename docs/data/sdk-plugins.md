@@ -405,6 +405,88 @@ Use a Destination Plugin to send events to a third-party APIs
             }
             ```
 
+    ???code-example "Send to Google Tag Manager by pushing events onto the [data layer](https://developers.google.com/tag-platform/tag-manager/web/datalayer) (click to expand)"
+
+        === "JavaScript"
+  
+            ```js
+            import { PluginType } from "@amplitude/analytics-types"
+
+            export class GTMPlugin {
+              name = "google-tag-manager"
+              type = PluginType.DESTINATION
+
+              constructor(containerId) {
+                this.containerId = containerId
+              }
+
+              async setup() {
+                if (!window.dataLayer) {
+                  window.dataLayer = window.dataLayer || []
+                  window.dataLayer.push({
+                    "gtm.start": new Date().getTime(),
+                    event: "gtm.js"
+                  })
+                  const head = document.getElementsByTagName("head")[0],
+                    script = document.createElement("script");
+                  script.async = true
+                  script.src =
+                    `https://www.googletagmanager.com/gtm.js?id=${this.containerId}&l=datalayer`
+                  head.insertBefore(script, head.firstChild)
+                }
+              }
+
+              async execute(event) {
+                window.dataLayer.push(event)
+
+                return {
+                  code: 200,
+                  event: event,
+                  message: "Event pushed onto GTM Data Layer"
+                }
+              }
+            }
+
+            ```
+        
+        === "TypeScript"
+        
+            ```ts
+            import { DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+
+            export class GTMPlugin implements DestinationPlugin {
+              name = 'google-tag-manager';
+              type = PluginType.DESTINATION as const;
+              containerId: string;
+
+              constructor(containerId: string) {
+                this.containerId = containerId;
+              }
+
+              async setup(): Promise<void> {
+                if (!window.dataLayer) {
+                  window.dataLayer = window.dataLayer || [];
+                  window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                  const head = document.getElementsByTagName('head')[0],
+                    script = document.createElement('script'),
+                    dataLayer = 'datalayer' != 'dataLayer' ? '&l=' + 'datalayer' : '';
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtm.js?id=' + this.containerId + dataLayer;
+                  head.insertBefore(script, head.firstChild);
+                }
+              }
+
+              async execute(event: Event): Promise<Result> {
+                window.dataLayer.push(event);
+
+                return {
+                  code: 200,
+                  event: event,
+                  message: 'Event pushed onto GTM Data Layer',
+                };
+              }
+            }
+            ```
 ## Supported SDKs
 
 |Platform|SDK|Github|
