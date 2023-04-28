@@ -53,3 +53,15 @@ With Amplitude's Lookup Table feature, you can import your own data and map it t
 - **Enrich data using ingested property values**. You've captured an event called `Purchased` with an event property named `SKU`. The `SKU` value itself doesn't inherently hold a lot of meaning. But with your list of all the SKUs and their corresponding product names, you can use this feature to create a new property called `Product Name` and have it automatically populate based on that list.
 - **Bulk update property values.** You've captured a user property called `Language Code` and passed in language codes (`en_US`, `fr_FR`, `de_DE`, etc.). This is difficult to read, so you want a `Language` property that maps to friendlier values like `English`, `French`, and `German`. Use this feature to create a new property called `Language` that maps the language codes to the language names.
 - **Bulk filter long lists**. You want to see user behavior for a specific region and you have a list of all the customers and their regions. Use this to map each customer to a region, creating a new "Region" property. Now you can filter specifically to each region in a chart.
+
+## CSV example
+The following CSV will create a new property called `Language` that maps to the `SKU` property. This CSV is an example implementation of the **Bulk update property values** use case from the previous section.
+
+
+| SKU       | Language |
+|-----------|----------|
+| en_US    | English    |
+| fr_FR | French     |
+| de_DE | German     |
+
+[Click to download this example CSV](../../assets/csv/lookup-table-example.csv)
