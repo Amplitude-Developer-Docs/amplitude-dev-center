@@ -1,8 +1,6 @@
 ---
 title: Import BigQuery Data into Amplitude
 description: With Amplitude's BigQuery integration, you can ingest BigQuery data directly into your Amplitude project.
-search:
-  exclude: true
 ---
 
 <!-- --8<-- "includes/editions-all-editions.md" -->
@@ -31,6 +29,10 @@ To get started with importing from BigQuery, you need to take care of a few prer
       - 52.33.3.219
       - 35.162.216.242
       - 52.27.10.221
+
+!!!warning "User and Group Properties Sync"
+
+      Amplitude's Data Warehouse Import sometimes processes events in parallel, so time-ordered syncing of user and group properties on events is not guaranteed in the same way as submitting events directly to the Identify and Group Identify APIs. 
 
 ## Add BigQuery as a source
 
@@ -66,23 +68,33 @@ You must include the mandatory fields for the data type when creating the SQL qu
 
 ### Events
 
-| Column name (must be lowercase) | Mandatory | Column data type |
-|---|---|---|
-| `user_id` | Yes, unless `device_id` is used | VARCHAR |
-| `device_id` | Yes, unless `user_id` is used | VARCHAR |
-| `event_type` | Yes | VARCHAR |
-| `time` | Yes | Milliseconds since epoch (Timestamp) |
-| `event_properties` | Yes | VARIANT (JSON Object) |
-| `user_properties` | No | VARIANT (JSON Object) |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
+|---|---|---|---|
+| `user_id` | Yes, unless `device_id` is used | VARCHAR | datamonster@gmail.com |
+| `device_id` | Yes, unless `user_id` is used | VARCHAR | C8F9E604-F01A-4BD9 |
+| `event_type` | Yes | VARCHAR | watch_tutorial | 
+| `time` | Yes | Milliseconds since epoch (Timestamp) | 1396381378123 |
+| `event_properties` | Yes | JSON | {"source":"notification", "server":"host-us"} |
+| `user_properties` | No | JSON | {"city":"chicago", "gender":"female"} |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
 
 ### User properties
 
-| Column name (must be lowercase) | Mandatory | Column data type |
-|---|---|---|
-| `user_id` | Yes | VARCHAR |
-| `user_properties` | Yes | VARIANT (JSON Object) |
-| `update_time_column` | No (Yes if using time based import) | TIMESTAMP |
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
+|---|---|---|---|
+| `user_id` | Yes | VARCHAR | datamonster@gmail.com |
+| `user_properties` | Yes | JSON | {"city":"chicago", "gender":"female"} |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
+
+### Group properties
+
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
+|---|---|---|---|
+| `groups` | Yes | JSON | {"company":"amplitude", "team":["marketing", "sales"]} |
+| `group_properties` | Yes | JSON | {"location":"seattle", "active":"true"} |
+| `update_time_column` | No (Yes if using time based import) | TIMESTAMP | 2013-04-05 01:02:03.000 |
+
+Each group property in `group_properties` would be applied to every group in `groups`
 
 ## BigQuery SQL helper
 

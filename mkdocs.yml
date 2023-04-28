@@ -177,7 +177,6 @@ nav:
         - data/ampli/sdk.md
         - data/ampli/integrating-with-ci.md
         - Source Control: data/ampli/git-workflow.md
-        - data/ampli/middleware.md
         - data/ampli/migration.md
       - SDKs: data/sdks/sdk-overview.md
       - Cloud Storage:
@@ -186,7 +185,7 @@ nav:
         - Google Cloud Storage: data/sources/google-cloud-storage.md
         - Converter Configuration: data/converter-configuration-reference.md
       - Warehouse:
-        #- BigQuery: data/sources/bigquery.md
+        - BigQuery: data/sources/bigquery.md
         - Snowflake: data/sources/snowflake.md
       - Other Sources:
         - Overview: data/source-other-overview.md
@@ -342,6 +341,7 @@ nav:
         - TikTok: data/destinations/tiktok-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
+        - User.com: data/destinations/user.com-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
     - Privacy and PII:
@@ -397,6 +397,7 @@ nav:
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
   - Segment Migration Guide: guides/segment-migration-guide.md
+  - Cookies and Consent Management: guides/cookies-consent-mgmt-guide.md
 - APIs:
   - analytics/apis/index.md
   - Find your API credentials: analytics/find-api-credentials.md
@@ -429,6 +430,7 @@ nav:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
     - SDK Architecture: data/sdks/sdk-architecture.md
+    - Ampli: data/sdks/ampli-overview.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
@@ -482,6 +484,7 @@ nav:
     - Other Topics:
       - Dynamic Configuration: data/dynamic-configuration.md
       - Plugins: data/sdk-plugins.md
+      - Middleware: data/sdk-middleware.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
