@@ -1,0 +1,76 @@
+# All SDKS comparision 
+
+This article provides a comparison between different SDKs across platforms. This overview offers key insights for developers to make informed decisions when selecting the appropriate SDK.
+
+!!!note
+
+    While there are multiple versions of our SDK available, we highly recommend using the latest version rather than maintenance SDKs. Maintenance versions only provide support and will eventually be deprecated. The [latest SDK](./sdk-architecture.md) adopts an aligned architecture, with no extra dependencies, and offers enhanced stability for optimal performance.
+
+## Browser
+
+| <div class="big-column">Feature</div> | [Latest Browser SDK](./typescript-browser/) | [Latest Browser SDK < v1.9](./typescript-browser/) | [Marketing analtycis Browser](./marketing-analytics-browser/) |  [Mantiance Browser SDK](./javascript/) |
+| --- | --- | --- | --- |
+| Default Event Tracking | Supported. Includes page view event(`[Ampliutde] Page viewed`), sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`), form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`) with [configuration](./typescript-browser/#tracking-default-events). You can use [Enrichment Plugin](./typescript-browser/#plugins) to customoize the default events name. |  Supported. Includs page view event(`Page View`) with configuration. You can use [Enrichment Plugin]((./typescript-browser/#plugins) ) to customoize the default events name.| Supported. `Page view`. Automatic. | Not supported. |
+| Web Attribution | 
+Enable by default. Auto added `webAttributionPlugin`. Tracking new campaign during a session is the default behavior. If track session only on new sessions or any campaign is configurable. The campaign will be unset (set to none) if that attribution not included. Default value for all `init` web attribution value is `Empty` and configurable. If reset session ID on new session is configurable. Collect all latest ClickIds. | 
+
+Enable by default. You are able to choose if use default web attribution or use the `webAttributionPlugin` instead. If using default web attribution, this SDK tracks attribution on init with a new session by default and **NOT** configurable. This SDK can be also configured to track attribution on init with a new campaign with `configuration.trackNewCampaigns = true`. This is disable by default. If you disable the default web attribution and manually add `webAttributionPlugin`. The behavior will be overwritten and will be the same as Marketing analytics Browser SDK. | 
+Enable by default. Auto added `webAttributionPlugin`. This SDK tracks attribution on init with a new campaign no matter if a new session or during a session and **NOT** configurable. Others are the same as the latest Browser SDK. | Configuration required. Only support Gclid, Fbclid. Track campaign change only at session start by default but configurable. The existing referrer and utm_parameter values will be carried through each new session by defualt. Configuration supported for reseting new campaign during a session. |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./typescript-browser/#configuration). Check [here](./typescript-browser/migration) for migration guide from the Maintenance SDK to the latest SDK.| Same as latest Browser(TS) | Same as latest Browser(TS) | Support explicity setter methods. [More configurations](./javascript/#configuration).|
+| logger provider | Amplitude Logger by Default. Fully customizable. | Same as latest Browser SDK | | Same as latest Browser SDK | Amplitude Logger by default. Not customizable. |
+| storage Provider | LocalStorage by default. Fully customizable. | Same as latest Browser SDK | Same as latest Browser SDK | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
+| Customization | Plugins | Plugins | Plugins | Not Support.  (Middleware is supported in Ampli JS)|
+| Bundle Size | NO Optimization. | Tree shaking for optimization |
+| Server Endpoint | HTTP V2 API | HTTP V2 API | HTTP V2 API| HTTP V1 API |
+| Batch API| Suported, with configuration. | Same as latest Browser SDK | Same as latest Browser SDK | Not support. |
+
+## Android
+
+| <div class="big-column">Item</div> | [Android Kotlin](./android-kotlin/) | [Android Android](./android/) |
+| --- | --- | --- |
+| Package| [com.amplitude:analytics-android](https://mvnrepository.com/artifact/com.amplitude/analytics-android)| [com.amplitude:android-sdk](https://mvnrepository.com/artifact/com.amplitude/android-sdk)|
+| SSL Pinning | TBD | Supported. Check [here](./android/#) for the setup. |
+| Configuration | Configuration is implemented by the configuration object. Configurationes need to be passed into Amplitude Object during initialization. [More configurations](./android-kotlin/#configuration). Support explicity setter methods. [More configurations](./javascript/#configuration).|
+| logger provider | ConsoleLoggerProvider() by default. Fully customizable. | Amplitude Logger.  Not customizable. |
+| storage Provider | InMemoryStorageProvider() by default. File storage. Fully customizable. | SQLite Database. ｜
+| Customization | Plugins | Middelware |
+| Server Endpoint | HTTP V2 API | HTTP V1 API |
+| Batch API| Supported, with configuration. | Not support. |
+
+## iOS
+
+| <div class="big-column">Item</div> | [Latest iOS SDK](./ios/) | [Maintenance iOS SDK](./ios-swift/) |
+| --- | --- | --- |
+| Package| AmplitudeSwift | [Amplitude](https://cocoapods.org/pods/Amplitude-iOS)|
+| Configuration | Configuration is implemented by the configuration object. Configurationes need to be passed into Amplitude Object during initialization. [More configurations](./ios/#configuration). Latest iOS SDK support more configurations. Check [here](.ios-swift/migration/#configuration) for more details. | Support explicity setter methods. [More configurations](./ios/#configuration)|
+| logger Provider | ConsoleLogger() by default. Fully customizable. | AMPLITUDE_LOG, config throught marcro. ｜
+| storage Provider | PersistentStorage() by default. File storage and iOS user’s defaults database. Fully customizable. | SQLite Database. ｜
+| Customization | Plugins | Middleware |
+| Server Endpoint | HTTP V2 API | HTTP V1 API |
+| Batch API| Yes, with configuration. | Not support. |
+
+## Node.JS
+
+| <div class="big-column">Item</div> | [Latest iOS SDK](./ios/) | [Maintenance iOS SDK](./ios-swift/) |
+| --- | --- | --- |
+| Package| [@amplitude/analytics-node](https://www.npmjs.com/package/@amplitude/analytics-node) | [@amplitude/node](https://www.npmjs.com/package/@amplitude/node)|
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./typescript-node/#configuration). | Support explicity setter methods. [More configurations](./node/#configuration)|
+| logger Provider | Amplitude Logger.  Fully customizable. | Amplitude Logger.  Not customizable. |
+| storage Provider | LocalStorage by default. Fully customizable. | Local Storage. ｜
+| Customization | Plugins | Middleware |
+| Retry | Regular retry. | Regular retry by default. Also provide offline retry. You are able to customize your retry logic. Fully customizible. |
+| Server Endpoint | HTTP V2 API |  HTTP V2 API |
+| Batch API| Supported, with configuration. | Not support. |
+
+## React Native
+
+| <div class="big-column">Item</div> | [Latest iOS SDK](./ios/) | [Maintenance iOS SDK](./ios-swift/) |
+| --- | --- | --- |
+| Package| [@amplitude/analytics-react-native](https://www.npmjs.com/package/@amplitude/analytics-react-native) | [@amplitude/react-native](@amplitude/react-native)|
+| Structure | Mobile platforms (Android & iOS) utilize native app context modules for accessing system info, async storage for persistence. | Wrapper of the iOS and Android SDK and Amplitude JavaScript SDK.  Providing mappings from React Native to native SDK functions. |
+| Supported platform| iOS, Android, Web and Expo. | iOS, Android, Web. |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./typescript-react-native/#configuration). | Support explicity setter methods. [More configurations](./react-native/#configuration)|
+| storage Provider | LocalStorage() by default, if not enabled, use MemoryStrogate(). Fully configurable. | Depened on the Maintenance iOS, Maintenance Android and Maintenance Browser SDK storage. ｜
+| logger provider | Amplitude Logger. Fully customizable. | Depened on the native iOS, Android, Amplitude JavaScript logger provider. |
+| Customization | Plugins | Middleware |
+| Server Endpoint | HTTP V2 API |  HTTP V1 API |

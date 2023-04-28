@@ -485,6 +485,7 @@ nav:
       - Dynamic Configuration: data/dynamic-configuration.md
       - Plugins: data/sdk-plugins.md
       - Middleware: data/sdk-middleware.md
+      - All SDKs Comparison: data/sdk-comparison.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

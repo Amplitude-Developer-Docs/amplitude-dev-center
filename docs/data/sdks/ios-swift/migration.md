@@ -91,7 +91,7 @@ The configurations for the new SDK are simpler and more consistent across runtim
 |`amplitude.useDynamicConfig`|NOT SUPPORTED.|
 |`amplitude.setServerUrl("YOUR-SERVER-URL")`|`config.serverUrl`|
 |`amplitude.setServerZone("AMPServerZone.EU or AMPServerZone.US")`|`config.serverZone`|
-|`amplitude.trackingOptions`|`config.useBatch`|
+|`amplitude.trackingOptions`|`config.trackingOptions`|
 |`amplitude.trackingSessionEvents`|`config.trackingSessionEvents`|
 |`amplitude.minTimeBetweenSessionsMillis`|`config.minTimeBetweenSessionsMillis`|
 |`amplitude.eventUploadMaxBatchSize`|`config.flushQueueSize`|
