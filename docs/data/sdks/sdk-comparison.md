@@ -20,7 +20,7 @@ This article provides a comparison between different SDKs across platforms. This
 | Server Endpoint | HTTP V2 API | HTTP V2 API | HTTP V2 API| HTTP V1 API |
 | Batch API| Suported, with configuration. | Same as latest Browser SDK | Same as latest Browser SDK | Not support. |
 
-### Default Web Attribution tracking behavior vs using webAttributionPlugin
+### Default Web Attribution vs using webAttributionPlugin
 
 In order to not having a breaking change, even we are using different way to implement web attribution tracking in Browser SDK (default tracking behavior or using webAttributionPlugins in the latest version), we keeps the behavior the same unless you disable the default web attribution behavior. 
 The following two charts are showing the different web attribution workflow. 
