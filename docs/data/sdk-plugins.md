@@ -82,8 +82,8 @@ Use an Enrichment Plugin to modify event properties:
               }
             }
     
-            amplitude.init('API_KEY');
             amplitude.add(new FilterEventsPlugin());
+            amplitude.init('API_KEY');
             ```
 
         === "TypeScript"
@@ -112,8 +112,8 @@ Use an Enrichment Plugin to modify event properties:
               }
             }
 
-            amplitude.init('API_KEY');
             amplitude.add(new FilterEventsPlugin());
+            amplitude.init('API_KEY');
             ```
 
     ???code-example "Remove PII (Personally Identifiable Information) (click to expand)"
@@ -178,10 +178,70 @@ Use an Enrichment Plugin to modify event properties:
               }
             }
     
-            amplitude.init('API_KEY');
             amplitude.add(new FilterEventsPlugin());
+            amplitude.init('API_KEY');
             ```
-  
+
+
+    ???code-example "Send event level groups (click to expand)"
+       This is an example of how to send event level groups in Ampli V2
+       How to send event level groups in SDKs(not in Ampli) is different. Please check the specific SDKs for the usage.
+
+       === "JavaScript"
+            ```js
+            import * as amplitude from '@amplitude/analytics-browser';
+    
+            import {PluginType} from '@amplitude/analytics-types';
+    
+            class EventLevelGroupPlugin {
+              name = 'group-plugin';
+              type = PluginType.ENRICHMENT;
+    
+              async setup(config) {
+                return undefined;
+              }
+    
+              async execute(event) {
+                  event.groups = event.extra['groups'];
+                  return event;
+              }
+    
+              // Allow other events to be processed and sent to destination plugins
+              return event;
+            }
+    
+            ampli.client.add(new EventLevelGroupPlugin());
+
+            const extra = {extra: { groups: ["test_group_name": "test_group_value"]}};
+            ampli.eventWithGroups({requiredNumber: 1.23, requiredBoolean: false}, extra);
+            ```
+
+          === "TypeScript"
+
+            ```ts    
+            import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
+    
+            class EventLevelGroupPlugin implements EnrichmentPlugin {
+              name = 'group-plugin';
+              type = PluginType.ENRICHMENT as any;
+    
+              async setup(config: BrowserConfig): Promise<void> {
+                return undefined;
+              }
+    
+              async execute(event: Event): Promise<Event> {
+                  event.groups = event.extra['groups'];
+                  return event;
+              }
+            }
+    
+            ampli.client.add(new EventLevelGroupPlugin());
+            
+            // Pass the event level groups info though middleware extra when calling the tracking plan.
+            const extra = {extra: { groups: ["test_group_name": "test_group_value"]}};
+            ampli.eventWithGroups({requiredNumber: 1.23, requiredBoolean: false}, extra);
+            ```
+
 ### Destination type plugin
 
 Use a Destination Plugin to send events to a third-party APIs
