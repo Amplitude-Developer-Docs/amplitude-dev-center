@@ -20,7 +20,6 @@ The event JSON format follows the [HTTP API format](./http-v2-api.md), and has t
 
 ## Considerations
 
-- After Amplitude has accepted a request, the events in the batch are queryable within 15 minutes.
 - The JSON serialized payload must not exceed 20MB in size.
 - To prevent instrumentation issues, device IDs and user IDs must be strings with a length of 5 characters or more. If an event has a device or user ID that's too short, the ID value is dropped from the event. If an event doesn't have a user or device ID, it may cause the API to reject the upload with a 400 error. You can change the minimum ID length using the `options` property.
 - Each API key can send up to 1000 events per second for any individual device ID or user ID. If you exceed that rate, the API rejects the upload, and gives a 429 response. Check the response summary for more information.
