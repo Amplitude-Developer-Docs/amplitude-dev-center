@@ -105,13 +105,28 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
 
 ### track
 
-Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
+Events represent how users interact with your application. For example, "Song Played" may be an action you want to note.
 
 ```kotlin
+amplitude.track("Song Played")
+```
+
+You can also optionally include event properties.
+```kotlin
 amplitude.track(
-    "Button Clicked",
-    mutableMapOf<String, Any?>("my event property" to "test event property value")
+    "Song Played",
+    mutableMapOf<String, Any?>("title" to "Happy Birthday")
 )
+```
+
+For more complex events you can [create and track a `BaseEvent` object](https://github.com/amplitude/Amplitude-Kotlin/blob/8c3c39ce1f79485a0ce716bbf01de464a9afe9a8/core/src/main/java/com/amplitude/core/Amplitude.kt#L112).
+
+```kotlin
+var event = BaseEvent()
+event.eventType = "Song Played"
+event.eventProperties = mutableMapOf<String, Any?>("title" to "Happy Birthday")
+event.insertId = 1234
+amplitude.track(event)
 ```
 
 ### identify
