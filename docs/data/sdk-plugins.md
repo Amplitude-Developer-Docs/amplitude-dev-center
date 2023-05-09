@@ -184,10 +184,10 @@ Use an Enrichment Plugin to modify event properties:
 
 
     ???code-example "Send event level groups (click to expand)"
-       This is an example of how to send event level groups in Ampli V2
-       How to send event level groups in SDKs(not in Ampli) is different. Please check the specific SDKs for the usage.
+      This is an example of how to send event level groups in Ampli V2.
+      How to send event level groups in SDKs(not in Ampli) is different. Please check the specific SDKs for the usage.
 
-       === "JavaScript"
+        === "JavaScript"
             ```js
             import * as amplitude from '@amplitude/analytics-browser';
     
@@ -216,7 +216,7 @@ Use an Enrichment Plugin to modify event properties:
             ampli.eventWithGroups({requiredNumber: 1.23, requiredBoolean: false}, extra);
             ```
 
-          === "TypeScript"
+      === "TypeScript"
 
             ```ts    
             import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
