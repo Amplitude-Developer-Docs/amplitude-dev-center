@@ -44,8 +44,18 @@ as the main headline.
         name: "community_help",
         url: window.location.href,
     };
+
+    function trackClickSupportRequest(){
+      let properties = {
+        path: window.location.pathname,
+        product: window.location.pathname.split('/')[1],
+        url: window.location.href
+      };
+      
+      amplitude.getInstance().logEvent('support request', properties);
+    }
 </script>
-  <p>Still have questions? Ask them in the <a id="linkToCommunityHelp" href="https://community.amplitude.com" onclick="amplitude.getInstance().logEvent('Link Click', eventProperties)">Community</a>.
+  <p>Still have questions? Ask them in the <a id="linkToCommunityHelp" href="https://community.amplitude.com" onclick="amplitude.getInstance().logEvent('Link Click', eventProperties)">Community</a> or <a  href="http://support.amplitude.com/" onclick="trackClickSupportRequest()">submit a request</a>.
 
   {% endif %}
 
