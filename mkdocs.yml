@@ -135,7 +135,7 @@ extra:
     deprecated: Deprecated
   analytics:
     provider: amplitude
-    property: foobar # FIX: placeholder for now
+    property: foobar # required for feedback widget but its value is not needed for now
     feedback:
       title: Was this page helpful?
       rating:
