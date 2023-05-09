@@ -135,6 +135,7 @@ extra:
     deprecated: Deprecated
   analytics:
     provider: amplitude
+    property: foobar # FIX: placeholder for now
     feedback:
       title: Was this page helpful?
       rating:
