@@ -62,6 +62,7 @@ extra_javascript:
   - /javascripts/tablesort.js #script for Tablesort feature
   - /javascripts/anchor-copy.js #script for copying anchor links
   - /javascripts/statuspage.js #script for status page embed
+  - /javascripts/feedback.js
 
 # Plugins
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml and insiders.local.build.yml too.
@@ -134,6 +135,19 @@ extra:
     deprecated: Deprecated
   analytics:
     provider: amplitude
+    feedback:
+      title: Was this page helpful?
+      rating:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback! Help us improve this page by <a href="https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/issues/new/choose">submitting an issue</a>.
   consent:
     cookies:
       analytics: Amplitude Analytics
