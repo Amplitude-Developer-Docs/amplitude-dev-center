@@ -138,7 +138,7 @@ extra:
     property: foobar # required for feedback widget but its value is not needed for now
     feedback:
       title: Was this page helpful?
-      rating:
+      ratings:
         - icon: material/emoticon-happy-outline
           name: This page was helpful
           data: 1
