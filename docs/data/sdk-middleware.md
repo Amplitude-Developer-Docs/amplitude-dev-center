@@ -102,7 +102,7 @@ Use an Middleware to modify event properties, transformation, filtering, routing
         });
         ```
 
-    ???code-example "Send event level groups (click to expand)"
+    ???code-example "Send event level groups using Ampli v1 (click to expand)"
 
         This is an example of how to send event level groups in Ampli V1.
         How to send event level groups in SDKs(not in Ampli) is different. Please check the specific SDKs for the usage.

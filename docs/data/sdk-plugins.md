@@ -183,7 +183,7 @@ Use an Enrichment Plugin to modify event properties:
             ```
 
 
-    ???code-example "Send event level groups (click to expand)"
+    ???code-example "Send event level groups using Ampli v2 (click to expand)"
       This is an example of how to send event level groups in Ampli V2.
       How to send event level groups in SDKs(not in Ampli) is different. Please check the specific SDKs for the usage.
 
