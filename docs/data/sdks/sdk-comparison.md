@@ -8,49 +8,40 @@ This article provides a comparison between different SDKs across platforms. This
 
 ## Browser
 
-### Different Latest Browser SDK
+### Latest Browser SDK vs Marketing Analytics SDK VS Mantiance Browser SDK
 
-| Feature | <div class="big-column"> [Latest Browser SDK](../typescript-browser/) </div>| <div class="big-column">[Latest Browser SDK < v1.9](../typescript-browser/)</div>
+| Feature| <div class="big-column"> [Latest Browser SDK](../typescript-browser/) </div> | <div class="big-column"> [Marketing analytics Browser](../marketing-analytics-browser/) <div> | Mantiance Browser SDK|
+| --- | --- | --- | --- |
+| <H4>Web Attribution</H4> | Auto added `webAttributionPlugin` internally. Using [**Web Attribution V1**](../#web-attribution-v1-vs-web-attribution-v2). (1) { .annotate } | Auto added `webAttributionPlugin` internally. [**Web Attribution V2**](../#web-attribution-v1-vs-web-attribution-v2) | Configuration required. Tracking campaign change only at session start by default but configurable. The existing referrer and utm_parameter values will be carried through each new session by defualt. Configuration supported for reseting new campaign during a session. Only support Gclid, Fbclid. |
+| <H4>Default Event Tracking</H4>|  [**Defalut Event Tracking V1**](../#defalut-event-tracking-v1-vs-defalut-event-tracking-v2) (2) { .annotate } | [**Defalut Event Tracking V2**](../#defalut-event-tracking-v1-vs-defalut-event-tracking-v2) |  Not supported. |
+| <H4>Configuration</H4> | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-browser/#configuration). Check [here](../typescript-browser/migration) for migration guide from the Maintenance SDK to the latest SDK. | The same as latest Browser SDK.  | Support explicity setter methods. [More configurations](../javascript/#configuration). |
+| <H4>Logger provider</H4> | Amplitude Logger by Default. Fully customizable. | The same as latest Browser SDK. | Amplitude Logger by default. Not customizable. |
+| <H4>Storage Provider</H4> | LocalStorage by default. Fully customizable. | The same as latest Browser SDK. | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
+| <H4>Customization</H4> | Plugins | Plugins | Not supported.  (Middleware is supported in Ampli JS) |
+| <H4>Bundle Size</H4> | Tree shaking for optimization. | The same as latest Browser SDK.  |
+| <H4>Server Endpoint</H4> | HTTP V2 API | The same as latest Browser SDK. |  No Optimization. |
+| <H4>Batch API</H4>| Suported, with configuration. | The same as latest Browser SDK. | Not supported. |
+
+1. Note: For SDK version lower than 1.9, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false` and install the `@amplitude/plugin-web-attribution-browser` and manually add `webAttributionPlugin` plugin, which lead the behavior the same as using Marketing Analytics SDK.
+2. Note: For SDK version lower than 1.9, you need install the `npm install @amplitude/plugin-page-view-tracking-browser` and manually add `pageViewTrackingPlugin()` plugin, which lead the behavior the same as using Marketing Analytics SDK.
+
+#### Defalut Event Tracking V1 vs Defalut Event Tracking V2
+
+| Feature| <div class="big-column"> Defalut Event Tracking V1 </div> | <div class="big-column"> Defalut Event Tracking V2 <div> |
 | --- | --- | --- |
-| Default Event Tracking | Supported. Includes page view event(`[Ampliutde] Page viewed`), sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`), form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`) with [configuration](../typescript-browser/#tracking-default-events). You can use [Enrichment Plugin](../typescript-browser/#plugins) to customize the default events name. |  Supported. Includes page view event(`Page View`) with configuration. You can use [Enrichment Plugin]((../typescript-browser/#plugins) ) to customize the default events name.| Supported. `Page view`. Automatic. |
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-browser/#configuration). Check [here](../typescript-browser/migration) for migration guide from the Maintenance SDK to the latest SDK.| Same. |
-| Logger provider | Amplitude Logger by Default. Fully customizable. | Same as latest Browser SDK |
-| Storage Provider | LocalStorage by default. Fully customizable. | Same as latest Browser SDK |
-| Customization | Plugins | Plugins | Plugins |
-| Bundle Size | Tree shaking for optimization. |  Same as latest Browser SDK. |
-| Batch API| Suported, with configuration. | Same as latest Browser SDK |
+| Configurable | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../typescript-browser/#tracking-default-eventsr/#page-view). | Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../marketing-analytics-browser/#page-view). |
+| Events | Includes with [configuration](../typescript-browser/#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul>  | Includes with configuration <ul><li> page view event (`Page view`)</li> </ul>  </li></ul>|
+| Archtecture | Implemented through different plugins. | Implemented through `pageViewTrackingPlugin` plugin. |  
+| Customizable | Yes. Through [Enrichment Plugin](../typescript-browser/#plugins). | Yes. Through [Enrichment Plugin](../typescript-browser/#plugins). |
 
-### Latest Browser SDK Marketing Analytics SDK
+#### Web Attribution V1 vs Web Attribution V2
 
-| Feature| <div class="big-column"> [Latest Browser SDK](../typescript-browser/) </div> | <div class="big-column"> [Marketing analytics Browser](../marketing-analytics-browser/) <div> |
+| Feature| <div class="big-column"> Web Attribution V1 </div> | <div class="big-column"> Web Attribution V2 <div> |
 | --- | --- | --- |
-| Default Event Tracking | Supported. Includes page view event(`[Ampliutde] Page viewed`), sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`), form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`) with [configuration](../typescript-browser/#tracking-default-events). You can use [Enrichment Plugin](../typescript-browser/#plugins) to customize the default events name. | Supported. `Page view`. Automatic. |
-| Web Attribution | Enable by default. Auto added `webAttributionPlugin` internally. The SDK track web attribution on init with a new session by default and  **NOT** configurable. This SDK tracks attribution on init with a new campaign is disable by default and configurable with `configuration.trackNewCampaigns = true`. If tracking web attribution on init with a new campaign is enable, the campaign will be unset (set to none) if that attribution not included. Default value for all `init` attribution is `Empty` and configurable. If reset session ID on new session is configurable. Collect all latest ClickIds. | Enable by default. Auto added `webAttributionPlugin`. This SDK tracks attribution on init with a new campaign no matter if a new session or during a session and **NOT** configurable. Others are the same as the latest Browser SDK. | 
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-browser/#configuration). Check [here](../typescript-browser/migration) for migration guide from the Maintenance SDK to the latest SDK. | Same. |
-| Logger provider | Amplitude Logger by Default. Fully customizable. | Same. |
-| Storage Provider | LocalStorage by default. Fully customizable. | Same.|
-| Customization | Plugins | Plugins |
-| Bundle Size | Tree shaking for optimization. | Same. |
-| Server Endpoint | HTTP V2 API | HTTP V2 API |
-| Batch API| Suported, with configuration. | Same. |
+| Configurable | Yes.| No.  |
+| Behavior |  <ul><li>Enable by default.</li> <li> The SDK track web attribution on init with a new session by default and  **NOT** configurable. This SDK tracks attribution on init with a new campaign is disable by default and configurable with `configuration.trackNewCampaigns = true`. If tracking web attribution on init with a new campaign is enable, the campaign will be unset (set to none) if that attribution not included. </li> <li>Default value for all `init` attribution is `Empty` and configurable.</li> <li>If reset session ID on new session is configurable. </li> <li>Collect all latest ClickIds. </li>| <ul><li>Enable by default.</li> <li>This SDK tracks attribution on init with a new campaign no matter if a new session or during a session and **NOT** configurable.</li> <li>Default value for all `init` attribution is `Empty` and configurable.</li> <li>If reset session ID on new session is configurable. </li> <li> Collect all latest ClickIds.</li></ul> |
+| Archtecture | Build in logic or disable the build in logic to add `webAttributionPlugin` to user the Web Attribution V2. | Implemented through `webAttributionPlugin` Plugin. |  
 
-### Latest Browser SDK vs Mantiance Browser SDK
-
-| Feature| <div class="big-column"> [Latest Browser SDK](../typescript-browser/) </div> | <div class="big-column"> [Mantiance Browser SDK](../javascript/) </div> |
-| --- | --- | --- |
-| Default Event Tracking | Supported. Includes page view event(`[Ampliutde] Page viewed`), sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`), form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`) with [configuration](../typescript-browser/#tracking-default-events). You can use [Enrichment Plugin](../typescript-browser/#plugins) to customize the default events name. | Not support. |
-| Web Attribution | Enable by default. Auto added `webAttributionPlugin` internally. The SDK track web attribution on init with a new session by default and  **NOT** configurable. This SDK tracks attribution on init with a new campaign is disable by default and configurable with `configuration.trackNewCampaigns = true`. If tracking web attribution on init with a new campaign is enable, the campaign will be unset (set to none) if that attribution not included. Default value for all `init` attribution is `Empty` and configurable. If reset session ID on new session is configurable. Collect all latest ClickIds. | Configuration required. Only support Gclid, Fbclid. Tracking campaign change only at session start by default but configurable. The existing referrer and utm_parameter values will be carried through each new session by defualt. Configuration supported for reseting new campaign during a session. |
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-browser/#configuration). Check [here](../typescript-browser/migration) for migration guide from the Maintenance SDK to the latest SDK. | Support explicity setter methods. [More configurations](../javascript/#configuration).|
-| Logger provider | Amplitude Logger by Default. Fully customizable. | Amplitude Logger by default. Not customizable. |
-| Storage Provider | LocalStorage by default. Fully customizable. | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
-| Customization | Plugins | Not Support.  (Middleware is supported in Ampli JS) |
-| Bundle Size | Tree shaking for optimization. | No Optimization. |
-| Server Endpoint | HTTP V2 API | HTTP V1 API |
-| Batch API | Suported, with configuration. | Not support. |
-
-### Default Web Attribution vs using webAttributionPlugin
-
-In order to not having a breaking change, even we are using different way to implement web attribution tracking in Browser SDK (default tracking behavior or using webAttributionPlugins in the latest version), we keeps the behavior the same unless you disable the default web attribution behavior. 
 The following two charts are showing the different web attribution workflow. 
 
 | ![Web Attribution V1](../../assets/images/sdk/web-attribution-v1.drawio.svg)  | ![Web Attribution V2](../../assets/images/sdk/web-attribution-v2.drawio.svg)  |
@@ -68,7 +59,7 @@ The following two charts are showing the different web attribution workflow.
 | Storage Provider | InMemoryStorageProvider() by default. File storage. Fully customizable. | SQLite Database. |       
 | Customization | Plugins | Middelware |
 | Server Endpoint | HTTP V2 API | HTTP V1 API |
-| Batch API| Supported, with configuration. | Not support. |
+| Batch API| Supported, with configuration. | Not supported.|
 
 ## iOS
 
@@ -80,11 +71,11 @@ The following two charts are showing the different web attribution workflow.
 | Storage Provider | PersistentStorage() by default. File storage and iOS user’s defaults database. Fully customizable. | SQLite Database. |
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API | HTTP V1 API |
-| Batch API| Yes, with configuration. | Not support. |
+| Batch API| Yes, with configuration. | Not supported. |
 
 ## Node.JS
 
-| <div class="big-column">Feature</div> | [Latest iOS SDK](../typescript-node/) | [Maintenance iOS SDK](../node/) |
+| <div class="big-column">Feature</div> | [Latest Node SDK](../typescript-node/) | [Maintenance Node SDK](../node/) |
 | --- | --- | --- |
 | Package | [@amplitude/analytics-node](https://www.npmjs.com/package/@amplitude/analytics-node) | [@amplitude/node](https://www.npmjs.com/package/@amplitude/node)|
 | Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-node/#configuration). | Support explicity setter methods. [More configurations](../node/#configuration)|
@@ -93,7 +84,7 @@ The following two charts are showing the different web attribution workflow.
 | Customization | Plugins | Middleware |
 | Retry | Regular retry. | Regular retry by default. Also provide offline retry. You are able to customize your retry logic. Fully customizible. |
 | Server Endpoint | HTTP V2 API |  HTTP V2 API |
-| Batch API | Supported, with configuration. | Not support. |
+| Batch API | Supported, with configuration. | Not supported. |
 
 ## React Native
 
