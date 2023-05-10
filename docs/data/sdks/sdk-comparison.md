@@ -54,7 +54,7 @@ The following two charts are showing the different web attribution workflow.
 | <div class="big-column">Feature</div> | [Android Kotlin](../android-kotlin/) | [Android Android](../android/) |
 | --- | --- | --- |
 | Package | [com.amplitude:analytics-android](https://mvnrepository.com/artifact/com.amplitude/analytics-android) | [com.amplitude:android-sdk](https://mvnrepository.com/artifact/com.amplitude/android-sdk) |
-| SSL Pinning | TBD | Supported. Check [here](./android/#) for the setup. |
+| SSL Pinning | TBD | Supported. Check [here](../android/#ssl-pinning) for the setup. |
 | Configuration | Configuration is implemented by the configuration object. Configurationes need to be passed into Amplitude Object during initialization. [More configurations](../android-kotlin/#configuration). | Support explicity setter methods. [More configurations](../android/#configuration). |
 | Logger provider | ConsoleLoggerProvider() by default. Fully customizable. | Amplitude Logger. Not customizable. |
 | Storage Provider | InMemoryStorageProvider() by default. File storage. Fully customizable. | SQLite Database. |       
@@ -91,7 +91,7 @@ The following two charts are showing the different web attribution workflow.
 
 | <div class="big-column">Feature</div> | [Latest React Native SDK](../typescript-react-native/) | [Maintenance React Native SDK](../react-native/) |
 | --- | --- | --- |
-| Package | [@amplitude/analytics-react-native](https://www.npmjs.com/package/@amplitude/analytics-react-native) | [@amplitude/react-native](@amplitude/react-native) |
+| Package | [@amplitude/analytics-react-native](https://www.npmjs.com/package/@amplitude/analytics-react-native) | [@amplitude/react-native](https://www.npmjs.com/package/@amplitude/react-native) |
 | Structure | Mobile platforms (Android & iOS) utilize native app context modules for accessing system info, async storage for persistence. | Wrapper of the iOS and Android SDK and Amplitude JavaScript SDK.  Providing mappings from React Native to native SDK functions. |
 | Supported platform | iOS, Android, Web and Expo. | iOS, Android, Web. |
 | Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-react-native/#configuration). | Support explicity setter methods. [More configurations](../react-native/#configuration). |
