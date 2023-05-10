@@ -41,13 +41,53 @@ as the main headline.
   <hr>
   <!-- Tracks link clicks out to the community for doc improvements-->
 <script>
-    var eventProperties = {
+    function trackCommunity(){
+      var communityEventProperties = {
         name: "community_help",
         url: window.location.href,
-    };
-</script>
-  <p>Still have questions? Ask them in the <a id="linkToCommunityHelp" href="https://community.amplitude.com" onclick="amplitude.getInstance().logEvent('Link Click', eventProperties)">Community</a>.
+      };
 
+      amplitude.getInstance().logEvent('Link Click', eventProperties)
+    }
+
+    function trackClickSupportRequest(){
+      let properties = {
+        path: window.location.pathname,
+        product: window.location.pathname.split('/')[1],
+        url: window.location.href
+      };
+
+      amplitude.getInstance().logEvent('support request', properties);
+    }
+
+    function trackFeedback(isUseful){
+
+      document.getElementById("happyButton").disabled = true;
+      document.getElementById("sadButton").disabled = true;
+
+      var feedbackMessage = document.createElement("p");
+      feedbackMessage.innerHTML = isUseful ? "Glad to hear that!" : 'Still have questions? Ask them in the <a id="linkToCommunityHelp" href="https://community.amplitude.com" onclick="trackCommunity()">Community</a> or <a href="https://support.amplitude.com/" onclick="trackClickSupportRequest()">submit a request</a>.';
+      document.getElementById("feedbackMessage").appendChild(feedbackMessage);
+
+      var path = document.location.pathname;
+      var product = document.location.pathname.split('/')[1];
+      var url = document.location.href;
+
+      /* Send feedback value */
+      amplitude.getInstance().logEvent('feedback', {
+        path: path,
+        product: product,
+        url: url,
+        isUseful: isUseful
+      });
+    }
+</script>
+  <h4>Was this page helpful?</h3>
+  <div>
+    <button id="happyButton" onclick="trackFeedback(true)" title="This page was helpful">😊</button>
+    <button id="sadButton" onclick="trackFeedback(false)" title="This page could be improved">😢</button>
+    <div id="feedbackMessage"></div>
+  </div>
   {% endif %}
 
 <!-- Source file information -->
