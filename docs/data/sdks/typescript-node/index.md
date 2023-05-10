@@ -276,6 +276,19 @@ setGroup('sport', ['soccer', 'tennis'], {
 });
 ```
 
+--8<-- "includes/event-level-groups-intro.md"
+
+```ts
+import { track } from '@amplitude/analytics-node';
+
+track({
+    event_type: 'event type',
+    groups: { 'orgId': '15' }
+},
+    { eventPropertyKey: 'event property value' }
+);
+```
+
 ### Group properties
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"

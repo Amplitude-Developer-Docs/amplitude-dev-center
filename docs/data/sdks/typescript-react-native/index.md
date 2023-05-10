@@ -264,6 +264,19 @@ setGroup('orgId', '15');
 setGroup('sport', ['soccer', 'tennis']);
 ```
 
+--8<-- "includes/event-level-groups-intro.md"
+
+```ts
+import { track } from '@amplitude/analytics-react-native';
+
+track({
+    event_type: 'event type',
+    groups: { 'orgId': '15' }
+},
+    { eventPropertyKey: 'event property value' }
+);
+```
+
 ### Group properties
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"

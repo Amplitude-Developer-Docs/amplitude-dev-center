@@ -97,11 +97,23 @@ amplitude.identify(identify: identify)
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-For example, if Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like:
-
 ```swift
 amplitude.setGroup(groupType: "orgId", groupName: "15")
 amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
+```
+
+--8<-- "includes/event-level-groups-intro.md"
+
+```swift
+amplitude.track(
+    event: BaseEvent(
+        eventType: "event type",
+        groups: ["orgId": 15]
+    ),
+    eventProperties: [
+        "eventPropertykey": "eventPropertyValue"
+    ]
+)
 ```
 
 ### Group identify

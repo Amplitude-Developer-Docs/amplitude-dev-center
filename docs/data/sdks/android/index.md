@@ -553,7 +553,7 @@ You can also use `logEventWithGroups` to set event-level groups. This means that
     JSONObject eventProperties = new JSONObject().put("key", "value");
     JSONObject groups = new JSONObject().put("orgId", 10);
 
-    Amplitude.getInstance().logEvent("initialize_game", eventProperties, groups);
+    Amplitude.getInstance().logEventWithGroups("initialize_game", eventProperties, groups);
     ```
 
 ### Group identify

@@ -360,7 +360,7 @@ If the user property doesn't have a value set yet, it's initialized to an empty 
 
 !!! example
 
-    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Your code might look like this:
+    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'. Your code might look like this:
 
     ```js
     amplitude.getInstance().setGroup('orgId', '[10,16]');

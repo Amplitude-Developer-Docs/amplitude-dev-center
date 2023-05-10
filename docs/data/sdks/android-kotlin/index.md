@@ -155,11 +155,21 @@ amplitude.identify(identify)
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-For example, if Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like:
-
 ```kotlin
 amplitude.setGroup("orgId", "15");
 amplitude.setGroup("sport", arrayOf("tennis", "soccer")) // list values
+```
+
+--8<-- "includes/event-level-groups-intro.md"
+
+```kotlin
+amplitude.track(
+            BaseEvent(
+                eventType = "event type",
+                groups = mapOf("orgId" to "15")
+            ),
+            mapOf("event property" to "event property value")
+        )
 ```
 
 ### Group identify
