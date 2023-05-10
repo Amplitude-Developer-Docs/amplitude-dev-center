@@ -10,10 +10,11 @@ This article provides a comparison between different SDKs across platforms. This
 
 ### Latest Browser SDK vs Marketing Analytics SDK VS Mantiance Browser SDK
 
-| Feature| <div class="big-column"> [Latest Browser SDK](../typescript-browser/) </div> | <div class="big-column"> [Marketing analytics Browser](../marketing-analytics-browser/) <div> | Mantiance Browser SDK|
+| Feature| <div class="big-column"> [Latest Browser SDK](../typescript-browser/) </div> | <div class="big-column"> [Marketing analytics Browser](../marketing-analytics-browser/) <div> | [Mantiance Browser SDK](../javascript)|
 | --- | --- | --- | --- |
-| <H4>Web Attribution</H4> | Auto added `webAttributionPlugin` internally. Using [**Web Attribution V1**](../#web-attribution-v1-vs-web-attribution-v2). (1) { .annotate } | Auto added `webAttributionPlugin` internally. [**Web Attribution V2**](../#web-attribution-v1-vs-web-attribution-v2) | Configuration required. Tracking campaign change only at session start by default but configurable. The existing referrer and utm_parameter values will be carried through each new session by defualt. Configuration supported for reseting new campaign during a session. Only support Gclid, Fbclid. |
-| <H4>Default Event Tracking</H4>|  [**Defalut Event Tracking V1**](../#defalut-event-tracking-v1-vs-defalut-event-tracking-v2) (2) { .annotate } | [**Defalut Event Tracking V2**](../#defalut-event-tracking-v1-vs-defalut-event-tracking-v2) |  Not supported. |
+| Package | [@amplitude/analytics-browser](https://www.npmjs.com/package/@amplitude/analytics-browser) | | [@amplitude/marketing-analytics-browser](https://www.npmjs.com/package/@amplitude/marketing-analytics-browser) | [amplitude-js](https://www.npmjs.com/package/amplitude-js) |
+| <H4>Web Attribution</H4> | Auto added `webAttributionPlugin` internally. Using [**Web Attribution V1**](./#web-attribution-v1-vs-web-attribution-v2). (1) { .annotate } | Auto added `webAttributionPlugin` internally. [**Web Attribution V2**](./#web-attribution-v1-vs-web-attribution-v2) | Configuration required. Tracking campaign change only at session start by default but configurable. The existing referrer and utm_parameter values will be carried through each new session by defualt. Configuration supported for reseting new campaign during a session. Only support Gclid, Fbclid. |
+| <H4>Default Event Tracking</H4>|  [**Defalut Event Tracking V1**](./#defalut-event-tracking-v1-vs-defalut-event-tracking-v2) (2) { .annotate } | [**Defalut Event Tracking V2**](./#defalut-event-tracking-v1-vs-defalut-event-tracking-v2) |  Not supported. |
 | <H4>Configuration</H4> | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-browser/#configuration). Check [here](../typescript-browser/migration) for migration guide from the Maintenance SDK to the latest SDK. | The same as latest Browser SDK.  | Support explicity setter methods. [More configurations](../javascript/#configuration). |
 | <H4>Logger provider</H4> | Amplitude Logger by Default. Fully customizable. | The same as latest Browser SDK. | Amplitude Logger by default. Not customizable. |
 | <H4>Storage Provider</H4> | LocalStorage by default. Fully customizable. | The same as latest Browser SDK. | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
@@ -30,7 +31,7 @@ This article provides a comparison between different SDKs across platforms. This
 | Feature| <div class="big-column"> Defalut Event Tracking V1 </div> | <div class="big-column"> Defalut Event Tracking V2 <div> |
 | --- | --- | --- |
 | Configurable | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../typescript-browser/#tracking-default-eventsr/#page-view). | Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../marketing-analytics-browser/#page-view). |
-| Events | Includes with [configuration](../typescript-browser/#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul>  | Includes with configuration <ul><li> page view event (`Page view`)</li> </ul>  </li></ul>|
+| Events | Includes with [configuration](../typescript-browser/#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul>  | Includes with [configuration](../marketing-analytics-browser/#page-view) <ul><li> page view event (`Page view`)</li> </ul>  </li></ul>|
 | Archtecture | Implemented through different plugins. | Implemented through `pageViewTrackingPlugin` plugin. |  
 | Customizable | Yes. Through [Enrichment Plugin](../typescript-browser/#plugins). | Yes. Through [Enrichment Plugin](../typescript-browser/#plugins). |
 
@@ -46,7 +47,7 @@ The following two charts are showing the different web attribution workflow.
 
 | ![Web Attribution V1](../../assets/images/sdk/web-attribution-v1.drawio.svg)  | ![Web Attribution V2](../../assets/images/sdk/web-attribution-v2.drawio.svg)  |
 |:--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
-|                 Web Attribution Workflow in Browser SDK (default web attribution enabled)                     |                 Web Attribution Workflow in Marketing Analytics                     |
+|                 Web Attribution V1                     |                Web Attribution V2                     |
 
 ## Android
 
@@ -54,7 +55,7 @@ The following two charts are showing the different web attribution workflow.
 | --- | --- | --- |
 | Package | [com.amplitude:analytics-android](https://mvnrepository.com/artifact/com.amplitude/analytics-android) | [com.amplitude:android-sdk](https://mvnrepository.com/artifact/com.amplitude/android-sdk) |
 | SSL Pinning | TBD | Supported. Check [here](./android/#) for the setup. |
-| Configuration | Configuration is implemented by the configuration object. Configurationes need to be passed into Amplitude Object during initialization. [More configurations](../android-kotlin/#configuration). Support explicity setter methods. [More configurations](../javascript/#configuration). | Support explicity setter methods. [More configurations](../sdks/android/#configuration) |
+| Configuration | Configuration is implemented by the configuration object. Configurationes need to be passed into Amplitude Object during initialization. [More configurations](../android-kotlin/#configuration). | Support explicity setter methods. [More configurations](../android/#configuration). |
 | Logger provider | ConsoleLoggerProvider() by default. Fully customizable. | Amplitude Logger. Not customizable. |
 | Storage Provider | InMemoryStorageProvider() by default. File storage. Fully customizable. | SQLite Database. |       
 | Customization | Plugins | Middelware |
@@ -78,7 +79,7 @@ The following two charts are showing the different web attribution workflow.
 | <div class="big-column">Feature</div> | [Latest Node SDK](../typescript-node/) | [Maintenance Node SDK](../node/) |
 | --- | --- | --- |
 | Package | [@amplitude/analytics-node](https://www.npmjs.com/package/@amplitude/analytics-node) | [@amplitude/node](https://www.npmjs.com/package/@amplitude/node)|
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-node/#configuration). | Support explicity setter methods. [More configurations](../node/#configuration)|
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-node/#configuration). | Support explicity setter methods. [More configurations](../node/#configuration).|
 | Logger Provider | Amplitude Logger. Fully customizable. | Amplitude Logger.  Not customizable. |
 | Storage Provider | LocalStorage by default. Fully customizable. | Local Storage. |
 | Customization | Plugins | Middleware |
@@ -88,12 +89,12 @@ The following two charts are showing the different web attribution workflow.
 
 ## React Native
 
-| <div class="big-column">Feature</div> | [Latest iOS SDK](../typescript-react-native/) | [Maintenance iOS SDK](../react-native/) |
+| <div class="big-column">Feature</div> | [Latest React Native SDK](../typescript-react-native/) | [Maintenance React Native SDK](../react-native/) |
 | --- | --- | --- |
 | Package | [@amplitude/analytics-react-native](https://www.npmjs.com/package/@amplitude/analytics-react-native) | [@amplitude/react-native](@amplitude/react-native) |
 | Structure | Mobile platforms (Android & iOS) utilize native app context modules for accessing system info, async storage for persistence. | Wrapper of the iOS and Android SDK and Amplitude JavaScript SDK.  Providing mappings from React Native to native SDK functions. |
 | Supported platform | iOS, Android, Web and Expo. | iOS, Android, Web. |
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-react-native/#configuration). | Support explicity setter methods. [More configurations](../react-native/#configuration) |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../typescript-react-native/#configuration). | Support explicity setter methods. [More configurations](../react-native/#configuration). |
 | Storage Provider | LocalStorage() by default, if not enabled, use MemoryStrogate(). Fully configurable. | Depened on the Maintenance iOS, Maintenance Android and Maintenance Browser SDK storage. |
 | Logger provider | Amplitude Logger. Fully customizable. | Depened on the native iOS, Android, Amplitude JavaScript logger provider. |
 | Customization | Plugins | Middleware |
