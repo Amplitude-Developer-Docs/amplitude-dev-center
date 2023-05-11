@@ -81,12 +81,12 @@ as the main headline.
       });
     }
 </script>
-  <h4>Was this page helpful?</h3>
-  <div>
-    <button id="happyButton" onclick="trackFeedback(true)" title="This page was helpful">😊</button>
-    <button id="sadButton" onclick="trackFeedback(false)" title="This page could be improved">😢</button>
+    <div style="display: flex; align-items: center;" >
+      <h5>Was this page helpful?</h5>
+      <button id="happyButton" style="cursor: pointer; margin: 5%;" onclick="trackFeedback(true)">👍 Yes</button>
+      <button id="sadButton" style="cursor: pointer;" onclick="trackFeedback(false)">👎 No</button>
+    </div>
     <div id="feedbackMessage"></div>
-  </div>
   {% endif %}
 
 <!-- Source file information -->
