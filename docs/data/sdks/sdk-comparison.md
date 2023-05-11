@@ -67,7 +67,7 @@ unsetParamsReferrerOnNewSession
 | --- | --- | --- |
 | Package | [com.amplitude:analytics-android](https://mvnrepository.com/artifact/com.amplitude/analytics-android) | [com.amplitude:android-sdk](https://mvnrepository.com/artifact/com.amplitude/android-sdk) |
 | SSL Pinning | TBD | Supported. Check [here](../android/#ssl-pinning) for the setup. |
-| Configuration | Configuration is implemented by the configuration object. Configurationes need to be passed into Amplitude Object during initialization. [More configurations](../android-kotlin/#configuration). | Support explicity setter methods. [More configurations](../android/#configuration). |
+| Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../android-kotlin/#configuration). | Support explicity setter methods. [More configurations](../android/#configuration). |
 | Logger provider | ConsoleLoggerProvider() by default. Fully customizable. | Amplitude Logger. Not customizable. |
 | Storage Provider | InMemoryStorageProvider() by default. File storage. Fully customizable. | SQLite Database. |       
 | Customization | Plugins | Middelware |
@@ -79,7 +79,7 @@ unsetParamsReferrerOnNewSession
 | <div class="big-column">Feature</div> | [Latest iOS SDK](../ios/) | [Maintenance iOS SDK](../ios-swift/) |
 | --- | --- | --- |
 | Package | AmplitudeSwift | [Amplitude](https://cocoapods.org/pods/Amplitude-iOS) |
-| Configuration | Configuration is implemented by the configuration object. Configurationes need to be passed into Amplitude Object during initialization. [More configurations](../ios/#configuration). Latest iOS SDK support more configurations. Check [here](../ios-swift/migration/#configuration) for more details. | Support explicity setter methods. [More configurations](../ios/#configuration) |
+| Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../ios/#configuration). Latest iOS SDK support more configurations. Check [here](../ios-swift/migration/#configuration) for more details. | Support explicity setter methods. [More configurations](../ios/#configuration) |
 | Logger Provider | ConsoleLogger() by default. Fully customizable. | AMPLITUDE_LOG, config throught marcro. |
 | Storage Provider | PersistentStorage() by default. File storage and iOS user’s defaults database. Fully customizable. | SQLite Database. |
 | Customization | Plugins | Middleware |
