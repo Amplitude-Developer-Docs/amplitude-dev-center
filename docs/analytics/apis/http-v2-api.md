@@ -100,6 +100,10 @@ If the event doesn't have a `user_id` or `device_id` value, the upload may be re
     * "0"
     * "-1"
 
+### Language Field
+
+--8<-- "includes/http-api/shared-language-mapping.md"
+
 ## Upload request
 
 Send a POST request to `https://api2.amplitude.com/2/httpapi`. 
