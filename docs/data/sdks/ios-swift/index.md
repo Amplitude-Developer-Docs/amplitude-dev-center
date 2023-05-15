@@ -108,11 +108,11 @@ amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
 amplitude.track(
     event: BaseEvent(
         eventType: "event type",
+        eventProperties: [
+            "eventPropertykey": "eventPropertyValue"
+        ], 
         groups: ["orgId": 15]
-    ),
-    eventProperties: [
-        "eventPropertykey": "eventPropertyValue"
-    ]
+    )
 )
 ```
 

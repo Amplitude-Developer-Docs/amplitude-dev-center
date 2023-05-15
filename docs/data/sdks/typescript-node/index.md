@@ -282,11 +282,10 @@ setGroup('sport', ['soccer', 'tennis'], {
 import { track } from '@amplitude/analytics-node';
 
 track({
-    event_type: 'event type',
-    groups: { 'orgId': '15' }
-},
-    { eventPropertyKey: 'event property value' }
-);
+  event_type: 'event type',
+  groups: { 'orgId': '15' },
+  event_properties: { eventPropertyKey: 'event property value' }
+});
 ```
 
 ### Group properties

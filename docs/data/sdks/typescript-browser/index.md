@@ -344,11 +344,10 @@ amplitude.setGroup('sport', ['soccer', 'tennis']);
 
 ```ts
 amplitude.track({
-    event_type: 'event type',
-    groups: { 'orgId': '15' }
-},
-    { eventPropertyKey: 'event property value' }
-);
+  event_type: 'event type',
+  groups: { 'orgId': '15' },
+  event_properties: { eventPropertyKey: 'event property value' }
+})
 ```
 
 ### Group properties
