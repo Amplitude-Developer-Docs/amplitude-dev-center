@@ -5,7 +5,7 @@ markdown>=3.2
 mkdocs>=1.4.0
 mkdocs-material-extensions>=1.1
 pygments>=2.12
-pymdown-extensions>=9.4
+pymdown-extensions==9.9.2
 
 # Requirements for Social Previews
 cairosvg==2.5.2
