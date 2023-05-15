@@ -93,13 +93,33 @@ Use an Middleware to modify event properties, transformation, filtering, routing
     ???code-example "Enrich Event Properties (click to expand)"
 
         ```js
-        ampli.client.addEventMiddleware((payload, next) => {
+        amplitude.addEventMiddleware((payload, next) => {
           const { event } = payload;
           if (needsDeviceId(event)) {
             payload.event.deviceId = getDeviceId();
           }
           next(payload)
         });
+        ```
+
+    ???code-example "Send event level groups using Ampli v1 (click to expand)"
+
+        This is an example of how to send event level groups in Ampli V1.
+        How to send event level groups in SDKs(not in Ampli) is different. Please check the specific SDKs for the usage.
+        
+        ```js
+        ampli.addEventMiddleware((payload, next) => {
+          const {event, extra} =  payload;
+          if (event && extra && event.extra.groups) {
+            event.groups =  event.extra.groups;
+          }
+
+          next(payload);
+        });
+
+        // Pass the event level groups info though middleware extra when calling the tracking plan.
+        const extra = {groups: {"test_group_name": "test_group_value"}};
+        ampli.eventWithGroups({requiredNumber: 1.23, requiredBoolean: false}, extra);
         ```
 
 !!!example "Routing to third-party destinations example"
