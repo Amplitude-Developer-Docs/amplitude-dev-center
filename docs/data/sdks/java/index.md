@@ -221,7 +221,7 @@ client.logEvent(event);
 You can also use `logEvent` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
 
 ```java
-Event event = New Event('event type');
+Event event = New Event('event type', 'test_user_id');
 
 JsonObject groups = new JSONObject();
 try {
