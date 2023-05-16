@@ -167,7 +167,7 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
     | `identifyBatchIntervalMillis` | The amount of time SDK will attempt to batch intercepted identify events. | `30000` |
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `optOut` | Opt the user out of tracking. | `false` |
-    | `trackingSessionEvents` | Flushing of unsent events on app close. | `false` |
+    | `trackingSessionEvents` | Automatic tracking of "Start Session" and "End Session" events that count toward event volume. | `false` |
     | `sessionTimeoutMillis` | The amount of time for session timeout if enable foreground tracking. | `1800000` |
     | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/` |
