@@ -545,6 +545,79 @@ Use a Destination Plugin to send events to a third-party APIs
             }
             ```
 
+    ???code-example "Send to Fullstory by forwarding events to their [browser SDK](https://help.fullstory.com/hc/en-us/articles/360020828273-Getting-Started-with-FullStory#h_01FXB8T39JB6TPBWMR3727QMVV) (click to expand)"
+
+        === "JavaScript"
+
+            ```js
+            import { PluginType } from '@amplitude/analytics-types';
+
+            export class FullstoryPlugin {
+              constructor(fsOrg) {
+                this.name = 'fullstory';
+                this.type = PluginType.DESTINATION;
+                this.fsOrg = fsOrg;
+                this.FS = window.FS;
+              }
+
+              async setup() {
+                window._fs_host || (window._fs_host = "fullstory.com", window._fs_script = "edge.fullstory.com/s/fs.js", window._fs_org = this.fsOrg, window._fs_namespace = "FS", function (n, t, e, o, s, c, i, f) { e in n ? n.console && n.console.log && n.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].') : ((i = n[e] = function (n, t, e) { i.q ? i.q.push([n, t, e]) : i._api(n, t, e); }).q = [], (c = t.createElement(o)).async = 1, c.crossOrigin = "anonymous", c.src = "https://" + _fs_script, (f = t.getElementsByTagName(o)[0]).parentNode.insertBefore(c, f), i.identify = function (n, t, e) { i(s, { uid: n }, e), t && i(s, t, e); }, i.setUserVars = function (n, t) { i(s, n, t); }, i.event = function (n, t, e) { i("event", { n: n, p: t }, e); }, i.anonymize = function () { i.identify(!1); }, i.shutdown = function () { i("rec", !1); }, i.restart = function () { i("rec", !0); }, i.log = function (n, t) { i("log", [n, t]); }, i.consent = function (n) { i("consent", !arguments.length || n); }, i.identifyAccount = function (n, t) { c = "account", (t = t || {}).acctId = n, i(c, t); }, i.clearUserCookie = function () { }, i.setVars = function (n, t) { i("setVars", [n, t]); }, i._w = {}, f = "XMLHttpRequest", i._w[f] = n[f], f = "fetch", i._w[f] = n[f], n[f] && (n[f] = function () { return i._w[f].apply(this, arguments); }), i._v = "1.3.0"); }(window, document, window._fs_namespace, "script", "user"));
+                this.FS = window.FS;
+              }
+
+              async execute(event) {
+                if (event.event_type === '$identify') {
+                  this.FS.identify(event.user_id);
+                }
+                else {
+                  this.FS.event(event.event_type, event.event_properties);
+                }
+                return {
+                  code: 200,
+                  event: event,
+                    message: 'Event forwarded to Fullstory',
+                };
+             }
+            }
+            ```
+        
+        === "TypeScript"
+        
+            ```ts
+            import { DestinationPlugin, Event, PluginType, Result } from '@amplitude/analytics-types';
+
+            export class FullstoryPlugin implements DestinationPlugin {
+              name = 'fullstory';
+              type = PluginType.DESTINATION as const;
+              fsOrg: string;
+              FS: Object
+
+              constructor(fsOrg: string) {
+                this.fsOrg = fsOrg;
+                this.FS = window.FS;
+              }
+
+              async setup(): Promise<void> {
+                window._fs_host||(window._fs_host="fullstory.com",window._fs_script="edge.fullstory.com/s/fs.js",window._fs_org=this.fsOrg,window._fs_namespace="FS",function(n,t,e,o,s,c,i,f){e in n?n.console&&n.console.log&&n.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'):((i=n[e]=function(n,t,e){i.q?i.q.push([n,t,e]):i._api(n,t,e)}).q=[],(c=t.createElement(o)).async=1,c.crossOrigin="anonymous",c.src="https://"+_fs_script,(f=t.getElementsByTagName(o)[0]).parentNode.insertBefore(c,f),i.identify=function(n,t,e){i(s,{uid:n},e),t&&i(s,t,e)},i.setUserVars=function(n,t){i(s,n,t)},i.event=function(n,t,e){i("event",{n:n,p:t},e)},i.anonymize=function(){i.identify(!1)},i.shutdown=function(){i("rec",!1)},i.restart=function(){i("rec",!0)},i.log=function(n,t){i("log",[n,t])},i.consent=function(n){i("consent",!arguments.length||n)},i.identifyAccount=function(n,t){c="account",(t=t||{}).acctId=n,i(c,t)},i.clearUserCookie=function(){},i.setVars=function(n,t){i("setVars",[n,t])},i._w={},f="XMLHttpRequest",i._w[f]=n[f],f="fetch",i._w[f]=n[f],n[f]&&(n[f]=function(){return i._w[f].apply(this,arguments)}),i._v="1.3.0")}(window,document,window._fs_namespace,"script","user"));
+                this.FS = window.FS;
+              }
+
+              async execute(event: Event): Promise<Result> {
+                if (event.event_type === '$identify') {
+                  this.FS.identify(event.user_id)
+
+                } else {
+                  this.FS.event(event.event_type, event.event_properties)
+                }
+
+                return {
+                  code: 200,
+                  event: event,
+                  message: 'Event forwarded to Fullstory',
+                };
+              }
+            }
+            ```
 ## Supported SDKs
 
 |Platform|SDK|Github|
