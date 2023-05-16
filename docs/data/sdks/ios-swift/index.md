@@ -97,10 +97,20 @@ amplitude.identify(identify: identify)
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-```swift
-amplitude.setGroup(groupType: "orgId", groupName: "15")
-amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
-```
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```swift
+    // set group with a single group name
+    amplitude.setGroup(groupType: "orgId", groupName: "15")
+    ```
+
+    If Joe is in 'orgId' 'sport', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```swift
+    // set group with multiple group names
+    amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
+    ```
 
 --8<-- "includes/event-level-groups-intro.md"
 

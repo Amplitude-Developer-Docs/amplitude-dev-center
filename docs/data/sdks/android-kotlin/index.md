@@ -155,21 +155,31 @@ amplitude.identify(identify)
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-```kotlin
-amplitude.setGroup("orgId", "15");
-amplitude.setGroup("sport", arrayOf("tennis", "soccer")) // list values
-```
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```kotlin
+    // set group with a single group name
+    amplitude.setGroup("orgId", "15");
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```kotlin
+    // set group with multiple group names
+    amplitude.setGroup("sport", arrayOf("tennis", "soccer"))
+    ```
 
 --8<-- "includes/event-level-groups-intro.md"
 
 ```kotlin
 amplitude.track(
-            BaseEvent(
-                eventType = "event type",
-                groups = mapOf("orgId" to "15")
-            ),
-            mapOf("event property" to "event property value")
-        )
+    BaseEvent(
+        eventType = "event type",
+        groups = mapOf("orgId" to "15")
+    ),
+    mapOf("event property" to "event property value")
+)
 ```
 
 ### Group identify

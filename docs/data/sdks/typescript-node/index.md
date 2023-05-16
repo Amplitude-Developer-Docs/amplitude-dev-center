@@ -262,19 +262,28 @@ identify(identifyObj, {
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-```ts
-import { setGroup } from '@amplitude/analytics-node';
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
 
-// set group with single group name
-setGroup('orgId', '15', {
-  user_id: 'user@amplitude.com',
-});
+    ```ts
+    import { setGroup } from '@amplitude/analytics-node';
 
-// set group with multiple group names
-setGroup('sport', ['soccer', 'tennis'], {
-  user_id: 'user@amplitude.com',
-});
-```
+    // set group with a single group name
+    setGroup('orgId', '15', {
+      user_id: 'user@amplitude.com',
+    });
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-node';
+
+    // set group with multiple group names
+    setGroup('sport', ['soccer', 'tennis'], {
+      user_id: 'user@amplitude.com',
+    });
+    ```
 
 --8<-- "includes/event-level-groups-intro.md"
 
@@ -285,6 +294,8 @@ track({
   event_type: 'event type',
   groups: { 'orgId': '15' },
   event_properties: { eventPropertyKey: 'event property value' }
+}, undefined, {
+  user_id: 'user@amplitude.com',
 });
 ```
 

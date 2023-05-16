@@ -254,15 +254,24 @@ identify(identifyObj);
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-```ts
-import { setGroup } from '@amplitude/analytics-react-native';
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
 
-// set group with single group name
-setGroup('orgId', '15');
+    ```ts
+    import { setGroup } from '@amplitude/analytics-react-native';
 
-// set group with multiple group names
-setGroup('sport', ['soccer', 'tennis']);
-```
+    // set group with single group name
+    setGroup('orgId', '15');
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-react-native';
+
+    // set group with multiple group names
+    setGroup('sport', ['soccer', 'tennis']);
+    ```
 
 --8<-- "includes/event-level-groups-intro.md"
 

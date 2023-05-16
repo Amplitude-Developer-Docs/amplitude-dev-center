@@ -332,13 +332,20 @@ amplitude.identify(identifyEvent);
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-```ts
-// set group with single group name
-amplitude.setGroup('orgId', '15');
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
 
-// set group with multiple group names
-amplitude.setGroup('sport', ['soccer', 'tennis']);
-```
+    ```ts
+    // set group with a single group name
+    amplitude.setGroup('orgId', '15');
+    ```
+
+    If Joe is in 'sport' 'scoccer' and 'tennis', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```ts
+    // set group with multiple group names
+    amplitude.setGroup('sport', ['soccer', 'tennis']);
+    ```
 
 --8<-- "includes/event-level-groups-intro.md"
 

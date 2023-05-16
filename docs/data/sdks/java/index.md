@@ -204,7 +204,7 @@ client.logEvent(event);
     If Joe is in 'orgId' '10', then the `groupName` would be '10':
 
     ```java
-    Event event = new Event("$identify");
+    Event event = new Event("$identify", "test_user_id");
 
     JSONObject groupProps = new JSONObject();
     try {
@@ -218,7 +218,24 @@ client.logEvent(event);
     client.logEvent(event);
     ```
 
-You can also use `logEvent` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```java
+    Event event = new Event("$identify", "test_user_id");
+
+    JSONObject groupProps = new JSONObject();
+    try {
+        groupProps.put("sport", new String[] {"tennis", "soccer"});
+    } catch (JSONException e) {
+        e.printStackTrace();
+        System.err.println("Invalid JSON");
+    }
+
+    event.groupProperties = groupProps;
+    client.logEvent(event);
+    ```
+
+You can also use `logEvent` to set **event-level groups**. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
 
 ```java
 Event event = New Event('event type', 'test_user_id');
