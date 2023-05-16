@@ -90,11 +90,11 @@ To support high performance environments, the SDK sends events in batches. Every
 ```dart
 // Events queued in memory will flush when number of events exceed upload threshold
 // Default value is 30
-Amplitude.getInstance().setEventUploadThreshold(40);
+Amplitude.getInstance().setEventUploadThreshold(1);
 
 // Events queue will flush every certain milliseconds based on setting
 // Default value is 30,000 milliseconds
-Amplitude.getInstance().setEventUploadPeriodMillis(40000);
+Amplitude.getInstance().setEventUploadPeriodMillis(10000);
 ```
 
 #### EU data residency
