@@ -148,6 +148,7 @@ You can also use advanced configuration for better control of when page views ev
     |-|-|-|
     `defaultTracking.pageViews.trackOn` | Optional. `"attribution"` or `() => boolean` | Provides advanced control on when page view events are tracked.<br /><br />You can omit or set the value to `undefined`,  and configure page view events to be tracked on initialization.<br /><br />You can set the value to `"attribution"` and configure page view events to be tracked only when web attribution are tracked.<br /><br />You can set the value to a function that returns a boolean (`true` or `false`) and configure page view events to be tracked based on your criteria.|
     `defaultTracking.pageViews.trackHistoryChanges` | Optional. `"pathOnly"` or `"all"` | Provides advanced control for single page application on when page views are tracked.<br /><br />You can omit or set the value to `"all"`,  and configure page view events to be tracked on any navigation change to the URL within your single page application. For example: navigating from `https://amplitude.com/#company` to `https://amplitude.com/#blog`.<br /><br />You can omit or set the value to "pathOnly",  and configure page view events to be tracked on navigation change to the URL path only within your single page application. For example: navigating from `https://amplitude.com/company` to `https://amplitude.com/blog`.|
+    `defaultTracking.pageViews.eventType` | Optional. `String` | Customize the event_type for page view event. |
 
 For example, you can configure Amplitude to track page views only when the URL path contains a certain substring, let’s say “home”. Refer to the code sample for how to achieve this.
 
@@ -162,6 +163,15 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   },
 });
 ```
+
+The following are the event info got tracked in the page view events.
+
+|<div class="big-column">Name</div>| Description| Default Value|
+|---|----|---|
+|`event_type`| `string`. The event type for page view event. Configurable through `defaultTracking.pageViews.eventType` or enrichment plugin. | `[Amplitude] Page Viewed`, `[Amplitude] Page View` for version previous 1.9.1 |
+|`event_properties.page_title`| `string`. The page title. The value of document.title for the current page. | document.title or ''|
+|`event_properties.page_location`| `string`. The page location. The value of location.href or ''| location.href or '' |
+|`event_propertiespage_path.`| `string`. The page path. The value of location.path or '' | location.path or ''|
 
 #### Tracking sessions
 

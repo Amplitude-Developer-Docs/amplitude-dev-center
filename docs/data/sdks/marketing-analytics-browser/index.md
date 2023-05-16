@@ -90,6 +90,15 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
 
+The following are the event info got tracked in the page view events
+
+|<div class="big-column">Name</div>| Description| Default Value|
+|---|----|---|
+|`event_type`| `string`. The event type for page view event. Configurable through enrichment plugin. | `Page View` |
+|`event_properties.page_title`| `string`. The page title. The value of document.title for the current page. | document.title or ''|
+|`event_properties.page_location`| `string`. The page location. The value of location.href or ''| location.href or '' |
+|`event_propertiespage_path.`| `string`. The page path. The value of location.path or '' | location.path or ''|
+
 ### Use the Marketing Analytics SDK with Ampli
 
 You can use Ampli with this SDK by passing an instance of the Marketing Analytics SDK to `ampli.load()`. See the [Ampli documentation](../typescript-browser/ampli.md#load) for the Browser SDK for more details on configuration. 
