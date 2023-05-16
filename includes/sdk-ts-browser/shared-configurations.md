@@ -12,4 +12,3 @@
     |`sessionTimeout`| `number`. How long one session expire. | `30` minutes. |
     |`userId`| `number`. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. | `undefined` |
     |`config.trackingOptions`| `TrackingOptions`. Please check the `Optional tracking` section for more tracking options configuration. | Enable all tracking options by default. |
-    
