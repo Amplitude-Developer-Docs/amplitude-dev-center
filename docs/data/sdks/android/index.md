@@ -539,7 +539,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
 
 !!! example
 
-    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like:
+    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '["10", "16"]'. Here is what your code might look like:
 
     ```java
     Amplitude.getInstance().setGroup("orgID", new JSONArray().put("10").put("16"));  // list values
