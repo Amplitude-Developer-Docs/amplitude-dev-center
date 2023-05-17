@@ -173,13 +173,11 @@ amplitude.identify(identify)
 --8<-- "includes/event-level-groups-intro.md"
 
 ```kotlin
-amplitude.track(
-    BaseEvent(
-        eventType = "event type",
-        groups = mapOf("orgId" to "15")
-    ),
-    mapOf("event property" to "event property value")
-)
+val event = BaseEvent()
+event.eventType = "event type"
+event.groups = mutableMapOf("orgId" to "15")
+event.eventProperties = mutableMapOf("event property" to "event property value")
+amplitude.track(event)
 ```
 
 ### Group identify
