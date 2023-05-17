@@ -80,6 +80,7 @@ init(API_KEY, 'user@amplitude.com', {
 ### Configuration
 
 @{{ sdk_configuration_ts() }}
+    |`config.trackingSessionEvents`| `boolean`. Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 

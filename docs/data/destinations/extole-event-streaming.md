@@ -1,7 +1,6 @@
 ---
 title: Extole Event Streaming
 description: Send Amplitude events to Extole campaigns automatically with just a few clicks.
-status: new
 ---
 
 !!!beta

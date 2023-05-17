@@ -89,12 +89,12 @@ To support high performance environments, the SDK sends events in batches. Every
 
 ```dart
 // Events queued in memory will flush when number of events exceed upload threshold
-// Default value is 10
-Amplitude.getInstance().setEventUploadThreshold(20);
+// Default value is 30
+Amplitude.getInstance().setEventUploadThreshold(1);
 
 // Events queue will flush every certain milliseconds based on setting
-// Default value is 10,000 milliseconds
-Amplitude.getInstance().setEventUploadPeriodMillis(20000);
+// Default value is 30,000 milliseconds
+Amplitude.getInstance().setEventUploadPeriodMillis(10000);
 ```
 
 #### EU data residency
@@ -374,9 +374,9 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
  Remember that apps asking for information from children under 13 years of age must comply with COPPA.
 
 ```dart
-//Enable COPPA Control
+// Enable COPPA Control
 Amplitude.getInstance().enableCoppaControl();
-//Disable COPPA Control
+// Disable COPPA Control
 Amplitude.getInstance().disableCoppaControl();
 ```
 

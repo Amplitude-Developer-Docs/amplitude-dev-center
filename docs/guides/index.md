@@ -74,4 +74,13 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
     Learn how to migrate from mParticle to Amplitude CDP.
 
     [:octicons-arrow-right-24: Read the guide](../guides/mParticle-migration-guide)
+
+- :material-cookie-outline:{ .lg .middle } __Amplitude Cookies & Consent Management__
+
+    ---
+
+    Learn how Amplitude manages the cookies and consent from your users.
+
+    [:octicons-arrow-right-24: Read the guide](../guides/cookies-consent-mgmt-guide)
+    
 </div>

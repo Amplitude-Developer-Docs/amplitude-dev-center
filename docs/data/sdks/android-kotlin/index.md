@@ -36,7 +36,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `flushEventsOnClose` | `Boolean`. Flushing of unsent events on app close. | `true` |
     | `callback` | `EventCallBack`. Callback function after event sent. | `null` |
     | `optOut` | `Boolean`. Opt the user out of tracking. | `false` |
-    | `trackingSessionEvents` | `Boolean`. Flushing of unsent events on app close. | `false` |
+    | `trackingSessionEvents` | `Boolean`. Automatic tracking of "Start Session" and "End Session" events that count toward event volume. | `false` |
     | `minTimeBetweenSessionsMillis` | `Long`. The amount of time for session timeout if disable foreground tracking. The value is in milliseconds. | `300000` |
     | `serverUrl` | `String`. The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` | `ServerZone.US` or `ServerZone.EU`. The server zone to send to, will adjust server url based on this config. | `ServerZone.US` |
@@ -44,7 +44,8 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `useAdvertisingIdForDeviceId` | `Boolean`. Whether to use advertising id as device id. Please check [here](../android-kotlin/#advertiser-id) for required module and permission. | `false` |
     | `useAppSetIdForDeviceId` | `Boolean`.  Whether to use app set id as device id. Please check [here](../android-kotlin/#app-set-id) for required module and permission. | `false` |
     | `trackingOptions` | `TrackingOptions`. Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` | `Boolean`. Whether to enable coppa control for tracking options. | `false` |'
+    | `enableCoppaControl` | `Boolean`. Whether to enable COPPA control for tracking options. | `false` |
+    | `instanceName` | `String`. The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance.  | `$default_instance`|
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -104,13 +105,30 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
 
 ### track
 
-Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
+Events represent how users interact with your application. For example, "Song Played" may be an action you want to note.
+
+```kotlin
+amplitude.track("Song Played")
+```
+
+You can also optionally include event properties.
 
 ```kotlin
 amplitude.track(
-    "Button Clicked",
-    mutableMapOf<String, Any?>("my event property" to "test event property value")
+    "Song Played",
+    mutableMapOf<String, Any?>("title" to "Happy Birthday")
 )
+```
+
+For more complex events you can [create and track a `BaseEvent` object](https://github.com/amplitude/Amplitude-Kotlin/blob/8c3c39ce1f79485a0ce716bbf01de464a9afe9a8/core/src/main/java/com/amplitude/core/Amplitude.kt#L112).
+
+```kotlin
+var event = BaseEvent()
+event.eventType = "Song Played"
+event.eventProperties = mutableMapOf<String, Any?>("title" to "Happy Birthday")
+event.groups = mutableMapOf<String, Any?>("test-group-type" to "test-group-value")
+event.insertId = 1234
+amplitude.track(event)
 ```
 
 ### identify
@@ -572,41 +590,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 
 ### Advertiser ID
 
-Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
- [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (such as ad campaign, app store search).
- Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV or device ID when IDFA isn't available.
-
-Follow these steps to use Android Ad ID.
-
-!!!warning "Google Ad ID and Tracking Warning"
-
-    As of April 1, 2022, Google allows users to opt out of Ad ID tracking. Ad ID may return null or error. You can use am alternative ID called [App Set ID](#app-set-id), which is unique to every app install on a device. [Learn more](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en)
-
-1. Add `play-services-ads` as a dependency.
-
-    ```bash
-    dependencies {
-      implementation 'com.google.android.gms:play-services-ads:18.3.0'
-    }
-    ```
-
-2. `AD_MANAGER_APP` Permission
-If you use Google Mobile Ads SDK version 17.0.0 or higher, you need to add `AD_MANAGER_APP` to `AndroidManifest.xml`.
-
-    ```xml
-    <manifest>
-        <application>
-            <meta-data
-                android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-                android:value="true"/>
-        </application>
-    </manifest>
-    ```
-
-3. Add ProGuard exception
-
-Amplitude Android SDK uses Java Reflection to use classes in Google Play Services. For Amplitude SDKs to work in your Android application, add these exceptions to `proguard.pro` for the classes from `play-services-ads`.
-`-keep class com.google.android.gms.ads.** { *; }`
+--8<-- "includes/sdk-android/android-sdk-advertiser-id.md"
 
 #### Set advertising ID as device ID
 
@@ -827,3 +811,20 @@ Implements a customized `loggerProvider` class from the LoggerProvider, and pass
         )
     )
     ```
+
+### Multiple Instances
+
+It is possible to create multiple instances of Amplitude. Instances with the same `instanceName` will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance. For more details see [Configuration](#configuration).
+
+```kotlin
+val amplitude1 = Amplitude(Configuration(
+    instanceName = "one",
+    apiKey = "api-key-1",
+    context = applicationContext,
+))
+val amplitude2 = Amplitude(Configuration(
+    instanceName = "two",
+    apiKey = "api-key-2",
+    context = applicationContext,
+))
+```

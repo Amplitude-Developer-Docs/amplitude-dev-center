@@ -183,8 +183,6 @@ nav:
         - data/ampli/sdk.md
         - data/ampli/integrating-with-ci.md
         - Source Control: data/ampli/git-workflow.md
-        - data/ampli/middleware.md
-        - data/ampli/plugin.md
         - data/ampli/migration.md
       - SDKs: data/sdks/sdk-overview.md
       - Cloud Storage:
@@ -193,7 +191,7 @@ nav:
         - Google Cloud Storage: data/sources/google-cloud-storage.md
         - Converter Configuration: data/converter-configuration-reference.md
       - Warehouse:
-        #- BigQuery: data/sources/bigquery.md
+        - BigQuery: data/sources/bigquery.md
         - Snowflake: data/sources/snowflake.md
       - Other Sources:
         - Overview: data/source-other-overview.md
@@ -263,6 +261,7 @@ nav:
         - Sales:
           - Salesforce: data/sources/salesforce-group.md
         - Subscription Management:
+          - Adapty: data/sources/adapty.md
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
         - Website:
@@ -298,6 +297,8 @@ nav:
         - Kinesis Firehose: data/destinations/kinesis-firehose.md
         - Lantern: data/destinations/lantern-event-streaming.md
         - Meta Pixel: data/destinations/meta-pixel.md
+        - MoEngage: data/destinations/moengage-event-streaming.md
+        - Planhat: data/destinations/planhat-event-streaming.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
         - Userlist: data/destinations/userlist-event-streaming.md
@@ -310,6 +311,7 @@ nav:
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
         - Braze: data/destinations/braze-cohort.md
+        - CleverTap: data/destinations/clevertap-cohort.md
         - Cordial: data/destinations/cordial-cohort.md
         - Customer.io: data/destinations/customerio-cohort.md
         - Enterpret: data/destinations/enterpret-cohort.md
@@ -324,8 +326,6 @@ nav:
         - LaunchDarkly: data/destinations/launchdarkly-cohort.md
         - Leanplum: data/destinations/leanplum-cohort.md
         - Mailchimp: data/destinations/mailchimp-cohort.md
-        - Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
-        - Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
         - Marketo: data/destinations/marketo-cohort.md
         - Marketo Static List: data/destinations/marketo-static-list-cohort.md
         - Maze: data/destinations/maze-cohort.md
@@ -336,6 +336,8 @@ nav:
         - Plotline: data/destinations/plotline-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
+        - Salesforce Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
+        - Salesforce Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
         - Sendgrid: data/destinations/sendgrid-cohort.md
         - Split: data/destinations/split-cohort.md
         - Segment: data/destinations/segment-cohort.md
@@ -345,6 +347,7 @@ nav:
         - TikTok: data/destinations/tiktok-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
+        - User.com: data/destinations/user.com-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
     - Privacy and PII:
@@ -388,6 +391,7 @@ nav:
         - JVM SDK: experiment/sdks/jvm-sdk.md
         - Go SDK: experiment/sdks/go-sdk.md
         - Python SDK: experiment/sdks/python-sdk.md
+        - Evaluation Proxy: experiment/infra/evaluation-proxy.md
         - Maintenance:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
@@ -399,6 +403,7 @@ nav:
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
   - Segment Migration Guide: guides/segment-migration-guide.md
+  - Cookies and Consent Management: guides/cookies-consent-mgmt-guide.md
 - APIs:
   - analytics/apis/index.md
   - Find your API credentials: analytics/find-api-credentials.md
@@ -430,6 +435,8 @@ nav:
 - SDKs:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
+    - SDK Architecture: data/sdks/sdk-architecture.md
+    - Ampli: data/sdks/ampli-overview.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
@@ -481,7 +488,9 @@ nav:
         - data/sdks/node/index.md
         - Ampli Codegen: data/sdks/node/ampli.md
     - Other Topics:
-      - data/dynamic-configuration.md
+      - Dynamic Configuration: data/dynamic-configuration.md
+      - Plugins: data/sdk-plugins.md
+      - Middleware: data/sdk-middleware.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

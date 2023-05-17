@@ -13,7 +13,7 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases)
 
 --8<-- "includes/no-ampli.md"
-    To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead.
+    To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead. For customers beginning with Amplitude Experiment, please note that this SDK does not support the [Amplitude Experiment integration](https://www.docs.developers.amplitude.com/experiment/sdks/ios-sdk/#initialize). 
 
 ## Getting started
 
@@ -51,7 +51,7 @@ let amplitude = Amplitude(configuration: Configuration(
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
     | `useBatch` |  Whether to use batch api. | `false` |
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` |  Whether to enable coppa control for tracking options. | `false` |'
+    | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |'
 
 ### `track`
 
