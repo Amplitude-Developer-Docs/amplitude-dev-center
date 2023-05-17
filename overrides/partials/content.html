@@ -40,23 +40,23 @@ as the main headline.
   <hr>
   <!-- Tracks link clicks out to the community for doc improvements-->
 <script>
-    function trackCommunity(){
-      var communityEventProperties = {
-        name: "community_help",
-        url: window.location.href,
-      };
-
-      amplitude.getInstance().logEvent('Link Click', eventProperties)
-    }
-
-    function trackClickSupportRequest(){
-      let properties = {
+    function getPageInfo() {
+      return {
         path: window.location.pathname,
         product: window.location.pathname.split('/')[1],
         url: window.location.href
       };
+    }
 
-      amplitude.getInstance().logEvent('support request', properties);
+    function trackCommunity(){
+      amplitude.getInstance().logEvent('Link Click', {
+        ...getPageInfo(),
+        name: "community_help"
+      })
+    }
+
+    function trackClickSupportRequest(){
+      amplitude.getInstance().logEvent('support request', getPageInfo());
     }
 
     function trackFeedback(isUseful){
@@ -68,24 +68,30 @@ as the main headline.
       feedbackMessage.innerHTML = isUseful ? "Glad to hear that!" : 'Still have questions? Ask them in the <a id="linkToCommunityHelp" href="https://community.amplitude.com" onclick="trackCommunity()">Community</a> or <a href="https://support.amplitude.com/" onclick="trackClickSupportRequest()">submit a request</a>.';
       document.getElementById("feedbackMessage").appendChild(feedbackMessage);
 
-      var path = document.location.pathname;
-      var product = document.location.pathname.split('/')[1];
-      var url = document.location.href;
-
       /* Send feedback value */
       amplitude.getInstance().logEvent('feedback', {
-        path: path,
-        product: product,
-        url: url,
+        ...getPageInfo(),
         isUseful: isUseful
       });
     }
 </script>
+
 <div style="display: flex; align-items: center;" >
   <h5>Was this page helpful?</h5>
-  <button id="happyButton" style="cursor: pointer; margin: 5%;" onclick="trackFeedback(true)">👍 Yes</button>
-  <button id="sadButton" style="cursor: pointer;" onclick="trackFeedback(false)">👎 No</button>
+  <button id="happyButton" style="cursor: pointer; margin: 5%;" onclick="trackFeedback(true)">
+    <span class="twemoji">
+      {% include ".icons/fontawesome/regular/thumbs-up.svg" %}
+    </span>
+    Yes
+  </button>
+  <button id="sadButton" style="cursor: pointer;" onclick="trackFeedback(false)">
+    <span class="twemoji">
+      {% include ".icons/fontawesome/regular/thumbs-down.svg" %}
+    </span>
+    No
+  </button>
 </div>
+
 <div id="feedbackMessage"></div>
   {% endif %}
 
