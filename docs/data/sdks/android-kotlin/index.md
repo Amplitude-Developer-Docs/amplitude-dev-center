@@ -112,6 +112,7 @@ amplitude.track("Song Played")
 ```
 
 You can also optionally include event properties.
+
 ```kotlin
 amplitude.track(
     "Song Played",
@@ -125,6 +126,7 @@ For more complex events you can [create and track a `BaseEvent` object](https://
 var event = BaseEvent()
 event.eventType = "Song Played"
 event.eventProperties = mutableMapOf<String, Any?>("title" to "Happy Birthday")
+event.groups = mutableMapOf<String, Any?>("test-group-type" to "test-group-value")
 event.insertId = 1234
 amplitude.track(event)
 ```
