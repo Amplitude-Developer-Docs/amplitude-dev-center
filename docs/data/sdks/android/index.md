@@ -545,7 +545,7 @@ If the user property doesn't exist, it's initialized to an empty list before the
     Amplitude.getInstance().setGroup("orgID", new JSONArray().put("10").put("16"));  // list values
     ```
 
-You can also use `logEventWithGroups` to set event-level groups. This means that the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with `setGroup`:
+You can also use `logEvent` to set event-level groups. This means that the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with `setGroup`:
 
 === "Java"
 
@@ -553,7 +553,7 @@ You can also use `logEventWithGroups` to set event-level groups. This means that
     JSONObject eventProperties = new JSONObject().put("key", "value");
     JSONObject groups = new JSONObject().put("orgId", 10);
 
-    Amplitude.getInstance().logEventWithGroups("initialize_game", eventProperties, groups);
+    Amplitude.getInstance().logEvent("initialize_game", eventProperties, groups);
     ```
 
 ### Group identify
