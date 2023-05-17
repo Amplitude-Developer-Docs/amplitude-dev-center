@@ -164,17 +164,17 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-The following are the event info got tracked in the page view events.
+The following information is tracked in the page view events.
 
 |<div class="big-column">Name</div>| Description| Default Value|
 |---|----|---|
-|`event_type`| `string`. The event type for page view event. Configurable through `defaultTracking.pageViews.eventType` or enrichment plugin. | `[Amplitude] Page Viewed`, `[Amplitude] Page View` for version previous 1.9.1 |
-|`event_properties.page_domain`| `string`. The page domain. | location.hostname or ''. |
-|`event_properties.page_location`| `string`. The page location. | location.href or ''. |
-|`event_properties.page_path`| `string`. The page path. | location.path or ''.|
-|`event_properties.page_title`| `string`. The page title. | document.title or ''.|
-|`event_properties.page_url`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
-|`event_properties.[CampaignParam]`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possilbe keys. | Any undefined campaignParam or `undefined`. |
+|`event_type`| `string`. The event type for page view event. Configurable through `defaultTracking.pageViews.eventType` or enrichment plugin. | `[Amplitude] Page Viewed` from version 1.9.1 |
+|`event_properties.[Amplitude] Page Domain`| `string`. The page domain. | location.hostname or ''. |
+|`event_properties.[Amplitude] Page Location`| `string`. The page location. | location.href or ''. |
+|`event_properties.[Amplitude] Page Path`| `string`. The page path. | location.path or ''.|
+|`event_properties.[Amplitude] Page Title`| `string`. The page title. | document.title or ''.|
+|`event_properties.[Amplitude] Page Title`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
+|`event_properties.${CampaignParam}`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possilbe keys. | Any undefined campaignParam or `undefined`. |
 
 #### Tracking sessions
 

@@ -90,7 +90,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
 
-The following are the event info got tracked in the page view events
+The following information is tracked in the page view events.
 
 |<div class="big-column">Name</div>| Description| Default Value|
 |---|----|---|
