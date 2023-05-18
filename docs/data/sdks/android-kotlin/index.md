@@ -37,7 +37,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `callback` | `EventCallBack`. Callback function after event sent. | `null` |
     | `optOut` | `Boolean`. Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | `Boolean`. Automatic tracking of "Start Session" and "End Session" events that count toward event volume. | `false` |
-    | `minTimeBetweenSessionsMillis` | `Long`. The amount of time for session timeout if disable foreground tracking. The value is in milliseconds. | `300000` |
+    | `minTimeBetweenSessionsMillis` | `Long`. The amount of time for session timeout. The value is in milliseconds. | `300000` |
     | `serverUrl` | `String`. The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` | `ServerZone.US` or `ServerZone.EU`. The server zone to send to, will adjust server url based on this config. | `ServerZone.US` |
     | `useBatch` | `Boolean` Whether to use batch api. | `false` |

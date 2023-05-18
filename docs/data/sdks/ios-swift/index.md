@@ -46,7 +46,7 @@ let amplitude = Amplitude(configuration: Configuration(
     | `callback` | Callback function after event sent. | `nil` |
     | `optOut` | Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | Flushing of unsent events on app close. | `true` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout. | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
     | `useBatch` |  Whether to use batch api. | `false` |
