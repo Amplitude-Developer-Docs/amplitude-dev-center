@@ -155,11 +155,29 @@ amplitude.identify(identify)
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-For example, if Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like:
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```kotlin
+    // set group with a single group name
+    amplitude.setGroup("orgId", "15");
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```kotlin
+    // set group with multiple group names
+    amplitude.setGroup("sport", arrayOf("tennis", "soccer"))
+    ```
+
+--8<-- "includes/event-level-groups-intro.md"
 
 ```kotlin
-amplitude.setGroup("orgId", "15");
-amplitude.setGroup("sport", arrayOf("tennis", "soccer")) // list values
+val event = BaseEvent()
+event.eventType = "event type"
+event.eventProperties = mutableMapOf("event property" to "event property value")
+event.groups = mutableMapOf("orgId" to "15")
+amplitude.track(event)
 ```
 
 ### Group identify

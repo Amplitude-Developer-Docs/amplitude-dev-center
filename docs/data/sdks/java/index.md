@@ -198,17 +198,56 @@ client.logEvent(event);
 
 #### Events with groups
 
-You can also use `logEvent` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
+--8<-- "includes/groups-intro-paragraph.md"
+
+!!! example
+    If Joe is in 'orgId' '10', then the `groupName` would be '10':
+
+    ```java
+    Event event = new Event("$identify", "test_user_id");
+
+    JSONObject groupProps = new JSONObject();
+    try {
+        groupProps.put("orgId", 10);
+    } catch (JSONException e) {
+        e.printStackTrace();
+        System.err.println("Invalid JSON");
+    }
+
+    event.groupProperties = groupProps;
+    client.logEvent(event);
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```java
+    Event event = new Event("$identify", "test_user_id");
+
+    JSONObject groupProps = new JSONObject();
+    try {
+        groupProps.put("sport", new String[] {"tennis", "soccer"});
+    } catch (JSONException e) {
+        e.printStackTrace();
+        System.err.println("Invalid JSON");
+    }
+
+    event.groupProperties = groupProps;
+    client.logEvent(event);
+    ```
+
+You can also use `logEvent` to set **event-level groups**. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
 
 ```java
-Event event = New Event('Button Clicked', 'test_user_id');
+Event event = New Event('event type', 'test_user_id');
 
 JsonObject groups = new JSONObject();
-groups.put("groupKey", "groupValue");
-JsonObject groups_properties = new JSONObject();
-groups_properties.put("groupProperty", "groupPropertyValue");
+try {
+    groups.put("orgId", 10);
+} catch (JSONException e) {
+    e.printStackTrace();
+    System.err.println("Invalid JSON");
+}
 event.groups = groups;
-event.groups_properties = groups_properties;
 
 client.logEvent(event);
 ```
