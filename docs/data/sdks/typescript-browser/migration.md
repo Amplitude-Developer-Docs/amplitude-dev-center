@@ -555,7 +555,7 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 !!!note
 
     - **Web Attribution**: For Browser SDK version lower than 1.9.0, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false`, install the `@amplitude/plugin-web-attribution-browser` and add `web-attribution` plugin manually, which will lead web attribution behavior the same as Marketing Analytics Browser SDK.
-    - **Default Event Tracking**: For Browser SDK version lower than 1.9.0, to track page view events, you need to install the `npm install @amplitude/plugin-page-view-tracking-browser` and add `pageViewTrackingPlugin()` plugin manually. The event name for page views, along with the event properties for page views are different than the latest default event tracking. 
+    - **Default Event Tracking**: For Browser SDK version lower than 1.9.0, to track page view events, you need to install the `npm install @amplitude/plugin-page-view-tracking-browser` and add `page-view-tracking` plugin manually. The event name for page views, along with the event properties for page views are different than the latest default event tracking. 
 
 ### Default Event Tracking V2 vs Default Event Tracking V1
 
@@ -563,7 +563,7 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 | --- | --- | --- |
 | Configurable | Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../../marketing-analytics-browser/#page-view). | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../#tracking-default-eventsr/#page-view). |
 | Events | Includes with [configuration](../../marketing-analytics-browser/#page-view) <ul><li> page view event (`Page view`)</li> </ul>  </li></ul> | Includes with [configuration](./#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul> |
-| Archtecture | Implemented through `pageViewTrackingPlugin` plugin. | Implemented through different plugins. |  
+| Archtecture | Implemented through `page-view-tracking` plugin. | Implemented through different plugins. |  
 | Customizable |  Yes. Through [Enrichment Plugin](./#plugins). | Yes. Through [Enrichment Plugin](./#plugins). |
 
 ### Web Attribution V2 vs Web Attribution V1 vs Maintenance Web Attribution
