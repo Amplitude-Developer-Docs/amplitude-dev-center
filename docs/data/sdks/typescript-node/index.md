@@ -292,8 +292,8 @@ import { track } from '@amplitude/analytics-node';
 
 track({
   event_type: 'event type',
-  groups: { 'orgId': '15' },
-  event_properties: { eventPropertyKey: 'event property value' }
+  event_properties: { eventPropertyKey: 'event property value' },
+  groups: { 'orgId': '15' }
 }, undefined, {
   user_id: 'user@amplitude.com',
 });

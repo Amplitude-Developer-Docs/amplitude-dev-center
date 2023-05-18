@@ -175,8 +175,8 @@ amplitude.identify(identify)
 ```kotlin
 val event = BaseEvent()
 event.eventType = "event type"
-event.groups = mutableMapOf("orgId" to "15")
 event.eventProperties = mutableMapOf("event property" to "event property value")
+event.groups = mutableMapOf("orgId" to "15")
 amplitude.track(event)
 ```
 

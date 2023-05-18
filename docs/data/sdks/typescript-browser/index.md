@@ -352,8 +352,8 @@ amplitude.identify(identifyEvent);
 ```ts
 amplitude.track({
   event_type: 'event type',
-  groups: { 'orgId': '15' },
-  event_properties: { eventPropertyKey: 'event property value' }
+  event_properties: { eventPropertyKey: 'event property value' },
+  groups: { 'orgId': '15' }
 })
 ```
 
