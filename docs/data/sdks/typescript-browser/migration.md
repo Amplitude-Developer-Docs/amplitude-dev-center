@@ -554,7 +554,7 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 
 !!!note
 
-    - **Web Attribution**: For Browser SDK version lower than 1.9.0, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false`, install the `@amplitude/plugin-web-attribution-browser` and add `webAttributionPlugin()` plugin manually, which will lead web attribution behavior the same as Marketing Analytics Browser SDK.
+    - **Web Attribution**: For Browser SDK version lower than 1.9.0, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false`, install the `@amplitude/plugin-web-attribution-browser` and add `web-attribution` plugin manually, which will lead web attribution behavior the same as Marketing Analytics Browser SDK.
     - **Default Event Tracking**: For Browser SDK version lower than 1.9.0, to track page view events, you need to install the `npm install @amplitude/plugin-page-view-tracking-browser` and add `pageViewTrackingPlugin()` plugin manually. The event name for page views, along with the event properties for page views are different than the latest default event tracking. 
 
 ### Default Event Tracking V2 vs Default Event Tracking V1
@@ -590,4 +590,4 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 
 | <div class="big-column">  Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | <div class="big-column">  Maintenance Web Attribution </div>|
 | --- | --- | --- |
-| Implemented through `webAttributionPlugin` Plugin. | Implemented through `webAttributionPlugin` Plugin. The behavior will be the same if you set `config.trackNewCampaigns = false`.  | Build in logic. |
+| Implemented through `web-attribution` Plugin. | Implemented through `web-attribution` Plugin. The behavior will be the same if you set `config.trackNewCampaigns = false`.  | Build in logic. |
