@@ -88,13 +88,13 @@ amplitude.track('Button Clicked', eventProperties);
 
 Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can be configured to track the following events automatically:
 
-* Page views (1)
-{ .annotate }
+* Page views [^1]
 * Sessions
 * Form interactions
 * File downloads
 
-1. If you want to track page views before 1.9.0, you need to enable config.attribution.trackPageViews([More details](./#configuration).) or add `page-view-tracking` plugin([More details](../marketing-analytics-browser/#page-view).) The event type for page views, will be different.
+[^1]:
+    If you want to track page views before 1.9.0, you need to enable config.attribution.trackPageViews([More details](./#configuration).) or add `page-view-tracking` plugin([More details](../marketing-analytics-browser/#page-view).) The event type for page views, will be different.
 
 ???config "Tracking default events options"
     |<div class="big-column">Name</div>|Value|Description|
