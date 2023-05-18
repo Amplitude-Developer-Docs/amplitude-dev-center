@@ -766,7 +766,7 @@ The Browser SDK uses cookie storage to persist information that multiple subdoma
 
 * **AMP**: The SDK creates user session cookies with `AMP` prefix and the first ten digits of the API key: `AMP_{first_ten_digits_API_KEY}`.
 * **AMP_MKTG**: The SDK creates marketing campaign cookies with `AMP_MKTG` and the first ten digits of the API key: `AMP_MKTG_{first_ten_digits_API_KEY}`. 
-* **AMP_TEST**: When initialization, the SDK creates a cookie with `AMP_TEST` prefix to check wether the cookie storage is working properly. Then the SDK sets the value as current time, retrieve the cookie by a key and check if the retrieved value matches the original set time. You **can safely delete** the `AMP_TEST` prefix cookies if, for some reason, they're not successfully deleted.
+* **AMP_TEST**: On initialization, the SDK creates a cookie with `AMP_TEST` prefix to check wether the cookie storage is working properly. Then the SDK sets the value as current time, retrieves the cookie by a key and checks if the retrieved value matches the original set time. You **can safely delete** the `AMP_TEST` prefix cookies if, for some reason, they're not successfully deleted.
 * **AMP_TDLTEST**: When initializing, the SDK creates a cookie with `AMP_TDLTEST` prefix to find a subdomain that supports cookie storage. For example, when checking for cookie support on `https://analytics.amplitude.com/amplitude/home` the SDK first tries to find a subdomain that matches the root domain (`amplitude.com`) and then falls back to the full domain (`analytics.amplitude.com`). You **can safely delete** the `AMP_TDLTEST` prefix cookies if, for some reason, they're not successfully deleted.
 
 #### Cookie domain
