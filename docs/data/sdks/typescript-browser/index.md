@@ -168,13 +168,16 @@ The following information is tracked in the page view events.
 
 |<div class="big-column">Name</div>| Description| Default Value|
 |---|----|---|
-|`event_type`| `string`. The event type for page view event. Configurable through `defaultTracking.pageViews.eventType` or enrichment plugin. | `[Amplitude] Page Viewed` from version 1.9.1 |
+|`event_type`| `string`. The event type for page view event. Configurable through `defaultTracking.pageViews.eventType` or enrichment plugin. | `[Amplitude] Page Viewed` from version 1.9.1. |
 |`event_properties.[Amplitude] Page Domain`| `string`. The page domain. | location.hostname or ''. |
 |`event_properties.[Amplitude] Page Location`| `string`. The page location. | location.href or ''. |
 |`event_properties.[Amplitude] Page Path`| `string`. The page path. | location.path or ''.|
 |`event_properties.[Amplitude] Page Title`| `string`. The page title. | document.title or ''.|
 |`event_properties.[Amplitude] Page Title`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
 |`event_properties.${CampaignParam}`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possilbe keys. | Any undefined campaignParam or `undefined`. |
+
+!!!note "Page views"
+    The configuration for enabling Page views, along with the event name for Page views, may differ in versions prior to 1.9.1.
 
 #### Tracking sessions
 
