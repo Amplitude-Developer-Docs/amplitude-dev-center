@@ -814,4 +814,4 @@ The SDK creates two types of cookies: user session cookies and marketing campaig
 
 #### Disable cookies
 
-By default, `disableCookies` is set to `false` and use `CookieStorage`. You can opt out using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but can't track cookies across domains. Because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+You can opt out using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
