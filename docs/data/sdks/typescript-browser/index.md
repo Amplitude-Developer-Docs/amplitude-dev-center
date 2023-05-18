@@ -782,12 +782,12 @@ The SDK creates two types of cookies: user session cookies and marketing campaig
 ???config "User session cookies"
     |<div class="big-column">Name</div>| Description|
     |---|----|
-    |`optOut`|Required|
-    |`userId`||
-    |`deviceId`||
-    |`sessionId`||
-    |`lastEventTime`||
-    |`lastEventId`||
+    |`optOut`|<span class="required">Required</span>. A flag to opt this device out of Amplitude tracking. If this flag is set, no additional information will be stored for the user|
+    |`userId`|Upon user log-in, if you send this value, it is stored in the cookie. Set this to uniquely identify their users (non-anonymous navigation). It is stored encoded using Base64|
+    |`deviceId`|A randomly generated string. It will persist unless a user clears their browser cookies and/ or is browsing in private mode. Even if a user consistently uses the same the device and browser, the device ID can still vary|
+    |`sessionId`|A randomly generated string for each session|
+    |`lastEventTime`|Time of the last event, used to determine when to expire and create a new session Id|
+    |`lastEventId`|Id of the last event|
 
 ???config "Marketing campaign cookies"
     |<div class="big-column">Name</div>| Description|
