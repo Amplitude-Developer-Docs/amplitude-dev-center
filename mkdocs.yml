@@ -441,9 +441,11 @@ nav:
       - Node.js:
         - data/sdks/typescript-node/index.md
         - Ampli Codegen: data/sdks/typescript-node/ampli.md
+        - Migration Guide: data/sdks/typescript-node/migration.md
       - Android:
         - data/sdks/android-kotlin/index.md
         - Ampli Codegen: data/sdks/android-kotlin/ampli.md
+        - Migration Guide: data/sdks/android-kotlin/migration.md
       - iOS:
         - data/sdks/ios/index.md
         - Ampli Codegen: data/sdks/ios/ampli.md
@@ -456,6 +458,7 @@ nav:
       - React Native:
         - data/sdks/typescript-react-native/index.md
         - Ampli Codegen: data/sdks/typescript-react-native/ampli.md
+        - Migration Guide: data/sdks/typescript-react-native/migration.md
       - Flutter:
         - data/sdks/flutter/index.md
       - Python:
@@ -485,7 +488,6 @@ nav:
       - Dynamic Configuration: data/dynamic-configuration.md
       - Plugins: data/sdk-plugins.md
       - Middleware: data/sdk-middleware.md
-      - All SDKs Comparison: data/sdks/sdk-comparison.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

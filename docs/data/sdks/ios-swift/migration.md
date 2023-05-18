@@ -511,3 +511,17 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
     ```
 
 --8<-- "includes/abbreviations.md"
+
+## Comparison 
+
+--8<-- "includes/sdk-migration/sdk-migration-note.md"
+
+| <div class="big-column">Feature</div> | [Latest iOS SDK](./) | [Maintenance iOS SDK](../../ios-swift/) |
+| --- | --- | --- |
+| Package | AmplitudeSwift | [Amplitude](https://cocoapods.org/pods/Amplitude-iOS) |
+| Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../../ios/#configuration). Latest iOS SDK support more configurations. Check [here](./migration/#configuration) for more details. | Support explicity setter methods. [More configurations](../../ios/#configuration) |
+| Logger Provider | ConsoleLogger() by default. Fully customizable. | AMPLITUDE_LOG, config throught marcro. |
+| Storage Provider | PersistentStorage() by default. File storage and iOS user’s defaults database. Fully customizable. | SQLite Database. |
+| Customization | Plugins | Middleware |
+| Server Endpoint | HTTP V2 API | HTTP V1 API |
+| Batch API| Yes, with configuration. | Not supported. |
