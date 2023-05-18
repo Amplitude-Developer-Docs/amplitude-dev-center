@@ -11,7 +11,7 @@ Browse all Amplitude's current SDK offerings. Maintenance SDKs are listed in the
 
 ## Analytics SDKs
 
-Please check [here](./sdk-comparison.md) for the differences between SDKs for each platform.
+Please check the comparison section in the migration doc for the differences between SDKs for each platform.
 
 ### Analytics client-side SDKs
 
