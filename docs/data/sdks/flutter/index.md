@@ -308,7 +308,7 @@ Amplitude.getInstance().identify(identify)
 
     ```dart
     // set group with multiple group names
-    Amplitude.getInstance().setGruop("sport", ["tennis", "soccer"]);
+    Amplitude.getInstance().setGroup("sport", ["tennis", "soccer"]);
     ```
     
 !!!note
