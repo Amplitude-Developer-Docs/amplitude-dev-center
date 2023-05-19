@@ -52,6 +52,8 @@ Click IDs are campaign identifiers included as URL parameters. Ad platforms use 
 |`MSCLKID`| Microsoft Click Identifier |
 |`TTCLID`| TikTok Click Identifier |
 |`TWCLID`| Twitter Click Identifier from URL parameter |
+|`LI_FAT_ID`| Linkedin Click identifier (From @amplitude/plugin-web-attribution-browser@0.7.0) |
+|`RDT_CID`| Reddit campaign tracking/attribution Click identifier (From @amplitude/plugin-web-attribution-browser@0.7.0) |
 
 #### First-touch attribution
 
@@ -73,6 +75,8 @@ Amplitude captures the initial attribution data at the start of the first sessio
 - `initial_ttclid`
 - `initial_twclid`
 - `initial_wbraid`
+- `initial_li_fat_id` (From @amplitude/plugin-web-attribution-browser@0.7.0)
+- `initial_rdt_cid` (From @amplitude/plugin-web-attribution-browser@0.7.0)
 
 #### Multi-touch attribution
 
@@ -98,6 +102,8 @@ Amplitude tracks the following as user properties:
 - `ttclid`
 - `twclid`
 - `wbraid`
+- `li_fat_id` (From @amplitude/plugin-web-attribution-browser@0.7.0)
+- `rdt_cid` (From @amplitude/plugin-web-attribution-browser@0.7.0)
 
 For users who initially visits a page directly or organically, by default, the initial value is set to `"EMPTY"`. If you prefer a different initial value, set `attriubtion.initialEmptyValue` to any string value.
 
