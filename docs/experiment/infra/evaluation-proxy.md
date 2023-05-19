@@ -21,11 +21,11 @@ The Evaluation Proxy is a Service to enable, enhance, and optimize [local evalua
 
 ## Configuration
 
-The evaluation proxy is either configured via a `yaml` file (recommended, more configuration options), or using environment variables.
+The evaluation proxy is either configured via a YAML file (recommended, more configuration options), or using environment variables.
 
-The default location for the configuration yaml file is `/etc/evaluation-proxy-config.yaml`. You may also configure the file location using the `PROXY_CONFIG_FILE_PATH` environment variable.
+The default location for the configuration YAML file is `/etc/evaluation-proxy-config.yaml`. You may also configure the file location using the `PROXY_CONFIG_FILE_PATH` environment variable.
 
-The `yaml` configuration file base is an object with two primary sub objects:
+The configuration YAML file base is an object with two primary sub objects:
 
 * [`projects`](#projects) (required)
 * [`configuration`](#configuration-1) (optional).
@@ -58,11 +58,10 @@ The `yaml` configuration file base is an object with two primary sub objects:
     | `AMPLITUDE_API_KEY` | The project's [API key](../../guides/amplitude-keys-guide.md#api-key). |
     | `AMPLITUDE_SECRET_KEY` | The project's [secret key](../../guides/amplitude-keys-guide.md#secret-key). |
     | `AMPLITUDE_EXPERIMENT_DEPLOYMENT_KEY` | <span style="max-width:450px;display:inline-block">The key for the deployment to manage. The [deployment key](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key.</span> |
-    | `AMPLITUDE_REDIS_URI` | Optional. The entire URI to connect to redis. Include the protocol, host, port, and optional username, password, and path (for example `redis://localhost:6379`). |
+    | `AMPLITUDE_REDIS_URI` | Optional. The entire URI to connect to Redis. Include the protocol, host, port, and optional username, password, and path (for example `redis://localhost:6379`). |
     | `AMPLITUDE_REDIS_PREFIX` | Optional. The prefix to connect  |
     | `AMPLITUDE_SERVER_URL` | Optional. The server URL, including protocol and host, to fetch flags from. |
     | `AMPLITUDE_COHORT_SERVER_URL` | Optional. The server URL, including protocol and host, to download cohorts from. |
-
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -103,12 +102,12 @@ An optional object of extra configuration.
 
 #### `redis`
 
-Configure the evaluation proxy to use redis as a persistent storage. Highly recommended to enable the evaluation proxy to run efficiently.
+Configure the evaluation proxy to use Redis as a persistent storage. Highly recommended to enable the evaluation proxy to run efficiently.
 
 | <div class="big-column">Field</div> | <div style="max-width:450px;display:inline-block">Description</div> |
 | --- | --- |
-| `uri` | Required. The full URI to connect to redis with. Include the protocol, host, port, and optional username, password, and path. |
-| `readOnlyUri` | Optional. Optional URI to connect to read only replicas for high scaling high volume reads to redis read replicas. |
+| `uri` | Required. The full URI to connect to Redis with. Include the protocol, host, port, and optional username, password, and path. |
+| `readOnlyUri` | Optional. Optional URI to connect to read only replicas for high scaling high volume reads to Redis read replicas. |
 | `prefix` | Optional. A prefix for all keys saved by the evaluation proxy (default `amplitude`). |
 
 ## Deployment
@@ -167,15 +166,15 @@ docker run \
 ```
 
 !!!tip "Docker compose example"
-    The [evaluation-proxy GitHub repository](https://github.com/amplitude/evaluation-proxy) also contains an example using `docker compose` to run the proxy alongside a local redis image.
+    The [evaluation-proxy GitHub repository](https://github.com/amplitude/evaluation-proxy) also contains an example using `docker compose` to run the proxy alongside a local Redis image.
 
 ## Evaluation
 
 The Evaluation Proxy exposes remote [Evaluation API](../apis/evaluation-api.md) and [SDK](../index.md#sdks) endpoints to run local evaluation within your cluster. This is useful to enable platforms and languages which aren't supported by local evaluation SDKs. As an added benefit, fetch requests made to the evaluation proxy can target cohorts of users, and have assignment events tracked automatically to Amplitude.
 
-**Requests must be sent to the service using `http` on port `3546`.** 
+**Requests must be sent to the service using `http` on port `3546`.**
 
-!!!example "Kubernetes" 
+!!!example "Kubernetes"
     A Kubernetes deployed Evaluation Proxy service (named `evaluation-proxy`) running within a kubernetes namespace `prod` may be accessed from within the cluster at: `http://evaluation-proxy.prod.svc.cluster.local:3546`
 
 ## SDK proxy mode
