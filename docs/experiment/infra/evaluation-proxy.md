@@ -58,8 +58,11 @@ The `yaml` configuration file base is an object with two primary sub objects:
     | `AMPLITUDE_API_KEY` | The project's [API key](../../guides/amplitude-keys-guide.md#api-key). |
     | `AMPLITUDE_SECRET_KEY` | The project's [secret key](../../guides/amplitude-keys-guide.md#secret-key). |
     | `AMPLITUDE_EXPERIMENT_DEPLOYMENT_KEY` | <span style="max-width:450px;display:inline-block">The key for the deployment to manage. The [deployment key](../../guides/amplitude-keys-guide.md#deployment-key) must exist within the same project as the API and secret key.</span> |
-    | `AMPLITUDE_REDIS_URI` | The entire URI to connect to redis. Include the protocol, host, port, and optional username, password, and path (for example `redis://localhost:6379`). |
-    | `AMPLITUDE_REDIS_PREFIX` | The prefix to connect  |
+    | `AMPLITUDE_REDIS_URI` | Optional. The entire URI to connect to redis. Include the protocol, host, port, and optional username, password, and path (for example `redis://localhost:6379`). |
+    | `AMPLITUDE_REDIS_PREFIX` | Optional. The prefix to connect  |
+    | `AMPLITUDE_SERVER_URL` | Optional. The server URL, including protocol and host, to fetch flags from. |
+    | `AMPLITUDE_COHORT_SERVER_URL` | Optional. The server URL, including protocol and host, to download cohorts from. |
+
 
 | Field | Type | Description |
 | --- | --- | --- |
@@ -86,6 +89,17 @@ An optional object of extra configuration.
 | `redis` | Optional (Recommended). See [`redis`](#redis). Configure the proxy to use redis as persistent storage. |
 | `flagSyncIntervalMillis` | Optional. The polling interval to update flag configurations (default `10000`). |
 | `maxCohortSize` | Optional. The maximum size of targeted cohorts that the proxy can download (default `2147483647`). |
+| `serverUrl` | Optional. The server URL, including protocol and host, to fetch flags from. (default `https://api.lab.amplitude.com`) |
+| `cohortServerUr` | Optional. The server URL, including protocol and host, to download cohorts from. (default `https://cohort.lab.amplitude.com`) |
+
+!!!info "EU Data Residency"
+    To use the evaluation proxy with the EU data center, set the [`serverUrl`](#configuration-1) and [`cohortServerUrl`](#configuration-1) configurations to hit the EU data center endpoints:
+    ```yaml
+    configuration:
+      # Other configurations...
+      serverUrl: "https://api.lab.eu.amplitude.com"
+      cohortServerUrl: "https://cohort.lab.eu.amplitude.com"
+    ```
 
 #### `redis`
 
