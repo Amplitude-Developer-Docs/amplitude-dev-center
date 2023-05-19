@@ -542,8 +542,8 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 | Feature| <div class="big-column"> [Latest Browser SDK](../) </div> | <div class="big-column"> [Marketing analytics Browser SDK](../../marketing-analytics-browser/) <div> | [Maintenance Browser SDK](../../javascript)|
 | --- | --- | --- | --- |
 | Package | [@amplitude/analytics-browser](https://www.npmjs.com/package/@amplitude/analytics-browser) | [@amplitude/marketing-analytics-browser](https://www.npmjs.com/package/@amplitude/marketing-analytics-browser) | [amplitude-js](https://www.npmjs.com/package/amplitude-js) |
-| Web Attribution | By default, the Browser SDK includes the `web-attribution` plugin which implements [**Web Attribution V1**](./#web-attribution-v1-vs-web-attribution-v2-vs-maintenance-web-attribution). To use [**Web Attribution V2**](./#web-attribution-v1-vs-web-attribution-v2-vs-maintenance-web-attribution), set config.attribution.disabled = false in amplitude.init(). This was done to keep backwards compatibility with older versions of the SDK that depend on Web Attribution V1. | By default, the Browser SDK includes the `web-attribution` plugins which implements [**Web Attribution V2**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Maintenance Web Attribution**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). |
-| Default Event Tracking |  [**Default Event Tracking V2**](./#default-event-tracking-v2-vs-default-event-tracking-v1) | [**Default Event Tracking V1**](./#default-event-tracking-v2-vs-default-event-tracking-v1) |  Not supported. |
+| Web Attribution [^1] | By default, the Browser SDK includes the `web-attribution` plugin which implements [**Web Attribution V1**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Maintenance Web Attribution**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). |
+| Default Event Tracking [^2] |  [**Default Event Tracking V2**](./#default-event-tracking-v2-vs-default-event-tracking-v1) | [**Default Event Tracking V1**](./#default-event-tracking-v2-vs-default-event-tracking-v1) |  Not supported. |
 | Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../#configuration). Check [here](./) for migration guide from the Maintenance SDK to the latest SDK. | The same as latest Browser SDK.  | Support explicity setter methods. [More configurations](../../javascript/#configuration). |
 | Logger provider | Amplitude Logger by Default. Fully customizable. | The same as latest Browser SDK. | Amplitude Logger by default. Not customizable. |
 | Storage Provider | LocalStorage by default. Fully customizable. | The same as latest Browser SDK. | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
@@ -552,10 +552,8 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 | Server Endpoint | HTTP V2 API | The same as latest Browser SDK. | HTTP V1 API |
 | Batch API| Supported, with configuration. | The same as latest Browser SDK. | Not supported. |
 
-!!!note
-
-    - **Web Attribution**: For Browser SDK version lower than 1.9.0, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false`, install the `@amplitude/plugin-web-attribution-browser` and add `web-attribution` plugin manually, which will lead web attribution behavior the same as Marketing Analytics Browser SDK.
-    - **Default Event Tracking**: For Browser SDK version lower than 1.9.0, to track page view events, you need to install the `npm install @amplitude/plugin-page-view-tracking-browser` and add `page-view-tracking` plugin manually. The event name for page views, along with the event properties for page views are different than the latest default event tracking. 
+[^1]: **Web Attribution**: For Browser SDK version lower than 1.9.0, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false`, install the `@amplitude/plugin-web-attribution-browser` and add `web-attribution` plugin manually, which will lead web attribution behavior the same as Marketing Analytics Browser SDK.
+[^2]: **Default Event Tracking**: For Browser SDK version lower than 1.9.0, to track page view events, you need to install the `npm install @amplitude/plugin-page-view-tracking-browser` and add `page-view-tracking` plugin manually. The event name for page views, along with the event properties for page views are different than the latest default event tracking. 
 
 ### Default Event Tracking V2 vs Default Event Tracking V1
 
@@ -590,4 +588,4 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 
 | <div class="big-column">  Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | <div class="big-column">  Maintenance Web Attribution </div>|
 | --- | --- | --- |
-| Implemented through `web-attribution` Plugin. | Implemented through `web-attribution` Plugin. The behavior will be the same if you set `config.trackNewCampaigns = false`.  | Build in logic. |
+| Implemented through `web-attribution` Plugin. | Implemented through `web-attribution` Plugin. | Build in logic. |
