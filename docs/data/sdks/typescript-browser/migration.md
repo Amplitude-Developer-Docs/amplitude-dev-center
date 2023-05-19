@@ -561,10 +561,10 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 
 | Feature| <div class="big-column"> Default Event Tracking V2 </div> | <div class="big-column"> Default Event Tracking V1 <div> |
 | --- | --- | --- |
-| Configurable | Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../../marketing-analytics-browser/#page-view). | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../#tracking-default-eventsr/#page-view). |
-| Events | Includes with [configuration](../../marketing-analytics-browser/#page-view) <ul><li> page view event (`Page view`)</li> </ul>  </li></ul> | Includes with [configuration](./#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul> |
-| Archtecture | Implemented through `page-view-tracking` plugin. | Implemented through different plugins. |  
-| Customizable |  Yes. Through [Enrichment Plugin](./#plugins). | Yes. Through [Enrichment Plugin](./#plugins). |
+| Configurable | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../#tracking-default-eventsr/#page-view). |  Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../../marketing-analytics-browser/#page-view). |
+| Events | Includes with [configuration](./#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul> | Includes with [configuration](../../marketing-analytics-browser/#page-view) <ul><li> page view event (`Page view`)</li> </ul>  </li></ul> | 
+| Archtecture |  Implemented through different plugins. | Implemented through `page-view-tracking` plugin. |  
+| Customizable | Yes. Through [Enrichment Plugin](./#plugins). | Yes. Through [Enrichment Plugin](./#plugins). |
 
 ### Web Attribution V2 vs Web Attribution V1 vs Maintenance Web Attribution
 
@@ -586,7 +586,7 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 |:--------------------------------------------------------------------------------------------------------------:| :--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
 |  ![Web Attribution V2](../../../assets/images/sdk/web-attribution-v2.drawio.svg)  | ![Web Attribution V1](../../../assets/images/sdk/web-attribution-v1.drawio.svg) | ![Maintenance Web Attribution](../../../assets/images/sdk/web-attribution-maintenance.drawio.svg)  |
 
-### Archtecture
+### Architecture
 
 | <div class="big-column">  Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | <div class="big-column">  Maintenance Web Attribution </div>|
 | --- | --- | --- |

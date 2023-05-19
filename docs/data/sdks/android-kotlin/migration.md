@@ -1,6 +1,6 @@
 ---
-title: Browser SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
+title: Android SDK Migration Guide
+description: Use this guide to easily migrate from Amplitude's maintenance Android SDK (com.amplitude:android-sdk) to the new SDK (com.amplitude:analytics-android).
 ---
 
 ## Comparison 
