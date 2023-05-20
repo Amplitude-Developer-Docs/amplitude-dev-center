@@ -534,3 +534,58 @@ For `amplitude-js`, two separate callback functions are passed for success and e
     }
 
     ```
+
+## Comparison 
+
+--8<-- "includes/sdk-migration/sdk-migration-note.md"
+
+| Feature| <div class="big-column"> [Latest Browser SDK](../) </div> | <div class="big-column"> [Marketing analytics Browser SDK](../../marketing-analytics-browser/) <div> | [Maintenance Browser SDK](../../javascript)|
+| --- | --- | --- | --- |
+| Package | [@amplitude/analytics-browser](https://www.npmjs.com/package/@amplitude/analytics-browser) | [@amplitude/marketing-analytics-browser](https://www.npmjs.com/package/@amplitude/marketing-analytics-browser) | [amplitude-js](https://www.npmjs.com/package/amplitude-js) |
+| Web Attribution [^1] | By default, the Browser SDK includes the `web-attribution` plugin which implements [**Web Attribution V1**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Maintenance Web Attribution**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). |
+| Default Event Tracking [^2] |  [**Default Event Tracking V2**](./#default-event-tracking-v2-vs-default-event-tracking-v1) | [**Default Event Tracking V1**](./#default-event-tracking-v2-vs-default-event-tracking-v1) |  Not supported. |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../#configuration). Check [here](./) for migration guide from the Maintenance SDK to the latest SDK. | The same as latest Browser SDK.  | Support explicity setter methods. [More configurations](../../javascript/#configuration). |
+| Logger provider | Amplitude Logger by Default. Fully customizable. | The same as latest Browser SDK. | Amplitude Logger by default. Not customizable. |
+| Storage Provider | LocalStorage by default. Fully customizable. | The same as latest Browser SDK. | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
+| Customization | Plugins | Plugins | Not supported.  (Middleware is supported in Ampli JS) |
+| Bundle Size | Tree shaking for optimization. | The same as latest Browser SDK.  |  No Optimization. |
+| Server Endpoint | HTTP V2 API | The same as latest Browser SDK. | HTTP V1 API |
+| Batch API| Supported, with configuration. | The same as latest Browser SDK. | Not supported. |
+
+[^1]: **Web Attribution**: For Browser SDK version lower than 1.9.0, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false`, install the `@amplitude/plugin-web-attribution-browser` and add `web-attribution` plugin manually, which will lead web attribution behavior the same as Marketing Analytics Browser SDK.
+[^2]: **Default Event Tracking**: For Browser SDK version lower than 1.9.0, to track page view events, you need to install the `npm install @amplitude/plugin-page-view-tracking-browser` and add `page-view-tracking` plugin manually. The event name for page views, along with the event properties for page views are different than the latest default event tracking. 
+
+### Default Event Tracking V2 vs Default Event Tracking V1
+
+| Feature| <div class="big-column"> Default Event Tracking V2 </div> | <div class="big-column"> Default Event Tracking V1 <div> |
+| --- | --- | --- |
+| Configurable | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../#tracking-default-eventsr/#page-view). |  Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../../marketing-analytics-browser/#page-view). |
+| Events | Includes with [configuration](./#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul> | Includes with [configuration](../../marketing-analytics-browser/#page-view) <ul><li> page view event (`Page view`)</li> </ul>  </li></ul> | 
+| Archtecture |  Implemented through different plugins. | Implemented through `page-view-tracking` plugin. |  
+| Customizable | Yes. Through [Enrichment Plugin](./#plugins). | Yes. Through [Enrichment Plugin](./#plugins). |
+
+### Web Attribution V2 vs Web Attribution V1 vs Maintenance Web Attribution
+
+#### Configurable
+
+| <div class="big-column"> Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | <div class="big-column"> Maintenance Web Attribution </div>|
+| --- | --- | --- |
+| No. | Yes. | Yes. |
+
+#### Behavior 
+
+| <div class="big-column"> Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | Maintenance Web Attribution |
+| --- | --- | --- |
+| <ul><li>Enabled by default.</li> <li>This SDK tracks attribution on init with a new campaign no matter if a new session or during a session and **NOT** configurable.</li> <li>Default value for all `init` attribution is `Empty` and configurable.</li> <li>If reset session ID on new campaign is configurable. </li> <li> Collect all latest ClickIds.</li></ul> | <ul><li>Enabled by default.</li> <li> The SDK track web attribution on init with a new session by default. This SDK tracks attribution on init with a new campaign is disable by default and configurable with `config.trackNewCampaigns = true`. If tracking web attribution on init with a new campaign is enable, the campaign will be unset (set to none) if that attribution not included. </li> <li>Default value for all `init` attribution is `Empty` and configurable.</li> <li>If reset session ID on new campaign is configurable. </li> <li>Collect all latest ClickIds. </li> | <ul><li>Disable by default.</li> <li>This SDK tracks attribution on init with a new session by default. This SDK tracks attribution on init during a session is disable by default and configurable with `config.saveParamsReferrerOncePerSession = false`. By default the existing web attribution values will be carried through each new session. Unless you set `config.unsetParamsReferrerOnNewSession = true`, web attribution will be set to `null` upon instantiating a new session.</li> <li> It only track the `init` attribution which has value. </li> <li> Cannot set session ID on campaign. </li><li>Only collect `gclid` and `fbclid` ClickIds.</li></ul>|
+
+#### Workflow 
+
+|                 Web Attribution V2                     |                Web Attribution V1                     |Maintenance Web Attribution|
+|:--------------------------------------------------------------------------------------------------------------:| :--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
+|  ![Web Attribution V2](../../../assets/images/sdk/web-attribution-v2.drawio.svg)  | ![Web Attribution V1](../../../assets/images/sdk/web-attribution-v1.drawio.svg) | ![Maintenance Web Attribution](../../../assets/images/sdk/web-attribution-maintenance.drawio.svg)  |
+
+### Architecture
+
+| <div class="big-column">  Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | <div class="big-column">  Maintenance Web Attribution </div>|
+| --- | --- | --- |
+| Implemented through `web-attribution` Plugin. | Implemented through `web-attribution` Plugin. | Build in logic. |
