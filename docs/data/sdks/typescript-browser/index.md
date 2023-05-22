@@ -790,3 +790,61 @@ If your web app configures the strict Content Security Policy (CSP) for security
 * Add `https://*.amplitude.com` to `connect-src`.
 
 --8<-- "includes/abbreviations.md"
+
+### Cookie management
+
+The Browser SDK uses cookie storage to persist information that multiple subdomains of the same domain may likely want to share. This includes information like user session and marketing campaigns, which are stored in separate cookie entries.
+
+#### Cookie prefix
+
+* **AMP**: The SDK creates user session cookies with `AMP` prefix and the first ten digits of the API key: `AMP_{first_ten_digits_API_KEY}`.
+* **AMP_MKTG**: The SDK creates marketing campaign cookies with `AMP_MKTG` and the first ten digits of the API key: `AMP_MKTG_{first_ten_digits_API_KEY}`. 
+* **AMP_TEST**: On initialization, the SDK creates a cookie with `AMP_TEST` prefix to check wether the cookie storage is working properly. Then the SDK sets the value as current time, retrieves the cookie by a key and checks if the retrieved value matches the original set time. You **can safely delete** the `AMP_TEST` prefix cookies if, for some reason, they're not successfully deleted.
+* **AMP_TDLTEST**: On initialization, the SDK creates a cookie with `AMP_TDLTEST` prefix to find a subdomain that supports cookie storage. For example, when checking for cookie support on `https://analytics.amplitude.com/amplitude/home` the SDK first tries to find a subdomain that matches the root domain (`amplitude.com`) and then falls back to the full domain (`analytics.amplitude.com`). You **can safely delete** the `AMP_TDLTEST` prefix cookies if, for some reason, they're not successfully deleted.
+
+#### Cookie domain
+
+By default, the SDK assigns these cookies to the top level domain which supports cookie storage. Cookies can be shared on multiple subdomains which allows for a seamless user experience across all subdomains.
+
+For example, if a user logs into the website on one subdomain (`data.amplitude.com`) where the SDK is initialized. On initialization, the SDK assigns cookies to `.amplitude.com`. If the user then navigates to another subdomain (`analytics.amplitude.com`), the login information can be seamlessly shared by shared cookies.
+
+#### Cookie data
+
+The SDK creates two types of cookies: user session cookies and marketing campaign cookies.
+
+???config "User session cookies"
+    |<div class="big-column">Name</div>| Description|
+    |---|----|
+    |`optOut`|<span class="required">Required</span>. A flag to opt this device out of Amplitude tracking. If this flag is set, no additional information will be stored for the user|
+    |`userId`|Upon user log-in, if you send this value, it is stored in the cookie. Set this to uniquely identify their users (non-anonymous navigation). It is stored encoded using Base64|
+    |`deviceId`|A randomly generated string. It will persist unless a user clears their browser cookies and/ or is browsing in private mode. Even if a user consistently uses the same the device and browser, the device ID can still vary|
+    |`sessionId`|A randomly generated string for each session|
+    |`lastEventTime`|Time of the last event, used to determine when to expire and create a new session Id|
+    |`lastEventId`|Id of the last event|
+
+???config "Marketing campaign cookies"
+    |<div class="big-column">Name</div>| Description|
+    | --- | --- |
+    |`utm_campaign`| This identifies a specific campaign used (for example, "summer_sale") |
+    |`utm_content` | This identifies what brought the user to the site and is commonly used for A/B testing (for example, "bannerlink", "textlink") |
+    |`utm_id`|An optional parameter for tracking unique IDs or transaction IDs associated with the link.|
+    |`utm_medium`| This identifies a specific campaign used (for example, "summer_sale") |
+    |`utm_source`| This identifies which website sent the traffic (for example, Google, Facebook) |
+    |`utm_term`| This identifies paid search terms used (for example, product+analytics) |
+    |`referrer`|The last page the user was on (for example, `https://amplitude.com/behavioral-analytics-platform?ref=nav`)|
+    |`referring_domain`|The domain that the user was last on (for example, `https://amplitude.com`)|
+    |`dclid`|Google campaign manager Click Identifier|
+    |`gbraid`|Google Click Identifier for iOS device from Web to App|
+    |`gclid`|Google Click Identifier from URL parameters|
+    |`fbclid`|Facebook Click Identifier from URL parameters|
+    |`ko_click_id`|Kochava Click Identifier from URL parameters|
+    |`msclkid`|Microsoft Click Identifier|
+    |`ttclid`|TikTok Click Identifier|
+    |`twclid`|Twitter Click Identifier from URL parameter|
+    |`wbraid`|Google Click Identifier for iOS device from App to Web|
+    |`li_fat_id`|LinkedIn member indirect identifier for Members for conversion tracking, retargeting, analytics|
+    |`rtd_cid`|Reddit Click Identifier| 
+
+#### Disable cookies
+
+You can opt out using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
