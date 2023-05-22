@@ -14,7 +14,7 @@ To migrate from Amplitude SDK to Ampli, you need to replace all calls using Ampl
 
 This page assumes you have existing analytics instrumentation using the Amplitude SDK.
 
-##### Code Example
+#### Code Example
 
 ```typescript
 import * as amplitude from '@amplitude/analytics-browser';
@@ -42,7 +42,7 @@ ampli.load({ client: { instance: amplitude }})
 
 All existing `amplitude.track('Song Played')` (a.k.a `amplitude.logEvent()`) will continue to work. However, you now also have access to strongly typed methods and types for all events for the Source in your tracking plan e.g. `ampli.songPlayed()` and `ampli.track(new SongPlayed())`.
 
-##### Process
+#### Process
 
 !!!info "Use Branching for easier Migration"
     We recommend creating a branch and adding small sets of events at a time. This splits the migration into manageable parts rather than requiring all events be implemented at once.
@@ -54,7 +54,7 @@ All existing `amplitude.track('Song Played')` (a.k.a `amplitude.logEvent()`) wil
 3. Start replacing `amplitude.track('My Event', {prop: true})` with `ampli.myEvent({ prop: true})` or `ampli.track(new MyEvent({prop:true}))` for each event in the tracking plan.
 4. Repeat until all Amplitude SDK calls have been replaced by Ampli.
 
-##### Code Example
+#### Code Example
 
 ```diff
 import * as amplitude, { BaseEvent } from '@amplitude/analytics-browser';
@@ -91,7 +91,7 @@ amplitude.flush();
 
 After all existing Amplitude SDK instrumentation has been replaced with Ampli, you can do a little clean up by removing unnecessary imports and initialization of the Amplitude SDK and instead use the equivalent from Ampli. That’s it!
 
-##### Code Example
+#### Code Example
 
 ```diff
 - import * as amplitude, { BaseEvent, Options } from '@amplitude/analytics-browser';
@@ -306,4 +306,3 @@ Use `ampli.client` to access the underlying Amplitude SDK directly.
 </td>
 </tr>
 </table>
-
