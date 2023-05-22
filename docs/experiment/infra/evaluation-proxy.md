@@ -87,7 +87,7 @@ An optional object of extra configuration.
 | `flagSyncIntervalMillis` | Optional. The polling interval to update flag configurations (default `10000`). |
 | `maxCohortSize` | Optional. The maximum size of targeted cohorts that the proxy can download (default `2147483647`). |
 | `serverUrl` | Optional. The server URL, including protocol and host, to fetch flags from. (default `https://api.lab.amplitude.com`) |
-| `cohortServerUr` | Optional. The server URL, including protocol and host, to download cohorts from. (default `https://cohort.lab.amplitude.com`) |
+| `cohortServerUrl` | Optional. The server URL, including protocol and host, to download cohorts from. (default `https://cohort.lab.amplitude.com`) |
 
 !!!info "EU Data Residency"
     To use the evaluation proxy with the EU data center, set the [`serverUrl`](#configuration-1) and [`cohortServerUrl`](#configuration-1) configurations to hit the EU data center endpoints:
