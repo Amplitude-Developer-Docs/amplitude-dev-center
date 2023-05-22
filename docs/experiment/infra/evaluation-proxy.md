@@ -4,9 +4,7 @@ description: Containerized service to enhance local evaluation running in your i
 icon: simple/docker
 ---
 
-!!!beta "Evaluation Proxy is in beta."
-
-!!!info "Resources"
+!!!beta "Beta Resources"
     [:material-github: GitHub](https://github.com/amplitude/evaluation-proxy) · [:material-code-tags-check: Releases](https://github.com/amplitude/evaluation-proxy/releases) · [:simple-docker: Docker Image](https://hub.docker.com/r/amplitudeinc/evaluation-proxy) · [:simple-helm: Helm Chart](https://github.com/amplitude/evaluation-proxy-helm)
 <br />
 The Evaluation Proxy is a Service to enable, enhance, and optimize [local evaluation](../general/evaluation/local-evaluation.md) running within your infrastructure.
