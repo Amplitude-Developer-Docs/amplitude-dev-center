@@ -383,10 +383,10 @@ You can adjust the time window for which sessions are extended. The default sess
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
-        configuration.setMinTimeBetweenSessionsMillis(1000);
-        return Unit.INSTANCE;
-    });
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    configuration.setMinTimeBetweenSessionsMillis(1000);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 By default, Amplitude automatically sends the '[Amplitude] Start Session' and '[Amplitude] End Session' events. Even though these events aren't sent, sessions are still tracked by using `session_id`.
@@ -444,10 +444,10 @@ You can define your own session expiration time. The default session expiration 
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
-        configuration.setMinTimeBetweenSessionsMillis(10000);
-        return Unit.INSTANCE;
-    });
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    configuration.setMinTimeBetweenSessionsMillis(10000);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 ### Set custom user ID
@@ -603,12 +603,12 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
-        configuration.setEnableCoppaControl(true); //Disables ADID, city, IP, and location tracking
-        return Unit.INSTANCE;
-    });
-    ```
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    //Disables ADID, city, IP, and location tracking
+    configuration.setEnableCoppaControl(true);
 
+    Amplitude amplitude = new Amplitude(configuration);
+    ```
 
 ### Advertiser ID
 
@@ -633,10 +633,10 @@ After you set up the logic to fetch the advertising ID, you can enable `useAdver
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
-        configuration.setUseAdvertisingIdForDeviceId(true);
-        return Unit.INSTANCE;
-    });
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    configuration.setUseAdvertisingIdForDeviceId(true);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 ### App set ID
@@ -671,10 +671,10 @@ App set ID is a unique identifier for each app install on a device. App set ID i
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
-        configuration.setUseAppSetIdForDeviceId(true);
-        return Unit.INSTANCE;
-    });
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    configuration.setUseAppSetIdForDeviceId(true);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 ### Location tracking
