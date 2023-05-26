@@ -17,3 +17,27 @@ description: Use this guide to easily migrate from Amplitude's maintenance Andro
 | Customization | Plugins | Middelware |
 | Server Endpoint | HTTP V2 API | HTTP V1 API |
 | Batch API| Supported, with configuration. | Not supported.|
+
+## Data migration
+
+Existing [maintenance SDK](../../android) data (events, user/device ID) can be moved to the latest SDK by setting `migrateLegacyData` to `true` in the [Configuration](../#configuration). Learn more in [Github](https://github.com/amplitude/Amplitude-Kotlin/blob/main/android/src/main/java/com/amplitude/android/migration/RemnantDataMigration.kt#L9-L16).
+
+=== "Kotlin"
+
+    ```kotlin
+    amplitude = Amplitude(
+        Configuration(
+            ...
+            migrateLegacyData = true,
+        )
+    )
+    ```
+
+=== "Java"
+
+    ```java
+    Configuration configuration = new Configuration("AMPLITUDE_API_KEY", getApplicationContext());
+    configuration.setMigrateLegacyData(true);
+    
+    Amplitude amplitude = new Amplitude(configuration);
+    ```
