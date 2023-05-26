@@ -46,7 +46,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     | `trackingOptions` | `TrackingOptions`. Options to control the values tracked in SDK. | `enable` |
     | `enableCoppaControl` | `Boolean`. Whether to enable COPPA control for tracking options. | `false` |
     | `instanceName` | `String`. The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance.  | `$default_instance`|
-    | `migrateLegacyData` | `Boolean`. Whether to migrate [maintenance Android SDK](../android) data (events, user/device ID).  | `false`|
+    | `migrateLegacyData` | `Boolean`. Available in `1.9.0`+. Whether to migrate [maintenance Android SDK](../android) data (events, user/device ID).  | `false`|
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
