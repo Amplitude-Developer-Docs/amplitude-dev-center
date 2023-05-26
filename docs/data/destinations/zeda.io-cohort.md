@@ -5,7 +5,7 @@ description: Sync cohorts from Amplitude to Zeda.io
 
 !!!beta
 
-    This integration is currently in beta and is in active development. If you have any feedback to improve Zeda.io destination or have suggestions for their documentation, please contact [Zeda.io support team](support@zeda.io). 
+    This integration is currently in beta and is in active development. If you have any feedback to improve Zeda.io destination or have suggestions for their documentation, please contact [Zeda.io support team](https://zeda.io/contact-us). 
 
 [Zeda.io](https://zeda.io/) is a product discovery and strategy platform that helps product teams identify problems to solve for customers, decide what to build next based on actionable product intelligence using AI and create product strategies to drive business outcomes.
 This integration lets you sync cohorts from Amplitude to Zeda.io.
