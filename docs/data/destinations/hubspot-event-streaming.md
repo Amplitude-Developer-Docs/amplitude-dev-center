@@ -20,14 +20,14 @@ Keep these things in mind when sending events to Hubspot:
 - Events from Amplitude will appear as Custom Behavioral Events in HubSpot.
 - A HubSpot Enterprise Marketing Hub account is required to send Custom Behavioral Events.
 - Relevant limits for HubSpot events are:
-- HubSpot enforces strict API rate limits. 
-  - You can find more information about these limits [here](https://developers.hubspot.com/docs/api/usage-details).
-  - HubSpot allows up to 50 properties for each custom behavior event.
+    - HubSpot enforces strict API rate limits. 
+    - You can find more information about these limits [here](https://developers.hubspot.com/docs/api/usage-details).
+    - HubSpot allows up to 50 properties for each custom behavior event.
 - Types of data you can forward to HubSpot:
-  - Amplitude sends selected event properties along with the event.
-  - Amplitude does not perform an identity call for this integration. This means Amplitude does not send any user properties information directly to HubSpot.
+    - Amplitude sends selected event properties along with the event.
+    - Amplitude does not perform an identity call for this integration. This means Amplitude does not send any user properties information directly to HubSpot.
 - Latency considerations:
-  - For latency, Amplitude is targeting an end-to-end p95 latency of 60s. This means 95% of Events streamed will be delivered to HubSpot within 60s or less. We have internal processes, monitors, and alerts in place to monitor and maintain this target.   
+    - For latency, Amplitude is targeting an end-to-end p95 latency of 60s. This means 95% of Events streamed will be delivered to HubSpot within 60s or less. We have internal processes, monitors, and alerts in place to monitor and maintain this target.   
 
 ## Setup
 
@@ -83,7 +83,7 @@ Keep these things in mind when sending events to Hubspot:
     ![screenshot of the Hubspot workflow](../../assets/images/hubspot-event-streaming-workflow.png)
 
 ## Use cases
-1) **Personalized Marketing:** With the ability to track user behavior and capture user and event properties in Amplitude, businesses can create highly personalized and targeted marketing campaigns in HubSpot. This can lead to increased engagement, conversions, and customer loyalty.
-2) **Lead Scoring and Nurturing:** By tracking user behavior and capturing user and event properties in Amplitude, businesses can score and prioritize leads based on their level of engagement and interests. This can help businesses to optimize their lead nurturing efforts and increase their chances of closing deals.
-3) **Customer Retention:** By tracking user behavior and capturing user and event properties in Amplitude, businesses can identify customers who are at risk of churning and take proactive steps to retain them. For instance, businesses can trigger personalized emails or ads to offer discounts or incentives to encourage customers to stay engaged with the product or service.
+1. **Personalized Marketing:** With the ability to track user behavior and capture user and event properties in Amplitude, businesses can create highly personalized and targeted marketing campaigns in HubSpot. This can lead to increased engagement, conversions, and customer loyalty.
+2. **Lead Scoring and Nurturing:** By tracking user behavior and capturing user and event properties in Amplitude, businesses can score and prioritize leads based on their level of engagement and interests. This can help businesses to optimize their lead nurturing efforts and increase their chances of closing deals.
+3. **Customer Retention:** By tracking user behavior and capturing user and event properties in Amplitude, businesses can identify customers who are at risk of churning and take proactive steps to retain them. For instance, businesses can trigger personalized emails or ads to offer discounts or incentives to encourage customers to stay engaged with the product or service.
 
