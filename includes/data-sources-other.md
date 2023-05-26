@@ -7,10 +7,11 @@
 - :adobe-analytics: [Adobe Analytics](../data/sources/adobe-analytics.md)
 - :adobe-experience-cloud: [Adobe Launch](../data/sources/adobe.md)
 - :airbridge: [Airbridge](../data/sources/airbridge.md)
-<!-- - :airship: [Airship](../data/sources/airship.md) -->
+- :airship: [Airship](../data/sources/airship.md)
 - :apphud: [Apphud](../data/sources/apphud.md)
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
 - :bento: [Bento](../data/sources/bento.md)
+- :blitzllama: [Blitzllama](../data/sources/blitzllama.md)
 - :branch: [Branch](../data/sources/branch.md)
 - :braze: [Braze](../data/sources/braze.md)
 - :census: [Census](../data/sources/census.md)
