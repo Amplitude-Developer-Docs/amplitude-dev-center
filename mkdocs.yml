@@ -342,6 +342,7 @@ nav:
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
         - User.com: data/destinations/user.com-cohort.md
+        - Zeda.io: data/destinations/zeda.io-cohort.md        
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
     - Privacy and PII:
