@@ -18,7 +18,6 @@ description: Use this guide to easily migrate from Amplitude's maintenance Andro
 | Server Endpoint | HTTP V2 API | HTTP V1 API |
 | Batch API| Supported, with configuration. | Not supported.|
 
-
 ## Data migration
 
 Existing [maintenance SDK](../../android) data (events, user/device ID) can be moved to the new SDK:
