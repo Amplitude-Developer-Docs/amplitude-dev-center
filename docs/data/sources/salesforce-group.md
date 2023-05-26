@@ -16,7 +16,7 @@ In Salesforce, objects such as Account are structured as tables, where each fiel
 2. **Group Name Field:** a column of the table that will be used as the group identifier. Typically this column should identify a row in the table uniquely
 3. **Group Properties:** a list of columns that will be imported into Amplitude.
 
-![screenshot of the mapping at a high level](../assets/images/SFDC-mapping-high-level.png)
+![screenshot of the mapping at a high level](../../assets/images/SFDC-mapping-high-level.png)
 
 ## Detailed setup instruction
 ### Part 1: Set up account-level reporting 
@@ -35,14 +35,14 @@ Verify that you have [account-level reporting](https://help.amplitude.com/hc/en-
     - **Export config:** This downloads the current mapping config to your local machine (as a JSON file). This is useful when you want to recover a connection from the previous mapping config.
     - **Import config:** This loads in the config file from the local machine and populates the UI.
 
-![screenshot of the SFDC top section with mapping controls](../assets/images/SFDC-top-section.png)
+![screenshot of the SFDC top section with mapping controls](../../assets/images/SFDC-top-section.png)
 
 
 2. To create a new mapping, click **Set up new group mapping**. This should populate a new mapping section. Inside the section, fill in the following parts:
     - **Relation** (SFDC object to Amplitude Group Type)
     - **Group Name Field** (SFDC field that uniquely identifies a group/row)
     
-![screenshot of the new SFDC group mapping](../assets/images/SFDC-new-group-mapping.png)
+![screenshot of the new SFDC group mapping](../../assets/images/SFDC-new-group-mapping.png)
 
 3. Once you finish the above settings, click **Group Property Mapping** to define a list of Salesforce fields which you want to import into Amplitude as Group Properties. 
 
@@ -54,7 +54,7 @@ Verify that you have [account-level reporting](https://help.amplitude.com/hc/en-
         
         The setup page will display the current validation failures, and prevent proceeding until all of them are addressed. A valid mapping will look like the screenshot below.
    
-   ![screenshot of the SFDC-validated-mapping](../assets/images/SFDC-validated-mapping.png)
+   ![screenshot of the SFDC-validated-mapping](../../assets/images/SFDC-validated-mapping.png)
 
 4. After you finish defining the mapping and all validations pass, click on the **Next** button to move forward with the final verification process. 
 5. Once the final verification passes, click the **Save** button to establish the connection. The established connection will be available in the Source page with the name “Salesforce V2”.
