@@ -7,6 +7,7 @@
 - :amazon-s3: [Amazon S3](../data/destinations/amazon-s3-cohort.md)
 - :appcues: [Appcues](../data/destinations/appcues-cohort.md)
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
+- :blitzllama: [Blitzllama](../data/destinations/blitzllama-cohort.md)  
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :clevertap: [Clevertap](../data/destinations/clevertap-cohort.md)
