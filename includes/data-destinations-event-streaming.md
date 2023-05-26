@@ -14,6 +14,7 @@
 - :google-analytics-4: [Google Analytics 4 (Web)](/data/destinations/google-analytics-4-gtag)
 - :google-ads: [Google Ads](/data/destinations/google-ads-event-streaming)
 - :google-pub-sub: [Google Pub/Sub](/data/destinations/google-pub-sub)
+- :hubspot: [Hubspot](/data/destinations/hubspot-event-streaming)
 - :intercom: [Intercom](/data/destinations/intercom)
 - :iterable: [Iterable](/data/destinations/iterable)
 - :kameleoon: [Kameleoon](/data/destinations/kameleoon-event-streaming)
