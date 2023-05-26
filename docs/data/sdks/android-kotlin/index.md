@@ -70,12 +70,11 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     ```java 
     import com.amplitude.android.Amplitude;
 
-    Amplitude amplitude =  new Amplitude(new Configuration(
-        apiKey = AMPLITUDE_API_KEY,
-        context = applicationContext,
-        flushIntervalMillis = 50000,
-        flushQueueSize = 20,
-    ));
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    configuration.setFlushIntervalMillis(1000);
+    configuration.setFlushQueueSize(10);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
@@ -87,7 +86,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
 
     val amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             serverZone = ServerZone.EU
         )
@@ -99,11 +98,10 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     ```java
     import com.amplitude.android.Amplitude;
 
-    Amplitude amplitude =  new Amplitude(new Configuration(
-        apiKey = AMPLITUDE_API_KEY,
-        context = applicationContext,
-        serverZone = ServerZone.EU
-    ));
+    Configuration configuration = new Configuration("API_KEY", getApplicationContext());
+    configuration.setServerZone(ServerZone.EU);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 ### track
@@ -375,7 +373,7 @@ You can adjust the time window for which sessions are extended. The default sess
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             minTimeBetweenSessionsMillis = 10000
         )
@@ -385,7 +383,7 @@ You can adjust the time window for which sessions are extended. The default sess
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
         configuration.setMinTimeBetweenSessionsMillis(1000);
         return Unit.INSTANCE;
     });
@@ -399,7 +397,7 @@ You can also disable those session events.
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             trackingSessionEvents = false
         )
@@ -409,7 +407,7 @@ You can also disable those session events.
 === "Java"
 
     ```
-    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
         configuration.setTrackingSessionEvents(false);
         return Unit.INSTANCE;
     });
@@ -436,7 +434,7 @@ You can define your own session expiration time. The default session expiration 
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             minTimeBetweenSessionsMillis = 10000
         )
@@ -446,7 +444,7 @@ You can define your own session expiration time. The default session expiration 
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
         configuration.setMinTimeBetweenSessionsMillis(10000);
         return Unit.INSTANCE;
     });
@@ -538,7 +536,7 @@ Before initializing the SDK with your apiKey, create a `TrackingOptions` insta
     trackingOptions.disableCity().disableIpAddress().disableLatLng()
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             trackingOptions = trackingOptions
         )
@@ -552,7 +550,7 @@ Before initializing the SDK with your apiKey, create a `TrackingOptions` insta
     trackingOptions.disableCity().disableIpAddress().disableLatLng();
 
     // init instance
-    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
         configuration.setTrackingOptions(trackingOptions);
         return Unit.INSTANCE;
     });
@@ -595,7 +593,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             enableCoppaControl = true //Disables ADID, city, IP, and location tracking
         )
@@ -605,7 +603,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
         configuration.setEnableCoppaControl(true); //Disables ADID, city, IP, and location tracking
         return Unit.INSTANCE;
     });
@@ -625,7 +623,7 @@ After you set up the logic to fetch the advertising ID, you can enable `useAdver
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             useAdvertisingIdForDeviceId = true
         )
@@ -635,7 +633,7 @@ After you set up the logic to fetch the advertising ID, you can enable `useAdver
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
         configuration.setUseAdvertisingIdForDeviceId(true);
         return Unit.INSTANCE;
     });
@@ -663,7 +661,7 @@ App set ID is a unique identifier for each app install on a device. App set ID i
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             useAppSetIdForDeviceId = true
         )
@@ -673,7 +671,7 @@ App set ID is a unique identifier for each app install on a device. App set ID i
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
         configuration.setUseAppSetIdForDeviceId(true);
         return Unit.INSTANCE;
     });
@@ -690,7 +688,7 @@ By default, Amplitude can use Android location service (if available) to add the
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             locationListening = true
         )
@@ -700,10 +698,10 @@ By default, Amplitude can use Android location service (if available) to add the
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
-        configuration.setLocationListening(true);
-        return Unit.INSTANCE;
-    });
+    Configuration configuration = new Configuration("API_KEY", getApplicationContext());
+    configuration.setLocationListening(true);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 !!!note "ProGuard obfuscation"
@@ -719,7 +717,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = AMPLITUDE_API_KEY,
+            apiKey = API_KEY,
             context = applicationContext,
             optOut = true
         )
@@ -729,10 +727,10 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
 === "Java"
 
     ```java
-    amplitude = AmplitudeKt.Amplitude(BuildConfig.AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
-        configuration.setOptOut(true);
-        return Unit.INSTANCE;
-    });
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    configuration.setOptOut(true);
+
+    Amplitude amplitude = new Amplitude(configuration);
     ```
 
 ### Push notification events
