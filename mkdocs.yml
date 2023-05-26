@@ -284,6 +284,7 @@ nav:
         - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
         - Google Ads: data/destinations/google-ads-event-streaming.md
         - Google Pub/Sub: data/destinations/google-pub-sub.md
+        - Hubspot: data/destinations/hubspot-event-streaming.md
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
         - Kameleoon: data/destinations/kameleoon-event-streaming.md
