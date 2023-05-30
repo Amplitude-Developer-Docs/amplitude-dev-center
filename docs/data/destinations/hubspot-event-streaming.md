@@ -19,7 +19,7 @@ Keep these things in mind when sending events to Hubspot:
 - You must enable this integration in each Amplitude project you want to use it in.
 - Events from Amplitude will appear as Custom Behavioral Events in HubSpot.
 - A HubSpot Enterprise Marketing Hub account is required to send Custom Behavioral Events.
-- Relevant limits for MoEngage events are:
+- Relevant limits for Hubspot events are:
     - HubSpot enforces strict API rate limits. You can find more information about these limits [here](https://developers.hubspot.com/docs/api/usage-details).
     - HubSpot allows up to 50 properties for each custom behavior event.
 - Types of data you can forward to HubSpot:
