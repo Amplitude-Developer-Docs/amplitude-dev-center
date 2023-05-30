@@ -1,13 +1,13 @@
 ---
-title: Hubspot Event Streaming
-description: Send Amplitude events to Hubspot automatically with just a few clicks.
+title: HubSpot Event Streaming
+description: Send Amplitude events to HubSpot automatically with just a few clicks.
 ---
 
 !!!beta
 
     This feature is in open beta and is in active development. Contact your Amplitude support team for support with this integration.
 
-[Hubspot](https://www.hubspot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. 
+[HubSpot](https://www.hubspot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. 
 
 Amplitude CDP's HubSpot streaming integration enables you to forward your Amplitude events and event properties straight to HubSpot with just a few clicks.
 
@@ -30,9 +30,9 @@ Keep these things in mind when sending events to Hubspot:
 
 ## Setup
 
-### Hubspot setup
+### HubSpot setup
 
-1. Please create the custom behavioral events and note down their internal name and add event properties that you want to forward to HubSpot. Learn how you create the event and event property in HubSpot [here](https://knowledge.hubspot.com/analytics-tools/create-custom-behavioral-events-with-the-code-wizard). 
+1. Please create the custom behavioral events and note down their internal name and add event properties that you want to forward to HubSpot. Please include a string property named `event_type` in the behavior custom event, which will indicate the specific type of event within Amplitude. Learn how you create the event and event property in HubSpot [here](https://knowledge.hubspot.com/analytics-tools/create-custom-behavioral-events-with-the-code-wizard). 
 
 ### Amplitude setup
 
