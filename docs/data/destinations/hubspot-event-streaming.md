@@ -42,9 +42,9 @@ Keep these things in mind when sending events to Hubspot:
 4. Choose a HubSpot Account ID or authenticate with HubSpot
 5. Enter the HubSpot Event Name created by HubSpot
 6. Toggle the **Send events** filter to select the events to send. HubSpot recommends choosing the events that are most important to your use case. 
-7. Please click on the **Select & filter events** option to choose the event type of the events you would like to send.
-8. Please click on **Map properties to destination** to specify the identity mapping between Amplitude and HubSpot. Please note that HubSpot requires the identifier to be at least one of the following: utk, email, or object ID.
-9. Please click on **Select additional properties** to specify the event properties you wish to forward to HubSpot. By default, only the identifier specified in the previous section is sent, without including any event properties.
+7. Click on the **Select & filter events** option to choose the event type of the events you would like to send.
+8. Click on **Map properties to destination** to specify the identity mapping between Amplitude and HubSpot. Please note that HubSpot requires the identifier to be at least one of the following: utk, email, or object ID.
+9. Click on **Select additional properties** to specify the event properties you wish to forward to HubSpot. By default, only the identifier specified in the previous section is sent, without including any event properties.
 10. When finished, enable the destination and **Save**.
 
 ## Use Custom Behavioral Event data in Hubspot
