@@ -78,6 +78,7 @@ init(API_KEY, 'user@amplitude.com', {
 ### Configuration
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
+    |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `MemoryStorage` |
     |`config.trackingSessionEvents`| `boolean`. Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
