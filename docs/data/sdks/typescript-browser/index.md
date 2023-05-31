@@ -410,15 +410,15 @@ amplitude.revenue(event);
 
 #### Revenue interface
 
-|Name | Description |
-|-----|-------|
-|`product_id` | Optional. String. An identifier for the product. Amplitude recommend something like the Google Play Store product ID. Defaults to null. |
-|`quantity` | Required. Int. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1|
-|`price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to null. |
-|`revenue_type` | Optional, but required for revenue verification. String. The revenue type (for example, tax, refund, income).  Defaults to null.|
-|`receipt`| Optional. String. The receipt identifier of the revenue. Defaults to null|
-|`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
-|`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
+| <div class="big-column">Name</div>  | Description | Default Value |
+| --- | --- | --- |
+|`product_id` | Optional. `string`. An identifier for the product. Amplitude recommend something like the Google Play Store product ID. | Empty string. |
+|`quantity` | Required. `number`. The quantity of products purchased. Note: revenue = quantity * price. | `1` |
+|`price` | Required. `number`. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. | `null` |
+|`revenue_type` | Optional, but required for revenue verification. `string`. The revenue type (for example, tax, refund, income). | `null` |
+|`receipt`| Optional. `string`. The receipt identifier of the revenue. | `null` |
+|`receipt_sig`| Optional, but required for revenue verification. `string`. The receipt signature of the revenue. | `null` |
+|`properties`| Optional. `{ [key: string]: any }`. An object of event properties to include in the revenue event. | `null` |
 
 ### Flush the event buffer
 
