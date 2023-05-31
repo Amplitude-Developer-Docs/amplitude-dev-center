@@ -1,13 +1,13 @@
 ---
-title: Hubspot Event Streaming
-description: Send Amplitude events to Hubspot automatically with just a few clicks.
+title: HubSpot Event Streaming
+description: Send Amplitude events to HubSpot automatically with just a few clicks.
 ---
 
 !!!beta
 
     This feature is in open beta and is in active development. Contact your Amplitude support team for support with this integration.
 
-[Hubspot](https://www.hubspot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. 
+[HubSpot](https://www.hubspot.com/) is an easy to use and powerful CRM platform that enables scaling companies to sell, market and provide customer service from a unified UI. 
 
 Amplitude CDP's HubSpot streaming integration enables you to forward your Amplitude events and event properties straight to HubSpot with just a few clicks.
 
@@ -30,9 +30,9 @@ Keep these things in mind when sending events to Hubspot:
 
 ## Setup
 
-### Hubspot setup
+### HubSpot setup
 
-1. Please create the custom behavioral events and note down their internal name and add event properties that you want to forward to HubSpot. Learn how you create the event and event property in HubSpot [here](https://knowledge.hubspot.com/analytics-tools/create-custom-behavioral-events-with-the-code-wizard). 
+1. Please create the custom behavioral events and note down their internal name and add event properties that you want to forward to HubSpot. Please include a string property named `event_type` in the behavior custom event, which will indicate the specific type of event within Amplitude. Learn how you create the event and event property in HubSpot [here](https://knowledge.hubspot.com/analytics-tools/create-custom-behavioral-events-with-the-code-wizard). 
 
 ### Amplitude setup
 
@@ -44,7 +44,7 @@ Keep these things in mind when sending events to Hubspot:
 6. Toggle the **Send events** filter to select the events to send. HubSpot recommends choosing the events that are most important to your use case. 
 7. Click on the **Select & filter events** option to choose the event type of the events you would like to send.
 8. Click on **Map properties to destination** to specify the identity mapping between Amplitude and HubSpot. Please note that HubSpot requires the identifier to be at least one of the following: utk, email, or object ID.
-9. Click on **Select additional properties** to specify the event properties you wish to forward to HubSpot. By default, only the identifier specified in the previous section is sent, without including any event properties.
+9. Click on **Select additional properties** to specify the event properties you wish to forward to HubSpot. By default, the event properties only include the **event_type** property, which indicates the type of event for a particular event in Amplitude.
 10. When finished, enable the destination and **Save**.
 
 ## Use Custom Behavioral Event data in Hubspot
