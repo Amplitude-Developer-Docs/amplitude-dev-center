@@ -10,7 +10,7 @@ This integration enables you to seamlessly stream feedback data from Blitzllama 
 
 !!!tip "Contact  for help"
 
-    Contact the Blitzllama team at tech@blitzllama.com for help with this integration.
+    Contact the Blitzllama team at [tech@blitzllama.com](mailto:tech@blitzllama.com) for help with this integration.
 
 ## Setup
 
