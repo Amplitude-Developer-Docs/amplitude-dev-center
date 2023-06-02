@@ -8,11 +8,14 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
 
+!!!note
+    Ensure to consistently update your Amplitude GTM template to the latest version for an enhanced feature set, crucial bug fixes, and a significantly improved user experience.
+
 ## Workflow
 
 ### Container Setup
 
-If you start from zero, you need to setup your conatiner first. This Amplitude Analytics Browser SDK tag template can be found in **Web** target platform which for the uses on descktop and mobile web pages.
+If you start from zero, you need to setup your conatiner first. This Amplitude Analytics Browser SDK tag template can be found in **Web** target platform which for the uses on desktop and mobile web pages.
 
 ![Web Container Setup](../../assets/images/gtm/gtm-web-container-setup.png) 
 
@@ -42,9 +45,9 @@ If you plan on running multiple Amplitude instances, each with distinct API keys
 
 #### Access amplitude instance 
 
-If you have a Custome HTML tag, you might need to acccess `amplitude` instance in your script tag. 
+If you have a Custom HTML tag, you might need to access `amplitude` instance in your script tag.
 
-##### With defualt Instance Name 
+##### With default Instance Name 
 
 ```js
 // For amplitude-js-gtm@3.1.4 and above
@@ -75,17 +78,17 @@ A tag type allow you to specify what kind of action or event should be tracked i
 
 #### EU Data Residency
 
-For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to init. [More details](../../sdks/typescript-browser/#eu-data-residency).
+For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to `init`. [More details](../../sdks/typescript-browser/#eu-data-residency).
 
 #### Enable attribution tracking
 
-Check this box to enable additional configuration options for attribution. The following configurations are available attribution optiosn. [More details](../../sdks/marketing-analytics-browser/#configuration). 
+Check this box to enable additional configuration options for attribution. The following configurations are available attribution options. [More details](../../sdks/marketing-analytics-browser/#configuration). 
 
 ???config "Default Configurations"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     |`Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. | `[]` | 
-    | `Reset the session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deteted. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#reset-the-session-on-a-new-campaign). | `false`|
+    | `Reset the session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deteted. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#reset-the-session-on-a-new-campaign). The session isn't reset in the case where the referrer is just a different subdomain of your site. | `false`|
     | `Initial empty value` | `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY`|
     | `Page View Tracking` | `check box`. Whether enable the page view tracking. Even GTM support `All Page` trigger, we recommend to use Amplitude build-in function to track page view instead of seting your own trigger for page view. Since GTM didn't support out of box tracking for Single Page Application, there are additional works required. | `No page view tracking`|
     | `Page View trigger` | `Page Loads` or `Only with Attribution changes` or a `Variable Configuration`.  The trigger of `Page View` event. A variable configuration can be either build-in or customized that returns a function with a true or false return value. If the function returns true, then Page Views are tracked automatically, if it returns false then Page Views are not tracked. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#page-view). | `Page Loads` if enable page view tracking. |
@@ -123,7 +126,7 @@ If the userId already available you can initialize the instance with a User ID. 
     |`userId`| `number`. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. | `undefined` |
     |`trackingOptions`| `TrackingOptions`. Please check the `Optional tracking` section for more tracking options configuration. | Enable all tracking options by default. |
     |`transport`| `TransportType.XHR` or `TransportType.SendBeacon` or `TransportType.Fetch`. Set the transport type. | `TransportType.Fetch` |
-- `Select a {{GTM variable}} from the list`. It's necessary to return an object containing the key-value pairs you wish to use for instance configuration. Ensure that the keys are part of the available configurations.
+- `Select a **GTM variable** from the list`. It's necessary to return an object containing the key-value pairs you wish to use for instance configuration. Ensure that the keys are part of the available configurations.
 
 #### track
 
@@ -162,6 +165,8 @@ Set event level groups. With event-level groups, the group designation applies o
 
 Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. [More details](../../sdks/typescript-browser/#user-properties).
 
+| Name  | Description |
+| --- | --- |
 | `Method Call` | `Add`, `Append`, `Prepend`, `Set`, `Set Once`, `Remove`, `Preinsert`, `Postinsert`, `Clear All`. The operation for the identify call. | 
 | `User Property` | `string`. The key of user properties. |
 | `Value` | `null`, `boolean`, `number` or `string`. The vaule of specific user property. |
@@ -238,7 +243,7 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 !!!note
     Tipically `init` tag is the first thing you need to fire on the page. It's common to fire the `init` tag using `All Pages` or `Initialization - All Pages` triggers. You can also defer the `init` tag until you receive a signal and fire it using customized triggers, such as a consent grant. But notice that all other tags will wait for the `init` tag to fire before they can be sent to Amplitude. 
 
-## Others
+## Video Tutorial
 
 This video tutorial walks through the implementation basics. 
 
