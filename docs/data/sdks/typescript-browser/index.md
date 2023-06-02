@@ -34,8 +34,8 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 ### Configuration
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
-  |`attribution`| `AttributionOptions`. Configurations for web attribution plugin | Check "Attribution Options" config table below |
-  |`defaultTracking`| `boolean | DefaultTrackingOptions`. Configurations for default event tracking | Check [tracking default events](./#tracking-default-events)|
+    |`attribution`| `AttributionOptions`. Configurations for web attribution plugin | Check "Attribution Options" config table below |
+    |`defaultTracking`| `boolean | DefaultTrackingOptions`. Configurations for default event tracking | Check [tracking default events](./#tracking-default-events)|
 
 In addition to the basic configuration options, there also has options to configure attribution.
     
