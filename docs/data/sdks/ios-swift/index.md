@@ -37,7 +37,7 @@ let amplitude = Amplitude(configuration: Configuration(
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     | `apiKey` | The apiKey of your project. | `nil` |
-    | `instanceName` | The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance. | `default_instance` |
+    | `instanceName` | The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance. | "default_instance" |
     | `storageProvider` | Implements a custom `storageProvider` class from `Storage`. | `PersistentStorage` |
     | `logLevel` | The log level enums: `LogLevelEnum.OFF`, `LogLevelEnum.ERROR`, `LogLevelEnum.WARN`, `LogLevelEnum.LOG`, `LogLevelEnum.DEBUG` | `LogLevelEnum.WARN` | 
     | `loggerProvider` | Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment. | `ConsoleLoggerProvider` |
