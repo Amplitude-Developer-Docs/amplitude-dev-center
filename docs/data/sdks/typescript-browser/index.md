@@ -146,7 +146,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 By setting `config.defaultTracking.pageViews` to `true`, you enable Amplitude to use default page view tracking behavior. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
 
 !!!note Page view event configuration priority
-    You may notice that both `config.defaultTracking.pageviews` and `config.attribution.trackPageViews` have configurations for whether to enable page view tracking especially when you are using the web attribution plugin. Notice that `config.defaultTracking.pageviews` has higher priority over `config.attribution.trackPageViews` which means that `config.defaultTracking.pageviews` will overwrite the setting of the attribution page view event. When `config.attribution.trackPageViews` is enabled, the SDK tracks page view events only when attribution changed. When `config.defaultTracking.pageviews` is enabled, the SDK tracks page view events when page changed.
+    You may notice that both `config.defaultTracking.pageViews` and `config.attribution.trackPageViews` have configurations for whether to enable page view tracking especially when you are using the web attribution plugin. Notice that `config.defaultTracking.pageViews` has higher priority over `config.attribution.trackPageViews` which means that `config.defaultTracking.pageViews` will overwrite the setting of the attribution page view event. When `config.attribution.trackPageViews` is enabled, the SDK tracks page view events only when attribution changed. When `config.defaultTracking.pageViews` is enabled, the SDK tracks page view events when page changed.
 
 ##### Advanced configuration for tracking page views
 
