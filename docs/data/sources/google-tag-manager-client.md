@@ -31,13 +31,13 @@ Amplitude provides a list of tag types. You might also create a Custom HTML tag 
  
 #### API Key
 
-Copy your amplitude API Key in the API Key field. For EU recidency, please make your API Key is under analytics.eu.amplitude.com. See [this page](https://tagmanager.google.com/?authuser=0#/container/accounts/6053924196/containers/91603214/workspaces/62/tags:~:text=project%20settings.%20See-,this%20page,-for%20more%20information) for more details. 
+Copy your amplitude API Key in the API Key field. For EU recidency, please make your API Key is under analytics.eu.amplitude.com.
 
 #### Instance Name
 
 If you plan on running multiple Amplitude instances, each with distinct API keys or initialization options, you can assign an `Instance Name` to each one. It's crucial to configure the `Instance Name` in the tag settings for every Amplitude tag that should be associated with a specific instance. 
 
-!!!note: 
+!!!note
     This approach can also prevent missing events if different versions of the Amplitude SDK coexist in your system.
 
 #### Access amplitude instance 
@@ -50,7 +50,7 @@ If you have a Custome HTML tag, you might need to acccess `amplitude` instance i
 // For amplitude-js-gtm@3.1.4 and above
 amplitudeGTM.getDeviceId();
 
-// others
+// Others
 amplitude.getDeviceId();
 ```
 
@@ -75,13 +75,13 @@ A tag type allow you to specify what kind of action or event should be tracked i
 
 #### EU Data Residency
 
-For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to init. [More details](../../data/sdks/typescript-browser/#eu-data-residency).
+For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to init. [More details](../../sdks/typescript-browser/#eu-data-residency).
 
 #### Enable attribution tracking
 
-Check this box to enable additional configuration options for attribution. The following configurations are available attribution optiosn. [More details](../../data/sdks/marketing-analytics-browser/#configuration). 
+Check this box to enable additional configuration options for attribution. The following configurations are available attribution optiosn. [More details](../../sdks/marketing-analytics-browser/#configuration). 
 
-???config "Configuration Options"
+???config "Default Configurations"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     |`Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. | `[]` | 
@@ -93,7 +93,7 @@ Check this box to enable additional configuration options for attribution. The f
 
 #### User ID
 
-If the userId already available you can initialize the instance with a User ID. You can also use the setUserId tag type to initialize the User ID at a later time. [More details](../../data/sdks/typescript-browser/#setUserId).
+If the userId already available you can initialize the instance with a User ID. You can also use the setUserId tag type to initialize the User ID at a later time. [More details](../../sdks/typescript-browser/#setUserId).
 
 #### Configurations
 
@@ -151,39 +151,33 @@ The `track` tag type is for tracking an event under a specific trigger.
 
 ##### Track Groups
 
-Set event level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user unless explicitly set with setGroup.
+Set event level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user unless explicitly set with setGroup. [More details](../../sdks/typescript-browser/#user-groups).
 
 | Name  | Description |
 | --- | --- |
 | `Group Type` | `string`. The name of the event. |
 | `Group Name` | `string` or `string1,string2...`. The name of the group. The value can be a single group name (e.g. 15) or a comma-separated list (e.g. 2,12,24) of group names. | 
 
-[More details](../../data/sdks/typescript-browser/$user-groups).
-
 #### identify
 
-Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order.
+Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. [More details](../../sdks/typescript-browser/#user-properties).
 
 | `Method Call` | `Add`, `Append`, `Prepend`, `Set`, `Set Once`, `Remove`, `Preinsert`, `Postinsert`, `Clear All`. The operation for the identify call. | 
 | `User Property` | `string`. The key of user properties. |
 | `Value` | `null`, `boolean`, `number` or `string`. The vaule of specific user property. |
 
-[More details](../../data/sdks/typescript-browser/#user-properties).
-
 #### setGroup
 
-Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group. 
+Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group. [More details](../../sdks/typescript-browser/#user-groups).
 
 | Name  | Description | Default Value |
 | --- | --- | --- |
 | `Group Type` | `string`. The group type. |
 | `Group Name(s)` | `string` or `string,string...`. The group name(s) under the group type. You can add a single group name or a comma-separated list (e.g. 2,12,24) of group names.| |
 
-[More details](/sdks/typescript-browser/#user-groups)
-
 #### groupIdentify
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward. [More details](../../data/sdks/typescript-browser/#group-properties).
+Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward. [More details](../../sdks/typescript-browser/#group-properties).
 
 | Name | Description |
 | --- | --- |
@@ -207,7 +201,7 @@ Tracking the revenue event for a user. Revenue instances store each revenue tran
 
 #### flush
 
-The flush method prompts the client to instantly send buffered events. [More Details](/docs/data/sdks/typescript-browser/#flush-the-event-buffer). There's no need to manually call the `flush `tag type, it will automatically be triggered based on either `flushIntervalMillis` or `flushQueueSize`, whichever comes first. To avoid event loss due to browser closure, consider enabling the `sendBeacon` transport in configuration step or set the transport type to `sendBeacon` when `pagehide`. [More details](../../data/sdks/typescript-browser/migration/#patterns).  Alternatively, you could reduce the `flushQueueSize` and `flushIntervalMillis` according to your event traffic load, ensuring events don't get stuck on the client side.
+The flush method prompts the client to instantly send buffered events. [More Details](/data/sdks/typescript-browser/#flush-the-event-buffer). There's no need to manually call the `flush `tag type, it will automatically be triggered based on either `flushIntervalMillis` or `flushQueueSize`, whichever comes first. To avoid event loss due to browser closure, consider enabling the `sendBeacon` transport in configuration step or set the transport type to `sendBeacon` when `pagehide`. [More details](../../sdks/typescript-browser/migration/#patterns).  Alternatively, you could reduce the `flushQueueSize` and `flushIntervalMillis` according to your event traffic load, ensuring events don't get stuck on the client side.
 
 #### setUserId
 
@@ -227,22 +221,15 @@ If you want to reset the userId and deviceId after logout, please check `reset` 
 
 #### setSessionId
 
-Session logic is auto handled by Amplitude. You might need to set the sessionId to `-1` if you want to out of session control. 
-Please make sure the value is in milliseconds since epoch (Unix Timestamp) or `-1`.
-
-[More details](../../data/sdks/typescript-browser/#custom-session-id)
+Session logic is auto handled by Amplitude. You might need to set the sessionId to `-1` if you want to out of session control. Please make sure the value is in milliseconds since epoch (Unix Timestamp) or `-1`. [More details](../../sdks/typescript-browser/#custom-session-id).
 
 #### reset 
 
-`reset` will be commonly used when a user has been logged out. It includes 2 operations which are `setUserId(undefined)` and `setDeviceId(UUID())`.
-
-[More details](/sdks/typescript-browser/#reset-when-user-logs-out).
+`reset` will be commonly used when a user has been logged out. It includes 2 operations which are `setUserId(undefined)` and `setDeviceId(UUID())`. [More details](../../sdks/typescript-browser/#reset-when-user-logs-out).
 
 #### setOptOut
 
-Check the `Opt current user out of tracking` checkbox to opt user out of tracking. 
-
-[More details](sdks/typescript-browser/#opt-users-out-of-tracking).
+Check the `Opt current user out of tracking` checkbox to opt user out of tracking. [More details](../../sdks/typescript-browser/#opt-users-out-of-tracking).
 
 ### Define your trigger - Triggering
 
