@@ -3,7 +3,7 @@ title: Google Tag Manager Template - Amplitude Analytics Browser SDK
 description: Collect data with ease using Amplitude Analytics Browser SDK GTM template - the official client-side Google Tag Manager template for seamless data collection.
 ---
 
-This is the client-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude Marketing Analytics SDK](../../sdks/marketing-analytics-browser/) for data collection. However, due to inherent limitations of GTM, certain features, such as plugins, are not available in this GTM template.
+This is the client-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude Marketing Analytics SDK](../../sdks/marketing-analytics-browser/) for data collection. However, due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how SDK get loaded GTM, this could lead missing data.
 
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
@@ -12,11 +12,14 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 
 ### Container Setup
 
-If you start from zero, you need to setup your conatiner first. This Amplitude Analytics Browser SDK tag template can be found in **Web** target platorm which for use on descktop and mobile web pages.
+If you start from zero, you need to setup your conatiner first. This Amplitude Analytics Browser SDK tag template can be found in **Web** target platform which for the uses on descktop and mobile web pages.
 
-### Add Templage
+![Web Container Setup](../../assets/images/gtm/gtm-web-container-setup.png) 
+
+### Add Template
 
 Create a new tag template by searching the gallery. Choose Amplitude Analytics Browser SDK and click `add` button.
+![Amplitude Analytics Browser SDK ](../../assets/images/gtm/gtm-amplitude-analytics-browser-sdk.png) 
 
 ### Create Tags
 
@@ -24,83 +27,83 @@ Create tags for your amplitude browser SDK tracking. Click the `New` button to c
 
 #### Tag Configuration
 
-We provided a list of tag type for amplitude tracking. Some times you are also reqruied to create a Custom HTML tag to do customization, like cross domain tracking or others. In order to access `amplitude` successfully, please make sure that the `init` tag is loaded before this Custome HTML tag, [time sequence](https://support.google.com/tagmanager/answer/6238868) might be helpful in this case. Please check [this section](./#access-amplitude-instance) for accessing amplitude instance. Also notice that  We are not recomended to use script loading to init amplitude through Cusom HTML tag.
-
+Amplitude provides a list of tag types. You might also create a Custom HTML tag to do customization, like cross domain tracking or others.  For successful tracking in Amplitude, ensure that the Amplitude tag loads before the Custom HTML tag, which is being used to call Amplitude. The sequence in which the tags load can significantly influence the outcome. [Time sequence](https://support.google.com/tagmanager/answer/6238868) might be helpful in this case. Please check [this section](./#access-amplitude-instance) for accessing amplitude instance in the Custom HTML tag. Note: We are not recomended to install amplitude through Cusom HTML tag.
+ 
 #### API Key
 
 Copy your amplitude API Key in the API Key field. For EU recidency, please make your API Key is under analytics.eu.amplitude.com. See [this page](https://tagmanager.google.com/?authuser=0#/container/accounts/6053924196/containers/91603214/workspaces/62/tags:~:text=project%20settings.%20See-,this%20page,-for%20more%20information) for more details. 
 
 #### Instance Name
 
-If you want to run more than one Amplitude instance (with different API keys or different initialization options), you can provide an Instance Name here. Make sure that all the Amplitude tags that should reference this instance have the Instance Name configured in the tag settings.
+If you plan on running multiple Amplitude instances, each with distinct API keys or initialization options, you can assign an `Instance Name` to each one. It's crucial to configure the `Instance Name` in the tag settings for every Amplitude tag that should be associated with a specific instance. 
+
+!!!note: 
+    This approach can also prevent missing events if different versions of the Amplitude SDK coexist in your system.
 
 #### Access amplitude instance 
 
 If you have a Custome HTML tag, you might need to acccess `amplitude` instance in your script tag. 
 
-- to access `amplitude` instance with defualt instance name 
+##### With defualt Instance Name 
 
 ```js
-// for the underlining marketing-analytics-browser-gtm version greater than v0.5.4
+// For amplitude-js-gtm@3.1.4 and above
 amplitudeGTM.getDeviceId();
 
-// for the underlining marketing-analytics-browser
+// others
 amplitude.getDeviceId();
 ```
 
-- to access `amplitude` instance with customized instance name
+##### With customized Instance Name
 
 ```js
-// for the underlining using marketing-analytics-browser-gtm
+// For amplitude-js-gtm@3.1.4 and above
 amplitudeGTM._iq["yourInstanceName"].getDeviceId();
 
-// for the underlining musing arketing-analytics-browser
+// Others
 amplitude._iq["yourInstanceName"].getDeviceId();
 ```
 
-#### Tag Types
+### Select a Tag Types
 
-Please check [here](./) to see all avaliable tag taps in Amplitude Analytics Browser SDK GTM.
+A tag type allow you to specify what kind of action or event should be tracked in your application. The following tag types are supported in Amplitude GTM template.
 
-note!!!
-    `init` tag type are seprate from other api methods. You must to make sure you create a tag for `init` tag type. Otherwise, none of you amplitude tag will be fired.
+### init
 
-#### Triggering
+!!!note
+    `init` operates as a separate tag type. It's essential to create a tag for the init tag type. Although we provide defer initialization, events won't be sent to amplitude until the `init` tag has been activated.
 
-All tags fire based on events. Anytime Google Tag Manager registers an event, event triggers are evaluated and tags are fired accordingly. Please check [here](https://support.google.com/tagmanager/topic/7679108?sjid=4311393792871502449-NA) for avaialbe triggers in GTM. 
+#### EU Data Residency
 
-note!!!
-    Tipically `init` tag is the first thing you need to fire on the page. It's common to fire the `init` tag using `All Pages` or `Initialization - All Pages` triggers. You can also defer the `init` tag until you receive a signal and fire it using customized triggers, such as a consent grant. But notice that all other tags will wait for the `init` tag to fire before they can be sent to Amplitude. 
+For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to init. [More details](../../data/sdks/typescript-browser/#eu-data-residency).
 
-### Tag Types
+#### Enable attribution tracking
 
-#### init
-
-##### EU Data Residency
-
-For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to init. 
-
-##### Enable attribution tracking
-
-Check this box to enable additional configuration options for attribution. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#configuration).
-
-#### User ID
-
-If you want, you can initialize the instance with a User ID, if already available. You can also use the setUserId command to initialize the User ID at a later time. Check [here] for more details.
-
-##### Configurations
-
-- `Use default values`, then the initialization is done with the default values.
---8<-- "includes/sdk-ts-browser/shared-configurations.md"
-
-- Select a {{GTM variable}} from the list, which needs to return an object that has the key-value pairs you want to configure the instance with.
-
-- Set configuration manually in the tag itself, by selecting the corresponding option. The following configurations are the available ones with the value type in GTM template. 
+Check this box to enable additional configuration options for attribution. The following configurations are available attribution optiosn. [More details](../../data/sdks/marketing-analytics-browser/#configuration). 
 
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-   |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in millionseconds. | 1 second.|
+    |`Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. | `[]` | 
+    | `Reset the session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deteted. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#reset-the-session-on-a-new-campaign). | `false`|
+    | `Initial empty value` | `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY`|
+    | `Page View Tracking` | `check box`. Whether enable the page view tracking. Even GTM support `All Page` trigger, we recommend to use Amplitude build-in function to track page view instead of seting your own trigger for page view. Since GTM didn't support out of box tracking for Single Page Application, there are additional works required. | `No page view tracking`|
+    | `Page View trigger` | `Page Loads` or `Only with Attribution changes` or a `Variable Configuration`.  The trigger of `Page View` event. A variable configuration can be either build-in or customized that returns a function with a true or false return value. If the function returns true, then Page Views are tracked automatically, if it returns false then Page Views are not tracked. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#page-view). | `Page Loads` if enable page view tracking. |
+    | `Track history events automatically` | `Do not track history change` or `All history changes` or `Only when page path changes`. Whether to track history events. This is for tracking page view on SPA. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#single-page-app-page-view-tracking). | `Do not track history change` |
+
+#### User ID
+
+If the userId already available you can initialize the instance with a User ID. You can also use the setUserId tag type to initialize the User ID at a later time. [More details](../../data/sdks/typescript-browser/#setUserId).
+
+#### Configurations
+
+- `Use default values`. The initialization is done with the default values.
+--8<-- "includes/sdk-ts-browser/shared-configurations.md"
+- `Set configuration manually`. By selecting the corresponding option. The following configurations are the available ones with the value type in GTM template. 
+???config "GTM Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in millionseconds. | 1 second.|
     |`flushQueueSize`| `number`. The maximum number of events that can be stored locally before forcing an upload.  | 30 events. |
     |`flushMaxRetries`| `number`. The max retry limits. | 5 times.|
     |`logLevel`| `LogLevel.None` or `LogLevel.Error` or `LogLevel.Warn` or `LogLevel.Verbose` or `LogLevel.Debug`. The log level. | `LogLevel.Warn` |
@@ -120,82 +123,133 @@ If you want, you can initialize the instance with a User ID, if already availabl
     |`userId`| `number`. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. | `undefined` |
     |`trackingOptions`| `TrackingOptions`. Please check the `Optional tracking` section for more tracking options configuration. | Enable all tracking options by default. |
     |`transport`| `TransportType.XHR` or `TransportType.SendBeacon` or `TransportType.Fetch`. Set the transport type. | `TransportType.Fetch` |
-
-##### Attribution Options
-
-???config "Configuration Options"
-    | <div class="big-column">Name</div>  | Description | Default Value |
-    | --- | --- | --- |
-    |`Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. | `[]` | 
-    | `Reset the session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deteted. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#reset-the-session-on-a-new-campaign). | `false`|
-    | `Initial empty value` | `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY`|
-    | `Page View Tracking` | `check box`. Whether enable the page view tracking. |  Not track page view tracking by default.|
-    | `Page View trigger` | `Page Loads` or `Only with Attribution changes` or a `Variable Configuration`.  The trigger of `Page View` event. A variable configuration can be either build-in or customized that returns a function with a true or false return value. If the function returns true, then Page Views are tracked automatically, if it returns false then Page Views are not tracked. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#page-view). | `Page Loads` if enable page view tracking. |
-    | `Track history events automatically` | `Do not track history change` or `All history changes` or `Only when page path changes`. Whether to track history events. This is for tracking page view on SPA. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#single-page-app-page-view-tracking). | `Do not track history change` by default. |
+- `Select a {{GTM variable}} from the list`. It's necessary to return an object containing the key-value pairs you wish to use for instance configuration. Ensure that the keys are part of the available configurations.
 
 #### track
 
+Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
+The `track` tag type is for tracking an event under a specific trigger.
+
+##### Event Type
+
+| Name  | Description |
+| --- | --- |
+| `Event Type` | `string`. The name of the event. |
+
+##### Event Properties
+
+| Name  | Description |
+| --- | --- |
+| `Property Name` | `string`. The name of the event. |
+| `Property Value` | `string`. The value of the event property |
+
+##### Custom Timestamp 
+
+| Name  | Description | Default Value |
+| --- | --- | --- |
+| `Custom Timestamp ` | `number`. timestamp in UNIX time (milliseconds). Leave empty to use current time. | Current timestamp. |
+
+##### Track Groups
+
+Set event level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user unless explicitly set with setGroup.
+
+| Name  | Description |
+| --- | --- |
+| `Group Type` | `string`. The name of the event. |
+| `Group Name` | `string` or `string1,string2...`. The name of the group. The value can be a single group name (e.g. 15) or a comma-separated list (e.g. 2,12,24) of group names. | 
+
+[More details](../../data/sdks/typescript-browser/$user-groups).
+
 #### identify
 
-Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. More information.
+Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order.
 
-#### setGroup 
+| `Method Call` | `Add`, `Append`, `Prepend`, `Set`, `Set Once`, `Remove`, `Preinsert`, `Postinsert`, `Clear All`. The operation for the identify call. | 
+| `User Property` | `string`. The key of user properties. |
+| `Value` | `null`, `boolean`, `number` or `string`. The vaule of specific user property. |
 
-| Name</div>  | Description | Default Value |
+[More details](../../data/sdks/typescript-browser/#user-properties).
+
+#### setGroup
+
+Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group. 
+
+| Name  | Description | Default Value |
 | --- | --- | --- |
-| `Group Type` | `string`. The group type| |
-| `Group Name(s)` | `string`. The group name(s) under the group You can add a single group name or a comma-separated list (e.g. 2,12,24) of group names.| |
+| `Group Type` | `string`. The group type. |
+| `Group Name(s)` | `string` or `string,string...`. The group name(s) under the group type. You can add a single group name or a comma-separated list (e.g. 2,12,24) of group names.| |
 
-Check here for [more details](/sdks/typescript-browser/#user-groups)
+[More details](/sdks/typescript-browser/#user-groups)
 
 #### groupIdentify
 
+Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward. [More details](../../data/sdks/typescript-browser/#group-properties).
+
+| Name | Description |
+| --- | --- |
+| `Group Type` | `string`. The group type. |
+| `Group Name(s)` | `string`. The group name(s) under the group type. |
+| `Method Call` | `Add`, `Append`, `Prepend`, `Set`, `Set Once`, `Remove`, `Preinsert`, `Postinsert`, `Clear All`. The operation for the identify call. | 
+| `User Property` | `string`. The key of user properties. |
+| `Value` | `null`, `boolean`, `number` or `string`. The vaule of specific user property. |
+
 #### revenue
 
-???config "revenue configuration"
-    | <div class="big-column">Name</div>  | Description | Default Value |
-    | --- | --- | --- |
-    |`product_id` | Required. `string`. An identifier for the product. Amplitude recommend something like the Google Play Store product ID. | Empty string. |
-    |`quantity` | Required. `number`. The quantity of products purchased. For version after marketing-analytics-browser-gtm 0.5.4 , we auto assign `revenue = quantity * price`. &&&&&& | `1` |
-    |`price` | Required. `number`. The price of the products purchased, and this can be negative. Note: revenue = quantity* price. | `null` |
-    |`revenue_type` | Optional, but required for revenue verification. `string`. The revenue type (for example, tax, refund, income). | `null` |
-    |`event properties`| Optional. `{ [key: string]: any }`. An object of event properties to include in the revenue event. | `null` |
+Tracking the revenue event for a user. Revenue instances store each revenue transaction and allow you to define several special revenue properties (such as 'revenueType' and 'productIdentifier') that are used in Amplitude's Event Segmentation and Revenue LTV charts.
+
+| <div class="big-column">Name</div>  | Description | Default Value |
+| --- | --- | --- |
+|`product_id` | Required. `string`. An identifier for the product. Amplitude recommend something like the Google Play Store product ID. | `` |
+|`quantity` | Required. `number`. The quantity of products purchased. For version after marketing-analytics-browser-gtm 0.5.4 , we auto assign `revenue = quantity * price`. &&&&&& | `1` |
+|`price` | Required. `number`. The price of the products purchased, and this can be negative. Note: revenue = quantity* price. | `null` |
+|`revenue_type` | Optional, but required for revenue verification. `string`. The revenue type (for example, tax, refund, income). | `null` |
+|`event properties`| Optional. `{ [key: string]: any }`. An object of event properties to include in the revenue event. | `null` |
 
 #### flush
 
-The flush method triggers the client to send buffered events immediately. [More Details](/docs/data/sdks/typescript-browser/#flush-the-event-buffer). You don't need to manuelly trigger the `flush` tag type, it will be auto triggered depended on `flushIntervalMillis` and `flushQueueSize` which has been triggered first. If you want to prevent event dropping caused by closing a browser, you can use `sendBeacon` transport instead  or lower down the flushQueueSize and flushIntervalMillis based on your events traffic load to make sure those event not get stucked in the client side.
+The flush method prompts the client to instantly send buffered events. [More Details](/docs/data/sdks/typescript-browser/#flush-the-event-buffer). There's no need to manually call the `flush `tag type, it will automatically be triggered based on either `flushIntervalMillis` or `flushQueueSize`, whichever comes first. To avoid event loss due to browser closure, consider enabling the `sendBeacon` transport in configuration step or set the transport type to `sendBeacon` when `pagehide`. [More details](../../data/sdks/typescript-browser/migration/#patterns).  Alternatively, you could reduce the `flushQueueSize` and `flushIntervalMillis` according to your event traffic load, ensuring events don't get stuck on the client side.
 
-### setUserId
-
-If you want to reset the userId and deviceId after logout, please check `reset` tag type instead.
-
-| Name | Description | Default Value |
-| --- | --- | --- |
-| `User ID`| `empty` or `string`. Set the userId. Leave empty if you want to set the userId to undefined. | `empty` |
-
-### setDeviceId
+#### setUserId
 
 If you want to reset the userId and deviceId after logout, please check `reset` tag type instead.
 
 | Name | Description | Default Value |
 | --- | --- | --- |
-| `Device ID`| `string`. Set deviceId for the current user. Amplitude will assign an unique identifier for the deviceId by default. For the cross domain case, Amplitue will auto assign the deviceId from the url. This is not recommended unless you know what you are doing. [More Details](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/#custom-device-id) | `string` |
+| `User ID`| `undefined` or `string`. Set the userId. Leave empty if you want to set the userId to undefined. | `undefined` |
 
-### setSessionId
+#### setDeviceId
+
+If you want to reset the userId and deviceId after logout, please check `reset` tag type instead.
+
+| Name | Description | Default Value |
+| --- | --- | --- |
+| `Device ID`| `string`. Set the deviceId for the current user. Amplitude will assign an unique identifier for the deviceId by default. For the cross domain use case, Amplitue will auto capture the `deviceId` from URL parameter and assign the value to deviceId. Otherwise, this is not recommended unless you know what you are doing. [More Details](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/#custom-device-id) | `UUID` |
+
+#### setSessionId
 
 Session logic is auto handled by Amplitude. You might need to set the sessionId to `-1` if you want to out of session control. 
-Please make sure the value is in milliseconds since epoch (Unix Timestamp) or -1.
+Please make sure the value is in milliseconds since epoch (Unix Timestamp) or `-1`.
 
-[Learn More](./sdks/typescript-browser/#custom-session-id)
+[More details](../../data/sdks/typescript-browser/#custom-session-id)
 
-### reset 
+#### reset 
 
-`reset` have 2 operations which include setUserId(undefined) and setDeviceId(UUID())
-[Learn More](/sdks/typescript-browser/#reset-when-user-logs-out)
+`reset` will be commonly used when a user has been logged out. It includes 2 operations which are `setUserId(undefined)` and `setDeviceId(UUID())`.
 
-### setOptOut
+[More details](/sdks/typescript-browser/#reset-when-user-logs-out).
 
-Check the `Opt current user out of tracking` checkbox to opt user out of tracking. [Learn More](sdks/typescript-browser/#opt-users-out-of-tracking)
+#### setOptOut
+
+Check the `Opt current user out of tracking` checkbox to opt user out of tracking. 
+
+[More details](sdks/typescript-browser/#opt-users-out-of-tracking).
+
+### Define your trigger - Triggering
+
+All tags fire based on events. Anytime Google Tag Manager registers an event, event triggers are evaluated and tags are fired accordingly. Please check [here](https://support.google.com/tagmanager/topic/7679108?sjid=4311393792871502449-NA) for avaialbe triggers in GTM. 
+
+!!!note
+    Tipically `init` tag is the first thing you need to fire on the page. It's common to fire the `init` tag using `All Pages` or `Initialization - All Pages` triggers. You can also defer the `init` tag until you receive a signal and fire it using customized triggers, such as a consent grant. But notice that all other tags will wait for the `init` tag to fire before they can be sent to Amplitude. 
 
 ## Others
 
