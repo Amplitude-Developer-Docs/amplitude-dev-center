@@ -76,6 +76,8 @@ A tag type allow you to specify what kind of action or event should be tracked i
 !!!note
     `init` operates as a separate tag type. It's essential to create a tag for the init tag type. Although we provide defer initialization, events won't be sent to amplitude until the `init` tag has been activated.
 
+Cookies are generated at the initialization stage. For more information on managing cookies, please refer to our [cookie management details](../../sdks/typescript-browser/#cookie-management). It is recommended to initialize after obtaining cookie consent. As we support deferred initialization, any event tracking that takes place before the init command will still be captured and won't be lost.
+
 #### EU Data Residency
 
 For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to `init`. [More details](../../sdks/typescript-browser/#eu-data-residency).
