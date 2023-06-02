@@ -214,7 +214,7 @@ Every iOS app gets a slice of storage just for itself, meaning that you can read
 
 Amplitude(
     configuration: Configuration(
-        apiKey: "8c0fefcbd0effe2d799eb51be70053f8",
+        apiKey: "YOUR-API-KEY",
         storageProvider: YourOwnStorage() // YourOwnStorage() should implement Storage
         )
     )
