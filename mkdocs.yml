@@ -280,6 +280,7 @@ nav:
         - Customer.io: data/destinations/customerio.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
+        - Fullstory: data/destinations/fullstory-event-streaming.md
         - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
         - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
         - Google Ads: data/destinations/google-ads-event-streaming.md
