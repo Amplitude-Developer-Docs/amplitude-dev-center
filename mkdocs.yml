@@ -226,7 +226,7 @@ nav:
             - Adobe Analytics: data/sources/adobe-analytics.md
             - Adobe Tag Manager: data/sources/adobe.md
           - Google Tag Manager:
-            - data/sources/google-tag-manager.md
+            - data/sources/google-tag-manager/index.md
             - Client-side: data/sources/google-tag-manager-client.md
             - Server-side: data/sources/google-tag-manager-server.md
             - Client-side (Legacy): data/sources/google-tag-manager-client-legacy.md
