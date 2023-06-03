@@ -286,6 +286,7 @@ nav:
         - Google Ads: data/destinations/google-ads-event-streaming.md
         - Google Pub/Sub: data/destinations/google-pub-sub.md
         - Google Tag Manager: data/destinations/google-tag-manager-event-streaming.md
+        - Hotjar: data/destinations/hotjar-event-streaming.md
         - Hubspot: data/destinations/hubspot-event-streaming.md
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
