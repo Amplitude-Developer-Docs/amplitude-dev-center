@@ -245,6 +245,29 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 !!!note
     Tipically `init` tag is the first thing you need to fire on the page. It's common to fire the `init` tag using `All Pages` or `Initialization - All Pages` triggers. You can also defer the `init` tag until you receive a signal and fire it using customized triggers, such as a consent grant. But notice that all other tags will wait for the `init` tag to fire before they can be sent to Amplitude. 
 
+## Common Issues
+
+### Is Amplitude GTM template support React Native (Android or iOS) app?
+
+No. The Amplitude Analytics Browser SDK only suport the web conatiner, designed for desktop and mobile browsers. Amplitude does not provide support for GTM templates for mobile apps at this time. To request this feature, please submit your request. Please submit a feature request at [here](https://help.amplitude.com/hc/en-us/requests/new).
+
+### Can we add some logic to Amplitude template?
+
+Yes, but not recommended. Modified Community Gallery Templates will no longer receive updates provided by the developer but you can always restore the template to start receiving notifications again.
+
+### Missing some events?
+
+- Please check if you have multiple versions of Amplitude browser SDK installed. If it's the cause, probabily there has some collision between different versions of SDKs. Please try to giving an different instance name for your GTM instance. 
+- Init web attribution event is missing. If you has installed cookies consent, please check if the value of `document.referrer` has been updated to your current domain. The campaign from the current domain won't be tracked.
+
+### Overall user counts to increase?
+
+Ensure to verify whether cookies have been altered or removed inadvertently. [Cookies](../../sdks/typescript-browser/#cookie-data) store critical user session data and marketing campaign information. If these cookies are deleted, it triggers a reset of user identifiers (such as user ID and device ID), invariably leading to a surge in the user count. Additionally, the erasure of last-viewed campaign parameters can result in an increase in organic/direct traffic, among other effects
+
+### Cross Domain Tracking?
+
+To retain user identification across different domains, a custom HTML tag must be created to attach the user's deviceId to the domain link you wish to track. By appending `deviceId=YourDeviceId` to the URL, the Amplitude Analytics Browser SDK will utilize this deviceId from the URL parameter rather than generating a new one. Due to certain limitations in GTM, the [workaround](https://github.com/amplitude/GTM-cross-domain-script) is available to illustrate how to append URLs in the GTM template.
+
 ## Video Tutorial
 
 This video tutorial walks through the implementation basics. 
