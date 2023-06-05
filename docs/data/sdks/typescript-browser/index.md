@@ -34,17 +34,20 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 ### Configuration
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
+    |`attribution`| `AttributionOptions`. Configurations for web attribution plugin | Check "Attribution Options" config table below |
+    |`defaultTracking`| `boolean | DefaultTrackingOptions`. Configurations for default event tracking | Check [tracking default events](./#tracking-default-events)|
 
 In addition to the basic configuration options, there also has options to configure attribution.
     
 ???config "Attribution Options"
     |<div class="big-column">Name</div>| Description| Default Value|
     |---|----|---|
-    |`attribution.disabled`| `boolean`. Whether disable the attribution tracking. | `false` |
-    |`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
-    |`attribution.initialEmptyValue`| `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY` |
-    |`attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
-    |`attribution.trackPageViews`| `boolean`. Whether track page view on attribution. | `false` |
+    |`config.attribution.disabled`| `boolean`. Whether disable the attribution tracking. | `false` |
+    |`config.attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
+    |`config.attribution.initialEmptyValue`| `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY` |
+    |`config.attribution.resetSessionOnNewCampaign`| `boolean`. Whether to reset user sessions when a new campaign is detected. Note a new| `false` |
+    |`config.attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
+    |`config.attribution.trackPageViews`| `boolean`. Whether track page view on attribution. Note that `config.defaultTracking.pageViews` has higher priority over this configuration. Learn more about it [here](./#tracking-page-views). | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -142,6 +145,9 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 By setting `config.defaultTracking.pageViews` to `true`, you enable Amplitude to use default page view tracking behavior. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
 
+!!!note Page view event configuration priority
+    You may notice that both `config.defaultTracking.pageViews` and `config.attribution.trackPageViews` have configurations for whether to enable page view tracking especially when you are using the web attribution plugin. Notice that `config.defaultTracking.pageViews` has higher priority over `config.attribution.trackPageViews` which means that `config.defaultTracking.pageViews` will overwrite the setting of the attribution page view event. When `config.attribution.trackPageViews` is enabled, the SDK tracks page view events only when attribution changed. When `config.defaultTracking.pageViews` is enabled, the SDK tracks page view events when page changed.
+
 ##### Advanced configuration for tracking page views
 
 You can also use advanced configuration for better control of when page views event are sent.
@@ -149,9 +155,9 @@ You can also use advanced configuration for better control of when page views ev
 ???config "Tracking page views options"
     |<div class="big-column">Name</div>|Value|Description|
     |-|-|-|
-    `defaultTracking.pageViews.trackOn` | Optional. `"attribution"` or `() => boolean` | Provides advanced control on when page view events are tracked.<br /><br />You can omit or set the value to `undefined`,  and configure page view events to be tracked on initialization.<br /><br />You can set the value to `"attribution"` and configure page view events to be tracked only when web attribution are tracked.<br /><br />You can set the value to a function that returns a boolean (`true` or `false`) and configure page view events to be tracked based on your criteria.|
-    `defaultTracking.pageViews.trackHistoryChanges` | Optional. `"pathOnly"` or `"all"` | Provides advanced control for single page application on when page views are tracked.<br /><br />You can omit or set the value to `"all"`,  and configure page view events to be tracked on any navigation change to the URL within your single page application. For example: navigating from `https://amplitude.com/#company` to `https://amplitude.com/#blog`.<br /><br />You can omit or set the value to "pathOnly",  and configure page view events to be tracked on navigation change to the URL path only within your single page application. For example: navigating from `https://amplitude.com/company` to `https://amplitude.com/blog`.|
-    `defaultTracking.pageViews.eventType` | Optional. `String` | Customize the event_type for page view event. |
+    `config.defaultTracking.pageViews.trackOn` | Optional. `"attribution"` or `() => boolean` | Provides advanced control on when page view events are tracked.<br /><br />You can omit or set the value to `undefined`,  and configure page view events to be tracked on initialization.<br /><br />You can set the value to `"attribution"` and configure page view events to be tracked only when web attribution are tracked.<br /><br />You can set the value to a function that returns a boolean (`true` or `false`) and configure page view events to be tracked based on your criteria.|
+    `config.defaultTracking.pageViews.trackHistoryChanges` | Optional. `"pathOnly"` or `"all"` | Provides advanced control for single page application on when page views are tracked.<br /><br />You can omit or set the value to `"all"`,  and configure page view events to be tracked on any navigation change to the URL within your single page application. For example: navigating from `https://amplitude.com/#company` to `https://amplitude.com/#blog`.<br /><br />You can omit or set the value to "pathOnly",  and configure page view events to be tracked on navigation change to the URL path only within your single page application. For example: navigating from `https://amplitude.com/company` to `https://amplitude.com/blog`.|
+    `config.defaultTracking.pageViews.eventType` | Optional. `String` | Customize the event_type for page view event. |
 
 For example, you can configure Amplitude to track page views only when the URL path contains a certain substring, let’s say “home”. Refer to the code sample for how to achieve this.
 
