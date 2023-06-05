@@ -20,7 +20,7 @@
 - :cordial: [Cordial](../data/sources/cordial.md)
 - :csv: [CSV](../data/sources/lookup-table.md)
 - :datazoom: [Datazoom](../data/sources/datazoom.md)
-- :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
+- :google-tag-manager: [Google Tag Manager](../sources/google-tag-manager/)
 - :hightouch: [Hightouch](../data/sources/hightouch.md)
 - :hubspot: [HubSpot](../data/sources/hubspot.md)
 - :intercom: [Intercom](../data/sources/intercom.md)
