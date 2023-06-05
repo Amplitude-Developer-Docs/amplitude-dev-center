@@ -7,7 +7,7 @@ Use the official Amplitude Analytics Google Tag Manager templates to collect dat
 
 |Template|Type|Description|
 |---|---|-----------|
-|[Amplitude Analytics Browser SDK](./google-tag-manager-client.md)|Client-side|The tag uses the Amplitude Marketing Analytics SDK for data collection.|
+|[Amplitude Analytics Browser SDK](../google-tag-manager-client.md)|Client-side|The tag uses the Amplitude Marketing Analytics SDK for data collection.|
 |[Amplitude Analytics](../google-tag-manager-server.md)|Server-side|The tag uses the Amplitude HTTP V2 API for data collection. |
 |[Amplitude Analytics Legacy](../google-tag-manager-client-legacy.md)|Client-side|The tag uses the Amplitude JavaScript SDK for data collection. |
 
