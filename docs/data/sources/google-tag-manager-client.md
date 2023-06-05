@@ -3,10 +3,13 @@ title: Google Tag Manager Template - Amplitude Analytics Browser SDK
 description: Collect data with ease using Amplitude Analytics Browser SDK GTM template - the official client-side Google Tag Manager template for seamless data collection.
 ---
 
-This is the client-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude Marketing Analytics SDK](../../sdks/marketing-analytics-browser/) for data collection. However, due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how SDK get loaded GTM, this could lead missing data.
+This is the client-side Google Tag Manager Template for Amplitude Analytics. The tag uses the [Amplitude Marketing Analytics SDK](../../sdks/marketing-analytics-browser/) for data collection.
 
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
+
+!!!warning
+    Due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how SDK get loaded GTM, this could lead missing data.
 
 !!!note
     Ensure to consistently update your Amplitude GTM template to the latest version for an enhanced feature set, crucial bug fixes, and a significantly improved user experience.
@@ -247,13 +250,13 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 
 ## Common Issues
 
-### Is Amplitude GTM template support React Native (Android or iOS) app?
+### Does Amplitude GTM template support React Native (Android or iOS) apps?
 
 No. The Amplitude Analytics Browser SDK only suport the web conatiner, designed for desktop and mobile browsers. Amplitude does not provide support for GTM templates for mobile apps at this time. To request this feature, please submit your request. Please submit a feature request at [here](https://help.amplitude.com/hc/en-us/requests/new).
 
 ### Can we add some logic to Amplitude template?
 
-Yes, but not recommended. Modified Community Gallery Templates will no longer receive updates provided by the developer but you can always restore the template to start receiving notifications again.
+Yes, but it's not recommended. Modified Community Gallery Templates will no longer receive updates provided by the developer but you can always restore the template to start receiving notifications again.
 
 ### Missing some events?
 
