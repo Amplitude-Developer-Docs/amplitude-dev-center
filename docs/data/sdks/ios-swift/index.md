@@ -192,8 +192,8 @@ Amplitude(
     configuration: Configuration(
         apiKey: "YOUR-API-KEY",
         storageProvider: YourOwnStorage() // YourOwnStorage() should implement Storage
-        )
     )
+)
 ```
 
 ### Reset when user logs out
