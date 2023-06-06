@@ -183,39 +183,11 @@ amplitude.setDeviceId(NSUUID().uuidString)
 
 ### Custom storage
 
-By default, Amplitude persists data in file storage. Every iOS app gets dedicated of storage, meaning that you can read and write your app's files there without worrying about colliding with other apps. By default, Amplitude uses this file storage and creates an "amplitude" prefixed folder inside the app "Documents" directory.
-
 If you don't want to store the data in the Amplitude-defined location, you can customize your own storage by implementing the [Storage protocol](https://github.com/amplitude/Amplitude-Swift/blob/211d0c05830fab47e74fa9a053615cf422618a02/Sources/Amplitude/Types.swift#L62-L86) and setting the `storageProvider` in your configuration.
 
 Every iOS app gets a slice of storage just for itself, meaning that you can read and write your app's files there without worrying about colliding with other apps. By default, Amplitude uses this file storage and creates an "amplitude" prefixed folder inside the app "Documents" directory. However, if you need to expose the Documents folder in the native iOS "Files" app and don't want expose "amplitude" prefixed folder, you can customize your own storage provider to persist events on initialization.
 
 ```swift
-//public protocol Storage {
-//    func write(key: StorageKey, value: Any?) throws
-//    func read<T>(key: StorageKey) -> T?
-//    func getEventsString(eventBlock: URL) -> String?
-//    func remove(eventBlock: URL)
-//    func splitBlock(eventBlock: URL, events: [BaseEvent])
-//    func rollover()
-//    func reset()
-//    func getResponseHandler(
-//        configuration: Configuration,
-//        eventPipeline: EventPipeline,
-//        eventBlock: URL,
-//        eventsString: String
-//    ) -> ResponseHandler
-//}
-//
-//public enum StorageKey: String, CaseIterable {
-//    case LAST_EVENT_ID = "last_event_id"
-//    case PREVIOUS_SESSION_ID = "previous_session_id"
-//    case LAST_EVENT_TIME = "last_event_time"
-//    case OPT_OUT = "opt_out"
-//    case EVENTS = "events"
-//    case USER_ID = "user_id"
-//    case DEVICE_ID = "device_id"
-//}
-
 Amplitude(
     configuration: Configuration(
         apiKey: "YOUR-API-KEY",
