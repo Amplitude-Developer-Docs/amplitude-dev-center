@@ -24,6 +24,12 @@ If you start from zero, you need to setup your conatiner first. This Amplitude A
 Create a new tag template by searching the gallery. Choose Amplitude Analytics and click `add` button.
 ![Amplitude Analytics](../../assets/images/gtm/gtm-amplitude-analytics.png)
 
+### Create a Client
+
+Clients are responsible for getting and processing/adapting the data received by the GTM server-side container. Then it makes the data available to tags, triggers, and variables in that container. When you create a new server container, it creates two clients automatically, Universal Analytics, and GA4. You can also link your web container as a client.
+
+![Server Container Client Type](../../assets/images/gtm/gtm-server-container-client-type.png)
+
 ### Create Tags
 
 Create tags for your amplitude browser SDK tracking. Click the `New` button to create your new tags.
