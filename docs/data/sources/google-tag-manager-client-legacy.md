@@ -1,5 +1,5 @@
 ---
-title: Google Tag Manager Template - Amplitude Analytics Legacy
+title: Google Tag Manager Web Template - Amplitude Analytics Legacy
 description: Collect data with ease using Amplitude Analytics Legacy GTM template - the official client-side Google Tag Manager template for seamless data collection.
 ---
 

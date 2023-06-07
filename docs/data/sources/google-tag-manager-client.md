@@ -1,5 +1,5 @@
 ---
-title: Google Tag Manager Template - Amplitude Analytics Browser SDK
+title: Google Tag Manager Web Template - Amplitude Analytics Browser SDK
 description: Collect data with ease using Amplitude Analytics Browser SDK GTM template - the official client-side Google Tag Manager template for seamless data collection.
 ---
 
@@ -74,18 +74,18 @@ amplitude._iq["yourInstanceName"].getDeviceId();
 
 A tag type allow you to specify what kind of action or event should be tracked in your application. The following tag types are supported in Amplitude GTM template.
 
-### init
+#### init
 
 !!!note
     `init` operates as a separate tag type. It's essential to create a tag for the init tag type. Although we provide defer initialization, events won't be sent to amplitude until the `init` tag has been activated.
 
 Cookies are generated at the initialization stage. For more information on managing cookies, please refer to our [cookie management details](../../sdks/typescript-browser/#cookie-management). It is recommended to initialize after obtaining cookie consent. As we support deferred initialization, any event tracking that takes place before the init command will still be captured and won't be lost.
 
-#### EU Data Residency
+##### EU Data Residency
 
 For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to `init`. [More details](../../sdks/typescript-browser/#eu-data-residency).
 
-#### Enable attribution tracking
+##### Enable attribution tracking
 
 Check this box to enable additional configuration options for attribution. The following configurations are available attribution options. [More details](../../sdks/marketing-analytics-browser/#configuration). 
 
@@ -99,11 +99,11 @@ Check this box to enable additional configuration options for attribution. The f
     | `Page View trigger` | `Page Loads` or `Only with Attribution changes` or a `Variable Configuration`.  The trigger of `Page View` event. A variable configuration can be either build-in or customized that returns a function with a true or false return value. If the function returns true, then Page Views are tracked automatically, if it returns false then Page Views are not tracked. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#page-view). | `Page Loads` if enable page view tracking. |
     | `Track history events automatically` | `Do not track history change` or `All history changes` or `Only when page path changes`. Whether to track history events. This is for tracking page view on SPA. [More details](https://www.docs.developers.amplitude.com/data/sdks/marketing-analytics-browser/#single-page-app-page-view-tracking). | `Do not track history change` |
 
-#### User ID
+##### User ID
 
 If the userId already available you can initialize the instance with a User ID. You can also use the setUserId tag type to initialize the User ID at a later time. [More details](../../sdks/typescript-browser/#setUserId).
 
-#### Configurations
+##### Configurations
 
 - `Use default values`. The initialization is done with the default values.
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
