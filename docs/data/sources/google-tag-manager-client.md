@@ -9,7 +9,7 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
 
 !!!warning
-    Due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how SDK get loaded GTM, this could lead missing data.
+    Due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how the SDK gets loaded in GTM, this could lead to missing data.
 
 !!!note
     Ensure to consistently update your Amplitude GTM template to the latest version for an enhanced feature set, crucial bug fixes, and a significantly improved user experience.
@@ -18,13 +18,13 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 
 ### Container Setup
 
-If you start from zero, you need to setup your conatiner first. This Amplitude Analytics Browser SDK tag template can be found in **Web** target platform which for the uses on desktop and mobile web pages.
+If you start from zero, you need to setup your container first. This Amplitude Analytics Browser SDK tag template can be found in **Web** target platform which for the uses on desktop and mobile web pages.
 
 ![Web Container Setup](../../assets/images/gtm/gtm-web-container-setup.png) 
 
 ### Add Template
 
-Create a new tag template by searching the gallery. Choose Amplitude Analytics Browser SDK and click `add` button.
+Create a new tag template by searching the gallery. Choose Amplitude Analytics Browser SDK and click the `add` button.
 ![Amplitude Analytics Browser SDK ](../../assets/images/gtm/gtm-amplitude-analytics-browser-sdk.png) 
 
 ### Create Tags
@@ -33,11 +33,13 @@ Create tags for your amplitude browser SDK tracking. Click the `New` button to c
 
 #### Tag Configuration
 
-Amplitude provides a list of tag types. You might also create a Custom HTML tag to do customization, like cross domain tracking or others.  For successful tracking in Amplitude, ensure that the Amplitude tag loads before the Custom HTML tag, which is being used to call Amplitude. The sequence in which the tags load can significantly influence the outcome. [Time sequence](https://support.google.com/tagmanager/answer/6238868) might be helpful in this case. Please check [this section](./#access-amplitude-instance) for accessing amplitude instance in the Custom HTML tag. Note: We are not recomended to install amplitude through Cusom HTML tag.
+Amplitude provides a list of tag types. You might also create a Custom HTML tag to do customization, like cross domain tracking or others.  For successful tracking in Amplitude, ensure that the Amplitude tag loads before the Custom HTML tag, which is being used to call Amplitude. The sequence in which the tags load can significantly influence the outcome. [Time sequence](https://support.google.com/tagmanager/answer/6238868) might be helpful in this case. Please check [this section](./#access-amplitude-instance) for accessing the amplitude instance in the Custom HTML tag. 
+
+Note: We do *not* recommend installing amplitude through a Custom HTML tag.
  
 #### API Key
 
-Copy your amplitude API Key in the API Key field. For EU recidency, please make your API Key is under analytics.eu.amplitude.com.
+Copy your amplitude API Key in the API Key field. For EU residency, please make sure your API Key is under analytics.eu.amplitude.com.
 
 #### Instance Name
 
@@ -211,7 +213,7 @@ Tracking the revenue event for a user. Revenue instances store each revenue tran
 
 #### flush
 
-The flush method prompts the client to instantly send buffered events. [More Details](/data/sdks/typescript-browser/#flush-the-event-buffer). There's no need to manually call the `flush `tag type, it will automatically be triggered based on either `flushIntervalMillis` or `flushQueueSize`, whichever comes first. To avoid event loss due to browser closure, consider enabling the `sendBeacon` transport in configuration step or set the transport type to `sendBeacon` when `pagehide`. [More details](../../sdks/typescript-browser/migration/#patterns).  Alternatively, you could reduce the `flushQueueSize` and `flushIntervalMillis` according to your event traffic load, ensuring events don't get stuck on the client side.
+The flush method prompts the client to instantly send [buffered events](/data/sdks/typescript-browser/#flush-the-event-buffer). There's no need to manually call the `flush `tag type, it will automatically be triggered based on either `flushIntervalMillis` or `flushQueueSize`, whichever comes first. To avoid event loss due to browser closure, consider enabling the `sendBeacon` transport in the configuration options, or set the transport type to `sendBeacon` when `pagehide`. [More details can be found here.](../../sdks/typescript-browser/migration/#patterns).  Alternatively, you could reduce the `flushQueueSize` and `flushIntervalMillis` according to your event traffic load, ensuring events don't get stuck on the client.
 
 #### setUserId
 
@@ -252,7 +254,7 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 
 ### Does Amplitude GTM template support React Native (Android or iOS) apps?
 
-No. The Amplitude Analytics Browser SDK only suport the web conatiner, designed for desktop and mobile browsers. Amplitude does not provide support for GTM templates for mobile apps at this time. To request this feature, please submit your request. Please submit a feature request at [here](https://help.amplitude.com/hc/en-us/requests/new).
+No. The Amplitude Analytics Browser SDK only supports the web container, designed for desktop and mobile browsers. Amplitude does not provide support for GTM templates for mobile apps at this time. To request this feature, please submit a feature request [here](https://help.amplitude.com/hc/en-us/requests/new).
 
 ### Can we add some logic to Amplitude template?
 
@@ -260,12 +262,12 @@ Yes, but it's not recommended. Modified Community Gallery Templates will no long
 
 ### Missing some events?
 
-- Please check if you have multiple versions of Amplitude browser SDK installed. If it's the cause, probabily there has some collision between different versions of SDKs. Please try to giving an different instance name for your GTM instance. 
-- Init web attribution event is missing. If you has installed cookies consent, please check if the value of `document.referrer` has been updated to your current domain. The campaign from the current domain won't be tracked.
+- Please check if you have multiple versions of Amplitude browser SDK installed. There may be collision between different versions of SDKs. Please try giving a different instance name for your GTM instance. 
+- Init web attribution event is missing. If you have installed cookies consent, please check if the value of `document.referrer` has been updated to your current domain. The campaign from the current domain won't be tracked.
 
 ### Overall user counts to increase?
 
-Ensure to verify whether cookies have been altered or removed inadvertently. [Cookies](../../sdks/typescript-browser/#cookie-data) store critical user session data and marketing campaign information. If these cookies are deleted, it triggers a reset of user identifiers (such as user ID and device ID), invariably leading to a surge in the user count. Additionally, the erasure of last-viewed campaign parameters can result in an increase in organic/direct traffic, among other effects
+Verify whether cookies have been altered or removed inadvertently. [Cookies](../../sdks/typescript-browser/#cookie-data) store critical user session data and marketing campaign information. If these cookies are deleted, it triggers a reset of user identifiers (such as user ID and device ID), invariably leading to a surge in the user count. Additionally, the erasure of last-viewed campaign parameters can result in an increase in organic/direct traffic, among other effects.
 
 ### Cross Domain Tracking?
 
