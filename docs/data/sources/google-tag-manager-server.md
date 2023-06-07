@@ -35,7 +35,9 @@ Clients are responsible for getting and processing/adapting the data received by
 Create tags for your amplitude browser SDK tracking. Click the `New` button to create your new tags.
 
 #### Tag Configuration
- 
+
+![Server Tag Init Configuration](../../assets/images/gtm/gtm-server-init-setup.png)
+
 ##### API Key
 
 Copy your amplitude API Key in the API Key field. For EU recidency, please make your API Key is under analytics.eu.amplitude.com.
@@ -44,8 +46,8 @@ Copy your amplitude API Key in the API Key field. For EU recidency, please make 
 
 Check this box to make sure that the user's IP address is not forwarded to Amplitude servers.
 
-Check `Hide User IP Address` - We will use the IP collected from the HTTP request header, which is the IP from your server.
-Uncheck `Hide User IP Address` - We will get the IP address where the request originated, using [getRemoteAddress](https://developers.google.com/tag-platform/tag-manager/server-side/api#getremoteaddress) method. 
+- Check `Hide User IP Address` - We will use the IP collected from the HTTP request header, which is the IP from your server.
+- Uncheck `Hide User IP Address` - We will get the IP address where the request originated, using [getRemoteAddress](https://developers.google.com/tag-platform/tag-manager/server-side/api#getremoteaddress) method. 
 
 ##### EU Data Residency
 
@@ -54,6 +56,8 @@ For EU data residency, you must set up your project inside Amplitude EU and use 
 #### Event Configuration
 
 The configurations related to the Event payload.
+
+![Server Tag Event Configuration](../../assets/images/gtm/gtm-server-event-configuration.png)
 
 ##### Map Event Type
 
@@ -84,6 +88,8 @@ Use this table to add completely new event properties to the hit sent to Amplitu
 
 #### User Property Configuration
 
+![Server Tag User Property Configuration](../../assets/images/gtm/gtm-server-user-property-configuration.png)
+
 ##### Automatically Track UTM Parameters
 
 We parse the `search_parameter` using [getEventData('page_location')](https://developers.google.com/tag-platform/tag-manager/server-side/api#geteventdata) for tracking the UTM parameters. 
@@ -109,6 +115,8 @@ Use this table to add completely new event properties to the hit sent to Amplitu
 | `User Property Value` | Required. `string`. The value of a specific user property key. |
 
 #### Additional Properties
+
+![Server Tag Additional Properties](../../assets/images/gtm/gtm-server-additional-properties.png)
 
 Use this feature to add extra event properties. In case of any overlap, the new addition will replace the previous value. Each property needs a key and a value.
 
