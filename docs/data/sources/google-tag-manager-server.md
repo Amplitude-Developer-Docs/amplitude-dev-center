@@ -26,7 +26,7 @@ Create a new tag template by searching the gallery. Choose Amplitude Analytics a
 
 ### Create a Client
 
-Clients are responsible for getting and processing/adapting the data received by the GTM server-side container. Then it makes the data available to tags, triggers, and variables in that container. When you create a new server container, it creates two clients automatically, Universal Analytics, and GA4. You can also link your web container as a client.
+Clients are responsible for getting and processing/adapting the data received by the GTM server-side container. Then it makes the data available to tags, triggers, and variables in that container. When you create a new server container, it creates two clients automatically, Universal Analytics, and GA4. You can also use your server-side template as a proxy for a web container or create your custom client template in the `Template` section.
 
 ![Server Container Client Type](../../assets/images/gtm/gtm-server-container-client-type.png)
 
