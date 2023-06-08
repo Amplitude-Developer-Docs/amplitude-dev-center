@@ -989,12 +989,12 @@ By default Amplitude Javascript SDK uses a base64id as device id in order to hav
 
 On instance initialization, the SDK initializes the device ID by the following order:
 
-1. Device id in configuration on initialization 
+1. Device id in configuration on initialization
 2. Device id from url param if `configuration.deviceIdFromUrlParam` is true
 3. Device id in cookie storage
 
 !!!Note
-    If `deviceIdFromUrlParam` is `true`, then the SDK will parse the device ID value from the URL parameter amp_device_id if available. For example, device ID “123456789” is passed in from http://example.com/?amp_device_id=123456789
+    If `deviceIdFromUrlParam` is `true`, then the SDK will parse the device ID value from the URL parameter "amp_device_id" if available. For example, device ID “123456789” is passed in from http://example.com/?amp_device_id=123456789
 
 The SDK stores device ID in cookie by default. The name of the cookie is composed of a "amp_" prefix and the first six digits of the API key. So if a user clears cookies, uses another device or uses browser privacy mode, the device ID will be different.
 
@@ -1007,6 +1007,9 @@ A device ID changes in many scenarios:
 - `setDeviceId()` is called explicitly.
 - By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, use another device, or use privacy mode.
 - On initilization, a device ID is passed in from URL param `amp_device` when `deviceIdFromUrlParam` is enabled.
+
+!!!Note "Amplitude Analytics SDKs share an identity store with Experiment SDKs"
+    `setDeviceId` also updates the identity store to propagate new user info to experiment SDK and trigger a fetch if device ID has changed.
 
 #### Custom device IDs
 
@@ -1058,6 +1061,8 @@ instanceProd.init("API-KEY-2");
 // Before the line blow, the device Ids of the two instances are different
 instanceProd.setDeviceId(instanceDev.getDeviceId());
 ```
+
+- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [corss domain tracking](./#cross-domain-tracking-javascript) for more details.
 
 ### Content Security Policy (CSP)
 
