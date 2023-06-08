@@ -983,9 +983,34 @@ var exitCallback = function {
 amplitude.getInstance().init('API_KEY', 'USER_ID', { onExitPage: exitCallback });
 ```
 
-### Custom device IDs
+### Device ID lifecycle
 
-By default, device IDs are randomly generated UUIDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
+By default Amplitude Javascript SDK uses a base64id as device id in order to have more compact string IDs. A 22-character base64id has the same range as a 128-bit UUID, which is represented as a 36 character string.
+
+On instance initialization, the SDK initializes the device ID by the following order:
+
+1. Device id in configuration on initialization 
+2. Device id from url param if `configuration.deviceIdFromUrlParam` is true
+3. Device id in cookie storage
+
+!!!Note
+    If `deviceIdFromUrlParam` is `true`, then the SDK will parse the device ID value from the URL parameter amp_device_id if available. For example, device ID “123456789” is passed in from http://example.com/?amp_device_id=123456789
+
+The SDK stores device ID in cookie by default. The name of the cookie is composed of a "amp_" prefix and the first six digits of the API key. So if a user clears cookies, uses another device or uses browser privacy mode, the device ID will be different.
+
+![Javascript SDK cookie storage](../../../assets/images/sdk/js-cookies.png)
+
+#### When does a device ID change?
+
+A device ID changes in many scenarios:
+
+- `setDeviceId()` is called explicitly.
+- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, use another device, or use privacy mode.
+- On initilization, a device ID is passed in from URL param `amp_device` when `deviceIdFromUrlParam` is enabled.
+
+#### Custom device IDs
+
+By default, device IDs are randomly generated base64IDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
 
 ```js
 amplitude.getInstance().setDeviceId('DEVICE_ID');
@@ -995,11 +1020,44 @@ You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance()
 
 !!!note
     Amplitude doesn't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
-     It's best practice to use something like a UUID.
+    It's best practice to use something like a UUID.
 
     [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
 
 --8<-- "includes/abbreviations.md"
+
+#### Share current device ID to another instance
+
+Sometimes you have more than one Amplitude Javascript SDK instance setup and want to share the device ID across instances. To do so, here are two ways:
+
+- Method1: Initialize the other instance with device ID in configuration
+
+```javascript
+// Initialize an instance with default configuration 
+// Device Id of this instance is created by default
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+// Initialize another instance with a different API key
+// And pass the deviceId from the previous instance to the configuration
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2", undefined, {
+  deviceId: instanceDev.getDeviceId()
+});
+```
+
+- Method2: Set device ID after inialization whenever you need it to be the same
+
+```javascript
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2");
+
+// Before the line blow, the device Ids of the two instances are different
+instanceProd.setDeviceId(instanceDev.getDeviceId());
+```
 
 ### Content Security Policy (CSP)
 
