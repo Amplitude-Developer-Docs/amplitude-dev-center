@@ -1011,7 +1011,7 @@ A device ID changes in many scenarios:
 !!!Note "Amplitude Analytics SDKs share an identity store with Experiment SDKs"
     `setDeviceId` also updates the identity store to propagate new user info to experiment SDK and trigger a fetch if device ID has changed.
 
-#### Custom device IDs
+#### Set device ID
 
 By default, device IDs are randomly generated base64IDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
 
@@ -1019,15 +1019,16 @@ By default, device IDs are randomly generated base64IDs. You can define a custom
 amplitude.getInstance().setDeviceId('DEVICE_ID');
 ```
 
-You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId().` This method can return `null` if a `deviceId` hasn't been generated yet.
-
 !!!note
     Amplitude doesn't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
     It's best practice to use something like a UUID.
 
     [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
 
---8<-- "includes/abbreviations.md"
+#### Get device ID
+
+You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId()` This method can return `null` if a `deviceId` hasn't been generated yet.
+
 
 #### Share current device ID to another instance
 
