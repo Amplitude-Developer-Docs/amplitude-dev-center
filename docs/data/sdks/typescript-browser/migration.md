@@ -14,7 +14,7 @@ To migrate to `@amplitude/analytics-browser`, update your dependencies and instr
 
 ## Dependency
 
-For snippet installation, update your project's [snippet loader](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser#using-script-loader).
+For snippet installation, update your project's [snippet loader](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-browser#using-script-loader).
 
 For Node projects, update your dependency list in package.json.
 
