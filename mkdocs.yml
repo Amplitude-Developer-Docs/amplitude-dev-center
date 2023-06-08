@@ -437,6 +437,9 @@ nav:
     - Ampli: data/sdks/ampli-overview.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
+      - Browser 2.0:
+        - data/sdks/browser/2/index.md
+        - Ampli Codegen: data/sdks/typescript-browser/ampli.md
       - Browser:
         - data/sdks/typescript-browser/index.md
         - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md

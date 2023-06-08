@@ -8,5 +8,5 @@ amplitude.init(API_KEY);
 amplitude.init(API_KEY, 'user@amplitude.com');
 
 // Option 3, initialize including configuration
-amplitude.init(API_KEY, 'user@amplitude.com', configurationObj);
+amplitude.init(API_KEY, 'user@amplitude.com', options);
 ```
