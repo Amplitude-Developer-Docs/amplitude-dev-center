@@ -1029,7 +1029,6 @@ amplitude.getInstance().setDeviceId('DEVICE_ID');
 
 You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId()` This method can return `null` if a `deviceId` hasn't been generated yet.
 
-
 #### Share current device ID to another instance
 
 Sometimes you have more than one Amplitude Javascript SDK instance setup and want to share the device ID across instances. To do so, here are two ways:
