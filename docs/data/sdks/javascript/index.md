@@ -985,20 +985,14 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', { onExitPage: exitCallback })
 
 ### Device ID lifecycle
 
-By default Amplitude Javascript SDK uses a base64id as device id in order to have more compact string IDs. A 22-character base64id has the same range as a 128-bit UUID, which is represented as a 36 character string.
+By default Amplitude Javascript SDK uses a base64 ID as device ID in order to have more compact string IDs. A 22-character base64 ID has the same range as a 128-bit UUID, which is represented as a 36 character string.
 
-On instance initialization, the SDK initializes the device ID by the following order:
+The SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
 
 1. Device id in configuration on initialization
-2. Device id from url param if `configuration.deviceIdFromUrlParam` is true
-3. Device id in cookie storage
-
-!!!Note
-    If `deviceIdFromUrlParam` is `true`, then the SDK will parse the device ID value from the URL parameter "amp_device_id" if available. For example, device ID “123456789” is passed in from http://example.com/?amp_device_id=123456789
-
-The SDK stores device ID in cookie by default. The name of the cookie is composed of a "amp_" prefix and the first six digits of the API key. So if a user clears cookies, uses another device or uses browser privacy mode, the device ID will be different.
-
-![Javascript SDK cookie storage](../../../assets/images/sdk/js-cookies.png)
+2. "amp_device_id" value from URL param if `configuration.deviceIdFromUrlParam` is true. Refer to [cross domain tracking](.#cross-domain-tracking-javascript) for more details
+3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
+4. A randomly generated base64 ID
 
 #### When does a device ID change?
 
@@ -1013,7 +1007,7 @@ A device ID changes in many scenarios:
 
 #### Set device ID
 
-By default, device IDs are randomly generated base64IDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
+By default, device IDs are randomly generated base64 IDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
 
 ```js
 amplitude.getInstance().setDeviceId('DEVICE_ID');
