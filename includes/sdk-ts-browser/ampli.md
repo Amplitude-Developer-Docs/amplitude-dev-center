@@ -390,3 +390,5 @@ Add your plugin after init Ampli.
     ```js
     ampli.client.add(new AddEventIdPlugin())
     ```
+
+--8<-- "includes/ampli/cli-pull-and-status-section.md"

@@ -225,4 +225,4 @@ This section provides a comparison between different version of Browser SDK. Thi
 
 | Web Attribution V2 | Web Attribution V1 |
 | --- | --- |
-|  ![Web Attribution V2](../../../../assets/images/sdk/web-attribution-v2.drawio.svg)  | ![Web Attribution V1](../../../../assets/images/sdk/web-attribution-v1.drawio.svg) |
+|  ![Web Attribution V2](../../../assets/images/sdk/web-attribution-v2.drawio.svg)  | ![Web Attribution V1](../../../assets/images/sdk/web-attribution-v1.drawio.svg) |
