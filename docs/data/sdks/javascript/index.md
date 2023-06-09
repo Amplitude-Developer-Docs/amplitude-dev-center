@@ -983,23 +983,80 @@ var exitCallback = function {
 amplitude.getInstance().init('API_KEY', 'USER_ID', { onExitPage: exitCallback });
 ```
 
-### Custom device IDs
+### Device ID lifecycle
 
-By default, device IDs are randomly generated UUIDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
+The SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
+
+1. Device id in configuration on initialization
+2. "amp_device_id" value from URL param if `configuration.deviceIdFromUrlParam` is true. Refer to [cross domain tracking](.#cross-domain-tracking-javascript) for more details
+3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
+4. A randomly generated 22-character base64 ID. It is more compacted compared to a 36-character UUID which has the same range 128-bit.
+
+#### When does a device ID change?
+
+!!!Note "Amplitude Analytics SDKs share an identity store with Experiment SDKs"
+    `setDeviceId` also updates the identity store to propagate new user info to experiment SDK and trigger a fetch if device ID has changed.
+
+A device ID changes in many scenarios:
+
+- `setDeviceId()` is called explicitly.
+- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode.
+- On initilization, a device ID is passed in from URL param `amp_device_id` when `deviceIdFromUrlParam` is enabled.
+
+#### Set device ID
+
+By default, the device ID is randomly generated base64 ID. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
 
 ```js
 amplitude.getInstance().setDeviceId('DEVICE_ID');
 ```
 
-You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId().` This method can return `null` if a `deviceId` hasn't been generated yet.
-
 !!!note
     Amplitude doesn't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
-     It's best practice to use something like a UUID.
+    It's best practice to use something like a UUID.
 
     [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
 
 --8<-- "includes/abbreviations.md"
+
+#### Get device ID
+
+You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId()` or `Amplitude.getInstance('YOUR-INSTANCE-NAME').getDeviceId()` if you defined a custom instance name. This method can return `null` if a `deviceId` hasn't been generated yet.
+
+#### Share current device ID to another instance
+
+Sometimes you have more than one Amplitude Javascript SDK instance setup and want to share the device ID across instances.
+
+- Method1: Initialize the other instance with device ID in configuration
+
+```javascript
+// Initialize an instance with default configuration 
+// Device Id of this instance is created by default
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+// Initialize another instance with a different API key
+// And pass the deviceId from the previous instance to the configuration
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2", undefined, {
+  deviceId: instanceDev.getDeviceId()
+});
+```
+
+- Method2: Set device ID after inialization whenever you need it to be the same
+
+```javascript
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2");
+
+// Before the line blow, the device Ids of the two instances are different
+instanceProd.setDeviceId(instanceDev.getDeviceId());
+```
+
+- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [corss domain tracking](./#cross-domain-tracking-javascript) for more details.
 
 ### Content Security Policy (CSP)
 
