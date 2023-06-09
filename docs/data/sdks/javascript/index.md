@@ -1000,7 +1000,7 @@ A device ID changes in many scenarios:
 
 - `setDeviceId()` is called explicitly.
 - By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode.
-- On initilization, a device ID is passed in from URL param `amp_device` when `deviceIdFromUrlParam` is enabled.
+- On initilization, a device ID is passed in from URL param `amp_device_id` when `deviceIdFromUrlParam` is enabled.
 
 !!!Note "Amplitude Analytics SDKs share an identity store with Experiment SDKs"
     `setDeviceId` also updates the identity store to propagate new user info to experiment SDK and trigger a fetch if device ID has changed.
@@ -1025,7 +1025,7 @@ You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance()
 
 #### Share current device ID to another instance
 
-Sometimes you have more than one Amplitude Javascript SDK instance setup and want to share the device ID across instances. To do so, here are two ways:
+Sometimes you have more than one Amplitude Javascript SDK instance setup and want to share the device ID across instances.
 
 - Method1: Initialize the other instance with device ID in configuration
 
