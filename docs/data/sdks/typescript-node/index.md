@@ -41,8 +41,20 @@ init(API_KEY, {
 ### Configuration
 
 ???config "Configuration Options"
---8<-- "includes/sdk-ts/shared-ts-configuration.md"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    |`flushIntervalMillis`| `number`. Sets the interval of uploading events to Amplitude in millionseconds. | 10,000 (10 seconds) |
+    |`flushQueueSize`| `number`. Sets the maximum number of events that are batched in a single upload attempt. | 300 events |
+    |`flushMaxRetries`| `number`. Sets the maximum number of reties for failed upload attempts. This is only applicable to retyable errors. | 12 times.|
+    |`logLevel` | `LogLevel.None` or `LogLevel.Error` or `LogLevel.Warn` or `LogLevel.Verbose` or `LogLevel.Debug`. Sets the log level. | `LogLevel.Warn` |
+    |`loggerProvider `| `Logger`. Sets a custom `loggerProvider` class from the Logger to emit log messages to desired destination. | `Amplitude Logger` |
+    |`minIdLength`|  `number`. Sets the minimum length for the value of `user_id` and `device_id` properties. | `5` |
+    |`optOut` | `boolean`. Sets permission to track events. Setting a value of `true` prevents Amplitdue from tracking and uplaoding events. | `false` |
+    |`serverUrl`| `string`. Sets the URL where events are upload to. | `https://api2.amplitude.com/2/httpapi` | 
+    |`serverZone`| `EU` or  `US`. Sets the Amplitude server zone. Set this to `EU` for Amplitude projects created in `EU` data center. | `US` |
     |`storageProvider`| `Storage<Event[]>`. Sets a custom implementation of `Storage<Event[]>` to persist unsent events. | `MemoryStorage` |
+    |`transportProvider`| `Transport`. Sets a custom implementation of `Transport` to use different request API. | `HTTPTransport` |
+    |`useBatch`| `boolean`. Sets whether to upload events to Batch API instead of instead of the default HTTP V2 API or not. | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
