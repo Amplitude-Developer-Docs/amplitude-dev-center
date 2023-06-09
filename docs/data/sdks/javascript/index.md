@@ -1007,7 +1007,7 @@ A device ID changes in many scenarios:
 
 #### Set device ID
 
-By default, device IDs are randomly generated base64 IDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
+By default, the device ID is randomly generated base64 ID. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
 
 ```js
 amplitude.getInstance().setDeviceId('DEVICE_ID');
