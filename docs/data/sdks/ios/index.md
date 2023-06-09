@@ -812,6 +812,14 @@ Note that you need to also add `AdSupport.framework` to your project
 
 Amplitude uses the IDFV as the device ID by default, but you can change this behavior. After you set up the logic to fetch IDFA, you can also call this [useAdvertisingIdForDeviceId](http://amplitude.github.io/Amplitude-iOS/Classes/Amplitude.html#//api/name/useAdvertisingIdForDeviceId) API to set the IDFA as your `deviceId`. 
 
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device id fetched from database
+2. IDFA if `useAdvertisingIdForDeviceId` is true and `disableIDFA()` wasn’t called
+3. IDFV If `disableIDFA()` wasn’t called
+4. A randomly generated UUID
+
+
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.

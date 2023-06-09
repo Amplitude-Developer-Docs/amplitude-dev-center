@@ -430,6 +430,12 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
 
 To retrieve the IDFA and add it to the tracking events, you can follow this [example plugin](https://github.com/amplitude/Amplitude-Swift/blob/main/Examples/AmplitudeSwiftUIExample/AmplitudeSwiftUIExample/ExamplePlugins/IDFACollectionPlugin.swift) to implement your own plugin.
 
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device ID of Amplitude instance if it’s set by `setDeviceId()`
+2. IDFV if it exists
+3. A randomly generated UUID string
+
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.
