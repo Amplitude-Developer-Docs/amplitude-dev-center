@@ -35,7 +35,7 @@ For more information on setting up this integration, see Blitzllama's [documenta
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **Blitzllama**.
 3. Enter Name and paste in the API key you copied from **Blitzllama**.
-4. Map the same Amplitude User_ID with the primary key from the Blitzllama panel.
+4. Map the same Amplitude User ID with the primary key from the Blitzllama panel.
 5. Save when finished.
 
 ## Send a cohort
