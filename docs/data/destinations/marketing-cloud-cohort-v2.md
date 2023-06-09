@@ -20,7 +20,7 @@ This integration combines Amplitude's analytics with Salesforce Marketing Cloud.
 ## Considerations
 
 - The Salesforce Marketing Cloud v2 integration is only available for Growth and Enterprise customers (allows on-demand sync only). 
-- Scheduled syncs are available to customers who have purchased [Amplitude Recommend](https://help.amplitude.com/hc/en-us/articles/360028552471#syncs). 
+- Scheduled syncs are available to customers who have purchased [Amplitude Audiences](https://help.amplitude.com/hc/en-us/articles/360028552471#syncs). 
 - Anonymized UUID as identifiers in both Amplitude and Salesforce Marketing Cloud work for this integration so you don't have to send email addresses or PII to Amplitude.
 
 ## Setup
