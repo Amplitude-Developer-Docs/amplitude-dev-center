@@ -11,7 +11,7 @@ This integration lets you sync cohorts from Amplitude to Blitzllama.
 
 !!!info
 
-    This integration is maintained by  Blitzllama. Contact the Blitzllama support team at tech@blitzllama.com for support with this integration.
+    This integration is maintained by  Blitzllama. Contact the Blitzllama support team at [tech@blitzllama.com](mailto:tech@blitzllama.com) for support with this integration.
     
 ## Considerations
 
