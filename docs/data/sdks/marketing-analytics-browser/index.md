@@ -14,7 +14,7 @@ The Marketing Analytics Browser SDK extends the Browser SDK to identify users an
 
 !!!note "Marketing Analytics Browser SDK versus the Browser SDK 2.0"
 
-    Browser SDK 2.0 is a unified SDK for both product and marketing analytics use cases, which includes a simplified interface and configuration. Check [Browser SDK 2.0](../typescript-browser) for full documentation.
+    Browser SDK 2.0 is a unified SDK for both product and marketing analytics use cases, which includes a simplified interface and configuration. Check [Browser SDK 2.0](../browser@2) for full documentation.
 
 !!!note "Marketing Analytics Browser SDK versus the Browser SDK 1.0"
 
