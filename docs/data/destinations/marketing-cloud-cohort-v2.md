@@ -35,11 +35,11 @@ You need a subdomain, client ID, and client secret from Marketing Cloud.
 4. Click **Add Component** on the page, and select API Integration. This tells Salesforce to generate API integration information that Amplitude can use.
 5. For the integration type, select Server-to-Server.
 6. Grant the package these permissions:
-         - Contacts
-         - Audiences: Read and Write
-         - Lists and subscribers: Read and Write
-         - Data
-         - Data Extensions: Read and Write
+    - Contacts
+    - Audiences: Read and Write
+    - Lists and subscribers: Read and Write
+    - Data
+    - Data Extensions: Read and Write
 7. Save the package.
 8. Copy the client ID, client secret, and subdomain from the app you want to integrate.
 9. (Optional) Go to the Data Extension page in Marketing Cloud, and create a new data folder. Make sure the folder name is unique.
