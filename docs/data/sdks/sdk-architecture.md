@@ -242,6 +242,24 @@ This a list of shared interfaces of latest SDKs.
 - `remove(Plugin)`
 - `shutdown()`
 
+## Identity
+
+Amplitude uses a combination of three different methods to identify your users: **device IDs**, **Amplitude ID**, and **user IDs**. Amplitude ID is automatically creates by Amplitude once a unique user is identified. You can assign a unique user ID for individual users, for example email addresses.
+
+Ampliutde **client-side** SDKs generate device IDs for you on initialization and store them. You can also customize your own device IDs. However, Amplitude **sever-side** SDKs don't generate device IDs on initialization. You can set the device ID when you `track()` an event.
+
+For mobile SDKs, Amplitude also tracks:
+
+**Android**:
+
+- ADID (Advertising ID): a unique identifier used for tracking and targeting users for personalized advertising campaigns
+- App Set ID: a unique identifier that groups multiple apps together within an ecosystem or platform. It is often used in situations where multiple apps are owned or managed by the same entity, such as a developer or a company.
+
+**iOS**:
+
+- IDFA (Identifier for Advertising): a unique identifier used for tracking and targeting users for personalized advertising campaigns
+- IDFV (Identifier for Vendors): a unique identifier. Unlike IDFA, IDFV is not specific to advertising. It is designed to track and identify a specific device for multiple apps belonging to the same vendor or developer.
+
 ## Comparison with maintenance SDK
 
 If you are migrating from maintenance SDKs, you may notice that latest SDKs differ from maintenance SDKs not only in terms of interfaces but also in their Middleware vs Plugin architecture . You can think of Middleware as being equal to Enrichment Plugin and Destination Plugin.
