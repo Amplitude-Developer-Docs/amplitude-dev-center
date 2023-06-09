@@ -999,7 +999,7 @@ The SDK initializes the device ID in the following order, with the device ID bei
 A device ID changes in many scenarios:
 
 - `setDeviceId()` is called explicitly.
-- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, use another device, or use privacy mode.
+- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode.
 - On initilization, a device ID is passed in from URL param `amp_device` when `deviceIdFromUrlParam` is enabled.
 
 !!!Note "Amplitude Analytics SDKs share an identity store with Experiment SDKs"
