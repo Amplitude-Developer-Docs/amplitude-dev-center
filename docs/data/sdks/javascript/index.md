@@ -985,25 +985,23 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', { onExitPage: exitCallback })
 
 ### Device ID lifecycle
 
-By default Amplitude Javascript SDK uses a base64 ID as device ID in order to have more compact string IDs. A 22-character base64 ID has the same range as a 128-bit UUID, which is represented as a 36 character string.
-
 The SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
 
 1. Device id in configuration on initialization
 2. "amp_device_id" value from URL param if `configuration.deviceIdFromUrlParam` is true. Refer to [cross domain tracking](.#cross-domain-tracking-javascript) for more details
 3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
-4. A randomly generated base64 ID
+4. A randomly generated 22-character base64 ID. It is more compacted compared to a 36-character UUID which has the same range 128-bit.
 
 #### When does a device ID change?
+
+!!!Note "Amplitude Analytics SDKs share an identity store with Experiment SDKs"
+    `setDeviceId` also updates the identity store to propagate new user info to experiment SDK and trigger a fetch if device ID has changed.
 
 A device ID changes in many scenarios:
 
 - `setDeviceId()` is called explicitly.
 - By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode.
 - On initilization, a device ID is passed in from URL param `amp_device_id` when `deviceIdFromUrlParam` is enabled.
-
-!!!Note "Amplitude Analytics SDKs share an identity store with Experiment SDKs"
-    `setDeviceId` also updates the identity store to propagate new user info to experiment SDK and trigger a fetch if device ID has changed.
 
 #### Set device ID
 
