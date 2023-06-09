@@ -1019,6 +1019,8 @@ amplitude.getInstance().setDeviceId('DEVICE_ID');
 
     [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
 
+--8<-- "includes/abbreviations.md"
+
 #### Get device ID
 
 You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId()` or `Amplitude.getInstance('YOUR-INSTANCE-NAME').getDeviceId()` if you defined a custom instance name. This method can return `null` if a `deviceId` hasn't been generated yet.
