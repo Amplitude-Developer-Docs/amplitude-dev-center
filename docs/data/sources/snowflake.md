@@ -104,6 +104,15 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
 
 Each group property in `group_properties` would be applied to every group in `groups`
+### Profile properties
+
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
+|---|---|---|---|
+| `user_id` | Yes | VARCHAR | "user123" |
+| `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "Title": "Data Engineer" |
+| `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "City": "San Francisco" |
+
+Note: Profile properties are only supported for known Amplitude users. Therefore, each profile property must be accompanied by a user identifier (user_id).
 
 ## SQL query examples
 
