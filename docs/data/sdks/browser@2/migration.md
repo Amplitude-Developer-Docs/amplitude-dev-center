@@ -217,7 +217,7 @@ This section provides a comparison between different version of Browser SDK. Thi
 | Web Attribution | Enabled by default with [**Web Attribution V2**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Enabled by default with [**Web Attribution V1**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). |
 | Default Event Tracking |  Enabled by default | Disabled by default |
 
-### Web Attribution V2 vs Web Attribution V1
+#### Web Attribution V2 vs Web Attribution V1
 
 | <div class="big-column"> Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> |
 | --- | --- |
