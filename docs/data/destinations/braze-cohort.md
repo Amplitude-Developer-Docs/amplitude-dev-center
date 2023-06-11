@@ -21,7 +21,6 @@ Amplitude Data's Braze integration lets you send your Amplitude cohorts straight
 ## Setup
 
 ### Prerequisites
-
 To configure an cohort integration from Amplitude to Braze, you need the following information from Braze:
 
 1. Data Import Key 
