@@ -45,7 +45,7 @@ You need a subdomain, client ID, and client secret from Salesforce Marketing Clo
 8. **Save** the package.
 9. Copy the **Client ID**, **Client Secret**, and **Subdomain** from the app you want to integrate.
     - For the Subdomain, see the Authentication Base URI and only copy the subdomain. e.g. If the Authentication Base URL is  "https://mc1n78yx33kxv5mv1q7fh81flfjq.auth.marketingcloudapis.com/", then only copy "mc1n78yx33kxv5mv1q7fh81flfjq".
-10. Click on **Access** and click on **Enable All Business Units".
+10. Click on **Access** and click on **Enable All Business Units**.
 11. (Optional) Create a new Data Extension folder by navigating to **Audience Builder** and clicking on **Data Extensions**. Click on "+" to create a new folder. Make sure the folder name is unique for the cohort sync.
 
 ### Amplitude setup
