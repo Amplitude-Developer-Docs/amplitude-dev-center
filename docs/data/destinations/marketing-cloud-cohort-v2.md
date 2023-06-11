@@ -72,7 +72,6 @@ To sync your first cohort, follow these steps:
 2. Click on **Audience Builder** on the top navigation bar and navigate to **Contact Builder** 
 3. Click on **Data Extensions** at the top navigation bar
 4. Find the relevant **Data Extensions** folder that you specified during the setup process.
-5. Click on a specific cohort and click on **Records** 
+5. Click on a specific cohort and click on **Records** to view the list of users.
 
- 
 --8<-- "includes/abbreviations.md"
