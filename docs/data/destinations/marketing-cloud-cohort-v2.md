@@ -34,7 +34,7 @@ You need a subdomain, client ID, and client secret from Salesforce Marketing Clo
 2. In the Quick Find box, search for **Installed Packages**.
 3. Click **New** to create a new package.
 4. Click **Add Component**.
-5. For the Component Type, select **API Integration**. This steps generates the API integration information that is required in Amplitude.
+5. For the Component Type, select **API Integration**. This step generates the API integration information that is required in Amplitude.
 6. For the integration type, select **Server-to-Server**.
 7. Grant the package these permissions:
     - Contacts
@@ -46,7 +46,7 @@ You need a subdomain, client ID, and client secret from Salesforce Marketing Clo
 9. Copy the **Client ID**, **Client Secret**, and **Subdomain** from the app you want to integrate.
     - For the Subdomain, see the Authentication Base URI and only copy the subdomain. e.g. If the Authentication Base URL is  "https://mc1n78yx33kxv5mv1q7fh81flfjq.auth.marketingcloudapis.com/", then only copy "mc1n78yx33kxv5mv1q7fh81flfjq".
 10. Click on **Access** and click on **Enable All Business Units**.
-11. (Optional) Create a new Data Extension folder by navigating to **Audience Builder** and clicking on **Data Extensions**. Click on "+" to create a new folder. Make sure the folder name is unique for the cohort sync.
+11. (Optional) Create a new folder to hold all your future data extensions. You can do this in Salesforce Marketing cloud by navigating to **Audience Builder** and clicking on **Data Extensions** at the top navigation bar. Click on "+" to create a new folder. Make sure the folder name is unique for the cohort sync.
 
 ### Amplitude setup
 
@@ -54,7 +54,7 @@ You need a subdomain, client ID, and client secret from Salesforce Marketing Clo
 2. In the Cohort section, click **Salesforce Marketing Cloud V2**.
 3. Enter a name and paste in the **Client ID**, **Client Secret**, and **Subdomain** you generated in Salesforce Marketing Cloud.
 4. (Optional) Enter a folder name you created in the Data Extension page.
-5. Enter a **Name**. This name will be used as the API Target when you are syncing a cohort from Amplitude. 
+5. Enter a **Name** for the Name field. This name will be used as the name for the API Target when you are syncing a cohort from Amplitude. 
 6. Map an **Amplitude User Property** to the Marketing Cloud contact key.
 
 ## Send a cohort
