@@ -34,7 +34,7 @@ You need a subdomain, client ID, and client secret from Salesforce Marketing Clo
 2. In the Quick Find box, search for **Installed Packages**.
 3. Click **New** to create a new package.
 4. Click **Add Component**.
-5. For the Component Type, select **API Integration**. This tells Salesforce to generate API integration information that Amplitude can use.
+5. For the Component Type, select **API Integration**. This steps generates the API integration information that is required in Amplitude.
 6. For the integration type, select **Server-to-Server**.
 7. Grant the package these permissions:
     - Contacts
