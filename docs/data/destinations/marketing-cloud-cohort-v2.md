@@ -22,39 +22,42 @@ This integration combines Amplitude's analytics with Salesforce Marketing Cloud.
 - The Salesforce Marketing Cloud v2 integration is only available on paid Amplitude plans.
 - You must enable this integration in each Amplitude project you want to use it in.
 - Anonymized UUID as identifiers in both Amplitude and Salesforce Marketing Cloud work for this integration so you don't have to send email addresses or PII to Amplitude.
+- Amplitude will automatically create new contacts for users within the cohort who do not already exist within Salesforce Marketing Cloud.
 
 ## Setup
 
 ### Marketing Cloud setup
 
-You need a subdomain, client ID, and client secret from Marketing Cloud.
+You need a subdomain, client ID, and client secret from Salesforce Marketing Cloud.
 
-1. In Salesforce Marketing Cloud, navigate to **Setup**.
-2. In the Quick Find box, search for **Installed packages**.
-3. Create a new package.
-4. Click **Add Component** on the page, and select API Integration. This tells Salesforce to generate API integration information that Amplitude can use.
-5. For the integration type, select Server-to-Server.
-6. Grant the package these permissions:
+1. In Salesforce Marketing Cloud, navigate to **Setup** under Settings.
+2. In the Quick Find box, search for **Installed Packages**.
+3. Click **New** to create a new package.
+4. Click **Add Component**.
+5. For the Component Type, select **API Integration**. This tells Salesforce to generate API integration information that Amplitude can use.
+6. For the integration type, select **Server-to-Server**.
+7. Grant the package these permissions:
     - Contacts
-    - Audiences: Read and Write
-    - Lists and subscribers: Read and Write
+        - Audiences: Read and Write
+        - Lists and subscribers: Read and Write
     - Data
-    - Data Extensions: Read and Write
-7. Save the package.
-8. Copy the client ID, client secret, and subdomain from the app you want to integrate.
-9. (Optional) Go to the Data Extension page in Marketing Cloud, and create a new data folder. Make sure the folder name is unique.
+        - Data Extensions: Read and Write
+8. **Save** the package.
+9. Copy the **Client ID**, **Client Secret**, and **Subdomain** from the app you want to integrate.
+    - For the Subdomain, see the Authentication Base URI and only copy the subdomain. e.g. If the Authentication Base URL is  "https://mc1n78yx33kxv5mv1q7fh81flfjq.auth.marketingcloudapis.com/", then only copy "mc1n78yx33kxv5mv1q7fh81flfjq".
+10. Click on **Access** and click on **Enable All Business Units".
+11. (Optional) Create a new Data Extension folder by navigating to **Audience Builder** and clicking on **Data Extensions**. Click on "+" to create a new folder. Make sure the folder name is unique for the cohort sync.
 
 ### Amplitude setup
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **Salesforce Marketing Cloud V2**.
-3. Enter a name and the client ID, client secret, and subdomain you found in Salesforce.
+3. Enter a name and paste in the **Client ID**, **Client Secret**, and **Subdomain** you generated in Salesforce Marketing Cloud.
 4. (Optional) Enter a folder name you created in the Data Extension page.
-5. Map an Amplitude user property to the Marketing Cloud contact key.
+5. Enter a **Name**. This name will be used as the API Target when you are syncing a cohort from Amplitude. 
+6. Map an **Amplitude User Property** to the Marketing Cloud contact key.
 
 ## Send a cohort
-
-### Amplitude setup
 
 To sync your first cohort, follow these steps:
 
@@ -64,4 +67,12 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
+## Locating your Amplitude Cohort in Salesforce Marketing Cloud
+1. Log into [Salesforce Marketing Cloud](https://mc.s11.exacttarget.com/cloud/#app/Setup/Users)
+2. Click on **Audience Builder** on the top navigation bar and navigate to **Contact Builder** 
+3. Click on **Data Extensions** at the top navigation bar
+4. Find the relevant **Data Extensions** folder that you specified during the setup process.
+5. Click on a specific cohort and click on **Records** 
+
+ 
 --8<-- "includes/abbreviations.md"
