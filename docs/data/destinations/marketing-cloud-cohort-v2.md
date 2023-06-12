@@ -28,7 +28,7 @@ This integration combines Amplitude's analytics with Salesforce Marketing Cloud.
 
 ### Marketing Cloud setup
 
-You need a subdomain, client ID, and client secret from Salesforce Marketing Cloud.
+You need a Subdomain, Client ID, and Client Secret from Salesforce Marketing Cloud.
 
 1. In Salesforce Marketing Cloud, navigate to **Setup** under Settings.
 2. In the Quick Find box, search for **Installed Packages**.
