@@ -970,8 +970,10 @@ App set ID is a unique identifier for each app install on a device. App set ID i
 
 --8<-- "includes/sdk-device-id/lifecycle-header.md"
 
-1. Device ID fetched from the database
+1. Device ID fetched from the SQLite database
 --8<-- "includes/sdk-device-id/android.md"
+
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
 
 ### Location tracking
 

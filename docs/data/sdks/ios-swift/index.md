@@ -436,6 +436,8 @@ To retrieve the IDFA and add it to the tracking events, you can follow this [exa
 2. IDFV if it exists
 3. A randomly generated UUID string
 
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.

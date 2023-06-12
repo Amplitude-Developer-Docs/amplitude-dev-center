@@ -1,0 +1,3 @@
+#### Transfer to a new device
+
+When a user switch to a new device and transfers data to the new device, it's possible that the device ID is preserved and two different devices can have the same device ID. The specifics of what is backed up can vary from app to app. In general, most apps will have their data backed up, including any databases and file directories that are part of the app. However, it ultimately depends on how the app has been designed and what the developers have chosen to include in the backup. If the database or file directories has been backed up from one device to another since the device ID has been stored there and the SDK tries to fetch it during the initialization, it’s possible that different devices use the same device ID.

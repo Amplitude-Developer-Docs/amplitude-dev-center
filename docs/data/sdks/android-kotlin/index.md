@@ -682,6 +682,8 @@ App set ID is a unique identifier for each app install on a device. App set ID i
 1. Device ID of the instance
 --8<-- "includes/sdk-device-id/android.md"
 
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.

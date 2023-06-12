@@ -814,11 +814,14 @@ Amplitude uses the IDFV as the device ID by default, but you can change this beh
 
 --8<-- "includes/sdk-device-id/lifecycle-header.md"
 
-1. Device id fetched from database
+1. Device id fetched from the SQLite database
 2. IDFA if `useAdvertisingIdForDeviceId` is true and `disableIDFA()` wasn’t called
 3. IDFV If `disableIDFA()` wasn’t called
 4. A randomly generated UUID
 
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
 
 ### Location tracking
 
