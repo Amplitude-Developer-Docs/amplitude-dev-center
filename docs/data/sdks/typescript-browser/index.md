@@ -409,11 +409,11 @@ Network: it looks like blocked requests are not listed. Not sure if it’s possi
 
 We are recomend to using Proxy server to avoid this situation.
 
-#### Cookies
+##### Cookies
 
 Here are the [info](./#cookie-management) we stored in the cookies. That means, the client behavior, like diable cookies, or use a privacy browser/window/tab will effect the persistency of those values has saved in cookies. So if those values are not persistent or not inceasing by one. That's possible the reason.
 
-#### CORS
+##### CORS
 
 If the issue is like the following, it means the issue is related to Cross-Origin Resource Sharing (CORS), a security measure implemented by browsers to restrict how resources on a web page can be requested from a different domain. When you used `setServerURL`, it might have this issue.
 
