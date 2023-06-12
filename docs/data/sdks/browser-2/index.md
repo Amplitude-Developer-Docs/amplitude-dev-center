@@ -37,6 +37,7 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
     |`cookieOptions.expiration` | `number`. Sets expiration of cookies created in days. | 365 days |
     |`cookieOptions.sameSite` | `string`. Sets `SameSite` property of cookies created. | `Lax` |
     |`cookieOptions.secure` | `boolean`. Sets `Secure` property of cookies created. | `false` |
+    |`cookieOptions.upgrade` | `boolean`. Sets upgrading from cookies created by legacy Browser SDK. If `true`, new Browser SDK deletes cookies created by legacy Browser SDK. If `false`, Browser SDK keeps cookies created by legacy Browser SDK. | `true` |
     |`identityStorage` | `string`. Sets storage API for user identity. Options include `cookie` for `document.cookie`, `localStorage` for `localStorage`, or `none` to opt-out of persisting user identity. | `cookie` |
     |`partnerId` | `string`. Sets partner ID. Amplitude requires the customer who built an event ingestion integration to add the partner identifier to `partner_id`. | `undefined` |
     |`sessionTimeout` | `number`. Sets the period of inactivity from the last tracked event before a session expires in milliseconds. | 1,800,000 milliseconds (30 minutes) |
@@ -166,7 +167,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 Amplitude tracks session events by default. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
 
-Amplitude tracks session events by default. A session is the period of time a user has your website open. See [How Amplitude defines sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) for more information. When a new session starts, Amplitude tracks a session start event is and is the first event of the session. The event type for session start is "[Amplitude] Start Session". When an existing session ends, a session start end is tracked and is the last event of the session. The event type for session end is "[Amplitude] End Session".
+Amplitude tracks session events by default. A session is the period of time a user has your website open. See [How Amplitude defines sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) for more information. When a new session starts, Amplitude tracks a session start event and is the first event of the session. The event type for session start is "[Amplitude] Start Session". When an existing session ends, a session end is tracked and is the last event of the session. The event type for session end is "[Amplitude] End Session".
 
 You can opt out of session tracking by setting `config.defaultTracking.sessions` to `false`. Refer to the code sample below.
 
