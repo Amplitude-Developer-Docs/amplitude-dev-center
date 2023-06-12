@@ -466,34 +466,14 @@ You can assign a new Session ID using `setSessionId`. When setting a custom sess
 amplitude.setSessionId(Date.now());
 ```
 
---8<-- "includes/sdk-device-id/lifecycle-header.md"
+### Custom device ID
 
-1. Device id in configuration on initialization
-2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. Refer to [cross domain tracking](./#cross-domain-tracking) for more details
-3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
-4. Device iD in cookie storage of JavaScript SDK. Refer to [JavaScript's cookie management](../typescript-browser/#cookie-management) for more details
-5. A randomly generated 36-character UUID
+If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
 
---8<-- "includes/sdk-device-id/change-scenarios.md"
-
-- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
-- On initialization, a device ID is passed in from URL param `deviceId`
-- `unset()` is called
-
---8<-- "includes/browser-sdks-set-device-id.md"
+You can assign a new device ID using `setDeviceId`. When setting a custom device ID, make sure the value is sufficiently unique. Amplitude recommends using a UUID.
 
 ```ts
 amplitude.setDeviceId(uuid());
-```
-
---8<-- "includes/abbreviations.md"
-
-#### Get device ID
-
-You can retrieve the device ID that Amplitude uses by `getDeviceId()`.
-
-```ts
-amplitude.getDeviceId();
 ```
 
 ### Reset when user logs out
@@ -875,3 +855,31 @@ The SDK creates two types of cookies: user session cookies and marketing campaig
 #### Disable cookies
 
 You can opt out using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device id in configuration on initialization
+2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. Refer to [cross domain tracking](./#cross-domain-tracking) for more details
+3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
+4. Device iD in cookie storage of JavaScript SDK. Refer to [JavaScript's cookie management](../typescript-browser/#cookie-management) for more details
+5. A randomly generated 36-character UUID
+
+--8<-- "includes/sdk-device-id/change-scenarios.md"
+
+- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
+- On initialization, a device ID is passed in from URL param `deviceId`
+- `unset()` is called
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+```ts
+amplitude.setDeviceId(uuid());
+```
+
+#### Get device ID
+
+You can retrieve the device ID that Amplitude uses by `getDeviceId()`.
+
+```ts
+amplitude.getDeviceId();
+```
