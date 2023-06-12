@@ -45,16 +45,19 @@ You need a subdomain, client ID, and client secret from Salesforce Marketing Clo
 8. **Save** the package.
 9. Copy the **Client ID**, **Client Secret**, and **Subdomain** from the app you want to integrate.
     - For the Subdomain, see the Authentication Base URI and only copy the subdomain. e.g. If the Authentication Base URL is  "https://mc1n78yx33kxv5mv1q7fh81flfjq.auth.marketingcloudapis.com/", then only copy "mc1n78yx33kxv5mv1q7fh81flfjq".
-10. Click on **Access** and click on **Enable All Business Units**.
+
+    ![screenshot of the SFMC v2 workflow](../../assets/images/SFMC-v2-credentials.png)
+
+10. Click on **Access** tab and click on **Enable All Business Units**.
 11. (Optional) Create a new folder to hold all your future data extensions. You can do this in Salesforce Marketing cloud by navigating to **Audience Builder** and clicking on **Data Extensions** at the top navigation bar. Click on "+" to create a new folder. Make sure the folder name is unique for the cohort sync.
 
 ### Amplitude setup
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **Salesforce Marketing Cloud V2**.
-3. Enter a name and paste in the **Client ID**, **Client Secret**, and **Subdomain** you generated in Salesforce Marketing Cloud.
+3. Paste in the **Client ID**, **Client Secret**, and **Subdomain** credentials you generated in Salesforce Marketing Cloud.
 4. (Optional) Enter a folder name you created in the Data Extension page.
-5. Enter a **Name** for the Name field. This name will be used as the name for the API Target when you are syncing a cohort from Amplitude. 
+5. Provide a **Name** for the Name field. This name will be used as the name for the API Target when you are syncing a cohort from Amplitude. 
 6. Map an **Amplitude User Property** to the Marketing Cloud contact key.
 
 ## Send a cohort
@@ -68,9 +71,9 @@ To sync your first cohort, follow these steps:
 5. When finished, save your work.
 
 ## Locating your Amplitude Cohort in Salesforce Marketing Cloud
-1. Log into [Salesforce Marketing Cloud](https://mc.s11.exacttarget.com/cloud/#app/Setup/Users)
-2. Click on **Audience Builder** on the top navigation bar and navigate to **Contact Builder** 
-3. Click on **Data Extensions** at the top navigation bar
+1. Log into [Salesforce Marketing Cloud](https://mc.s11.exacttarget.com/cloud/#app/Setup/Users).
+2. Click on **Audience Builder** on the top navigation bar and navigate to **Contact Builder**. 
+3. Click on **Data Extensions** at the top navigation bar.
 4. Find the relevant **Data Extensions** folder that you specified during the setup process.
 5. Click on a specific cohort and click on **Records** to view the list of users.
 
