@@ -1010,7 +1010,7 @@ amplitude.getInstance().setDeviceId('DEVICE_ID');
 You can retrieve the device ID that Amplitude uses by `getDeviceId()`.
 
 ```js
-amplitude.getInstance().getDeviceId();
+const deviceId = amplitude.getInstance().getDeviceId();
 ```
 
 #### Share current device ID to another instance
