@@ -881,5 +881,5 @@ amplitude.setDeviceId(uuid());
 You can retrieve the device ID that Amplitude uses by `getDeviceId()`.
 
 ```ts
-amplitude.getDeviceId();
+const deviceId = amplitude.getDeviceId();
 ```
