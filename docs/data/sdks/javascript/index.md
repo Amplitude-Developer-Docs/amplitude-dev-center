@@ -693,11 +693,15 @@ If you set `logAttributionCapturedEvent` to `true` in your JavaScript SDK config
 
 Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the [demo app](https://github.com/amplitude/GTM-Web-Demo) on GitHub for instructions on how to set it up.
 
-Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
+Check [here](../../sources/google-tag-manager-client-legacy/) for the instruction details. Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
 
 !!!tip
 
     It's best practice to use a custom instance name to avoid a naming collision.
+
+## Debuggability
+
+--8<--"includes/sdk-debuggability/browser.md"
 
 ## Advanced topics
 
@@ -947,9 +951,7 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
 In SDK version 8.5.0 and higher, the SDK can send events using the browser's built-in navigator.sendBeacon API.
  Unlike standard network requests, sendBeacon sends events in the background, even if the user closes the browser or leaves the page.
 
-!!!warning
-
-    Because sendBeacon sends events in the background, Amplitude has no way of knowing if a send has failed, and can't try to resend the event.  
+--8<-- "includes/sdk-ts/sendBeacon-warnning.md"
 
 To send an event using sendBeacon, set the transport SDK option to 'beacon' in one of two ways
 

@@ -30,7 +30,7 @@ You can remove the time in Event payload via (Enrichment Plugin]() which would s
 
 ## Device family is not inappropriate
 
-We are using a [third party libray](https://github.com/faisalman/ua-parser-js) for parse the info for all Browser SDKs excepet Browser^2.0. For other SDKs we are using the server device mapping. We are using [this](http://storage.googleapis.com/play_public/supported_devices.html), [this](https://en.wikipedia.org/wiki/List_of_Android_smartphones) and [this](https://en.wikipedia.org/wiki/Comparison_of_tablet_computers) file for [Android] and [this](https://www.theiphonewiki.com/wiki/Models) file for iOS as source of truth. If you find there has an inproperate device type and it's not exist in any of those file. Please file a ticket [here](https://help.amplitude.com/hc/en-us/requests/new). Notice that the device mapping update on our side will only effect the in coming events. 
+We are using a [third party libray](https://github.com/faisalman/ua-parser-js) for parse the info for all Browser SDKs excepet @amplitude/analytics-browser@^2.0. For other SDKs we are using the server device mapping. We are using [this](http://storage.googleapis.com/play_public/supported_devices.html), [this](https://en.wikipedia.org/wiki/List_of_Android_smartphones) and [this](https://en.wikipedia.org/wiki/Comparison_of_tablet_computers) file for [Android] and [this](https://www.theiphonewiki.com/wiki/Models) file for iOS as source of truth. If you find there has an inproperate device type and it's not exist in any of those file. Please file a ticket [here](https://help.amplitude.com/hc/en-us/requests/new). Notice that the device mapping update on our side will only effect the in coming events.
 
 ## user properties through identify call showing up late
 
