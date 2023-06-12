@@ -288,6 +288,12 @@ class TestDestinationPlugin: DestinationPlugin {
 }
 ```
 
+## Debuggability
+
+### Common Issues
+
+Please refer to [this document](../../sdk-debuggability/) for additional common issues in general.
+
 ## Advanced topics
 
 ### User sessions

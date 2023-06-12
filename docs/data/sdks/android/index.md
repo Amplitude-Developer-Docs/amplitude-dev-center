@@ -749,6 +749,12 @@ For purchases on the Amazon store, you first need to set up Amazon as a data sou
 
     client.logRevenueV2(revenue);
     ```
+    
+## Debuggability
+
+### Common Issues
+
+Please refer to [this document](../../sdk-debuggability/) for additional common issues in general.
 
 ## Advanced topics
 

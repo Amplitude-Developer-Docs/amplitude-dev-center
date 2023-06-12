@@ -23,7 +23,7 @@ The Amplitude Instrumentation Explorer is an extension in the Google Chrome Web 
 
 Check [here](../data/debugger/#step-2-analyze-the-event-stream) for more details.
 
-#### Others Common Issues
+#### Common Issues
 
 The following are common issues specific to Browser SDK. Please refer to [this document](../../sdk-debuggability/) for additional common issues in general.
 
