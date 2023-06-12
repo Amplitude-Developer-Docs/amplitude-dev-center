@@ -437,15 +437,17 @@ nav:
     - Ampli: data/sdks/ampli-overview.md
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
-      - Browser 2.0:
-        - data/sdks/browser@2/index.md
-        - Ampli Codegen: data/sdks/browser@2/ampli.md
-        - Migration Guide: data/sdks/browser@2/migration.md
       - Browser:
-        - data/sdks/typescript-browser/index.md
-        - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
-        - Ampli Codegen: data/sdks/typescript-browser/ampli.md
-        - Migration Guide: data/sdks/typescript-browser/migration.md
+        - data/sdks/browser-2/index.md
+        - v2:
+          - data/sdks/browser-2/index.md
+          - Ampli Codegen: data/sdks/browser-2/ampli.md
+          - Migration Guide: data/sdks/browser-2/migration.md
+        - v1:
+          - data/sdks/typescript-browser/index.md
+          - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
+          - Ampli Codegen: data/sdks/typescript-browser/ampli.md
+          - Migration Guide: data/sdks/typescript-browser/migration.md
       - Node.js:
         - data/sdks/typescript-node/index.md
         - Ampli Codegen: data/sdks/typescript-node/ampli.md
