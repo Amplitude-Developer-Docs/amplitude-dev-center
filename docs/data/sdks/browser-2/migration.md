@@ -5,6 +5,9 @@ description: Use this guide to easily migrate from Amplitude Browser SDK 1.0 to 
 
 Amplitude Browser SDK 2.0 (`@amplitude/analytics-browser`) features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package.
 
+!!!info "Using Browser SDK with Ampli V2"
+    Ampli V2 is compatible with both Browser SDK 2.0 and Browser SDK 1.0. Follow this migration guide to upgrade.
+
 ### Terminology
 
 * `@amplitude/analytics-browser@1`: Browser SDK 1.0

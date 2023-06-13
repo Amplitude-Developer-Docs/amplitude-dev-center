@@ -1,16 +1,18 @@
 ---
 title: Browser SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
+description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the Browser SDK 1.0 (@amplitude/analytics-browser).
 ---
 
-The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `amplitude-js`. 
+Amplitude Browser SDK 1.0 (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. Browser SDK 1.0 isn't backwards compatible with `amplitude-js`. 
 
 To migrate to `@amplitude/analytics-browser`, update your dependencies and instrumentation.
+
+--8<-- "includes/sdk-ts-browser/shared-announce-browser-2.md"
 
 ### Terminology
 
 * `amplitude-js`: Maintenance Browser SDK
-* `@amplitude/analytics-browser`: New Browser SDK
+* `@amplitude/analytics-browser`: Browser SDK 1.0
 
 ## Dependency
 
@@ -40,7 +42,7 @@ For Node projects, update your dependency list in package.json.
 
 ## Instrumentation
 
-The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls have changed.
+Browser SDK 1.0 offers an API to instrument events. To migrate to the Browser SDK 1.0, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 

@@ -12,6 +12,8 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 !!!info "Browser SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
+--8<-- "includes/sdk-ts-browser/shared-announce-browser-2.md"
+
 !!!note "Browser SDK versus the Marketing Analytics Browser"
     Amplitude recommends the Browser SDK for most users. You can extend its functionality using plugins.
     However, if you want web attribution and page view tracking without extra setup, use the Marketing Analytics Browser SDK instead. It extends the Browser SDK with built-in web attribution and page view tracking. Learn more about [Marketing Analytics Browser SDK](../marketing-analytics-browser/).
