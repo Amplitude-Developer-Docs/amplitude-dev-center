@@ -11,7 +11,7 @@ Amplitude Data supports tracking analytics events from browser apps written in J
     Visit the [Amplitude Browser SDK](./index.md) documentation.
 
 !!!info "Browser SDK 2.0 is now available"
-    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/). See the [Migration Guide](../browser-2/migration) for more help.
+    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../../browser-2/). See the [Migration Guide](../../browser-2/migration) for more help.
 
 --8<-- "includes/ampli/javascript-enable-real-time-type-checking.md"
 
