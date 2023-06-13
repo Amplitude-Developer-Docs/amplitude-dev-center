@@ -821,6 +821,34 @@ Amplitude uses the IDFV as the device ID by default, but you can change this beh
 
 --8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
 
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    NSString *deviceId = [[Amplitude instance] getDeviceId];
+    ```
+
+=== "Swift"
+
+    ```swift
+    let deviceId = Amplitude.instance().getDeviceId()
+    ```
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+=== "Objective-C"
+
+    ```obj-c
+    [[Amplitude instance] setDeviceId:@"DEVICE_ID"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().setDeviceId("DEVICE_ID")
+    ```
+
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.

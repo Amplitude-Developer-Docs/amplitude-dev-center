@@ -438,6 +438,14 @@ To retrieve the IDFA and add it to the tracking events, you can follow this [exa
 
 --8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
 
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+```swift
+let deviceId = amplitude.getDeviceId()
+```
+
+To set the device, refer to [custom device ID](./#custom-device-id).
+
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.
