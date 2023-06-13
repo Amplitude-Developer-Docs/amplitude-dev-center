@@ -3,7 +3,7 @@ title: SDK Debuggability
 description: The SDK Debuggability document is a concise guide that provides solutions for common problems, debugging techniques, best practices, and troubleshooting guides to help developers efficiently resolve issues during SDK use.
 ---
 
-Data validation is a critical step in the instrumentation process. To streamline this process and enhance your debugging efforts, Amplitude provides some tool for convience your debug process.  You can explore these in detail by following this [link](../data/debugger). These resources will facilitate the smooth implementation and operation of your projects.
+Data validation is a critical step in the instrumentation process. To streamline this process and enhance your debugging efforts, Amplitude provides some tool for convience your debug process.  You can explore these in detail by following this [link](../debugger). These resources will facilitate the smooth implementation and operation of your projects.
 
 The following sections will outline common issues that you may encounter, along with their respective solutions or explanations to aid in resolving these problems. Please go to each SDK to check the specific debugbility docs. 
 
@@ -17,7 +17,7 @@ If you are not able to ingest any event, there following might be the possible r
 
 - If you have project in Data, please make sure if that's has been blocked
 
-- Please check if your deviceId or userId are valid. [More details](../apis/http-v2-api/#device-ids-and-user-ids-minimum-length).
+- Please check if your deviceId or userId are valid. [More details](../analytics/apis/http-v2-api/#device-ids-and-user-ids-minimum-length).
 
 ## Privacy 
 
