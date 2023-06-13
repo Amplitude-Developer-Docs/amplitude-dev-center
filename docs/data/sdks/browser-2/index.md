@@ -32,6 +32,12 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 amplitude.init(API_KEY);
 
 // Option 2, initialize with options
+amplitude.init(API_KEY, options);
+
+// Option 3, initialize with user ID if it's already known
+amplitude.init(API_KEY, 'user@amplitude.com');
+
+// Option 4, initialize with user ID and options
 amplitude.init(API_KEY, 'user@amplitude.com', options);
 ```
 
