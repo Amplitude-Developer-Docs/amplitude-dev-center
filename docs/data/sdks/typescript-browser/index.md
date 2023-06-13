@@ -31,6 +31,17 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
+```ts
+// Option 1, initialize with API_KEY only
+amplitude.init(API_KEY);
+
+// Option 2, initialize with user ID if it's already known
+amplitude.init(API_KEY, 'user@amplitude.com');
+
+// Option 3, initialize with configuration
+amplitude.init(API_KEY, 'user@amplitude.com', options);
+```
+
 ### Configuration
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"

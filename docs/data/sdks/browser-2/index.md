@@ -27,6 +27,14 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
+```ts
+// Option 1, initialize with API_KEY only
+amplitude.init(API_KEY);
+
+// Option 2, initialize with options
+amplitude.init(API_KEY, 'user@amplitude.com', options);
+```
+
 ### Configuration
 
 --8<-- "includes/sdk-ts/shared-ts-configuration.md"
@@ -51,11 +59,60 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts/shared-batch-code.md"
 
---8<-- "includes/sdk-ts/client-eu-residency.md"
+--8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
+
+```ts
+amplitude.init(API_KEY, {
+  serverZone: 'EU',
+});
+```
 
 #### Debugging
 
---8<-- "includes/sdk-ts/client-debugging.md"
+You can control the level of logs printed to the developer console.
+
+- 'None': Suppresses all log messages.
+- 'Error': Shows error messages only.
+- 'Warn': Shows error messages and warnings. This is the default value if `logLevel` isn't explicitly specified.
+- 'Verbose': Shows informative messages.
+- 'Debug': Shows error messages, warnings, and informative messages that may be useful for debugging, including the function context information for all SDK public method invocations. This logging mode is only suggested to be used in development phases.
+
+Set the log level by configuring the `logLevel` with the level you want.
+
+```ts
+amplitude.init(API_KEY, {
+  logLevel: amplitude.Types.LogLevel.Warn,
+});
+```
+
+The default logger outputs logs to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
+
+Set the logger by configuring the `loggerProvider` with your own implementation.
+
+```ts
+amplitude.init(API_KEY, {
+  loggerProvider: new MyLogger(),
+});
+```
+
+##### Debug Mode
+Enable the debug mode by setting the `logLevel` to "Debug", example:
+
+```ts
+amplitude.init(API_KEY, {
+  logLevel: amplitude.Types.LogLevel.Debug,
+});
+```
+
+With the default logger, extra function context information will be output to the developer console when invoking any SDK public method, including:
+
+- 'type': Category of this context, e.g., "invoke public method".
+- 'name': Name of invoked function, e.g., "track".
+- 'args': Arguments of the invoked function.
+- 'stacktrace': Stacktrace of the invoked function.
+- 'time': Start and end timestamp of the function invocation.
+- 'states': Useful internal states snapshot before and after the function invocation.
+
 
 ### Tracking an event
 
@@ -86,7 +143,7 @@ Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can b
 To opt out, refer to the code below. Otherwise, you can omit the configuration to keep them enabled.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: {
     attribution: false,
     pageViews: false,
@@ -100,7 +157,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 Alternatively, you can disable Amplitude from tracking all events mentioned above (and future default events) by setting `config.defaultTracking` to `false`.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: false,
 });
 ```
@@ -115,7 +172,7 @@ Amplitude marketing attribution by default by tracking UTM, referrers and click 
 You can opt out of marketing attribution tracking by setting `config.defaultTracking.attribution` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: {
     attribution: false,
   },
@@ -136,7 +193,7 @@ You can also use advanced configuration for better control of how marketing attr
 For example, you can configure Amplitude to track marketing attribution separately for each of your subdomain. Refer to the code sample for how to achieve this.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: {
     attribution: {
       excludeReferrers: [location.hostname],
@@ -152,7 +209,7 @@ Amplitude tracks page view events by default. The default behavior sends a page 
 You can opt out of page view tracking by setting `config.defaultTracking.pageViews` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: {
     pageViews: false,
   },
@@ -172,7 +229,7 @@ Amplitude tracks session events by default. A session is the period of time a us
 You can opt out of session tracking by setting `config.defaultTracking.sessions` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: {
     sessions: false,
   },
@@ -195,7 +252,7 @@ Amplitude can track forms that are constructed with `<form>` tags and `<input>` 
 You can opt out of form interaction tracking by setting `config.defaultTracking.formInteractions` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: {
     formInteractions: false,
   },
@@ -211,7 +268,7 @@ Amplitude tracks file download events by default. A file download event is track
 You can opt out of tracking file download events by setting `config.defaultTracking.fileDownloads` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   defaultTracking: {
     fileDownloads: false,
   },
@@ -244,7 +301,11 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Custom user ID
 
---8<-- "includes/sdk-ts-browser/shared-custom-user-id.md"
+If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+
+```ts
+amplitude.setUserId('user@amplitude.com');
+```
 
 ### Custom session ID
 
@@ -273,7 +334,7 @@ By default, the SDK tracks these properties automatically. You can override this
 | `platform` | `true` |
 
 ```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+amplitude.init(API_KEY, {
   trackingOptions: {
     ipAddress: false,
     language: false,
