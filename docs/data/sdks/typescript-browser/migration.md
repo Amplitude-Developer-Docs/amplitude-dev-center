@@ -8,7 +8,7 @@ Amplitude Browser SDK 1.0 (`@amplitude/analytics-browser`) features a plugin arc
 To migrate to `@amplitude/analytics-browser`, update your dependencies and instrumentation.
 
 !!!info "Browser SDK 2.0 is now available"
-    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/). See the [Migration Guide](../browser-2/migration) for more help.
+    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md). See the [Migration Guide](../browser-2/migration.md) for more help.
 
 ### Terminology
 
