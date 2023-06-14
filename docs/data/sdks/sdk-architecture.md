@@ -242,6 +242,28 @@ This a list of shared interfaces of latest SDKs.
 - `remove(Plugin)`
 - `shutdown()`
 
+## Identity
+
+Amplitude uses a combination of three different methods to identify your users: **device ID**, **user ID**, and **Amplitude ID**. 
+
+- Device ID is a unique ID for a given device. Amplitude client-side SDKs generate a device ID automatically for you on initialization and store them since they run on a single device. However server-side SDKs handle requests for many devices, so Amplitude server-side SDKs don't generate a device ID on initialization. You can set the device ID when you `track()` an event.
+
+- User ID is an internal unique identifier configured by you. You can assign a unique user ID for individual users, for example email addresses.
+
+- Amplitude ID is automatically creates by Amplitude once a unique user is identified. Amplitude ID can include multiple device IDs and user IDs that are all associated with a single user.
+
+For mobile SDKs, Amplitude also tracks:
+
+**Android**:
+
+- App Set ID: a unique identifier that groups multiple apps together within an ecosystem or platform. It is often used in situations where multiple apps are owned or managed by the same entity, such as a developer or a company.
+- ADID (Advertising ID): a unique identifier used for tracking and targeting users for personalized advertising campaigns. Due to privacy concerns this is not recommended. App Set ID should be considered instead.
+
+**iOS**:
+
+- IDFV (Identifier for Vendors): a unique identifier. Unlike IDFA, IDFV is not specific to advertising. It is designed to track and identify a specific device for multiple apps belonging to the same vendor or developer.
+- IDFA (Identifier for Advertising): a unique identifier used for tracking and targeting users for personalized advertising campaigns. Due to privacy concerns this is not recommended. IDFV should be considered instead.
+
 ## Comparison with maintenance SDK
 
 If you are migrating from maintenance SDKs, you may notice that latest SDKs differ from maintenance SDKs not only in terms of interfaces but also in their Middleware vs Plugin architecture . You can think of Middleware as being equal to Enrichment Plugin and Destination Plugin.

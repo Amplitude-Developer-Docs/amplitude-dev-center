@@ -394,3 +394,29 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 #### Disable cookies
 
 You can opt out using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device id in configuration on initialization
+2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. Refer to [cross domain tracking](./#cross-domain-tracking) for more details
+3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
+4. Device id in cookie storage of Browser SDK. Refer to [cookie management](../typescript-browser/#cookie-management) for more details
+5. A randomly generated 36-character UUID
+
+--8<-- "includes/sdk-device-id/change-scenarios.md"
+
+- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
+- On initialization, a device ID is passed in from URL param `deviceId`
+- `reset()` is called
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+```ts
+amplitude.setDeviceId(uuid());
+```
+
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+```ts
+const deviceId = amplitude.getDeviceId();
+```
