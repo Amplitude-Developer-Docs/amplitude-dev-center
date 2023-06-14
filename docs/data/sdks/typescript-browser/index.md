@@ -400,7 +400,7 @@ You can opt out using cookies by setting `disableCookies` to `true` so that th
 1. Device id in configuration on initialization
 2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. Refer to [cross domain tracking](./#cross-domain-tracking) for more details
 3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
-4. Device iD in cookie storage of JavaScript SDK. Refer to [JavaScript's cookie management](../typescript-browser/#cookie-management) for more details
+4. Device iD in cookie storage of Browser SDK. Refer to [cookie management](../typescript-browser/#cookie-management) for more details
 5. A randomly generated 36-character UUID
 
 --8<-- "includes/sdk-device-id/change-scenarios.md"
