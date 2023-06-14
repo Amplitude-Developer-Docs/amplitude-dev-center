@@ -13,7 +13,7 @@ You can find JavaScript errors under **Inspect > Console**, which might have the
 ##### Network Request
 
 Use the **Inspect > Network** tab to view all network requests made by your page. Search for the Amplitude request.
-[SDK DEBUGGABILITY NETWORK REQUEST](../../../assets/images/sdk-debuggability-network-request.png)
+![sdk debuggability network request](../../../assets/images/sdk-debuggability-network-request.png)
 
 Please check the response code and ensure that the response payload is as expected.
 
