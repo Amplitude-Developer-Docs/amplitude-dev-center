@@ -29,7 +29,7 @@ Check this section if you're seeing `client_upload_time` appearing as a time in 
 
 ## Device family is not appropriate
 
-We are using a [third party libray](https://github.com/faisalman/ua-parser-js) library to parse the info for all Browser SDKs, except for @amplitude/analytics-browser@^2.0. For other SDKs, we rely on server device mapping. We refer to [this resource](http://storage.googleapis.com/play_public/supported_devices.html), (https://en.wikipedia.org/wiki/List_of_Android_smartphones) for Android, and [this resource]((https://en.wikipedia.org/wiki/Comparison_of_tablet_computers)) for iOS. If you find an inappropriate device family that doesn't exist in any of these files, please submit a ticket here. Please note that updates to device mapping on our side will only affect incoming events.
+We are using a [third party libray](https://github.com/faisalman/ua-parser-js) library to parse the info for all Browser SDKs, except for @amplitude/analytics-browser@^2.0. For other SDKs, we rely on server device mapping. We refer to [this resource](http://storage.googleapis.com/play_public/supported_devices.html), [this resource](https://en.wikipedia.org/wiki/List_of_Android_smartphones) for Android, and [this resource](https://en.wikipedia.org/wiki/Comparison_of_tablet_computers) for iOS. If you find an inappropriate device family that doesn't exist in any of these files, please submit a ticket here. Please note that updates to device mapping on our side will only affect incoming events.
 
 ## user properties through identify call showing up late
 
