@@ -157,7 +157,7 @@ The `track` tag type is for tracking an event under a specific trigger.
 
 | Name  | Description | Default Value |
 | --- | --- | --- |
-| `Custom Timestamp ` | `number`. timestamp in UNIX time (milliseconds). Leave empty to use current time. | Current timestamp. |
+| `Custom Timestamp ` | `number` or `null`. timestamp in UNIX time (milliseconds). Leave empty to use current time. | Current timestamp. |
 
 ##### Track Groups
 
@@ -176,7 +176,7 @@ Add individual user property operations each as its own row in the table. You ca
 | --- | --- |
 | `Method Call` | `Add`, `Append`, `Prepend`, `Set`, `Set Once`, `Remove`, `Preinsert`, `Postinsert`, `Clear All`. The operation for the identify call. | 
 | `User Property` | `string`. The key of user properties. |
-| `Value` | `null`, `boolean`, `number` or `string`. The vaule of specific user property. |
+| `Value` | `string` or others. The vaule of specific user property. If you want to pass other types, please use GTM variable(Data Layer Variable). |
 
 #### setGroup
 
@@ -197,7 +197,7 @@ Use the Group Identify API to set or update properties of particular groups. The
 | `Group Name(s)` | `string`. The group name(s) under the group type. |
 | `Method Call` | `Add`, `Append`, `Prepend`, `Set`, `Set Once`, `Remove`, `Preinsert`, `Postinsert`, `Clear All`. The operation for the identify call. | 
 | `User Property` | `string`. The key of user properties. |
-| `Value` | `null`, `boolean`, `number` or `string`. The vaule of specific user property. |
+| `Value` | `string` or others. The vaule of specific user property. If you want to pass other types, please use GTM variable(Data Layer Variable). |
 
 #### revenue
 
@@ -272,6 +272,10 @@ Verify whether cookies have been altered or removed inadvertently. [Cookies](../
 ### Cross Domain Tracking?
 
 To retain user identification across different domains, a custom HTML tag must be created to attach the user's deviceId to the domain link you wish to track. By appending `deviceId=YourDeviceId` to the URL, the Amplitude Analytics Browser SDK will utilize this deviceId from the URL parameter rather than generating a new one. Due to certain limitations in GTM, the [workaround](https://github.com/amplitude/GTM-cross-domain-script) is available to illustrate how to append URLs in the GTM template.
+
+### How to pass other types for identify/groupIdentify value
+
+If you hardcode the value in your tag, the input will be forced into a string type. To use other types such as `number` or `boolean`, please create a GTM variable, specifically a Data Layer Variable. This will accurately capture the types you've specified.
 
 ## Video Tutorial
 
