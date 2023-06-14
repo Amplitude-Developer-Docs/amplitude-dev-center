@@ -65,6 +65,10 @@ Under **Send Users**, make sure the toggle is enabled ("Users are sent to Braze"
 
 (optional) In **Select additional properties**, select any more user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _Transformed user properties aren't supported._
 
+!!!warning "User Forwarding Volumes"
+    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Braze, even if the updated property
+    isn't selected in **Select additional properties**. This may result in high volumes of calls received by Braze. Check your Braze account for the charges associated with the volume of calls expected.
+
 ### Enable sync
 
 When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
