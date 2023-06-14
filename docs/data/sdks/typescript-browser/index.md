@@ -876,9 +876,7 @@ You can opt out using cookies by setting `disableCookies` to `true` so that th
 amplitude.setDeviceId(uuid());
 ```
 
-#### Get device ID
-
-You can retrieve the device ID that Amplitude uses by `getDeviceId()`.
+--8<-- "includes/sdk-device-id/get-device-id.md"
 
 ```ts
 const deviceId = amplitude.getDeviceId();
