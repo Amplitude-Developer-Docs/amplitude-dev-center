@@ -5,7 +5,7 @@ icon: simple/javascript
 ---
 
 
-![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser/next@2)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser/latest)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
