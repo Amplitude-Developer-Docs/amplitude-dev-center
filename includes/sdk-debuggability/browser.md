@@ -21,7 +21,7 @@ Please check the response code and ensure that the response payload is as expect
 
 The Amplitude Instrumentation Explorer is an extension available in the Google Chrome Web Store. The extension captures each Amplitude event you trigger and displays it in the extension popup. It's important to ensure that the event has been sent out successfully and to check the context in the event payload.
 
-Check [here](../data/debugger/#step-2-analyze-the-event-stream) for more details.
+Check [here](../../debugger/#step-2-analyze-the-event-stream) for more details.
 
 #### Common Issues
 

@@ -21,7 +21,7 @@ If you are not able to ingest any event, there following might be the possible r
 
 ## Privacy 
 
-If you've already disabled IP, it's still possible to see the IP in your user lookup if you're using the [latest SDK](./sdks/sdk-architecture/). We send the data to the HTTP API (HTTP API V1 for maintenance SDK and HTTP API V2 for the latest SDK). If you disabled the IP address midway, it's possible that the user's previous IP address was saved in our backend. Our backend will retrieve the IP from the database, if there's any. If it's a test user, it's probably fine. It won't affect incoming new users after you disable the IP. If this affects all users, you might need to create a new workspace.
+If you've already disabled IP, it's still possible to see the IP in your user lookup if you're using the [latest SDK](../sdks/sdk-architecture/). We send the data to the HTTP API (HTTP API V1 for maintenance SDK and HTTP API V2 for the latest SDK). If you disabled the IP address midway, it's possible that the user's previous IP address was saved in our backend. Our backend will retrieve the IP from the database, if there's any. If it's a test user, it's probably fine. It won't affect incoming new users after you disable the IP. If this affects all users, you might need to create a new workspace.
 
 ## client_upload_time shows a future time
 
