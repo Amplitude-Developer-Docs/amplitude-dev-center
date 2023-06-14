@@ -12,3 +12,20 @@ const eventProperties = {
 };
 amplitude.track('Button Clicked', eventProperties);
 ```
+
+You can also pass a `BaseEvent` object to the `track` function. Refer to the [BaseEvent](https://amplitude.github.io/Amplitude-TypeScript/interfaces/_amplitude_analytics_browser.Types.BaseEvent.html) interface for all available fields.
+
+```ts
+const event_properties = {
+  buttonColor: 'primary',
+};
+
+const event = {
+  event_type: "Button Clicked", 
+  event_properties,
+  groups: { 'role': 'engineering' },
+  group_properties: { 'groupPropertyKey': 'groupPropertyValue' }
+};
+
+amplitude.track(event);
+```
