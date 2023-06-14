@@ -275,7 +275,7 @@ To retain user identification across different domains, a custom HTML tag must b
 
 ### How to pass other types for identify/groupIdentify value
 
-If you hardcode the value in the GTM template, the input will be forced into a string type. To use other types such as numbers or booleans, please create a GTM variable, specifically a Data Layer Variable. This will accurately capture the types you've specified.
+If you hardcode the value in your tag, the input will be forced into a string type. To use other types such as numbers or booleans, please create a GTM variable, specifically a Data Layer Variable. This will accurately capture the types you've specified.
 
 ## Video Tutorial
 
