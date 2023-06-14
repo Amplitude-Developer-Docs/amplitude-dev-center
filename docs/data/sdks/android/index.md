@@ -750,7 +750,7 @@ For purchases on the Amazon store, you first need to set up Amazon as a data sou
     client.logRevenueV2(revenue);
     ```
     
-## Debuggability
+## Troubleshooting and Debugging
 
 ### Common Issues
 

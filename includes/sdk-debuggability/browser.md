@@ -8,8 +8,7 @@ You can find JavaScript errors under **Inspect > Console**, which might have the
 
 * Enable debug mode by following these [instructions](./#debug-mode). Then With the default logger, extra function context information will be output to the developer console when any SDK public method is invoked, which can be helpful for debugging.
 
-* If you're able to send the event successfully after entering `amplitude.init(API_KEY, 'USER_ID')` in the browser console, it indicates that your `amplitude.init` call might not have been triggered. We support deferred initialization, so the events will be dispatched after the initialization call. Therefore, please check your implementation.
-
+* If you're able to send the event successfully after entering `amplitude.init(API_KEY, 'USER_ID')` in the browser console, it indicates that something is wrong with your `amplitude.init` call. It might because you are not using the correct amplitude instance during initialization, or the `amplitude.init` hasn't been triggered as expected. We support deferred initialization, so the events will be dispatched after the initialization call. A `track` call without `init` won't show any errors. Therefore, please check your implementation.
 ##### Network Request
 
 Use the **Inspect > Network** tab to view all network requests made by your page. Search for the Amplitude request.
@@ -49,7 +48,7 @@ Here is the [information](./#cookie-management) SDK store in the cookies. This m
 
 ##### CORS
 
-If the issue is like the following, it means the issue is related to Cross-Origin Resource Sharing (CORS), a security measure implemented by browsers to restrict how resources on a web page can be requested from a different domain. When you used `setServerURL`, it might have this issue.
+Cross-Origin Resource Sharing (CORS) is a security measure implemented by browsers to restrict how resources on a web page can be requested from a different domain. It might cause this issue, if you used `setServerURL`.
 
 ```Access to fetch at 'xxx' from origin 'xxx' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.```
 

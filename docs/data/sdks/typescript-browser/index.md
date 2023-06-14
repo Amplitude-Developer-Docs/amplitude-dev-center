@@ -361,7 +361,7 @@ The base SDK sends Page View events when a user’s campaign is tracked if the `
 
 The page view plugin sends a Page View event on each page a user visits by default. It also offers options to customize this behavior.
 
-### Debuggability 
+### Troubleshooting and Debugging 
 
 --8<-- "includes/sdk-debuggability/browser.md"
 

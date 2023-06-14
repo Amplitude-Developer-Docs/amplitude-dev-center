@@ -514,12 +514,12 @@ For `@amplitude/analytics-browser`, Amplitude recommends adding your own event l
 === "@amplitude/analytics-browser"
 
     ```javascript
-    window.addEventListener('pagehide',
-      () => {
-        amplitude.setTransport('beacon') // Optional. Sets https transport to use `sendBeacon` API
-        amplitude.flush()
-      },
-    );
+    window.addEventListener('pagehide', () => {
+      // Set https transport to use sendBeacon API
+      amplitude.setTransport('beacon')
+      // Send all pending events to server
+      amplitude.flush()
+    });
     ```
 
 #### Callback

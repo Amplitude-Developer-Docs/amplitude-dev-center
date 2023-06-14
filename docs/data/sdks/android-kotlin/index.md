@@ -358,7 +358,7 @@ amplitude.add(
 )
 ```
 
-## Debuggability
+## Troubleshooting and Debugging
 
 ### Common Issues
 

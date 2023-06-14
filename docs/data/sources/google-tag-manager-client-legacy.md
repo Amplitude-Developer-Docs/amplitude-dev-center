@@ -13,7 +13,6 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 
 ## Migration
 
-<<<<<<< HEAD
 The Amplitude Analytics Legacy template, currently utilizing the [Maintenance Amplitude JavaScript SDK](../sdks/javascript/index.md) for data collection, is only slated for bug fixes until its eventual deprecation. Instead, we recommend using the [latest GTM template](../google-tag-manager-client/) that uses Amplitude's Marketing Analytics SDK for data collection. This not only ensures better support but also offers access to a host of new features.
 
 - It's important to note that the latest template is not backwards compatible with this legacy template due to the non-backwards compatibility of the internal SDK. Nonetheless, we have integrated a cookie migration logic to facilitate the transition of legacy cookies information to the latest cookie storage system.

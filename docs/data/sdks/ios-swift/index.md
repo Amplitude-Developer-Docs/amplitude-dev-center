@@ -288,7 +288,7 @@ class TestDestinationPlugin: DestinationPlugin {
 }
 ```
 
-## Debuggability
+## Troubleshooting and Debugging
 
 ### Common Issues
 

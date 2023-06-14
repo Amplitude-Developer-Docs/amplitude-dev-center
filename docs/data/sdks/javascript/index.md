@@ -699,7 +699,7 @@ Check [here](../../sources/google-tag-manager-client-legacy/) for the instructio
 
     It's best practice to use a custom instance name to avoid a naming collision.
 
-## Debuggability
+## Troubleshooting and Debugging
 
 --8<-- "includes/sdk-debuggability/browser.md"
 

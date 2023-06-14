@@ -552,7 +552,7 @@ Like `logEvent`, you can attach event properties for each call to `logRevenueV
 
     Price can be negative, which may be useful for tracking revenue lost (such as refunds or costs)
 
-## Debuggability
+## Troubleshooting and Debugging
 
 ### Common Issues
 
