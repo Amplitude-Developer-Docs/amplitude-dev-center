@@ -257,15 +257,12 @@ For mobile SDKs, Amplitude also tracks:
 **Android**:
 
 - App Set ID: a unique identifier that groups multiple apps together within an ecosystem or platform. It is often used in situations where multiple apps are owned or managed by the same entity, such as a developer or a company.
-- ADID (Advertising ID): a unique identifier used for tracking and targeting users for personalized advertising campaigns.
+- ADID (Advertising ID): a unique identifier used for tracking and targeting users for personalized advertising campaigns. Due to privacy concerns this is not recommended. App Set ID should be considered instead.
 
 **iOS**:
 
 - IDFV (Identifier for Vendors): a unique identifier. Unlike IDFA, IDFV is not specific to advertising. It is designed to track and identify a specific device for multiple apps belonging to the same vendor or developer.
-- IDFA (Identifier for Advertising): a unique identifier used for tracking and targeting users for personalized advertising campaigns.
-
-!!!Note
-    Due to privacy and user concerns, it is recommended to use App Set ID over ADID for Android and use IDFV over IDFA for iOS.
+- IDFA (Identifier for Advertising): a unique identifier used for tracking and targeting users for personalized advertising campaigns. Due to privacy concerns this is not recommended. IDFV should be considered instead.
 
 ## Comparison with maintenance SDK
 
