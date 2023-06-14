@@ -90,7 +90,7 @@ Finally, be aware that this action will disable the cookie storage BUT Amplitude
 
 ## Disabling cookies and LocalStorage/SessionStorage (opt-out storage)
 
-Amplitude cookies can be fully disabled altogether using the *`disableCookies`* option and setting it to value **"false"**. 
+Amplitude cookies can be fully disabled altogether using the *`disableCookies`* option and setting it to value **"true"**. 
 
 The main consideration here is that Amplitude stores the metadata already referred (e.g. device_id, etc.) and failed events (to be retry sending) in storage. If storage is set to none, then that information can’t be saved for it to be available when the user revisits the site. That means that any new visit by a non-identified user will generate a new random device_id because the SDK checks the cookie/storage to see whether it has an amplitude device_id, and if it is not there, it generates a new one. Therefore, every visit by a non-identified user will have a different device_id and therefore it will be considered as a new unique user in Amplitude. 
 
