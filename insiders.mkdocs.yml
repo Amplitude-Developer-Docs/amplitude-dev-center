@@ -6,7 +6,7 @@ extra_css:
 plugins:
   - search
   - tags #insiders
-  - git-revision-date
+  - git-revision-date-localized
   - glightbox # enables image light box
   - social: #insiders
       cards_color:
