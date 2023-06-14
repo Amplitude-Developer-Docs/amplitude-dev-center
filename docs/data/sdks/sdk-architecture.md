@@ -246,13 +246,11 @@ This a list of shared interfaces of latest SDKs.
 
 Amplitude uses a combination of three different methods to identify your users: **device ID**, **user ID**, and **Amplitude ID**. 
 
-- Device ID is a unique ID for a given device. Since our client SDKs run on a single device they generate a device ID automatically. However server-side SDKs handle request for many devices, so a device ID must be provided manually for each event.
+- Device ID is a unique ID for a given device. Amplitude client-side SDKs generate a device ID automatically for you on initialization and store them since they run on a single device. However server-side SDKs handle requests for many devices, so Amplitude server-side SDKs don't generate a device ID on initialization. You can set the device ID when you `track()` an event.
 
 - User ID is an internal unique identifier configured by you. You can assign a unique user ID for individual users, for example email addresses.
 
 - Amplitude ID is automatically creates by Amplitude once a unique user is identified. Amplitude ID can include multiple device IDs and user IDs that are all associated with a single user.
-
-Ampliutde **client-side** SDKs generate device IDs for you on initialization and store them. You can also customize your own device IDs. However, Amplitude **sever-side** SDKs don't generate device IDs on initialization. You can set the device ID when you `track()` an event.
 
 For mobile SDKs, Amplitude also tracks:
 
