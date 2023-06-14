@@ -1,5 +1,5 @@
 ---
-title: Browser Ampli Wrapper
+title: Browser 2.0 Ampli Wrapper
 description: The Amplitude Typescript SDK Installation & Quick Start guide.
 ---
 
