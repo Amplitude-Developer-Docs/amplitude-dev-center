@@ -13,7 +13,7 @@ const eventProperties = {
 amplitude.track('Button Clicked', eventProperties);
 ```
 
-You are also able to pass an event object in the `track` function. Check [here](https://amplitude.github.io/Amplitude-TypeScript/interfaces/_amplitude_analytics_browser.Types.BaseEvent.html) to chek what you can pass through the event object.
+You can also pass an event object to the `track` function. Refer to [this link](https://amplitude.github.io/Amplitude-TypeScript/interfaces/_amplitude_analytics_browser.Types.BaseEvent.html) to see what you can include in the event object.
 
 ```ts
 const event_propertie = {
