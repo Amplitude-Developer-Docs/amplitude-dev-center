@@ -30,5 +30,5 @@ The following information is tracked in the page view events.
 |`event_properties.[Amplitude] Page Location`| `string`. The page location. | location.href or ''. |
 |`event_properties.[Amplitude] Page Path`| `string`. The page path. | location.path or ''.|
 |`event_properties.[Amplitude] Page Title`| `string`. The page title. | document.title or ''.|
-|`event_properties.[Amplitude] Page Title`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
+|`event_properties.[Amplitude] Page URL`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
 |`event_properties.${CampaignParam}`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possilbe keys. | Any undefined campaignParam or `undefined`. |
