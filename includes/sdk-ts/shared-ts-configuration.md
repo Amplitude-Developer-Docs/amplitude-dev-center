@@ -1,7 +1,7 @@
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    |`flushIntervalMillis`| `number`. Sets the interval of uploading events to Amplitude in millionseconds. | 1,000 (1 second) |
+    |`flushIntervalMillis`| `number`. Sets the interval of uploading events to Amplitude in milliseconds. | 1,000 (1 second) |
     |`flushQueueSize`| `number`. Sets the maximum number of events that are batched in a single upload attempt. | 30 events |
     |`flushMaxRetries`| `number`. Sets the maximum number of reties for failed upload attempts. This is only applicable to retyable errors. | 5 times.|
     |`logLevel` | `LogLevel.None` or `LogLevel.Error` or `LogLevel.Warn` or `LogLevel.Verbose` or `LogLevel.Debug`. Sets the log level. | `LogLevel.Warn` |
