@@ -171,13 +171,27 @@ import * as amplitude from '@amplitude/analytics-browser';
 import { ampli } from './ampli';
 import { CustomPlugin } from './plugins';
 
+// Initialize the Amplitude SDK instance
 amplitude.init('my-api-key');
-ampli.load({ client: { instance: amplitude }})
+
+// Provide the Amplitude SDK instance to Ampli
+ampli.load({ client: { instance: amplitude }});
 assertEqual(ampli.client, amplitude);
 
+// Call methods directly on the Amplitude SDK
 ampli.client.add(CustomPlugin);
 ampli.client.setUserId('ampli@amplitude.com');
 ampli.client.setGroup('team', 'awesome');
+```
+
+To configure the underlying Amplitude SDK instance without creating it directly provide `client.configuration` to `ampli.load()`. All configuration options of the underlying Amplitude SDK are supported.
+
+```typescript
+// Using generated Environments
+ampli.load({ environment: 'production', client: { configuration: { serverZone: 'EU' } }});
+
+// Using a custom API key
+ampli.load({ client: { apiKey: 'API_KEY', configuration: { serverZone: 'EU' } }});
 ```
 
 ### Add the Ampli Wrapper to your project and track events
