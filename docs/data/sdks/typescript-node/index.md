@@ -54,7 +54,7 @@ init(API_KEY, {
     |`serverZone`| `EU` or  `US`. Sets the Amplitude server zone. Set this to `EU` for Amplitude projects created in `EU` data center. | `US` |
     |`storageProvider`| `Storage<Event[]>`. Sets a custom implementation of `Storage<Event[]>` to persist unsent events. | `MemoryStorage` |
     |`transportProvider`| `Transport`. Sets a custom implementation of `Transport` to use different request API. | `HTTPTransport` |
-    |`useBatch`| `boolean`. Sets whether to upload events to Batch API instead of instead of the default HTTP V2 API or not. | `false` |
+    |`useBatch`| `boolean`. Sets whether to upload events to Batch API instead of the default HTTP V2 API or not. | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
