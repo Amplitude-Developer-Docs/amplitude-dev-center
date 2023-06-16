@@ -57,7 +57,6 @@ New React Native SDK offers an API to instrument events. To migrate to it, you n
     ```typescript
     import { init } from '@amplitude/analytics-react-native';
 
-    // Option 3, initialize including configuration
     init(API_KEY, OPTIONAL_USER_ID, config);
     ```
 
@@ -295,6 +294,25 @@ The `logRevenue()` API maps to `revenue()`. `receipt` and `receiptSignature` is 
     revenue(event);
     ```
 You can also `setRevenue(6)` instead of `setPrice(3)` and `setQuantity(2)`.
+
+## Advanced topics
+
+### Identity
+
+#### Device ID
+
+As the maintenance React Native SDK is a wrapper of the maintenance iOS, maintenance Android SDK and maintenance Browser SDK and provides mappings from React Native to native SDK functions, device ID generation follows the native SDK per platform. Learn more about device ID lifecycle of [maintenance iOS SDK](../ios/index/#device-id-lifecycle) and [maintenance Android SDK](../android/index/#device-id-lifecycle).
+
+However, the new React Native SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
+
+1. Device ID of in the configuration on initialization
+2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. If it runs on Web.
+3. Device ID in cookie storage.
+4. A randomly generated 36-character UUID
+
+#### Advertising IDs
+
+Maintenance React Native SDK supports setting an advertising ID as device ID by `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()`. The new React Native SDK tracks ADID  by default as `config.trackingOptions.adid` defaults to `true`. However, the new React Native SDK doesn't support App Set ID, IDFA, or IDFV.
 
 ## Comparison 
 
