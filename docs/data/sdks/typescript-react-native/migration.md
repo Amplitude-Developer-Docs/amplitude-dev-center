@@ -301,7 +301,7 @@ You can also `setRevenue(6)` instead of `setPrice(3)` and `setQuantity(2)`.
 
 #### Device ID
 
-As the maintenance React Native SDK is a wrapper of the maintenance iOS, maintenance Android SDK and maintenance Browser SDK and provides mappings from React Native to native SDK functions, device ID generation follows the native SDK per platform. Learn more about device ID lifecycle of [maintenance iOS SDK](../ios/index/#device-id-lifecycle) and [maintenance Android SDK](../android/index/#device-id-lifecycle).
+As the maintenance React Native SDK is a wrapper of the maintenance iOS, maintenance Android SDK and maintenance Browser SDK and provides mappings from React Native to native SDK functions, device ID generation follows the native SDK per platform. Learn more about device ID lifecycle of [maintenance iOS SDK](../../ios/#device-id-lifecycle) and [maintenance Android SDK](../../android/#device-id-lifecycle).
 
 However, the new React Native SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
 
