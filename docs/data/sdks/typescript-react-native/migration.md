@@ -65,7 +65,7 @@ Maintenance React Native SDK runs on top of the maintenance Android SDK and main
 | `setOptOut()` | both `setOptOut()` and `config.optOut` are supported |
 | `trackingSessionEvents()` | `config.trackingSessionEvents` |
 | `setUseDynamicConfig()` | NOT SUPPORTED |
-| `setMinTimeBetweenSessionsMillis()`| `config.sessionTimeout` |
+| `setMinTimeBetweenSessionsMillis()`| similar to `config.sessionTimeout`, but they are not completely the same. Learn more about [session management](./#session-management)|
 | `setServerZone()` | `config.serverZone` |
 | `setServerUrl()` | `config.serverUrl` |
 | `setEventUploadMaxBatchSize()` | `config.flushQueueSize` |
@@ -315,9 +315,13 @@ You can enable COPPA control by `enableCoppaControl()` in maintenance React Nati
 * You can turn off IP address tracking by setting `config.trackingOptions.ipAddress` to `false`
 * Location (latitude and longitude) isn't tracked
 
-### Session events
+### Session management
 
-The maintenance React Native SDK supports automatically log start and end events by calling `trackingSessionEvents(true)`. The new React Native SDK doesn't support that, but session is still managed by the SDK. Events that are logged within the same session have the same session ID and Amplitude still groups events together by session.
+Amplitude [defines a session](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) slightly differently between mobile and web applications.
+
+The maintenance React Native SDK follows mobile-style session tracking definition based on foreground and background switching. You can set session expiration time by `setMinTimeBetweenSessionsMillis()`. It also supports automatically log start and end session events by calling `trackingSessionEvents(true)`.
+
+The new React Native SDK follows web-style session tracking definition based on the last event. You can customize the timeout window by `config.sessionTimeout`. It doesn't support automatic start and end session event tracking, but session is still managed by the SDK. Events that are logged within the same session have the same session ID and Amplitude still groups events together by session.
 
 ## Comparison 
 
