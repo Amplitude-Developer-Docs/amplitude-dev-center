@@ -197,6 +197,7 @@ nav:
           - Airbridge: data/sources/airbridge.md
           - AppsFlyer: data/sources/appsflyer.md
           - Branch: data/sources/branch.md
+          - Kochava: data/sources/kochava.md
           - Singular: data/sources/singular.md
         - CDP:
           - mParticle: data/sources/mparticle.md
@@ -226,7 +227,7 @@ nav:
             - Adobe Analytics: data/sources/adobe-analytics.md
             - Adobe Tag Manager: data/sources/adobe.md
           - Google Tag Manager:
-            - Quickstart Guide: data/sources/google-tag-manager.md
+            - data/sources/google-tag-manager/index.md
             - Client-side: data/sources/google-tag-manager-client.md
             - Server-side: data/sources/google-tag-manager-server.md
             - Client-side (Legacy): data/sources/google-tag-manager-client-legacy.md
@@ -281,10 +282,14 @@ nav:
         - Customer.io: data/destinations/customerio.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
+        - Fullstory: data/destinations/fullstory-event-streaming.md
         - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
         - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
         - Google Ads: data/destinations/google-ads-event-streaming.md
         - Google Pub/Sub: data/destinations/google-pub-sub.md
+        - Google Tag Manager: data/destinations/google-tag-manager-event-streaming.md
+        - Hotjar: data/destinations/hotjar-event-streaming.md
+        - Hubspot: data/destinations/hubspot-event-streaming.md
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
         - Kameleoon: data/destinations/kameleoon-event-streaming.md
@@ -343,6 +348,7 @@ nav:
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
         - User.com: data/destinations/user.com-cohort.md
+        - Zeda.io: data/destinations/zeda.io-cohort.md        
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
     - Privacy and PII:
@@ -435,10 +441,16 @@ nav:
     - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
-        - data/sdks/typescript-browser/index.md
-        - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
-        - Ampli Codegen: data/sdks/typescript-browser/ampli.md
-        - Migration Guide: data/sdks/typescript-browser/migration.md
+        - data/sdks/browser-2/index.md
+        - v2.0:
+          - data/sdks/browser-2/index.md
+          - Ampli Codegen: data/sdks/browser-2/ampli.md
+          - Migration Guide: data/sdks/browser-2/migration.md
+        - v1.0:
+          - data/sdks/typescript-browser/index.md
+          - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
+          - Ampli Codegen: data/sdks/typescript-browser/ampli.md
+          - Migration Guide: data/sdks/typescript-browser/migration.md
       - Node.js:
         - data/sdks/typescript-node/index.md
         - Ampli Codegen: data/sdks/typescript-node/ampli.md
