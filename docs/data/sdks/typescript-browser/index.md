@@ -88,7 +88,9 @@ const defaultInstance = amplitude.createInstance();
 const envInstance = amplitude.createInstance();
 
 defaultInstance.init(API_KEY_DEFAULT, OPTIONAL_USER_ID);
-envInstance.init(API_KEY_ENV, OPTIONAL_USER_ID);
+envInstance.init(API_KEY_ENV, OPTIONAL_USER_ID, {
+  instanceName: 'env',
+});
 ```
 
 ### Tracking default events
