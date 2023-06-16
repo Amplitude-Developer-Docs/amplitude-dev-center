@@ -119,10 +119,23 @@ With the default logger, extra function context information will be output to th
 - 'time': Start and end timestamp of the function invocation.
 - 'states': Useful internal states snapshot before and after the function invocation.
 
-
 ### Tracking an event
 
 --8<-- "includes/sdk-ts-browser/tracking-an-event.md"
+
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+const defaultInstance = amplitude.createInstance();
+const envInstance = amplitude.createInstance();
+
+defaultInstance.init(API_KEY_DEFAULT);
+envInstance.init(API_KEY_ENV, {
+  instanceName: 'env',
+});
+```
 
 ### Tracking default events
 

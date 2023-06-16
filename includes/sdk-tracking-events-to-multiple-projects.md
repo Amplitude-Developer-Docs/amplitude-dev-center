@@ -1,0 +1,1 @@
+If you want to log events to multiple Amplitude projects, then you must have separate instances for each Amplitude project and pass the instance variables to where you want to call amplitude. Each instance allows for independent apiKeys, userIds, deviceIds, and settings.

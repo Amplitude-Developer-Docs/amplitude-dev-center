@@ -108,6 +108,20 @@ track('Button Clicked', eventProperties, {
 });
 ```
 
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-node';
+
+const defaultInstance = amplitude.createInstance();
+const envInstance = amplitude.createInstance();
+
+defaultInstance.init(API_KEY_DEFAULT);
+envInstance.init(API_KEY_ENV);
+```
+
 ### User properties
 
 User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
