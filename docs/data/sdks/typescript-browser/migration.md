@@ -1,20 +1,23 @@
 ---
 title: Browser SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
+description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the Browser SDK 1.0 (@amplitude/analytics-browser).
 ---
 
-The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `amplitude-js`. 
+Amplitude Browser SDK 1.0 (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. Browser SDK 1.0 isn't backwards compatible with `amplitude-js`. 
 
 To migrate to `@amplitude/analytics-browser`, update your dependencies and instrumentation.
+
+!!!info "Browser SDK 2.0 is now available"
+    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md). See the [Migration Guide](../browser-2/migration.md) for more help.
 
 ### Terminology
 
 * `amplitude-js`: Maintenance Browser SDK
-* `@amplitude/analytics-browser`: New Browser SDK
+* `@amplitude/analytics-browser`: Browser SDK 1.0
 
 ## Dependency
 
-For snippet installation, update your project's [snippet loader](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser#using-script-loader).
+For snippet installation, update your project's [snippet loader](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-browser#using-script-loader).
 
 For Node projects, update your dependency list in package.json.
 
@@ -40,7 +43,7 @@ For Node projects, update your dependency list in package.json.
 
 ## Instrumentation
 
-The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls have changed.
+Browser SDK 1.0 offers an API to instrument events. To migrate to the Browser SDK 1.0, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
@@ -542,9 +545,9 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 | Feature| <div class="big-column"> [Latest Browser SDK](../) </div> | <div class="big-column"> [Marketing analytics Browser SDK](../../marketing-analytics-browser/) <div> | [Maintenance Browser SDK](../../javascript)|
 | --- | --- | --- | --- |
 | Package | [@amplitude/analytics-browser](https://www.npmjs.com/package/@amplitude/analytics-browser) | [@amplitude/marketing-analytics-browser](https://www.npmjs.com/package/@amplitude/marketing-analytics-browser) | [amplitude-js](https://www.npmjs.com/package/amplitude-js) |
-| Web Attribution [^1] | By default, the Browser SDK includes the `web-attribution` plugin which implements [**Web Attribution V1**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Maintenance Web Attribution**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). |
+| Web Attribution [^1] | By default, the Browser SDK includes the `web-attribution` plugin which implements [**Web Attribution V1**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Web Attribution V2**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Maintenance Web Attribution**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). |
 | Default Event Tracking [^2] |  [**Default Event Tracking V2**](./#default-event-tracking-v2-vs-default-event-tracking-v1) | [**Default Event Tracking V1**](./#default-event-tracking-v2-vs-default-event-tracking-v1) |  Not supported. |
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../#configuration). Check [here](./) for migration guide from the Maintenance SDK to the latest SDK. | The same as latest Browser SDK.  | Support explicity setter methods. [More configurations](../../javascript/#configuration). |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../#configuration). Check [here](./) for migration guide from the Maintenance SDK to the latest SDK. | The same as latest Browser SDK.  | Support explicit  setter methods. [More configurations](../../javascript/#configuration). |
 | Logger provider | Amplitude Logger by Default. Fully customizable. | The same as latest Browser SDK. | Amplitude Logger by default. Not customizable. |
 | Storage Provider | LocalStorage by default. Fully customizable. | The same as latest Browser SDK. | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
 | Customization | Plugins | Plugins | Not supported.  (Middleware is supported in Ampli JS) |

@@ -18,7 +18,6 @@ To configure streaming from Amplitude to Google Analytics 4 (Web), you need the 
 - **Google Analytics 4 Measurement ID**: The measurement ID associated with a Google Analytics stream. See the [Google documentation](https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=gtag#required_parameters) for help locating your measurement ID.
 - **Google Analytics 4 Measurement Protocol API Secret**: The measurement protocol API secret used for authentication. See the [Google documentation](https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=gtag#required_parameters) for help generating an API secret.
 
-
 ### Create a new sync
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
@@ -62,3 +61,5 @@ Under **Send Users**, make sure the toggle is enabled ("Users are sent to Google
 ### Enable sync
 
 When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
+
+--8<-- "includes/debug-delivery-metrics.md"
