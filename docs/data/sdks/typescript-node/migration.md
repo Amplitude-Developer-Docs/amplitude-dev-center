@@ -63,19 +63,18 @@ The new Node.js SDK configuration comes in a different shape. Some configuration
 
 |@amplitude/node|@amplitude/analytics-node|
 |-|-|
-| `debug` ||
-| `logLevel` | `LogLevel`. Configuration of the logging verbosity of the SDK.  `None` - No Logs will be surfaced. `Error` - SDK internal errors will be generated. `Warn` - Warnings will be generated around dangerous/deprecated features. `Verbose` - All SDK actions will be logged.| `LogLevel.None` |
-| `maxCachedEvents` | `number`. The maximum events in the buffer. | `16000` |
-| `retryTimeouts` | `number[]. ` Determines # of retries for sending failed events and how long each retry to wait for (ms). An empty array means no retries. | `[100, 100, 200, 200, 400, 400, 800, 800, 1600, 1600, 3200, 3200]` |
-| `optOut` | `boolean`. Whether you opt out from sending events. | `false` |
-| `retryClass` | ` Retry`. The class being used to handle event retrying.  | `null` |
-| `transportClass` | ` Transport`. The class being used to transport events. | `null` |
-| `serverUrl` | ` string`. If you're using a proxy server, set its url here. | `https://api2.amplitude.com/2/httpapi` |
-| `uploadIntervalInSec` | `number`. The events upload interval in seconds. | `0` |
-| `minIdLength` | `number`. Optional parameter allowing users to set minimum permitted length for user_id & device_id fields. | `5` |
-| `requestTimeoutMillis` | `number`. Configurable timeout in millionseconds. | `10000` |
-| `onRetry` | `(response: Response, attemptNumber: number, isLastRetry: boolean) => boolean) `. @param `response` - Response from the given retry attempt. @param `attemptNumber` - Index in retryTimeouts for how long Amplitude waited before this retry attempt. Starts at 0. @param `isLastRetry` - True if attemptNumber === retryTimeouts.length - 1. Lifecycle callback that is executed after a retry attempt. Called in {@link Retry.sendEventsWithRetry}.  | `null` |
-
+| `debug` | `logLevel` set to WARN level|
+| `logLevel` | `logLevel` |
+| `maxCachedEvents` | `flushQueueSize` |
+| `retryTimeouts` | `flushMaxRetries` can only be set to a number instead of an array of number as in `retryTimeouts`
+| `optOut` | `optOut` |
+| `retryClass` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by new Node.js SDK|
+| `transportClass` | `transportProvider` |
+| `serverUrl` | `serverUrl` |
+| `uploadIntervalInSec` | `flushIntervalMillis` is in milliseconds while `uploadIntervalInSec` is in seconds|
+| `minIdLength` | `minIdLength` |
+| `requestTimeoutMillis` | NOT SUPPORT |
+| `onRetry` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by new Node.js SDK |
 
 ### Tracking events
 
