@@ -14,7 +14,7 @@ To migrate to `@amplitude/analytics-react-native`, update your dependencies and 
 
 ## Dependency
 
-Update your dependency list in package.json.
+Uninstall `@amplitude/react-native` by either `yarn remove @amplitude/react-native` or deleting your dependency list in package.json
 
 === "@amplitude/react-native"
 
@@ -26,15 +26,7 @@ Update your dependency list in package.json.
     }
     ```
 
-=== "@amplitude/analytics-react-native"
-
-    ```json
-    {
-      "dependencies": {
-        "@amplitude/analytics-react-native": "^1"
-      }
-    }
-    ```
+Follow [the installation section](../#installation) to add new React Native SDK dependencies.
 
 ## Instrumentation
 
@@ -76,7 +68,7 @@ Maintenance React Native SDK runs on top of the maintenance Android SDK and main
 | `setMinTimeBetweenSessionsMillis()`| `config.sessionTimeout` |
 | `setServerZone()` | `config.serverZone` |
 | `setServerUrl()` | `config.serverUrl` |
-| `setEventUploadMaxBatchSize()` | NOT SUPPORTED |
+| `setEventUploadMaxBatchSize()` | `config.flushQueueSize` |
 | `setEventUploadPeriodMillis()` | `config.flushIntervalMillis` |
 | `setEventUploadThreshold()` | `config.flushQueueSize` |
 | `enableLogging()`| Logging is enabled and cannot be turned off. However, you can set `config.logLevel` and customize `config.loggerProvider` |
