@@ -3,6 +3,328 @@ title: Node.JS SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's maintenance Node.JS SDK (@amplitude/node) to the new SDK (@amplitude/analytics-node).
 ---
 
+Amplitude new Node.js SDK (`@amplitude/analytics-node`) features a plugin architecture and built-in type definition. New Node.js SDK isn't backwards compatible with maintenance Node.js SDK `@amplitude/node`. 
+
+To migrate to `@amplitude/analytics-node`, update your dependencies and instrumentation.
+
+## Terminology
+
+* `@amplitude/node`: Maintenance Node.js SDK
+* `@amplitude/analytics-node`: New Node.js SDK
+
+## Dependency
+
+Uninstall `@amplitude/node` by either `npm uninstall @amplitude/analytics-node` or deleting your dependency list in package.json
+
+=== "@amplitude/react-native"
+
+    ```json
+    {
+      "dependencies": {
+        "@amplitude/node": "^1",
+      }
+    }
+    ```
+
+Install `@amplitude/analytics-node` by `npm install @amplitude/analytics-node`.
+
+## Instrumentation
+
+New Node.js SDK offers an API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
+
+### Initialization
+
+The maintenance Node.js SDK only supports namespace import. The new Node.js SDK supports namespace import (`import * as amplitude from '@amplitude/analytics-node'`) and named import (`import { init } from '@amplitude/analytics-node'`) as well. We are using named import in the examples of new Node.js SDK in this documentation.
+
+To initialize the SDK, call `init()`, with the user ID and configuration parameters.
+
+=== "@amplitude/node"
+
+    ```javascript
+    import * as Amplitude from '@amplitude/node'
+
+    var options = {};
+    const client = Amplitude.init(AMPLITUDE_API_KEY, options);
+
+    ```
+
+=== "@amplitude/analytics-node"
+
+    ```typescript
+    import { init } from '@amplitude/analytics-node';
+
+    var options = {};
+    init(API_KEY, options);
+    ```
+
+### Configuration
+
+The new Node.js SDK configuration comes in a different shape. Some configurations are no longer supported.
+
+|@amplitude/node|@amplitude/analytics-node|
+|-|-|
+| `debug` ||
+| `logLevel` | `LogLevel`. Configuration of the logging verbosity of the SDK.  `None` - No Logs will be surfaced. `Error` - SDK internal errors will be generated. `Warn` - Warnings will be generated around dangerous/deprecated features. `Verbose` - All SDK actions will be logged.| `LogLevel.None` |
+| `maxCachedEvents` | `number`. The maximum events in the buffer. | `16000` |
+| `retryTimeouts` | `number[]. ` Determines # of retries for sending failed events and how long each retry to wait for (ms). An empty array means no retries. | `[100, 100, 200, 200, 400, 400, 800, 800, 1600, 1600, 3200, 3200]` |
+| `optOut` | `boolean`. Whether you opt out from sending events. | `false` |
+| `retryClass` | ` Retry`. The class being used to handle event retrying.  | `null` |
+| `transportClass` | ` Transport`. The class being used to transport events. | `null` |
+| `serverUrl` | ` string`. If you're using a proxy server, set its url here. | `https://api2.amplitude.com/2/httpapi` |
+| `uploadIntervalInSec` | `number`. The events upload interval in seconds. | `0` |
+| `minIdLength` | `number`. Optional parameter allowing users to set minimum permitted length for user_id & device_id fields. | `5` |
+| `requestTimeoutMillis` | `number`. Configurable timeout in millionseconds. | `10000` |
+| `onRetry` | `(response: Response, attemptNumber: number, isLastRetry: boolean) => boolean) `. @param `response` - Response from the given retry attempt. @param `attemptNumber` - Index in retryTimeouts for how long Amplitude waited before this retry attempt. Starts at 0. @param `isLastRetry` - True if attemptNumber === retryTimeouts.length - 1. Lifecycle callback that is executed after a retry attempt. Called in {@link Retry.sendEventsWithRetry}.  | `null` |
+
+
+### Tracking events
+
+#### `logEvent()`
+
+The `logEvent()` API maps to `track()`.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude } from '@amplitude/react-native';
+    
+    Amplitude.getInstance().logEvent('Button Clicked', {buttonColor: 'primary'});
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { track } from '@amplitude/analytics-react-native';
+
+    track('Button Clicked', {buttonColor: 'primary'});
+    ```
+
+#### `uploadEvents()`
+
+The `uploadEvents()` API maps to `flush()`.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude } from '@amplitude/react-native';
+    
+    Amplitude.getInstance().uploadEvents();
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { flush } from '@amplitude/analytics-react-native';
+
+    flush();
+    ```
+
+### Set user properties
+
+#### `identify()`
+
+The `identify()` API and `Identify` type remain the same.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude, Identify } from '@amplitude/react-native';
+    
+    const identifyObj = new Identify();
+    identifyObj.set('location', 'LAX');
+    Amplitude.getInstance().identify(identifyObj);
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { Identify, identify } from '@amplitude/analytics-react-native';
+
+    const identifyObj = new Identify();
+    identifyObj.set('location', 'LAX');
+
+    identify(identifyObj);
+    ```
+
+#### `setUserProperties()`
+
+The `setUserProperties()` API has been removed, but you can now use the unified `identify()` API to add user properties.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude } from '@amplitude/react-native';
+    
+    Amplitude.getInstance().setUserProperties({
+        membership, "paid",
+        payment, "bank",
+    })
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { Identify, identify } from '@amplitude/analytics-react-native';
+
+    const identifyObj = new amplitude.Identify()
+    identifyObj
+        .set("membership", "paid")
+        .set("payment", "bank")
+    amplitude.identify(identifyObj)
+    ```
+
+#### `clearUserProperties()`
+
+The `clearUserProperties()` API has been removed, but you can now use the unified `identify()` API to remove user properties.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude } from '@amplitude/react-native';
+    
+    Amplitude.getInstance().clearUserProperties();
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { Identify, identify } from '@amplitude/analytics-react-native';
+
+    const identifyObj = new amplitude.Identify()
+    identifyObj.clearAll()
+    amplitude.identify(identifyObj)
+    ```
+
+#### `setUserId()`
+
+The `setUserId()` API remains the same`.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude } from '@amplitude/react-native';
+    
+    Amplitude.getInstance().setUserId("test_user_id");
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { setUserId } from '@amplitude/analytics-react-native';
+
+    setUserId('user@amplitude.com');
+    ```
+
+### Set group properties
+
+### `groupIdentify()`
+
+You can now make an identify call without calling `getInstance()`.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude } from '@amplitude/react-native';
+    
+    const groupType = 'plan';
+    const groupName = 'enterprise';
+    const identifyObj = new Identify()
+    identifyObj.set('key1', 'value1');
+
+    Amplitude.getInstance().groupIdentify(groupType, groupName, identifyObj);
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { Identify, groupIdentify } from '@amplitude/analytics-react-native';
+
+    const groupType = 'plan';
+    const groupName = 'enterprise';
+    const identifyObj = new Identify()
+    identifyObj.set('key1', 'value1');
+
+    groupIdentify(groupType, groupName, identifyObj);
+    ```
+
+### Tracking revenue
+
+#### `logRevenue()`
+
+The `logRevenue()` API maps to `revenue()`. `receipt` and `receiptSignature` is not supported.
+
+=== "@amplitude/react-native"
+
+    ```typescript
+    import { Amplitude } from '@amplitude/react-native';
+    
+    const userProperties = {
+        price: 3,
+        productId: 'com.company.productId',
+        quantity: 2,
+        revenueType: 'productRevenue',
+        eventProperties: {
+            key: 'value',
+        },
+    };
+
+    ampInstance.logRevenue(userProperties);
+    ```
+
+=== "@amplitude/analytics-react-native"
+
+    ```typescript
+    import { Revenue, revenue } from '@amplitude/analytics-react-native';
+
+    const event = new Revenue()
+        .setPrice(3)
+        .setProductId('com.company.productId')
+        .setQuantity(2)
+        .setRevenueType('productRevenue')
+        .setEventProperties({
+            key: 'value',
+        })
+
+    revenue(event);
+    ```
+You can also `setRevenue(6)` instead of `setPrice(3)` and `setQuantity(2)`.
+
+## Advanced topics
+
+### Identity
+
+#### Device ID
+
+As the maintenance Node.js SDK is a wrapper of the maintenance iOS, maintenance Android SDK and maintenance Browser SDK and provides mappings from Node.js to native SDK functions, device ID generation follows the native SDK of each platform. Learn more about device ID lifecycle of [maintenance iOS SDK](../../ios/#device-id-lifecycle) and [maintenance Android SDK](../../android/#device-id-lifecycle). You can also call `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()` to set ADID or App Set ID as device ID.
+
+The new Node.js SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
+
+1. Device ID of in the configuration on initialization
+2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. If it runs on Web.
+3. Device ID in cookie storage.
+4. A randomly generated 36-character UUID
+
+#### Advertising IDs
+
+Maintenance Node.js SDK supports setting an advertising ID as device ID by `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()`. The new Node.js SDK tracks ADID  by default as `config.trackingOptions.adid` defaults to `true`. However, the new Node.js SDK doesn't support App Set ID, IDFA, or IDFV.
+
+### COPPA
+
+You can enable COPPA control by `enableCoppaControl()` in maintenance Node.js SDK. The new Node.js SDK doesn't support that API but you can still enable COPPA:
+
+* For iOS, IDFA and IDFV aren't tracked. For Android, you can turn off ADID by setting `config.trackingOptions.adid` to `false`
+* You can use an [enrichment Plugin](../#enrichment-type-plugin) to delete city in the payload.
+* You can turn off IP address tracking by setting `config.trackingOptions.ipAddress` to `false`
+* Location (latitude and longitude) isn't tracked
+
+### Session management
+
+Amplitude [defines a session](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) slightly differently between mobile and web applications.
+
+The maintenance Node.js SDK follows mobile-style session tracking definition based on foreground and background switching. You can set session expiration time by `setMinTimeBetweenSessionsMillis()`. It also supports automatically log start and end session events by calling `trackingSessionEvents(true)`.
+
+The new Node.js SDK follows web-style session tracking definition based on the last event. You can customize the timeout window by `config.sessionTimeout`. It doesn't support automatic start and end session event tracking, but session is still managed by the SDK. Events that are logged within the same session have the same session ID and Amplitude still groups events together by session.
+
 ## Comparison 
 
 --8<-- "includes/sdk-migration/sdk-migration-note.md"
