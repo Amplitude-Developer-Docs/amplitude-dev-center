@@ -306,6 +306,19 @@ However, the new React Native SDK initializes the device ID in the following ord
 
 Maintenance React Native SDK supports setting an advertising ID as device ID by `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()`. The new React Native SDK tracks ADID  by default as `config.trackingOptions.adid` defaults to `true`. However, the new React Native SDK doesn't support App Set ID, IDFA, or IDFV.
 
+### COPPA
+
+You can enable COPPA control by `enableCoppaControl()` in maintenance React Native SDK. The new React Native SDK doesn't support that API but you can still enable COPPA:
+
+* For iOS, IDFA and IDFV aren't tracked. For Android, you can turn off ADID by setting `config.trackingOptions.adid` to `false`
+* You can use an [enrichment Plugin](../#enrichment-type-plugin) to delete city in the payload.
+* You can turn off IP address tracking by setting `config.trackingOptions.ipAddress` to `false`
+* Location (latitude and longitude) isn't tracked
+
+### Session events
+
+The maintenance React Native SDK supports automatically log start and end events by calling `trackingSessionEvents(true)`. The new React Native SDK doesn't support that, but session is still managed by the SDK. Events that are logged within the same session have the same session ID and Amplitude still groups events together by session.
+
 ## Comparison 
 
 --8<-- "includes/sdk-migration/sdk-migration-note.md"
