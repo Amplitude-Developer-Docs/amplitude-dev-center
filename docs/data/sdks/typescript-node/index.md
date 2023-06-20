@@ -117,9 +117,9 @@ track('Button Clicked', eventProperties, {
 import * as amplitude from '@amplitude/analytics-node';
 
 const defaultInstance = amplitude.createInstance();
-const envInstance = amplitude.createInstance();
-
 defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
 envInstance.init(API_KEY_ENV, {
   instanceName: 'env',
 });

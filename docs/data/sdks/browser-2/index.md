@@ -129,9 +129,9 @@ With the default logger, extra function context information will be output to th
 
 ```ts
 const defaultInstance = amplitude.createInstance();
-const envInstance = amplitude.createInstance();
-
 defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
 envInstance.init(API_KEY_ENV, {
   instanceName: 'env',
 });
