@@ -43,6 +43,7 @@ init(API_KEY, {
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
+    |`instanceName`| `string`. The instance name. | `$default_instance` |
     |`flushIntervalMillis`| `number`. Sets the interval of uploading events to Amplitude in millionseconds. | 10,000 (10 seconds) |
     |`flushQueueSize`| `number`. Sets the maximum number of events that are batched in a single upload attempt. | 300 events |
     |`flushMaxRetries`| `number`. Sets the maximum number of reties for failed upload attempts. This is only applicable to retyable errors. | 12 times.|
@@ -105,6 +106,22 @@ const eventProperties = {
 };
 track('Button Clicked', eventProperties, {
   user_id: 'user@amplitude.com',
+});
+```
+
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-node';
+
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, {
+  instanceName: 'env',
 });
 ```
 

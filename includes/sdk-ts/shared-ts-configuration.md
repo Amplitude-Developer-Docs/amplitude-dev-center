@@ -1,6 +1,7 @@
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
+    |`instanceName`| `string`. The instance name. | `$default_instance` |
     |`flushIntervalMillis`| `number`. Sets the interval of uploading events to Amplitude in milliseconds. | 1,000 (1 second) |
     |`flushQueueSize`| `number`. Sets the maximum number of events that are batched in a single upload attempt. | 30 events |
     |`flushMaxRetries`| `number`. Sets the maximum number of reties for failed upload attempts. This is only applicable to retyable errors. | 5 times.|

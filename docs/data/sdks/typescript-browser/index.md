@@ -79,6 +79,20 @@ In addition to the basic configuration options, there also has options to config
 
 --8<-- "includes/sdk-ts-browser/tracking-an-event.md"
 
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT, OPTIONAL_USER_ID);
+
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, OPTIONAL_USER_ID, {
+  instanceName: 'env',
+});
+```
+
 ### Tracking default events
 
 Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can be configured to track the following events automatically:
