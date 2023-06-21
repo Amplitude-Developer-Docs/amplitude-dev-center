@@ -54,7 +54,7 @@ New React Native SDK offers an API to instrument events. To migrate to it, you n
 
 ### Configuration
 
-Maintenance React Native SDK runs on top of the maintenance Android SDK and maintenance iOS SDK and uses settable config options. However new React Native SDK instance has an configuration object in it so that we can set configurations directly on initialization via the instance.
+However, the new React Native SDK instance includes a configuration object, allowing us to set configurations directly upon initialization via the instance.
 
 |@amplitude/react-native|@amplitude/analytics-react-native|
 |-|-|
