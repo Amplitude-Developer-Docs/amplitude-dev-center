@@ -8,7 +8,8 @@ You can find JavaScript errors under **Inspect > Console**, which might have the
 
 * Enable debug mode by following these [instructions](./#debug-mode). Then With the default logger, extra function context information will be output to the developer console when any SDK public method is invoked, which can be helpful for debugging.
 
-* If you're able to send the event successfully after entering `amplitude.init(API_KEY, 'USER_ID')` in the browser console, it indicates that something is wrong with your `amplitude.init` call. It might because you are not using the correct amplitude instance during initialization, or the `amplitude.init` hasn't been triggered as expected. We support deferred initialization, so the events will be dispatched after the initialization call. A `track` call without `init` won't show any errors. Therefore, please check your implementation.
+* Amplitude supports SDK deferred initialization. Events tracked before initialization will be dispatched after the initialization call. If you cannot send events but are able to send the event successfully after entering `amplitude.init(API_KEY, 'USER_ID')` in the browser console, it indicates that your `amplitude.init` call might not have been triggered in your codebase or you are not using the correct amplitude instance during initialization. Therefore, please check your implementation."
+
 ##### Network Request
 
 Use the **Inspect > Network** tab to view all network requests made by your page. Search for the Amplitude request.
