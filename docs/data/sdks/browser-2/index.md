@@ -380,6 +380,10 @@ amplitude.init(API_KEY, {
 
 --8<-- "includes/sdk-ts-browser/shared-cross-domain-tracking.md"
 
+### Use sendBeacon
+
+--8<-- "includes/sdk-ts-browser/shared-use-sendbeacon.md"
+
 ### Content Security Policy (CSP)
 
 --8<-- "includes/sdk-ts-browser/shared-csp.md"
