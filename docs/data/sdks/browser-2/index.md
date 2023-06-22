@@ -60,7 +60,6 @@ amplitude.init(API_KEY, 'user@amplitude.com', options);
     |`trackingOptions` | `TrackingOptions`. Configures tracking of additional properties. Please refer to `Optional tracking` section for more information. | Enable all tracking options by default. |
     |`transport` | `string`. Sets request API to use by name. Options include `fetch` fro fetch, `xhr` for `XMLHttpRequest`, or  `beacon` for `navigator.sendBeacon`. | `fetch` |
 
-
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
 --8<-- "includes/sdk-ts/shared-batch-code.md"
@@ -102,6 +101,7 @@ amplitude.init(API_KEY, {
 ```
 
 ##### Debug Mode
+
 Enable the debug mode by setting the `logLevel` to "Debug", example:
 
 ```ts
