@@ -370,6 +370,10 @@ amplitude.init(API_KEY, {
 
 --8<-- "includes/sdk-ts-browser/shared-plugins-2.md"
 
+### Troubleshooting and Debugging 
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
+
 ## Advanced topics
 
 ### Cross domain tracking
