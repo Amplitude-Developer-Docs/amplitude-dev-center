@@ -701,7 +701,7 @@ Check [here](../../sources/google-tag-manager-client-legacy/) for the instructio
 
 ## Troubleshooting and Debugging
 
---8<-- "includes/sdk-debuggability/browser.md"
+--8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
 
 ## Advanced topics
 

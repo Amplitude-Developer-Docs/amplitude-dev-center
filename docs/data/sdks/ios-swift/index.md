@@ -292,7 +292,7 @@ class TestDestinationPlugin: DestinationPlugin {
 
 ### Common Issues
 
-Please refer to [this document](../../sdk-debuggability/) for additional common issues in general.
+Please refer to [this document](../../sdk-troubleshooting-and-debugging/) for additional common issues in general.
 
 ## Advanced topics
 

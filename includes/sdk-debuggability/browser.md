@@ -25,7 +25,7 @@ Check [here](../../debugger/#step-2-analyze-the-event-stream) for more details.
 
 #### Common Issues
 
-The following are common issues specific to Browser SDK. For additional general common issues, please refer to [this document](../../sdk-debuggability/).
+The following are common issues specific to Browser SDK. For additional general common issues, please refer to [this document](../../sdk-troubleshooting-and-debugging/).
 
 ##### AD Blocker
 

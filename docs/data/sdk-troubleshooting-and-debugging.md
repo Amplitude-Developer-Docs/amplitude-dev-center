@@ -14,7 +14,7 @@ The following sections will outline common issues that you may encounter, along 
 * [iOS (Beta)](../sdks/ios/#troubleshooting-and-debugging)
 * [iOS](../sdks/ios-swift/#troubleshooting-and-debugging)
 
-## Event Dropping
+## Events not showing in Amplitude
 
 If you are not able to ingest any event, check the following questions:
 
@@ -29,6 +29,9 @@ If you are using Amplitude Data, check that the event hasn't been blocked.
 
 * Are you setting valid userId and deviceId?
 Please check if your deviceId or userId are valid, the 400 error can be caused by this. [More details](../../analytics/apis/http-v2-api/#device-ids-and-user-ids-minimum-length).
+
+* Did you hit the `flushQueueSize` or `flushIntervalMillis`?
+Events are queued and sent in batches by default. That means events are not sent immediately to the server. The exact values differ by platform, check to make sure you have waited for events to be sent to the server before checking for them in charts.
 
 ## Privacy 
 
