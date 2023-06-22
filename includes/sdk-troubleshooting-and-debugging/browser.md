@@ -5,7 +5,7 @@ Debugging in a browser can help you identify problems related to your code's imp
 ##### Console
 
 You can find JavaScript errors under **Inspect > Console**, which might have the details about the line of code and file that caused the problem. The console also allows you to execute JavaScript code in real-time.
-
+p
 * Enable debug mode by following these [instructions](./#debug-mode). Then With the default logger, extra function context information will be output to the developer console when any SDK public method is invoked, which can be helpful for debugging.
 
 * Amplitude supports SDK deferred initialization. Events tracked before initialization will be dispatched after the initialization call. If you cannot send events but are able to send the event successfully after entering `amplitude.init(API_KEY, 'USER_ID')` in the browser console, it indicates that your `amplitude.init` call might not have been triggered in your codebase or you are not using the correct amplitude instance during initialization. Therefore, please check your implementation."
@@ -13,7 +13,7 @@ You can find JavaScript errors under **Inspect > Console**, which might have the
 ##### Network Request
 
 Use the **Inspect > Network** tab to view all network requests made by your page. Search for the Amplitude request.
-![sdk debuggability network request](../../../assets/images/sdk-debuggability-network-request.png)
+![sdk debugging network request](../../../assets/images/sdk-debuggability-network-request.png)
 
 Please check the response code and ensure that the response payload is as expected.
 
