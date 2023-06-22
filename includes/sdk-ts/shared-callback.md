@@ -3,6 +3,11 @@ All asynchronous API are optionally awaitable through a Promise interface. This 
 === "Promise"
 
     ```ts
+
+    amplitude.init("apikey", "12321.com").promise.then(function(result) { 
+      // init callback
+    })
+
     amplitude.track('Button Clicked').promise.then(function(result) {
       result.event; // {...} (The final event object sent to Amplitude)
       result.code; // 200 (The HTTP response status code of the request.
@@ -14,6 +19,8 @@ All asynchronous API are optionally awaitable through a Promise interface. This 
 
     ```ts
     // Using async/await
+    const initResult = amplitude.init("apikey", "12321.com").promise;
+
     const results = await amplitude.track('Button Clicked').promise;
     result.event; // {...} (The final event object sent to Amplitude)
     result.code; // 200 (The HTTP response status code of the request.
