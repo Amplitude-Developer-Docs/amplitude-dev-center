@@ -96,7 +96,7 @@ The new Browser SDK configuration comes in a different shape. The configurations
 |`config.optOut`|`config.optOut`|
 |`config.onError`|NOT SUPPORTED|
 |`config.onExitPage`|NOT SUPPORTED. See [Flush](#flush-or-onexitpage).|
-|`config.platform`|NOT SUPPORTED. See [Plugins](#plugins).|
+|`config.platform`|NOT SUPPORTED. `platform` is not supported at configuration level. But it still exist in event object. You can overrite this by either assign a platform while tracking an event, or enriching the event.platform using enrichemnt plugin. See [Plugins](#plugins).|
 |`config.savedMaxCount`|NOT SUPPORTED|
 |`config.saveEvents`|NOT SUPPORTED|
 |`config.saveParamsReferrerOncePerSession`|`config.attribution.trackNewCampaigns`. Opposite of `saveParamsReferrerOncePerSession`. See [configuration](../#configuration). |
@@ -524,11 +524,18 @@ For `@amplitude/analytics-browser`, Amplitude recommends adding your own event l
 
 #### Callback
 
-For `amplitude-js`, two separate callback functions are passed for success and error. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `track()`, `identify()`, `groupIdentify()` return a custom promise interface.
+For `amplitude-js`, one `init` callback function for excuting any function after initialization and two separate callback functions are passed for success and error network request. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `init()`, `track()`, `identify()`, `groupIdentify()` return a custom promise interface.
 
 === "@amplitude/analytics-browser"
 
     ```javascript
+    const initResult = await amplitude.init("YOUR_API_KEY").promise
+    if (initResult.code === 200) {
+      // success logic
+    } else {
+      // errr logic
+    }
+
     const result = await amplitude.track("Button Clicked").promise
     if (result.code === 200) {
       // success logic
