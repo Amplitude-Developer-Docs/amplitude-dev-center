@@ -294,6 +294,7 @@ nav:
         - Kinesis: data/destinations/kinesis-data-stream.md
         - Kinesis Firehose: data/destinations/kinesis-firehose.md
         - Lantern: data/destinations/lantern-event-streaming.md
+        - Mailchimp: data/destinations/mailchimp-event-streaming.md
         - Meta Pixel: data/destinations/meta-pixel.md
         - MoEngage: data/destinations/moengage-event-streaming.md
         - Planhat: data/destinations/planhat-event-streaming.md
