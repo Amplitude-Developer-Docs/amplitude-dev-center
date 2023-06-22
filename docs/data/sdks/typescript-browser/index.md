@@ -361,7 +361,11 @@ The base SDK sends Page View events when a user’s campaign is tracked if the `
 
 The page view plugin sends a Page View event on each page a user visits by default. It also offers options to customize this behavior.
 
-## Advanced topics
+### Troubleshooting and Debugging 
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
+
+## Advainced topics
 
 ### Cross domain tracking
 
@@ -382,6 +386,10 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   transportProvider: new MyTransport(),
 });
 ```
+
+### Use sendBeacon
+
+--8<-- "includes/sdk-ts-browser/shared-use-sendbeacon.md"
 
 ### Content Security Policy (CSP)
 
