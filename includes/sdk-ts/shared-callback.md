@@ -19,7 +19,7 @@ All asynchronous API are optionally awaitable through a Promise interface. This 
 
     ```ts
     // Using async/await
-    const initResult = amplitude.init("apikey", "12321.com").promise;
+    const initResult = await amplitude.init("apikey", "12321.com").promise;
 
     const results = await amplitude.track('Button Clicked').promise;
     result.event; // {...} (The final event object sent to Amplitude)

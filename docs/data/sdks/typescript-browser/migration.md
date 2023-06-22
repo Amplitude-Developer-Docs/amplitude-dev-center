@@ -529,8 +529,8 @@ For `amplitude-js`, one `init` callback function for excuting any function after
 === "@amplitude/analytics-browser"
 
     ```javascript
-    const intiResult = await amplitude.init("YOUR_API_KEY").promise
-    if (intiResult.code === 200) {
+    const initResult = await amplitude.init("YOUR_API_KEY").promise
+    if (initResult.code === 200) {
       // success logic
     } else {
       // errr logic
