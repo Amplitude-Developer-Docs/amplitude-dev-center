@@ -51,7 +51,7 @@ amplitude.init(API_KEY, 'user@amplitude.com', options);
     |`cookieOptions.expiration` | `number`. Sets expiration of cookies created in days. | 365 days |
     |`cookieOptions.sameSite` | `string`. Sets `SameSite` property of cookies created. | `Lax` |
     |`cookieOptions.secure` | `boolean`. Sets `Secure` property of cookies created. | `false` |
-    |`cookieOptions.upgrade` | `boolean`. Sets upgrading from cookies created by legacy Browser SDK. If `true`, new Browser SDK deletes cookies created by legacy Browser SDK. If `false`, Browser SDK keeps cookies created by legacy Browser SDK. | `true` |
+    |`cookieOptions.upgrade` | `boolean`. Sets upgrading from cookies created by [maintenance Browser SDK](../javascript/). If `true`, new Browser SDK deletes cookies created by maintenance Browser SDK. If `false`, Browser SDK keeps cookies created by maintenance Browser SDK. | `true` |
     |`identityStorage` | `string`. Sets storage API for user identity. Options include `cookie` for `document.cookie`, `localStorage` for `localStorage`, or `none` to opt-out of persisting user identity. | `cookie` |
     |`partnerId` | `string`. Sets partner ID. Amplitude requires the customer who built an event ingestion integration to add the partner identifier to `partner_id`. | `undefined` |
     |`sessionTimeout` | `number`. Sets the period of inactivity from the last tracked event before a session expires in milliseconds. | 1,800,000 milliseconds (30 minutes) |
