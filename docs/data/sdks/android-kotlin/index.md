@@ -254,10 +254,10 @@ Amplitude(
 
 After enabling this function, Amplitude will track the following events:
 
-- `[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation.
-- `[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application.
-- `[Amplitude] Application Opened`, this event fires when a user launches or foregrounds the application after the first open.
-- `[Amplitude] Application Backgrounded`, this event fires when a user backgrounds the application.
+* `[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation.
+* `[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application.
+* `[Amplitude] Application Opened`, this event fires when a user launches or foregrounds the application after the first open.
+* `[Amplitude] Application Backgrounded`, this event fires when a user backgrounds the application.
 
 #### Tracking screen views
 
@@ -383,8 +383,8 @@ amplitude.setDeviceId(UUID.randomUUID().toString())
 
 `reset` is a shortcut to anonymize users after they log out, by:
 
-- setting `userId` to `null`
-- setting `deviceId` to a new value based on current configuration
+* setting `userId` to `null`
+* setting `deviceId` to a new value based on current configuration
 
 With an empty `userId` and a completely new `deviceId`, the current user would appear as a brand new user in dashboard.
 
@@ -627,11 +627,11 @@ Don't assign users a user ID that could change, because each unique user ID is a
 
 You can control the level of logs that print to the developer console.
 
-- 'INFO': Shows informative messages about events.
-- 'WARN': Shows error messages and warnings. This level logs issues that might be a problem and cause some oddities in the data. For example, this level would display a warning for properties with null values.
-- 'ERROR': Shows error messages only.
-- 'DISABLE': Suppresses all log messages.
-- 'DEBUG': Shows error messages, warnings, and informative messages that may be useful for debugging.
+* 'INFO': Shows informative messages about events.
+* 'WARN': Shows error messages and warnings. This level logs issues that might be a problem and cause some oddities in the data. For example, this level would display a warning for properties with null values.
+* 'ERROR': Shows error messages only.
+* 'DISABLE': Suppresses all log messages.
+* 'DEBUG': Shows error messages, warnings, and informative messages that may be useful for debugging.
 
 Set the log level by calling `setLogLevel` with the level you want.
 
