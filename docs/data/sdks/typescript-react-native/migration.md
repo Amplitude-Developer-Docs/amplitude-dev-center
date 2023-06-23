@@ -309,13 +309,16 @@ The new React Native SDK initializes the device ID in the following order, with 
 
 #### Advertising IDs
 
+!!! warn
+    The new React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track these in a newly released version soon.
+
 Maintenance React Native SDK supports setting an advertising ID as device ID by `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()`. The new React Native SDK tracks ADID  by default as `config.trackingOptions.adid` defaults to `true`. However, the new React Native SDK doesn't support App Set ID, IDFA, or IDFV.
 
 ### COPPA
 
 !!! warn
-    The new React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track that in a newly released version soon.
-    
+    The new React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track these in a newly released version soon.
+
 You can enable COPPA control by `enableCoppaControl()` in maintenance React Native SDK. The new React Native SDK doesn't support that API but you can still enable COPPA:
 
 * For iOS, IDFA and IDFV aren't tracked. For Android, you can turn off ADID by setting `config.trackingOptions.adid` to `false`
