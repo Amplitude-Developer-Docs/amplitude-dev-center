@@ -59,7 +59,7 @@ New React Native SDK offers an API to instrument events. To migrate to it, you n
 
 ### Configuration
 
-However, the new React Native SDK instance includes a configuration object, allowing us to set configurations directly upon initialization via the instance.
+The new React Native SDK instance accepts a configuration object during upon initialization that contains similar settings to the maintenance SDK.
 
 |@amplitude/react-native|@amplitude/analytics-react-native|
 |-|-|
