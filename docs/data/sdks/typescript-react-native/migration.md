@@ -320,7 +320,7 @@ You can enable COPPA control by `enableCoppaControl()` in maintenance React Nati
 
 ### Session events
 
-The maintenance React Native SDK supports automatically log start and end events by calling `trackingSessionEvents(true)`. The new React Native SDK doesn't support that, but session is still managed by the SDK. Events that are logged within the same session have the same session ID and Amplitude still groups events together by session.
+The maintenance React Native SDK supports automatically log start and end events by calling `trackingSessionEvents(true)`. In the new React Native SDK, you can do the same by setting `config.trackingSessionEvents` to true. Events logged within the same session have the same session ID and Amplitude groups events together by session.
 
 ## Comparison 
 
