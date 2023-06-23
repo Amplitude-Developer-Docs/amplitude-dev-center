@@ -4,7 +4,7 @@ description: Use this guide to easily migrate from Amplitude's maintenance React
 ---
 
 !!! warning
-    The Maintenance React Native SDK stores device ID, user ID, etc., in SQLite. However, there is no migration logic available, so this data won't be automatically migrated when upgrading to the new React Native SDK. Consequently, for example, device ID may be regenerated when using the new SDK.
+    The Maintenance React Native SDK stores device ID, user ID, etc., in SQLite. However, there is no migration logic available (at this time), so this data won't be automatically migrated when upgrading to the new React Native SDK. Consequently, for example, device ID may be regenerated when using the new SDK.
 
 Amplitude new React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support. New React Native SDK isn't backwards compatible with maintenance React Native SDK `@amplitude/react-native`. 
 
