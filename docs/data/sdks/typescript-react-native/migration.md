@@ -99,7 +99,7 @@ The `logEvent()` API maps to `track()`.
     ```typescript
     import { track } from '@amplitude/analytics-react-native';
 
-    track('Button Clicked', {buttonColor: 'primary'});
+    track('Button Clicked', { buttonColor: 'primary' });
     ```
 
 #### `uploadEvents()`
