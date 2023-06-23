@@ -63,8 +63,8 @@ However, the new React Native SDK instance includes a configuration object, allo
 
 |@amplitude/react-native|@amplitude/analytics-react-native|
 |-|-|
-| `enableCoppaControl()` | NOT SUPPORTED |
-| `disableCoppaControl()` | NOT SUPPORTED |
+| `enableCoppaControl()` | Refer to [COPPA](./#coppa) section for more details |
+| `disableCoppaControl()` | Refer to [COPPA](./#coppa) section for more details |
 | `setAdvertisingIdForDeviceId()` | No configuration to set ADID as device ID. But ADID is still tracked by default as `config.trackingOptions.adid` defaults to `true`. To learn more about how device ID is initialized [here](./#device-id).  |
 | `setAppSetIdForDeviceId()` | NOT SUPPORTED |
 | `setOptOut()` | both `setOptOut()` and `config.optOut` are supported |
@@ -313,6 +313,9 @@ Maintenance React Native SDK supports setting an advertising ID as device ID by 
 
 ### COPPA
 
+!!! warn
+    The new React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track that in a newly released version soon.
+    
 You can enable COPPA control by `enableCoppaControl()` in maintenance React Native SDK. The new React Native SDK doesn't support that API but you can still enable COPPA:
 
 * For iOS, IDFA and IDFV aren't tracked. For Android, you can turn off ADID by setting `config.trackingOptions.adid` to `false`
