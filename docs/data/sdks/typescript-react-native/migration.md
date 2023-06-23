@@ -60,7 +60,7 @@ However, the new React Native SDK instance includes a configuration object, allo
 |-|-|
 | `enableCoppaControl()` | NOT SUPPORTED |
 | `disableCoppaControl()` | NOT SUPPORTED |
-| `setAdvertisingIdForDeviceId()` | NOT SUPPORTED |
+| `setAdvertisingIdForDeviceId()` | No configuration to set ADID as device ID. But ADID is still tracked by default as `config.trackingOptions.adid` defaults to `true`. To learn more about how device ID is initialized [here](./#device-id).  |
 | `setAppSetIdForDeviceId()` | NOT SUPPORTED |
 | `setOptOut()` | both `setOptOut()` and `config.optOut` are supported |
 | `trackingSessionEvents()` | `config.trackingSessionEvents` |
@@ -73,7 +73,7 @@ However, the new React Native SDK instance includes a configuration object, allo
 | `setEventUploadThreshold()` | `config.flushQueueSize` |
 | `enableLogging()`| Logging is enabled and cannot be turned off. However, you can set `config.logLevel` and customize `config.loggerProvider` |
 | `setLogLevel()`| `config.logLevel` |
-| `addLogCallback()` | You can add callback by customizing `config.loggerProvider` |
+| `addLogCallback()` | It's not fully supported but you can customize a logger by setting `config.loggerProvider`. |
 
 ### Tracking events
 
