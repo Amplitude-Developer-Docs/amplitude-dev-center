@@ -1,21 +1,21 @@
 ---
 title: React Native SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's maintenance React Native SDK (@amplitude/react-native) to the new SDK (@amplitude/analytics-react-native).
+description: Use this guide to easily migrate from Amplitude's maintenance React Native SDK (@amplitude/react-native) to the latest SDK (@amplitude/analytics-react-native).
 ---
 
 !!! warning
-    The Maintenance React Native SDK stores device ID, user ID, etc., in SQLite. However, there is no migration logic available (at this time), so this data won't be automatically migrated when upgrading to the new React Native SDK. Consequently, for example, device ID may be regenerated when using the new SDK.
+    The Maintenance React Native SDK stores device ID, user ID, etc., in SQLite. However, there is no migration logic available (at this time), so this data won't be automatically migrated when upgrading to the latest React Native SDK. Consequently, for example, device ID may be regenerated when using the latest SDK.
 
     We will release a migration plugin soon.
 
-Amplitude new React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support. New React Native SDK isn't backwards compatible with maintenance React Native SDK `@amplitude/react-native`. 
+Amplitude's latest React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support. Latest React Native SDK isn't backwards compatible with maintenance React Native SDK `@amplitude/react-native`. 
 
 To migrate to `@amplitude/analytics-react-native`, update your dependencies and instrumentation.
 
 ## Terminology
 
 * `@amplitude/react-native`: Maintenance React Native SDK
-* `@amplitude/analytics-react-native`: New React Native SDK
+* `@amplitude/analytics-react-native`: Latest React Native SDK
 
 ## Dependency
 
@@ -29,11 +29,11 @@ Uninstall `@amplitude/react-native` by either `yarn remove @amplitude/react-nati
 }
 ```
 
-Follow [the installation section](../#installation) to add new React Native SDK dependencies.
+Follow [the installation section](../#installation) to add latest React Native SDK dependencies.
 
 ## Instrumentation
 
-New React Native SDK offers an API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
+Latest React Native SDK offers an API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
@@ -49,14 +49,14 @@ New React Native SDK offers an API to instrument events. To migrate to it, you n
 
 ### Configuration
 
-The new React Native SDK instance accepts a configuration object during upon initialization that contains similar settings to the maintenance SDK.
+The latest React Native SDK instance accepts a configuration object during upon initialization that contains similar settings to the maintenance SDK.
 
 |@amplitude/react-native|@amplitude/analytics-react-native|
 |-|-|
 | `enableCoppaControl()` | Refer to [COPPA](./#coppa) section for more details |
 | `disableCoppaControl()` | Refer to [COPPA](./#coppa) section for more details |
 | `setAdvertisingIdForDeviceId()` | No configuration to set ADID as device ID. But ADID is still tracked by default as `config.trackingOptions.adid` defaults to `true`. To learn more about how device ID is initialized [here](./#device-id).  |
-| `setAppSetIdForDeviceId()` | No configuration to set App Set ID as device ID. But the new React Native SDK will track it in a newly released version soon. |
+| `setAppSetIdForDeviceId()` | No configuration to set App Set ID as device ID. But the latest React Native SDK will track it in a newly released version soon. |
 | `setOptOut()` | both `setOptOut()` and `config.optOut` are supported |
 | `trackingSessionEvents()` | `config.trackingSessionEvents` |
 | `setUseDynamicConfig()` | NOT SUPPORTED |
@@ -221,7 +221,7 @@ You can also `setRevenue(6)` instead of `setPrice(3)` and `setQuantity(2)`.
 
 As the maintenance React Native SDK is a wrapper of the maintenance iOS, maintenance Android SDK and maintenance Browser SDK and provides mappings from React Native to native SDK functions, device ID generation follows the native SDK of each platform. Learn more about device ID lifecycle of [maintenance iOS SDK](../../ios/#device-id-lifecycle) and [maintenance Android SDK](../../android/#device-id-lifecycle). You can also call `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()` to set ADID or App Set ID as device ID.
 
-The new React Native SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
+The latest React Native SDK initializes the device ID in the following order, with the device ID being set to the first valid value encountered:
 
 1. Device ID of in the configuration on initialization
 2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. If it runs on Web.
@@ -231,16 +231,16 @@ The new React Native SDK initializes the device ID in the following order, with 
 #### Advertising IDs
 
 !!! warn
-    The new React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track these in a newly released version soon.
+    The latest React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track these in a newly released version soon.
 
-Maintenance React Native SDK supports setting an advertising ID as device ID by `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()`. The new React Native SDK tracks ADID  by default as `config.trackingOptions.adid` defaults to `true`. However, the new React Native SDK doesn't support App Set ID, IDFA, or IDFV.
+Maintenance React Native SDK supports setting an advertising ID as device ID by `setAdvertisingIdForDeviceId()` or `setAppSetIdForDeviceId()`. The latest React Native SDK tracks ADID by default as `config.trackingOptions.adid` defaults to `true`. However, the latest React Native SDK doesn't support App Set ID, IDFA, or IDFV.
 
 ### COPPA
 
 !!! warn
-    The new React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track these in a newly released version soon.
+    The latest React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track these in a newly released version soon.
 
-You can enable COPPA control by `enableCoppaControl()` in maintenance React Native SDK. The new React Native SDK doesn't support that API but you can still enable COPPA:
+You can enable COPPA control by `enableCoppaControl()` in maintenance React Native SDK. The latest React Native SDK doesn't support that API but you can still enable COPPA:
 
 * For iOS, IDFA and IDFV aren't tracked. For Android, you can turn off ADID by setting `config.trackingOptions.adid` to `false`
 * You can use an [enrichment Plugin](../#enrichment-type-plugin) to delete city in the payload.
@@ -249,7 +249,7 @@ You can enable COPPA control by `enableCoppaControl()` in maintenance React Nati
 
 ### Session events
 
-The maintenance React Native SDK supports automatically log start and end events by calling `trackingSessionEvents(true)`. In the new React Native SDK, you can do the same by setting `config.trackingSessionEvents` to true. Events logged within the same session have the same session ID and Amplitude groups events together by session.
+The maintenance React Native SDK supports automatically log start and end events by calling `trackingSessionEvents(true)`. In the latest React Native SDK, you can do the same by setting `config.trackingSessionEvents` to true. Events logged within the same session have the same session ID and Amplitude groups events together by session.
 
 ## Comparison 
 
