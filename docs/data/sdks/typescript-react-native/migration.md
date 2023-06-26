@@ -21,15 +21,13 @@ To migrate to `@amplitude/analytics-react-native`, update your dependencies and 
 
 Uninstall `@amplitude/react-native` by either `yarn remove @amplitude/react-native` or deleting your dependency list in package.json
 
-=== "@amplitude/react-native"
-
-    ```json
-    {
-      "dependencies": {
-        "@amplitude/react-native": "^2"
-      }
+```diff
+{
+    "dependencies": {
+-    "@amplitude/react-native": "^2"
     }
-    ```
+}
+```
 
 Follow [the installation section](../#installation) to add new React Native SDK dependencies.
 
@@ -41,21 +39,13 @@ New React Native SDK offers an API to instrument events. To migrate to it, you n
 
 `getInstance()` in the maintenance SDK only accepts API key and has been removed. To initialize the SDK, call `init()`, with the user ID and configuration parameters.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { init } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-
-    Amplitude.getInstance().init(API_KEY)
-    ```
-
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { init } from '@amplitude/analytics-react-native';
-
-    init(API_KEY, OPTIONAL_USER_ID, config);
-    ```
+- Amplitude.getInstance().init(API_KEY)
++ init(API_KEY, OPTIONAL_USER_ID, config);
+```
 
 ### Configuration
 
@@ -86,41 +76,25 @@ The new React Native SDK instance accepts a configuration object during upon ini
 
 The `logEvent()` API maps to `track()`.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { track } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-    
-    Amplitude.getInstance().logEvent('Button Clicked', {buttonColor: 'primary'});
-    ```
-
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { track } from '@amplitude/analytics-react-native';
-
-    track('Button Clicked', { buttonColor: 'primary' });
-    ```
+- Amplitude.getInstance().logEvent('Button Clicked', {buttonColor: 'primary'});
++ track('Button Clicked', { buttonColor: 'primary' });
+```
 
 #### `uploadEvents()`
 
 The `uploadEvents()` API maps to `flush()`.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { flush } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-    
-    Amplitude.getInstance().uploadEvents();
-    ```
-
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { flush } from '@amplitude/analytics-react-native';
-
-    flush();
-    ```
+- Amplitude.getInstance().uploadEvents();
++ flush();
+```
 
 ### Set user properties
 
@@ -128,95 +102,61 @@ The `uploadEvents()` API maps to `flush()`.
 
 The `identify()` API and `Identify` type remain the same.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude, Identify } from '@amplitude/react-native';
++ import { Identify, identify } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude, Identify } from '@amplitude/react-native';
-    
-    const identifyObj = new Identify();
-    identifyObj.set('location', 'LAX');
-    Amplitude.getInstance().identify(identifyObj);
-    ```
+const identifyObj = new Identify();
+identifyObj.set('location', 'LAX');
 
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { Identify, identify } from '@amplitude/analytics-react-native';
-
-    const identifyObj = new Identify();
-    identifyObj.set('location', 'LAX');
-
-    identify(identifyObj);
-    ```
+- Amplitude.getInstance().identify(identifyObj);
++ identify(identifyObj);
+```
 
 #### `setUserProperties()`
 
 The `setUserProperties()` API has been removed, but you can now use the unified `identify()` API to add user properties.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { Identify, identify } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-    
-    Amplitude.getInstance().setUserProperties({
-        membership, "paid",
-        payment, "bank",
-    })
-    ```
-
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { Identify, identify } from '@amplitude/analytics-react-native';
-
-    const identifyObj = new amplitude.Identify()
-    identifyObj
-        .set("membership", "paid")
-        .set("payment", "bank")
-    amplitude.identify(identifyObj)
-    ```
+- Amplitude.getInstance().setUserProperties({
+-     membership, "paid",
+-     payment, "bank",
+- })
++ const identifyObj = new amplitude.Identify()
++ identifyObj
++     .set("membership", "paid")
++     .set("payment", "bank")
++ amplitude.identify(identifyObj)
+```
 
 #### `clearUserProperties()`
 
 The `clearUserProperties()` API has been removed, but you can now use the unified `identify()` API to remove user properties.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { Identify, identify } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-    
-    Amplitude.getInstance().clearUserProperties();
-    ```
-
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { Identify, identify } from '@amplitude/analytics-react-native';
-
-    const identifyObj = new amplitude.Identify()
-    identifyObj.clearAll()
-    amplitude.identify(identifyObj)
-    ```
+- Amplitude.getInstance().clearUserProperties();
++ const identifyObj = new amplitude.Identify()
++ identifyObj.clearAll()
++ amplitude.identify(identifyObj)
+```
 
 #### `setUserId()`
 
 The `setUserId()` API remains the same`.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { setUserId } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-    
-    Amplitude.getInstance().setUserId("test_user_id");
-    ```
-
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { setUserId } from '@amplitude/analytics-react-native';
-
-    setUserId('user@amplitude.com');
-    ```
+- Amplitude.getInstance().setUserId("test_user_id");
++ setUserId('user@amplitude.com');
+```
 
 ### Set group properties
 
@@ -224,31 +164,18 @@ The `setUserId()` API remains the same`.
 
 You can now make an identify call without calling `getInstance()`.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { Identify, groupIdentify } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-    
-    const groupType = 'plan';
-    const groupName = 'enterprise';
-    const identifyObj = new Identify()
-    identifyObj.set('key1', 'value1');
+const groupType = 'plan';
+const groupName = 'enterprise';
+const identifyObj = new Identify()
+identifyObj.set('key1', 'value1');
 
-    Amplitude.getInstance().groupIdentify(groupType, groupName, identifyObj);
-    ```
-
-=== "@amplitude/analytics-react-native"
-
-    ```typescript
-    import { Identify, groupIdentify } from '@amplitude/analytics-react-native';
-
-    const groupType = 'plan';
-    const groupName = 'enterprise';
-    const identifyObj = new Identify()
-    identifyObj.set('key1', 'value1');
-
-    groupIdentify(groupType, groupName, identifyObj);
-    ```
+- Amplitude.getInstance().groupIdentify(groupType, groupName, identifyObj);
++ groupIdentify(groupType, groupName, identifyObj);
+```
 
 ### Tracking revenue
 
@@ -256,40 +183,34 @@ You can now make an identify call without calling `getInstance()`.
 
 The `logRevenue()` API maps to `revenue()`. `receipt` and `receiptSignature` is not supported.
 
-=== "@amplitude/react-native"
+```diff
+- import { Amplitude } from '@amplitude/react-native';
++ import { Revenue, revenue } from '@amplitude/analytics-react-native';
 
-    ```typescript
-    import { Amplitude } from '@amplitude/react-native';
-    
-    const userProperties = {
-        price: 3,
-        productId: 'com.company.productId',
-        quantity: 2,
-        revenueType: 'productRevenue',
-        eventProperties: {
-            key: 'value',
-        },
-    };
+- const userProperties = {
+-     price: 3,
+-     productId: 'com.company.productId',
+-     quantity: 2,
+-     revenueType: 'productRevenue',
+-     eventProperties: {
+-         key: 'value',
+-     },
+- };
 
-    ampInstance.logRevenue(userProperties);
-    ```
+- ampInstance.logRevenue(userProperties);
 
-=== "@amplitude/analytics-react-native"
++ const event = new Revenue()
++     .setPrice(3)
++     .setProductId('com.company.productId')
++     .setQuantity(2)
++     .setRevenueType('productRevenue')
++     .setEventProperties({
++         key: 'value',
++     })
 
-    ```typescript
-    import { Revenue, revenue } from '@amplitude/analytics-react-native';
++ revenue(event);
+```
 
-    const event = new Revenue()
-        .setPrice(3)
-        .setProductId('com.company.productId')
-        .setQuantity(2)
-        .setRevenueType('productRevenue')
-        .setEventProperties({
-            key: 'value',
-        })
-
-    revenue(event);
-    ```
 You can also `setRevenue(6)` instead of `setPrice(3)` and `setQuantity(2)`.
 
 ## Advanced topics
