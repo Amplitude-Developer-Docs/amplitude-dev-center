@@ -24,7 +24,8 @@ Uninstall `@amplitude/react-native` by either `yarn remove @amplitude/react-nati
 ```diff
 {
     "dependencies": {
--    "@amplitude/react-native": "^2"
+-    "@amplitude/react-native": "*"
++    "@amplitude/analytics-react-native": "^1"
     }
 }
 ```
