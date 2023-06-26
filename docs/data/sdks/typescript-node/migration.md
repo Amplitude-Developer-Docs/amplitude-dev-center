@@ -71,7 +71,6 @@ The new Node.js SDK configuration comes in a different shape. Some configuration
 The `logEvent()` API maps to `track()`.
 
 ```diff
-- import * as Amplitude from '@amplitude/node'
 + import { track } from '@amplitude/analytics-node';
 
 const eventProperties = {
@@ -86,6 +85,17 @@ const eventProperties = {
 + track('Button Clicked', eventProperties, {
 +     user_id: 'user@amplitude.com',
 + });
+```
+
+#### `flush()`
+
+The `flush()` API remains the same.
+
+```diff
++ import { flush } from '@amplitude/analytics-node';
+
+- client.flush();
++ flush();
 ```
 
 ## Comparison 
