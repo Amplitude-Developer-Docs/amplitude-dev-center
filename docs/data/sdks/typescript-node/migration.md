@@ -118,7 +118,7 @@ identifyObj.set('location', 'LAX');
 
 ### Middleware
 
-Middlewares map to plugins in the new Node.js SDK. Here are two types of plugins, enrichment plugins and destination plugins. To [learn more](../typescript-node/#plugins) about it. Here is an example of logging event information.
+Middlewares map to plugins in the new Node.js SDK. Here are two types of plugins, enrichment plugins and destination plugins. To [learn more](../#plugins) about it. Here is an example of logging event information.
 
 ```diff
 + import { add } from '@amplitude/analytics-node';
