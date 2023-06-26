@@ -471,7 +471,6 @@ nav:
       - React Native:
         - data/sdks/typescript-react-native/index.md
         - Ampli Codegen: data/sdks/typescript-react-native/ampli.md
-        - Migration Guide: data/sdks/typescript-react-native/migration.md
       - Flutter:
         - data/sdks/flutter/index.md
       - Python:
@@ -494,6 +493,7 @@ nav:
       - React Native:
         - data/sdks/react-native/index.md
         - Ampli Codegen: data/sdks/react-native/ampli.md
+        - Migration Guide: data/sdks/typescript-react-native/migration.md
       - Node.js:
         - data/sdks/node/index.md
         - Ampli Codegen: data/sdks/node/ampli.md
