@@ -19,7 +19,7 @@ To migrate to `@amplitude/analytics-react-native`, update your dependencies and 
 
 ## Dependency
 
-Uninstall `@amplitude/react-native` by either `yarn remove @amplitude/react-native` or deleting your dependency list in package.json
+Update package.json to uninstall the maintennace React Native SDK and install the latest React Native SDK.
 
 ```diff
 {
@@ -29,8 +29,6 @@ Uninstall `@amplitude/react-native` by either `yarn remove @amplitude/react-nati
     }
 }
 ```
-
-Follow [the installation section](../#installation) to add latest React Native SDK dependencies.
 
 ## Instrumentation
 
