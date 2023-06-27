@@ -1,6 +1,6 @@
 ---
 title: Node.JS SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's maintenance Node.JS SDK (@amplitude/node) to the new SDK (@amplitude/analytics-node).
+description: Use this guide to easily migrate from Amplitude's maintenance Node.JS SDK (@amplitude/node) to the latest SDK (@amplitude/analytics-node).
 ---
 
 Amplitude latest Node.js SDK (`@amplitude/analytics-node`) features a plugin architecture and built-in type definition. Latest Node.js SDK isn't backwards compatible with maintenance Node.js SDK `@amplitude/node`. 
@@ -28,11 +28,11 @@ Install `@amplitude/analytics-node` by `npm install @amplitude/analytics-node`.
 
 ## Instrumentation
 
-New Node.js SDK offers an API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
+Latest Node.js SDK offers an API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
-The maintenance Node.js SDK only supports namespace import. The new Node.js SDK supports namespace import (`import * as amplitude from '@amplitude/analytics-node'`) and named import (`import { init } from '@amplitude/analytics-node'`) as well. We are using named import in the examples of new Node.js SDK in this documentation.
+The maintenance Node.js SDK only supports namespace import. The latest Node.js SDK supports namespace import (`import * as amplitude from '@amplitude/analytics-node'`) and named import (`import { init } from '@amplitude/analytics-node'`) as well. We are using named import in the examples of latest Node.js SDK in this documentation.
 
 To initialize the SDK, call `init()`, with the user ID and configuration parameters.
 
@@ -47,7 +47,7 @@ var options = {};
 
 ### Configuration
 
-The new Node.js SDK configuration comes in a different shape. Some configurations are no longer supported.
+The latest Node.js SDK configuration comes in a different shape. Some configurations are no longer supported.
 
 |@amplitude/node|@amplitude/analytics-node|
 |-|-|
@@ -56,13 +56,13 @@ The new Node.js SDK configuration comes in a different shape. Some configuration
 | `maxCachedEvents` | `flushQueueSize` |
 | `retryTimeouts` | `flushMaxRetries` can only be set to a number instead of an array of number as in `retryTimeouts`
 | `optOut` | `optOut` |
-| `retryClass` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by new Node.js SDK|
+| `retryClass` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by latest Node.js SDK|
 | `transportClass` | `transportProvider` |
 | `serverUrl` | `serverUrl` |
 | `uploadIntervalInSec` | `flushIntervalMillis` is in milliseconds while `uploadIntervalInSec` is in seconds|
 | `minIdLength` | `minIdLength` |
 | `requestTimeoutMillis` | NOT SUPPORT |
-| `onRetry` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by the new Node.js SDK |
+| `onRetry` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by the latest Node.js SDK |
 
 ### Tracking events
 
@@ -102,7 +102,7 @@ The `flush()` API remains the same.
 
 #### `identify()`
 
-The `identify()` API is very similar but has a different signature. The [old Node.js SDK](https://github.com/amplitude/Amplitude-Node/blob/2ef295e1fb698286d606ea4a2ccbbfdc4ba3fdc8/packages/node/src/nodeClient.ts#L142) has a signature `(userId: string | null, deviceId: string | null, identify: Identify)` while the [new Node.js SDK](https://github.com/amplitude/Amplitude-TypeScript/blob/8f4ea010279fb21190a2c0595d4ae8a7d9e987ce/packages/analytics-core/src/core-client.ts#L62) has a signature `(identify: Identify, eventOptions?: EventOptions)`.
+The `identify()` API is very similar but has a different signature. The [maintenance Node.js SDK](https://github.com/amplitude/Amplitude-Node/blob/2ef295e1fb698286d606ea4a2ccbbfdc4ba3fdc8/packages/node/src/nodeClient.ts#L142) has a signature `(userId: string | null, deviceId: string | null, identify: Identify)` while the [latest Node.js SDK](https://github.com/amplitude/Amplitude-TypeScript/blob/8f4ea010279fb21190a2c0595d4ae8a7d9e987ce/packages/analytics-core/src/core-client.ts#L62) has a signature `(identify: Identify, eventOptions?: EventOptions)`.
 
 ```diff
 + import { identify, Identify } from '@amplitude/analytics-node';
@@ -118,7 +118,7 @@ identifyObj.set('location', 'LAX');
 
 ### Middleware
 
-Middlewares map to plugins in the new Node.js SDK. Here are two types of plugins, enrichment plugins and destination plugins. To [learn more](../#plugins) about it. Here is an example of logging event information.
+Middlewares map to plugins in the latest Node.js SDK. Here are two types of plugins, enrichment plugins and destination plugins. To [learn more](../#plugins) about it. Here is an example of logging event information.
 
 ```diff
 + import { add } from '@amplitude/analytics-node';
