@@ -79,13 +79,11 @@ const eventProperties = {
 };
 
 - client.logEvent({
--     event_type: 'Button Clicked',
--     user_id: 'user@amplitude.com',
--     event_properties: eventProperties
-- });
-+ track('Button Clicked', eventProperties, {
-+     user_id: 'user@amplitude.com',
-+ });
++ track({
+  event_type: 'Button Clicked',
+  user_id: 'user@amplitude.com',
+  event_properties: eventProperties
+});
 ```
 
 #### `flush()`
