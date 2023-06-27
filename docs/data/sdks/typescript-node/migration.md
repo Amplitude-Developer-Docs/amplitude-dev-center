@@ -10,7 +10,7 @@ To migrate to `@amplitude/analytics-node`, update your dependencies and instrume
 ## Terminology
 
 * `@amplitude/node`: Maintenance Node.js SDK
-* `@amplitude/analytics-node`: New Node.js SDK
+* `@amplitude/analytics-node`: Latest Node.js SDK
 
 ## Dependency
 
