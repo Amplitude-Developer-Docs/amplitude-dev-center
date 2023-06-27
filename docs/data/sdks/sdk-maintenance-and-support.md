@@ -56,17 +56,25 @@ To see the list of available major versions of Amplitude SDKs and Tools and wher
 
 The matrix below shows the list of available AWS SDK major versions and where they are in the maintenance life cycle with associated timelines. The matrix is updated when a new major version is released or when a major version transitions to a new phase in the maintenance life cycle.
 
-| SDK / Tool       | Package                             | Major Version | Current Phase  | GA Date    | Notes                |
-|------------------|-------------------------------------|---------------|----------------|------------|----------------------|
-| Ampli CLI        | `@amplitude/ampli`                  | 1.x           | GA             | 2021-11-15 |                      |
-| Android SDK      | `com.amplitude:analytics-android`   | 1.x           | GA             | 2022-06-28 |                      |
-| Android SDK      | `com.amplitude:android-sdk`         | 3.x           | End of Support | 2021-12-16 | Bad release (3.25.1) |
-| Android SDK      | `com.amplitude:android-sdk`         | 2.x           | Maintenance    | 2015-08-21 |                      |
-| Android SDK      | `com.amplitude:android-sdk`         | 1.x           | Maintenance    | 2014-05-01 |                      |
-| Browser SDK      | `@amplitude/analytics-browser`      | 2.x           | GA             | 2023-06-14 |                      |
-| Browser SDK      | `@amplitude/analytics-browser`      | 1.x           | GA             | 2022-06-29 |                      |
-| Browser SDK      | `amplitude-js`                      | 1.x - 8.x     | Maintenance    | 2014-06-11 |                      |
-| React Native SDK | `@amplitude/analytics-react-native` | 1.x           | GA             | 2023-02-02 |                      |
-| React Native SDK | `@amplitude/react-native`           | 2.x           | Maintenance    | 2021-03-02 |                      |
-| Node SDK         | `@amplitude/analytics-node`         | 1.x           | GA             | 2022-12-10 |                      |
-| Node SDK         | `@amplitude/node`                   | 1.x           | Maintenance    | 2020-09-25 |                      |
+| SDK / Tool       | Package                                  | Major Version | Current Phase  | GA Date    | Notes                   |
+|------------------|------------------------------------------|---------------|----------------|------------|-------------------------|
+| Ampli CLI        | `@amplitude/ampli`                       | 1.x           | GA             | 2021-11-15 |                         |
+| Android SDK      | `com.amplitude:analytics-android`        | 1.x           | GA             | 2022-06-28 |                         |
+| Android SDK      | `com.amplitude:android-sdk`              | 3.x           | End of Support | 2021-12-16 | Bad release (3.25.1)    |
+| Android SDK      | `com.amplitude:android-sdk`              | 2.x           | Maintenance    | 2015-08-21 |                         |
+| Android SDK      | `com.amplitude:android-sdk`              | 1.x           | Maintenance    | 2014-05-01 |                         |
+| Browser SDK      | `@amplitude/analytics-browser`           | 2.x           | GA             | 2023-06-14 |                         |
+| Browser SDK      | `@amplitude/analytics-browser`           | 1.x           | GA             | 2022-06-29 |                         |
+| Browser SDK      | `@amplitude/marketing-analytics-browser` | 1.x           | Maintenance    | 2022-06-29 | Replaced by Browser 2.0 |
+| Browser SDK      | `amplitude-js`                           | 1.x - 8.x     | Maintenance    | 2014-06-11 |                         |
+| Flutter SDK      | `amplitude_flutter`                      | 1.x - 3.X     | GA             | 2020-04-30 |                         |
+| Go SDK           | `github.com/amplitude/analytics-go`      | 1.x           | GA             | 2023-02-09 |                         |
+| iOS SDK          | `AmplitudeSwift`                         | 1.x           | Beta           | N/A        |                         |
+| iOS SDK          | `Amplitude`                              | 1.x - 8.X     | GA             | 2014-06-05 |                         |
+| React Native SDK | `@amplitude/analytics-react-native`      | 1.x           | GA             | 2023-02-02 |                         |
+| React Native SDK | `@amplitude/react-native`                | 2.x           | Maintenance    | 2021-03-02 |                         |
+| Node SDK         | `@amplitude/analytics-node`              | 1.x           | GA             | 2022-12-10 |                         |
+| Node SDK         | `@amplitude/node`                        | 1.x           | Maintenance    | 2020-09-25 |                         |
+| Python SDK       | `amplitude-analytics`                    | 1.x           | GA             | 2022-06-29 |                         |
+| Unity SDK        | `amplitude-unity.unitypackage`           | 1.x - 2.X     | GA             | 2020-03-18 |                         |
+| Unreal SDK       | `AmplitudeUnreal`                        | 1.x           | Beta           | N/A        |                         |
