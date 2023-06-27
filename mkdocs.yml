@@ -276,6 +276,7 @@ nav:
         - Snowflake Data Share: data/destinations/snowflake-data-share.md
       - Event Streaming:
         - Overview: data/destination-event-streaming-overview.md
+        - Appfit: data/destinations/appfit-event-streaming.md
         - AppsFlyer: data/destinations/appsflyer.md
         - Bento: data/destinations/bento-event-streaming.md
         - Branch: data/destinations/branch.md
