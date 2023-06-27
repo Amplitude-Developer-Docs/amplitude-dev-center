@@ -5,6 +5,7 @@
 - :appsflyer: [AppsFlyer](/data/destinations/appsflyer)
 - :amazon-kinesis: [Amazon Kinesis Data Stream](/data/destinations/kinesis-data-stream)
 - :amazon-kinesis: [Amazon Kinesis Firehose](/data/destinations/kinesis-firehose)
+- :bento: [Bento](/data/destinations/bento-event-streaming)
 - :branch: [Branch](/data/destinations/branch)
 - :braze: [Braze](/data/destinations/braze)
 - :customerio: [Customer.io](/data/destinations/customerio)
