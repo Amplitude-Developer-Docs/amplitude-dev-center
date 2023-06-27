@@ -14,12 +14,13 @@ To migrate to `@amplitude/analytics-node`, update your dependencies and instrume
 
 ## Dependency
 
-Uninstall `@amplitude/node` by either `npm uninstall @amplitude/analytics-node` or deleting your dependency list in package.json
+Update package.json to uninstall the maintennace Node.js SDK and install the latest Node.js SDK.
 
 ```diff
 {
     "dependencies": {
--    "@amplitude/node": "^1",
+-    "@amplitude/node": "*",
++    "@amplitude/analytics-node": "^1",
     }
 }
 ```
