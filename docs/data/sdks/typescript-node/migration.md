@@ -3,7 +3,7 @@ title: Node.JS SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's maintenance Node.JS SDK (@amplitude/node) to the new SDK (@amplitude/analytics-node).
 ---
 
-Amplitude new Node.js SDK (`@amplitude/analytics-node`) features a plugin architecture and built-in type definition. New Node.js SDK isn't backwards compatible with maintenance Node.js SDK `@amplitude/node`. 
+Amplitude latest Node.js SDK (`@amplitude/analytics-node`) features a plugin architecture and built-in type definition. Latest Node.js SDK isn't backwards compatible with maintenance Node.js SDK `@amplitude/node`. 
 
 To migrate to `@amplitude/analytics-node`, update your dependencies and instrumentation.
 
