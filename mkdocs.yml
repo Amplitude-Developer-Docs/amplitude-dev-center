@@ -277,6 +277,7 @@ nav:
       - Event Streaming:
         - Overview: data/destination-event-streaming-overview.md
         - AppsFlyer: data/destinations/appsflyer.md
+        - Bento: data/destinations/bento-event-streaming.md
         - Branch: data/destinations/branch.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
@@ -310,6 +311,7 @@ nav:
         - Amazon S3: data/destinations/amazon-s3-cohort.md
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
+        - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
         - Cordial: data/destinations/cordial-cohort.md
