@@ -35,7 +35,7 @@ Latest Node.js SDK offers an API to instrument events. To migrate to it, you nee
 
 The maintenance Node.js SDK only supports namespace import. The latest Node.js SDK supports namespace import (`import * as amplitude from '@amplitude/analytics-node'`) and named import (`import { init } from '@amplitude/analytics-node'`) as well. We are using named import in the examples of latest Node.js SDK in this documentation.
 
-To initialize the SDK, call `init()`, with the user ID and configuration parameters.
+To initialize the SDK, call `init()`, with a valid Amplitude API Key and configuration parameters.
 
 ```diff
 - import * as Amplitude from '@amplitude/node'
