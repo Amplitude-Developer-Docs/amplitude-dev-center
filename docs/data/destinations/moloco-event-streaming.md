@@ -8,6 +8,7 @@ description: Stream Amplitude events to Moloco.
 This integration lets you stream events and event properties from Amplitude to Moloco.
 
 ## Considerations
+
 Keep these things in mind when sending events to Moloco:
 
 - You must enable this integration in each Amplitude project you want to use it in.
@@ -16,8 +17,11 @@ Keep these things in mind when sending events to Moloco:
 - Amplitude sends all user properties along with the event.
 
 ## Setup
+
 ### Prerequisites
+
 To configure an Event Streaming integration from Amplitude to Moloco, you need the following information from Moloco:
+
 - **REST API Key:** To start sending data into Moloco, you first have to get your API Key. It is used to authenticate your requests to the API and connect the data with your account. Find this in your Moloco 
 
 ### Amplitude setup
