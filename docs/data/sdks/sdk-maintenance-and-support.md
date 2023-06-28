@@ -46,13 +46,13 @@ Our policy is to continue supporting SDK dependencies for at least 6 months afte
 
 Maintenance announcements are communicated in several ways:
 
-An email announcement is sent to affected accounts, announcing our plans to end support for the specific SDK version. The email will outline the path to end-of-support, specify the campaign timelines, and provide upgrade guidance.
+- An email announcement is sent to affected accounts, announcing our plans to end support for the specific SDK version. The email will outline the path to end-of-support, specify the campaign timelines, and provide upgrade guidance.
 
-[Amplitude SDK documentation](./index.md), such as [API reference documentation](../../../analytics/apis/http-v2-api/), user guides, SDK product marketing pages, and GitHub readme(s) are updated to indicate the campaign timeline and provide guidance on upgrading affected applications.
+- [Amplitude SDK documentation](./index.md), such as [API reference documentation](../../../analytics/apis/http-v2-api/), user guides, SDK product marketing pages, and GitHub readme(s) are updated to indicate the campaign timeline and provide guidance on upgrading affected applications.
 
-An Amplitude blog post is published in the [Amplitude Community](https://community.amplitude.com/) that outlines the path to end-of-support, as well as reiterates the campaign timelines.
+- An Amplitude blog post is published in the [Amplitude Community](https://community.amplitude.com/) that outlines the path to end-of-support, as well as reiterates the campaign timelines.
 
-Deprecation warnings are added to the SDKs, outlining the path to end-of-support and linking to the SDK documentation.
+- Deprecation warnings are added to the SDKs, outlining the path to end-of-support and linking to the SDK documentation.
 
 To see the list of available major versions of Amplitude SDKs and Tools and where they are in their maintenance life cycle, see Amplitude SDKs and Tools version support matrix.
 
