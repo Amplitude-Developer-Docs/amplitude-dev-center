@@ -554,9 +554,7 @@ Like `logEvent`, you can attach event properties for each call to `logRevenueV
 
 ## Troubleshooting and Debugging
 
-### Common Issues
-
-Please refer to [this document](../../sdk-troubleshooting-and-debugging/) for additional common issues in general.
+--8<-- "includes/sdk-troubleshooting-and-debugging/legacy-ios.md"
 
 ## Advanced topics
 
