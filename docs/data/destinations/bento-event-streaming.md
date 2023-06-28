@@ -10,6 +10,7 @@ In order to show the right users the right experience, you can send cohort infor
 This integration lets you stream events and event properties from Amplitude to Bento.
 
 ## Considerations
+
 Keep these things in mind when sending events to Bento:
 
 - You must enable this integration in each Amplitude project you want to use it in.
@@ -18,8 +19,11 @@ Keep these things in mind when sending events to Bento:
 - Amplitude sends all user properties along with the event.
 
 ## Setup
+
 ### Prerequisites
+
 To configure an Event Streaming integration from Amplitude to Bento, you need the following information from Bento:
+
 - **API Key:** To start sending data into Bento, you first have to get your API Key. It is used to authenticate your requests to the API and connect the data with your account. Find this in your Bento Integrations > Amplitude >  Modify Configuration. See the [Bento documentation](https://help.trybento.co/en/articles/6978743-amplitude-integration) for more help.
 
 ### Amplitude setup
