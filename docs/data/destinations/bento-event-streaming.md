@@ -38,4 +38,3 @@ To configure an Event Streaming integration from Amplitude to Bento, you need th
 8. Under **Map properties to destination**, choose your user identifier and map specific Amplitude properties from Amplitude to Bento.
 9. (optional) In **Select additional properties**, select any more user properties you want to send to Bento. If you don't select any properties here, Amplitude doesn't send any.
 10. When satisfied with your configuration, click **Save**.
-
