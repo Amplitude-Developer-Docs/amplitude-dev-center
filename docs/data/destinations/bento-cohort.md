@@ -21,6 +21,7 @@ This integration lets you sync cohorts from Amplitude to Bento.
 - Cohorts and events will only be processed for accounts and account users that already exist in Bento. Accounts or account users that are not present in Bento (i.e. if Bento is feature flagged) will have those attributes and events ignored."
 
 ## Setup
+
 For more information on setting up this integration, see Bento’s [documentation](https://www.google.com/url?q=https://help.trybento.co/en/articles/6978743-amplitude-integration&sa=D&source=docs&ust=1687850664369621&usg=AOvVaw1mb4YA97gD2HhkgkbDNQbP).
 
 ### Bento setup
