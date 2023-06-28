@@ -48,7 +48,7 @@ Maintenance announcements are communicated in several ways:
 
 An email announcement is sent to affected accounts, announcing our plans to end support for the specific SDK version. The email will outline the path to end-of-support, specify the campaign timelines, and provide upgrade guidance.
 
-Amplitude SDK documentation, such as API reference documentation, user guides, SDK product marketing pages, and GitHub readme(s) are updated to indicate the campaign timeline and provide guidance on upgrading affected applications.
+[Amplitude SDK documentation](./index.md), such as [API reference documentation](../../../analytics/apis/http-v2-api/), user guides, SDK product marketing pages, and GitHub readme(s) are updated to indicate the campaign timeline and provide guidance on upgrading affected applications.
 
 An Amplitude blog post is published in the [Amplitude Community](https://community.amplitude.com/) that outlines the path to end-of-support, as well as reiterates the campaign timelines.
 
@@ -58,7 +58,7 @@ To see the list of available major versions of Amplitude SDKs and Tools and wher
 
 ## SDKs and Tools version support matrix
 
-The matrix below shows the list of available AWS SDK major versions and where they are in the maintenance life cycle with associated timelines. The matrix is updated when a new major version is released or when a major version transitions to a new phase in the maintenance life cycle.
+The matrix below shows the list of available Amplitude SDK and Tools major versions and where they are in the maintenance life cycle with associated timelines. The matrix is updated when a new major version is released or when a major version transitions to a new phase in the maintenance life cycle.
 
 | <div class="big-column">SDK / Tool</div>                                                                                                                                                                                                                                                                                                           | Version   | Phase          | GA Date    | Notes                   |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------------|------------|-------------------------|
