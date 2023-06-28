@@ -10,6 +10,7 @@ Connect AppFit to your Amplitude account and get a top-level dashboard for your 
 This integration lets you stream events and event properties from Amplitude to Appfit.
 
 ## Considerations
+
 Keep these things in mind when sending events to Appfit:
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need an AppFit account to enable this integration.
@@ -18,8 +19,8 @@ Keep these things in mind when sending events to Appfit:
 ## Setup
 
 ### Appfit Setup
-- To configure an Event Streaming integration from Amplitude to Appfit, you need the **Server Secret Key** from Appfit.
 
+- To configure an Event Streaming integration from Amplitude to Appfit, you need the **Server Secret Key** from Appfit.
 
 ### Amplitude setup
 
@@ -34,6 +35,7 @@ Keep these things in mind when sending events to Appfit:
 9. When satisfied with your configuration, click **Save**.
 
 ## Use Cases
+
 1. **Early Stage Teams:** AppFit helps early-stage teams by providing:
     - Weekly metrics reviews for quick progress assessment.
     - Team goal setting and progress tracking for alignment and focus.
