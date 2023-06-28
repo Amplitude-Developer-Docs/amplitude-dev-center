@@ -12,6 +12,7 @@ This integration lets you stream events and event properties from Amplitude to A
 ## Considerations
 
 Keep these things in mind when sending events to Appfit:
+
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need an AppFit account to enable this integration.
 - Amplitude sends selected user, event, and group properties along with the event.
