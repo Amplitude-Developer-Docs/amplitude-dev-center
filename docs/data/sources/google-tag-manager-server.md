@@ -40,7 +40,7 @@ Create tags for your amplitude browser SDK tracking. Click the `New` button to c
 
 ##### API Key
 
-Copy your amplitude project API Key in the API Key field. For EU residency, please make sure your project API Key is under analytics.eu.amplitude.com. Each project has different API Key, please make sure you are copy the API Key from the right project.
+Copy your amplitude project API Key in the API Key field. For EU residency, your project API Key is under analytics.eu.amplitude.com. Each project has different API Key, please make sure you are copy the API Key from the right project. Go to **Settings -> Projects -> click the right project name from the list** to find your project API Key. 
 
 ##### Hide User IP Address
 
@@ -125,7 +125,7 @@ Use this feature to add extra event properties. In case of any overlap, the new 
 | `Additional Property Key` | Required. `string`. They key of the event property. |
 | `Additional Property Value` | Required. `string`. The property value of the property key. |
 
-### Other info  come along with tracking an event
+### Other info come along with tracking an event
 
 | <div class="big-column">Name</div>  | Description | Default Value |
 | --- | --- | --- |

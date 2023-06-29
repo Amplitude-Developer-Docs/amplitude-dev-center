@@ -39,7 +39,7 @@ Note: We do *not* recommend installing amplitude through a Custom HTML tag.
  
 #### API Key
 
-Copy your amplitude project API Key in the API Key field. For EU residency, please make sure your project API Key is under analytics.eu.amplitude.com. Each project has different API Key, please make sure you are copy the API Key from the right project.
+Copy your amplitude project API Key in the API Key field. For EU residency, your project API Key is under analytics.eu.amplitude.com. Each project has different API Key, please make sure you are copy the API Key from the right project. Go to **Settings -> Projects -> click the right project name from the list** to find your project API Key. 
 
 #### Instance Name
 
@@ -171,7 +171,7 @@ Set event level groups. With event-level groups, the group designation applies o
 #### identify
 
 !!!note 
-    Identify calls will not be showing like a single event in user look up. The identify calls will set the user properties, and those updated user properties will appear only with the next event fired by the User.
+    Identify calls will not be showing like a single event in user look up. The identify calls will set the user properties, and those updated user properties will appear only after the next event fired by the User.
 
 Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. [More details](../../sdks/typescript-browser/#user-properties).
 
@@ -255,11 +255,10 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 
 ## Common Issues
 
-There are the comon issues for gtm template. Please also refer the GTM Help Center to trouble shooting your GTM instance. 
+These are common issues encountered with the GTM template. For further troubleshooting of your GTM instance, please refer to the GTM Help Center.
 
 - [Troubleshoot issues](https://support.google.com/tagmanager/answer/6103683?hl=en)
 - [Preview and debug containers](https://support.google.com/tagmanager/answer/6107056?hl=en)
-- [8 Reasons Why a Tag in Google Tag Manager is Not Firing](https://www.analyticsmania.com/post/tag-in-google-tag-manager-is-not-firing/) 
 
 ### Does Amplitude GTM template support React Native (Android or iOS) apps?
 
