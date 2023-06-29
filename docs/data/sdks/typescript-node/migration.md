@@ -29,7 +29,7 @@ Install `@amplitude/analytics-node` by `npm install @amplitude/analytics-node`.
 
 ## Instrumentation
 
-Latest Node.js SDK offers an API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
+The latest Node.js SDK offers an new API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
