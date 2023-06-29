@@ -57,7 +57,7 @@ The latest Node.js SDK configuration comes in a different shape. Some configurat
 | `maxCachedEvents` | `flushQueueSize` |
 | `retryTimeouts` | `flushMaxRetries` can only be set to a number instead of an array of number as in `retryTimeouts`
 | `optOut` | `optOut` |
-| `retryClass` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by latest Node.js SDK|
+| `retryClass` | Not supported. Retry logic is handled internally by latest Node.js SDK|
 | `transportClass` | `transportProvider` |
 | `serverUrl` | `serverUrl` |
 | `uploadIntervalInSec` | `flushIntervalMillis` is in milliseconds while `uploadIntervalInSec` is in seconds|
