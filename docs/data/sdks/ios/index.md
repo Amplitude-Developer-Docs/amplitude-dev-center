@@ -20,6 +20,8 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for iOS](./ampli.md).
 
+--8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
+
 ## Getting started
 
 Use [this quickstart guide](../../sdks/sdk-quickstart#ios) to get started with Amplitude iOS SDK.
