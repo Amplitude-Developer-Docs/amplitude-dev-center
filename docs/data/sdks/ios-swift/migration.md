@@ -3,6 +3,8 @@ title: iOS SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's maintenance iOS SDK (Amplitude-iOS) to the new SDK (Amplitude-Swift).
 ---
 
+--8<-- "includes/sdk-missing-migration.md"
+
 The new version of Amplitude's iOS SDK (`Amplitude-Swift`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `Amplitude-iOS`. 
 
 To migrate to `Amplitude-Swift`, update your dependencies and instrumentation.
