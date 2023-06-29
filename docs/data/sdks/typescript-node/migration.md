@@ -101,7 +101,7 @@ The `flush()` API remains the same.
 
 #### `identify()`
 
-The `identify()` API is very similar but has a different signature. The [maintenance Node.js SDK](https://github.com/amplitude/Amplitude-Node/blob/2ef295e1fb698286d606ea4a2ccbbfdc4ba3fdc8/packages/node/src/nodeClient.ts#L142) has a signature `(userId: string | null, deviceId: string | null, identify: Identify)` while the [latest Node.js SDK](https://github.com/amplitude/Amplitude-TypeScript/blob/8f4ea010279fb21190a2c0595d4ae8a7d9e987ce/packages/analytics-core/src/core-client.ts#L62) has a signature `(identify: Identify, eventOptions?: EventOptions)`.
+The `identify()` API is very similar but has a different signature. The [maintenance Node.js SDK](https://github.com/amplitude/Amplitude-Node/blob/2ef295e1fb698286d606ea4a2ccbbfdc4ba3fdc8/packages/node/src/nodeClient.ts#L142) has a signature `(userId: string | null, deviceId: string | null, identify: Identify)` while the [latest Node.js SDK](https://github.com/amplitude/Amplitude-TypeScript/blob/8f4ea010279fb21190a2c0595d4ae8a7d9e987ce/packages/analytics-core/src/core-client.ts#L62) has a signature `(identify: Identify, eventOptions?: EventOptions)`. Learn more about what `EventOptions` include [here](https://amplitude.github.io/Amplitude-TypeScript/interfaces/_amplitude_analytics_node.Types.EventOptions.html).
 
 ```diff
 + import { identify, Identify } from '@amplitude/analytics-node';
