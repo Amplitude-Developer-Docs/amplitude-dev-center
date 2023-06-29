@@ -62,7 +62,7 @@ The latest Node.js SDK configuration comes in a different shape. Some configurat
 | `serverUrl` | `serverUrl` |
 | `uploadIntervalInSec` | `flushIntervalMillis` is in milliseconds while `uploadIntervalInSec` is in seconds|
 | `minIdLength` | `minIdLength` |
-| `requestTimeoutMillis` | NOT SUPPORT |
+| `requestTimeoutMillis` | Not supported |
 | `onRetry` | CUSTOMIZATION NOT SUPPORT. Retry logic is handled by the latest Node.js SDK |
 
 ### Tracking events
