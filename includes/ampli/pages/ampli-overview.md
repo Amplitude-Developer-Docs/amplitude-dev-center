@@ -14,15 +14,19 @@ The **Ampli Wrapper** provides types and methods that prevent human error by str
 ```typescript
 import { ampli, SongPlayed } from './ampli';
 
+// These 2 events are tracked as expected.
 ampli.songPlayed({ title: 'Happy Birthday' });
 ampli.track(new SongPlayed({ title: 'Song 2' }));
-// => These 2 events are tracked as expected
 
+// The following 2 events won't track due to data quality issues.
+// Instead they generate type errors at build time with information
+// about the expected property names and types.
+
+// Error: Event 'Song Played' is missing required property 'title'
 ampli.songPlayed({ name: 'I Knew You Were Trouble' });
-// => Error: Event 'Song Played' is missing required property 'title'
 
+// Error: Property 'title' received 'boolean' expected type 'String'
 ampli.songPlayed({ title: true });
-// => Error: Property 'title' received 'boolean' expected type 'String'
 ```
 
 Compare this to the general purpose **Amplitude SDK**. Sending events with hand entered values can create data quality issues and require close coordination between data governors and engineers.
@@ -30,18 +34,23 @@ Compare this to the general purpose **Amplitude SDK**. Sending events with hand 
 ```typescript
 import * as amplitude from '@amplitude/analytics-browser';
 
+// These 2 events are tracked as expected
 amplitude.track('Song Played', { title: 'Happy Birthday'});
 amplitude.track({
   event_type: 'Song Played',
   event_properties: { title: 'Song 2'}
 );
-// => These 2 events are tracked as expected
 
+// The following 2 events are tracked but have data quality issues making them
+// difficult to include in analysis. Typos and type errors are easy to create
+// and hard to find & fix.
+
+// Charts based on 'title' will not include this event, which sets 'name' instead.
 amplitude.track('Song Played', { name: 'I Knew You Were Trouble' })
-// => Event will be tracked but is difficult to include in charts and other analysis
 
+// This event will not be included in charts based on event_type='Song Played'.
+// Also it sets 'title' to boolean 'true' instead of the expected type 'String'.
 amplitude.track('sonG Playd', { title: true })
-// => Typos and property errors are easy to create, and hard to find & fix
 ```
 
 The **Ampli CLI** generates the **Ampli Wrapper** and can verify the instrumentation status of your events. This makes it easy to know if you missed any event tracking calls giving you confidence that you successfully completed your implementation.
@@ -52,6 +61,10 @@ The **Ampli CLI** generates the **Ampli Wrapper** and can verify the instrumenta
   ✔ Song Played (1 location)
 ✔ All events tracked: 1 found, 1 total
 ```
+
+## Supported Platforms
+
+--8<-- "includes/ampli/ampli-supported-platforms.md"
 
 ## Amplitude Data
 
