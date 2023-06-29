@@ -39,7 +39,7 @@ Note: We do *not* recommend installing amplitude through a Custom HTML tag.
  
 #### API Key
 
-Copy your amplitude API Key in the API Key field. For EU residency, please make sure your API Key is under analytics.eu.amplitude.com.
+Copy your amplitude project API Key in the API Key field. For EU residency, please make sure your project API Key is under analytics.eu.amplitude.com. Each project has different API Key, please make sure you are copy the API Key from the right project.
 
 #### Instance Name
 
@@ -150,8 +150,8 @@ The `track` tag type is for tracking an event under a specific trigger.
 
 | Name  | Description |
 | --- | --- |
-| `Property Name` | `string`. The name of the event. |
-| `Property Value` | `string`. The value of the event property |
+| `Property Name` | `string`. The name of the event property. |
+| `Property Value` | `string`. The value of the event property. |
 
 ##### Custom Timestamp 
 
@@ -169,6 +169,9 @@ Set event level groups. With event-level groups, the group designation applies o
 | `Group Name` | `string` or `string1,string2...`. The name of the group. The value can be a single group name (e.g. 15) or a comma-separated list (e.g. 2,12,24) of group names. | 
 
 #### identify
+
+!!!note 
+    Identify calls will not be showing like a single event in user look up. The identify calls will set the user properties, and those updated user properties will appear only with the next event fired by the User.
 
 Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. [More details](../../sdks/typescript-browser/#user-properties).
 
@@ -252,6 +255,12 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 
 ## Common Issues
 
+There are the comon issues for gtm template. Please also refer the GTM Help Center to trouble shooting your GTM instance. 
+
+- [Troubleshoot issues](https://support.google.com/tagmanager/answer/6103683?hl=en)
+- [Preview and debug containers](https://support.google.com/tagmanager/answer/6107056?hl=en)
+- [8 Reasons Why a Tag in Google Tag Manager is Not Firing](https://www.analyticsmania.com/post/tag-in-google-tag-manager-is-not-firing/) 
+
 ### Does Amplitude GTM template support React Native (Android or iOS) apps?
 
 No. The Amplitude Analytics Browser SDK only supports the web container, designed for desktop and mobile browsers. Amplitude does not provide support for GTM templates for mobile apps at this time. To request this feature, please submit a feature request [here](https://help.amplitude.com/hc/en-us/requests/new).
@@ -260,10 +269,13 @@ No. The Amplitude Analytics Browser SDK only supports the web container, designe
 
 Yes, but it's not recommended. Modified Community Gallery Templates will no longer receive updates provided by the developer but you can always restore the template to start receiving notifications again.
 
-### Missing some events?
+### Missing events?
 
 - Please check if you have multiple versions of Amplitude browser SDK installed. There may be collision between different versions of SDKs. Please try giving a different instance name for your GTM instance. 
+- If your website blocks script that our Template is trying to inject. Check your website’s Console or Network tab to see if any scripts are blocked or if you are getting any errors through **right click -> Inspect**:
 - Init web attribution event is missing. If you have installed cookies consent, please check if the value of `document.referrer` has been updated to your current domain. The campaign from the current domain won't be tracked.
+- Ensure that you have selected the appropriate Tag firing options. Choosing `Once per event` will cause your tag to fire each time a Trigger event is performed. On the other hand, selecting `Once per Page` will fire your Tag just once. This discrepancy could lead to events not being sent as expected.
+![Web Container Firing Option](../../assets/images/gtm/gtm-web-container-firing-option.png) 
 
 ### Overall user counts to increase?
 
