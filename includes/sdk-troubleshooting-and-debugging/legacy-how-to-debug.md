@@ -1,3 +1,3 @@
 ### How to debug
 
-Please verify if the configuration and payload are correct and if there are any suspicious debug messages during debugging. If everything appears to be right, check the value of `eventUploadThreshold` or `eventUploadPeriodMillis`. Events are queued and sent in batches by default, which means they are not immediately dispatched to the server. Ensure that you have waited for the events to be sent to the server before checking for them in the charts. 
+Please verify the configuration and payload are correct and check if there are any suspicious debug messages during debugging. If everything appears to be right, check the value of `eventUploadThreshold` or `eventUploadPeriodMillis`. Events are queued and sent in batches by default, which means they are not immediately dispatched to the server. Ensure that you have waited for the events to be sent to the server before checking for them in the charts. 
