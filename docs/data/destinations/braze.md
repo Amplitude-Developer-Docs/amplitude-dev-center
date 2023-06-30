@@ -60,12 +60,14 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braz
 2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom event properties](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties). _Transformed event properties and transformed user properties aren't supported._
 
 ### Configure user forwarding
+!!!warning "Temporarily Disabled"
+    We're actively working on improving user forwarding to address concerns around high call volumes and to provide more functionality to customers. All existing active user forwarding syncs will continue to operate, but the ability to enable it on any sync configurations where it's not already enabled has been temporarily removed.
 
 Under **Send Users**, make sure the toggle is enabled ("Users are sent to Braze") if you want to stream users and their properties to Braze. When enabled, users are automatically created or updated in Braze when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Braze. Users aren't sent on a schedule or on-demand using this integration.
 
 (optional) In **Select additional properties**, select any more user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom attributes](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/). _Transformed user properties aren't supported._
 
-!!!warning "User Forwarding Volumes"
+!!!note "User Forwarding Volumes"
     When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Braze, even if the updated property isn't selected in **Select additional properties**. This may result in high volumes of calls and properties received by Braze. Every included property will count against your Braze data points. Check your Braze account for the charges associated with the volume of calls and properties expected.
 
 ### Enable sync
