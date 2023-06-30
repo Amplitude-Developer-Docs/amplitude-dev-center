@@ -752,7 +752,7 @@ For purchases on the Amazon store, you first need to set up Amazon as a data sou
     
 ## Troubleshooting and Debugging
 
---8<-- "includes/sdk-troubleshooting-and-debugging/latest-android.md"
+--8<-- "includes/sdk-troubleshooting-and-debugging/legacy-android.md"
 
 ## Advanced topics
 
