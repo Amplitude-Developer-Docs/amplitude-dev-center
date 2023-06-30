@@ -459,7 +459,6 @@ nav:
       - Node.js:
         - data/sdks/typescript-node/index.md
         - Ampli Codegen: data/sdks/typescript-node/ampli.md
-        - Migration Guide: data/sdks/typescript-node/migration.md
       - Android:
         - data/sdks/android-kotlin/index.md
         - Ampli Codegen: data/sdks/android-kotlin/ampli.md
@@ -502,6 +501,7 @@ nav:
       - Node.js:
         - data/sdks/node/index.md
         - Ampli Codegen: data/sdks/node/ampli.md
+        - Migration Guide: data/sdks/typescript-node/migration.md
     - Other Topics:
       - Dynamic Configuration: data/dynamic-configuration.md
       - Plugins: data/sdk-plugins.md
