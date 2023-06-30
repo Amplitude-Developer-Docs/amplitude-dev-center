@@ -64,7 +64,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Inte
 
     !!!warning "Events for anonymous users cannot be streamed"
 
-        Intercom requires that all events have a user ID present. If you have selected any events to send to Intercom that may not have a user ID, add a filter to send only events where the user ID is present. Otherwise, your delivery metrics may be affected.
+        Intercom requires that all events have a user ID present. If you have selected any events to send to Intercom that may not have a user ID, add a filter to send only events where the user ID is present. Additionally, events can only be streamed for users that already exist in Intercom. Otherwise, your delivery metrics may be affected.
 
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
