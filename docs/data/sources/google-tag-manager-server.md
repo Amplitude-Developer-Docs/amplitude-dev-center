@@ -40,7 +40,7 @@ Create tags for your amplitude browser SDK tracking. Click the `New` button to c
 
 ##### API Key
 
-Copy your amplitude project API Key in the API Key field. For EU residency, your project API Key is under analytics.eu.amplitude.com. Each project has different API Key, please make sure you are copy the API Key from the right project. Go to **Settings -> Projects -> click the right project name from the list** to find your project API Key. 
+Copy your amplitude project API Key in the API Key field. For EU residency, your project API Key is under [analytics.eu.amplitude.com](https://analytics.eu.amplitude.com/). Each project has different API Key, please make sure you are copy the API Key from the right project. Go to **Settings -> Projects -> click the right project name from the list** to find your project API Key. Check [here](https://www.docs.developers.amplitude.com/analytics/find-api-credentials/) for more details.
 
 ##### Hide User IP Address
 
