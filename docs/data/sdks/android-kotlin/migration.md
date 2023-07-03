@@ -83,7 +83,7 @@ The latest Android SDK configuration comes in a different shape. Some configurat
 | `serverUrl` | `serverUrl` defaults to `https://api2.amplitude.com/2/httpapi` while the maintenance SDK defaults to `https://api2.amplitude.com/` |
 | `useDynamicConfig` |  Not supported |
 
-### Tracking events
+### Send events
 
 #### `logEvent()`
 
@@ -130,9 +130,15 @@ The `logEvent()` API maps to `track()`. the `eventProperties` is `JSONObject` ty
     + }});
     ```
 
+### Flush events
+
+Unset events are stored in a buffer and flushed (sent) on app close by default. Events are flushed based on which criteria is met first: `flushIntervalMillis` or `flushQueueSize`.
+
+You can disable flushing by setting `flushEventsOnClose` to `false`.
+
 #### `flush()`
 
-The `uploadEvents()` API maps to `flush()`.
+You can also force the SDK to upload unsent events. The `uploadEvents()` API maps to `flush()`.
 
 === "Kotlin"
 
@@ -196,7 +202,7 @@ The `groupIdentify()` API remains the same.
     client.groupIdentify(groupType, groupName, identify);
     ```
 
-### Tracking revenue
+### Track revenue
 
 #### `logRevenueV2()`
 
@@ -222,6 +228,10 @@ The `logRevenueV2()` API maps to `revenue()`.
     - client.logRevenueV2(revenue);
     + client.revenue(revenue);
     ```
+
+#### Revenue verification
+
+The revenue verification logic is on Amplitude's backend. So revenue verification still works after migrating to the latest Android SDK.
 
 ## Comparison 
 
