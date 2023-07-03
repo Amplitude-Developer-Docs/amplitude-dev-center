@@ -89,24 +89,46 @@ The latest Android SDK configuration comes in a different shape. Some configurat
 
 The `logEvent()` API maps to `track()`. the `eventProperties` is `JSONObject` type in the maintenance SDk while it's `Map<String, Any?>` type in the latest SDK. 
 
-```diff
-- import org.json.JSONException;
-- import org.json.JSONObject;
+=== "Kotlin"
 
-- val eventProperties = JSONObject() 
-- try {
--   eventProperties.put("buttonColor", "primary")
-- } catch (e: JSONException) {
--   System.err.println("Invalid JSON")
--   e.printStackTrace()
-- }
-- client.logEvent("Button Clicked", eventProperties)
+    ```diff
+    - import org.json.JSONException
+    - import org.json.JSONObject
 
-+ client.track(
-+     "Button Clicked",
-+     mutableMapOf<String, Any?>("buttonColor" to "primary")
-+ )
-```
+    - val eventProperties = JSONObject() 
+    - try {
+    -   eventProperties.put("buttonColor", "primary")
+    - } catch (e: JSONException) {
+    -   System.err.println("Invalid JSON")
+    -   e.printStackTrace()
+    - }
+    - client.logEvent("Button Clicked", eventProperties)
+
+    + client.track(
+    +     "Button Clicked",
+    +     mutableMapOf<String, Any?>("buttonColor" to "primary")
+    + )
+    ```
+
+=== "Java"
+
+    ```diff
+    - import org.json.JSONException;
+    - import org.json.JSONObject;
+
+    - JSONObject eventProperties = new JSONObject();
+    - try {
+    -   eventProperties.put("buttoncolor", "primary");
+    - } catch (JSONException e) {
+    -   System.err.println("Invalid JSON");
+    -   e.printStackTrace();
+    - }
+    - client.logEvent("Button Clicked", eventProperties);
+
+    + client.track("Button Clicked", new HashMap() {{
+    +     put("buttoncolor", "primary");
+    + }});
+    ```
 
 #### `flush()`
 
