@@ -1,7 +1,162 @@
 ---
 title: Android SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's maintenance Android SDK (com.amplitude:android-sdk) to the new SDK (com.amplitude:analytics-android).
+description: Use this guide to easily migrate from Amplitude's maintenance Android SDK (com.amplitude:android-sdk) to the latest SDK (com.amplitude:analytics-android).
 ---
+
+Amplitude's latest Android SDK (`com.amplitude:analytics-android`) features a plugin architecture, built-in type definitions, is written in Kotlin. The latest Android SDK isn't backwards compatible with the maintenance Android SDK `com.amplitude:android-sdk`. 
+
+To migrate to `com.amplitude:analytics-android`, update your dependencies and instrumentation.
+
+## Terminology
+
+* `com.amplitude:android-sdk`: Maintenance Android SDK
+* `com.amplitude:analytics-android`: Latest Android SDK
+
+## Dependency
+
+Update build.gradle to remove the maintennace Android SDK and add the latest Android SDK. Then sync project with Gradle files.
+
+```diff
+dependencies {
+-  implementation 'com.amplitude:android-sdk:2.+'
+-  implementation 'com.squareup.okhttp3:okhttp:4.2.2'
++  implementation 'com.amplitude:analytics-android:1.+'
+}
+```
+
+## Instrumentation
+
+The latest Android SDK offers an new API to instrument events. To migrate to it, you need to update a few calls. The following sections detail which calls have changed.
+
+### Initialization
+
+You must initialize the SDK with a valid Amplitude API Key and Android application context.
+
+=== "Kotlin"
+
+    ```diff
+    - import com.amplitude.api.Amplitude
+    - import com.amplitude.api.AmplitudeClient
+    + import com.amplitude.android.Amplitude
+
+    - val client = Amplitude.getInstance()
+    -   .initialize(getApplicationContext(), "YOUR_API_KEY")
+    + val client = Amplitude(
+    +     Configuration(
+    +         apiKey = "YOUR_API_KEY",
+    +         context = getApplicationContext()
+    +     )
+    + )
+    ```
+
+=== "Java"
+
+    ```diff
+    - import com.amplitude.api.Amplitude;
+    - import com.amplitude.api.AmplitudeClient;
+    + import com.amplitude.android.Amplitude;
+
+    - AmplitudeClient client = Amplitude.getInstance()
+    -   .initialize(getApplicationContext(), "YOUR_API_KEY");
+    + Amplitude client =  new Amplitude(new Configuration(
+    +     apiKey = "YOUR_API_KEY",
+    +     context = getApplicationContext()
+    + ));
+    ```
+
+### Configuration
+
+The latest Android SDK configuration comes in a different shape. Some configurations are no longer supported.
+
+|com.amplitude:android-sdk|com.amplitude:analytics-android|
+|-|-|
+| `eventUploadPeriodMillis` | `flushIntervalMillis` |
+| `eventUploadThreshold` | `flushQueueSize` |
+| `eventUploadMaxBatchSize` | Not supported |
+| `eventMaxCount` | Not supported |
+| `identifyBatchIntervalMillis` | `identifyBatchIntervalMillis` |
+| `flushEventsOnClose` | `flushEventsOnClose` |
+| `optOut` | `optOut` |
+| `trackingSessionEvents` | `trackingSessionEvents` |
+| `sessionTimeoutMillis` | Not supported |
+| `minTimeBetweenSessionsMillis` | `minTimeBetweenSessionsMillis` |
+| `serverUrl` | `serverUrl` defaults to `https://api2.amplitude.com/2/httpapi` while the maintenance SDK defaults to `https://api2.amplitude.com/` |
+| `useDynamicConfig` |  Not supported |
+
+### Tracking events
+
+#### `logEvent()`
+
+The `logEvent()` API maps to `track()`. the `eventProperties` is `JSONObject` type in the maintenance SDk while it's `Map<String, Any?>` type in the latest SDK. 
+
+```diff
+- import org.json.JSONException;
+- import org.json.JSONObject;
+
+- val eventProperties = JSONObject() 
+- try {
+-   eventProperties.put("buttonColor", "primary")
+- } catch (e: JSONException) {
+-   System.err.println("Invalid JSON")
+-   e.printStackTrace()
+- }
+- client.logEvent("Button Clicked", eventProperties)
+
++ client.track(
++     "Button Clicked",
++     mutableMapOf<String, Any?>("buttonColor" to "primary")
++ )
+```
+
+#### `flush()`
+
+The `uploadEvents()` API maps to `flush()`.
+
+```diff
+- client.uploadEvents()
++ client.flush()
+```
+
+### Set user properties
+
+#### `identify()`
+
+The `identify()` API remains the same
+
+```diff
+val identify = Identify()
+identify.set("location", "LAX")
+client.identify(identify)
+```
+
+### Set group properties
+
+### `groupIdentify()`
+
+The `groupIdentify()` API remains the same.
+
+```diff
+val groupType = "plan"
+val groupName = "enterprise"
+
+val identify = Identify().set("key", "value")
+client.groupIdentify(groupType, groupName, identify)
+```
+
+### Tracking revenue
+
+#### `logRevenueV2()`
+
+The `logRevenueV2()` API maps to `revenue()`.
+
+```diff
+val revenue = Revenue()
+revenue.productId = "com.company.productId"
+revenue.price = 3
+revenue.quantity = 2
+- client.logRevenueV2(revenue)
++ amplitude.revenue(revenue)
+```
 
 ## Comparison 
 
