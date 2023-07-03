@@ -154,11 +154,21 @@ The `uploadEvents()` API maps to `flush()`.
 
 The `identify()` API remains the same
 
-```diff
-val identify = Identify()
-identify.set("location", "LAX")
-client.identify(identify)
-```
+=== "Kotlin"
+
+    ```diff
+    val identify = Identify()
+    identify.set("location", "LAX")
+    client.identify(identify)
+    ```
+
+=== "Java"
+
+    ```diff
+    Identify identify = new Identify();
+    identify.set("location", "LAX");
+    client.identify(identify);
+    ```
 
 ### Set group properties
 
@@ -166,13 +176,25 @@ client.identify(identify)
 
 The `groupIdentify()` API remains the same.
 
-```diff
-val groupType = "plan"
-val groupName = "enterprise"
+=== "Kotlin"
 
-val identify = Identify().set("key", "value")
-client.groupIdentify(groupType, groupName, identify)
-```
+    ```diff
+    val groupType = "plan"
+    val groupName = "enterprise"
+
+    val identify = Identify().set("key", "value")
+    client.groupIdentify(groupType, groupName, identify)
+    ```
+
+=== "Java"
+
+    ```diff
+    String groupType = "plan";
+    Object groupName = "enterprise";
+
+    Identify identify = new Identify().set("key", "value");
+    client.groupIdentify(groupType, groupName, identify);
+    ```
 
 ### Tracking revenue
 
