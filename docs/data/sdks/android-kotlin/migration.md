@@ -233,6 +233,10 @@ The `logRevenueV2()` API maps to `revenue()`.
 
 The revenue verification logic is on Amplitude's backend. So revenue verification still works after migrating to the latest Android SDK.
 
+## Advanced topics
+
+Most of the behaviours of the latest SDK remain the same with the maintenance SDK. Refer to the advanced topics sections of the [maintenance SDK](/data/sdks/android/#advanced-topics) and the [latest SDK](/data/sdks/android-kotlin/#advanced-topics) to learn more about a specific advanced topic.
+
 ## Comparison 
 
 --8<-- "includes/sdk-migration/sdk-migration-note.md"
