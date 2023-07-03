@@ -134,10 +134,19 @@ The `logEvent()` API maps to `track()`. the `eventProperties` is `JSONObject` ty
 
 The `uploadEvents()` API maps to `flush()`.
 
-```diff
-- client.uploadEvents()
-+ client.flush()
-```
+=== "Kotlin"
+
+    ```diff
+    - client.uploadEvents()
+    + client.flush()
+    ```
+
+==== "Java"
+
+    ```diff
+    - client.uploadEvents();
+    + client.flush();
+    ```
 
 ### Set user properties
 
