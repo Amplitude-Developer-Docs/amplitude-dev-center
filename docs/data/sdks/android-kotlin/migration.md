@@ -202,14 +202,26 @@ The `groupIdentify()` API remains the same.
 
 The `logRevenueV2()` API maps to `revenue()`.
 
-```diff
-val revenue = Revenue()
-revenue.productId = "com.company.productId"
-revenue.price = 3
-revenue.quantity = 2
-- client.logRevenueV2(revenue)
-+ amplitude.revenue(revenue)
-```
+=== "Kotlin"
+    ```diff
+    val revenue = Revenue()
+    revenue.productId = "com.company.productId"
+    revenue.price = 3
+    revenue.quantity = 2
+    - client.logRevenueV2(revenue)
+    + client.revenue(revenue)
+    ```
+
+=== "Java"
+
+    ```diff
+    Revenue revenue = new Revenue()
+    revenue.setProductId("com.company.productId");
+    revenue.setPrice(3);
+    revenue.setQuantity(2);
+    - client.logRevenueV2(revenue);
+    + client.revenue(revenue);
+    ```
 
 ## Comparison 
 
