@@ -141,7 +141,7 @@ The `uploadEvents()` API maps to `flush()`.
     + client.flush()
     ```
 
-==== "Java"
+=== "Java"
 
     ```diff
     - client.uploadEvents();
