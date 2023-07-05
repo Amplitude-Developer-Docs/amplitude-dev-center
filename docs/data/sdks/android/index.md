@@ -168,8 +168,8 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `optOut` | Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | Automatic tracking of "Start Session" and "End Session" events that count toward event volume. | `false` |
-    | `sessionTimeoutMillis` | The amount of time for session timeout if enable foreground tracking. | `1800000` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `sessionTimeoutMillis` | The amount of time for session timeout if disable foreground tracking. Foreground tracking is disabled by default. | `1800000` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if enable foreground tracking by `enableForegroundTracking()` | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/` |
     | `useDynamicConfig` |  Find the best server url automatically based on users' geo location. | `false` |
 
