@@ -241,7 +241,7 @@ Most of the behaviours of the latest SDK remain the same with the maintenance SD
 
 --8<-- "includes/sdk-migration/sdk-migration-note.md"
 
-| <div class="big-column">Feature</div> | [Android Kotlin](../) | [Android Android](../../android/) |
+| <div class="big-column">Feature</div> | [Latest Android SDK](../) | [Maintenance Android SDK](../../android/) |
 | --- | --- | --- |
 | Package | [com.amplitude:analytics-android](https://mvnrepository.com/artifact/com.amplitude/analytics-android) | [com.amplitude:android-sdk](https://mvnrepository.com/artifact/com.amplitude/android-sdk) |
 | SSL Pinning | TBD | Supported. Check [here](../../android/#ssl-pinning) for the setup. |
