@@ -87,7 +87,7 @@ The latest Android SDK configuration comes in a different shape. Some configurat
 
 #### `logEvent()`
 
-The `logEvent()` API maps to `track()`. the `eventProperties` is `JSONObject` type in the maintenance SDk while it's `Map<String, Any?>` type in the latest SDK. 
+The `logEvent()` API maps to `track()`. The `eventProperties` is `JSONObject` type in the maintenance SDK while it's `Map<String, Any?>` type in the latest SDK. 
 
 === "Kotlin"
 
