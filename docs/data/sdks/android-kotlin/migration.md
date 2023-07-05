@@ -79,7 +79,7 @@ The latest Android SDK configuration comes in a different shape. Some configurat
 | `optOut` | `optOut` |
 | `trackingSessionEvents` | `trackingSessionEvents` |
 | `sessionTimeoutMillis` | Not supported |
-| `minTimeBetweenSessionsMillis` | `minTimeBetweenSessionsMillis` |
+| `minTimeBetweenSessionsMillis` | `minTimeBetweenSessionsMillis`. The maintenance SDK disables foreground tracking by default and uses `sessionTimeoutMillis` when foreground tracking is disabled. `minTimeBetweenSessionsMillis` is used when foreground tracking is enabled by `enableForegroundTracking()`. However, the latest SDK enables foreground tracking and it's not configurable.|
 | `serverUrl` | `serverUrl` defaults to `https://api2.amplitude.com/2/httpapi` while the maintenance SDK defaults to `https://api2.amplitude.com/` |
 | `useDynamicConfig` |  Not supported |
 
