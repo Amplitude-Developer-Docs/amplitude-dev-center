@@ -160,7 +160,7 @@ In Amplitude, create the S3 Import source.
 To create the data source in Amplitude, gather information about your S3 bucket:
 
 - IAM role ARN: The IAM role that Amplitude uses to access your S3 bucket. This is the role created in [Give Amplitude access to your S3 bucket](#give-amplitude-access-to-your-s3-bucket).
-- IAM role external id: The external id for the IAM role that Amplitude uses to access your S3 bucket.
+- IAM role external id: The external id for the IAM role that Amplitude uses to access your S3 bucket. This is the external id created in [Give Amplitude access to your S3 bucket](#give-amplitude-access-to-your-s3-bucket).
 - S3 bucket name: The name of the S3 bucket with your data.
 - S3 bucket prefix: The S3 folder with your data.
 - S3 bucket region: The region where S3 bucket was created.
