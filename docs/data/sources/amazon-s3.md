@@ -70,7 +70,7 @@ When your dataset is ready for ingestion, you can set up Amazon S3 Import in Amp
 Follow these steps to give Amplitude read access to your AWS S3 bucket.
 
 1. Create a new IAM role, for example: `AmplitudeReadRole`.
-2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy to allow Amplitude to assume the role. Using the following example, and update **{{}}** in highlighted text. 
+2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy to allow Amplitude to assume the role using the following example. Please update **{{}}** in highlighted text. 
 
     - **{{amplitude_account}}**: `358203115967` for Amplitude US data center. `202493300829` for Amplitude EU data center. 
     - **{{external_id}}**: unique identifiers used when Amplitude assumes the role. You can generate it with help from [third party tools](https://www.uuidgenerator.net/). Example external id can be `vzup2dfp-5gj9-8gxh-5294-sd9wsncks7dc`.
