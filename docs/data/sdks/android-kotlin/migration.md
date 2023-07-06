@@ -14,7 +14,7 @@ To migrate to `com.amplitude:analytics-android`, update your dependencies and in
 
 ## Dependency
 
-Update build.gradle to remove the maintennace Android SDK and add the latest Android SDK. Then sync project with Gradle files.
+Update build.gradle to remove the maintenance Android SDK and add the latest Android SDK. Then sync project with Gradle files.
 
 ```diff
 dependencies {
