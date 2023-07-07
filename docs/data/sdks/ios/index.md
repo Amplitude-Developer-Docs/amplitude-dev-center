@@ -499,7 +499,12 @@ You can also customize the tracking with `DefaultTrackingOptions`, see code samp
 === "Swift"
 
     ```swift
-    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(true, appLifecycles: false, deepLinks: false, screenViews: false)
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        true,
+        appLifecycles: false,
+        deepLinks: false,
+        screenViews: false
+    )
     Amplitude.instance().initializeApiKey("API_KEY")
     ```
 
@@ -520,7 +525,12 @@ You can enable Amplitude to start tracking session events by setting `defaultTra
 === "Swift"
 
     ```swift
-    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(true, appLifecycles: false, deepLinks: false, screenViews: false)
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        true,
+        appLifecycles: false,
+        deepLinks: false,
+        screenViews: false
+    )
     Amplitude.instance().initializeApiKey("API_KEY")
     ```
 
@@ -546,11 +556,16 @@ You can enable Amplitude to start tracking application lifecycle events by setti
 === "Swift"
 
     ```swift
-    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(false, appLifecycles: true, deepLinks: false, screenViews: false)
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        false,
+        appLifecycles: true,
+        deepLinks: false,
+        screenViews: false
+    )
     Amplitude.instance().initializeApiKey("API_KEY")
     ```
 
-After enabling this function, Amplitude will track the following events:
+After enabling this setting, Amplitude will track the following events:
 
 * `[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
 * `[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
@@ -574,11 +589,16 @@ You can enable Amplitude to start tracking screen view events by setting `defaul
 === "Swift"
 
     ```swift
-    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(false, appLifecycles: false, deepLinks: false, screenViews: true)
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        false,
+        appLifecycles: false,
+        deepLinks: false,
+        screenViews: true
+    )
     Amplitude.instance().initializeApiKey("API_KEY")
     ```
 
-After enabling this function, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the controller class metadata with `viewDidAppear` method swizzling.
+After enabling this setting, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the controller class metadata with `viewDidAppear` method swizzling.
 
 #### Tracking deep links
 
@@ -603,7 +623,12 @@ You can enable Amplitude to start tracking deep link events by setting `defaultT
 
     ```swift
     // Enable tracking deep links.
-    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(false, appLifecycles: false, deepLinks: true, screenViews: false)
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        false,
+        appLifecycles: false,
+        deepLinks: true,
+        screenViews: false
+    )
     Amplitude.instance().initializeApiKey("API_KEY")
 
     // Call helper method to track, e.g., in `onOpenURL` callback.
@@ -611,7 +636,7 @@ You can enable Amplitude to start tracking deep link events by setting `defaultT
     Amplitude.instance().continueUserActivity(activity: activity)
     ```
 
-After enabling this function, Amplitude is able to track the `[Amplitude] Deep Link Opened` event with the URL and referrer information. Note that you still need to call `continueUserActivity` or `openURL` manually for tracking deep links.
+After enabling this setting, Amplitude is able to track the `[Amplitude] Deep Link Opened` event with the URL and referrer information. Note that you still need to call `continueUserActivity` or `openURL` manually for tracking deep links.
 
 ### Set user groups
 
