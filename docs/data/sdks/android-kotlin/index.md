@@ -255,7 +255,7 @@ Amplitude(
 )
 ```
 
-After enabling this function, Amplitude will track the following events:
+After enabling this setting, Amplitude will track the following events:
 
 * `[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation.
 * `[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application.
@@ -278,7 +278,7 @@ Amplitude(
 )
 ```
 
-After enabling this function, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the activity label, application label, and activity name successively.
+After enabling this setting, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the activity label, application label, and activity name successively.
 
 #### Tracking deep links
 
@@ -296,7 +296,7 @@ Amplitude(
 )
 ```
 
-After enabling this function, Amplitude will track the `[Amplitude] Deep Link Opened` event with the URL and referrer information.
+After enabling this setting, Amplitude will track the `[Amplitude] Deep Link Opened` event with the URL and referrer information.
 
 ### User groups
 
