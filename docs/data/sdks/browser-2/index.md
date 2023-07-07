@@ -15,6 +15,9 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
 
+!!!note "Migration guide"
+    This is the documentation for the Amplitude Browser SDK 2.0. If you are using the Browser SDK 1.0, refer to the migration documentation: [Browser SDK 2.0 Migration Guide](/data/sdks/browser-2/migration/). If you are using the maintenance SDK, refer to the migration documentation: [Browser SDK Migration Guide](/data/sdks/typescript-browser/migration/).
+
 ## Getting started
 
 Use [this quickstart guide](../sdk-quickstart#browser) to get started with Amplitude Browser SDK.
