@@ -654,7 +654,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Advertising Identifiers
 
-Different platforms have different advertising identifiers. Do to user privacy concerns, Amplitude does not automatically collect these identifiers. However, it is easy to enable them using the instructions below. It is important to note that some identifiers are no longer recommended for use by the platform providers. Please read the notes below before deciding to enable them.
+Different platforms have different advertising identifiers. Due to user privacy concerns, Amplitude does not automatically collect these identifiers. However, it is easy to enable them using the instructions below. It is important to note that some identifiers are no longer recommended for use by the platform providers. Please read the notes below before deciding to enable them.
 
 | Platform | Advertising Identifier | Recommended | Notes |
 | --- | --- |-------------| --- |
