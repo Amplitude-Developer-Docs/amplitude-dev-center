@@ -471,10 +471,12 @@ By default, the SDK tracks these properties automatically. You can override this
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   trackingOptions: {
     adid: false,
+    appSetId: false,
     carrier: false,
     deviceManufacturer: false,
     deviceModel: false,
     ipAddress: false,
+    idfv: false,
     language: false,
     osName: false,
     osVersion: false,
@@ -649,5 +651,92 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   transportProvider: new MyTransport(),
 });
 ```
+
+### Advertising Identifiers
+
+Different platforms have different advertising identifiers. Do to user privacy concerns, Amplitude does not automatically collect these identifiers. However, it is easy to enable them using the instructions below. It is important to note that some identifiers are no longer recommended for use by the platform providers. Please read the notes below before deciding to enable them.
+
+| Platform | Advertising Identifier | Recommended | Notes |
+| --- | --- |-------------| --- |
+| Android | AppSetId | Yes         | [AppSetId](https://developer.android.com/training/articles/app-set-id) is a unique identifier for the app instance. It is reset when the app is reinstalled. |
+| Android | ADID | No          | [ADID](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en) is a unique identifier for the device. It is reset when the user opts out of personalized ads. |
+| iOS | IDFV | Yes         | [IDFV](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) is a unique identifier for the app instance. It is reset when the app is reinstalled. |
+| iOS | IDFA | No          | [IDFA](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614151-advertisingidentifier) is a unique identifier for the device. It is reset when the user opts out of personalized ads. |
+
+#### Android
+
+##### App set ID
+
+App set ID is a unique identifier for each app install on a device. App set ID is reset by the user manually when they uninstall the app, or after 13 months of not opening the app. Google designed this as a privacy-friendly alternative to Ad ID for users who want to opt out of stronger analytics.
+
+To use App Set ID, follow these steps.
+
+1. Add `play-services-appset` as a dependency to the Android project of your app.
+
+    ```bash
+    dependencies {
+        implementation 'com.google.android.gms:play-services-appset:16.0.2'
+    }
+    ```
+2. Enable `trackingOptions.appSetId`
+
+    ```ts
+    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+      trackingOptions: {
+        appSetId: true,
+      },
+    });
+    ```
+   
+##### Android Ad ID
+
+Android Ad ID is a unique identifier for each device. Android Ad ID is reset by the user manually when they opt out of personalized ads.
+
+To use Android Ad ID, follow these steps.
+
+1. Add `play-services-ads` as a dependency to the Android project of your app. More detailed setup is [described in our latest Android SDK docs](/data/sdks/android-kotlin/#advertiser-id).
+
+    ```bash
+    dependencies {
+      implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    }
+    ```
+
+Android Ad Id is enabled by default. To disable it, set `config.trackingOptions.adId` to `false`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  trackingOptions: {
+    adId: false,
+  },
+});
+```
+
+#### iOS
+
+##### IDFV
+
+IDFV is a unique identifier for the app instance. It is reset when the app is reinstalled.
+
+To enable IDFV on iOS devices set `tackingOptions.idfv` to `true`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  trackingOptions: {
+    idfv: true,
+  },
+});
+```
+
+##### IDFA
+
+!!! warning "Not recommended"
+    IDFA is no longer recommended. You should consider using IDFV instead when possible.
+
+IDFA is a unique identifier for the device. It is reset when the user opts out of personalized ads.
+
+The React Native SDK does not directly access the IDFA as it would require adding the `AdSupport.framework` to your app. Instead you can use an Enrichment Plugin to set the IDFA yourself.
+
+Here is an [example Plugin that sets the IDFA](https://github.com/amplitude/Amplitude-TypeScript/blob/main/examples/plugins/react-native-idfa-plugin/idfaPlugin.ts)  using a third-party library.
 
 --8<-- "includes/abbreviations.md"
