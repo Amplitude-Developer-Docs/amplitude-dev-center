@@ -431,10 +431,10 @@ If the user property doesn't exist, it's initialized to an empty list before the
 
 Starting from release v8.17.0, the SDK is able to track more default events now. It can be configured to track the following events automatically:
 
-* Sessions [^1]
-* App lifecycles
-* Screen views
-* Deep links [^2]
+- Sessions [^1]
+- App lifecycles
+- Screen views
+- Deep links [^2]
 
 [^1]:
     Session tracking is the same as supported in previous versions, which was previously enabled/disabled via the [`trackingSessionEvents`](#configuration) configuration.
@@ -567,10 +567,10 @@ You can enable Amplitude to start tracking application lifecycle events by setti
 
 After enabling this setting, Amplitude will track the following events:
 
-* `[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
-* `[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
-* `[Amplitude] Application Opened`, this event fires when a user launches or foregrounds the application after the first open, by observing the `UIApplicationDidFinishLaunchingNotification` or `UIApplicationWillEnterForegroundNotification` notification underneath.
-* `[Amplitude] Application Backgrounded`, this event fires when a user backgrounds the application, by observing the `UIApplicationDidEnterBackgroundNotification` notification underneath.
+-`[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
+-`[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
+-`[Amplitude] Application Opened`, this event fires when a user launches or foregrounds the application after the first open, by observing the `UIApplicationDidFinishLaunchingNotification` or `UIApplicationWillEnterForegroundNotification` notification underneath.
+-`[Amplitude] Application Backgrounded`, this event fires when a user backgrounds the application, by observing the `UIApplicationDidEnterBackgroundNotification` notification underneath.
 
 #### Tracking screen views
 

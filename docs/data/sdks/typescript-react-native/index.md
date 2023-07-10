@@ -678,6 +678,7 @@ To use App Set ID, follow these steps.
         implementation 'com.google.android.gms:play-services-appset:16.0.2'
     }
     ```
+
 2. Enable `trackingOptions.appSetId`
 
     ```ts
