@@ -703,7 +703,7 @@ To use Android Ad ID, follow these steps.
     }
     ```
 
-Android Ad Id is enabled by default. To disable it, set `config.trackingOptions.adId` to `false`.
+Android Ad Id is enabled by default. To disable it, set `trackingOptions.adId` to `false`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -719,7 +719,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 IDFV is a unique identifier for the app instance. It is reset when the app is reinstalled.
 
-To enable IDFV on iOS devices set `tackingOptions.idfv` to `true`.
+To enable IDFV on iOS devices set `trackingOptions.idfv` to `true`.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
