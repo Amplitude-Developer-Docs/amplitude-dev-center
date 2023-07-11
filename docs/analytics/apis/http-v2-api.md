@@ -30,11 +30,11 @@ For EU data residency, the project must be set up inside Amplitude EU. Remember 
 
 **For Starter plan customers:**
 
-Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload, but don't send more than 10 events per batch. Amplitude expects fewer than 100 batches per second, and the 1000 events per second limit still applies.
+Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload, but we recommend not sending more than 10 events per batch. Amplitude expects fewer than 100 batches per second, and the 1000 events per second limit still applies.
 
 **For customers on Growth and Enterprise plans:**
 
-Contact Support if you need to send more than 1000 events per second. There is no hard limit on the Enterprise plan, but devices that exceed 30 events per second are throttled.
+There is no hard limit for paying customers, but devices or users that exceed 30 events per second are throttled.
 
 Keep request sizes under 1 MB with fewer than 2000 events per request. When you exceed these size limits, you get a 413 error.
 
