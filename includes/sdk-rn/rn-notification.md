@@ -1,0 +1,2 @@
+!!!info "React Native Support"
+    Since [React-Native](https://github.com/facebook/react-native) is still in beta, it's challenging for us to ensure backward compatibility when React-Native itself is not backward compatible. Therefore, we only support the latest version of React-Native until it is out of beta. Once React-Native reaches GA, we will improve our support and strive for backward compatibility.

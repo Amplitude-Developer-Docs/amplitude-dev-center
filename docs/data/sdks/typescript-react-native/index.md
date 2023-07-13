@@ -17,6 +17,8 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 --8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
     [React Native SDK Migration Guide](/data/sdks/typescript-react-native/migration/).
 
+--8<-- "includes/sdk-rn/rn-notification.md"
+
 ## Getting started
 
 ### Installation

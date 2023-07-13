@@ -16,6 +16,8 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
 !!!info "SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-ReactNative) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-ReactNative/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-ReactNative/)
 
+--8<-- "includes/sdk-rn/rn-notification.md"
+
 --8<-- "includes/ampli-vs-amplitude.md"
 
 ## SDK installation
