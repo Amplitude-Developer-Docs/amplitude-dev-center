@@ -63,7 +63,7 @@ Marketing attribution tracking excludes all subdomains of the same root domain a
 Browser SDK 1.0, by default, allows other subdomains to be tracked as referrer. If this is behavior is desired, refer to the code below.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 +   defaultTracking: {
 +     attribution: {
 +       excludeReferrers: [location.hostname]
@@ -77,7 +77,7 @@ Browser SDK 1.0, by default, allows other subdomains to be tracked as referrer. 
 This consolidates attribution options together with other default tracking options.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 -   attribution: {
 -     excludeReferrers: [location.hostname]
 +   defaultTracking: {
@@ -93,7 +93,7 @@ This consolidates attribution options together with other default tracking optio
 This provides a simpler and consistent interface to opt out of marketing attribution tracking.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 -   attribution: {
 -     disabled: true
 +   defaultTracking: {
@@ -112,7 +112,7 @@ This option is no longer supported as it has been adopted a non configurable def
 This option no longer exists but Amplitude can be configured similarly using page view options.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 -   attribution: {
 -     trackPageViews: true
 +   defaultTracking: {
