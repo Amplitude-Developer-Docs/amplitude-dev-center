@@ -81,6 +81,34 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     Amplitude amplitude = new Amplitude(configuration);
     ```
 
+You can dynamically set the configuration after initialization. 
+
+=== "Kotlin"
+
+    ```kotlin
+    import com.amplitude.android.Amplitude
+
+    val amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+        )
+    )
+
+    amplitude.configuration.optOut = true
+    ```
+
+=== "Java"
+
+    ```java 
+    import com.amplitude.android.Amplitude;
+
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Amplitude amplitude = new Amplitude(configuration);
+
+    amplitude.getConfiguration().setOptOut(true);
+    ```
+
 --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
 === "Kotlin"
