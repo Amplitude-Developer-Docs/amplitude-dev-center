@@ -367,7 +367,7 @@ The page view plugin sends a Page View event on each page a user visits by defau
 
 --8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
 
-## Advainced topics
+## Advanced topics
 
 ### Cross domain tracking
 
