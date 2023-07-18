@@ -387,6 +387,7 @@ nav:
           - Variant Jumping: experiment/guides/troubleshooting/variant-jumping.md
           - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
           - Exposures without Assignments: experiment/guides/troubleshooting/exposures-without-assignments.md
+          - Restarting experiments (Beta): experiment/guides/troubleshooting/restarting-experiments.md
       - SDKs:
         - JavaScript SDK: experiment/sdks/javascript-sdk.md
         - Android SDK: experiment/sdks/android-sdk.md
