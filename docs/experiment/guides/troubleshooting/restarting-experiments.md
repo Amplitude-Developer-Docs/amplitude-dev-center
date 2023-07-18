@@ -23,7 +23,6 @@ There are two primary requirements to be able to restart your experiment.
 | iOS | v1.11.0 |
 | React Native | v1.2.0 |
 
-
 ### Options when restarting
 
 The following changes will be made to your experiment configuration when restarting:
@@ -37,7 +36,6 @@ The following changes will be made to your experiment configuration when restart
 | Bucketing Salt | (Optional) If selected, randomized to a new value |
 | Sticky Bucketing | If you selected the option to re-randomize users and sticky bucketing is on, it will be turned off |
 | Decision | If you previously rolled out or rolled back your experiment, this decision will be erased |
-
 
 ### Experiment Key
 
@@ -60,7 +58,6 @@ Similarly this experiment key is available when using fetching variants using Ex
 
 For example, for the Javascript SDK:
 The [Variant](../../../sdks/javascript-sdk/#variant) object will contain the existing `value` and `payload` properties, along with a new `expKey` property.
-
 
 ### After restarting
 
