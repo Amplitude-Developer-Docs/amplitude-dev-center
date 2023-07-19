@@ -24,10 +24,10 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
 
 The following matrix lists the support for Amplitude React Native SDK version for different versions of React Native and React Native cLI.
 
-| <div class="med-column">Amplitude React Native</div> | @react-native-community/cli | react-native |Gradle|Android Gradle Plugin|
-|------------------------------------------------------|-----------------------------|--------------|---|---|
-| >= 2.17.1                                            | >= 10.0                     | >= 0.71      | 7.5.1+ | 7.2.1+ |
-| <= 2.17.0                                            | <= 9.0                      | <= 0.70      | 7.5.1+ | 7.2.1+ |
+| <div class="med-column">Amplitude React Native</div> | @react-native-community/cli | react-native      |Gradle|Android Gradle Plugin|
+|------------------------------------------------------|-----------------------------|-------------------|---|---|
+| >= 2.17.1                                            | >= 10.0                     | >= 0.71           | 7.5.1+ | 7.2.1+ |
+| <= 2.17.0                                            | <= 9.0                      | >= 0.61,  <= 0.70 | 7.5.1+ | 7.2.1+ |
 
 Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle).
 
@@ -468,18 +468,18 @@ The JavaScript SDK no longer has support for React Native. If you already have i
 
 ## Troubleshooting
 
-Using an older React Native version and having trouble with iOS? Amplitude supports versions of React Native >= 0.61.\
-Here's the process to set up with React Native 0.61
+Using an older React Native version and having trouble with iOS?
 
-1. Swift Setup (Xcode):
-   - Open your `[project-name].xcodeproj` file in Xcode
-   - Right click your project name in the file navigator and then click New File, pick swift, it prompts you to create a bridging headers file. This is necessary to support swift in RN 0.61.
-   - Source of this fix: <https://stackoverflow.com/a/54586937>
+Amplitude supports versions of React Native >= 0.61. Here's the process to set up with React Native 0.71. See the [compatibility matrix](#compatibility-matrix) for more details.
 
-2. Podfile changes:
-   - Make sure you are targeting iOS 10 or greater
-   - Add `use_modular_headers!` globally to the top of the Podfile
-   - Disable modular headers for DoubleConversion, Glog and Folly using `:use_modular_headers => false`.
+1. Swift Setup (Xcode)
+    - Open your `[project-name].xcodeproj` file in Xcode
+    - Right click your project name in the file navigator and then click New File, pick swift, it prompts you to create a bridging headers file. This is necessary to support swift in RN 0.61.
+    - Source of this fix: <https://stackoverflow.com/a/54586937>
+2. Podfile changes
+    - Make sure you are targeting iOS 10 or greater
+    - Add `use_modular_headers!` globally to the top of the Podfile
+    - Disable modular headers for DoubleConversion, Glog and Folly using `:use_modular_headers => false`.
 
 ## More resources
 
