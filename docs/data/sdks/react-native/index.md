@@ -16,9 +16,20 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
 !!!info "SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-ReactNative) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-ReactNative/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-ReactNative/)
 
+--8<-- "includes/ampli-vs-amplitude.md"
+
 --8<-- "includes/sdk-rn/rn-notification.md"
 
---8<-- "includes/ampli-vs-amplitude.md"
+## Compatibility Matrix
+
+The following matrix lists the support for Amplitude React Native SDK version for different versions of React Native and React Native cLI.
+
+| <div class="med-column">Amplitude React Native</div> | @react-native-community/cli | react-native |Gradle|Android Gradle Plugin|
+|------------------------------------------------------|-----------------------------|--------------|---|---|
+| >= 2.17.1                                            | >= 10.0                     | >= 0.71      | 7.5.1+ | 7.2.1+ |
+| <= 2.17.0                                            | <= 9.0                      | <= 0.70      | 7.5.1+ | 7.2.1+ |
+
+Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle).
 
 ## SDK installation
 
