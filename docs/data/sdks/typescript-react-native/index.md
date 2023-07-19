@@ -23,10 +23,10 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 
 The following matrix lists the support for Amplitude React Native SDK version for different versions of React Native and React Native cLI.
 
-|<div class="med-column">Amplitude React Native</div>| @react-native-community/cli | react-native |Gradle|Android Gradle Plugin|
-|---|-----------------------------|--------------|---|---|
-| >= v2.17.1 | >= 10.0                     | >= 0.71      | 7.5.1+ | 7.2.1+ |
-| <= v2.17.0 | <= 9.0                      | <= 0.70      | 7.5.1+ | 7.2.1+ |
+| <div class="med-column">Amplitude React Native</div> | @react-native-community/cli | react-native |Gradle|Android Gradle Plugin|
+|------------------------------------------------------|-----------------------------|--------------|---|---|
+| >= 2.17.1                                            | >= 10.0                     | >= 0.71      | 7.5.1+ | 7.2.1+ |
+| <= 2.17.0                                            | <= 9.0                      | <= 0.70      | 7.5.1+ | 7.2.1+ |
 
 Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle).
 
