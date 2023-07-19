@@ -35,7 +35,7 @@ Install the Experiment JavaScript Client SDK.
         // TODO: Replace DEPLOYMENT_KEY with your own deployment, use
         // initializeWithAmplitudeAnalytics() to set up an integration
         // with the Amplitude analytics SDK.
-        window.experiment = Experiment.Experiment.initialize('DEPLOYMENT_KEY');
+        window.experiment = Experiment.initialize('DEPLOYMENT_KEY');
     </script>
     ```
 
