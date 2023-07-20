@@ -303,6 +303,7 @@ nav:
         - MoEngage: data/destinations/moengage-event-streaming.md
         - Moloco: data/destinations/moloco-event-streaming.md
         - Planhat: data/destinations/planhat-event-streaming.md
+        - Salesforce Marketing Cloud: data/destinations/marketing-cloud-event-streaming.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
         - Userlist: data/destinations/userlist-event-streaming.md
