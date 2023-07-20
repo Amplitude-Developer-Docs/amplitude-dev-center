@@ -19,6 +19,16 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 
 --8<-- "includes/sdk-rn/rn-notification.md"
 
+## Compatibility Matrix
+
+The following matrix lists the support for Amplitude React Native SDK version for different versions of React Native and React Native CLI.
+
+| @amplitude/analytics-react-native | @react-native-community/cli | react-native      |Gradle|Android Gradle Plugin|
+|-----------------------------------|-----------------------------|-------------------|---|---|
+| >= 1.0.0                          | >= 10.0                     | >= 0.71           | 7.5.1+ | 7.2.1+ |
+
+Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle).
+
 ## Getting started
 
 ### Installation
@@ -743,3 +753,13 @@ The React Native SDK does not directly access the IDFA as it would require addin
 Here is an [example Plugin that sets the IDFA](https://github.com/amplitude/Amplitude-TypeScript/blob/main/examples/plugins/react-native-idfa-plugin/idfaPlugin.ts)  using a third-party library.
 
 --8<-- "includes/abbreviations.md"
+
+### Over the air updates (OTA)
+
+If you are using platform like Expo that supports OTA updates. It is important to know our SDK has both native and JS code. If you are using OTA updates, you will need to make sure the native code is updated as well. See Expo's documentation on [publishing](https://docs.expo.dev/archive/classic-updates/publishing) and [runtime versions](https://docs.expo.dev/eas-update/runtime-versions/) for more details.
+
+Below are versions of the SDK with the native code changes:
+
+| @amplitude/analytics-react-native                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------|
+| [1.3.0](https://github.com/amplitude/Amplitude-TypeScript/releases/tag/%40amplitude%2Fanalytics-react-native%401.3.0) |
