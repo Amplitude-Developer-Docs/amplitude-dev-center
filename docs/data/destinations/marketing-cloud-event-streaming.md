@@ -7,11 +7,9 @@ description: Send Amplitude events to Marketing Cloud automatically with just a 
 
     This feature is in Closed Beta and is in active development. Contact your Amplitude support team for support with this integration.
 
-
 ## About Salesforce Marketing Cloud
 
 Salesforce Marketing Cloud provides marketing engagement automation that allows you to engage your users. Using this integration enables your marketing and growth teams to use behavioral data to better target campaigns and increase user engagement.
-
 
 ## Considerations
 
@@ -27,7 +25,6 @@ Keep these things in mind when sending events to HubSpot:
         - Corporate: 6M calls/year
         - Enterprise: 200M calls/year
   
-
 ## Setup
 
 ### Salesforce Marketing Cloud setup
@@ -50,9 +47,10 @@ You need a Client ID, Client Secret and Subdomain from Salesforce Marketing Clou
     - Webhooks: Read, Write
 8. **Save** the package.
 9. Copy the **Client ID**, **Client Secret**, and **Subdomain** from the app you want to integrate.
-  - For the Subdomain, see the Authentication Base URI and only copy the subdomain. e.g. If the Authentication Base URL is "https://mc1n78yx33kxv5mv1q7fh81flfjq.auth.marketingcloudapis.com/", then only copy "mc1n78yx33kxv5mv1q7fh81flfjq".
 
-  ![screenshot of the SFMC workflow](../../assets/images/SFMC-v2-credentials.png)
+    - For the Subdomain, see the Authentication Base URI and only copy the subdomain. e.g. If the Authentication Base URL is "https://mc1n78yx33kxv5mv1q7fh81flfjq.auth.marketingcloudapis.com/", then only copy "mc1n78yx33kxv5mv1q7fh81flfjq".
+
+![screenshot of the SFMC workflow](../../assets/images/SFMC-v2-credentials.png)
 
 10. Click on the **Access** tab and click on **Enable All Business Units**.
 
@@ -71,13 +69,11 @@ You need a Client ID, Client Secret and Subdomain from Salesforce Marketing Clou
 11. Under **Send Users**, make sure the toggle is enabled ("Users are sent to SFMC") if you want to stream users and their properties to SFMC. By default, it sends the **Contact key** & **Email address** to SFMC.
 12. (optional) In **Select additional properties**, select any more user properties you want to send to SFMC. If you don't select any properties here, Amplitude doesn't send any.
 
-
 ## Event forwarding setup (Optional)
 
 !!!note "Storing data in a different Data Extension in SFMC"
 
     Following these steps will enable you to create a Data Extension in Salesforce Marketing Cloud, set up an Event Definition, and configure the necessary mappings for forwarding events to Amplitude. You will have to go through these steps again if you do not want to store data in the same Data Extension. 
-
 
 1. In Salesforce Marketing Cloud, navigate to **Email Studio** from the top navigation bar.
 2. Find the **Data Extension** section from the **Subscribers**.
@@ -98,13 +94,11 @@ You need a Client ID, Client Secret and Subdomain from Salesforce Marketing Clou
 12. Copy the **Event Definition Key** and paste it into the **SFMC Event Definition Key** in Amplitude’s setup page.
 13. You are now ready to start forwarding the events.
 
-
 ## Identify forwarding setup (Optional)
 
 !!!note "Send other user properties than the default attributes in SFMC"
 
     You will have to define the Data Extension in SFMC to store the user properties that do not exist in the default attributes in SFMC. Default attribute set includes Contact Key and Email Address.
-
 
 1. To add your own attribute set, start by defining a **Data Extension** in SFMC.
 2. When creating the **Data Extension**, follow the specified naming format for **Event Forwarding**.
@@ -120,7 +114,6 @@ You need a Client ID, Client Secret and Subdomain from Salesforce Marketing Clou
 7. After you save, copy & paste the external key of the Data Extension into the **SFMC User Data Extension Key** in the setup UI of Amplitude.
 8. You are ready to send user properties! Your Data Extension is created and linked to the Attribute Group in Contact Builder, enabling you to store and utilize the attribute set for each contact in SFMC.
 ![screenshot of the SFMC workflow](../../assets/images/SFMC-identify-forwarding-result.png)
-
 
 ## Use Cases
 
