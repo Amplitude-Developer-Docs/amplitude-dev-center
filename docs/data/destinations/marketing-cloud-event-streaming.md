@@ -13,9 +13,7 @@ Salesforce Marketing Cloud provides marketing engagement automation that allows 
 
 ## Considerations
 
-Keep these things in mind when sending events to HubSpot:
-
-- Keep these things in mind when sending events to [Salesforce Marketing Cloud](https://www.salesforce.com/content/dam/web/en_us/www/documents/pricing/mc_email_journey_pricing_sheet.pdf):
+Keep these things in mind when sending events to [Salesforce Marketing Cloud](https://www.salesforce.com/content/dam/web/en_us/www/documents/pricing/mc_email_journey_pricing_sheet.pdf):
   - You must enable this integration in each Amplitude project you want to use it in.
   - There are relevant limits for Salesforce Marketing Cloud events:
     - Salesforce suggests not using more than 2500 calls per minutes when interacting with the REST API
@@ -117,4 +115,4 @@ You need a Client ID, Client Secret and Subdomain from Salesforce Marketing Clou
 ## Use Cases
 
 1. **Campaign Automation**: Marketing Cloud’s Journey Builder is a campaign planning tool that enables you to design and automate campaigns that guide customers through their journey with a brand. Its foundation is the journey, which is the communication plan you design. Our events streaming will enable your Journey to be induced.
-2. **Personalized Marketing**: With the ability to track user behavior and capture user and event properties in Amplitude, you can build personalized contents and targeted marketing campaigns in Marketing Cloud. This can lead to increased engagement and customer loyalty
+2. **Personalized Marketing**: With the ability to track user behavior and capture user and event properties in Amplitude, you can build personalized contents and targeted marketing campaigns in Marketing Cloud. This can lead to increased engagement and customer loyalty.
