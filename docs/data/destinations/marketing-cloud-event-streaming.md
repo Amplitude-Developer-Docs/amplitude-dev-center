@@ -49,8 +49,7 @@ You need a Client ID, Client Secret and Subdomain from Salesforce Marketing Clou
 9. Copy the **Client ID**, **Client Secret**, and **Subdomain** from the app you want to integrate.
 
     - For the Subdomain, see the Authentication Base URI and only copy the subdomain. e.g. If the Authentication Base URL is "https://mc1n78yx33kxv5mv1q7fh81flfjq.auth.marketingcloudapis.com/", then only copy "mc1n78yx33kxv5mv1q7fh81flfjq".
-
-![screenshot of the SFMC workflow](../../assets/images/SFMC-v2-credentials.png)
+    ![screenshot of the SFMC workflow](../../assets/images/SFMC-v2-credentials.png)
 
 10. Click on the **Access** tab and click on **Enable All Business Units**.
 
