@@ -14,14 +14,15 @@ Salesforce Marketing Cloud provides marketing engagement automation that allows 
 ## Considerations
 
 Keep these things in mind when sending events to [Salesforce Marketing Cloud](https://www.salesforce.com/content/dam/web/en_us/www/documents/pricing/mc_email_journey_pricing_sheet.pdf):
-  - You must enable this integration in each Amplitude project you want to use it in.
-  - There are relevant limits for Salesforce Marketing Cloud events:
-    - Salesforce suggests not using more than 2500 calls per minutes when interacting with the REST API
-    - Yearly limit on API call
-        - Basic: 0 calls/year
-        - Pro: 2M calls/year
-        - Corporate: 6M calls/year
-        - Enterprise: 200M calls/year
+
+- You must enable this integration in each Amplitude project you want to use it in.
+- There are relevant limits for Salesforce Marketing Cloud events:
+- Salesforce suggests not using more than 2500 calls per minutes when interacting with the REST API
+- Yearly limit on API call
+    - Basic: 0 calls/year
+    - Pro: 2M calls/year
+    - Corporate: 6M calls/year
+    - Enterprise: 200M calls/year
   
 ## Setup
 
