@@ -5,7 +5,7 @@ description: Create group-level properties from Salesforce fields.
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Salesforce provides solutions that help unify marketing, sales, commerce, IT, and service. This Salesforce V2 integration lets you create group-level properties from [Salesforce](https://www.salesforce.com/) data by setting specific Salesforce fields as group-level properties and importing that into Amplkitude. This can be useful when analyzing information about accounts that exist in Salesforce. 
+Salesforce provides solutions that help unify marketing, sales, commerce, IT, and service. This Salesforce V2 integration lets you create group-level properties from [Salesforce](https://www.salesforce.com/) data by setting specific Salesforce fields as group-level properties and importing that into Amplitude. This can be useful when analyzing information about accounts that exist in Salesforce. 
 
 ## Overview
 By default, Amplitude has a built-in process that runs once a day to update group properties that have pickup dates matching the current date. Additionally, the integration offers the option of an hourly schedule if you prefer more frequent updates with finer granularity.
