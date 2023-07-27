@@ -458,7 +458,6 @@ nav:
           - Ampli Codegen: data/sdks/browser-2/ampli.md
         - v1.0:
           - data/sdks/typescript-browser/index.md
-          - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
           - Ampli Codegen: data/sdks/typescript-browser/ampli.md
           - Migration Guide: data/sdks/browser-2/migration.md
       - Node.js:
@@ -492,6 +491,9 @@ nav:
         - data/sdks/go/index.md
         - Ampli Codegen: data/sdks/go/ampli.md
     - Maintenance SDKs:
+      - Marketing Analytics Browser:
+        - data/sdks/marketing-analytics-browser/index.md
+        - Migration Guide: data/sdks/marketing-analytics-browser/migration.md
       - Browser:
         - data/sdks/javascript/index.md
         - Ampli Codegen: data/sdks/javascript/ampli.md
