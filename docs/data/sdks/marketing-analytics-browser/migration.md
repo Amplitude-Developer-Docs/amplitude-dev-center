@@ -25,19 +25,19 @@ dependency.md
 
 ### Default events tracking
 
---8<-- "includes/default-event-tracking.md"
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/default-event-tracking.md"
 
 ### Deprecates user agent client-side parsing
 
---8<-- "includes/user-agent-parsing.md"
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/user-agent-parsing.md"
 
 ### Marketing attribution tracking
 
---8<-- "includes/marketing-attribution-tracking-1.md"
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/marketing-attribution-tracking-1.md"
 
 Marketing Analytics Browser SDK by default, allows other subdomains to be tracked as referrer. If this is behavior is desired, refer to the code below.
 
---8<-- "includes/marketing-attribution-tracking-2.md"
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/marketing-attribution-tracking-2.md"
 
 ### Page View tracking
 
@@ -86,15 +86,15 @@ This provides a simpler and consistent interface to opt out of page view trackin
 
 ### Cookie options
 
---8<-- "includes/cookie-options.md"
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/cookie-options.md"
 
 ### No to enums
 
---8<-- "includes/no-enum.md" 
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/no-enum.md" 
 
 ### Simplified plugin interface
 
---8<-- "includes/simplified-plugin-interface.md" 
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/simplified-plugin-interface.md" 
 
 ### Comparison
 
