@@ -12,9 +12,7 @@ Amplitude Browser SDK 2.0 (`@amplitude/analytics-browser`) features default even
 
 ### Dependency
 
-For snippet installation, update your project's [snippet loader](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser#using-script-loader).
-
-For Node projects, update your dependency list in package.json.
+dependency.md
 
 ```diff
 {
@@ -27,81 +25,19 @@ For Node projects, update your dependency list in package.json.
 
 ### Default events tracking
 
-Starting Browser SDK 2.0, default tracking is enabled by default. Default tracking is implicit tracking performed by Amplitude on your behalf, and includes page views, sessions, file downloads, form interactions, and marketing attribution.
-
-To opt out of default tracking, set `options.defaultTracking` to `false`.
-
-```ts
-amplitude.init(API_KEY, undefined, {
-  defaultTracking: false,
-});
-```
-
-Additionally, you can pick and choose which events you want tracked by Amplitude. For example, if you only want default tracking for marketing attribution and page views, you can use the code below.
-
-```ts
-amplitude.init(API_KEY, undefined, {
-  defaultTracking: {
-    attribution: true,
-    pageViews: true,
-    sessions: false,
-    fileDownload: false,
-    formInteraction: false,
-  },
-});
-```
+--8<-- "includes/default-event-tracking.md"
 
 ### Deprecates user agent client-side parsing
 
-In Browser 2.0, we removes functionality to parse user agent that populates `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` on the client side. This is replaced with user agent server-side parsing which offered by Amplitude ingestion endpoints. This breaking changes might affect your chart analystic related to the user agent properties. However, we provided a [user agnet enrichment plugin](https://www.npmjs.com/package/@amplitude/plugin-user-agent-enrichment-browser) to enrich the user agent info to keep it backward compatible. Please check [here](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser) for more details.
+--8<-- "includes/user-agent-parsing.md"
 
 ### Marketing attribution tracking
 
-Starting Browser SDK 2.0, Amplitude consolidates Browser SDK and Marketing Analytics SDK to povide a single solution for both product and marketing analytics use case.
-
-Marketing attribution tracking excludes all subdomains of the same root domain as referrer. This means traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) are not tracked with no additional configuration.
+--8<-- "includes/marketing-attribution-tracking-1.md"
 
 Marketing Analytics Browser SDK by default, allows other subdomains to be tracked as referrer. If this is behavior is desired, refer to the code below.
 
-```diff
-  amplitude.init(API_KEY, undefined, {
-+   defaultTracking: {
-+     attribution: {
-+       excludeReferrers: [location.hostname]
-+     },
-+   },
-  });
-```
-
-#### Moved `options.attribution` to `options.defaultTracking.attribution`
-
-This consolidates attribution options together with other default tracking options.
-
-```diff
-  amplitude.init(API_KEY, undefined, {
--   attribution: {
--     excludeReferrers: [location.hostname]
-+   defaultTracking: {
-+     attribution: {
-+       excludeReferrers: [location.hostname]
-+     },
-    },
-  });
-```
-
-#### Disabling marketing attribution tracking
-
-This provides a simpler and consistent interface to opt out of marketing attribution tracking.
-
-```diff
-  amplitude.init(API_KEY, undefined, {
--   attribution: {
--     disabled: true
-+   defaultTracking: {
-+     attribution: false,
-    },
-  });
-```
+--8<-- "includes/marketing-attribution-tracking-2.md"
 
 ### Page View tracking
 
@@ -150,89 +86,15 @@ This provides a simpler and consistent interface to opt out of page view trackin
 
 ### Cookie options
 
-Starting Browser SDK 2.0, Amplitude has simplified the options to manage the use of cookies. By default, user identity is stored on browser cookies.
-
-#### Using an alternative storage API
-
-```diff
-  amplitude.init(API_KEY, undefined, {
--   disableCookies: true,
-+   identityStorage: 'localStorage',
-  });
-```
-
-#### Disabling user identity persistence
-
-```diff
-- import { MemoryStorage } from '@amplitude/analytics-core';
--
-  amplitude.init(API_KEY, undefined, {
--   cookieStorageProvider: new MemoryStorage(),
-+   identityStorage: 'none',
-  });
-```
-
-#### Configuring cookie options
-
-The options to manage cookie usage are now nested under `options.cookieOptions` for a more discoverable interface.
-
-```diff
-  amplitude.init(API_KEY, undefined, {
--   cookieExpiration: 365,
--   cookieSameSite: 'Lax',
--   cookieSecure: false,
--   cookieUpgrade: true,
--   domain: '',
-+   cookieOptions: {
-+     expiration: 365,
-+     sameSite: 'Lax',
-+     secure: false,
-+     upgrade: true,
-+     domain: '',
-+   },
-  });
-```
+--8<-- "includes/cookie-options.md"
 
 ### No to enums
 
-Amplitude no longer requires the use of enums specifically `TransportType`, `ServerZone` and `PluginType`, and accepts its literaal values.
-
-Setting transport provider on initialization
-
-```diff
-  import * as amplitude from '@amplitude/analytics-browser';
-
-  amplitude.init(API_KEY, USER_ID, {
--   transport: amplitude.Types.TransportType.Fetch,
-+   transport: 'fetch',
-  });
-```
-
-Setting transport provider using setTransport()
-
-```diff
-  import * as amplitude from '@amplitude/analytics-browser';
-
-- amplitude.setTransport(amplitude.Types.TransportProvider.Fetch);
-+ amplitude.setTransport('fetch');
-```
-
-Setting server zone on initialization
-
-```diff
-  import * as amplitude from '@amplitude/analytics-browser';
-
-  amplitude.init(API_KEY, USER_ID, {
--   serverZone: amplitude.Types.ServerZone.US,
-+   serverZone: 'US',
-  });
-```
+--8<-- "includes/no-enum.md" 
 
 ### Simplified plugin interface
 
-Amplitude has made it easier to create your own plugins, requiring less properties for faster authoring.
-
---8<-- "includes/sdk-ts-browser/shared-plugin-2-properties.md"
+--8<-- "includes/simplified-plugin-interface.md" 
 
 ### Comparison
 
