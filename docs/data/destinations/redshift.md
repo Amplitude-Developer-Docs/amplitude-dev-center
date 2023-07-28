@@ -77,6 +77,8 @@ To export your historical data from Amplitude into Redshift, navigate to the *B
 
 This process can take anywhere from a single day to several weeks, depending on your data volume, warehouse size, cluster count, network bandwidth, and number of concurrent historical data exports you currently have, among other factors.
 
+If the backfill range overlaps with the range of previously exported data, Amplitude will de-duplicate overlapping data.
+
 ## Redshift export format
 
 The **Event** table schema includes the following columns:
