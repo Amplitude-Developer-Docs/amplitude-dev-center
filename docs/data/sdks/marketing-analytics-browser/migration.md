@@ -7,8 +7,8 @@ Amplitude Browser SDK 2.0 (`@amplitude/analytics-browser`) features default even
 
 ### Terminology
 
-* `@amplitude/analytics-browser@1`: Browser SDK 1.0
-* `@amplitude/analytics-browser@2`: Marketing Analytics Browser SDK 1.0
+* `@amplitude/marketing-analytics-browser@1`: Marketing Analytics Browser SDK
+* `@amplitude/analytics-browser@2`:  Browser SDK 2.0
 
 ### Dependency
 

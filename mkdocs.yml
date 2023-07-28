@@ -491,13 +491,14 @@ nav:
         - data/sdks/go/index.md
         - Ampli Codegen: data/sdks/go/ampli.md
     - Maintenance SDKs:
-      - Marketing Analytics Browser:
-        - data/sdks/marketing-analytics-browser/index.md
-        - Migration Guide: data/sdks/marketing-analytics-browser/migration.md
       - Browser:
         - data/sdks/javascript/index.md
-        - Ampli Codegen: data/sdks/javascript/ampli.md
-        - Migration Guide: data/sdks/typescript-browser/migration.md
+        - JavaScript SDK: data/sdks/javascript/index.md
+          - Ampli Codegen: data/sdks/javascript/ampli.md
+          - Migration Guide: data/sdks/typescript-browser/migration.md
+        - Marketing Analytics Browser:
+          - data/sdks/marketing-analytics-browser/index.md
+          - Migration Guide: data/sdks/marketing-analytics-browser/migration.md
       - Android:
         - data/sdks/android/index.md
         - Ampli Codegen: data/sdks/android/ampli.md
