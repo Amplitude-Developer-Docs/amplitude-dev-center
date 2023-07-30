@@ -241,7 +241,7 @@ Install the Ruby Server SDK with bundler or gem directly.
         'premium' => true
       }
     )
-    variants = expriment.evaluate(user)
+    variants = experiment.evaluate(user)
     variant = variants['YOUR-FLAG-KEY']
     unless variant.nil?
         if variant.value == 'on'

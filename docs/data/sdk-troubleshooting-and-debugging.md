@@ -8,9 +8,9 @@ Data validation is a critical step in the instrumentation process. To streamline
 The following sections will outline common issues that you may encounter, along with their respective solutions or explanations to aid in resolving these problems. Please go to the individual SDK pages to check the platform specific trouble-shooting and debugging. 
 
 * [Latest Browser](../sdks/typescript-browser/#troubleshooting-and-debugging)
-* [Manteniance Browser](../sdks/javascript/#troubleshooting-and-debugging)
+* [Maintenance Browser](../sdks/javascript/#troubleshooting-and-debugging)
 * [Latest Android](../sdks/android-kotlin/#troubleshooting-and-debugging)
-* [Manteniance Android](../sdks/android/#troubleshooting-and-debugging)
+* [Maintenance Android](../sdks/android/#troubleshooting-and-debugging)
 * [iOS (Beta)](../sdks/ios/#troubleshooting-and-debugging)
 * [iOS](../sdks/ios-swift/#troubleshooting-and-debugging)
 
