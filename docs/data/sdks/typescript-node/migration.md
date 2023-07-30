@@ -165,6 +165,6 @@ The `addEventMiddleware()` API maps to `add()`.
 | Logger Provider | Amplitude Logger. Fully customizable. | Amplitude Logger.  Not customizable. |
 | Storage Provider | LocalStorage by default. Fully customizable. | Local Storage. |
 | Customization | Plugins | Middleware |
-| Retry | Regular retry. | Regular retry by default. Also provide offline retry. You are able to customize your retry logic. Fully customizible. |
+| Retry | Regular retry. | Regular retry by default. Also provide offline retry. You are able to customize your retry logic. Fully customizable. |
 | Server Endpoint | HTTP V2 API |  HTTP V2 API |
 | Batch API | Supported, with configuration. | Not supported. |
