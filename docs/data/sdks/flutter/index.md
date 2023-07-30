@@ -249,7 +249,7 @@ Amplitude.getInstance().identify(identify);
 const array = ["some_string", 56];
 final Identify identify = Identify()
                           ..append("ab-tests", "new-user-test")
-                          ..preappend("some_list", array)
+                          ..prepend("some_list", array)
 Amplitude.getInstance().identify(identify);
 ```
 
