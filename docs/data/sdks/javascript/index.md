@@ -10,7 +10,7 @@ icon: simple/javascript
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
 !!!deprecated "Maintenance SDK"
-    This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK](../typescript-browser/) which supports plugins and more. See the [Migration Guide](../../sdks/typescript-browser/migration) for more help.
+    This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK 2.0](../browser-2/) which supports plugins and more.
 
 !!!info "Browser SDK Resources (Maintenance)"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-JavaScript) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Javascript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-JavaScript/)
@@ -130,7 +130,7 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
     | `cookieExpiration` | `number`. The number of days after which the Amplitude cookie will expire. 12 months is for GDPR compliance. | `365` |
     | `sameSiteCookie` | `string`. Sets the SameSite flag on the amplitude cookie. Decides cookie privacy policy. | `Lax` |
     | `cookieForceUpgrade` | `boolean`. Forces pre-v6.0.0 instances to adopt post-v6.0.0 compat cookie formats. | `false` |
-    | `disableCookies` |  `boolean`. Whether disable Ampllitude cookies altogether. | `false` |
+    | `disableCookies` |  `boolean`. Whether disable Amplitude cookies altogether. | `false` |
     | `deferInitialization` | `boolean`.  Whether defer initialization. If `true`, disables the core functionality of the sdk, including saving a cookie and all logging, until explicitly enabled. | `false` |
     | `deviceIdFromUrlParam` | `boolean`. If `true`, then the SDK will parse Device ID values from the URL parameter amp_device_id if available. Device IDs defined in the configuration options during init will take priority over Device IDs from URL parameters. | `false` |
     | `domain` | `string`. Set a custom domain for the Amplitude cookie. To include subdomains, add a preceding period, eg: `.amplitude.com`. | `null` |
@@ -575,17 +575,17 @@ There are five different standard UTM parameters:
 - `utm_medium`: This identifies the link type that was used (for example: banner, button, email).
 - `utm_campaign`: This identifies a specific campaign used (for example: "summer_sale").
 - `utm_term`: This identifies paid search terms used (for example:  product+analytics).
-- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: "bannerlink", "textlink").
+- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: "banner-link", "text-link").
 
 Here is an example URL:
 
-`https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=bannerlink`
+`https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=banner-link`
 
 #### Enable via SDK
 
 In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK automatically pulls UTM parameters from the referring URL and include them as user properties on all relevant events:
 
-- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_gclid` and `gclid` as user properties.
 - `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example: `"?fbclid=392foih3"`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
 - `includeUtm`: If `true`, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
 UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time.
@@ -693,11 +693,15 @@ If you set `logAttributionCapturedEvent` to `true` in your JavaScript SDK config
 
 Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the [demo app](https://github.com/amplitude/GTM-Web-Demo) on GitHub for instructions on how to set it up.
 
-Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
+Check [here](../../sources/google-tag-manager-client-legacy/) for the instruction details. Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
 
 !!!tip
 
     It's best practice to use a custom instance name to avoid a naming collision.
+
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
 
 ## Advanced topics
 
@@ -947,9 +951,7 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
 In SDK version 8.5.0 and higher, the SDK can send events using the browser's built-in navigator.sendBeacon API.
  Unlike standard network requests, sendBeacon sends events in the background, even if the user closes the browser or leaves the page.
 
-!!!warning
-
-    Because sendBeacon sends events in the background, Amplitude has no way of knowing if a send has failed, and can't try to resend the event.  
+--8<-- "includes/sdk-ts/sendBeacon-warning.md"
 
 To send an event using sendBeacon, set the transport SDK option to 'beacon' in one of two ways
 
@@ -983,23 +985,70 @@ var exitCallback = function {
 amplitude.getInstance().init('API_KEY', 'USER_ID', { onExitPage: exitCallback });
 ```
 
-### Custom device IDs
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
 
-By default, device IDs are randomly generated UUIDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
+1. Device id in configuration on initialization
+2. "amp_device_id" value from URL param if `configuration.deviceIdFromUrlParam` is true. Refer to [cross domain tracking](.#cross-domain-tracking-javascript) for more details
+3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
+4. A randomly generated 22-character base64 ID. It is more compacted compared to a 36-character UUID which has the same range 128-bit.
+
+--8<-- "includes/sdk-device-id/change-scenarios.md"
+
+- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
+- On initialization, a device ID is passed in from URL param `amp_device_id` when `deviceIdFromUrlParam` is enabled
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+By default, the device ID is randomly generated base64 ID. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
 
 ```js
 amplitude.getInstance().setDeviceId('DEVICE_ID');
 ```
 
-You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId().` This method can return `null` if a `deviceId` hasn't been generated yet.
-
-!!!note
-    Amplitude doesn't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
-     It's best practice to use something like a UUID.
-
-    [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
-
 --8<-- "includes/abbreviations.md"
+
+#### Get device ID
+
+You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId()` or `Amplitude.getInstance('YOUR-INSTANCE-NAME').getDeviceId()` if you defined a custom instance name. This method can return `null` if a `deviceId` hasn't been generated yet.
+
+```js
+const deviceId = amplitude.getInstance().getDeviceId();
+```
+
+#### Share current device ID to another instance
+
+Sometimes you have more than one Amplitude Javascript SDK instance setup and want to share the device ID across instances.
+
+- Method1: Initialize the other instance with device ID in configuration
+
+```javascript
+// Initialize an instance with default configuration 
+// Device Id of this instance is created by default
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+// Initialize another instance with a different API key
+// And pass the deviceId from the previous instance to the configuration
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2", undefined, {
+  deviceId: instanceDev.getDeviceId()
+});
+```
+
+- Method2: Set device ID after initialization whenever you need it to be the same
+
+```javascript
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2");
+
+// Before the line blow, the device Ids of the two instances are different
+instanceProd.setDeviceId(instanceDev.getDeviceId());
+```
+
+- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [cross domain tracking](./#cross-domain-tracking-javascript) for more details.
 
 ### Content Security Policy (CSP)
 

@@ -7,7 +7,7 @@ description: Import attribution information, events, and event and user properti
 
 You can send attribution data, events, event properties and user properties from Airbridge to Amplitude to further analyze the user behaviors down the funnel. 
 
-See the [Airbridge documentation](https://help.airbridge.io/hc/en-us/articles/900005331643#amplitude-v2-integration-http-api) for more details on sending events to Amplitude. 
+See the [Airbridge documentation](https://help.airbridge.io/en/guides/amplitude#amplitude-v2-integration-http-api) for more details on sending events to Amplitude. 
 
 !!!tip "Contact Airbridge for help"
 

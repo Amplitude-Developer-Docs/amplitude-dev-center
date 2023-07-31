@@ -121,7 +121,7 @@ Here are resources you might find helpful during your instrumentation:
 - [Validating Event Data](../data/debugger): This article walks through best practices on validating your instrumentation in Amplitude.
 - [HTTP API](../analytics/apis/http-v2-api): Use Amplitude's HTTP API to send data server-side. 
 - [SDKs](../data/sources/#sdks): Use Amplitude's native SDKs to send data client-side.
-- [Integrations](https://help.amplitude.com/hc/en-us/sections/201147128-Integrations): Find documentation around Amplitude's integrations. See all Amplitdue's [official integrations](https://amplitude.com/integrations). 
+- [Integrations](https://help.amplitude.com/hc/en-us/sections/201147128-Integrations): Find documentation around Amplitude's integrations. See all Amplitude's [official integrations](https://amplitude.com/integrations). 
 
 ## Instrumentation seminar video
 

@@ -43,7 +43,7 @@ When our JS SDK loads, we check that cookie to see whether it has an amplitude d
 
 ### Cookie size
 
-The cookie size can vary, going from a minimum of 60 bytes to some 120 bytes. Knowing we can have 2 of them (amp_* & amp_*.organisation.domain), you can assume a 120 bytes as a good average size value for Amplitude cookies **per project API key** that is being used in the product to send data to Amplitude.
+The cookie size can vary, going from a minimum of 60 bytes to some 120 bytes. Knowing we can have 2 of them (amp_* & amp_*.organization.domain), you can assume a 120 bytes as a good average size value for Amplitude cookies **per project API key** that is being used in the product to send data to Amplitude.
 
 ### Expiration time
 
@@ -57,7 +57,7 @@ To programmatically remove the Amplitude cookie, use the method **“clearStorag
 
 The next cookie keys have been deprecated in the latest SDK versions:
 
-- **amplitude_id_”API key”.your_org_domain**: In previous versions of the Amplitude JS SDK, the cookie key was set by default to “amplitude_id” so it may be it still appears in some projects that are using a SDK version prior to 6.0.0. In that case the cookie will be set under the key “amplitude_id_#Project API Key”.organisation.domain”. 
+- **amplitude_id_”API key”.your_org_domain**: In previous versions of the Amplitude JS SDK, the cookie key was set by default to “amplitude_id” so it may be it still appears in some projects that are using a SDK version prior to 6.0.0. In that case the cookie will be set under the key “amplitude_id_#Project API Key”.organization.domain”. 
 
 ![Image showing the cookies that are created by Amplitude.](../../../assets/images/cookies/deprecatedCookies.png)
 
@@ -90,7 +90,7 @@ Finally, be aware that this action will disable the cookie storage BUT Amplitude
 
 ## Disabling cookies and LocalStorage/SessionStorage (opt-out storage)
 
-Amplitude cookies can be fully disabled altogether using the *`disableCookies`* option and setting it to value **“none"**. 
+Amplitude cookies can be fully disabled altogether using the *`disableCookies`* option and setting it to value **"true"**. 
 
 The main consideration here is that Amplitude stores the metadata already referred (e.g. device_id, etc.) and failed events (to be retry sending) in storage. If storage is set to none, then that information can’t be saved for it to be available when the user revisits the site. That means that any new visit by a non-identified user will generate a new random device_id because the SDK checks the cookie/storage to see whether it has an amplitude device_id, and if it is not there, it generates a new one. Therefore, every visit by a non-identified user will have a different device_id and therefore it will be considered as a new unique user in Amplitude. 
 
@@ -158,7 +158,7 @@ var _saveCookieData = function _saveCookieData(scope) {
 Note that **this will not affect users who already have an amplitude cookie** as you can see in the code below that is used in [the file for the amplitude client](https://github.com/amplitude/Amplitude-JavaScript/blob/03c0a890d578db1ada383cf1e6195d71275bac44/src/amplitude-client.js#L140), because that means that, at some point, the user provided consent, allowing the cookie to be created. Therefore, in order to opt that user out of tracking, the customer must remove any amplitude cookies that were previously set for that user.
 
 ```js
-const hasOldCookie = !!this.cookieStorage.get(this._oldCookiename);
+const hasOldCookie = !!this.cookieStorage.get(this._oldCookieName);
 const hasNewCookie = !!this._metadataStorage.load();
 this._useOldCookie = !hasNewCookie && hasOldCookie && !this.options.cookieForceUpgrade;
 const hasCookie = hasNewCookie || hasOldCookie;
@@ -213,8 +213,8 @@ This table gives a brief overview of each option that is related to storage.
 |cookieExpiration|365|The number of days after which the Amplitude cookie will expire. The default 12 months is for GDPR compliance.|
 |cookieForceUpgrade|False|Forces SDK pre-v6.0.0 instances to adopt SDK post-v6.0.0 compatible cookie formats.|
 |deferInitialization|Null|If *`true`*, disables the core functionality of the SDK, including saving a cookie and all logging, until explicitly enabled by calling *`amplitude.getInstance().enableTracking()`*|
-|deviceIdFromUrlParam|False|If *`true`*, then the SDK will parse Device ID values from the URL parameter amp_device_id if available. This is usedulf for cross-domain tracking. Device IDs defined in the configuration options during init will take priority over Device IDs from URL parameters.|
-|disableCookie|False|Disable Ampllitude cookies altogether.|
+|deviceIdFromUrlParam|False|If *`true`*, then the SDK will parse Device ID values from the URL parameter amp_device_id if available. This is useful for cross-domain tracking. Device IDs defined in the configuration options during init will take priority over Device IDs from URL parameters.|
+|disableCookie|False|Disable Amplitude cookies altogether.|
 |domain|The top domain of the current page's URL|Set a custom domain for the Amplitude cookie. To include subdomains, add a preceding period, eg: *`.amplitude.com`*.|
 |optOut|False|Whether or not to disable tracking for the current user.|
 |sameSiteCookie|None|Sets the SameSite flag on the amplitude cookie. Decides cookie privacy policy.|
@@ -248,7 +248,7 @@ this._storageSuffix =
    '_' + apiKey + (this._instanceName === Constants.DEFAULT_INSTANCE ? '' : '_' + this._instanceName);
 this._storageSuffixV5 = apiKey.slice(0, 6);
 
-this._oldCookiename = this.options.cookieName + this._storageSuffix;
+this._oldCookieName = this.options.cookieName + this._storageSuffix;
 this._unsentKey = this.options.unsentKey + this._storageSuffix;
 this._unsentIdentifyKey = this.options.unsentIdentifyKey + this._storageSuffix;
 
@@ -271,7 +271,7 @@ this._metadataStorage = new MetadataStorage({
    storage: this.options.storage,
 });
 
-const hasOldCookie = !!this.cookieStorage.get(this._oldCookiename);
+const hasOldCookie = !!this.cookieStorage.get(this._oldCookieName);
 const hasNewCookie = !!this._metadataStorage.load();
 this._useOldCookie = !hasNewCookie && hasOldCookie && !this.options.cookieForceUpgrade;
 const hasCookie = hasNewCookie || hasOldCookie;
