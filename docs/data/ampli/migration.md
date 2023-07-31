@@ -62,7 +62,7 @@ import * as amplitude, { BaseEvent } from '@amplitude/analytics-browser';
 
 // Original Implementation
 // Notice this will keep working as-is, so you can keep the
-// existing implementation while progressingly migrating to Ampli
+// existing implementation while progressively migrating to Ampli
 
 amplitude.init('API-KEY');
 amplitude.add(new MyPlugin());
@@ -223,7 +223,7 @@ amplitude.track({
 ampli.songPlayed({ title: "Get Back" })
 ampli.track(new SongPlayed({ title: "Hey"}))
 
-// Not recommmended, but possible
+// Not recommended, but possible
 // Ampli can track untyped events if desired
 ampli.track({
   event_type: 'Sign Up',

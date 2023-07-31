@@ -73,7 +73,7 @@ To support a broader range of use cases, Amplitude lets you choose which of the 
 
 By default, the Shopify Plugin uses Amplitude’s JavaScript SDK to pull UTM parameters from the referring URL and include them as user properties on all the relevant events:
 
-- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example, `?gclid=734fsdf3`) to URLs at runtime. By setting this to `true`, the SDK capture `initial_glid` and gclid as user properties.
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example, `?gclid=734fsdf3`) to URLs at runtime. By setting this to `true`, the SDK capture `initial_gclid` and gclid as user properties.
 - `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example, `?fbclid=392foih3`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
 - `includeUtm`: If `true`, the plugin finds the standard UTM parameters from either the URL or the browser cookie and set them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
 

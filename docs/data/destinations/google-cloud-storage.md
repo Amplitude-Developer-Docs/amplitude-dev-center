@@ -53,6 +53,19 @@ To set up a recurring export of your Amplitude data to GCS, follow these steps:
 
 All future events/merged users are automatically sent to GCS. Amplitude exports files to your GCS account every hour.
 
+## Run a manual export
+
+You can backfill historical data to GCS by manually exporting data.
+
+1. Go to the Google Cloud Storage export connection page created in the section above.
+2. Go to **Backfills** tab.
+3. Select the desired date range. 
+4. Click **Start Backfill**. 
+
+If the backfill range overlaps with the range of previously exported data, Amplitude will de-duplicate overlapping data.
+
+**![screenshot of the export data modal](../../assets/images/integrations-gcs-export-manual-export.png)**
+
 ## Exported data format
 
 ### Raw event file and data format

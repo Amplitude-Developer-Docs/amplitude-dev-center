@@ -15,9 +15,9 @@ Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK foll
 ## Benefits of the latest architecture
 
 - Uses **modern languages** for each platform and with **modern tools/frameworks**
-    - It's easier for develpers to onboard Amplitude and also gain more confidence on data quality
+    - It's easier for developers to onboard Amplitude and also gain more confidence on data quality
     - Latest Browser, Node.js, React Native SDK use TypeScript. Latest Android uses Kotlin. Latest iOS uses Swift
-    - Improved the code readability can speed up your the developement cycle
+    - Improved the code readability can speed up your the development cycle
     - Browser SDK implements tree-shaking technique to reduce the bundle size
 
 - Designed with a solid and **extensible architecture**
@@ -63,7 +63,7 @@ All the latest SDKs allow for configuration of Client behavior. Below is a short
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     |`apiKey`| Required. `string`. The apiKey of your project. | `null` | 
-    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in millionseconds. | 1 second.|
+    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in milliseconds. | 1 second.|
     |`flushQueueSize`| `number`. The maximum number of events that can be stored locally before forcing an upload.  | 30 events. |
     |`flushMaxRetries`| `number`. The max retry limits. | 5 times.|
     |`loggerProvider`| `Logger`. Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.| `Amplitude Logger` |

@@ -125,8 +125,8 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
           "Sid":"AllowAllS3ReadActionsInDataFolder",
           "Effect":"Allow",
           "Action":[
-            "s3:Get*",
-            "s3:List*"
+            "s3:GetObject",
+            "s3:ListObjects"
           ],
           "Resource":[
             "arn:aws:s3:::{{bucket_name}}{{prefix}}*"

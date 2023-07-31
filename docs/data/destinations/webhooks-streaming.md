@@ -3,7 +3,7 @@ title: Webhook Event Streaming
 description: Use this integration to stream Amplitude event data to your custom webhooks.
 ---
 
-Amplitude CDP's Webhook integration enables you to forward your Amplitude events and users to custom webhooks. This is a light-weight way to set a stream of event and user data out of Amplitude, to a URL of your choosing to enable any of your usecases.
+Amplitude CDP's Webhook integration enables you to forward your Amplitude events and users to custom webhooks. This is a light-weight way to set a stream of event and user data out of Amplitude, to a URL of your choosing to enable any of your use cases.
 
 ## Setup
 

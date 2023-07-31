@@ -439,7 +439,7 @@ Starting from release v8.17.0, the SDK is able to track more default events now.
 [^1]:
     Session tracking is the same as supported in previous versions, which was previously enabled/disabled via the [`trackingSessionEvents`](#configuration) configuration.
 [^2]:
-    Deep link tracking is not fully automated, you will need to call the correspoding methods manually.
+    Deep link tracking is not fully automated, you will need to call the corresponding methods manually.
 
 ???config "Tracking default events options"
     | <div class="big-column">Name</div> | Type | Default Value | Description |
@@ -694,7 +694,7 @@ The `groupIdentifyWithGroupType` method accepts a group type string parameter 
 
     ```obj-c
     NSString *groupType = @"plan";
-    NSObject *groupName = @"enterprese";
+    NSObject *groupName = @"enterprise";
     AMPIdentify *identify = [[AMPIdentify identify] set:@"key" value:@"value"];
     [[Amplitude instance] groupIdentifyWithGroupType:groupType groupName:groupName groupIdentify:identify];
     ```

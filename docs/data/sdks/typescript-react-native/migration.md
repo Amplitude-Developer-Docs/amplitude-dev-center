@@ -16,7 +16,7 @@ To migrate to `@amplitude/analytics-react-native`, update your dependencies and 
 
 ## Dependency
 
-Update package.json to uninstall the maintennace React Native SDK and install the latest React Native SDK.
+Update package.json to uninstall the maintenance React Native SDK and install the latest React Native SDK.
 
 ```diff
 {
@@ -253,8 +253,8 @@ The maintenance React Native SDK supports automatically log start and end events
 | Package | [@amplitude/analytics-react-native](https://www.npmjs.com/package/@amplitude/analytics-react-native) | [@amplitude/react-native](https://www.npmjs.com/package/@amplitude/react-native) |
 | Structure | Mobile platforms (Android & iOS) utilize native app context modules for accessing system info, async storage for persistence. | Wrapper of the iOS and Android SDK and Amplitude JavaScript SDK.  Providing mappings from React Native to native SDK functions. |
 | Supported platform | iOS, Android, Web and Expo. | iOS, Android, Web. |
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./#configuration). | Support explicity setter methods. [More configurations](../../react-native/#configuration). |
-| Storage Provider | LocalStorage() by default, if not enabled, use MemoryStrogate(). Fully configurable. | Depened on the Maintenance iOS, Maintenance Android and Maintenance Browser SDK storage. |
-| Logger provider | Amplitude Logger. Fully customizable. | Depened on the native iOS, Android, Amplitude JavaScript logger provider. |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./#configuration). | Supports specific setter methods. [More configurations](../../react-native/#configuration). |
+| Storage Provider | LocalStorage() by default, if not enabled, use MemoryStorage(). Fully configurable. | Depends on the Maintenance iOS, Maintenance Android and Maintenance Browser SDK storage. |
+| Logger provider | Amplitude Logger. Fully customizable. | Depends on the native iOS, Android, Amplitude JavaScript logger provider. |
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API |  HTTP V1 API |

@@ -1,6 +1,6 @@
 Unlike standard network requests, sendBeacon sends events in the background, even if the user closes the browser or leaves the page.
 
---8<-- "includes/sdk-ts/sendBeacon-warnning.md"
+--8<-- "includes/sdk-ts/sendBeacon-warning.md"
 
 #### Set the transport to use beacon for all events
 

@@ -38,10 +38,10 @@ Network: status (blocked:other)
 Console: error text doesn’t contain any blocking-specific info
 Network: Transferred column contains name of plugin Blocked by uBlock Origin
 * Safari (MacOS)
-Console: error contains text Conent blocker prevented frame ... from loading a resource from ...
+Console: error contains text Content Blocker prevented frame ... from loading a resource from ...
 Network: it looks like blocked requests are not listed. Not sure if it’s possible to show them.
 
-We are recomend to using Proxy server to avoid this situation.
+We are recommend to using Proxy server to avoid this situation.
 
 ##### Cookies related
 

@@ -1,6 +1,6 @@
 ---
 title: Send Amplitude Cohorts to TikTok Ads
-description: Use Amplitude's TikTok Ads integration to send audiences to TikTok Ads to create more peronalized campaigns.
+description: Use Amplitude's TikTok Ads integration to send audiences to TikTok Ads to create more personalized campaigns.
 ---
 
 [TikTok](https://www.tiktok.com/) is the world's leading destination for short-form mobile videos. Their mission is to capture and present the world's creativity, knowledge, and moments that matter in everyday life.

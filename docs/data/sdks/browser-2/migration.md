@@ -56,14 +56,14 @@ amplitude.init(API_KEY, undefined, {
 
 ### Marketing attribution tracking
 
-Starting Browser SDK 2.0, Amplitude consolidates Browser SDK and Marketing Analytics SDK to povide a single solution for both product and marketing analytics use case.
+Starting Browser SDK 2.0, Amplitude consolidates Browser SDK and Marketing Analytics SDK to provide a single solution for both product and marketing analytics use case.
 
 Marketing attribution tracking excludes all subdomains of the same root domain as referrer. This means traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) are not tracked with no additional configuration.
 
 Browser SDK 1.0, by default, allows other subdomains to be tracked as referrer. If this is behavior is desired, refer to the code below.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 +   defaultTracking: {
 +     attribution: {
 +       excludeReferrers: [location.hostname]
@@ -77,7 +77,7 @@ Browser SDK 1.0, by default, allows other subdomains to be tracked as referrer. 
 This consolidates attribution options together with other default tracking options.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 -   attribution: {
 -     excludeReferrers: [location.hostname]
 +   defaultTracking: {
@@ -93,7 +93,7 @@ This consolidates attribution options together with other default tracking optio
 This provides a simpler and consistent interface to opt out of marketing attribution tracking.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 -   attribution: {
 -     disabled: true
 +   defaultTracking: {
@@ -101,7 +101,6 @@ This provides a simpler and consistent interface to opt out of marketing attribu
     },
   });
 ```
-
 
 #### Deprecates `options.attribution.trackNewCampaigns`
 
@@ -112,7 +111,7 @@ This option is no longer supported as it has been adopted a non configurable def
 This option no longer exists but Amplitude can be configured similarly using page view options.
 
 ```diff
-  ampitude.init(API_KEY, undefined, {
+  amplitude.init(API_KEY, undefined, {
 -   attribution: {
 -     trackPageViews: true
 +   defaultTracking: {
@@ -170,7 +169,7 @@ The options to manage cookie usage are now nested under `options.cookieOptions` 
 
 ### No to enums
 
-Amplitude no longer requires the use of enums specifically `TransportType`, `ServerZone` and `PluginType`, and accepts its literaal values.
+Amplitude no longer requires the use of enums specifically `TransportType`, `ServerZone` and `PluginType`, and accepts its literal values.
 
 Setting transport provider on initialization
 
@@ -212,7 +211,6 @@ Amplitude has made it easier to create your own plugins, requiring less properti
 ### Comparison
 
 This section provides a comparison between different version of Browser SDK. This overview provides key insights for developers, identifying areas that have significant changes and need careful consideration.
-
 
 | Feature | <div class="big-column"> [Browser SDK 2.0](../) </div> | <div class="big-column"> [Browser SDK 1.0](../../typescript-browser/) <div> |
 | --- | --- | --- |
