@@ -15,7 +15,7 @@ Use this guide to get started with the Amplitude HTTP V2 API. For a more in-dept
 !!!note
     For EU data residency, the project must be set up inside Amplitude EU. Replace the standard endpoint `https://api2.amplitude.com/2/httpapi` with the EU residency endpoint `https://api.eu.amplitude.com/2/httpapi` in all examples to ensure proper data residency.
 
-Choose your target platform to send a POST request to `https://api2.amplitude.com/httpapi` (or `https://api.eu.amplitude.com/2/httpapi` for EU residency). Replace `YOUR_API_KEY` with the [API KEY](../find-api-credentials.md) for your Amplitude project.
+Choose your target platform to send a POST request to `https://api2.amplitude.com/2/httpapi` (or `https://api.eu.amplitude.com/2/httpapi` for EU residency). Replace `YOUR_API_KEY` with the [API KEY](../find-api-credentials.md) for your Amplitude project.
 
 === "cURL"
     ```bash
