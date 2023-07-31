@@ -1,6 +1,6 @@
 ---
 title: Find your Amplitude Project API Credentials
-description: Find your Ampltitude project's API key and secret key in a few easy steps. 
+description: Find your Amplitude project's API key and secret key in a few easy steps. 
 ---
 
 To find your Amplitude project's unique API key and secret key, follow these steps. 

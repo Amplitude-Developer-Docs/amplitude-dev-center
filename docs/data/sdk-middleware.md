@@ -38,7 +38,7 @@ To invoke the next middleware in the queue, use the `next` function. You must ca
 
 Middleware access to event fields may vary by platform. To ensure comprehensive access, we recommend updating to the latest Ampli version and utilizing the [Plugins](../sdk-plugins) feature.
 
-For browser ampli, the following are the accessable keys under `payload`.
+For browser ampli, the following are the accessible keys under `payload`.
 
 |<div class="med-column">Name</div>|Type|Description|
 | - | - | - |
