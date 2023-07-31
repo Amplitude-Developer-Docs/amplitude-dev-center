@@ -1,4 +1,4 @@
-You can also use advanced configuration for better control of when page views event are sent.
+You can also use advanced configuration for better control of when page view events are sent.
 
 ???config "Tracking page views options"
     |<div class="big-column">Name</div>|Value|Description|

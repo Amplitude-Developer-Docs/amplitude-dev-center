@@ -69,7 +69,7 @@ Amplitude.init(AMPLITUDE_API_KEY, options);
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `maxCachedEvents` and `uploadIntervalInSec`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, you can use the batch mode. You need to set the server url to the the [batch event upload API](../../../analytics/apis/batch-event-upload-api.md) based on your needs. 
+To support high-performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `maxCachedEvents` and `uploadIntervalInSec`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, you can use the batch mode. You need to set the server url to the the [batch event upload API](../../../analytics/apis/batch-event-upload-api.md) based on your needs. 
 
 - Standard Server Batch API - https://api2.amplitude.com/batch
 - EU Residency Server Batch API - https://api.eu.amplitude.com/batch

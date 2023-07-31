@@ -143,7 +143,7 @@ For other default configurations:
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadPeriodSeconds`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by the `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `setEventUploadPeriodSeconds`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```c#
 // Events queue will flush every certain seconds based on setting
@@ -412,7 +412,7 @@ For location tracking, Amplitude converts the IP of a user event into a location
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```c#
 Amplitude.Instance.setUserId("USER_ID");

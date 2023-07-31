@@ -4,7 +4,7 @@ description: If you already have analytics implemented in your product you can e
 template: guide-last.html
 ---
 
-Ampli provides the benefits of type-safety, linting, and data validation to make sure that your analytics are accurate and trustworthy.
+Ampli provides the benefits of type safety, linting, and data validation to make sure that your analytics are accurate and trustworthy.
 
 To migrate from Amplitude SDK to Ampli, you need to replace all calls using Amplitude SDK with calls using Ampli. However, the process can be done gradually and at your own pace.
 

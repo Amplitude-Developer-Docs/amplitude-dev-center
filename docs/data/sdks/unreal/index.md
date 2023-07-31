@@ -91,7 +91,7 @@ FAnalytics::Get().GetDefaultConfiguredProvider()->SetAge(TEXT(27));
 
 ### Set custom user IDs
 
-If your app has its own login system that you want to track users with, use `SetUserId` to set a custom user ID.
+If your app has its login system that you want to track users with, use `SetUserId` to set a custom user ID.
 
 ```c++
 FAnalytics::Get().GetDefaultConfiguredProvider()->SetUserID(TEXT("test123@test.com"));

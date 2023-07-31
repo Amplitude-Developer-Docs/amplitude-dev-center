@@ -231,7 +231,7 @@ identify(identifyObj, {
 
 #### Identify.preInsert
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it's a no operation.
+This method pre-inserts a value or values to a user property if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -246,7 +246,7 @@ identify(identifyObj, {
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it's a no operation.
+This method post-inserts a value or values to a user property if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -261,7 +261,7 @@ identify(identifyObj, {
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it's a no operation.
+This method removes a value or values to a user property if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -321,7 +321,7 @@ track({
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that's applied to the group.
 
@@ -379,7 +379,7 @@ import { flush } from '@amplitude/analytics-node';
 flush();
 ```
 
-By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
+By default, `flush` is called automatically in an interval, if you want to flush the events altogether, you can control the async flow with the optional Promise interface, for example:
 
 ```typescript
 await init(AMPLITUDE_API_KEY).promise;
@@ -411,7 +411,7 @@ setOptOut(false);
 
 ### Callback
 
-All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
+All asynchronous APIs are optionally awaitable through a Promise interface. This also serves as a callback interface.
 
 ```ts
 import { track } from '@amplitude/analytics-node';
@@ -436,7 +436,7 @@ track('Button Clicked', undefined, {
 
 ### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 #### `add`
 

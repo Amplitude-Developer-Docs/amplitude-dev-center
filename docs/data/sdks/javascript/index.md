@@ -170,7 +170,7 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `eventUploadThreshold` and `eventUploadPeriodMillis`. By default, the serverUrl will be `https://api.amplitude.com`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `eventUploadThreshold` and `eventUploadPeriodMillis`. By default, the serverUrl will be `https://api.amplitude.com`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```js
 amplitude.getInstance().init(apiKey, null, {
@@ -467,7 +467,7 @@ By default, the JavaScript SDK tracks some properties automatically. You can ove
 
 ## Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time:
+If your app has its login system that you want to track users with, you can call `setUserId` at any time:
 
 ```js
 amplitude.getInstance().setUserId('USER_ID');
@@ -834,7 +834,7 @@ You can also define the path in your RequireJS configuration like this:
 </script>
 ```
 
-### Cross domain tracking (JavaScript)
+### Cross-domain tracking (JavaScript)
 
 You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
 

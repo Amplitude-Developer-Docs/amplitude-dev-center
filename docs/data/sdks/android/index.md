@@ -828,7 +828,7 @@ You can use the helper method `getSessionId` to get the value of the current `se
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 === "Java"
 
