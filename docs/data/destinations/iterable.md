@@ -64,6 +64,10 @@ Under **Send Users**, make sure the toggle is enabled ("Users are sent to Iterab
 
 (optional) In **Select additional properties**, select any more user properties you want to send to Iterable. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Iterable as [Iterable data fields](https://support.iterable.com/hc/en-us/articles/208183076-Field-Data-Types). _Transformed user properties aren't supported._
 
+!!!note "User Forwarding Volumes"
+    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Iterable, even if the updated property
+    isn't selected in **Select additional properties**.
+
 ### Enable sync
 
 When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.

@@ -64,7 +64,7 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Inte
 
     !!!warning "Events for anonymous users cannot be streamed"
 
-        Intercom requires that all events have a user ID present. If you have selected any events to send to Intercom that may not have a user ID, add a filter to send only events where the user ID is present. Otherwise, your delivery metrics may be affected.
+        Intercom requires that all events have a user ID present. If you have selected any events to send to Intercom that may not have a user ID, add a filter to send only events where the user ID is present. Additionally, events can only be streamed for users that already exist in Intercom. Otherwise, your delivery metrics may be affected.
 
         ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
@@ -75,6 +75,10 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Inte
 Under **Send Users**, make sure the toggle is enabled ("Users are sent to Intercom") if you want to stream users and their properties to Intercom. When enabled, users are automatically created or updated in Intercom when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Intercom. Users aren't sent on a schedule or on-demand using this integration. Each user is created as an [Intercom contact](https://developers.intercom.com/intercom-api-reference/reference/the-contact-model).
 
 (optional) In **Select additional properties**, select any more user properties you want to send to Intercom. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Intercom as [Intercom custom attributes](https://www.intercom.com/help/en/articles/179-send-custom-user-attributes-to-intercom/). Custom attributes must exist in Intercom. _Transformed user properties aren't supported._
+
+!!!note "User Forwarding Volumes"
+    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Intercom, even if the updated property
+    isn't selected in **Select additional properties**.
 
 ### Enable sync
 

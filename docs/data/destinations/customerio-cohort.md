@@ -14,7 +14,7 @@ description: Send Amplitude cohorts to Customer.io for use in automated messagin
 - This integration is only available for customers who have paid plans with Amplitude. 
 - The users in your cohort must exist in Customer.io before the sync from Amplitude. Users that don't exist in Customer.io are ignored and not shown in the sync.
 - You must enable this integration in each Amplitude project you want to use it in. 
-- To use this integration for EU datacenters, specify the EU region during setup.
+- To use this integration for EU data centers, specify the EU region during setup.
 
 ## Setup
 

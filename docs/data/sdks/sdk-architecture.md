@@ -15,9 +15,9 @@ Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK foll
 ## Benefits of the latest architecture
 
 - Uses **modern languages** for each platform and with **modern tools/frameworks**
-    - It's easier for develpers to onboard Amplitude and also gain more confidence on data quality
+    - It's easier for developers to onboard Amplitude and also gain more confidence on data quality
     - Latest Browser, Node.js, React Native SDK use TypeScript. Latest Android uses Kotlin. Latest iOS uses Swift
-    - Improved the code readability can speed up your the developement cycle
+    - Improved the code readability can speed up your the development cycle
     - Browser SDK implements tree-shaking technique to reduce the bundle size
 
 - Designed with a solid and **extensible architecture**
@@ -63,7 +63,7 @@ All the latest SDKs allow for configuration of Client behavior. Below is a short
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     |`apiKey`| Required. `string`. The apiKey of your project. | `null` | 
-    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in millionseconds. | 1 second.|
+    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in milliseconds. | 1 second.|
     |`flushQueueSize`| `number`. The maximum number of events that can be stored locally before forcing an upload.  | 30 events. |
     |`flushMaxRetries`| `number`. The max retry limits. | 5 times.|
     |`loggerProvider`| `Logger`. Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.| `Amplitude Logger` |
@@ -241,6 +241,28 @@ This a list of shared interfaces of latest SDKs.
 - `add(Plugin)`
 - `remove(Plugin)`
 - `shutdown()`
+
+## Identity
+
+Amplitude uses a combination of three different methods to identify your users: **device ID**, **user ID**, and **Amplitude ID**. 
+
+- Device ID is a unique ID for a given device. Amplitude client-side SDKs generate a device ID automatically for you on initialization and store them since they run on a single device. However server-side SDKs handle requests for many devices, so Amplitude server-side SDKs don't generate a device ID on initialization. You can set the device ID when you `track()` an event.
+
+- User ID is an internal unique identifier configured by you. You can assign a unique user ID for individual users, for example email addresses.
+
+- Amplitude ID is automatically creates by Amplitude once a unique user is identified. Amplitude ID can include multiple device IDs and user IDs that are all associated with a single user.
+
+For mobile SDKs, Amplitude also tracks:
+
+**Android**:
+
+- App Set ID: a unique identifier that groups multiple apps together within an ecosystem or platform. It is often used in situations where multiple apps are owned or managed by the same entity, such as a developer or a company.
+- ADID (Advertising ID): a unique identifier used for tracking and targeting users for personalized advertising campaigns. Due to privacy concerns this is not recommended. App Set ID should be considered instead.
+
+**iOS**:
+
+- IDFV (Identifier for Vendors): a unique identifier. Unlike IDFA, IDFV is not specific to advertising. It is designed to track and identify a specific device for multiple apps belonging to the same vendor or developer.
+- IDFA (Identifier for Advertising): a unique identifier used for tracking and targeting users for personalized advertising campaigns. Due to privacy concerns this is not recommended. IDFV should be considered instead.
 
 ## Comparison with maintenance SDK
 

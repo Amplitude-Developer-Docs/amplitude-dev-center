@@ -49,14 +49,14 @@ as the main headline.
     }
 
     function trackCommunity(){
-      amplitude.getInstance().logEvent('Link Click', {
+      amplitude.track('Link Click', {
         ...getPageInfo(),
         name: "community_help"
       })
     }
 
     function trackClickSupportRequest(){
-      amplitude.getInstance().logEvent('support request', getPageInfo());
+      amplitude.track('support request', getPageInfo());
     }
 
     function trackFeedback(isUseful){
@@ -69,7 +69,7 @@ as the main headline.
       document.getElementById("feedbackMessage").appendChild(feedbackMessage);
 
       /* Send feedback value */
-      amplitude.getInstance().logEvent('feedback', {
+      amplitude.track('feedback', {
         ...getPageInfo(),
         isUseful: isUseful
       });
