@@ -16,6 +16,9 @@ The Kotlin Android SDK lets you send events to Amplitude. This library is open-s
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Android](./ampli.md).
 
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [Android SDK Migration Guide](/data/sdks/android-kotlin/migration/).
+
 ## Getting started
 
 Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started with Amplitude Android Kotlin SDK.
@@ -76,6 +79,34 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     configuration.setFlushQueueSize(10);
 
     Amplitude amplitude = new Amplitude(configuration);
+    ```
+
+You can dynamically set the configuration after initialization. 
+
+=== "Kotlin"
+
+    ```kotlin
+    import com.amplitude.android.Amplitude
+
+    val amplitude = Amplitude(
+        Configuration(
+            apiKey = AMPLITUDE_API_KEY,
+            context = applicationContext,
+        )
+    )
+
+    amplitude.configuration.optOut = true
+    ```
+
+=== "Java"
+
+    ```java 
+    import com.amplitude.android.Amplitude;
+
+    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Amplitude amplitude = new Amplitude(configuration);
+
+    amplitude.getConfiguration().setOptOut(true);
     ```
 
 --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
@@ -252,7 +283,7 @@ Amplitude(
 )
 ```
 
-After enabling this function, Amplitude will track the following events:
+After enabling this setting, Amplitude will track the following events:
 
 * `[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation.
 * `[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application.
@@ -275,7 +306,7 @@ Amplitude(
 )
 ```
 
-After enabling this function, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the activity label, application label, and activity name successively.
+After enabling this setting, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the activity label, application label, and activity name successively.
 
 #### Tracking deep links
 
@@ -293,7 +324,7 @@ Amplitude(
 )
 ```
 
-After enabling this function, Amplitude will track the `[Amplitude] Deep Link Opened` event with the URL and referrer information.
+After enabling this setting, Amplitude will track the `[Amplitude] Deep Link Opened` event with the URL and referrer information.
 
 ### User groups
 
@@ -505,9 +536,7 @@ amplitude.add(
 
 ## Troubleshooting and Debugging
 
-### Common Issues
-
-Please refer to [this document](../../sdk-troubleshooting-and-debugging/) for additional common issues in general.
+--8<-- "includes/sdk-troubleshooting-and-debugging/latest-android.md"
 
 ## Advanced topics
 

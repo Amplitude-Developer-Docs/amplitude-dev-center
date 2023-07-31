@@ -15,9 +15,9 @@ This is the server-side Google Tag Manager Template for Amplitude Analytics. The
 
 ### Container Setup
 
-If you start from zero, you need to setup your conatiner first. This Amplitude Analytics tag template can be found in **Server** target platform which for the uses on desktop and mobile web pages.
+If you start from zero, you need to setup your container first. This Amplitude Analytics tag template can be found in **Server** target platform which for the uses on desktop and mobile web pages.
 
-![Server Container Setup](../../assets/images/gtm/gtm-server-conatiner-setup.png)
+![Server Container Setup](../../assets/images/gtm/gtm-server-container-setup.png)
 
 ### Add Template
 
@@ -40,7 +40,7 @@ Create tags for your amplitude browser SDK tracking. Click the `New` button to c
 
 ##### API Key
 
-Copy your amplitude API Key in the API Key field. For EU recidency, please make your API Key is under analytics.eu.amplitude.com.
+Copy your amplitude project API Key in the API Key field. For EU residency, your project API Key is under [analytics.eu.amplitude.com](https://analytics.eu.amplitude.com/). Each project has different API Key, please make sure you are copy the API Key from the right project. Go to **Settings -> Projects -> click the right project name from the list** to find your project API Key. Check [here](https://www.docs.developers.amplitude.com/analytics/find-api-credentials/) for more details.
 
 ##### Hide User IP Address
 
@@ -84,7 +84,7 @@ Use this table to add completely new event properties to the hit sent to Amplitu
 | <div class="big-column">Name</div>  | Description |
 | --- | --- |
 | `Event Property Key` | Required. `string`.  The `event_name` in the Event Data object. |
-| `Event Property Value` | OptionaRequiredl. `string`. The value of the event property key. |
+| `Event Property Value` | Optional. `string`. The value of the event property key. |
 
 #### User Property Configuration
 
@@ -125,7 +125,7 @@ Use this feature to add extra event properties. In case of any overlap, the new 
 | `Additional Property Key` | Required. `string`. They key of the event property. |
 | `Additional Property Value` | Required. `string`. The property value of the property key. |
 
-### Other info  come along with tracking an event
+### Other info come along with tracking an event
 
 | <div class="big-column">Name</div>  | Description | Default Value |
 | --- | --- | --- |
@@ -146,9 +146,9 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 
 ## Common Issues
 
-### Why I cannot find Amplitude Analytics in the GTM Gallary
+### Why I cannot find Amplitude Analytics in the GTM Gallery
 
-Please make sure you have selected a server container. Server-side tempalte will only exist in server container gallary. 
+Please make sure you have selected a server container. Server-side template will only exist in server container gallery. 
 
 ## Video Tutorial
 
@@ -156,4 +156,4 @@ This video tutorial walks through the implementation basics.
 
 <script src="https://fast.wistia.com/embed/medias/n337njhoot.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_n337njhoot videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/n337njhoot/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></div></div>
 
-Please check [here](https://developers.google.com/tag-platform/tag-manager/server-side/api) for more details realted with server-gtm API. 
+Please check [here](https://developers.google.com/tag-platform/tag-manager/server-side/api) for more details related to server-gtm API. 

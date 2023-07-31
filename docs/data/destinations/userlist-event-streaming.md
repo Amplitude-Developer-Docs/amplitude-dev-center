@@ -1,7 +1,6 @@
 ---
 title: Userlist Event Streaming
 description: Stream Amplitude events to Userlist.
-status: new
 ---
 
 !!!beta "This feature is in open beta"

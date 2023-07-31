@@ -1,7 +1,6 @@
 ---
 title: Send Events to Toplyne
 description: Send Amplitude events to Toplyne. 
-status: new
 ---
 
 !!!beta "This feature is in open beta"

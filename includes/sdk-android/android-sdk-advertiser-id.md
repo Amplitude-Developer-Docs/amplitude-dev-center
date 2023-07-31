@@ -1,6 +1,6 @@
-Advertiser ID (also referred to as IDFA) is a unique identifier provided by the iOS and Google Play stores. As it's unique to every person and not just their devices, it's useful for mobile attribution.
+The Android Advertising ID is a unique identifier provided by the Google Play store. As it's unique to every person and not just their devices, it's useful for mobile attribution. This is similar to the IDFA on iOS.
  [Mobile attribution](https://www.adjust.com/blog/mobile-ad-attribution-introduction-for-beginners/) is the attribution of an installation of a mobile app to its original source (such as ad campaign, app store search).
- Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider IDFV or device ID when IDFA isn't available.
+ Users can choose to disable the Advertising ID, and apps targeted to children can't track at all.
 
 Follow these steps to use Android Ad ID.
 

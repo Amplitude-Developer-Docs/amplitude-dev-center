@@ -1,4 +1,4 @@
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment plugin) or sending to a third-party endpoints (destination plugin). A plugin is an `Object` with optional fields `name` and `type` and methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment plugin) or sending to a third-party endpoints (destination plugin). A plugin is an `Object` with optional fields `name` and `type` and methods `setup()`, `execute()` and `teardown()`.
 
 #### `add`
 
@@ -40,7 +40,7 @@ const enrichPageUrlPlugin = (): EnrichmentPlugin => {
 }
 
 amplitude.init(API_KEY);
-amplitude.add(addEventIdPlugin());
+amplitude.add(enrichPageUrlPlugin());
 ```
 
 

@@ -299,7 +299,7 @@ It's important to validate the migration to make sure there is minimal impact on
 
 ??? note "What if I don't see an integration that I need?"
 
-    We're constantly adding new integrations so either add a request in product or commuincate with your CSM and we'll provide a timeline.
+    We're constantly adding new integrations so either add a request in product or communicate with your CSM and we'll provide a timeline.
 
 ??? note "How much does Amplitude CDP Cost?"
 

@@ -3,10 +3,7 @@ title: React Native SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's maintenance React Native SDK (@amplitude/react-native) to the latest SDK (@amplitude/analytics-react-native).
 ---
 
-!!! warning
-    The Maintenance React Native SDK stores device ID, user ID, etc., in SQLite. However, there is no migration logic available (at this time), so this data won't be automatically migrated when upgrading to the latest React Native SDK. Consequently, for example, device ID may be regenerated when using the latest SDK.
-
-    We will release a migration plugin soon.
+--8<-- "includes/sdk-missing-migration.md"
 
 Amplitude's latest React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support. Latest React Native SDK isn't backwards compatible with maintenance React Native SDK `@amplitude/react-native`. 
 
@@ -19,7 +16,7 @@ To migrate to `@amplitude/analytics-react-native`, update your dependencies and 
 
 ## Dependency
 
-Update package.json to uninstall the maintennace React Native SDK and install the latest React Native SDK.
+Update package.json to uninstall the maintenance React Native SDK and install the latest React Native SDK.
 
 ```diff
 {
@@ -236,14 +233,11 @@ Maintenance React Native SDK supports setting an advertising ID as device ID by 
 
 ### COPPA
 
-!!! warn
-    The latest React Native SDK currently doesn't track APP Set ID, IDFA, or IDFV but will track these in a newly released version soon.
+You can enable COPPA control by `enableCoppaControl()` in maintenance React Native SDK. The latest React Native SDK doesn't support that API but you can still enable COPPA using `config.trackingOptions` or an [Enrichment Plugin](../#enrichment-type-plugin) to remove identifying information from being tracked.
 
-You can enable COPPA control by `enableCoppaControl()` in maintenance React Native SDK. The latest React Native SDK doesn't support that API but you can still enable COPPA:
-
-* For iOS, IDFA and IDFV aren't tracked. For Android, you can turn off ADID by setting `config.trackingOptions.adid` to `false`
-* You can use an [enrichment Plugin](../#enrichment-type-plugin) to delete city in the payload.
+* Learn how to enable IDFA, IDFV, ADID, and AppSetId in the [Advertising Identifiers](/data/sdks/typescript-react-native/#advertising-identifiers) documentation.
 * You can turn off IP address tracking by setting `config.trackingOptions.ipAddress` to `false`
+* You can use an [enrichment Plugin](../#enrichment-type-plugin) to delete `city` in the payload, or any other identifying information.
 * Location (latitude and longitude) isn't tracked
 
 ### Session events
@@ -259,8 +253,8 @@ The maintenance React Native SDK supports automatically log start and end events
 | Package | [@amplitude/analytics-react-native](https://www.npmjs.com/package/@amplitude/analytics-react-native) | [@amplitude/react-native](https://www.npmjs.com/package/@amplitude/react-native) |
 | Structure | Mobile platforms (Android & iOS) utilize native app context modules for accessing system info, async storage for persistence. | Wrapper of the iOS and Android SDK and Amplitude JavaScript SDK.  Providing mappings from React Native to native SDK functions. |
 | Supported platform | iOS, Android, Web and Expo. | iOS, Android, Web. |
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./#configuration). | Support explicity setter methods. [More configurations](../../react-native/#configuration). |
-| Storage Provider | LocalStorage() by default, if not enabled, use MemoryStrogate(). Fully configurable. | Depened on the Maintenance iOS, Maintenance Android and Maintenance Browser SDK storage. |
-| Logger provider | Amplitude Logger. Fully customizable. | Depened on the native iOS, Android, Amplitude JavaScript logger provider. |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./#configuration). | Supports specific setter methods. [More configurations](../../react-native/#configuration). |
+| Storage Provider | LocalStorage() by default, if not enabled, use MemoryStorage(). Fully configurable. | Depends on the Maintenance iOS, Maintenance Android and Maintenance Browser SDK storage. |
+| Logger provider | Amplitude Logger. Fully customizable. | Depends on the native iOS, Android, Amplitude JavaScript logger provider. |
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API |  HTTP V1 API |

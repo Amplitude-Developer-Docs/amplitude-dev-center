@@ -15,6 +15,8 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 --8<-- "includes/no-ampli.md"
     To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead. For customers beginning with Amplitude Experiment, please note that this SDK does not support the [Amplitude Experiment integration](https://www.docs.developers.amplitude.com/experiment/sdks/ios-sdk/#initialize). 
 
+--8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
+
 ## Getting started
 
 Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started with Amplitude iOS SDK.
@@ -124,7 +126,7 @@ amplitude.track(
     event: BaseEvent(
         eventType: "event type",
         eventProperties: [
-            "eventPropertykey": "eventPropertyValue"
+            "eventPropertyKey": "eventPropertyValue"
         ], 
         groups: ["orgId": 15]
     )
@@ -290,9 +292,7 @@ class TestDestinationPlugin: DestinationPlugin {
 
 ## Troubleshooting and Debugging
 
-### Common Issues
-
-Please refer to [this document](../../sdk-troubleshooting-and-debugging/) for additional common issues in general.
+--8<-- "includes/sdk-troubleshooting-and-debugging/latest-ios.md"
 
 ## Advanced topics
 
