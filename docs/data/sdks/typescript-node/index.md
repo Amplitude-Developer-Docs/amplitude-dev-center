@@ -6,8 +6,7 @@ search:
   boost: 2
 ---
 
-
-![npm version](https://badge.fury.io/js/@amplitude%2Fanalytics-node.svg)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-node)
 
 The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
@@ -16,6 +15,9 @@ The Node.js SDK lets you send events to Amplitude. This library is open-source, 
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Node](../typescript-node/ampli.md).
+
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [Node.JS SDK Migration Guide](/data/sdks/typescript-node/migration/).
 
 ## Getting started
 
@@ -39,16 +41,41 @@ init(API_KEY, {
 });
 ```
 
-### Debugging
+### Configuration
 
---8<-- "includes/sdk-ts/server-debugging.md"
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    |`instanceName`| `string`. The instance name. | `$default_instance` |
+    |`flushIntervalMillis`| `number`. Sets the interval of uploading events to Amplitude in milliseconds. | 10,000 (10 seconds) |
+    |`flushQueueSize`| `number`. Sets the maximum number of events that are batched in a single upload attempt. | 300 events |
+    |`flushMaxRetries`| `number`. Sets the maximum number of reties for failed upload attempts. This is only applicable to retryable errors. | 12 times.|
+    |`logLevel` | `LogLevel.None` or `LogLevel.Error` or `LogLevel.Warn` or `LogLevel.Verbose` or `LogLevel.Debug`. Sets the log level. | `LogLevel.Warn` |
+    |`loggerProvider `| `Logger`. Sets a custom `loggerProvider` class from the Logger to emit log messages to desired destination. | `Amplitude Logger` |
+    |`minIdLength`|  `number`. Sets the minimum length for the value of `user_id` and `device_id` properties. | `5` |
+    |`optOut` | `boolean`. Sets permission to track events. Setting a value of `true` prevents Amplitude from tracking and uploading events. | `false` |
+    |`serverUrl`| `string`. Sets the URL where events are upload to. | `https://api2.amplitude.com/2/httpapi` | 
+    |`serverZone`| `EU` or  `US`. Sets the Amplitude server zone. Set this to `EU` for Amplitude projects created in `EU` data center. | `US` |
+    |`storageProvider`| `Storage<Event[]>`. Sets a custom implementation of `Storage<Event[]>` to persist unsent events. | `MemoryStorage` |
+    |`transportProvider`| `Transport`. Sets a custom implementation of `Transport` to use different request API. | `HTTPTransport` |
+    |`useBatch`| `boolean`. Sets whether to upload events to Batch API instead of the default HTTP V2 API or not. | `false` |
 
-#### EU data residency
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
-You can configure the server zone when initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
+```ts
+import * as amplitude from '@amplitude/analytics-node';
 
-!!!note
-    For EU data residency, the project must be set up inside Amplitude EU. You must initialize the SDK with the API key from Amplitude EU.
+amplitude.init(API_KEY, {
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 50, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+});
+```
+
+--8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
 ```ts
 import * as amplitude from '@amplitude/analytics-node';
@@ -57,6 +84,10 @@ amplitude.init(API_KEY, {
   serverZone: amplitude.Types.ServerZone.EU,
 });
 ```
+
+#### Debugging
+
+--8<-- "includes/sdk-ts/server-debugging.md"
 
 ### Tracking an event
 
@@ -78,6 +109,22 @@ const eventProperties = {
 };
 track('Button Clicked', eventProperties, {
   user_id: 'user@amplitude.com',
+});
+```
+
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-node';
+
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, {
+  instanceName: 'env',
 });
 ```
 
@@ -233,16 +280,39 @@ identify(identifyObj, {
 
 --8<-- "includes/groups-intro-paragraph.md"
 
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-node';
+
+    // set group with a single group name
+    setGroup('orgId', '15', {
+      user_id: 'user@amplitude.com',
+    });
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-node';
+
+    // set group with multiple group names
+    setGroup('sport', ['soccer', 'tennis'], {
+      user_id: 'user@amplitude.com',
+    });
+    ```
+
+--8<-- "includes/event-level-groups-intro.md"
+
 ```ts
-import { setGroup } from '@amplitude/analytics-node';
+import { track } from '@amplitude/analytics-node';
 
-// set group with single group name
-setGroup('orgId', '15', {
-  user_id: 'user@amplitude.com',
-});
-
-// set group with multiple group names
-setGroup('sport', ['soccer', 'tennis'], {
+track({
+  event_type: 'event type',
+  event_properties: { eventPropertyKey: 'event property value' },
+  groups: { 'orgId': '15' }
+}, undefined, {
   user_id: 'user@amplitude.com',
 });
 ```

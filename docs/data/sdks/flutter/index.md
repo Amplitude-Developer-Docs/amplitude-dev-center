@@ -59,7 +59,45 @@ class YourClass {
 }
 ```
 
-### EU data residency
+### Configuration
+
+Amplitude Flutter SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), [Amplitude iOS Maintenance SDK](../ios/) and [Amplitude JavaScript Maintenance SDK](../javascript/). The following are the Dart settable config options.
+For other default configurations:
+
+- on Android side, check the [Android Configuration](../android/#configuration)
+- on iOS side, check the [iOS configuration](../ios/#configuration)
+- on browser side, please check the [browser configuration](../javascript/#configuration)
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. Not supported on Flutter Web. | Coppa control is disabled by default. |
+    | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. Not supported on Flutter Web. | Coppa control is disabled by default. |
+    | `setMinTimeBetweenSessionsMillis()` | `int`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. The input parameter is in milliseconds. | `5 minutes` |
+    | `setEventUploadThreshold()` | `int`. The maximum number of events that can be stored locally before forcing an upload. For example, `Amplitude.getInstance().setEventUploadThreshold(30)`.| `30` |
+    | `setEventUploadPeriodMillis()` | `int`. The amount of time waiting to upload pending events to the server in milliseconds. For example, `Amplitude.getInstance().setEventUploadPeriodMillis(30000)`.| `30000` |
+    | `setServerZone()` | `String`. The server zone to send to, will adjust server url based on this config. For example, `Amplitude.getInstance().setServerZone(EU)`.| `US` |
+    | `setServerUrl()` | `String`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
+    | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `setUseDynamicConfig(true)`. | `false` |
+    | `setOptOut()` | `bool`. Opt the user out of tracking. For example, `Amplitude.getInstance().setOptOut(true)`.| `false` |
+    | `trackingSessionEvents()` | `bool`. Whether to automatically log "[Amplitude] Session Start" and "[Amplitude] Session End" session events corresponding to the start and end of a user's session. Not supported on Flutter Web. [Learn more](/#flutter-web-support). | `false` |
+    | `useAppSetIdForDeviceId()` | Only for Android. Whether to use app ser id as device id on Android side. Please check [here](../android/#app-set-id) for the required module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)` | By default, the deviceId will be UUID+"R" |
+    
+#### Configure batching behavior
+
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+
+```dart
+// Events queued in memory will flush when number of events exceed upload threshold
+// Default value is 30
+Amplitude.getInstance().setEventUploadThreshold(1);
+
+// Events queue will flush every certain milliseconds based on setting
+// Default value is 30,000 milliseconds
+Amplitude.getInstance().setEventUploadPeriodMillis(10000);
+```
+
+#### EU data residency
 
 Beginning with version 3.6.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. The SDK sends data based on the server zone if it's set.
  The server zone configuration supports dynamic configuration as well.
@@ -211,7 +249,7 @@ Amplitude.getInstance().identify(identify);
 const array = ["some_string", 56];
 final Identify identify = Identify()
                           ..append("ab-tests", "new-user-test")
-                          ..preappend("some_list", array)
+                          ..prepend("some_list", array)
 Amplitude.getInstance().identify(identify);
 ```
 
@@ -251,6 +289,30 @@ final Identify identify = Identify()
                           ..unset("some_list",array);
 Amplitude.getInstance().identify(identify)
 ```
+
+### User groups
+
+--8<-- "includes/editions-growth-enterprise-with-accounts.md"
+
+--8<-- "includes/groups-intro-paragraph.md"
+
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```dart
+    // set group with a single group name
+    Amplitude.getInstance().setGroup("orgId", "15");
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```dart
+    // set group with multiple group names
+    Amplitude.getInstance().setGroup("sport", ["tennis", "soccer"]);
+    ```
+    
+!!!note
+    Event-level groups is currently unavailable and its availability is yet to be determined.
 
 ### Track revenue
 
@@ -293,14 +355,16 @@ A session is a period of time that a user has the app in the foreground. Events 
  Sessions are handled automatically so you don't have to manually call an API like `startSession()` or `endSession()`.
 Amplitude groups events together by session. A session represents a single period of user activity, with a start and end time.
  Different SDKs track sessions differently, depending on the requirements of the platform.
-You can choose to automatically log start and end session events corresponding to the start and end of a user's session.
+On Android and iOS, you can choose to automatically log start and end session events corresponding to the start and end of a user's session. This is not supported on Flutter Web.
 
 ```dart
 //Enable automatically log start and end session events
-Ampiltidue.getInstance().trackingSessionEvents(true);
+Amplitude.getInstance().trackingSessionEvents(true);
 //Disable automatically log start and end session events
-Amplitidue.getInstance().trackingSessionEvents(false);
+Amplitude.getInstance().trackingSessionEvents(false);
 ```
+
+`trackingSessionEvents()` is not supported on Flutter web. Please check [here](/#flutter-web-support) to learn more.
 
 ### Set custom user ID
 
@@ -334,9 +398,9 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
  Remember that apps asking for information from children under 13 years of age must comply with COPPA.
 
 ```dart
-//Enable COPPA Control
+// Enable COPPA Control
 Amplitude.getInstance().enableCoppaControl();
-//Disable COPPA Control
+// Disable COPPA Control
 Amplitude.getInstance().disableCoppaControl();
 ```
 
@@ -382,7 +446,7 @@ These features aren't supported in Flutter web:
 
 - `enableCoppaControl`
 - `disableCoppaControl`
-- `trackingSessionEvents`
+- `trackingSessionEvents`. While Flutter Web doesn’t support the ability to send `Start Session` and `End Session` events automatically, the SDK will automatically track session IDs. You can use this for common session-based analyses like the User Session and Pathfinder charts. See our help docs on tracking sessions in Amplitude to [learn more](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude).
 - `useAppSetIdForDeviceId`
 
 #### Usage

@@ -13,9 +13,6 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Click here for more documentation on the [Amplitude Node SDK](./index.md).
 
-!!!note "Deprecated Itly runtime"
-    This page covers Node.js JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](data/../../deprecated-sdks/nodejs)**.
-
 --8<-- "includes/beta-not-supported.md"
 
 ???tip "Enable type checking"
@@ -31,8 +28,8 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
 
     Jetbrains provides similar support:
 
-    1. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
-    2. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
+    3. Go to **Preferences > Editor > Inspections > JavaScript and TypeScript > General**.
+    4. In **Signature mismatch** and **Type mismatch**, set the **Severity** to Warning or Error based on your desired level of strictness.
 
 --8<-- "includes/ampli-linting-with-prettier.md"
 
@@ -163,7 +160,7 @@ For example, your tracking plan contains a user property called `role`. The prop
     });
     ```
 
-The options argument allows you to pass [Amplitude fields](../analytics/apis/http-v2-api#keys-for-the-event-argument) for this call, such as `deviceId`.
+The options argument allows you to pass [Amplitude fields](../../../analytics/apis/http-v2-api.md#keys-for-the-event-argument) for this call, such as `deviceId`.
 
 === "TypeScript"
 
@@ -253,13 +250,13 @@ To track an event, call the event's corresponding function. Every event in your 
 
 `properties` passes in event properties specific to this event in the tracking plan.
 
-The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 
 For example, your tracking plan contains an event called Song Played. The SDK generates the `songPlayed` function for the event, using camel case to make it valid JavaScript. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
+The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../../sdk-middleware).
 
 === "TypeScript"
 
@@ -335,31 +332,3 @@ Track Event objects using Ampli `track`:
 --8<-- "includes/ampli/flush/ampli-flush-snippet-typescript.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
-
-## Migrate from an Itly runtime
-
-Migrate from an Itly Node.js runtime to Ampli by following these steps.
-
-1. Update Source runtime. In the web app open the **Connections > Source** modal. From the dropdown, update the source to a non-`(Itly)` runtime.
-2. Follow steps on this page for detailed setup and usage instructions.
-3. Remove legacy Itly dependencies from your project. This includes anything that contains `@itly`:
-
-      `yarn remove @itly/sdk @itly/plugin-schema-validator @itly/plugin-amplitude-node ...`
-4. Add Amplitude dependencies:
-
-    `yarn add @amplitude/node@^1.10.2`
-
-5. Pull the latest Ampli Wrapper:
-
-    `ampli pull`
-
-6. Check your Ampli Wrapper path.
-
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-
-7. Find and replace:
-    - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
-    - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
-    - `itly.load()` => `ampli.load()`
-    - All `itly.` with `ampli.`
-8. See updated Event tracking details on your Implementation page in the web app.

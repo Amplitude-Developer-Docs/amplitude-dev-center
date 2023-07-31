@@ -12,7 +12,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Browser"
 
-    The Browser SDK lets you send events to Amplitude. See the full documentation at [Browser SDK](../typescript-browser/).
+    The Browser SDK lets you send events to Amplitude. See the [Browser SDK documentation](../typescript-browser/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library)
@@ -27,145 +27,87 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         
     Install the dependency using NPM, YARN, or script loader.
 
+    === "Script loader"
+        This package is also distributed through a CDN. Copy and paste this script in your HTML file.
+        ```html
+
+        <script type="text/javascript">
+        !function(){"use strict";!function(e,t){var n=e.amplitude||{_q:[],_iq:{}};if(n.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var r=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,n){return function(r){e._q.push({name:t,args:Array.prototype.slice.call(n,0),resolve:r})}},o=function(e,t,n){e[t]=function(){if(n)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<m.length;t++)o(e,m[t],!1);for(var n=0;n<g.length;n++)o(e,g[n],!0)};n.invoked=!0;var u=t.createElement("script");u.type="text/javascript",u.integrity="sha384-x0ik2D45ZDEEEpYpEuDpmj05fY91P7EOZkgdKmq4dKL/ZAVcufJ+nULFtGn0HIZE",u.crossOrigin="anonymous",u.async=!0,u.src="https://cdn.amplitude.com/libs/analytics-browser-2.0.0-min.js.gz",u.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var a=t.getElementsByTagName("script")[0];a.parentNode.insertBefore(u,a);for(var c=function(){return this._q=[],this},p=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],l=0;l<p.length;l++)r(c,p[l]);n.Identify=c;for(var d=function(){return this._q=[],this},f=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],v=0;v<f.length;v++)r(d,f[v]);n.Revenue=d;var m=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset","extendSession"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(n),n.createInstance=function(e){return n._iq[e]={_q:[]},i(n._iq[e]),n._iq[e]},e.amplitude=n}}(window,document)}();
+        </script>
+        ```
     === "NPM"
         ```bash
-
         npm install @amplitude/analytics-browser
-
         ```
+
+        Import Amplitude to your project
+
+        ```ts
+        import * as amplitude from '@amplitude/analytics-browser';
+        ```
+
     === "YARN"
         ```bash
 
         yarn add @amplitude/analytics-browser
         ```
 
-    === "Script loader"
-        This package is also distributed through a CDN. Copy and paste this script in your HTML file.
-        ```html
+        Import Amplitude to your project
 
-        <script type="text/javascript">
-        !function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[],_iq:[]};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var n=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,r){return function(n){e._q.push({name:t,args:Array.prototype.slice.call(r,0),resolve:n})}},o=function(e,t,r){e[t]=function(){if(r)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<y.length;t++)o(e,y[t],!1);for(var r=0;r<g.length;r++)o(e,g[r],!0)};r.invoked=!0;var c=t.createElement("script");c.type="text/javascript",c.integrity="sha384-lyGcqRAilM5YOiZT3ktByF3Mv52pltOelJ66zwfcAZ/4s8cB1sSo7yMF2XWh+bzX",c.crossOrigin="anonymous",c.async=!0,c.src="https://cdn.amplitude.com/libs/analytics-browser-1.6.8-min.js.gz",c.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var a=t.getElementsByTagName("script")[0];a.parentNode.insertBefore(c,a);for(var u=function(){return this._q=[],this},l=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],p=0;p<l.length;p++)n(u,l[p]);r.Identify=u;for(var d=function(){return this._q=[],this},v=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],f=0;f<v.length;f++)n(d,v[f]);r.Revenue=d;var y=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(r),r.createInstance=function(){var e=r._iq.push({_q:[]})-1;return i(r._iq[e]),r._iq[e]},e.amplitude=r}}(window,document)}();
-        </script>
+        ```ts
+        import * as amplitude from '@amplitude/analytics-browser';
         ```
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
-    === "TypeScript"
-
-        ```ts
-        import { init } from '@amplitude/analytics-browser';
-
-        init(AMPLITUDE_API_KEY);
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { init } from '@amplitude/analytics-browser';
-
-        init(AMPLITUDE_API_KEY);
-        ```
+    ```ts
+    amplitude.init(AMPLITUDE_API_KEY);
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-send-data.md"
 
-    === "TypeScript"
-
-        ```ts
-        import { track } from '@amplitude/analytics-browser';
-
-        const eventProperties = {
-          buttonColor: 'primary',
-        };
-        track('Button Clicked', eventProperties);
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { track } from '@amplitude/analytics-browser';
-
-        const eventProperties = {
-          buttonColor: 'primary',
-        };
-        track('Button Clicked', eventProperties);
-        ```
+    ```ts
+    const eventProperties = {
+        buttonColor: 'primary',
+    };
+    amplitude.track('Button Clicked', eventProperties);
+    ```
 
     --8<-- "includes/sdk-quickstart/quickstart-check-for-success.md"
 
-    ### Instrument Explorer
-
-    Download the Google Chrome Extension, which helps you examine and debug your Amplitude Browser SDK.
-
-    Learn more about [Instrument Explorer](https://chrome.google.com/webstore/detail/amplitude-event-explorer/acehfjhnmhbmgkedjmjlobpgdicnhkbp?hl=en).
-
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
-    === "TypeScript"
+    ```ts
+    amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com');
+    const eventProperties = {
+        buttonColor: 'primary',
+    };
 
-        ```ts
-        import { init, identify, Identify, track } from '@amplitude/analytics-browser';
+    const identifyObj = new Identify();
+    identifyObj.set('location', 'LAX');
+    amplitude.identify(identifyObj);
 
-        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-        const eventProperties = {
-            buttonColor: 'primary',
-        };
-
-        const identifyObj = new Identify();
-        identifyObj.set('location', 'LAX');
-        identify(identifyObj);
-
-        track('Button Clicked', eventProperties);
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { init, identify, Identify, track } from '@amplitude/analytics-browser';
-
-        init(AMPLITUDE_API_KEY, 'user@amplitude.com');
-        const eventProperties = {
-            buttonColor: 'primary',
-        };
-
-        const identifyObj = new Identify();
-        identifyObj.set('location', 'LAX');
-        identify(identifyObj);
-
-        track('Button Clicked', eventProperties);
-        ```
+    amplitude.track('Button Clicked', eventProperties);
+    ```
 
     Learn more available functionalities in [Browser SDK](../typescript-browser/).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
-    === "TypeScript"
+    ```ts
+    import { ampli } from './ampli';
+    ampli.load({ environment: 'production' });
 
-        ```ts
-
-        import { ampli } from './ampli';
-        ampli.load({ environment: 'production' });
-
-        ampli.buttonClicked({
-            buttonColor: 'primary',
-        });
-        ```
-
-    === "JavaScript"
-
-        ```js
-        import { ampli } from './ampli';
-        ampli.load({ environment: 'production' });
-
-        ampli.buttonClicked({
-            buttonColor: 'primary',
-        });
-        ```
+    ampli.buttonClicked({
+        buttonColor: 'primary',
+    });
+    ```
 
     Learn more about and set up the [Browser Ampli](../typescript-browser/ampli/).
 
 === "Node"
 
-    The Node.js SDK lets you send events to Amplitude. See the full documentation at [Node.js SDK](../typescript-node/).
+    The Node.js SDK lets you send events to Amplitude. See the [Node.js SDK documentation](../typescript-node/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_1)
@@ -318,7 +260,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Android"
 
-    The Android SDK lets you send events to Amplitude. See the full documentation at [Android SDK](../android-kotlin/) for additional configurations and advanced topics.
+    The Android SDK lets you send events to Amplitude. See the [Android SDK documentation](../android-kotlin/) for additional configurations and advanced topics.
 
     ???example "Get started fast with an example project (click to expand)"
     
@@ -327,7 +269,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
             1. Clone the repo.
             2. Open it with Android Studio.
-            3. Change your [API key](../../analytics/find-api-credentials/) in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
+            3. Change your [API key](../../analytics/find-api-credentials.md) in `build.gradle` for `Module: samples: kotlin-android-app` under Gradle Scripts. 
             4. Sync the project with Gradle files. 
             4. Run `samples.kotlin-android-app`.
             5. Press the button to send events in the running application. 
@@ -338,7 +280,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
             1. Clone the repo.
             2. Open it with Android Studio.
-            3. Change your [API key](../../analytics/find-api-credentials/) in `build.gradle` for `Module: samples: java-android-app` under Gradle Scripts. 
+            3. Change your [API key](../../analytics/find-api-credentials.md) in `build.gradle` for `Module: samples: java-android-app` under Gradle Scripts. 
             4. Sync the project with Gradle files. 
             4. Run `samples.java-android-app`.
             5. Press the button to send events in the running application. 
@@ -349,7 +291,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
             1. Clone the repo.
             2. Open it with Android Studio.
-            3. Change your [API key](../../analytics/find-api-credentials/) in `samples/kotlin-jvm-app/main/java/main.kt` and run the file.
+            3. Change your [API key](../../analytics/find-api-credentials.md) in `samples/kotlin-jvm-app/main/java/main.kt` and run the file.
             4. [Check for success](./#check-for-success_2).
 
     !!!info "Quickstart table of contents"
@@ -585,10 +527,10 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     Learn more about [Ampli Android](../android-kotlin/ampli/).
 
 === "iOS"
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK](../ios/)
+    The iOS SDK lets you send events to Amplitude. See the [iOS SDK documentation](./ios/index.md) for additional configurations and advanced topics.
 
     !!!warning New Version Available
-        This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](../ios-swift/) has additional features such as plugins and more. See the [Migration Guide](../ios-swift/migration/) for more help.
+        This is the time tested iOS SDK, however here is a new version in beta that is highly recommended for all customers using Swift. The latest [iOS Swift SDK](./ios-swift/index.md) has additional features such as plugins and more. See the [Migration Guide](./ios-swift/migration.md) for more help.
 
         Please note that the latest iOS Swift SDK is **NOT** compatible with Objective-C projects. Use this SDK if your project requires compatibility with Objective-C.
 
@@ -610,7 +552,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Add the dependency to `Podfile`.
 
         ```bash
-        pod 'Amplitude', '~> 8.14'
+        pod 'Amplitude', '~> 8.17.1'
         ```
         Run `pod install` in the project directory to download the dependency.
 
@@ -635,7 +577,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Objective-C"
 
         ```obj-c
-        #import <Amplitude/Amplitude.h>
+        #import <Amplitude.h>
 
         [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
         ```
@@ -702,19 +644,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Objective-C"
 
         ```obj-c
-        #import "Amplitude.h"
+        #import <Amplitude.h>
 
         (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
             // Enable sending automatic session events
-            [Amplitude instance].trackingSessionEvents = YES;
-            
+            [Amplitude instance].defaultTracking.sessions = YES;
+
             // Initialize SDK
             [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
-            
+
             // Set userId
             [[Amplitude instance] setUserId:@"userId"];
-            
+
             // Log an event
             [[Amplitude instance] logEvent:@"app_start"];
         }
@@ -729,7 +671,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
             // Enable sending automatic session events
-            Amplitude.instance().trackingSessionEvents = true
+            Amplitude.instance().defaultTracking.sessions = true
             // Initialize SDK
             Amplitude.instance().initializeApiKey("YOUR_API_KEY")
             // Set userId
@@ -741,7 +683,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         }
         ```
 
-    Learn more available functionalities in [iOS SDK](../ios/).
+    Learn more available functionalities in [iOS SDK](./ios/index.md).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
@@ -770,23 +712,23 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         ```
 
-    Learn more about [Ampli iOS](../ios/ampli/).
+    Learn more about [Ampli iOS](./ios/ampli.md).
 
 === "iOS-Beta"
 
-    The iOS SDK lets you send events to Amplitude. See the full documentation at [iOS SDK (Beta)](../ios-swift/).
+    The iOS SDK lets you send events to Amplitude. See the [iOS SDK (Beta) documentation](./ios-swift/index.md) for additional configurations and advanced topics.
 
     !!!beta "iOS Swift SDK (Beta)"
         This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you require support for Objective-C or have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
 
-        To migrate to the latest version of Amplitude iOS SDK, see the [Migration Guide](../ios-swift/migration/).
-    
+        To migrate to the latest version of Amplitude iOS SDK, see the [Migration Guide](./ios-swift/migration.md).
+
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_3)
-        2. [Send data](#send-data_3)
-        3. [Check for success](#check-for-success_3)
-        4. [Complete code example](#complete-code-example_3)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_3)
+        1. [Initialize the library](#initialize-the-library_4)
+        2. [Send data](#send-data_4)
+        3. [Check for success](#check-for-success_4)
+        4. [Complete code example](#complete-code-example_4)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_4)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -871,25 +813,25 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     )
     ```
 
-    Learn more available functionalities in [iOS SDK](./ios-swift/).
+    Learn more available functionalities in [iOS SDK](./ios-swift/index.md).
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
     --8<-- "includes/no-ampli.md"
-        To use Ampli see the [non-Beta SDK](./ios/) and [Ampli Wrapper](./ios/ampli.md) instead.
+        To use Ampli see the [non-Beta SDK](./ios/index.md) and [Ampli Wrapper](./ios/ampli.md) instead.
 
     Coming soon.
 
 === "JRE"
 
-    This is the documentation for the **Amplitude Analytics Java SDK**. This is not the Android SDK. See the full documentation at [Java SDK](../java/).
+    This is the documentation for the **Amplitude Analytics Java SDK**. This is not the Android SDK. See the [Java SDK documentation](../java/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_4)
-        2. [Send data](#send-data_4)
-        3. [Check for success](#check-for-success_4)
-        4. [Complete code example](#complete-code-example_4)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_4)
+        1. [Initialize the library](#initialize-the-library_5)
+        2. [Send data](#send-data_5)
+        3. [Check for success](#check-for-success_5)
+        4. [Complete code example](#complete-code-example_5)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_5)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1051,14 +993,14 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Python"
 
-    The Python SDK lets you send events to Amplitude. See the full documentation at [Pythohn SDK](../sdks/python/) for additional configurations and advanced topics.
+    The Python SDK lets you send events to Amplitude. See the [Python SDK documentation](./python/index.md) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_5)
-        2. [Send data](#send-data_5)
-        3. [Check for success](#check-for-success_5)
-        4. [Complete code example](#complete-code-example_5)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_5)
+        1. [Initialize the library](#initialize-the-library_6)
+        2. [Send data](#send-data_6)
+        3. [Check for success](#check-for-success_6)
+        4. [Complete code example](#complete-code-example_6)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_6)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1167,14 +1109,14 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "React Native"
 
-    The React Native SDK lets you send events to Amplitude. See the full documentation at [React Native SDK](../typescript-react-native/).
+    The React Native SDK lets you send events to Amplitude. See the [React Native SDK documentation](../typescript-react-native/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_6)
-        2. [Send data](#send-data_6)
-        3. [Check for success](#check-for-success_6)
-        4. [Complete code example](#complete-code-example_6)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_6)
+        1. [Initialize the library](#initialize-the-library_7)
+        2. [Send data](#send-data_7)
+        3. [Check for success](#check-for-success_7)
+        4. [Complete code example](#complete-code-example_7)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_7)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1323,14 +1265,14 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Flutter"
 
-    The Flutter SDK lets you send events to Amplitude. See the full documentation at [Flutter SDK](../flutter/).
+    The Flutter SDK lets you send events to Amplitude. See the [Flutter SDK documentation](../flutter/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_7)
-        2. [Send data](#send-data_7)
-        3. [Check for success](#check-for-success_7)
-        4. [Complete code example](#complete-code-example_7)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_7)
+        1. [Initialize the library](#initialize-the-library_8)
+        2. [Send data](#send-data_8)
+        3. [Check for success](#check-for-success_8)
+        4. [Complete code example](#complete-code-example_8)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_8)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1406,14 +1348,14 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Go"
 
-    The Go SDK lets you send events to Amplitude. See the full documentation at [Go SDK](../go/).
+    The Go SDK lets you send events to Amplitude. See the [Go SDK documentation](../go/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_8)
-        2. [Send data](#send-data_8)
-        3. [Check for success](#check-for-success_8)
-        4. [Complete code example](#complete-code-example_8)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_8)
+        1. [Initialize the library](#initialize-the-library_9)
+        2. [Send data](#send-data_9)
+        3. [Check for success](#check-for-success_9)
+        4. [Complete code example](#complete-code-example_9)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_9)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1498,14 +1440,14 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Unity"
 
-    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the full documentation at [Unity SDK](../unity/).
+    The Amplitude Analytics Unity SDK is a plugin to simplify the integration of Amplitude iOS and Android SDKs into your Unity project. This SDK works with Unity 2019.3.11 and higher. See the [Unity SDK documentation](../unity/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_9)
-        2. [Send data](#send-data_9)
-        3. [Check for success](#check-for-success_9)
-        4. [Complete code example](#complete-code-example_9)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_9)
+        1. [Initialize the library](#initialize-the-library_10)
+        2. [Send data](#send-data_10)
+        3. [Check for success](#check-for-success_10)
+        4. [Complete code example](#complete-code-example_10)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_10)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
@@ -1517,7 +1459,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
         ```
-        Learn more about [Unity package manager initizalization](../unity/#option-1-unity-package-manager)
+        Learn more about [Unity package manager initialization](../unity/#option-1-unity-package-manager)
 
     === "Manual download"
 
@@ -1580,14 +1522,14 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Unreal"
 
-    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the full documentation at [Unreal Engine SDK](../unreal/).
+    The Amplitude Analytics Unreal Engine SDK supports projects targeting iOS, MacOS, or tvOS. See the [Unreal Engine SDK documentation](../unreal/) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
-        1. [Initialize the library](#initialize-the-library_10)
-        2. [Send data](#send-data_10)
-        3. [Check for success](#check-for-success_10)
-        4. [Complete code example](#complete-code-example_10)
-        5. [Enforce event schemas](#enforce-event-schemas-ampli_10)
+        1. [Initialize the library](#initialize-the-library_11)
+        2. [Send data](#send-data_11)
+        3. [Check for success](#check-for-success_11)
+        4. [Complete code example](#complete-code-example_11)
+        5. [Enforce event schemas](#enforce-event-schemas-ampli_11)
 
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 

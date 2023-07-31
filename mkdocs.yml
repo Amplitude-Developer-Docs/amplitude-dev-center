@@ -43,7 +43,7 @@ theme:
     - navigation.path # enables breadcrumbs
     - navigation.indexes # enables attaching a page to section head: the "index" pages
     - navigation.sections # top-level sections are rendered in groups in the sidebar
-    - navigation.tabs # adds the top level menu tabs in the header bar. 
+    - navigation.tabs # adds the top level menu tabs in the header bar.
     # - navigation.tabs.sticky
     - navigation.top # back to top button
     - navigation.tracking # URL in the address bar is automatically updated with the active anchor as highlighted in the table of contents.
@@ -69,12 +69,12 @@ plugins:
   - search # the search plugin
   - git-revision-date # enables the git revision date functionality
 
-# Extensions 
-# When you add or change an extension here, mirror changes in insiders.mkdocs.yml. 
+# Extensions
+# When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
 markdown_extensions:
   - admonition # enables 'callout' boxes
   - abbr # Enables the ability to add a small tooltip to an element, by wrapping it with an abbr tag. Only plain text (no markup) is supported. Use with the "abbreviations" includes file
-  - attr_list # Enables adding HTML attributes and CSS classes to almost every Markdown inline- and block-level element with a special syntax. 
+  - attr_list # Enables adding HTML attributes and CSS classes to almost every Markdown inline- and block-level element with a special syntax.
   - def_list # Enables definition lists (more commonly known as description lists – dl in HTML. https://squidfunk.github.io/mkdocs-material/reference/lists/#using-definition-lists
   - footnotes # Enables adding inline syntax to create footnotes
   - meta # enables page metadata
@@ -99,7 +99,7 @@ markdown_extensions:
           - overrides/.icons
   - pymdownx.highlight: # Enables code block syntax highlighting
       #anchor_linenums: true
-      use_pygments: true 
+      use_pygments: true
   - pymdownx.inlinehilite # Enables syntax highlighting of inline code blocks
   - pymdownx.keys # Enables inline key display
   - pymdownx.mark # used with carat and tilde to allow marking content (https://squidfunk.github.io/mkdocs-material/reference/formatting/#highlighting-text)
@@ -111,7 +111,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed: # Enables content tabs
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.tasklist: # Enables task lists
       custom_checkbox: true
   - pymdownx.tilde # enables strikthrough (<del> tags) and subscripts https://facelessuser.github.io/pymdown-extensions/extensions/tilde/
@@ -151,7 +151,7 @@ extra:
 
 # Navigation
 nav:
-- Documentation: 
+- Documentation:
   - Documentation Home: documentation-home.md
   - Analytics:
     - analytics/index.md
@@ -166,7 +166,7 @@ nav:
       - Use AMP with Amplitude: analytics/use-amp-pages.md
   - Data:
     - data/index.md
-    - Overview: data/index.md  
+    - Overview: data/index.md
     - Getting Started: "getting-started.md"
     - Sources:
       - Overview: data/sources.md
@@ -177,8 +177,6 @@ nav:
         - data/ampli/sdk.md
         - data/ampli/integrating-with-ci.md
         - Source Control: data/ampli/git-workflow.md
-        - data/ampli/middleware.md
-        - data/ampli/plugin.md
         - data/ampli/migration.md
       - SDKs: data/sdks/sdk-overview.md
       - Cloud Storage:
@@ -187,7 +185,7 @@ nav:
         - Google Cloud Storage: data/sources/google-cloud-storage.md
         - Converter Configuration: data/converter-configuration-reference.md
       - Warehouse:
-        #- BigQuery: data/sources/bigquery.md
+        - BigQuery: data/sources/bigquery.md
         - Snowflake: data/sources/snowflake.md
       - Other Sources:
         - Overview: data/source-other-overview.md
@@ -199,6 +197,7 @@ nav:
           - Airbridge: data/sources/airbridge.md
           - AppsFlyer: data/sources/appsflyer.md
           - Branch: data/sources/branch.md
+          - Kochava: data/sources/kochava.md
           - Singular: data/sources/singular.md
         - CDP:
           - mParticle: data/sources/mparticle.md
@@ -215,8 +214,9 @@ nav:
           - Radar: data/sources/radar.md
           - SendGrid: data/sources/sendgrid.md
           - Userflow: data/sources/userflow.md
+          - Userguiding: data/sources/userguiding.md
           - Bento: data/sources/bento.md
-        - Experimentation: 
+        - Experimentation:
           - Optimizely: data/sources/optimizely.md
           - Split: data/sources/split.md
           - Taplytics: data/sources/taplytics.md
@@ -226,12 +226,13 @@ nav:
           - Adobe:
             - Adobe Analytics: data/sources/adobe-analytics.md
             - Adobe Tag Manager: data/sources/adobe.md
-          - Google Tag Manager: 
-            - Quickstart Guide: data/sources/google-tag-manager.md
+          - Google Tag Manager:
+            - data/sources/google-tag-manager/index.md
             - Client-side: data/sources/google-tag-manager-client.md
             - Server-side: data/sources/google-tag-manager-server.md
             - Client-side (Legacy): data/sources/google-tag-manager-client-legacy.md
         - Marketing Automation:
+          #- Airship: data/sources/airship.md
           - Braze: data/sources/braze.md
           - HubSpot: data/sources/hubspot.md
           - Iterable: data/sources/iterable.md
@@ -243,6 +244,7 @@ nav:
         - Other:
           - Datazoom: data/sources/datazoom.md
           - Kochava: data/sources/kochava.md
+          - Blitzllama: data/sources/blitzllama.md
         - Privacy:
           - MetaRouter: data/sources/metarouter.md
         - Qualitative Feeback:
@@ -252,12 +254,13 @@ nav:
         - Reverse ETL:
           - Census: data/sources/census.md
           - Hightouch: data/sources/hightouch.md
-        - Sales: 
+        - Sales:
           - Salesforce: data/sources/salesforce-group.md
         - Subscription Management:
+          - Adapty: data/sources/adapty.md
           - Apphud: data/sources/apphud.md
           - RevenueCat: data/sources/revenuecat.md
-        - Website: 
+        - Website:
           - Convizit: data/sources/convizit.md
     - Destinations:
       - Overview: data/destinations.md
@@ -271,23 +274,36 @@ nav:
         - BigQuery: data/destinations/bigquery.md
         - Snowflake: data/destinations/snowflake.md
         - Snowflake Data Share: data/destinations/snowflake-data-share.md
-      - Event Streaming: 
+      - Event Streaming:
         - Overview: data/destination-event-streaming-overview.md
+        - Appfit: data/destinations/appfit-event-streaming.md
         - AppsFlyer: data/destinations/appsflyer.md
+        - Bento: data/destinations/bento-event-streaming.md
+        - Branch: data/destinations/branch.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
-        - Kameleoon: data/destinations/kameleoon-event-streaming.md
-        - Lantern: data/destinations/lantern-event-streaming.md
-        - Pub/Sub: data/destinations/google-pub-sub.md
+        - Fullstory: data/destinations/fullstory-event-streaming.md
         - Google Analytics 4 (iOS/Android): data/destinations/google-analytics-4-firebase.md
         - Google Analytics 4 (Web): data/destinations/google-analytics-4-gtag.md
+        - Google Ads: data/destinations/google-ads-event-streaming.md
+        - Google Pub/Sub: data/destinations/google-pub-sub.md
+        - Google Tag Manager: data/destinations/google-tag-manager-event-streaming.md
+        - Hotjar: data/destinations/hotjar-event-streaming.md
+        - Hubspot: data/destinations/hubspot-event-streaming.md
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
+        - Kameleoon: data/destinations/kameleoon-event-streaming.md
         - Kinesis: data/destinations/kinesis-data-stream.md
         - Kinesis Firehose: data/destinations/kinesis-firehose.md
+        - Lantern: data/destinations/lantern-event-streaming.md
+        - Mailchimp: data/destinations/mailchimp-event-streaming.md
         - Meta Pixel: data/destinations/meta-pixel.md
+        - MoEngage: data/destinations/moengage-event-streaming.md
+        - Moloco: data/destinations/moloco-event-streaming.md
+        - Planhat: data/destinations/planhat-event-streaming.md
+        - Salesforce Marketing Cloud: data/destinations/marketing-cloud-event-streaming.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
         - Userlist: data/destinations/userlist-event-streaming.md
@@ -299,7 +315,9 @@ nav:
         - Amazon S3: data/destinations/amazon-s3-cohort.md
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
+        - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
+        - CleverTap: data/destinations/clevertap-cohort.md
         - Cordial: data/destinations/cordial-cohort.md
         - Customer.io: data/destinations/customerio-cohort.md
         - Enterpret: data/destinations/enterpret-cohort.md
@@ -314,8 +332,6 @@ nav:
         - LaunchDarkly: data/destinations/launchdarkly-cohort.md
         - Leanplum: data/destinations/leanplum-cohort.md
         - Mailchimp: data/destinations/mailchimp-cohort.md
-        - Marketing Cloud v1: data/destinations/marketing-cloud-cohort.md
-        - Marketing Cloud v2: data/destinations/marketing-cloud-cohort-v2.md
         - Marketo: data/destinations/marketo-cohort.md
         - Marketo Static List: data/destinations/marketo-static-list-cohort.md
         - Maze: data/destinations/maze-cohort.md
@@ -326,6 +342,8 @@ nav:
         - Plotline: data/destinations/plotline-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
+        - Salesforce Marketing V1: data/destinations/marketing-cloud-cohort.md
+        - Salesforce Marketing V2: data/destinations/marketing-cloud-cohort-v2.md
         - Sendgrid: data/destinations/sendgrid-cohort.md
         - Split: data/destinations/split-cohort.md
         - Segment: data/destinations/segment-cohort.md
@@ -335,6 +353,8 @@ nav:
         - TikTok: data/destinations/tiktok-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
+        - User.com: data/destinations/user.com-cohort.md
+        - Zeda.io: data/destinations/zeda.io-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
     - Privacy and PII:
@@ -354,6 +374,7 @@ nav:
           - Local Evaluation: experiment/general/evaluation/local-evaluation.md
         - experiment/general/performance-and-caching.md
         - experiment/general/exposure-tracking.md
+        - experiment/general/flag-dependencies.md
       - Guides:
         - Getting Started:
           - experiment/guides/getting-started/index.md
@@ -367,6 +388,7 @@ nav:
           - Variant Jumping: experiment/guides/troubleshooting/variant-jumping.md
           - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
           - Exposures without Assignments: experiment/guides/troubleshooting/exposures-without-assignments.md
+          - Restarting experiments (Beta): experiment/guides/troubleshooting/restarting-experiments.md
       - SDKs:
         - JavaScript SDK: experiment/sdks/javascript-sdk.md
         - Android SDK: experiment/sdks/android-sdk.md
@@ -377,25 +399,26 @@ nav:
         - JVM SDK: experiment/sdks/jvm-sdk.md
         - Go SDK: experiment/sdks/go-sdk.md
         - Python SDK: experiment/sdks/python-sdk.md
+        - Evaluation Proxy: experiment/infra/evaluation-proxy.md
         - Maintenance:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API (Beta): experiment/apis/management-api.md
-  - Docs Changelog: changelog.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
   - Amplitude Keys Guide: guides/amplitude-keys-guide.md
   - Data Backfill Guide: analytics/data-backfill-guide.md
   - Segment Migration Guide: guides/segment-migration-guide.md
+  - Cookies and Consent Management: guides/cookies-consent-mgmt-guide.md
 - APIs:
   - analytics/apis/index.md
   - Find your API credentials: analytics/find-api-credentials.md
   #- Authentication: analytics/apis/authentication.md
   #- Limits: analytics/apis/rate-limits.md
   #- Use Postman with the APIs: analytics/apis/rate-limits.md
-  - API References: 
+  - API References:
     - Overview: analytics/api-reference-overview.md
     - Attribution: analytics/apis/attribution-api.md
     - Batch Event Upload: analytics/apis/batch-event-upload-api.md
@@ -417,16 +440,23 @@ nav:
     - User Mapping (Aliasing): analytics/apis/aliasing-api.md
     - User Privacy: analytics/apis/user-privacy-api.md
     - User Profile: analytics/apis/user-profile-api.md
-- SDKs: 
+- SDKs:
     - data/sdks/index.md
     - Quickstart Guide: data/sdks/sdk-quickstart.md
-    - SDK References: 
+    - SDK Architecture: data/sdks/sdk-architecture.md
+    - Ampli: data/sdks/ampli-overview.md
+    - SDK References:
       - SDK Catalog: data/sdks/sdk-overview.md
       - Browser:
-        - data/sdks/typescript-browser/index.md
-        - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
-        - Ampli Codegen: data/sdks/typescript-browser/ampli.md
-        - Migration Guide: data/sdks/typescript-browser/migration.md
+        - data/sdks/browser-2/index.md
+        - v2.0:
+          - data/sdks/browser-2/index.md
+          - Ampli Codegen: data/sdks/browser-2/ampli.md
+        - v1.0:
+          - data/sdks/typescript-browser/index.md
+          - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
+          - Ampli Codegen: data/sdks/typescript-browser/ampli.md
+          - Migration Guide: data/sdks/browser-2/migration.md
       - Node.js:
         - data/sdks/typescript-node/index.md
         - Ampli Codegen: data/sdks/typescript-node/ampli.md
@@ -436,9 +466,9 @@ nav:
       - iOS:
         - data/sdks/ios/index.md
         - Ampli Codegen: data/sdks/ios/ampli.md
+        - Migration Guide: data/sdks/ios-swift/migration.md
       - iOS (Beta):
         - data/sdks/ios-swift/index.md
-        - Migration Guide: data/sdks/ios-swift/migration.md
       - Java:
         - data/sdks/java/index.md
         - Ampli Codegen: data/sdks/java/ampli.md
@@ -461,17 +491,25 @@ nav:
       - Browser:
         - data/sdks/javascript/index.md
         - Ampli Codegen: data/sdks/javascript/ampli.md
+        - Migration Guide: data/sdks/typescript-browser/migration.md
       - Android:
         - data/sdks/android/index.md
         - Ampli Codegen: data/sdks/android/ampli.md
+        - Migration Guide: data/sdks/android-kotlin/migration.md
       - React Native:
         - data/sdks/react-native/index.md
         - Ampli Codegen: data/sdks/react-native/ampli.md
+        - Migration Guide: data/sdks/typescript-react-native/migration.md
       - Node.js:
         - data/sdks/node/index.md
         - Ampli Codegen: data/sdks/node/ampli.md
+        - Migration Guide: data/sdks/typescript-node/migration.md
     - Other Topics:
-      - data/dynamic-configuration.md
+      - Dynamic Configuration: data/dynamic-configuration.md
+      - Plugins: data/sdk-plugins.md
+      - Middleware: data/sdk-middleware.md
+      - Troubleshooting and debugging: data/sdk-troubleshooting-and-debugging.md
+      - Maintenance and support: data/sdks/sdk-maintenance-and-support.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

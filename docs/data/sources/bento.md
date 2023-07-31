@@ -17,11 +17,11 @@ With the Bento ingestion integration, you can send events to Amplitude to unders
 
 ## Setup
 
-This guide is complementary to Bento’s instructions. Visit the [Bento documentation(https://help.trybento.co/en/articles/6978743-send-events-to-amplitude) for more.
+This guide is complementary to Bento’s instructions. Visit the [Bento documentation](https://help.trybento.co/en/articles/6978743-send-events-to-amplitude) for more.
 
 ### Amplitude setup
 
-Copy your project's API key. There are no other setup steps in Amplitude. [Find your project API key](../analytics/find-api-credentials).
+Copy your project's API key. There are no other setup steps in Amplitude. [Find your project API key](../../analytics/find-api-credentials.md).
 
 ### Bento setup
 

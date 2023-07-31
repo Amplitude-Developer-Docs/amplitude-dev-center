@@ -25,6 +25,7 @@ Use the Behavioral Cohorts API to list all your cohorts in Amplitude, export a c
     1. Request a single cohort.
     2. Poll the cohort status.
     3. Download the file.
+- There is limit on Cohort Download to request a single cohort: 60 requests per 10 minutes per app, and 4 parallel request per minute per app.
 
 ## Get all cohorts
 
@@ -35,7 +36,7 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
     ```bash
 
     curl --location --request GET 'https://amplitude.com/api/3/cohorts' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -45,6 +46,16 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
     Host: amplitude.com
     Authorization: Basic {{api-key}}:{{secret-key}} #credentials must be base64 encoded
     ```
+
+### Get all cohorts query parameters
+
+| Name|Description|
+|----|-----|
+|`includeSyncInfo`|<span class="optional">Optional</span>. Boolean. Set to true to include cohort sync metadata in response (one-time + disabled sync will be excluded) .|
+
+!!!beta "Notes about query parameters"
+
+    - This feature is currently in Beta and requires whitelisting. Please contact Amplitude Support, or your Amplitude account manager for access.
 
 ### Get all cohorts response
 
@@ -64,18 +75,46 @@ Each COHORT_OBJECT returned has this schema:
 
 ```json
 {
-    "lastComputed": timestamp,
-    "owners": string[],
+    "appId": integer,
+    "archived": boolean, // whether cohort is archived
+    "definition": { COHORT_DEFINITION }, // Amplitude internal representation of Cohort Definition
     "description": string,
-    "definition": { COHORT_DEFINITION },
-    "published": boolean,
-    "archived": boolean,
-    "name": string,
-    "appId": string,
-    "lastMod": timestamp,
-    "type": string,
+    "finished": boolean, // Amplitude internal use to decide whether a training cohort has finished ML training
     "id": string,
-    "size": integer
+    "name": string,
+    "owners": string[],
+    "viewers": string[],
+    "published": boolean, // whether cohort is discoverable by other users
+    "size": integer,
+    "type": string, // Amplitude internal representation on different cohort types
+    "lastMod": timestamp, // last modified date
+    "createdAt": timestamp,
+    "lastComputed": timestamp,
+    "hidden": boolean, // Amplitude internal use case to hide a cohort
+    "metadata": string[], // cohort created from funnel/microscope might have this
+    "view_count": integer,
+    "popularity": integer, // cohort created from chart might have this
+    "last_viewed": timestamp,
+    "chart_id": string, // cohort created from chart will have this
+    "edit_id": string, // cohort created from chart will have this
+    "is_predictive": boolean,
+    "is_official_content": boolean,
+    "location_id": string, // cohort created from chart might have this
+    "shortcut_ids": string[],
+    "syncMetadata": COHORT_SYNC_METADATA[]
+}
+```
+
+Each COHORT_SYNC_METADATA has this schema:
+
+```json
+{
+
+    "target": string,
+    "frequency": string, // support minute (real-time), hourly, daily
+    "last_successful": timestamp,
+    "last_failure": timestamp,
+    "params": { COHORT_SYNC_LEVEL_PARAM }
 }
 ```
 
@@ -90,7 +129,7 @@ This is step one in the download a cohort operation. Use the `request_id` return
     ```bash
 
     curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/id'
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
 
     ```
 
@@ -138,7 +177,7 @@ This is step one in the download a cohort operation. Use the `request_id` return
 
             ```bash
 
-            GET /api/5/cohorts/request/26umsb5?props=1&propKeyss=Property1&propKeys=Property2 HTTP/1.1
+            GET /api/5/cohorts/request/26umsb5?props=1&propKeys=Property1&propKeys=Property2 HTTP/1.1
             Host: amplitude.com
             Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
             ```
@@ -198,7 +237,7 @@ Poll the request status using the `request_id` retrieved for the cohort. This is
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/5/cohorts/request-status/:request_id' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded'
+    -u '{api_key}:{secret_key}''
     ```
 
 === "HTTP"
@@ -265,7 +304,7 @@ This is a basic request.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/:requestId/file' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -285,7 +324,7 @@ This is a basic request.
     === "cURL"
 
         ```bash
-        curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/Sf7M9j/file'        
+        curl --location --request GET 'https://amplitude.com/api/5/cohorts/request/Sf7M9j/file'
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
         ```
 
@@ -311,14 +350,14 @@ This is a basic request.
 
 ## Upload cohort
 
-Generate a new cohort or update an existing cohort by uploading a set of User IDs or Amplitude IDs. This is a basic request example with placeholder values. 
+Generate a new cohort or update an existing cohort by uploading a set of User IDs or Amplitude IDs. This is a basic request example with placeholder values.
 
 === "cURL"
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/3/cohorts/upload' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded'
+    -u '{api_key}:{secret_key}''
     --data-raw '{
       "name": "Cohort Name",
       "app_id": amplitude_project,
@@ -365,7 +404,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
         curl --location --request POST 'https://amplitude.com/api/3/cohorts/upload' \
         --header 'Content-Type: application/json' \
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=' \
-        --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+        -u '{api_key}:{secret_key}' \
         --data-raw '{
           "name": "New Cohort",
           "app_id": 153957,
@@ -395,7 +434,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
             "app_id": 153957,
             "id_type": "BY_AMP_ID",
             "ids": [
-                "10101010101010ID1", 
+                "10101010101010ID1",
                 "00000010101010ID2"
             ],
             "owner": "datamonster@amplitude.com",
@@ -414,7 +453,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
 | `ids` | <span class="required">Required</span>. String\[\]. One or more user or Amplitude IDs to include in the cohort. Specify the ID type in the `id_type` field. |
 | `owner` | <span class="required">Required</span>. String. The login email of the cohort's owner in Amplitude. |
 | `published` | <span class="required">Required</span>. Boolean. Whether the cohort is discoverable or hidden. |
-| `existing_cohort_id` | <span class="optional">Optional</span>. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. `https//analytics.amplitude.com/accountname/cohort/**1a2bc3d**`|
+| `existing_cohort_id` | <span class="optional">Optional</span>. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. `https://analytics.amplitude.com/accountname/cohort/**1a2bc3d**`|
 
 ### Upload cohort response
 
@@ -435,7 +474,7 @@ Add and remove IDs to incrementally update existing cohort membership.
     ```bash
     curl --location --request POST 'https://amplitude.com/api/3/cohorts/membership' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --data-raw '{
     "cohort_id":"COHORT_ID",
     "memberships": [

@@ -11,7 +11,7 @@ Official documentation for Amplitude Experiment's Client-side JavaScript SDK imp
 
 ## Install
 
-![npm version](https://badge.fury.io/js/%40amplitude%2Fexperiment-js-client.svg)
+![npm version](https://img.shields.io/npm/v/@amplitude/experiment-js-client)
 
 Install the Experiment JavaScript Client SDK.
 
@@ -30,7 +30,7 @@ Install the Experiment JavaScript Client SDK.
 === "Script Tag"
 
     ```html
-    <script src="https://unpkg.com/@amplitude/experiment-js-client@1.5.6/dist/experiment.umd.js"></script>
+    <script src="https://unpkg.com/@amplitude/experiment-js-client@1.8.1/dist/experiment.umd.js"></script>
     <script>
         // TODO: Replace DEPLOYMENT_KEY with your own deployment, use
         // initializeWithAmplitudeAnalytics() to set up an integration
@@ -46,6 +46,8 @@ Install the Experiment JavaScript Client SDK.
     3. [Access a flag's variant](#variant)
 
     ```js
+    import { Experiment } from '@amplitude/experiment-js-client';
+
     // (1) Initialize the experiment client
     const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 
@@ -92,6 +94,8 @@ initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
 The initializer returns a singleton instance, so subsequent initializations for the same instance name will always return the initial instance. To create multiple instances, use the `instanceName` [configuration](#configuration).
 
 ```js
+import { Experiment } from '@amplitude/experiment-js-client';
+
 const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 ```
 

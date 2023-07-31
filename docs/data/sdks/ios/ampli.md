@@ -13,9 +13,6 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Visit the [Amplitude iOS SDK](./index.md) documentation.
 
-!!!note "Deprecated Itly runtime"
-    This page covers the iOS Swift and Objective-C runtimes. All (Itly) runtimes are deprecated. If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-ios-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/ios.md)**.
-
 ## Quick Start
 
 0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
@@ -60,7 +57,7 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 
     ```swift
     Ampli.instance.songPlayed(SongPlayed(songId: 'song-1');
-    Ampli.instance.track(SongFavorted(songId: 'song-2');
+    Ampli.instance.track(SongFavorited(songId: 'song-2');
     ```
 
 7. [Flush events before application exit](#flush)
@@ -250,7 +247,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
+The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../../sdk-middleware).
 
 === "Swift"
 
@@ -265,7 +262,7 @@ The event has two Amplitude fields defined: `price`, and `quantity`. Learn more 
     SongPlayed* event = [SongPlayed
         songId:'songId', // NSString *
         songFavorited:true, // NSNumber *
-    ]];
+    ];
 
     EventOptions* options = [EventOptions builderBlock:^(EventOptionsBuilder *builder) {
         builder.deviceId = deviceId;
@@ -320,65 +317,3 @@ You can send all Even objects using the generic track method.
 --8<-- "includes/ampli/flush/ampli-flush-snippet-ios.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
-
-## Migrate from an Itly iOS runtime
-
-Migrate from an Itly iOS runtime to Ampli by following these steps.
-
-1. Remove legacy Itly dependencies from your project. This includes anything with a `ly.iterative.itly`.
-
-    ```bash
-    pod "ItlySdk", '~> 1.X'
-    pod "ItlyAmplitudePlugin", '~> 1.X'
-    pod "ItlyIterativelyPlugin", '~> 1.X'
-    pod "ItlySchemaValidatorPlugin", '~> 1.X'
-    pod "ItlyMixpanelPlugin", '~> 1.X'
-    pod "ItlySegmentPlugin", '~> 1.X'
-    ```
-
-2. Add Amplitude dependencies.
-
-    ```bash
-    platform :ios, '10.0'
-
-    target '{Project-Name}' do
-      use_frameworks!
-
-      pod 'Amplitude', "~> 8.14"
-    end
-    ```
-
-3. Install pods.
-
-    ```bash
-    pod install
-    ```
-
-4. Pull the latest Ampli Wrapper.
-
-    ```bash
-    ampli pull
-    ```
-
-5. Check your Ampli Wrapper path.
-
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-
-6. Find and replace:
-
-    **Swift and Objective-C:**
-      - `Itly => Ampli`
-
-    **Swift only:**
-
-      - `Itly.instance.load() => Ampli.instance.load()`
-      - `Itly.instance.group(groupId) => Ampli.instance.setGroup(groupType, groupValue)`
-      - `Itly. => Ampli.`
-
-    **Objective-C only:**
-
-      - `[Itly.instance load] => [Ampli.instance load]`
-      - `[Itly.group:groupId] => [Ampli.setGroup:groupType groupValue:groupValue)`
-      - `[Itly instance] => [Ampli instance]`
-
-7. See updated Event tracking details on your Implementation page in the web app.

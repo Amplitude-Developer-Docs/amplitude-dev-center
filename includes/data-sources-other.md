@@ -2,13 +2,16 @@
 
 <div class="grid cards" markdown>
 
+- :adapty: [Adapty](../data/sources/adapty.md)
 - :adjust: [Adjust](../data/sources/adjust.md)
 - :adobe-analytics: [Adobe Analytics](../data/sources/adobe-analytics.md)
 - :adobe-experience-cloud: [Adobe Launch](../data/sources/adobe.md)
 - :airbridge: [Airbridge](../data/sources/airbridge.md)
+<!-- - :airship: [Airship](../data/sources/airship.md) -->
 - :apphud: [Apphud](../data/sources/apphud.md)
 - :appsflyer: [AppsFlyer](../data/sources/appsflyer.md)
 - :bento: [Bento](../data/sources/bento.md)
+- :blitzllama: [Blitzllama](../data/sources/blitzllama.md)
 - :branch: [Branch](../data/sources/branch.md)
 - :braze: [Braze](../data/sources/braze.md)
 - :census: [Census](../data/sources/census.md)
@@ -18,7 +21,7 @@
 - :cordial: [Cordial](../data/sources/cordial.md)
 - :csv: [CSV](../data/sources/lookup-table.md)
 - :datazoom: [Datazoom](../data/sources/datazoom.md)
-- :google-tag-manager: [Google Tag Manager](../data/sources/google-tag-manager.md)
+- :google-tag-manager: [Google Tag Manager](../sources/google-tag-manager/)
 - :hightouch: [Hightouch](../data/sources/hightouch.md)
 - :hubspot: [HubSpot](../data/sources/hubspot.md)
 - :intercom: [Intercom](../data/sources/intercom.md)
@@ -47,5 +50,6 @@
 - :taplytics: [Taplytics](../data/sources/taplytics.md)
 - :tribe: [Tribe](../data/sources/tribe.md)
 - :userflow: [Userflow](../data/sources/userflow.md)
+- :userguiding: [Userguiding](../data/sources/userguiding.md)
 
 </div>

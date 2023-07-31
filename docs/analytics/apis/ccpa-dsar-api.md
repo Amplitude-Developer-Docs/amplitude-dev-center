@@ -98,7 +98,7 @@ Create a request for user data.
     curl --location --request POST 'https://amplitude.com/api/2/dsar/requests' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
-    --header 'Authorization: Basic {{org-api-key}}:{{org-secret_key}}' # credentials must be base64 encoded \
+    -u '{org-api-key}:{org-secret_key}' \
     --data-raw '{
         "userId": 12345,
         "startDate": "2020-04-24",
@@ -281,7 +281,7 @@ The download link is valid for two days. Most clients used to send API requests 
 
     ```bash
     curl --location --request GET 'https://analytics.amplitude.com/api/2/dsar/requests/:request_id/outputs/:output_id' \
-    --header 'Authorization: Basic {{org-api-key}}:{{org-secret_key}}' # credentials must be base64 encoded
+    -u '{org-api-key}:{org-secret_key}'
     ```
 
 === "HTTP"

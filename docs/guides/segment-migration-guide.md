@@ -12,7 +12,7 @@ This document covers the necessary steps to:
 
 1. Migrate your Source and Destination configuration
 2. Update SDK implementation to send data to Amplitude
-3. Validate the migration is successfully
+3. Validate the migration is successful
 
 !!!note "Table of Contents"
     1. [Add a Source](#add-a-source)
@@ -58,8 +58,7 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
 | Screen    | Event     | Create an Event to track Screen views.|
 | Page      | Event     | Create an Event to track Page views.|
 | Group     | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
-| Plugins   | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
-
+| Plugins   | Plugins   | [Plugins](/data/sdk-plugins/) les you extend Amplitude by running a sequence of custom code on every event.|
 
 === "Browser"
 
@@ -74,18 +73,19 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> 
     ```typescript
     analytics.identify('12091906-01011992', {
-        name: 'Grace Hopper',
-        email: 'grace@usnavy.gov'
+      name: 'Grace Hopper',
+      email: 'grace@usnavy.gov'
     });
-    ```     
+    ```
     </td>
     <td>
     ```typescript
     setUserId('12091906-01011992');
-    const identifyObj = new Identify();
-    identifyObj.set('name', 'Grace Hopper');
-    identifyObj.set('email', 'grace@usnavy.gov');
-    identify(identifyObj);
+    identify(
+      Identify()
+        .set('name', 'Grace Hopper')
+        .set('email', 'grace@usnavy.gov')
+    );
     ```
     </td>
     </tr>
@@ -94,16 +94,16 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```typescript
     analytics.track('Article Completed', {
-        title: 'How to Create a Tracking Plan',
-        course: 'Intro to Analytics',
+      title: 'How to Create a Tracking Plan',
+      course: 'Intro to Analytics',
     });
     ``` 
     </td>
     <td>
     ```typescript
     track('Article Completed', {
-        title: 'How to Create a Tracking Plan',
-        course: 'Intro to Analytics',
+      title: 'How to Create a Tracking Plan',
+      course: 'Intro to Analytics',
     });
     ``` 
     </td>
@@ -113,22 +113,29 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```typescript
     analytics.group('UNIVAC Working Group', {
-    principles: ['Eckert', 'Mauchly'],
-    site: 'Eckert–Mauchly Computer Corporation',
-    statedGoals: 'Develop the first commercial computer',
-    industry: 'Technology'
+      principles: ['Eckert', 'Mauchly'],
+      site: 'Eckert–Mauchly Computer Corporation',
+      statedGoals: 'Develop the first commercial computer',
+      industry: 'Technology'
     });
     ```
     </td>
     <td>
+    Assign user to a group:
     ```typescript
-    setGroup('Working Group', 'UNIVAC');
-    const groupIdentifyObj = new Identify()
-    groupIdentifyObj.set('principles', ['Eckert', 'Mauchly']);
-     .set('site', 'Eckert–Mauchly Computer Corporation');
-     .set('statedGoals', 'Develop the first commercial computer');
-     .set('industry', 'Technology');
-    groupIdentify('Working Group', 'UNIVAC' , groupIdentifyObj);
+    amplitude.setGroup('Working Group', 'UNIVAC')
+    ```
+    Update properties of a group:
+    ```typescript
+    groupIdentify(
+      'Working Group',
+      'UNIVAC' ,
+      new Identify()
+        .set('principles', ['Eckert', 'Mauchly']);
+        .set('site', 'Eckert–Mauchly Computer Corporation');
+        .set('statedGoals', 'Develop the first commercial computer');
+        .set('industry', 'Technology')
+    );
     ``` 
     </td>
     </tr>
@@ -147,15 +154,16 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> 
     ```swift
     Analytics.shared().identify("abc", traits: ["email": "abc@domain.com"])
-    ```     
+    ```
     </td>
     <td>
     ```swift
     Amplitude.instance().setUserId("abc")
-    let identify = AMPIdentify()
+    Amplitude.instance().identify(
+      AMPIdentify()
         .set("email", value: "female")
         .set("age",value: NSNumber(value: 20))
-    Amplitude.instance().identify(identify)
+    )
     ```
     </td>
     </tr>
@@ -177,22 +185,24 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```swift
     Analytics.shared().group("OrgName-xyz", traits: ["plan": "enterprise"])
-
     ```
     </td>
     <td>
+    Assign user to a group:
     ```swift
     Amplitude.instance().setGroup("orgName", groupName:NSString(string:"xyz"))
-    let identify = AMPIdentify()
-        .set("plan", value: "enterprise")
-    Amplitude.instance().groupIdentifyWithGroupType("orgName", groupName:NSString(string:"xyz"), groupIdentify:identify)
-    ``` 
+    ```
+    Update properties of a group:
+    ```swift
+    Amplitude.instance().groupIdentifyWithGroupType(
+      "orgName",
+      groupName:NSString(string:"xyz"),
+      groupIdentify:AMPIdentify().set("plan", value: "enterprise")
+    )
+    ```
     </td>
     </tr>
     </table>
-
-
-
 
 === "Android"
 
@@ -207,14 +217,12 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td> 
     ```kotlin
     Analytics.with(context).identify("abc", Traits().putEmail("abc@domain.com"), null)
-    ```     
+    ```
     </td>
     <td>
     ```kotlin
     amplitude.setUserId("abc")
-    val identify = Identify()
-    identify.set("email", "abc@domain.com")
-    amplitude.identify(identify)
+    amplitude.identify(Identify().set("email", "abc@domain.com"))
     ```
     </td>
     </tr>
@@ -228,8 +236,8 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     <td>
     ```kotlin
     amplitude.track(
-        "Product Viewed",
-        mutableMapOf<String, Any?>("name" to "Moto 360")
+      "Product Viewed",
+      mutableMapOf<String, Any?>("name" to "Moto 360")
     )
     ``` 
     </td>
@@ -242,11 +250,14 @@ Both Segment and Amplitude SDKs are meant to capture first party data by trackin
     ```
     </td>
     <td>
+    Assign user to a group:
     ```kotlin
     amplitude.setGroup("orgName", "xyz");
-    val identify = Identify().set("plan", "enterprise")
-    amplitude.groupIdentify("orgName", "xyz", identify)
-    ``` 
+    ```
+    Update properties of a group:
+    ```kotlin
+    amplitude.groupIdentify("orgName", "xyz", Identify().set("plan", "enterprise"))
+    ```
     </td>
     </tr>
     </table>
@@ -255,7 +266,7 @@ For all other SDKs view the [Quickstart Guide](/data/sdks/sdk-quickstart/) and t
 
 ## Validate events
 
-Data validation is a critical step in the instrumentation process. Amplitude lets validate your event data via Amplitude's [User Lookup](/data/debugger/#user-lookup) or using the [Instrumentation Explorer](/data/debugger/#instrumentation-explorer) Chrome extension.
+Data validation is a critical step in the instrumentation process. Amplitude lets validate your event data via Amplitude's debugging [tools](/data/debugger/).
 
 ## Add a destination
 
@@ -267,7 +278,6 @@ You can add a [new destination](/data/destinations/) in just a few clicks.
 4. Follow the on-screen prompts. 
 
 For detailed instructions, see the documentation for the [destination](/data/destinations/) you want to add. 
-
 
 ## Migration checklist
 
@@ -289,7 +299,7 @@ It's important to validate the migration to make sure there is minimal impact on
 
 ??? note "What if I don't see an integration that I need?"
 
-    We're constantly adding new integrations so either add a request in product or commuincate with your CSM and we'll provide a timeline.
+    We're constantly adding new integrations so either add a request in product or communicate with your CSM and we'll provide a timeline.
 
 ??? note "How much does Amplitude CDP Cost?"
 

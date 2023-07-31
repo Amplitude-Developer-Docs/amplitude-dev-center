@@ -13,7 +13,9 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases)
 
 --8<-- "includes/no-ampli.md"
-    To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead.
+    To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead. For customers beginning with Amplitude Experiment, please note that this SDK does not support the [Amplitude Experiment integration](https://www.docs.developers.amplitude.com/experiment/sdks/ios-sdk/#initialize). 
+
+--8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
 
 ## Getting started
 
@@ -24,6 +26,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started w
 ### Initialize
 
 You must initialize the SDK before you can instrument. The API key for your Amplitude project is required.
+
 ```swift
 let amplitude = Amplitude(configuration: Configuration(
     apiKey: 'YOUR-API-KEY'
@@ -35,6 +38,11 @@ let amplitude = Amplitude(configuration: Configuration(
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
+    | `apiKey` | The apiKey of your project. | `nil` |
+    | `instanceName` | The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance. | "default_instance" |
+    | `storageProvider` | Implements a custom `storageProvider` class from `Storage`. | `PersistentStorage` |
+    | `logLevel` | The log level enums: `LogLevelEnum.OFF`, `LogLevelEnum.ERROR`, `LogLevelEnum.WARN`, `LogLevelEnum.LOG`, `LogLevelEnum.DEBUG` | `LogLevelEnum.WARN` | 
+    | `loggerProvider` | Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment. | `ConsoleLogger` |
     | `flushIntervalMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. | `30000` |
     | `flushQueueSize` | SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
     | `flushMaxRetries` | Maximum retry times.  | `5` |
@@ -44,14 +52,13 @@ let amplitude = Amplitude(configuration: Configuration(
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `callback` | Callback function after event sent. | `nil` |
     | `optOut` | Opt the user out of tracking. | `false` |
-    | `trackingSessionEvents` | Flushing of unsent events on app close. | `false` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `trackingSessionEvents` | Flushing of unsent events on app close. | `true` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout. | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
     | `useBatch` |  Whether to use batch api. | `false` |
-    | `useAppSetIdForDeviceId` |  Whether to use app ser id as device id. Need to include the module and permission. | `false` |
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` |  Whether to enable coppa control for tracking options. | `false` |'
+    | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |'
 
 ### `track`
 
@@ -97,11 +104,33 @@ amplitude.identify(identify: identify)
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-For example, if Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like:
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```swift
+    // set group with a single group name
+    amplitude.setGroup(groupType: "orgId", groupName: "15")
+    ```
+
+    If Joe is in 'orgId' 'sport', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```swift
+    // set group with multiple group names
+    amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
+    ```
+
+--8<-- "includes/event-level-groups-intro.md"
 
 ```swift
-amplitude.setGroup(groupType: "orgId", groupName: "15")
-amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
+amplitude.track(
+    event: BaseEvent(
+        eventType: "event type",
+        eventProperties: [
+            "eventPropertyKey": "eventPropertyValue"
+        ], 
+        groups: ["orgId": 15]
+    )
+)
 ```
 
 ### Group identify
@@ -154,6 +183,21 @@ You can assign a new device ID using `deviceId`. When setting a custom device I
 amplitude.setDeviceId(NSUUID().uuidString)
 ```
 
+### Custom storage
+
+If you don't want to store the data in the Amplitude-defined location, you can customize your own storage by implementing the [Storage protocol](https://github.com/amplitude/Amplitude-Swift/blob/211d0c05830fab47e74fa9a053615cf422618a02/Sources/Amplitude/Types.swift#L62-L86) and setting the `storageProvider` in your configuration.
+
+Every iOS app gets a slice of storage just for itself, meaning that you can read and write your app's files there without worrying about colliding with other apps. By default, Amplitude uses this file storage and creates an "amplitude" prefixed folder inside the app "Documents" directory. However, if you need to expose the Documents folder in the native iOS "Files" app and don't want expose "amplitude" prefixed folder, you can customize your own storage provider to persist events on initialization.
+
+```swift
+Amplitude(
+    configuration: Configuration(
+        apiKey: "YOUR-API-KEY",
+        storageProvider: YourOwnStorage() // YourOwnStorage() should implement Storage
+    )
+)
+```
+
 ### Reset when user logs out
 
 `reset` is a shortcut to anonymize users after they log out, by:
@@ -166,7 +210,6 @@ With an empty `userId` and a completely new `deviceId`, the current user would a
 ```swift
 amplitude.reset()
 ```
-
 
 ## Amplitude SDK plugin
 
@@ -246,6 +289,10 @@ class TestDestinationPlugin: DestinationPlugin {
     }
 }
 ```
+
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/latest-ios.md"
 
 ## Advanced topics
 
@@ -388,6 +435,22 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
  Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider using IDFV, device ID, or an email login system when IDFA isn't available.
 
 To retrieve the IDFA and add it to the tracking events, you can follow this [example plugin](https://github.com/amplitude/Amplitude-Swift/blob/main/Examples/AmplitudeSwiftUIExample/AmplitudeSwiftUIExample/ExamplePlugins/IDFACollectionPlugin.swift) to implement your own plugin.
+
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device ID of Amplitude instance if it’s set by `setDeviceId()`
+2. IDFV if it exists
+3. A randomly generated UUID string
+
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+```swift
+let deviceId = amplitude.getDeviceId()
+```
+
+To set the device, refer to [custom device ID](./#custom-device-id).
 
 ### Location tracking
 

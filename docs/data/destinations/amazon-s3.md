@@ -41,20 +41,22 @@ To set up the Amazon S3 integration, follow these steps:
 
 Amplitude verifies your bucket access. After access is verified, Amplitude immediately starts hourly exports.
 
+After setup is complete, check the status of your exports from the integration. 
+
+![screen shot of the export status screen](../../assets/images/integrations-amazon-s3-export-screen.png)
+
 ## Run a manual export
 
 You can backfill historical data to S3 by manually exporting data.
 
-1. Manage the Amazon S3 destination.
-2. Click **Export Data**.
+1. Go to the Google Cloud Storage export connection page created in the section above.
+2. Go to **Backfills** tab.
 3. Select the desired date range. 
-4. Click **Start Export**. 
+4. Click **Start Backfill**. 
+
+If the backfill range overlaps with the range of previously exported data, Amplitude will de-duplicate overlapping data.
 
 **![screenshot of the export data modal](../../assets/images/integrations-amazon-s3-export-manual-export.png)**
-
-After setup is complete, check the status of your exports from the integration. 
-
-![screen shot of the export status screen](../../assets/images/integrations-amazon-s3-export-screen.png)
 
 ## Disable automatic exports
 
@@ -155,3 +157,70 @@ Merged ID JSON objects have the following schema:
  "merged_amplitude_id": long
 }
 ```
+
+## Updating Bucket Policy for S3 Exports to Use KMS Encryption
+
+### Overview
+
+The following outlines a procedure to be taken to utilize KMS encryption in AWS S3 buckets for existing export connections. We have made these changes to help customers improve security standards.
+
+### Migration Steps
+
+Before starting the migration, users must have access to the following:
+
+- Credentials to access their existing Amplitude exports
+- Appropriate permissions to update S3 bucket configuration and create KMS keys.
+
+How to update existing export to utilize KMS encryption:
+
+1. Create a KMS key in your AWS account by following the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html).
+2. Log in to your Amplitude account and navigate to the existing S3 export that you want to migrate.
+3. In the manage settings model change the toggle to **disable** in order to turn off the export momentary. Wait for all in-progress export jobs to complete to avoid unexpected results when a new S3 export connection is created.
+4. Create a new S3 export by following the [Amplitude S3 Export Setup Guide](#set-up-the-integration). 
+5. In the export connection setup flow, generate the updated bucket policy and the KMS policy. *The updated policy will now contain a new AWS IAM Role principal to trust.*
+6. Backup the current bucket policy in your S3 bucket in AWS for rollback procedure if needed.
+7. Update the S3 bucket policy and KMS key policy that was generated in Step 5 in your AWS account.
+8. Ensure that the S3 bucket is updated to use KMS encryption as mentioned in the [AWS S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).
+9. Click `Next` to verify Bucket Access and create a new connection in the export setup flow. 
+10. Wait for the new export to complete. Once it's finished, you can verify that your data is being exported to the provided S3 bucket with the new policy.
+11. Once you have verified your data is being exported successfully, you may delete the old S3 export connection, which was disabled in Step 2.
+
+### Rollback Procedure
+
+!!!note
+
+    Once you delete the old S3 export connection, the rollback process mentioned below is not applicable.
+
+In case something goes wrong in the middle of the migration procedure mentioned above, do the following:
+
+1. Ensure that the newly created S3 Export connection is removed.
+2. Revert the bucket policy to trust the AWS account root principal (the policy, which was backed up in Step 6 above).
+3. Revert the bucket encryption to the previous configuration, which was changed in Step 8.
+4. Re-enable the current S3 export connection, which was disabled in Step 3.
+5. (Optional) Delete the KMS key created in Step 1.
+
+### FAQ
+
+#### Will there be any export data loss after the migration?
+
+After disabling and removing the S3 export connection, the data already exported to the S3 destination bucket won’t be removed.
+
+**However, the metadata, like export jobs history, will be lost.**
+
+#### Will there be any gaps in data export during the migration?
+
+As long as the new S3 export connection is created within 24 hours after the old S3 export connection is disabled, there won’t be any gaps in data export.
+
+#### What should I do if the new export connection is created 24 hours after the old connection is disabled?
+
+In case the new export connection was created 24 hours after the old connection is disabled and there is a gap in data export, use <ins>manual backfill functionality</ins> to fill data for missing date range. Backfill export will ensure no duplication in exported data even if the backfill date range overlaps with the previously exported date range.
+
+#### What are the consequences of not migrating?
+
+Less restricting access scope for your destination S3 bucket through (current state) trusting an AWS account root principal instead of (future state) AWS IAM Role principal. That AWS IAM Role is specific to Amplitude Project ID, in which the new S3 export connection is created.
+
+#### Will it be possible to roll back to the previous bucket policy?
+
+No. Once the old S3 export connection is removed, it will no longer be possible to set up S3 export with the AWS account root principal as a trustee in the bucket policy.
+
+> If you have any questions or concerns about the migration process, please reach out to Amplitude support for additional assistance.

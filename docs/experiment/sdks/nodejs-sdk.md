@@ -6,6 +6,8 @@ icon: simple/nodedotjs
 
 Official documentation for Amplitude Experiment's server-side Node.js SDK implementation.
 
+![npm version](https://img.shields.io/npm/v/@amplitude/experiment-node-server)
+
 !!!info "SDK Resources"
     [:material-github: GitHub](https://github.com/amplitude/experiment-node-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-node-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-node-server/)
 
@@ -45,6 +47,8 @@ Install the Node.js Server SDK with npm or yarn.
     3. [Access a flag's variant](#fetch)
 
     ```js
+    import { Experiment } from '@amplitude/experiment-node-server';
+
     // (1) Initialize the experiment client
     const experiment = Experiment.initializeRemote('<DEPLOYMENT_KEY>', config: {
         fetchTimeoutMillis: 500,
@@ -91,6 +95,8 @@ initializeRemote(apiKey: string, config?: RemoteEvaluationConfig): RemoteEvaluat
     **The default timeout and retry configuration options are too high for most server environments**. Configure the timeout and retry options to best fit your performance requirements. If [remote evaluation performance](../general/performance-and-caching.md#remote-evaluation) is too slow, consider using [local evaluation](#local-evaluation).
 
 ```js
+import { Experiment } from '@amplitude/experiment-node-server';
+
 const experiment = Experiment.initializeRemote('<DEPLOYMENT_KEY>', config: {
     fetchTimeoutMillis: 500,
     fetchRetries: 1,
@@ -182,6 +188,8 @@ Install the Node.js Server SDK with `npm` or `yarn`.
     3. [Evaluate a user.](#evaluate)
 
     ```js
+    import { Experiment } from '@amplitude/experiment-node-server';
+
     // (1) Initialize the local evaluation client with a server deployment key.
     const experiment = Experiment.initializeLocal('<DEPLOYMENT_KEY>');
 
@@ -292,7 +300,7 @@ app.use((req, res, next) => {
     deviceId = random22CharBase64String();
     const ampCookieValue = AmplitudeCookie.generate(deviceId);
     res.cookie(ampCookieName, ampCookieValue, {
-      domain: '.yourdomain.com', // this should be the same domain used by the Amplitude JS SDK
+      domain: '.your-domain.com', // this should be the same domain used by the Amplitude JS SDK
       maxAge: 365 * 24 * 60 * 60 * 1000, // this is currently the same as the default in the Amplitude JS SDK, can be modified
       sameSite: 'Lax'
     });

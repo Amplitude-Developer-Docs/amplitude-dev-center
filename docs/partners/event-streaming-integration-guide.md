@@ -31,18 +31,18 @@ This guide walks through the basics of creating your own Event Streaming tile in
 ## Preparation tips
 
 1. **Freemarker:** Familiarize yourself with [Freemarker](https://freemarker.apache.org/) is the template that Amplitude uses to send events.
-2. **Rate limits:** Make sure your rate limits are as high as possible to minimize throttling. For example, Amplitude respects the rate limit that [Braze](../destinations/braze/) communicates: 50,000 requests per minute for event tracking. Amplitude has a retry mechanism with exponential backoff that tries 9 times over 4 hours. This process should resolve temporary throttling.
+2. **Rate limits:** Make sure your rate limits are as high as possible to minimize throttling. For example, Amplitude respects the rate limit that [Braze](../data/destinations/braze.md) communicates: 50,000 requests per minute for event tracking. Amplitude has a retry mechanism with exponential backoff that tries 9 times over 4 hours. This process should resolve temporary throttling.
 3. **Event limits:** Make sure that your event size limit is flexible enough for customer use cases. 
 
     ???example "Event limits example (click to expand)"
 
-        For example, [Customer.io](../destinations/customerio/) events have the following limits:
+        For example, [Customer.io](../data/destinations/customerio.md) events have the following limits:
 
         - Maximum length of Customer ID: 150 bytes
         - Maximum number of Unique Identify attributes: 300
         - Maximum size of event data: 100K bytes
 
-        For example, [Intercom](../destinations/intercom/) has a limit of 120 Event Types and 20 meta (which are event properties) per event types. Currently you must use the event filter to select the specific events they want to forward from Amplitude to Intercom.
+        For example, [Intercom](../data/destinations/intercom.md) has a limit of 120 Event Types and 20 meta (which are event properties) per event types. Currently you must use the event filter to select the specific events they want to forward from Amplitude to Intercom.
 
 4. **Authentication method:** Amplitude doesn't support OAuth, so partners need to generate their API key.
 5. **Make sure the endpoint is flexible to ingest objects in a specific format:** Amplitude generates a list of objects in this specific format. You need to make sure your endpoint handles this specific payload structure. See the next section for a payload example.

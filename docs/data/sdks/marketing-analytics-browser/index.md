@@ -1,11 +1,10 @@
 ---
 title: Marketing Analytics Browser
 description: The Amplitude Marketing Analytics Browser SDK Installation & Quick Start guide.
-icon: simple/typescript
+icon: simple/javascript
 ---
 
-
-![npm version](https://badge.fury.io/js/@amplitude%2Fmarketing-analytics-browser.svg)
+![npm version](https://img.shields.io/npm/v/@amplitude/marketing-analytics-browser)
 
 The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
 
@@ -13,9 +12,13 @@ The Marketing Analytics Browser SDK extends the Browser SDK to identify users an
 
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
 
-!!!note "Marketing Analytics Browser SDK versus the Browser SDK"
+!!!info "Browser SDK 2.0 is now available"
 
-    The Marketing Analytics Browser SDK extends the Browser SDK with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Browser SDK](../typescript-browser).
+    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md).
+
+!!!note "Marketing Analytics Browser SDK versus the Browser SDK 1.0"
+
+    The Marketing Analytics Browser SDK extends the Browser SDK 1.0 with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Browser SDK](../typescript-browser).
 
 ## Getting started
 
@@ -57,18 +60,52 @@ The Marketing Analytics Browser SDK has the same functionalities as the Browser 
 
 ### Configuration
 
-In addition to the [basic configuration options](../typescript-browser/#configuration), the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
+Basic configuration options are the same as the standard Browser SDK.
 
-|<div class="big-column">Name</div>| Description|
-|---|----|
-|`attribution.disabled`| Optional. `boolean`. Disable the attribution tracking, attribution is enabled by default |
-|`attribution.excludeReferrers`|  Optional. `string[]`. Exclude the attribution tracking for the provided referrers string |
-|`attribution.initialEmptyValue`| Optional. `string`. Reset the `sessionId` on a new campaign, Default value is `EMPTY` |
-|`attribution.resetSessionOnNewCampaign`| Optional. `boolean`. Reset the `sessionId` on a new campaign, won't create a new session for new campaign by default. |
-|`pageViewTracking.trackOn`| Optional. `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions|
-|`pageViewTracking.trackHistoryChanges`  | Optional. `pathOnly` or `all`. Track the page view only on the path changes, track `all` URL changes by default|
+--8<-- "includes/sdk-ts-browser/shared-configurations.md"
+    |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `LocalStorage` |
+
+In addition to the basic configuration options, the Marketing Analytics Browser SDK has options to configure web attribution and page view tracking.
+
+|<div class="big-column">Name</div>| Description| Default Value|
+|---|----|---|
+|`attribution.disabled`| `boolean`. Whether disable the attribution tracking.| `false` |
+|`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. | 
+|`attribution.initialEmptyValue`| `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY` |
+|`attribution.resetSessionOnNewCampaign`| `boolean`. Whether reset the `sessionId` on a new campaign. | SDK won't create a new session for new campaign by default. | 
+|`pageViewTracking.trackOn`| `attribution` or `() => boolean`. `attribution` - Fire a page view event attribution information changes. `undefined` - Fire a page view event on page load or on history changes for single page application, default behavior. `() => boolean` - Fire a page view events based on a `trackOn` functions| `undefined` |
+|`pageViewTracking.trackHistoryChanges`  | `pathOnly` or `all` or `undefined`. Use this option to subscribe to page view changes in a single page application like React.js. `pathOnly` - Compare the path only changes for page view tracking. `all`- Compare the full url changes for page view tracking. `undefined` - Default behavior. Page view changes in single page applications does not trigger a page view event. | `undefined` |
+
+--8<-- "includes/sdk-ts/shared-batch-configuration.md"
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  // Events queued in memory will flush when number of events exceed upload threshold
+  // Default value is 30
+  flushQueueSize: 50, 
+  // Events queue will flush every certain milliseconds based on setting
+  // Default value is 10000 milliseconds
+  flushIntervalMillis: 20000,
+  // Using batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
+  useBatch: true
+});
+```
+
+--8<-- "includes/sdk-ts/client-eu-residency.md"
 
 --8<-- "includes/sdk-ts-browser/marketing-analytics.md"
+
+The following information is tracked in the page view events.
+
+|<div class="big-column">Name</div>| Description| Default Value|
+|---|----|---|
+|`event_type`| `string`. The event type for page view event. Configurable through enrichment plugin. | `Page View`. |
+|`event_properties.page_domain`| `string`. The page domain. | location.hostname or ''. |
+|`event_properties.page_location`| `string`. The page location. | location.href or ''. |
+|`event_properties.page_path`| `string`. The page path. | location.path or ''.|
+|`event_properties.page_title`| `string`. The page title. | document.title or ''.|
+|`event_properties.page_url`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
+|`event_properties.[CampaignParam]`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possible keys. | Any undefined campaignParam or `undefined`. |
 
 ### Use the Marketing Analytics SDK with Ampli
 

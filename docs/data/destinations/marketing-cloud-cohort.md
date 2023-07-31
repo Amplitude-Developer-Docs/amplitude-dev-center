@@ -1,6 +1,6 @@
 ---
-title: Send Cohorts to Marketing Cloud (v1)
-description: Send Amplitude cohorts to Salesforce Marketing Cloud. 
+title: Send Cohorts to Salesforce Marketing Cloud V1
+description: Send Amplitude cohorts to Salesforce Marketing Cloud V1. 
 ---
 <!-- vale off-->
 
@@ -53,7 +53,7 @@ You need a subdomain, client ID, and client secret from Marketing Cloud.
 In Amplitude: 
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
-2. In the Cohort section, click **Salesforce Marketing Cloud V2**.
+2. In the Cohort section, click **Salesforce Marketing Cloud**.
 3. Enter a name and the client ID, client secret, and subdomain you found in Salesforce.
 4. Map an Amplitude user property to the Marketing Cloud contact key. 
 
@@ -63,16 +63,12 @@ In Amplitude: 
 
 ## Send a cohort
 
-### Marketing Cloud setup
+To sync your first cohort, follow these steps:
 
-1. Create a new data extension and name it "Amplitude Engage". See the [Marketing Cloud documentation](https://help.salesforce.com/s/articleView?id=sf.mc_es_create_data_extension_classic.htm&type=5) for instructions.
-2. In this new data extension, create an field named "Contact Key" and configure it as the primary key. This primary key is used to link the data extension to the attribute groups. This is also how Amplitude identifies users. The value of the attribute should be a unique identifier like `email` or `user_id` that is present within Amplitude.
-3. Link "Amplitude Engage" to an existing attribute group or a newly created attribute group by linking the data extension to the contact through "Contact Key."
-4. For each cohort in Amplitude you want to sync to Marketing Cloud, create a dedicated field in the "Amplitude Engage" data extension. Give it any name you want, as long as Marketing Cloud allows it. This field name is the value you should enter in Amplitude's *Cohort Attribute Name* field when you set up a sync.
-    - Example: `cohort_campaign_march` is an attribute created in Marketing Cloud and should be used in both Amplitude and Marketing Cloud to keep track of user's cohort status.
+1. In Amplitude, open the cohort you want to sync, then click **Sync**.
+2. Select Salesforce Marketing Cloud, then click **Next**.
+3. Choose the account you want to sync to.
+4. Choose the sync cadence.
+5. When finished, save your work.
 
-### Amplitude setup
-
-1. Go to the cohort in Amplitude you would like to sync over to Salesforce
-2. Click on **Sync to** (select Salesforce Marketing Cloud)
-3. Select the API target to sync to from the dropdown and input the name of the field that you set up for the cohort in Marketing Cloud. 
+It may take a few minutes depending on the size of your cohort to see the correct number of cohort users on Salesforce Marketing Cloud’s side.

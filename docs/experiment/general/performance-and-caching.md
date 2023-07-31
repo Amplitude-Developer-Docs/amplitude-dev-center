@@ -60,9 +60,9 @@ The following results are for **a single flag evaluation**, and were collected o
 
 | SDK | Average | Median | Cold Start |
 | --- | --- | --- | --- |
-| [:material-nodejs: Node.js](experiment/sdks/nodejs-sdk) | 0.025ms | 0.018ms | 3ms |
-| [:fontawesome-brands-golang: Go](experiment/sdks/go-sdk) | 0.098ms | 0.071ms | 0.7ms |
-| [:material-language-java: JVM](experiment/sdks/jvm-sdk) | 0.007ms | 0.005ms | 6ms |
+| [:material-nodejs: Node.js](../sdks/nodejs-sdk.md) | 0.025ms | 0.018ms | 3ms |
+| [:fontawesome-brands-golang: Go](../sdks/go-sdk.md) | 0.098ms | 0.071ms | 0.7ms |
+| [:material-language-java: JVM](../sdks/jvm-sdk.md) | 0.007ms | 0.005ms | 6ms |
 
 ## CDN caching
 
@@ -100,4 +100,4 @@ Amplitude Experiment's remote evaluation servers allow for targeting based on us
 You may want to use behavioral cohorts defined in Amplitude Analytics in your flag and experiment targeting. Since experiment cohorts are computed hourly, and the CDN cache TTL is also hourly, a user may be delayed from being targeted to a variant for up-to 2 hours in the worst case.
 
 !!!info "Best Practice"
-    AmplExperiement recommends only using dynamic cohort targeting for flags and experiments where the inclusion in a variant of a flag isn't time-sensitive.
+    Amplitude Experiment recommends only using dynamic cohort targeting for flags and experiments where the inclusion in a variant of a flag isn't time-sensitive.

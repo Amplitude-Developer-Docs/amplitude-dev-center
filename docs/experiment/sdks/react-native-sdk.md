@@ -12,7 +12,7 @@ Official documentation for Amplitude Experiment's Client-side React Native SDK.
 
 ## Install
 
-![npm (tag)](https://img.shields.io/npm/v/@amplitude/experiment-react-native-client)
+![npm version](https://img.shields.io/npm/v/@amplitude/experiment-react-native-client)
 
 Install the Experiment JavaScript Client SDK. This library depends on `@react-native-async-storage/async-storage` which you also need to install.
 
@@ -54,6 +54,8 @@ pod install
     3. [Access a flag's variant](#variant)
 
     ```js
+    import { Experiment } from '@amplitude/experiment-react-native-client';
+
     // (1) Initialize the experiment client
     const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 
@@ -100,6 +102,8 @@ initialize(apiKey: string, config?: ExperimentConfig): ExperimentClient
 The initializer returns a singleton instance, so subsequent initializations for the same instance name will always return the initial instance. To create multiple instances, use the `instanceName` [configuration](#configuration).
 
 ```js
+import { Experiment } from '@amplitude/experiment-react-native-client';
+
 const experiment = Experiment.initialize('<DEPLOYMENT_KEY>');
 ```
 

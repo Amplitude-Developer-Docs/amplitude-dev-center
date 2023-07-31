@@ -5,7 +5,7 @@ description: The Batch Event Upload API lets you upload large amounts of event d
 <!-- markdownlint-disable-file MD037 -->
 The Batch Event Upload API lets you upload large amounts of event data.
 
-The event JSON format follows the [HTTP API format](../analytics/apis/http-v2-api), and has the same requirements.
+The event JSON format follows the [HTTP API format](./http-v2-api.md), and has the same requirements.
 
 --8<-- "includes/postman-interactive.md"
 
@@ -20,7 +20,6 @@ The event JSON format follows the [HTTP API format](../analytics/apis/http-v2-ap
 
 ## Considerations
 
-- After Amplitude has accepted a request, the events in the batch are queryable within 15 minutes.
 - The JSON serialized payload must not exceed 20MB in size.
 - To prevent instrumentation issues, device IDs and user IDs must be strings with a length of 5 characters or more. If an event has a device or user ID that's too short, the ID value is dropped from the event. If an event doesn't have a user or device ID, it may cause the API to reject the upload with a 400 error. You can change the minimum ID length using the `options` property.
 - Each API key can send up to 1000 events per second for any individual device ID or user ID. If you exceed that rate, the API rejects the upload, and gives a 429 response. Check the response summary for more information.
@@ -364,7 +363,7 @@ These properties belong to the `events` object.
 |     `android_id`      |                                                                                                                                                                          <span class="optional">Optional</span>. String. (Android) Android ID (not the advertising ID)                                                                                                                                                                          |
 |      `event_id`       |                                                                                      <span class="optional">Optional</span>. Integer. An incrementing counter to distinguish events with the same `user_id` and timestamp from each other. Amplitude recommends that you send an `event_id`, increasing over time, especially if you expect events to occur simultaneously.                                                                                      |
 |     `session_id`      |                                                                                            <span class="optional">Optional</span>. Long. The start time of the session in milliseconds since epoch (Unix Timestamp), necessary if you want to associate events with a particular system. A `session_id` of -1 is the same as no `session_id` specified.                                                                                             |
-|      `insert_id`      |                                                               <span class="optional">Optional</span>. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with an `insert_id` that has been seen within the past 7 days. Amplitiude recommends generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time.                                                               |
+|      `insert_id`      |                                                               <span class="optional">Optional</span>. String. A unique identifier for the event. Amplitude deduplicates subsequent events sent with an `insert_id` that has been seen within the past 7 days. Amplitude recommends generating a UUID or using some combination of `device_id`, `user_id`, `event_type`, `event_id`, and time.                                                               |
 |        `plan`         |                                                                                                                                                         <span class="optional">Optional</span>. Object. Tracking plan properties. Amplitude accepts only branch, source, version properties.                                                                                                                                                          |
 |     `plan.branch`     |                                                                                                                                                                            <span class="optional">Optional</span>. String. The tracking plan branch name. For example: "main"                                                                                                                                                                            |
 |     `plan.source`     |                                                                                                                                                                               <span class="optional">Optional</span>. String. The tracking plan source. For example: "web"                                                                                                                                                                               |

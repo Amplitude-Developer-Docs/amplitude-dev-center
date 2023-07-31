@@ -13,10 +13,6 @@ Amplitude Data supports tracking analytics events from JRE programs written in J
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Visit the [Amplitude Java SDK](./index.md) documentation.
 
-!!!note "Deprecated Itly runtime"
-    This page covers the JRE Java and Kotlin runtimes. All (Itly) runtimes have been deprecated.
-     If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-jre-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/jre.md)**.
-
 ## Quick Start
 
 0. [(Prerequisite) Create a Tracking Plan in Amplitude Data](https://help.amplitude.com/hc/en-us/articles/5078731378203)
@@ -257,7 +253,7 @@ For example, in the following code snippet, your tracking plan contains an event
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields
- [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../ampli/middleware.md).
+ [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `extra`. Learn more about [Middleware](../../../sdk-middleware).
 
 === "Java"
 
@@ -334,54 +330,3 @@ Send Event objects using the generic track method.
 --8<-- "includes/ampli/flush/ampli-flush-snippet-java.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
-
-## Migrate from an Itly JRE Runtime
-
-Migrate from an Itly JRE runtime to Ampli by following these steps.
-
-1. Remove legacy Itly dependencies from your project. This includes anything with a `ly.iterative.itly`.
-
-    ```bash
-    implementation "ly.iterative.itly:sdk-jvm:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-iteratively:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-schema-validator:$itlySdkVersion"
-    implementation "ly.iterative.itly:plugin-segment-jvm:$itlySdkVersion"
-    ```
-
-2. Add Amplitude dependencies.
-
-    ```bash
-    implementation 'com.amplitude:java-sdk:[1.8.0,2.0)'
-    implementation 'org.json:json:20201115'
-    ```
-
-3. Pull the latest Ampli Wrapper.
-
-    ```bash
-    ampli pull
-    ```
-
-4. Check your Ampli Wrapper path.
-
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`, you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path`
-     parameter: `ampli pull -p ./path/to/ampli`.
-
-5. Find and replace:
-
-      **Kotlin and Java:**
-
-    - `import ly.iterative.itly.* => import com.amplitude.ampli.*`
-    - `itly.` => `ampli.`
-    - `itly.group(groupId)` => `ampli.setGroup(groupType, groupValue)`
-
-      **Kotlin only:**
-
-    - `Itly.load()` => `ampli.load()`
-    - `Itly.` => `ampli.`
-
-      **Java only:**
-
-    - `Itly.getInstance().load()` => `Ampli.getInstance().load()`
-    - `Itly.` => `Ampli.`
-
-6. See updated Event tracking details on your Implementation page in the web app.
