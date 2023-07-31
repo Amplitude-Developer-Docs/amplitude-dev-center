@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Spell Check
+    name: Spell Checker
     runs-on: ubuntu-latest
     steps:
       # Git Checkout
@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install cspell
+      - name: Install spell checker
         run: npm i -g cspell@^6.31.2
       # cspell
-      - name: cspell
+      - name: Run spell checker
         run: cspell lint -c cspell.json --show-context --no-progress --relative "**/*.md"
