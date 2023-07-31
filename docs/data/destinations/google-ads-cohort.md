@@ -7,7 +7,7 @@ Send Amplitude cohorts to Google Ads to create audiences for more personalized c
 
 !!!note "Other Amplitude + Google Ads Integrations"
 
-    This integration sends cohorts to Google Ads. Amplitude offers other integrations with Google Ads: 
+    This integration sends cohorts to Google Ads. Amplitude offers other integrations with Google Ads:
 
     - [Import Google Ads Data](/data/sources/google-ads)
 
@@ -17,7 +17,8 @@ Send Amplitude cohorts to Google Ads to create audiences for more personalized c
 - You should have an understanding of [Amplitude Audiences](https://help.amplitude.com/hc/en-us/articles/360028552471-Amplitude-Engage) and [Behavioral Cohorts](https://help.amplitude.com/hc/en-us/articles/231881448) before setting up this integration.
 - You need a Google Ads Manager account.
 - You should already have identified an Amplitude user property that matches what you're using for your user ID field in Google Ads.
-- The integration is enabled on a per-project basis. 
+- The integration is enabled on a per-project basis.
+- It takes 6 to 48 hours for a list to be populated with members, so you’ll most likely see an “In Progress” status (on the Google Ads UI) if you upload to an audience list more frequently than once every 12 hours.
 
 ## Setup
 
@@ -34,7 +35,7 @@ Before you begin, log in to your [Google Ads Manager account](https://ads.googl
 
     - **Contact Info**: This key type matches on a user's email address (phone number, first name, last name, country, and zip code are also supported, not recommended).
 
-        !!!note 
+        !!!note
             To avoid sending PII to Amplitude, hash any email addresses with SHA-256 before passing them. Google has some guidelines on the accepted format for emails before they're hashed. In Google, this value should match the *Email* field.
 
     - **Mobile Advertising ID**: This key type matches on IDFA and AAID mobile device IDs. Amplitude doesn't recommend using Amplitude's Device ID column because you may experience low matching rates due to Amplitude populating IDFV if it isn't able to get AAID and IDFA, which you can read more about [here](https://help.amplitude.com/hc/en-us/articles/115003135607-Tracking-Unique-Users#h_7cf7c47f-ec71-4e15-8c47-a2bda5d84186).\
@@ -51,9 +52,9 @@ Before you begin, log in to your [Google Ads Manager account](https://ads.googl
 
 !!!note
 
-    Make sure your browser ad blocker is off before you attempt these steps. 
+    Make sure your browser ad blocker is off before you attempt these steps.
 
-1. In Amplitude, open the cohort you want to export. 
+1. In Amplitude, open the cohort you want to export.
 2. Click **Sync**, and choose Google Ads.
 3. Select the destination.
 4. Select the sync frequency you need.

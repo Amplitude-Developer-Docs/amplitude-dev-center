@@ -250,7 +250,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 `properties` passes in event properties specific to this event in the tracking plan.
 
-The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 

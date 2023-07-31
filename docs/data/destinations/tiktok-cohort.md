@@ -1,11 +1,7 @@
 ---
 title: Send Amplitude Cohorts to TikTok Ads
-description: Use Amplitude's TikTok Ads integration to send audiences to TikTok Ads to create more peronalized campaigns.
+description: Use Amplitude's TikTok Ads integration to send audiences to TikTok Ads to create more personalized campaigns.
 ---
-
-!!!Beta "This feature is in Beta release"
-
-    This feature is in Closed Beta and is in active development. Contact <integrations@amplitude.com> if you are interested in using this integration.
 
 [TikTok](https://www.tiktok.com/) is the world's leading destination for short-form mobile videos. Their mission is to capture and present the world's creativity, knowledge, and moments that matter in everyday life.
 
@@ -23,8 +19,10 @@ The TikTok Ads integration allows you to send audiences from Amplitude to TikTok
 - This integration must be enabled on a per-project basis.
 - TikTok Ads requires SHA256 encryption. If your amplitude key isn't encrypted, Amplitude applies SHA256 when syncing cohort data. 
 - You can't change the TikTok Key after you save the integration. If you need to use a different key, disconnect the integration in Amplitude and set it up again.
+- TikTok Ads API has the hard limit of 24 calls per day per Audience/Cohort [here](https://ads.tiktok.com/marketing_api/docs?id=1708580518247426). For Amplitude this means:
+  1. The maximum size of cohort sync is 4.8 million users.
+  2. If the TikTok Ads Audience has hourly sync and users are added/removed every hour, some sync can fail.
 
-[^1]: Currently in testing. See [TikTok's documentation](https://ads.tiktok.com/marketing_api/docs?id=1701890985340929) for more information.
 
 ## Setup
 

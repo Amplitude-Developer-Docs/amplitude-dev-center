@@ -16,7 +16,7 @@ For more information, see Movable Ink's [Exchange](https://exchange.movableink.c
 ## Use cases
 
 1. Highlight the right content for maximum conversions via predictions and recommendations.
-2. Automatically target the right users with the most relevant content via behavioural cohorts targeting.
+2. Automatically target the right users with the most relevant content via behavioral cohorts targeting.
 3. Leverage recent-time ML-driven data to create personalized content without the need for data scientists.
 
 ## Considerations

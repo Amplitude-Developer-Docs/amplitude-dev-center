@@ -15,6 +15,8 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 --8<-- "includes/no-ampli.md"
     To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead. For customers beginning with Amplitude Experiment, please note that this SDK does not support the [Amplitude Experiment integration](https://www.docs.developers.amplitude.com/experiment/sdks/ios-sdk/#initialize). 
 
+--8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
+
 ## Getting started
 
 Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started with Amplitude iOS SDK.
@@ -124,7 +126,7 @@ amplitude.track(
     event: BaseEvent(
         eventType: "event type",
         eventProperties: [
-            "eventPropertykey": "eventPropertyValue"
+            "eventPropertyKey": "eventPropertyValue"
         ], 
         groups: ["orgId": 15]
     )
@@ -288,6 +290,10 @@ class TestDestinationPlugin: DestinationPlugin {
 }
 ```
 
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/latest-ios.md"
+
 ## Advanced topics
 
 ### User sessions
@@ -429,6 +435,22 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
  Mobile apps need permission to ask for IDFA, and apps targeted to children can't track at all. Consider using IDFV, device ID, or an email login system when IDFA isn't available.
 
 To retrieve the IDFA and add it to the tracking events, you can follow this [example plugin](https://github.com/amplitude/Amplitude-Swift/blob/main/Examples/AmplitudeSwiftUIExample/AmplitudeSwiftUIExample/ExamplePlugins/IDFACollectionPlugin.swift) to implement your own plugin.
+
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device ID of Amplitude instance if it’s set by `setDeviceId()`
+2. IDFV if it exists
+3. A randomly generated UUID string
+
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+```swift
+let deviceId = amplitude.getDeviceId()
+```
+
+To set the device, refer to [custom device ID](./#custom-device-id).
 
 ### Location tracking
 

@@ -15,7 +15,7 @@ To create a [flag](../../general/data-model.md#flags-and-experiments), first nav
 
 ### Add a deployment
 
-Once you've created the flag, you'll need to add a [deployment](../../general/data-model.md#deployments). Add one or more deployments using the Settings card on the Configure page.
+Once you've created the flag, you'll need to add a [deployment](../../general/data-model.md#deployments). Add one or more deployments using the Settings card.
 
 ![Screenshot of settings card with deployments](../../../assets/images/experiment/create-flag-1.png)
 
@@ -49,6 +49,6 @@ If your flag has more than one variant, you will also be able to adjust distribu
 
 ### Activate the flag
 
-Once you're done configuring your flag, activate the flag using the toggle in the upper right corner and follow the instructions in the activation modal.
+Once you're done configuring your flag, activate the flag using the button in the upper right corner and follow the instructions in the activation modal.
 
 ![Screenshot of top navigation bar with active toggle](../../../assets/images/experiment/create-flag-4.png)
