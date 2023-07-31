@@ -61,7 +61,7 @@ class YourClass {
 
 ### Configuration
 
-Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options.
+Amplitude Flutter SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), [Amplitude iOS Maintenance SDK](../ios/) and [Amplitude JavaScript Maintenance SDK](../javascript/). The following are the Dart settable config options.
 For other default configurations:
 
 - on Android side, check the [Android Configuration](../android/#configuration)
@@ -249,7 +249,7 @@ Amplitude.getInstance().identify(identify);
 const array = ["some_string", 56];
 final Identify identify = Identify()
                           ..append("ab-tests", "new-user-test")
-                          ..preappend("some_list", array)
+                          ..prepend("some_list", array)
 Amplitude.getInstance().identify(identify);
 ```
 
@@ -301,7 +301,7 @@ Amplitude.getInstance().identify(identify)
 
     ```dart
     // set group with a single group name
-    Amplitude.getInstance().setGruop("orgId", "15");
+    Amplitude.getInstance().setGroup("orgId", "15");
     ```
 
     If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
@@ -359,9 +359,9 @@ On Android and iOS, you can choose to automatically log start and end session ev
 
 ```dart
 //Enable automatically log start and end session events
-Ampiltidue.getInstance().trackingSessionEvents(true);
+Amplitude.getInstance().trackingSessionEvents(true);
 //Disable automatically log start and end session events
-Amplitidue.getInstance().trackingSessionEvents(false);
+Amplitude.getInstance().trackingSessionEvents(false);
 ```
 
 `trackingSessionEvents()` is not supported on Flutter web. Please check [here](/#flutter-web-support) to learn more.

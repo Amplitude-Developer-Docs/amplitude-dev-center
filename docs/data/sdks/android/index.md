@@ -168,8 +168,8 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `optOut` | Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | Automatic tracking of "Start Session" and "End Session" events that count toward event volume. | `false` |
-    | `sessionTimeoutMillis` | The amount of time for session timeout if enable foreground tracking. | `1800000` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `sessionTimeoutMillis` | The amount of time for session timeout if disable foreground tracking. Foreground tracking is disabled by default. | `1800000` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if enable foreground tracking by `enableForegroundTracking()` | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/` |
     | `useDynamicConfig` |  Find the best server url automatically based on users' geo location. | `false` |
 
@@ -749,6 +749,10 @@ For purchases on the Amazon store, you first need to set up Amazon as a data sou
 
     client.logRevenueV2(revenue);
     ```
+    
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/legacy-android.md"
 
 ## Advanced topics
 
@@ -967,6 +971,42 @@ App set ID is a unique identifier for each app install on a device. App set ID i
         ```java
         client.useAppSetIdForDeviceId();
         ```
+
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device ID fetched from the SQLite database
+--8<-- "includes/sdk-device-id/android.md"
+
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+=== "Java"
+
+    ```java
+     String deviceId = client.getDeviceId();
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    val deviceId = client.getDeviceId();
+    ```
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+=== "Java"
+
+    ```java
+    client.setDeviceId("DEVICE-ID");
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    client.setDeviceId("DEVICE-ID");
+    ```
+
 
 ### Location tracking
 

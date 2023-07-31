@@ -1,39 +1,67 @@
 ---
-title: Import Group Properties from Salesforce Fields
+title: Import Group Properties from Salesforce Fields 
 description: Create group-level properties from Salesforce fields.
 ---
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-This integration lets you create group-level properties from [Salesforce](https://www.salesforce.com/) data by setting specific Salesforce fields as group-level properties. This can be useful when analyzing information about accounts that exist in Salesforce and are tracked in Amplitude.
+Salesforce provides solutions that help unify marketing, sales, commerce, IT, and service. This Salesforce V2 integration lets you create group-level properties from [Salesforce](https://www.salesforce.com/) data by setting specific Salesforce fields as group-level properties and importing that into Amplitude. This can be useful when analyzing information about accounts that exist in Salesforce. 
 
-Salesforce provides solutions that help unify marketing, sales, commerce, IT, and service. 
+## Overview
 
-!!!info "Salesforce Sandboxes"
+By default, Amplitude has a built-in process that runs once a day to update group properties that have pickup dates matching the current date. Additionally, the integration offers the option of an hourly schedule if you prefer more frequent updates with finer granularity.
 
-    This integration isn't available in Salesforce Sandboxes.
+## Mapping at a high level
 
-## Set up and use the integration
+In Salesforce, objects such as Account are structured as tables, where each field represents a column. Amplitude imports data from Salesforce using a predefined schema mapping, which establishes a connection between Salesforce objects and Amplitude groups. Each row of a table will be eventually transformed into a group under a certain group type in an Amplitude project. There are 3 key concepts that together form a valid mapping:
 
-Every morning, Amplitude runs a daily job to update all group properties whose pickup dates fall on the current date. You can change the interval to whatever frequency you'd like: daily, weekly, monthly or a specific number of days.  After you activate the Salesforce integration, the first sync task runs in the morning on the next day (UTC).
+1. **Relation:** defines which Salesforce object maps to which Amplitude group type
+2. **Group Name Field:** a column of the table that will be used as the group identifier. Typically this column should identify a row in the table uniquely
+3. **Group Properties:** a list of columns that will be imported into Amplitude.
 
-!!!note
-    An event doesn't need to occur after the property update because the group property (Salesforce property) isn't identified by the event. To add other custom (non-Salesforce) group properties to your groups, call the [Group Identify API](https://help.amplitude.com/hc/en-us/articles/115001765532#group-identify-api).
+![screenshot of the mapping at a high level](../../assets/images/SFDC-mapping-high-level.png)
 
-To match the group object in Amplitude with the data in the Salesforce, follow these steps:
+## Detailed setup instruction
 
-1. **Grant access:** Grant Amplitude access to your Salesforce data. In Amplitude, navigate to **Data Sources**, then select **I want to import data into Amplitude**. Find and select Salesforce. Follow the on-screen prompts.
-2. **Set up account-level reporting:** Verify that you have [account-level reporting set up](https://help.amplitude.com/hc/en-us/articles/5332668738331) in Amplitude.
-3. **Match the group type:** In the *Synced Salesforce Objects* tab, use the **group** matching functionality to map the Salesforce field to an **existing** Amplitude group type. Amplitude uses the values of the field you select to match the field to the corresponding groups. For example, you have a field called "Account Sub-Type" for all accounts in Salesforce. You can use that field to map data to the Amplitude group type "Group Sub-Type".
+### Part 1: Set up account-level reporting 
 
-    ![Object_Mapping.png](/assets/images/integrations-salesforce-groups-mapping.png){: style="max-width:70%;display:block;margin:auto"}
+Verify that you have [account-level reporting](https://help.amplitude.com/hc/en-us/articles/5332668738331) set up in Amplitude.
+
+### Part 2: Grant Amplitude access to your Salesforce data
+
+1. In Amplitude Data, navigate to **Data Sources**.
+2. Select the **Salesforce V2** tile.
+3. Click on **Connect to** to initiate the authentication process. Once authenticated, you should see a valid email address associated with your Salesforce account.
+4. Click on **Next** located at the top right corner to continue with the mapping setup.
+
+### Part 3: Mapping Setup
+
+1. Review your mapping setup option
+    - **Sync Cadence:** This control the cadence of the sync job.
+    - **Copy config:** This allows you to copy the existing mapping config to the clipboard
+    - **Export config:** This downloads the current mapping config to your local machine (as a JSON file). This is useful when you want to recover a connection from the previous mapping config.
+    - **Import config:** This loads in the config file from the local machine and populates the UI.
+
+![screenshot of the SFDC top section with mapping controls](../../assets/images/SFDC-top-section.png)
+
+2. To create a new mapping, click **Set up new group mapping**. This should populate a new mapping section. Inside the section, fill in the following parts:
+    - **Relation** (SFDC object to Amplitude Group Type)
+    - **Group Name Field** (SFDC field that uniquely identifies a group/row)
+    
+![screenshot of the new SFDC group mapping](../../assets/images/SFDC-new-group-mapping.png)
+
+3. Once you finish the above settings, click **Group Property Mapping** to define a list of Salesforce fields which you want to import into Amplitude as Group Properties. 
 
     !!!note
-        If Amplitude detects an account in Salesforce with a unique mapped field value that doesn't exist in Amplitude, then it's created for you. However, because this new account doesn't have product usage data attached to it (as Amplitude has never seen the account before), it might not be useful to you.
+    
+        To ensure the data quality, Amplitude performs various validation on the fly, this includes:
+        - Ensuring all required fields are filled in
+        - Ensuring a one-to-one relationship between SFDC field and Amplitude Group Property to avoid values being overwritten by each other.
+        
+        The setup page will display the current validation failures, and prevent proceeding until all of them are addressed. A valid mapping will look like the screenshot below.
+   
+   ![screenshot of the SFDC-validated-mapping](../../assets/images/SFDC-validated-mapping.png)
 
-4. **Match group properties:** In the *Synced Group Properties* tab, use the group property matching functionality to map the Salesforce fields to the Amplitude group property. Amplitude periodically fetches those fields and append them to the corresponding groups as group properties. If you name a new group property during this step (for example, one that doesn't already exist in Amplitude) you **don't** also need to instrument it later. Adding it here is enough.
-
-    !!!example
-        Mapping the field `Active` to the group property `Active Status` and the field `Account Score` to the group property `Account Score` **create** group properties `Active Status` and `Account Score` for all tracked accounts, with the values pulled from Salesforce. 
-
-        ![Field_Mapping example](/assets/images/integrations-salesforce-groups-field-mapping.png){: style="max-width:70%;margin:auto"}
+4. After you finish defining the mapping and all validations pass, click on the **Next** button to move forward with the final verification process. 
+5. Once the final verification passes, click the **Save** button to establish the connection. The established connection will be available in the Source page with the name “Salesforce V2”.
+6. If needed, you can easily update the mapping configuration at any time by locating the connection on the Source page and clicking on it. This allows you to make changes to the mapping setup for the Salesforce integration.

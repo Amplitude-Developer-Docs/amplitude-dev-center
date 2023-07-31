@@ -17,7 +17,7 @@ icon: simple/unrealengine
 
 ### Install the SDK plugin
 
-Install the Unreal Engine SDK by downloading the latest version of `AmplitudUnreal.zip` found on the [GitHub releases](https://github.com/amplitude/Amplitude-Unreal/releases/latest) page.
+Install the Unreal Engine SDK by downloading the latest version of `AmplitudeUnreal.zip` found on the [GitHub releases](https://github.com/amplitude/Amplitude-Unreal/releases/latest) page.
  Unzip it into a folder inside your Unreal project's `Plugins` directory.
 
 ```bash
