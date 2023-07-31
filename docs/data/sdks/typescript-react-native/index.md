@@ -20,9 +20,7 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 --8<-- "includes/sdk-rn/rn-notification.md"
 
 ## Getting started
-
 ### Installation
-
 To get started with using Amplitude React Native SDK, install the package to your project via NPM. You must also install `@react-native-async-storage/async-storage` for the SDK to work as expected.
 
 !!!tip "Web and Expo Support"
