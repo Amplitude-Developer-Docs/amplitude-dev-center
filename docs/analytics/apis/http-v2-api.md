@@ -77,7 +77,7 @@ It's highly recommended that you send an `insert_id` for each event to prevent s
 
 Device IDs and User IDs must be strings with a length of 5 characters or more. This is to prevent potential instrumentation issues. If an event contains a device ID or user ID that's too short, the ID value is removed from the event. 
 
-Override the default minimum length of 5 charactersby passing the `min_id_length` option with the request.
+Override the default minimum length of 5 characters by passing the `min_id_length` option with the request.
 
 If the event doesn't have a `user_id` or `device_id` value, the upload may be rejected with a 400 status. 
 
