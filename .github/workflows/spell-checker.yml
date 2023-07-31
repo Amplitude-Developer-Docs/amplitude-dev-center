@@ -1,4 +1,4 @@
-name: Spell Check
+name: Spell Checker
 
 on:
   pull_request:

@@ -39,7 +39,7 @@ You need a Client ID, Client Secret and Subdomain from Salesforce Marketing Clou
 7. Grant the package these permissions:
     - Email: Read, Write
     - Web: Read, Write
-    - Automations: Read, Write, Execute
+    - Automation: Read, Write, Execute
     - Journeys: Read
     - List and Subscribers: Read, Write
     - Tracking Events: Read

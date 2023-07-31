@@ -50,7 +50,7 @@ Please refer to [this](https://developers.amplitude.com/docs/ios#carrier-inform
 
 ### 4. Android: Dependencies management
 
-Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrain).
+Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrains).
 
 If by any chance you have OkHttp included in your project, feel free to choose not to include OkHttp and its related dependencies by unchecking them.
 

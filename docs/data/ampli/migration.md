@@ -62,7 +62,7 @@ import * as amplitude, { BaseEvent } from '@amplitude/analytics-browser';
 
 // Original Implementation
 // Notice this will keep working as-is, so you can keep the
-// existing implementation while progressingly migrating to Ampli
+// existing implementation while progressively migrating to Ampli
 
 amplitude.init('API-KEY');
 amplitude.add(new MyPlugin());

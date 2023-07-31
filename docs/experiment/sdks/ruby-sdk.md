@@ -351,7 +351,7 @@ if device_id.nil?
   amp_cookie_value = AmplitudeExperiment::AmplitudeCookie.generate(device_id)
   cookies[amp_cookie_name] = {
     value: amp_cookie_value,
-    domain: '.yourdomain.com', # this should be the same domain used by the Amplitude JS SDK
+    domain: '.your-domain.com', # this should be the same domain used by the Amplitude JS SDK
     httponly: false,
     secure: false
   }

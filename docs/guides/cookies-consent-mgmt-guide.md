@@ -158,7 +158,7 @@ var _saveCookieData = function _saveCookieData(scope) {
 Note that **this will not affect users who already have an amplitude cookie** as you can see in the code below that is used in [the file for the amplitude client](https://github.com/amplitude/Amplitude-JavaScript/blob/03c0a890d578db1ada383cf1e6195d71275bac44/src/amplitude-client.js#L140), because that means that, at some point, the user provided consent, allowing the cookie to be created. Therefore, in order to opt that user out of tracking, the customer must remove any amplitude cookies that were previously set for that user.
 
 ```js
-const hasOldCookie = !!this.cookieStorage.get(this._oldCookiename);
+const hasOldCookie = !!this.cookieStorage.get(this._oldCookieName);
 const hasNewCookie = !!this._metadataStorage.load();
 this._useOldCookie = !hasNewCookie && hasOldCookie && !this.options.cookieForceUpgrade;
 const hasCookie = hasNewCookie || hasOldCookie;
@@ -248,7 +248,7 @@ this._storageSuffix =
    '_' + apiKey + (this._instanceName === Constants.DEFAULT_INSTANCE ? '' : '_' + this._instanceName);
 this._storageSuffixV5 = apiKey.slice(0, 6);
 
-this._oldCookiename = this.options.cookieName + this._storageSuffix;
+this._oldCookieName = this.options.cookieName + this._storageSuffix;
 this._unsentKey = this.options.unsentKey + this._storageSuffix;
 this._unsentIdentifyKey = this.options.unsentIdentifyKey + this._storageSuffix;
 
@@ -271,7 +271,7 @@ this._metadataStorage = new MetadataStorage({
    storage: this.options.storage,
 });
 
-const hasOldCookie = !!this.cookieStorage.get(this._oldCookiename);
+const hasOldCookie = !!this.cookieStorage.get(this._oldCookieName);
 const hasNewCookie = !!this._metadataStorage.load();
 this._useOldCookie = !hasNewCookie && hasOldCookie && !this.options.cookieForceUpgrade;
 const hasCookie = hasNewCookie || hasOldCookie;

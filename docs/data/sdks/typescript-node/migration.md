@@ -14,7 +14,7 @@ To migrate to `@amplitude/analytics-node`, update your dependencies and instrume
 
 ## Dependency
 
-Update package.json to uninstall the maintennace Node.js SDK and install the latest Node.js SDK.
+Update package.json to uninstall the maintenance Node.js SDK and install the latest Node.js SDK.
 
 ```diff
 {
@@ -161,7 +161,7 @@ The `addEventMiddleware()` API maps to `add()`.
 | <div class="big-column">Feature</div> | [Latest Node SDK](./) | [Maintenance Node SDK](../../node/) |
 | --- | --- | --- |
 | Package | [@amplitude/analytics-node](https://www.npmjs.com/package/@amplitude/analytics-node) | [@amplitude/node](https://www.npmjs.com/package/@amplitude/node)|
-| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./#configuration). | Support explicity setter methods. [More configurations](../../node/#configuration).|
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](./#configuration). | Supports specific setter methods. [More configurations](../../node/#configuration).|
 | Logger Provider | Amplitude Logger. Fully customizable. | Amplitude Logger.  Not customizable. |
 | Storage Provider | LocalStorage by default. Fully customizable. | Local Storage. |
 | Customization | Plugins | Middleware |

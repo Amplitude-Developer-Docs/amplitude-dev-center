@@ -1738,7 +1738,7 @@ The response is a JSON object with this schema:
             "dma": "San Francisco-Oakland-San Jose, CA",
             "language": "English",
             "start_version": "1.2.3",
-            "device_ids": ["somedevice", "someotherdevice"],
+            "device_ids": ["some-device", "some-other-device"],
             "last_location": {
                 "lat": 37.133,
                 "lng": -122.241
