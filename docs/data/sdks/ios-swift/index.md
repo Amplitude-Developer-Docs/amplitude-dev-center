@@ -169,7 +169,7 @@ amplitude.revenue(revenue: revenue)
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```swift
 amplitude.setUserId(userId: "user@amplitude.com")
@@ -213,7 +213,7 @@ amplitude.reset()
 
 ## Amplitude SDK plugin
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 ### Plugin.setup
 
@@ -338,7 +338,7 @@ let amplitude = Amplitude(
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```swift
 amplitude.setUserId(userId: "USER_ID")

@@ -10,4 +10,4 @@ Users who start on Site 1 and then navigate to Site 2 must have the device ID ge
 2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?deviceId=device_id_from_site_1`)
 3. Initialize the Amplitude SDK on Site 2 with `init('API_KEY', null)`.
 
-If the `deviceId` isn't provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
+If the `deviceId` isn't provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to using the URL parameter.

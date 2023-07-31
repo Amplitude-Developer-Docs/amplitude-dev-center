@@ -686,7 +686,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentifyWithGroupType` method accepts a group type string parameter and group name object parameter, as well as an Identify object that's applied to the group.
 
@@ -842,7 +842,7 @@ You can use the helper method getSessionId to get the value of the current `sess
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call setUserId at any time.
+If your app has its login system that you want to track users with, you can call setUserId at any time.
 
 === "Objective-C"
 

@@ -192,7 +192,7 @@ Amplitude supports assigning users to groups and performing queries, such as Cou
 
 #### groupIdentify
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward. [More details](../../sdks/typescript-browser/#group-properties).
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward. [More details](../../sdks/typescript-browser/#group-properties).
 
 | Name | Description |
 | --- | --- |

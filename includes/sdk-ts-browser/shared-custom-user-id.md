@@ -1,4 +1,4 @@
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```ts
 amplitude.setUserId('user@amplitude.com');
