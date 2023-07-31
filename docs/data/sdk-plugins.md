@@ -39,7 +39,7 @@ Add plugin to Ampli via `amplitude.add()`. You can add as many plugin as you lik
 
 ### Enrichment type plugin
 
-Enrichment Plugin is for modifying properties in Event object or drop an Event. Here are the [availabe keys for Event Object](../../analytics/apis/http-v2-api/#keys-for-the-event-argument) which you can enrich in the Enrichment Plugin. Please check [here](./#enrichment-type-plugin_1) for more examples.
+Enrichment Plugin is for modifying properties in Event object or drop an Event. Here are the [available keys for Event Object](../../analytics/apis/http-v2-api/#keys-for-the-event-argument) which you can enrich in the Enrichment Plugin. Please check [here](./#enrichment-type-plugin_1) for more examples.
 
 ### Destination type plugin
 

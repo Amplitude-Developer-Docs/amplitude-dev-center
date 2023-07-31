@@ -94,7 +94,7 @@ Possible values for `trackHistoryChanges`:
 |<div class="med-column">Name</div>|Description|
 |---|---|
 |`all`| All pushes and pops from history send a page view. |
-|`pathOnly`| Page Views are sent if the [URL pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname) changes. This prevents changes to the querystring or hash from sending events. |
+|`pathOnly`| Page Views are sent if the [URL pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname) changes. This prevents changes to the query string or hash from sending events. |
 
 You can set the `trackHistoryChanges` to `pathOnly` to only track the on path changes. By default, full page URL is considered into the page view changes.
 

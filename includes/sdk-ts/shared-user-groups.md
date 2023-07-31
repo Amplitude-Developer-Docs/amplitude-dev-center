@@ -10,7 +10,7 @@
     amplitude.setGroup('orgId', '15');
     ```
 
-    If Joe is in 'sport' 'scoccer' and 'tennis', then the `groupName` would be '["tennis", "soccer"]'.
+    If Joe is in 'sport' 'soccer' and 'tennis', then the `groupName` would be '["tennis", "soccer"]'.
 
     ```ts
     // set group with multiple group names
