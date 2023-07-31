@@ -29,7 +29,7 @@ You need to add the following information:
 
 - **Protocol**: TCP
 - **Port Range**: The number of the open port used by the data source.
-- **Source**: Custom IP (default). Add the correct IP addresses based on whether you're using EU or US Amplitude datacenters. 
+- **Source**: Custom IP (default). Add the correct IP addresses based on whether you're using EU or US Amplitude data centers. 
     - Amplitude US IP addresses:
         - 52.33.3.219
         - 35.162.216.242

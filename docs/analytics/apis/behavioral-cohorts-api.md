@@ -453,7 +453,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
 | `ids` | <span class="required">Required</span>. String\[\]. One or more user or Amplitude IDs to include in the cohort. Specify the ID type in the `id_type` field. |
 | `owner` | <span class="required">Required</span>. String. The login email of the cohort's owner in Amplitude. |
 | `published` | <span class="required">Required</span>. Boolean. Whether the cohort is discoverable or hidden. |
-| `existing_cohort_id` | <span class="optional">Optional</span>. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. `https//analytics.amplitude.com/accountname/cohort/**1a2bc3d**`|
+| `existing_cohort_id` | <span class="optional">Optional</span>. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. `https://analytics.amplitude.com/accountname/cohort/**1a2bc3d**`|
 
 ### Upload cohort response
 

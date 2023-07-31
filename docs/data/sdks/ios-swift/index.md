@@ -126,7 +126,7 @@ amplitude.track(
     event: BaseEvent(
         eventType: "event type",
         eventProperties: [
-            "eventPropertykey": "eventPropertyValue"
+            "eventPropertyKey": "eventPropertyValue"
         ], 
         groups: ["orgId": 15]
     )

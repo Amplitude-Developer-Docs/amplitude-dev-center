@@ -63,7 +63,7 @@ All the latest SDKs allow for configuration of Client behavior. Below is a short
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     |`apiKey`| Required. `string`. The apiKey of your project. | `null` | 
-    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in millionseconds. | 1 second.|
+    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in milliseconds. | 1 second.|
     |`flushQueueSize`| `number`. The maximum number of events that can be stored locally before forcing an upload.  | 30 events. |
     |`flushMaxRetries`| `number`. The max retry limits. | 5 times.|
     |`loggerProvider`| `Logger`. Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment.| `Amplitude Logger` |

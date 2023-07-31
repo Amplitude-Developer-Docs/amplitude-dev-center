@@ -606,7 +606,7 @@ A successful request returns a `200 OK` status with a JSON body:
             "description": null
         },
         {
-            "event_type": "Converstion",
+            "event_type": "Conversation",
             "category": {
                 "name": "Conversion Events"
             },
