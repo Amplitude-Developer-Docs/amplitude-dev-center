@@ -109,7 +109,7 @@ The converter language describes extraction of a value given a JSON element. Spe
 
 !!!example "Example converters"
 
-    See the [Converter Configuration reference](../converter-configuration-reference/) for more help.
+    See the [Converter Configuration reference](../converter-configuration-reference.md) for more help.
 
 ### Configure converter in Amplitude
 

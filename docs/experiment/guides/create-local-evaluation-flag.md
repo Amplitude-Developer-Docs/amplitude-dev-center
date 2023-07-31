@@ -27,6 +27,6 @@ You may retroactively transition a remote flag to local evaluation mode by chang
 
     ![Screenshot of advanced settings with evaluation mode picker](../../assets/images/experiment/local-eval-migrate-flag-1.png)
 
-2. Update the "bucketed by" setting from Amplitude ID to Device ID in each "Rule Based User Segment" and "All Non-Targeted Users" Section.
+2. Update the "bucketed by" setting from Amplitude ID to Device ID in each targeted users segment and the "All Other Users" Section.
 
     ![Screenshot of allocation configuration with "bucketed by" setting](../../assets/images/experiment/local-eval-migrate-flag-2.png)

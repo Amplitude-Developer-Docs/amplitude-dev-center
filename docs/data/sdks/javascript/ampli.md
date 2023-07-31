@@ -11,10 +11,6 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
     - [Browser JavaScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app)
     - [Browser TypeScript Ampli Examples](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app)
 
-!!!note "Deprecated Itly runtime"
-    This page covers Browser JavaScript and TypeScript runtimes. All (Itly) runtimes are deprecated.
-    If you are still using an (Itly) runtime, see the **[migration guide](#migrate-from-an-itly-runtime)** to upgrade to the newest runtime. Docs for the Itly version are available **[here](../../deprecated-sdks/browser.md)**.
-
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Click here for more documentation on the [Amplitude Browser SDK](./index.md).
 
@@ -116,7 +112,7 @@ The `load()` function requires an options object to configure the SDK's behavior
 | `environment`| Required. String. Specifies the environment the Ampli Wrapper is running in e.g. `production` or `development`. Environments can be created, renamed, and managed in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If an `client.apiKey` or `client.instance` is provided, `environment` will be ignored, and can be omitted.|
 | `disabled`                            | Optional. `Boolean`. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.                                                                                                                                                  |
 | `client.apiKey`                       |Optional. `String`. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-| `client.instance`                     | Optional. `AmpltitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+| `client.instance`                     | Optional. `AmplitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 | `client.options`                      | Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
 ### Identify
@@ -222,7 +218,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `properties` argument passes event properties.
 
-The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 
@@ -230,7 +226,7 @@ For example, in the following code snippet, your tracking plan contains an event
  The property type for `songId` is string, and `songFavorited` is a boolean.
 
 The event has an Amplitude field defined: `deviceId`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
- The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../ampli/middleware.md).
+ The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../../sdk-middleware).
 
 === "TypeScript"
 
@@ -303,34 +299,3 @@ Track Event objects using Ampli `track`:
 --8<-- "includes/ampli/flush/ampli-flush-snippet-typescript.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
-
-## Migrate from an Itly runtime
-
-Migrate from an Itly Browser runtime to Ampli by following these steps.
-
-1. Update Source runtime. In the web app open the **Connections > Source** modal. From the dropdown, update the source to a non-`(Itly)` runtime.
-2. Follow steps on this page for detailed setup and usage instructions.
-3. Remove legacy Itly dependencies from your project. This includes anything that contains `@itly`:
-
-    `yarn remove @itly/sdk @itly/plugin-schema-validator @itly/plugin-amplitude ...`
-
-4. Add Amplitude dependencies:
-  
-      `yarn add amplitude-js@^8.21.0`
-
-5. Pull the latest Ampli Wrapper:
-
-    `ampli pull`
-
-6. Check your Ampli Wrapper path.
-
-    `ampli pull` prints the download location of the SDK. If the path contains `itly`,
-     you can update the `Path` by hand in the `ampli.json` file, or pull again using the `--path` parameter: `ampli pull -p ./path/to/ampli`.
-
-7. Find and replace:
-    - `import { itly } from '../itly'` => `import { ampli } from '../ampli'`
-    - `itly.group(userId, groupId) => ampli.setGroup(userId, groupType, groupName)`
-    - `itly.load()` => `ampli.load()`
-    - All `itly.` with `ampli.`
-
-8. See updated Event tracking details on your Implementation page in the web app.

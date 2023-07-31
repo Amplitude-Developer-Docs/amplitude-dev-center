@@ -9,6 +9,10 @@ The Experiment management API can be used to programmatically create and control
 
     This API is in Beta. If you would like to try out an early version of the API please reach out to us.
 
+## Management API Key
+
+You can create and revoke management API keys by clicking on "Management API" in the bottom left of the sidebar. Read more about the Management API Key in our [comprehensive guide to all amplitude keys](../../../guides/amplitude-keys-guide/?h=keys#management-api-key).
+
 ## Endpoints
 
 [Experiment endpoints](#experiment-endpoints)

@@ -173,7 +173,7 @@ Get JSON results from any saved chart via chart ID.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/3/chart/:chart_id/query' \
-    --header 'Authorization: Basic = {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "Python"
@@ -184,11 +184,9 @@ Get JSON results from any saved chart via chart ID.
     url = "https://amplitude.com/api/3/chart/:chart_id/query"
 
     payload={}
-    headers = {
-      'Authorization': 'Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
-    }
+    auth=requests.auth.HTTPBasicAuth('api-key', 'secret-key')
 
-    response = requests.request("GET", url, headers=headers, data=payload)
+    response = requests.request("GET", url, auth=auth, data=payload)
 
     print(response.text)
 
@@ -218,7 +216,7 @@ This is a basic request with only the required parameters.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/users?start=STARTDATE&end=ENDDATE' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -268,7 +266,7 @@ This is a basic request with only the required parameters.
         === "cURL"
 
             ```curl
-            ccurl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=7'
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=7'
             --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
             ```
         === "HTTP"
@@ -329,7 +327,7 @@ This is a basic request with only the required parameters.
             ```
         **Response**
 
-        Returns active users for the period grouped by city, in montly intervals, following the response schema for this API.
+        Returns active users for the period grouped by city, in monthly intervals, following the response schema for this API.
 
     ???code-example "Get new users for a period"
 
@@ -403,7 +401,7 @@ This is a basic request with only the required parameters.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/sessions/length?start=STARTDATE&end=ENDDATE'
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -524,7 +522,7 @@ This request retrieves the average session length in seconds for the period betw
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/sessions/average?start=20210601&end=20210630' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -581,7 +579,7 @@ This example retrieves the average number of sessions per user on each day betwe
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/sessions/peruser?start=&end=' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -638,7 +636,7 @@ This is a basic request.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/composition?start=STARTDATE&end=ENDDATE&p=PROPERTY' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -744,7 +742,7 @@ Get the list of events with the current week's totals, uniques, and % DAU (daily
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/events/list' \
-    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api-key}:{secret-key}'
     ```
 
 === "HTTP"
@@ -807,7 +805,7 @@ This is a basic request with only the required parameters.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/events/segmentation?e={"event_type":"YOUR%20EVENT"}&start=STARTDATE&end=DATE' \
-    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api-key}:{secret-key}'
     ```
 
 === "HTTP"
@@ -1172,7 +1170,7 @@ This is a basic request with only the required fields.
 
     ```bash
     curl --location -g --request GET 'https://amplitude.com/api/2/funnels?e={"event_type":"EVENT_1"}&e={"event_type":"EVENT_2"}&start=STARTDATE&end=ENDDATE'
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -1419,7 +1417,7 @@ This is a basic request with only the required parameters.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/retention?se={"event_type":"STARTEVENT"}&re={"event_type":"RETURNEVENT"}&start=STARTDATE&end=ENDDATE' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -1606,8 +1604,8 @@ This is a basic example with only the required parameters.
 === "cURL"
 
     ```bash
-        curl --location --request GET 'https://amplitude.com/api/2/useractivity?user=USERID'
-        --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+        curl --location --request GET 'https://amplitude.com/api/2/useractivity?user={amplitude_id}'
+        -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -1740,7 +1738,7 @@ The response is a JSON object with this schema:
             "dma": "San Francisco-Oakland-San Jose, CA",
             "language": "English",
             "start_version": "1.2.3",
-            "device_ids": ["somedevice", "someotherdevice"],
+            "device_ids": ["some-device", "some-other-device"],
             "last_location": {
                 "lat": 37.133,
                 "lng": -122.241
@@ -1765,7 +1763,7 @@ Search for a user with a specified Amplitude ID, device ID, user ID, or user ID 
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/usersearch?user=USER_ID' \
-    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api-key}:{secret-key}'
     ```
 
 === "HTTP"
@@ -1928,7 +1926,7 @@ Get active user numbers with 5-minute granularity for the last two days.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/realtime' \
-    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api-key}:{secret-key}'
     ```
 
 === "HTTP"
@@ -1983,7 +1981,7 @@ Learn more about this chart in the [Help Center](https://help.amplitude.com/hc/e
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/revenue/ltv?start=&end=' \
-    --header 'Authorization: Basic ={{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api-key}:{secret-key}'
     ```
 
 === "HTTP"
@@ -2061,7 +2059,7 @@ Learn more about this chart in the [Help Center](https://help.amplitude.com/hc/e
             ```
           **Response**
 
-          The response follows the response schema decribed previously.
+          The response follows the response schema described previously.
 
     ???code-example "LTV aggregated monthly for new paying users"
 
@@ -2103,7 +2101,7 @@ Learn more about this chart in the [Help Center](https://help.amplitude.com/hc/e
             ```
           **Response**
 
-          The response follows the response schema decribed previously. 
+          The response follows the response schema described previously. 
 
 ### Query parameters
 

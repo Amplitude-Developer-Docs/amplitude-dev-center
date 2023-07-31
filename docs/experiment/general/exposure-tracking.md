@@ -7,18 +7,18 @@ An exposure event is a [strictly defined](#exposure-event) analytics event sent 
 
 When Amplitude ingests an [exposure event](#exposure-event), it uses the flag key and variant to **set or unset user properties** on the user associated with the event. Setting user properties is essential for experiment analysis queries on primary and secondary success metrics.
 
-!!!info "Event Volume"
-    Amplitude defined [exposure events](#exposure-event) **don't count** toward your organization's event volume billing.
+!!!info "Event Volume Billing"
+    If you've purchased Amplitude Experiment's *End-to-end* feature flagging and experimentation solution, Amplitude defined [exposure events](#exposure-event) **don't count** toward your organization's event volume billing. If you have purchased *Experiment Results* or have not purchased Experiment then all events will be billed in full.
 
 ## Automatic exposure tracking
 
-Client-side Experiment SDKs higher than a certain version support automatic exposure tracking through an exposure tracking provider, often implemented through an analytics SDK integration.
+Client-side Experiment SDKs support automatic exposure tracking through an exposure tracking provider implementation. Without an integration or custom implementation, exposure events aren't tracked automatically.
 
 !!!tip "Integrations"
     Client-side SDKs currently support two integrations, Amplitude and Segment. You can also implement your own custom integration.
 
 <!--vale off-->
-| <div class='big-column'>SDK</div> | Version |
+| <div class='big-column'>SDK Integrations</div> | Minimum Version |
 | --- | --- |
 | [:material-language-javascript: JavaScript SDK](../sdks/javascript-sdk.md#integrations) | `1.4.1+` |
 | [:material-android: Android SDK](../sdks/android-sdk.md#integrations) | `1.5.1+` |

@@ -77,7 +77,7 @@ The `user_properties` field supports these operations:
 |<div class="big-column">Name</div>|Description|
 |----|------|
 |`$set` |Sets the value of a property.|
-|`$setOnce`| Sets the value of a property, prevent overriding the property value.|
+|`$setOnce`| Set the value only if the value hasn't already been set.|
 |`$add`| Adds a numeric value to a numeric property.|
 |`$append` and `$prepend` | Appends and prepends the value to a user property array.|
 |`$unset`| Removes a property|

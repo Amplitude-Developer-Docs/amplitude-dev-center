@@ -34,4 +34,4 @@ There are no other setup steps in Amplitude.
 3. Insert the Amplitude API key.
 4. Save your changes. 
 
-For more details, see [Tribe's documentation](https://community.tribe.so/knowledge-base-2-0/post/amplitude-integration-4fdETovFRinhUH6?from=/).
+For more details, see [Tribe's documentation](https://bettermode.com/hub/product-updates/post/amplitude-integration-WBv1ovhdU4Ch8UF).

@@ -6,7 +6,7 @@ template: guide.html
 
 !!!info
 
-    This workflow requires [Ampli CLI 1.9.0+](./cli)
+    This workflow requires [Ampli CLI 1.9.0+](./cli.md)
 
 Larger organizations with multiple teams usually need to make changes to their tracking plan and analytics implementations in parallel.
 

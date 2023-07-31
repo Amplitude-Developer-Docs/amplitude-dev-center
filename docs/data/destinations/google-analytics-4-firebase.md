@@ -1,79 +1,70 @@
 ---
 title: Google Analytics 4 (iOS/Android) Event Streaming
-description: Amplitude Data's Google Analytics 4 integration enables you to stream your Amplitude event data straight to Google Analytics with just a few clicks.
+description: Amplitude CDP's Google Analytics 4 (iOS/Android) streaming integration enables you to forward your Amplitude events and users straight to Google Analytics 4 (iOS/Android) with just a few clicks.
 status: new
 ---
 
-Amplitude Data's Google Analytics 4 (iOS/Android) integration enables you to stream your Amplitude event data straight to Google Analytics with just a few clicks.
+Amplitude CDP's Google Analytics 4 (iOS/Android) streaming integration enables you to forward your Amplitude events and users straight to Google Analytics 4 (iOS/Android) with just a few clicks.
 
-!!!note "Choose the right Google Analytics 4 destination"
-    
+!!!note "Choose the correct Google Analytics 4 destination"
+
     The Google Analytics 4 (iOS/Android) destination works with an iOS or Android mobile application using Firebase. If you are working with a web application instrumented with Google Tag (gtag.js), set up a [Google Analytics 4 (Web)](../google-analytics-4-gtag) destination instead.
-
-## Considerations
-
-- Amplitude sets `non_personalized_ads` to `true` for all sent events.
-- Google Analytics 4 property names are composed of alphanumeric characters and underscores. Amplitude replaces white spaces in property names with a single underscore and strips all other non-alphanumeric characters from the names.
-- Amplitude sends custom events using Amplitude `event_type` as event name.
 
 ## Setup
 
 ### Prerequisites
 
-To set up event streaming to GA4, you need the following: 
+To configure streaming from Amplitude to Google Analytics 4 (Web), you need the following information from Google Analytics 4 (Web).
 
-- A `Firebase App ID` 
-- A `Measurement Protocol API secret`
-- A custom user property in Amplitude containing the Firebase app instance ID for each user
+- **Google Analytics 4 Firebase App ID**: The identifier for your Google Analytics 4 Firebase app. See the [Google documentation](https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=firebase#required_parameters) for help locating your Firebase app ID.
+- **Google Analytics 4 Measurement Protocol API Secret**: The measurement protocol API secret used for authentication. See the [Google documentation](https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=firebase#required_parameters) for help generating an API secret.
 
-To find these values:
-
-1. Open the [Google Analytics home page](https://analytics.google.com/analytics/web). 
-2. Click the **gear icon** to open Admin, then select **Data Streams**. 
-3. Pick the data stream to stream the Amplitude events to.
-   - `Measurement Protocol API secret` is available under the `Additional Settings` section, by opening `Measurement Protocol API secrets`. You can create a new API secret that's specific to this use case, that you can manage and remove independently the others. Copy the value in the `Secret value` column of the appropriate row.
-4. Navigate to your Firebase console.
-5. Your `Firebase App ID` is under `Projects Settings > General > Your Apps > App ID`.
-
-### Amplitude setup 
+### Create a new sync
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Event Streaming section, click **Google Analytics 4 (iOS/Android)**.
 3. Enter a sync name, then click **Create Sync**.
 
-After you create the destination, you must configure the settings.
+### Enter credentials
 
-#### Configure settings
+1. Enter your **Google Analytics 4 Firebase App ID**.
+2. Enter your **Google Analytics 4 Measurement Protocol API Secret**.
 
-1. On the **Settings** tab, click **Edit**.
-2. Enter your **Measurement Protocol API secret**.
-3. Enter your **Firebase App ID**.
-4. **Create & Update Users** creates users in Google Analytics 4 and update the properties of existing users when an Amplitude Identify API call is made. You can select up to 25 user properties to send. Google Analytics 4 doesn't accept more than 25 user properties.
-      1. To create and update users, toggle **Create & Update Users** to **Enabled**.
-      2. To select user properties to send, expand the **Specify user properties to send** panel, and select up to 25 properties. If you don't select any properties here, Amplitude doesn't include any.
-5. **Send Events** sends events ingested by Amplitude to Google Analytics 4. You can select up to 25 event properties to send. Google Analytics 4 doesn't accept more than 25 event properties.
-      1. To send events, toggle **Send Events** to **Enabled**.
-      2. Expand the **Select and filter events** panel, and select which events to send. Amplitude recommends that you send only the events you need in Google Analytics 4, rather than selecting **All Events**.
-      3. To select event properties to send, expand the **Specify event properties to send** panel, and select up to 25 properties. If you don't select any properties here, Amplitude doesn't include any.
-6. Save when finished.
+### Configure mappings
 
-After you configure your settings, you can configure your mappings.
+_This applies to both event and user forwarding. Transformed user properties aren't supported._
 
-#### Configure mappings (optional)
+1. Select an Amplitude user property that corresponds to your [Google Analytics 4 **App Instance ID**](https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=firebase#required_parameters), from the left dropdown.
+2. (optional) Map an Amplitude user property to [Google Analytics 4 **User ID**](https://support.google.com/analytics/answer/9213390).
+      1. Select an Amplitude user property that corresponds to your Google Analytics 4 **User ID**, from the left dropdown.
+      2. Select **User ID**, from the corresponding right dropdown.
 
-For newer versions of the Google Analytics 4 (iOS/Android) destination, you can map Amplitude properties to fields in Google Analytics 4. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
+### Configure event forwarding
 
-1. Click the **Mappings** tab, then click **Edit**.
-2. Select a **User ID**. This is a unique identifier for users in Google Analytics 4. Defaults to Amplitude **User ID** (`user_id`).
-3. Select a **Firebase Instance ID**. This is a unique identifier for a user's instance of your mobile application. Defaults to the custom user property `firebase_instance_id`.
-4. Save when finished.
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Google Analytics 4") if you want to stream events to Google Analytics 4. When enabled, events are automatically forwarded to Google Analytics 4 when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 
-After you configure mappings, enable the destination.
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Google Analytics 4. _Amplitude sets `non_personalized_ads` to `true` for all events events. Transformed events aren't supported._
 
-#### Enable integration
+    !!!warning "Events for non-Google Analytics 4 users cannot be streamed"
 
-The final step is enabling the destination. You must enable the destination to start streaming events. 
+        Google Analytics 4 requires that all events have a Google Analytics 4 **App Instance ID** present. If you have selected any events to send to Google Analytics 4 that may not have a **App Instance ID**, add a filter to send only events where the **App Instance ID** is present. Otherwise, your delivery metrics may be affected.
 
-1. Navigate back to the **Settings** tab and click **Edit**.
-2. Toggle **Status** from **Disabled** to **Enabled**.
-3. Save when finished.
+        ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
+
+2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Google Analytics 4. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Google Analytics 4 as [Google Analytics 4 parameters](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference?client_type=firebase#payload_post_body). _Transformed event properties and transformed user properties aren't supported._
+
+### Configure user forwarding
+
+Under **Send Users**, make sure the toggle is enabled ("Users are sent to Google Analytics 4") if you want to stream users and their properties to Google Analytics 4. When enabled, users are automatically created or updated in Google Analytics 4 when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Google Analytics 4. Users aren't sent on a schedule or on-demand using this integration.
+
+(optional) In **Select additional properties**, select any more user properties you want to send to Google Analytics 4. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Google Analytics 4 as [Google Analytics 4 User Properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties?client_type=firebase). _Transformed user properties aren't supported._
+
+!!!note "User Forwarding Volumes"
+    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Google Analytics 4, even if the updated property
+    isn't selected in **Select additional properties**.
+
+### Enable sync
+
+When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.
+
+--8<-- "includes/debug-delivery-metrics.md"

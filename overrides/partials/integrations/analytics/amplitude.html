@@ -2,53 +2,27 @@
 var consent = __md_get("__consent")
 if (consent) {
     /* The user accepted the cookie */
-    (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
-    ;r.type="text/javascript"
-    ;r.integrity="sha384-VuGgAcmMrGHihvjXxxBVMIqoDFXc8/PO9q/08kCgq4Wn1iPnSmUbI3xhXaFozVFv"
-    ;r.crossOrigin="anonymous";r.async=true
-    ;r.src="https://cdn.amplitude.com/libs/amplitude-8.18.1-min.gz.js"
-    ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){console.log(
-    "[Amplitude] Error: could not load SDK")}};var s=t.getElementsByTagName("script"
-    )[0];s.parentNode.insertBefore(r,s);function i(e,t){e.prototype[t]=function(){
-    this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
-    var o=function(){this._q=[];return this};var a=["add","append","clearAll",
-    "prepend","set","setOnce","unset","preInsert","postInsert","remove"];for(
-    var c=0;c<a.length;c++){i(o,a[c])}n.Identify=o;var l=function(){this._q=[]
-    ;return this};var u=["setProductId","setQuantity","setPrice","setRevenueType",
-    "setEventProperties"];for(var p=0;p<u.length;p++){i(l,u[p])}n.Revenue=l;var d=[
-    "init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut",
-    "setVersionName","setDomain","setDeviceId","enableTracking",
-    "setGlobalUserProperties","identify","clearUserProperties","setGroup",
-    "logRevenueV2","regenerateDeviceId","groupIdentify","onInit","onNewSessionStart"
-    ,"logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId",
-    "getDeviceId","getUserId","setMinTimeBetweenSessionsMillis",
-    "setEventUploadThreshold","setUseDynamicConfig","setServerZone","setServerUrl",
-    "sendEvents","setLibrary","setTransport"];function v(t){function e(e){
-    t[e]=function(){t._q.push([e].concat(Array.prototype.slice.call(arguments,0)))}}
-    for(var n=0;n<d.length;n++){e(d[n])}}v(n);n.getInstance=function(e){e=(
-    !e||e.length===0?"$default_instance":e).toLowerCase();if(
-    !Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])}
-    return n._iq[e]};e.amplitude=n})(window,document);
-    amplitude.getInstance().init("c1817405c2f578878637c55704d4a153", null, {
-        includeUtm: true,
-        includeReferrer: true,
-        includeGclid: true
-    });
+    !function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[],_iq:{}};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var n=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,r){return function(n){e._q.push({name:t,args:Array.prototype.slice.call(r,0),resolve:n})}},o=function(e,t,r){e[t]=function(){if(r)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<g.length;t++)o(e,g[t],!1);for(var r=0;r<y.length;r++)o(e,y[r],!0)};r.invoked=!0;var a=t.createElement("script");a.type="text/javascript",a.integrity="sha384-gO+7OZjJ98YoMPqYSFk9rQy2jxO1C7ZFrDa9/PTh1PtUYIiyBLFo35kQUNQRNzp8",a.crossOrigin="anonymous",a.async=!0,a.src="https://cdn.amplitude.com/libs/analytics-browser-2.1.1-min.js.gz",a.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c);for(var u=function(){return this._q=[],this},p=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],l=0;l<p.length;l++)n(u,p[l]);r.Identify=u;for(var d=function(){return this._q=[],this},f=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],v=0;v<f.length;v++)n(d,f[v]);r.Revenue=d;var g=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset","extendSession"],y=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(r),r.createInstance=function(e){return r._iq[e]={_q:[]},i(r._iq[e]),r._iq[e]},e.amplitude=r}}(window,document)}();
+    amplitude.init("c1817405c2f578878637c55704d4a153");
 
     function checkAuthenticatedUser() {
         try {
-            const AMP_PREFIX = 'amp_';   
-            const currUserId = amplitude.getInstance().getUserId();
+            const AMP_PREFIX = 'AMP_';   
+            const currUserId = amplitude.getUserId();
             if (!currUserId) {
                 // Iterate through all amplitude cookies within amplitude domain
                 const amplitudeCookies = getCookies(AMP_PREFIX);
                 
                 for (let [cookieName, cookieValue] of amplitudeCookies.map((cookies) => cookies.split('='))) {
                     const [deviceId, userId] = cookieValue.split('.');
-                    if (userId) {
-                        amplitude.getInstance().setUserId(decodeURIComponent(escape(window.atob(userId))));
-                        break;
-                    }
+                    
+                    try {
+                        const userSession = JSON.parse(decodeURIComponent(atob(cookieValue)))
+                        if (userSession && userSession.userId) {
+                            amplitude.setUserId(userSession.userId);
+                            break;
+                        }
+                    } catch {}
                 }
             }
         } catch (e) {
@@ -95,7 +69,7 @@ if (consent) {
         }
         // HACK: figure out better environment switching
         if (url.hostname === 'docs.developers.amplitude.com' || url.hostname === 'www.docs.developers.amplitude.com') {
-            amplitude.getInstance().logEvent(event, properties);
+            amplitude.track(event, properties);
         }
     }
 

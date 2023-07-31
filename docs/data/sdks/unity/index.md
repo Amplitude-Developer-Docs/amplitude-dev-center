@@ -50,7 +50,7 @@ Please refer to [this](https://developers.amplitude.com/docs/ios#carrier-inform
 
 ### 4. Android: Dependencies management
 
-Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrain).
+Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrains).
 
 If by any chance you have OkHttp included in your project, feel free to choose not to include OkHttp and its related dependencies by unchecking them.
 
@@ -118,10 +118,43 @@ Amplitude amplitude2 = Amplitude.getInstance("client_2");
 Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 ```
 
-## EU data residency
+### Configuration
+
+Amplitude Unity SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), and [Amplitude iOS Maintenance SDK](../ios/). The following are the C# settable config options.
+For other default configurations:
+
+- on Android side, check the [Android Configuration](../android-kotlin/#configuration)
+- on iOS side, check the [iOS configuration](../ios/#configuration)
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `enableCoppaControl()` | Enable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking.  | Coppa control is disabled by default. |
+    | `disableCoppaControl()` | Disable COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, city, IP address and location tracking. | Coppa control is disabled by default. |
+    | `setTrackingOptions()`| `IDictionary<string, bool>`. By default the SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. | `All tracking options enabled.` |
+    | `setMinTimeBetweenSessionsMillis()` | `long`. The amount of time for session timeout if disable foreground tracking. For example, `Amplitude.getInstance().setMinTimeBetweenSessionsMillis(100000)`. The input parameter is in milliseconds. | `5 minutes` |
+    | `setEventUploadPeriodSeconds()` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `eventUploadPeriodSeconds` or reach 30 events threshold. For example, `Amplitude.getInstance().setEventUploadPeriodSeconds(50)`. The input parameter is in seconds.| `30 seconds` |
+    | `setServerZone()` | `AmplitudeServerZone`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. For example, `Amplitude.getInstance().setServerZone(AmplitudeServerZone.US)`. | `AmplitudeServerZone.US` |
+    | `setServerUrl()` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone`. For example, `Amplitude.getInstance().setServerUrl(https://www.your-server-url.com)`. | `https://api2.amplitude.com/` |
+    | `setUseDynamicConfig()` | `bool`. Find the best server url automatically based on users' geo location. For example, `Amplitude.getInstance().setUseDynamicConfig(true)`. | `false` |
+    | `setOffline()` | `bool`. Weather the SDK will upload events to Amplitude servers. However, the SDK will always log events. For example, `Amplitude.getInstance().setOffline(true)`. | `false` |
+    | `useAdvertisingIdForDeviceId()` | `bool`. Whether to use advertising id as device id. Please check [here](../android/#advertiser-id) for the required module and permission. For example, `Amplitude.getInstance().useAdvertisingIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+    | `useAppSetIdForDeviceId()` | `bool`. Only for Android. Whether use appset id as a deviceId. Please check [here](../android/#app-set-id) for the required module and permission. For example, `Amplitude.getInstance().useAppSetIdForDeviceId(true)`. | The deviceId will be UUID+"R" by default. |
+
+#### Configure batching behavior
+
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadPeriodSeconds`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+
+```c#
+// Events queue will flush every certain seconds based on setting
+// Default value is 30 seconds
+amplitude.setEventUploadPeriodSeconds(50);
+```
+
+#### EU data residency
 
 Starting from version 2.4.0, you can configure the server zone after initializing the client for sending data to Amplitude's EU servers. SDK will switch and send data based on the server zone if it's set.
- The server zone configuration supports [dynamic configuration](../dynamic-configuration/) as well.
+ The server zone configuration supports [dynamic configuration](../../dynamic-configuration.md) as well.
 
 For earlier versions, you need to configure the `serverURL` property after initializing the client.
 
@@ -415,7 +448,7 @@ client.setOptOut(true); //No events will be tracked for this user
 
 ### Dynamic configuration
 
-Unity SDK allows users to configure their apps to use [dynamic configuration](../dynamic-configuration). This feature finds the best Amplitude server URL automatically based the user's location.
+Unity SDK allows users to configure their apps to use [dynamic configuration](../../dynamic-configuration.md). This feature finds the best Amplitude server URL automatically based the user's location.
 
 - If you have your own proxy server and use `setServerUrl` API, don't use dynamic configuration.
 - If you have users in Mainland China, Amplitude recommends that you use dynamic configuration.
@@ -453,10 +486,10 @@ using System.Runtime.InteropServices;
 #endif
 ```
 
-Inside the game class, add the following code inside your MonoBehaviour class, or any other class.
+Inside the game class, add the following code inside your MonoBehavior class, or any other class.
 
 ```c#
-public class AmplitudeDemo : MonoBehaviour {
+public class AmplitudeDemo : MonoBehavior {
 
 #if (UNITY_IPHONE || UNITY_TVOS)
     [DllImport ("__Internal")]

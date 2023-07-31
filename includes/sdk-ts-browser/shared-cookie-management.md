@@ -1,0 +1,1 @@
+The Browser SDK uses cookie storage to persist information that multiple subdomains of the same domain may likely want to share. This includes information like user session and marketing campaigns, which are stored in separate cookie entries.

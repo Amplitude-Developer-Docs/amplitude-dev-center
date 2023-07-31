@@ -4,7 +4,7 @@ description: The Amplitude Node.js SDK installation and quick start guide.
 icon: simple/nodedotjs
 ---
 
-![npm version](https://badge.fury.io/js/%40amplitude%2Fnode.svg)
+[![npm](https://img.shields.io/npm/v/@amplitude/node)](https://www.npmjs.com/package/@amplitude/node)
 
 This is Amplitude Node.js SDK written in Typescript, the first backend SDK for Amplitude.
 
@@ -24,17 +24,70 @@ By default, the Node SDK uses the [HTTP API V2](../../../analytics/apis/http-v2
     The Beta SDK does not yet support the [Ampli Wrapper](/data/ampli/sdk/). If you use Ampli please continue to use the non-Beta SDK at this time.
 
 !!!info "Node SDK Resources (Maintenance)"
-    - [Node.js SDK Repository :material-github:](https://github.com/amplitude/Amplitude-Node)
-    - [Node.js SDK Releases :material-code-tags-check:](https://github.com/amplitude/Amplitude-Node/releases)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-Node) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Node/releases)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Node](./ampli.md).
 
-## Installation
+## Get started
 
 Run `npm install @amplitude/node` in your project directory, the same level with `package.json`.
 
-## EU data residency
+## Usage
+
+### Initialize the SDK
+
+Before you can instrument, you must initialize the SDK using the API key for your Amplitude project.
+ Initialization creates a default instance, but you can create more instances using `getInstance` with a string name.
+
+```js
+// Option 1, initialize with API_KEY only
+Amplitude.init(AMPLITUDE_API_KEY);
+
+// Option 2, initialize including configuration
+var options = {};
+Amplitude.init(AMPLITUDE_API_KEY, options);
+```
+
+### Configuration
+
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `debug` | `boolean`. Whether or not the SDK should be started in debug mode. This will enable the SDK to generate logs at WARN level or above, if the logLevel is not specified.| `false` |
+    | `logLevel` | `LogLevel`. Configuration of the logging verbosity of the SDK.  `None` - No Logs will be surfaced. `Error` - SDK internal errors will be generated. `Warn` - Warnings will be generated around dangerous/deprecated features. `Verbose` - All SDK actions will be logged.| `LogLevel.None` |
+    | `maxCachedEvents` | `number`. The maximum events in the buffer. | `16000` |
+    | `retryTimeouts` | `number[]. ` Determines # of retries for sending failed events and how long each retry to wait for (ms). An empty array means no retries. | `[100, 100, 200, 200, 400, 400, 800, 800, 1600, 1600, 3200, 3200]` |
+    | `optOut` | `boolean`. Whether you opt out from sending events. | `false` |
+    | `retryClass` | ` Retry`. The class being used to handle event retrying.  | `null` |
+    | `transportClass` | ` Transport`. The class being used to transport events. | `null` |
+    | `serverUrl` | ` string`. If you're using a proxy server, set its url here. | `https://api2.amplitude.com/2/httpapi` |
+    | `uploadIntervalInSec` | `number`. The events upload interval in seconds. | `0` |
+    | `minIdLength` | `number`. Optional parameter allowing users to set minimum permitted length for user_id & device_id fields. | `5` |
+    | `requestTimeoutMillis` | `number`. Configurable timeout in milliseconds. | `10000` |
+    | `onRetry` | `(response: Response, attemptNumber: number, isLastRetry: boolean) => boolean) `. @param `response` - Response from the given retry attempt. @param `attemptNumber` - Index in retryTimeouts for how long Amplitude waited before this retry attempt. Starts at 0. @param `isLastRetry` - True if attemptNumber === retryTimeouts.length - 1. Lifecycle callback that is executed after a retry attempt. Called in {@link Retry.sendEventsWithRetry}.  | `null` |
+
+#### Configure batching behavior
+
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `maxCachedEvents` and `uploadIntervalInSec`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, you can use the batch mode. You need to set the server url to the the [batch event upload API](../../../analytics/apis/batch-event-upload-api.md) based on your needs. 
+
+- Standard Server Batch API - https://api2.amplitude.com/batch
+- EU Residency Server Batch API - https://api.eu.amplitude.com/batch
+
+Both the regular mode and the batch mode use the same events upload threshold and flush time intervals.
+
+```js
+Amplitude.init(AMPLITUDE_API_KEY, {
+    // Events queued in memory will flush when number of events exceed upload threshold
+    // Default value is 16000
+    maxCachedEvents: 20000,
+    // Events queue will flush every certain milliseconds based on setting
+    // Default value is 0 second. 
+    uploadIntervalInSec: 10,
+});
+```
+
+#### EU data residency
 
 Sending data to Amplitude's EU servers, you need to configure the server URL during the initialization.
 
@@ -44,7 +97,7 @@ client = Amplitude.init(<AMPLITUDE_API_KEY>, {
 });
 ```
 
-## Usage
+### Send events
 
 --8<-- "includes/sdk-httpv2-notice.md"
 
@@ -100,14 +153,14 @@ client = Amplitude.init(<AMPLITUDE_API_KEY>, {
     client.flush();
     ```
 
-## Middleware
+### Middleware
 
 Middleware allows you to extend Amplitude by running a sequence of custom code on every event. This pattern is flexible and you can use it to support event enrichment, transformation, filtering, routing to third-party destinations, and more.
 
 Each middleware is a simple function with this signature:
 
 ```js
-function (payload: MiddlwarePayload: next: MiddlewareNext): void;
+function (payload: MiddlewarePayload: next: MiddlewareNext): void;
 ```
 
 The `payload` contains the `event` as well as an optional `extra` that allows you to pass custom data to your own middleware implementations.
@@ -137,7 +190,7 @@ client.addEventMiddleware(loggingMiddleware)
 client.addEventMiddleware(filteringMiddleware)
 ```
 
-You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app/src/middleware) and [JavaScript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app/src/middleware).
+You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app/src/middleware) and [JavaScript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app/src/sdk-middleware).
 
 ## More resources
 

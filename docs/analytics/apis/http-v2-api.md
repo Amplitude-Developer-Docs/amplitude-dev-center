@@ -100,6 +100,10 @@ If the event doesn't have a `user_id` or `device_id` value, the upload may be re
     * "0"
     * "-1"
 
+### Language Field
+
+--8<-- "includes/http-api/shared-language-mapping.md"
+
 ## Upload request
 
 Send a POST request to `https://api2.amplitude.com/2/httpapi`. 
@@ -108,7 +112,7 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`.
 
     ???code-example "Example: Simple request (click to expand)"
 
-        This example uploads a 'watch_tutorial' event with a few properities and user properties for the user `12345`.
+        This example uploads a 'watch_tutorial' event with a few properties and user properties for the user `12345`.
 
         === "cURL"
 
@@ -551,11 +555,12 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 | --- | --- |
 | `user_id` | <span class="required">Required if `device_id` isn't used</span>. String. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. |
 | `device_id` | <span class="required">Required if `user_id` isn't used</span>. String. A device-specific identifier, such as the Identifier for Vendor on iOS. If a `device_id` isn't sent with the event, then it's set to a hashed version of the `user_id`. |
-| `event_type` | <span class="required">Required</span>. String. A unique identifier for your event. The following event names are reserved for Amplitude use: `[Amplitude]` Start Session", `[Amplitude]` End Session", `[Amplitude]` Revenue", `[Amplitude]` Revenue (Verified)", `[Amplitude]` Revenue (Unverified)", and `[Amplitude]` Merged User". |
+| `event_type` | <span class="required">Required</span>. String. A unique identifier for your event. The following event names are reserved for Amplitude use: `[Amplitude]` Start Session", `[Amplitude]` End Session", `[Amplitude]` Revenue", `[Amplitude]` Revenue (Verified)", `[Amplitude]` Revenue (Unverified)", and `[Amplitude]` Merged User". Note: `$identify` and `$groupidentify` are predefined for identification and group identification. |
 | `time` | <span class="optional">Optional</span>. The timestamp of the event in milliseconds since epoch. If time isn't sent with the event, then it's set to the request upload time. |
 | `event_properties` | <span class="optional">Optional</span>. Object. A dictionary of key-value pairs that represent data to send along with the event. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `user_properties` | <span class="optional">Optional</span>. Object. A dictionary of key-value pairs that represent data tied to the user. You can store property values in an array. Date values are transformed into string values. Object depth may not exceed 40 layers. |
 | `groups` | <span class="optional">Optional</span>. Object. This feature is only available to Enterprise customers who have purchased the [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/1150017655322). This field adds a dictionary of key-value pairs that represent groups of users to the event as an event-level group. You can track up to 5 unique group types and 10 total group values per event. Any groups past that threshold aren't tracked.|
+|  `group_properties`   | <span class="optional">Optional</span>. Object. This feature is available only to customers who have purchased the Accounts add-on. When "event_type" is `$groupidentify`, the field is a dictionary of key-value pairs that represent properties tied to the groups listed in the "groups" field. The field is ignored for other event types. Group property operations (`$set`, `$setOnce`, `$add`, `$append`, `$unset`) are also supported. |
 |`$skip_user_properties_sync`|<span class="optional">Optional</span>. Boolean. When `true` user properties aren't synced. Defaults to `false`. See [Skip user properties sync](../data-backfill-guide.md#skip-user-properties-sync) for more information.| 
 | `app_version` | <span class="optional">Optional</span>. String. The current version of your application. |
 | `platform` | <span class="optional">Optional</span>. String. Platform of the device. |

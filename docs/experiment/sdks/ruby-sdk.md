@@ -6,7 +6,7 @@ icon: simple/ruby
 
 Official documentation for Amplitude Experiment's server-side Ruby SDK implementation.
 
-[![Gem Version](https://badge.fury.io/rb/amplitude-experiment.svg)](https://badge.fury.io/rb/amplitude-experiment)
+![gem version](https://img.shields.io/gem/v/amplitude-experiment)
 
 !!!info "SDK Resources"
      [:material-github: GitHub](https://github.com/amplitude/experiment-ruby-server) · [:material-code-tags-check: Releases](https://github.com/amplitude/experiment-ruby-server/releases) · [:material-book: API Reference](https://amplitude.github.io/experiment-ruby-server/)
@@ -241,7 +241,7 @@ Install the Ruby Server SDK with bundler or gem directly.
         'premium' => true
       }
     )
-    variants = expriment.evaluate(user)
+    variants = experiment.evaluate(user)
     variant = variants['YOUR-FLAG-KEY']
     unless variant.nil?
         if variant.value == 'on'
@@ -351,7 +351,7 @@ if device_id.nil?
   amp_cookie_value = AmplitudeExperiment::AmplitudeCookie.generate(device_id)
   cookies[amp_cookie_name] = {
     value: amp_cookie_value,
-    domain: '.yourdomain.com', # this should be the same domain used by the Amplitude JS SDK
+    domain: '.your-domain.com', # this should be the same domain used by the Amplitude JS SDK
     httponly: false,
     secure: false
   }

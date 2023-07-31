@@ -24,6 +24,32 @@ You must initialize the SDK before you can instrument any events. The API key fo
 
 ### Configuration
 
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `APIKey` | Required. `string`. The API key of the Amplitude project. Events sent by the Client `struct` are in this project. Set when you initialize the Client `struct`. | `nil` |
+    | `FlushQueueSize` | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. |`200` |
+    | `FlushInterval` | `time.Duration`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. | `10 seconds` |
+    | `FlushMaxRetries` | `int`. The number of times the client retries an event when the request returns an error. | `12` |
+    | `RetryBaseInterval` | `time.Duration`. Base interval between retries when the request returns an error. | `100 milliseconds`|
+    | `RetryThrottledInterval` | `time.Duration`. Base interval between retries for throttled requests. | `30 seconds` |
+    | `Logger` | Logger interface. The logger used by Amplitude client. | `[Go standard Logger](https://pkg.go.dev/log#Logger): log.Logger.`|
+    | `ServerZone` | `string`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. | `US` |
+    | `ServerURL` | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set, then `ServerZone` and `UseBatch` are ignored and the string value is used. | `https://api2.amplitude.com/2/httpapi` |
+    | `UseBatch` | `boolean`. Whether to use [batch api](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. | `false` |   
+    | `StorageFactory` | `function`. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. | `InMemoryStorage` |
+    | `OptOut` | `bool`. Opt out option. If set to `true`, client doesn't process and send events.| `false` |
+    | `ConnectionTimeout` | `time.Duration`. A time limit for API requests. | `10 seconds` |
+    | `MaxStorageCapacity` | `int`. The maximum count of pending events in the storage.  | `20000` |
+    | `MinIDLength` | `int`. The minimum length of user_id and device_id. | `5` |
+    | `ExecuteCallback`| `function`. Client level callback function. | `nil` |
+
+Set your configuration before a client is initialized.
+
+#### Configure batching behavior
+
+To support high performance environments, the SDK sends events in batches. Every event logged by `track` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `FlushQueueSize` and `FlushInterval`. By default, the SDK is in regular mode with `serverUrl` to `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, switch to batch mode by setting `UseBatch` to `true` to set setServerUrl to batch event upload API `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
+
 ```GO
 package main
 
@@ -34,9 +60,13 @@ import (
 func main() {
     // Create a Config struct
     config := amplitude.NewConfig("your-api-key")
-    // Modify your configuration if necessary
-    config.FlushQueueSize = 200
-
+    
+    // Events queued in memory will flush when number of events exceed upload threshold
+    // Default value is 200
+    config.FlushQueueSize = 100
+    // Events queue will flush every certain milliseconds based on setting
+    // Default value is 10 seconds
+    config.FlushInterval = 5000
     // Pass a Config struct
     // to initialize a Client struct
     // which implements Client interface
@@ -44,27 +74,6 @@ func main() {
 }
 
 ```
-
-Set your configuration before a client is initialized.
-
-| <div class="big-column">Name</div> | Description                                                                                                                                                                                                                                           |
-|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `APIKey`                           | Required. `string`. The API key of the Amplitude project. Events sent by the Client `struct` are in this project. Set when you initialize the Client `struct`.                                                                                        |
-| `FlushQueueSize`                   | `int`. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `FlushQueueSize`. Defaults to 200.                                                                                                  |
-| `FlushInterval`                    | `time.Duration`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `FlushInterval`. Defaults to 10 seconds.                                                                                                              |
-| `Logger`                           | Logger interface. The logger used by Amplitude client. Defaults to using a wrapper of [Go standard Logger](https://pkg.go.dev/log#Logger): `log.Logger`.                                                                                              |
-| `ServerZone`                       | `string`. The server zone of the projects. Supports EU and US. For EU data residency, change to EU. Defaults to US.                                                                                                                                   |
-| `UseBatch`                         | `boolean`. Uses HTTP v2 API endpoint if set to `false`, otherwise use batch API endpoint. Read more about difference between [HTTP v2 and batch](https://developers.amplitude.com/docs/batch-event-upload-api). Defaults to `false`.                  |
-| `ServerURL`                        | `string`. The API endpoint URL that events are sent to. Automatically selected by `ServerZone` and `UseBatch`. If this field is set, then `ServerZone` and `UseBatch` are ignored and the string value is used. Defaults to the HTTP API V2 endpoint. |
-| `StorageFactory`                   | `function`. Used to create storage struct to hold events in the storage buffer. Events in storage buffer are waiting to be sent. Defaults to `InMemoryStorage`.                                                                                       |
-| `OptOut`                           | `bool`. Opt out option. If set to `true`, client doesn't process and send events. Defaults to `false`.                                                                                                                                                |
-| `ConnectionTimeout`                | `time.Duration`. A time limit for API requests. Defaults to 10 seconds.                                                                                                                                                                               |
-| `FlushMaxRetries`                  | `int`. The number of times the client retries an event when the request returns an error. Defaults to 12.                                                                                                                                             |
-| `RetryBaseInterval`                | `time.Duration`. Base interval between retries when the request returns an error. Defaults to 100 milliseconds.                                                                                                                                       |
-| `RetryThrottledInterval`           | `time.Duration`. Base interval between retries for throttled requests. Defaults to 30 seconds.                                                                                                                                                        |
-| `MaxStorageCapacity`               | `int`. The maximum count of pending events in the storage. Defaults to 20000.                                                                                                                                                                         |
-| `MinIDLength`                      | `int`. The minimum length of user_id and device_id. Defaults to 5.                                                                                                                                                                                    |
-| `ExecuteCallback`                  | `function`. Client level callback function.                                                                                                                                                                                                           |
 
 ### Track an event
 

@@ -74,7 +74,7 @@ Authorization: Bearer {{scim-token}}
 |<div class="big-column">Name</div>| Description|
 |---|---|
 |`startIndex`| <span class="optional">Optional</span>. Integer. Defaults to 1. 1-indexed.|
-|`itemsPerPage`| <span class="optional">Optional</span>. Integer. Defaults to 100. Can be overridden to be higher.|
+|`itemsPerPage`| <span class="optional">Optional</span>. Integer. Defaults to 100. 100 is the maximum page size.|
 |`filter`|String. Must follow the [SCIM filter syntax](https://datatracker.ietf.org/doc/html/rfc7644#section-3.4.2.2)|
 
 #### Response

@@ -2,7 +2,7 @@
 
 <div class="grid cards" markdown>
 
-<!--- :bigquery: [Google BigQuery](../data/sources/bigquery.md) -->
+- :bigquery: [Google BigQuery](../data/sources/bigquery.md)
 - :snowflake: [Snowflake](../data/sources/snowflake.md)
 
 </div>

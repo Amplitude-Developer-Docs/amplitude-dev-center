@@ -158,7 +158,7 @@ Get all event categories in your project.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/taxonomy/category' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -217,7 +217,7 @@ This is a basic request that shows the required fields.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/taxonomy/category/:category_name' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -297,7 +297,7 @@ This basic request shows the required fields.
 
     ```bash
     curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/category/CATEGORY_ID' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'category_name=NEW_NAME'
     ```
@@ -394,7 +394,7 @@ This basic request shows the required fields.
 
     ```bash 
     curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/category/:category_id' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -480,7 +480,7 @@ This basic request shows the required fields.
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/taxonomy/event' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' # credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'event_type=EVENT_TYPE' \
     --data-urlencode 'category=CATEGORY_NAME' \
@@ -577,7 +577,7 @@ This basic request shows the required fields.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -606,7 +606,7 @@ A successful request returns a `200 OK` status with a JSON body:
             "description": null
         },
         {
-            "event_type": "Converstion",
+            "event_type": "Conversation",
             "category": {
                 "name": "Conversion Events"
             },
@@ -630,7 +630,7 @@ This basic request shows the required fields.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event:event_type' \
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -715,7 +715,7 @@ This is a basic request with the required path parameter and a few optional para
 
     ```bash
         curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/event/EVENT_TYPE_NAME' \
-        --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+        -u '{api_key}:{secret_key}'
         --data-urlencode 'category=NEW_CATEGORY_NAME' \
         --data-urlencode 'display_name=NEW_EVENT_TYPE_DISPLAY_NAME'
     ```
@@ -816,7 +816,7 @@ Delete an event type.
 
     ```bash
     curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/event/EVENT_TYPE'
-    --header 'Authorization: Basic {{api-key}}:{{secret-key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"
@@ -901,7 +901,7 @@ This is a basic request with only the required parameters.
 
     ```bash
     curl --location --request POST 'https://amplitude.com/api/2/taxonomy/event-property' \
-    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'event_type=EVENT_TYPE' \
     --data-urlencode 'event_property=EVENT_PROPERTY' \
@@ -1005,7 +1005,7 @@ This is a basic request.
     ```bash
 
     curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event-property' \
-    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'event_type=EVENT_NAME'
     ```
@@ -1103,7 +1103,7 @@ This is a basic request with the required path parameter and body parameter.
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/taxonomy/event-property?event_property=EVENT_PROPERTY' \
-    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'event_type=EVENT_NAME'
     ```
@@ -1208,7 +1208,7 @@ This is a basic request with only the required parameters.
 
     ```bash
     curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/event-property/EVENT_PROPERTY' \
-    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded \
+    -u '{api_key}:{secret_key}' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'event_type=EVENT_NAME' \
     ```
@@ -1238,7 +1238,7 @@ This is a basic request with only the required parameters.
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'event_type=Onboard Start' \
-        --data-urlencode 'description=User completed an oboarding task' \
+        --data-urlencode 'description=User completed an onboarding task' \
         --data-urlencode 'new_event_property_value=Task Completed' \
         --data-urlencode 'type=any'
         ```
@@ -1253,7 +1253,7 @@ This is a basic request with only the required parameters.
         Content-Type: application/x-www-form-urlencoded
         Content-Length: 130
 
-        event_type=Onboard%20Start&description=User%20completed%20an%20oboarding%20task&new_event_property_value=Task%20Completed&type=any
+        event_type=Onboard%20Start&description=User%20completed%20an%20onboarding%20task&new_event_property_value=Task%20Completed&type=any
         ```
 
 ##### Path parameters
@@ -1482,7 +1482,7 @@ Retrieves all user properties in your account. This call doesn't have any requir
 
     ```bash
     curl --location --request GET 'https://amplitude.com/api/2/taxonomy/user-property' \
-    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded'
+    -u '{api_key}:{secret_key}''
     ```
 
 === "HTTP"
@@ -1583,7 +1583,7 @@ This is a basic request.
 
 ```bash
 curl --location --request GET 'https://amplitude.com/api/2/taxonomy/user-property/USER_PROPERTY' \
---header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded
+-u '{api_key}:{secret_key}'
 ```
 
 === "HTTP"
@@ -1670,7 +1670,7 @@ This is a basic request with only the required path parameter and a few optional
 
     ```bash
     curl --location --request PUT 'https://amplitude.com/api/2/taxonomy/user-property/USER_PROPERTY' \
-    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'new_user_property_value=VALUE' \
     --data-urlencode 'description=DESCRIPTION'
@@ -1760,7 +1760,7 @@ Deletes a single user property, by name.
 
     ```bash
     curl --location --request DELETE 'https://amplitude.com/api/2/taxonomy/user-property/USER_PROPERTY' \
-    --header 'Authorization: Basic {{api-key}}:{{secret:key}}' #credentials must be base64 encoded
+    -u '{api_key}:{secret_key}'
     ```
 
 === "HTTP"

@@ -1,92 +1,85 @@
 ---
 title: Intercom Event Streaming
-description: The Intercom integration lets you stream your Amplitude event and user data to Intercom with just a few clicks.
+description: Amplitude CDP's Intercom streaming integration enables you to forward your Amplitude events and users straight to Intercom with just a few clicks.
 ---
 
---8<-- "includes/open-beta.md"
+Amplitude CDP's Intercom streaming integration enables you to forward your Amplitude events and users straight to [Intercom](https://www.intercom.com/) with just a few clicks.
 
-Amplitude Data's Intercom integration lets you stream your Amplitude event and user data straight to Intercom with just a few clicks.
+!!!note "Other Amplitude CDP + Intercom integrations"
 
-!!!note "Other Amplitude + Intercom integrations"
+    This integration streams Amplitude events and users to Intercom. Amplitude CDP offers other integrations with Intercom:
 
-    This integration streams Amplitude events and users to Intercom. Amplitude offers other integrations with Intercom:
-
-    - [Send Amplitude Cohorts to Intercom](/data/destinations/intercom-cohort)
-    - [Import Intercom Data](/data/sources/intercom)
-
-## Considerations
-
-Keep these considerations in mind when streaming events to Intercom.
-
-- Amplitude sends the `created_at` and `event_name` properties to Intercom.
-- A user must exist in Intercom to send events for them. Event forwarding doesn't automatically create users in Intercom.
-- Intercom has a limit of 120 Event Types and 20 metadata (which are event properties) per Event Types. Be sure to select the events you want to forward to Intercom using the Event Filter while creating or editing the Event Streaming connection in Amplitude.
-- If you have Intercom configured as a Data Source in Amplitude, "[Intercom] event.created" is triggered whenever an event is created in Intercom, including through Amplitude's Event Streaming integration. If you don't want these stored in Amplitude, use [Block & Drop filters](https://help.amplitude.com/hc/en-us/articles/5078869299099-Filter-events-with-block-filters-and-drop-filters) to remove this event data from Amplitude.
+    - [Export Amplitude cohorts to Intercom](/data/destinations/intercom-cohort)
+    - [Import Intercom events into Amplitude](/data/sources/intercom)
 
 ## Setup
 
-This integration requires configuration in Intercom and Amplitude.
+### Prerequisites
 
-### Intercom setup
-
-!!!tip "More documentation"
-
-    See [Intercom's documentation](https://developers.intercom.com/building-apps/docs/get-started-developing-on-intercom#create-an-app) for more detailed instructions on creating an app.
+#### Create a new Intercom app
 
 1. From the [Intercom Developer Hub](https://developers.intercom.com/), click on **Your Apps**.
 2. Click **New App**.
-3. Enter a name and workspace, then choose _Internal integration_.
-4. After you've created the app, click it and go to the Authentication page. Copy the Access Token.
+3. Enter a name and select a workspace.
+4. Click **Create App**.
 
-### Amplitude setup
+See [Intercom's documentation](https://developers.intercom.com/building-apps/docs/get-started-developing-on-intercom#create-an-app) for more detailed instructions on creating an app.
+
+#### Required information
+
+To configure streaming from Amplitude to Intercom, you need the following information from Intercom.
+
+**Intercom Access Token**: The Intercom Access Token for your Intercom app.
+
+1. From the [Intercom Developer Hub](https://developers.intercom.com/), click on **Your Apps**.
+2. Click on your app.
+3. Navigate to the **Authentication** page.
+4. The **Intercom Access Token** is listed immediately below the workspace name under **Access Token**.
+
+### Create a new sync
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Event Streaming section, click **Intercom**.
 3. Enter a sync name, then click **Create Sync**.
 
-After you create the destination, you must configure the settings.
+### Enter credentials
 
-### Configure settings
+1. Select your **Intercom API Endpoint**.
+2. Enter your **Intercom Access Token**.
 
-1. On the **Settings** tab, click **Edit**.
-2. Enter your **API Key**.
-3. **Create & Update Users** creates users in Intercom and update the properties of existing users when an Amplitude Identify API call is made.
-      1. To create and update users, toggle Create & Update Users to Enabled.
-      2. To select user properties to send, expand the Specify user properties to send panel, and select properties to forward. If you don't select any properties here, Amplitude doesn't include any.
-4. **Send Events** sends events ingested by Amplitude to Intercom.
-      1. To send an event, toggle **Send Events** to **Enabled**.
-      2. Expand the **Select and filter events** panel, and select which events to send.
-      3. To select event properties to send, expand the **Specify event properties to send** panel, and select properties you want to include. Keep in mind Intercom's limit of 20 metadata types. If you don't select any properties here, Amplitude doesn't send any.
-5. Save when finished.
+### Configure mappings
 
-After you configure your settings, configure your mappings.
+_This applies to both event and user forwarding. Transformed user properties aren't supported._
 
-#### Configure mappings (recommended)
+1. Select an Amplitude user property that corresponds to your Intercom user ID, from the left dropdown.
+2. Select the type of your Intercom user ID, from the right dropdown.
+    - **User ID**: Any unique identifier for each user in Intercom.
+    - **Email**
 
-For newer versions of the Intercom destination, you can map Amplitude properties to fields in Intercom. If you don't configure mappings, or are using an older version that doesn't support mapping, the default values described below are used instead.
+### Configure event forwarding
 
-1. Click the **Mappings** tab, then click **Edit**.
-2. Select an **Intercom User ID** field for your users in Intercom. Keep in mind that event forwarding doesn't automatically create users so make sure the field selected matches your users' IDs within Intercom. Your choice for an Intercom identifier are:
-    1. **External ID** (A unique identifier within Intercom specified by you)
-    2. **Email**
-3. Save when finished.
+Under **Send Events**, make sure the toggle is enabled ("Events are sent to Intercom") if you want to stream events to Intercom. When enabled, events are automatically forwarded to Intercom when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Intercom as [Intercom data events](https://developers.intercom.com/intercom-api-reference/reference/the-data-event-model). Intercom has a limit of 120 event types.
 
-See the [full list of available mappings](#list-of-available-mappings).
+1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Intercom. _Transformed events aren't supported._
 
-After you configure mappings, enable the destination.
+    !!!warning "Events for anonymous users cannot be streamed"
 
-#### Enable integration
+        Intercom requires that all events have a user ID present. If you have selected any events to send to Intercom that may not have a user ID, add a filter to send only events where the user ID is present. Additionally, events can only be streamed for users that already exist in Intercom. Otherwise, your delivery metrics may be affected.
 
-The final step is enabling the destination. You must enable the destination to start streaming events.
+        ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
 
-1. Navigate back to the **Settings** tab.
-2. Click **Edit**.
-3. Toggle **Status** from **Disabled** to **Enabled**.
-4. Click **Save**.
+2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Intercom. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Intercom as [Intercom event metadata](https://developers.intercom.com/intercom-api-reference/reference/the-data-event-model#metadata-object). Intercom has a limit of 20 metadata values per event. _Transformed event properties and transformed user properties aren't supported._
 
-## List of available mappings
+### Configure user forwarding
 
-| Parameter Name  | Required                                            | Recommended |Default Amplitude Property |
-|-----------------|:---------------------------------------------------:|-------------|----------------------------|
-| **External ID** | :octicons-check-16: (one of External ID or Email)   |             | **User ID**                |
-| **Email**       | :octicons-check-16: (one of External ID or Email)   |             | **User ID**                |
+Under **Send Users**, make sure the toggle is enabled ("Users are sent to Intercom") if you want to stream users and their properties to Intercom. When enabled, users are automatically created or updated in Intercom when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Intercom. Users aren't sent on a schedule or on-demand using this integration. Each user is created as an [Intercom contact](https://developers.intercom.com/intercom-api-reference/reference/the-contact-model).
+
+(optional) In **Select additional properties**, select any more user properties you want to send to Intercom. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Intercom as [Intercom custom attributes](https://www.intercom.com/help/en/articles/179-send-custom-user-attributes-to-intercom/). Custom attributes must exist in Intercom. _Transformed user properties aren't supported._
+
+!!!note "User Forwarding Volumes"
+    When Send Users is enabled, all [Amplitude Identify calls](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) and event calls that update user properties will trigger a call to be sent to Intercom, even if the updated property
+    isn't selected in **Select additional properties**.
+
+### Enable sync
+
+When satisfied with your configuration, at the top of the page toggle the **Status** to "Enabled" and click **Save**.

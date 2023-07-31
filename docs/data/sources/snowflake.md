@@ -25,11 +25,15 @@ Depending on your company's network policy, you may need add these IP addresses 
 
 - Maximum running time for a single Snowflake SQL query is 12 hours.
 
+!!!warning "User and Group Properties Sync"
+
+      Amplitude's Data Warehouse Import sometimes processes events in parallel, so time-ordered syncing of user and group properties on events is not guaranteed in the same way as submitting events directly to the Identify and Group Identify APIs. 
+
 ## Add Snowflake as a source
 
 !!!note "Time-based Import"
 
-      When using the Time Based Import option, it's important that the dataset includes a separate column that indicates *when* the data was loaded into the table Amplitude points to when importing. This is often "server upload time", which would be separate from the "event time" (when the actual event occured).
+      When using the Time Based Import option, it's important that the dataset includes a separate column that indicates *when* the data was loaded into the table Amplitude points to when importing. This is often "server upload time", which would be separate from the "event time" (when the actual event occurred).
 
 To add Snowflake as a data source in your Amplitude project, follow these steps:
 
@@ -65,7 +69,7 @@ For Amplitude's time-based import option, it's best practice to use a monotonica
 
 !!!example
 
-    Upon first import, Amplitude imports all the data returned from the query configured in the Import Config. Amplitude saves a reference of the maximum timestamp referenced in the *Timestamp Column Name*: `timestamp_1`. Upon subsequent import, Amplitude imports all data from the previously saved timestamp (`timestamp_1`), to what's now the new maximum timestamp (`timestamp_2`). After that import, Amplitude saves `timestamp_2` as the new maximum timestamp.
+    Upon first import, Amplitude imports all the data returned from the query configured in the Import Config. Amplitude saves a reference of the maximum timestamp referenced in the *Timestamp Column Name*: `timestamp_1`. Upon subsequent import, Amplitude imports all data from the previously saved timestamp (`timestamp_1`), to what's now the new maximum timestamp (`timestamp_2`). Then after that import, Amplitude saves `timestamp_2` as the new maximum timestamp.
 
 ## Data fields
 

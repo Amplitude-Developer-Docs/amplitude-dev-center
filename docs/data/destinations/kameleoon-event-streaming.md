@@ -1,7 +1,6 @@
 ---
 title: Kameleoon Event Streaming
 description: Stream Amplitude events to Kameleoon with just a few clicks.
-status: new
 ---
 
 !!!beta
