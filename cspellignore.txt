@@ -75,6 +75,7 @@ CPRA
 croffles
 CRUDQ
 CSAT
+cspellignore
 customerio
 customername
 customizability
