@@ -15,6 +15,8 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 !!!info "Browser SDK 2.0 is now available"
     An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md). See the [Migration Guide](../browser-2/migration.md) for more help.
 
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [Browser SDK Migration Guide](/data/sdks/typescript-browser/migration/).
 
 !!!note "Browser SDK versus the Marketing Analytics Browser"
     Amplitude recommends the Browser SDK for most users. You can extend its functionality using plugins.
@@ -365,7 +367,7 @@ The page view plugin sends a Page View event on each page a user visits by defau
 
 --8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
 
-## Advainced topics
+## Advanced topics
 
 ### Cross domain tracking
 

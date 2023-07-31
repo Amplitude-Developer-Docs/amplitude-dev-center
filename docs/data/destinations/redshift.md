@@ -29,7 +29,7 @@ You need to add the following information:
 
 - **Protocol**: TCP
 - **Port Range**: The number of the open port used by the data source.
-- **Source**: Custom IP (default). Add the correct IP addresses based on whether you're using EU or US Amplitude datacenters. 
+- **Source**: Custom IP (default). Add the correct IP addresses based on whether you're using EU or US Amplitude data centers. 
     - Amplitude US IP addresses:
         - 52.33.3.219
         - 35.162.216.242
@@ -76,6 +76,8 @@ To export your historical data from Amplitude into Redshift, navigate to the *B
 ![Screenshot of the backfill modal](../../assets/images/integrations-redshift-backfills.png)
 
 This process can take anywhere from a single day to several weeks, depending on your data volume, warehouse size, cluster count, network bandwidth, and number of concurrent historical data exports you currently have, among other factors.
+
+If the backfill range overlaps with the range of previously exported data, Amplitude will de-duplicate overlapping data.
 
 ## Redshift export format
 

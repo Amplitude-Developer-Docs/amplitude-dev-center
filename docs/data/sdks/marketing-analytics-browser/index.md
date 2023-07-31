@@ -105,7 +105,7 @@ The following information is tracked in the page view events.
 |`event_properties.page_path`| `string`. The page path. | location.path or ''.|
 |`event_properties.page_title`| `string`. The page title. | document.title or ''.|
 |`event_properties.page_url`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
-|`event_properties.[CampaignParam]`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possilbe keys. | Any undefined campaignParam or `undefined`. |
+|`event_properties.[CampaignParam]`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possible keys. | Any undefined campaignParam or `undefined`. |
 
 ### Use the Marketing Analytics SDK with Ampli
 

@@ -552,7 +552,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Add the dependency to `Podfile`.
 
         ```bash
-        pod 'Amplitude', '~> 8.14'
+        pod 'Amplitude', '~> 8.17.1'
         ```
         Run `pod install` in the project directory to download the dependency.
 
@@ -577,7 +577,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Objective-C"
 
         ```obj-c
-        #import <Amplitude/Amplitude.h>
+        #import <Amplitude.h>
 
         [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
         ```
@@ -644,19 +644,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Objective-C"
 
         ```obj-c
-        #import "Amplitude.h"
+        #import <Amplitude.h>
 
         (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
             // Enable sending automatic session events
-            [Amplitude instance].trackingSessionEvents = YES;
-            
+            [Amplitude instance].defaultTracking.sessions = YES;
+
             // Initialize SDK
             [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
-            
+
             // Set userId
             [[Amplitude instance] setUserId:@"userId"];
-            
+
             // Log an event
             [[Amplitude instance] logEvent:@"app_start"];
         }
@@ -671,7 +671,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
             // Enable sending automatic session events
-            Amplitude.instance().trackingSessionEvents = true
+            Amplitude.instance().defaultTracking.sessions = true
             // Initialize SDK
             Amplitude.instance().initializeApiKey("YOUR_API_KEY")
             // Set userId
@@ -722,7 +722,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you require support for Objective-C or have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
 
         To migrate to the latest version of Amplitude iOS SDK, see the [Migration Guide](./ios-swift/migration.md).
-    
+
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_4)
         2. [Send data](#send-data_4)
@@ -993,7 +993,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Python"
 
-    The Python SDK lets you send events to Amplitude. See the [Pythohn SDK documentation](./python/index.md) for additional configurations and advanced topics.
+    The Python SDK lets you send events to Amplitude. See the [Python SDK documentation](./python/index.md) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)
@@ -1459,7 +1459,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
         ```
-        Learn more about [Unity package manager initizalization](../unity/#option-1-unity-package-manager)
+        Learn more about [Unity package manager initialization](../unity/#option-1-unity-package-manager)
 
     === "Manual download"
 

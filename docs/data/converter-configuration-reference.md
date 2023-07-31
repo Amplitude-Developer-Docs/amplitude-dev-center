@@ -127,7 +127,7 @@ These operators return a JsonPrimitive of type Boolean, so they're valid to use 
 
 ### Integer and float operators
 
-The following Operators return a JsonPrimitive of type Integer, barring the `addf` Operator which returns JsonPrimitive of type Float.
+The following Operators return a JsonPrimitive of type Integer, barring the `add` Operator which returns JsonPrimitive of type Float.
 
 <!-- vale off--> 
 <!-- this table has a lot of complicated examples that throw many vale errors, so linting is off-->

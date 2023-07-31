@@ -57,7 +57,6 @@ Get all discoverable cohorts for an app. Use the `id` for each cohort returned i
 
     - This feature is currently in Beta and requires whitelisting. Please contact Amplitude Support, or your Amplitude account manager for access.
 
-
 ### Get all cohorts response
 
 The response is a JSON object with this schema:
@@ -78,7 +77,7 @@ Each COHORT_OBJECT returned has this schema:
 {
     "appId": integer,
     "archived": boolean, // whether cohort is archived
-    "definition": { COHORT_DEFINITION }, // Amplitude internal representation of Cohort Definintion
+    "definition": { COHORT_DEFINITION }, // Amplitude internal representation of Cohort Definition
     "description": string,
     "finished": boolean, // Amplitude internal use to decide whether a training cohort has finished ML training
     "id": string,
@@ -178,7 +177,7 @@ This is step one in the download a cohort operation. Use the `request_id` return
 
             ```bash
 
-            GET /api/5/cohorts/request/26umsb5?props=1&propKeyss=Property1&propKeys=Property2 HTTP/1.1
+            GET /api/5/cohorts/request/26umsb5?props=1&propKeys=Property1&propKeys=Property2 HTTP/1.1
             Host: amplitude.com
             Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA=
             ```
@@ -454,7 +453,7 @@ Generate a new cohort or update an existing cohort by uploading a set of User ID
 | `ids` | <span class="required">Required</span>. String\[\]. One or more user or Amplitude IDs to include in the cohort. Specify the ID type in the `id_type` field. |
 | `owner` | <span class="required">Required</span>. String. The login email of the cohort's owner in Amplitude. |
 | `published` | <span class="required">Required</span>. Boolean. Whether the cohort is discoverable or hidden. |
-| `existing_cohort_id` | <span class="optional">Optional</span>. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. `https//analytics.amplitude.com/accountname/cohort/**1a2bc3d**`|
+| `existing_cohort_id` | <span class="optional">Optional</span>. String. The ID of an existing cohort. This replaces the contents for the specified cohort with the IDs uploaded in the request. For example, '1a2bc3d' is your cohort's ID, found in the cohort's URL. `https://analytics.amplitude.com/accountname/cohort/**1a2bc3d**`|
 
 ### Upload cohort response
 

@@ -8,9 +8,9 @@ Data validation is a critical step in the instrumentation process. To streamline
 The following sections will outline common issues that you may encounter, along with their respective solutions or explanations to aid in resolving these problems. Please go to the individual SDK pages to check the platform specific trouble-shooting and debugging. 
 
 * [Latest Browser](../sdks/typescript-browser/#troubleshooting-and-debugging)
-* [Manteniance Browser](../sdks/javascript/#troubleshooting-and-debugging)
+* [Maintenance Browser](../sdks/javascript/#troubleshooting-and-debugging)
 * [Latest Android](../sdks/android-kotlin/#troubleshooting-and-debugging)
-* [Manteniance Android](../sdks/android/#troubleshooting-and-debugging)
+* [Maintenance Android](../sdks/android/#troubleshooting-and-debugging)
 * [iOS (Beta)](../sdks/ios/#troubleshooting-and-debugging)
 * [iOS](../sdks/ios-swift/#troubleshooting-and-debugging)
 
@@ -49,7 +49,7 @@ Check this section if you're seeing `client_upload_time` appearing as a time in 
 
 ## Device family is not appropriate
 
-* For web, we are using a [third party libray](https://github.com/faisalman/ua-parser-js) library to parse the `Navigator.userAgent` info, except @amplitude/analytics-browser@^2.0. If you find an inappropriate device family, please make sure the value of `Navigator.userAgent` as expected first. Starting from Chrome 110, a fixed value for Android version and device model has been introduced. Device info might be effect by [Chrome's user‑agent reduction](https://developer.chrome.com/blog/user-agent-reduction-android-model-and-version/#fixed-android-version-and-device-model-starting-from-chrome-110).
+* For web, we are using a [third party library](https://github.com/faisalman/ua-parser-js) library to parse the `Navigator.userAgent` info, except @amplitude/analytics-browser@^2.0. If you find an inappropriate device family, please make sure the value of `Navigator.userAgent` as expected first. Starting from Chrome 110, a fixed value for Android version and device model has been introduced. Device info might be effect by [Chrome's user‑agent reduction](https://developer.chrome.com/blog/user-agent-reduction-android-model-and-version/#fixed-android-version-and-device-model-starting-from-chrome-110).
 
 * For mobile SDKs, we rely on server device mapping. We refer to [this resource](http://storage.googleapis.com/play_public/supported_devices.html), [this resource](https://en.wikipedia.org/wiki/List_of_Android_smartphones) for Android, and [this resource](https://en.wikipedia.org/wiki/Comparison_of_tablet_computers) for iOS. If you find an inappropriate device family that doesn't exist in any of these files, please submit a ticket here. 
 
