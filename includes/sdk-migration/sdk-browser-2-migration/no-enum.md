@@ -1,4 +1,4 @@
-Amplitude no longer requires the use of enums specifically `TransportType`, `ServerZone` and `PluginType`, and accepts its literaal values.
+Amplitude no longer requires the use of enums specifically `TransportType`, `ServerZone` and `PluginType`, and accepts its literal values.
 
 Setting transport provider on initialization
 

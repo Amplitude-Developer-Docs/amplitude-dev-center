@@ -46,13 +46,15 @@ Marketing Analytics Browser SDK by default, allows other subdomains to be tracke
 ```diff
   amplitude.init(API_KEY, undefined, {
 -   pageViewTracking: {
--     trackOn: true,
+-     trackOn: 'attribution',
 -     trackHistoryChanges: 'pathOnly', 
 -     eventType: 'Page View',
 +   defaultTracking: {
-+     trackOn: true,
-+     trackHistoryChanges: 'pathOnly', 
-+     eventType:'Page View',
++     pageViews: {
++       trackOn: 'attribution',
++       trackHistoryChanges: 'pathOnly',
++       eventType:'Page View',
++   }
     },
   });
 ```

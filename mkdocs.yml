@@ -493,7 +493,8 @@ nav:
     - Maintenance SDKs:
       - Browser:
         - data/sdks/javascript/index.md
-        - JavaScript SDK: data/sdks/javascript/index.md
+        - JavaScript SDK:
+          - data/sdks/javascript/index.md
           - Ampli Codegen: data/sdks/javascript/ampli.md
           - Migration Guide: data/sdks/typescript-browser/migration.md
         - Marketing Analytics Browser:
