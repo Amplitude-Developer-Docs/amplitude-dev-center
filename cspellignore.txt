@@ -75,6 +75,7 @@ CPRA
 croffles
 CRUDQ
 CSAT
+cspellignore
 customerio
 customername
 customizability
@@ -360,7 +361,6 @@ zeda
 
 # cspell false negative
 timest
-
 
 # identifiers
 26umsb5
