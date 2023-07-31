@@ -1,6 +1,6 @@
 ---
 title: Import Qualtrics Survey Data
-descripton: Use the Qualtrics event ingestion integration to send survey data to Amplitude when a response is received, and enable data-driven charts and cohorts in Amplitude.
+description: Use the Qualtrics event ingestion integration to send survey data to Amplitude when a response is received, and enable data-driven charts and cohorts in Amplitude.
 ---
 
 With the Qualtrics event ingestion integration, you can send survey data to Amplitude when a response is received, to enable data-driven charts and cohorts in Amplitude.

@@ -250,13 +250,13 @@ To track an event, call the event's corresponding function. Every event in your 
 
 `properties` passes in event properties specific to this event in the tracking plan.
 
-The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 
 For example, your tracking plan contains an event called Song Played. The SDK generates the `songPlayed` function for the event, using camel case to make it valid JavaScript. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
+The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../../sdk-middleware).
 
 === "TypeScript"
 

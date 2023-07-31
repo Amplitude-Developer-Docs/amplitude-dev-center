@@ -1,0 +1,54 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": ["cspellignore"],
+  "dictionaryDefinitions": [
+    {
+      "name": "cspellignore",
+      "path": "./cspellignore.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": [
+    "./includes/http-api/shared-language-mapping.md",
+    "./cspellignore.txt"
+  ],
+  "ignoreRegExpList": [
+    "Urls",
+    "Email",
+    "RsaCert",
+    "SshRsa",
+    "Base64MultiLine",
+    "Base64SingleLine",
+    "CommitHash",
+    "CommitHashLink",
+    "CStyleHexValue",
+    "CSSHexValue",
+    "SHA",
+    "HashStrings",
+    "UnicodeRef",
+    "UUID",
+    "AuthorizationHeader",
+    "APIEndpoint",
+    "InitializationWithApiKey",
+    "BrowserStorageKey"
+  ],
+  "patterns": [
+    {
+      "name": "AuthorizationHeader",
+      "pattern": "/Authorization.+Basic\\s.+/g"
+    },
+    {
+      "name": "APIEndpoint",
+      "pattern": "/api\/.+/g"
+    },
+    {
+      "name": "InitializationWithApiKey",
+      "pattern": "/\\.init\\(\".+\"/g"
+    },
+    {
+      "name": "BrowserStorageKey",
+      "pattern": "/amp_.{6}/g"
+    }
+  ]
+}

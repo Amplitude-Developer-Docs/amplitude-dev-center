@@ -12,6 +12,10 @@ Send behavioral cohorts from Amplitude to Intercom so that you can better engage
     - [Stream Amplitude Events to Intercom](/data/destinations/intercom)
     - [Import Intercom Data](/data/sources/intercom)
 
+## Considerations
+- This integration must be enabled on a per-project basis within Amplitude.
+- This integration supports real-time sync. Real-time syncs update each minute and are built for interactive use cases where a rapid update is required.
+
 ## Setup
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.

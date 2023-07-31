@@ -303,7 +303,7 @@ from amplitude import Revenue
 
 revenue_obj = Revenue(price=3.99,
                       quantity=3,
-                      product_id="com.company.productId",
+                      product_id="com.company.productId")
 client.revenue(revenue_obj, EventOptions(user_id="USER_ID"))
 ```
 

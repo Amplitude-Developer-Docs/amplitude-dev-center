@@ -57,7 +57,7 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 
     ```swift
     Ampli.instance.songPlayed(SongPlayed(songId: 'song-1');
-    Ampli.instance.track(SongFavorted(songId: 'song-2');
+    Ampli.instance.track(SongFavorited(songId: 'song-2');
     ```
 
 7. [Flush events before application exit](#flush)
@@ -247,7 +247,7 @@ The `options` argument allows you to pass [Amplitude fields](https://developers.
 
 For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [middleware](../../ampli/middleware.md).
+The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../../sdk-middleware).
 
 === "Swift"
 
@@ -262,7 +262,7 @@ The event has two Amplitude fields defined: `price`, and `quantity`. Learn more 
     SongPlayed* event = [SongPlayed
         songId:'songId', // NSString *
         songFavorited:true, // NSNumber *
-    ]];
+    ];
 
     EventOptions* options = [EventOptions builderBlock:^(EventOptionsBuilder *builder) {
         builder.deviceId = deviceId;

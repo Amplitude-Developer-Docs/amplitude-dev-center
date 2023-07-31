@@ -11,7 +11,7 @@ This integration combines Amplitude's analytics with Branch's attribution tools 
 
 ## About Branch
 
-[Branch](https://branch.io/) is a mobile deeplinking platform to help you drive app growth and user engagement across all channels. Send unique deeplinking data from Branch to Amplitude to unlock new and actionable growth insights. 
+[Branch](https://branch.io/) is a mobile deep linking platform to help you drive app growth and user engagement across all channels. Send unique deep linking data from Branch to Amplitude to unlock new and actionable growth insights. 
 
 ## Set up and use the integration
 

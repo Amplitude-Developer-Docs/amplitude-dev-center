@@ -14,6 +14,11 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for React Native](../typescript-react-native/ampli.md).
 
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [React Native SDK Migration Guide](/data/sdks/typescript-react-native/migration/).
+
+--8<-- "includes/sdk-rn/rn-notification.md"
+
 ## Getting started
 
 ### Installation
@@ -78,6 +83,8 @@ init(API_KEY, 'user@amplitude.com', {
 ### Configuration
 
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
+    |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `MemoryStorage` |
+    |`trackingSessionEvents`| `boolean`. Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -117,6 +124,22 @@ const eventProperties = {
   buttonColor: 'primary',
 };
 track('Button Clicked', eventProperties);
+```
+
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-react-native';
+
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, {
+  instanceName: 'env',
+});
 ```
 
 ### User properties
@@ -253,14 +276,35 @@ identify(identifyObj);
 
 --8<-- "includes/groups-intro-paragraph.md"
 
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-react-native';
+
+    // set group with single group name
+    setGroup('orgId', '15');
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-react-native';
+
+    // set group with multiple group names
+    setGroup('sport', ['soccer', 'tennis']);
+    ```
+
+--8<-- "includes/event-level-groups-intro.md"
+
 ```ts
-import { setGroup } from '@amplitude/analytics-react-native';
+import { track } from '@amplitude/analytics-react-native';
 
-// set group with single group name
-setGroup('orgId', '15');
-
-// set group with multiple group names
-setGroup('sport', ['soccer', 'tennis']);
+track({
+  event_type: 'event type',
+  event_properties: { eventPropertyKey: 'event property value' },
+  groups: { 'orgId': '15' }
+});
 ```
 
 ### Group properties
@@ -429,10 +473,12 @@ By default, the SDK tracks these properties automatically. You can override this
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   trackingOptions: {
     adid: false,
+    appSetId: false,
     carrier: false,
     deviceManufacturer: false,
     deviceModel: false,
     ipAddress: false,
+    idfv: false,
     language: false,
     osName: false,
     osVersion: false,
@@ -607,5 +653,93 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   transportProvider: new MyTransport(),
 });
 ```
+
+### Advertising Identifiers
+
+Different platforms have different advertising identifiers. Due to user privacy concerns, Amplitude does not automatically collect these identifiers. However, it is easy to enable them using the instructions below. It is important to note that some identifiers are no longer recommended for use by the platform providers. Please read the notes below before deciding to enable them.
+
+| Platform | Advertising Identifier | Recommended | Notes |
+| --- | --- |-------------| --- |
+| Android | AppSetId | Yes         | [AppSetId](https://developer.android.com/training/articles/app-set-id) is a unique identifier for the app instance. It is reset when the app is reinstalled. |
+| Android | ADID | No          | [ADID](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en) is a unique identifier for the device. It is reset when the user opts out of personalized ads. |
+| iOS | IDFV | Yes         | [IDFV](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) is a unique identifier for the app instance. It is reset when the app is reinstalled. |
+| iOS | IDFA | No          | [IDFA](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614151-advertisingidentifier) is a unique identifier for the device. It is reset when the user opts out of personalized ads. |
+
+#### Android
+
+##### App set ID
+
+App set ID is a unique identifier for each app install on a device. App set ID is reset by the user manually when they uninstall the app, or after 13 months of not opening the app. Google designed this as a privacy-friendly alternative to Ad ID for users who want to opt out of stronger analytics.
+
+To use App Set ID, follow these steps.
+
+1. Add `play-services-appset` as a dependency to the Android project of your app.
+
+    ```bash
+    dependencies {
+        implementation 'com.google.android.gms:play-services-appset:16.0.2'
+    }
+    ```
+
+2. Enable `trackingOptions.appSetId`
+
+    ```ts
+    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+      trackingOptions: {
+        appSetId: true,
+      },
+    });
+    ```
+   
+##### Android Ad ID
+
+Android Ad ID is a unique identifier for each device. Android Ad ID is reset by the user manually when they opt out of personalized ads.
+
+To use Android Ad ID, follow these steps.
+
+1. Add `play-services-ads` as a dependency to the Android project of your app. More detailed setup is [described in our latest Android SDK docs](/data/sdks/android-kotlin/#advertiser-id).
+
+    ```bash
+    dependencies {
+      implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    }
+    ```
+
+Android Ad Id is enabled by default. To disable it, set `trackingOptions.adId` to `false`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  trackingOptions: {
+    adId: false,
+  },
+});
+```
+
+#### iOS
+
+##### IDFV
+
+IDFV is a unique identifier for the app instance. It is reset when the app is reinstalled.
+
+To enable IDFV on iOS devices set `trackingOptions.idfv` to `true`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  trackingOptions: {
+    idfv: true,
+  },
+});
+```
+
+##### IDFA
+
+!!! warning "Not recommended"
+    IDFA is no longer recommended. You should consider using IDFV instead when possible.
+
+IDFA is a unique identifier for the device. It is reset when the user opts out of personalized ads.
+
+The React Native SDK does not directly access the IDFA as it would require adding the `AdSupport.framework` to your app. Instead you can use an Enrichment Plugin to set the IDFA yourself.
+
+Here is an [example Plugin that sets the IDFA](https://github.com/amplitude/Amplitude-TypeScript/blob/main/examples/plugins/react-native-idfa-plugin/idfaPlugin.ts)  using a third-party library.
 
 --8<-- "includes/abbreviations.md"

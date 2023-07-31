@@ -7,11 +7,35 @@ Use the official Amplitude Analytics Google Tag Manager templates to collect dat
 
 |Template|Type|Description|
 |---|---|-----------|
-|[Amplitude Analytics Browser SDK](./google-tag-manager-client.md)|Client-side|The tag uses the Amplitude Marketing Analytics SDK for data collection.|
-|[Amplitude Analytics](./google-tag-manager-server.md)|Server-side|The tag uses the Amplitude HTTP V2 API for data collection. |
-|[Amplitude Analytics Legacy](./google-tag-manager-client-legacy.md)|Client-side|The tag uses the Amplitude JavaScript SDK for data collection. |
+|[Amplitude Analytics Browser SDK](../google-tag-manager-client.md)|Client-side|The tag uses the Amplitude Marketing Analytics SDK for data collection.|
+|[Amplitude Analytics](../google-tag-manager-server.md)|Server-side|The tag uses the Amplitude HTTP V2 API for data collection. |
+|[Amplitude Analytics Legacy](../google-tag-manager-client-legacy.md)|Client-side|The tag uses the Amplitude JavaScript SDK for data collection. |
 
 Amplitude's GTM templates offer a convenient way for developers to set up event tracking in their applications. These pre-configured templates provide a streamlined solution for deploying tracking tags, reducing the time and effort required to set up event tracking. Learn more about [Google Tag Manager Templates](https://developers.google.com/tag-platform/tag-manager/templates).
+
+## How Amplitude GTM templates fit into your workflow
+
+### Web Container
+
+![How Amplitude GTM templates fit into your workflow - Web](/assets/images/marketing-analytics/google-tag-manager-workflow.drawio.svg)
+
+The data layer is an object used by Google Tag Manager and Google tag (gtag.js) to pass information to tags. Events or variables can be passed via the data layer, and triggers can be set up based on the values of variables. 
+
+Amplitude GTM templates are custom templates which define tags and variables so that you can reuse them alongside the built-in tags and variables. 
+
+Google tags are snippets of code that measure user activity such as time on page, clicks, and purchases.
+
+!!! warning "Messages are queued"
+
+    To enforce the processing order of messages pushed to the data layer, add an event name to a message as it is pushed to the data layer, and then listen for that event name with a Custom Event trigger. Learn more about [how Google processes data layer information](https://developers.google.com/tag-platform/devguides/datalayer?hl=en#how_data_layer_information_is_processed).
+
+### Server Container
+
+![How Amplitude GTM templates fit into your workflow - Server](/assets/images/marketing-analytics/google-tag-manager-workflow-server.drawio.svg)
+
+Client-side container communicates with the server-side container through HTTP requests with the standardized **Event Data** format.
+
+The client container might be also required because it needs to parse an incoming HTTP request and generate an event data object for tags to utilize.
 
 ## Client-side vs server-side
 
@@ -19,7 +43,7 @@ Google Tag Manager (GTM) offers both client-side and server-side templates for t
 
 Client-side templates run the tracking plan directly on the user's device and use JavaScript code to manage tags. They serve tags that need to interact with the client environment, such as tracking user actions on a website. However, the client browser capabilities restrict these templates and may not be appropriate for tags that require access to server-side data. 
 
-GTM server-side templates run on the server, not on the client's browser. They control tags with server-side code and serve tags that require access to server-side data, such as monitoring server-side events. These templates offer a higher level of control over tag deployment and can handle complex tag implementations
+Server-side templates operate on the server rather than the client's browser, whether that be Google Cloud or any Self-Hosted Server. It's important to understand that server-side templates aren't designed to replace GTM client-side tags, but rather to augment and enhance their performance. If your focus is on improving client-side loading speed, bolstering security, or addressing privacy concerns, then using GTM server-side templates can be a viable option. [More details](https://developers.google.com/tag-platform/learn/sst-fundamentals/2-what-is-sst).
 
 Use GTM client-side templates to track user interactions on a website. Use server-side templates if you want to track sensitive customer information or complex tags that require server-side processing.
 

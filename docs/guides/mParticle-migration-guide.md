@@ -58,8 +58,7 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
 | Screen    | Event     | Create an Event to track Screen views.|
 | Page      | Event     | Create an Event to track Page views.|
 |           | Group     | [Group](/guides/accounts-instrumentation-guide/) is a collection of users. In Amplitude one user could belong to multiple groups. Each group can have properties/attributes that will be available to query/forward on actions performed by any user in the group.|
-| Kits      | Plugins   | [Plugins](/data/ampli/plugin/) les you extend Amplitude by running a sequence of custom code on every event.|
-
+| Kits      | Plugins   | [Plugins](/data/sdk-plugins/) les you extend Amplitude by running a sequence of custom code on every event.|
 
 === "Browser"
 
@@ -135,7 +134,6 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     </tr>
     </table>
 
-
 === "iOS"
 
     Documentation for [iOS SDK](/data/sdks/ios/).
@@ -197,7 +195,6 @@ Both mParticle and Amplitude SDKs are meant to capture first party data by track
     </td>
     </tr>
     </table>
-
 
 === "Android"
 
@@ -280,7 +277,6 @@ You can add a [new destination](/data/destinations/) in just a few clicks.
 
 For detailed instructions, see the documentation for the [destination](/data/destinations/) you want to add. 
 
-
 ## Migration checklist
 
 It's important to validate the migration to make sure there is minimal impact on downstream data consumers. 
@@ -301,7 +297,7 @@ It's important to validate the migration to make sure there is minimal impact on
 
 ??? note "What if I don't see an integration that I need?"
 
-    We're constantly adding new integrations so either add a request in product or commuincate with your CSM and we'll provide a timeline.
+    We're constantly adding new integrations so either add a request in product or communicate with your CSM and we'll provide a timeline.
 
 ??? note "How much does Amplitude CDP Cost?"
 

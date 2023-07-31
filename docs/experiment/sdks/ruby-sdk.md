@@ -241,7 +241,7 @@ Install the Ruby Server SDK with bundler or gem directly.
         'premium' => true
       }
     )
-    variants = expriment.evaluate(user)
+    variants = experiment.evaluate(user)
     variant = variants['YOUR-FLAG-KEY']
     unless variant.nil?
         if variant.value == 'on'
@@ -351,7 +351,7 @@ if device_id.nil?
   amp_cookie_value = AmplitudeExperiment::AmplitudeCookie.generate(device_id)
   cookies[amp_cookie_name] = {
     value: amp_cookie_value,
-    domain: '.yourdomain.com', # this should be the same domain used by the Amplitude JS SDK
+    domain: '.your-domain.com', # this should be the same domain used by the Amplitude JS SDK
     httponly: false,
     secure: false
   }

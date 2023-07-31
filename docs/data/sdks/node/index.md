@@ -64,12 +64,12 @@ Amplitude.init(AMPLITUDE_API_KEY, options);
     | `serverUrl` | ` string`. If you're using a proxy server, set its url here. | `https://api2.amplitude.com/2/httpapi` |
     | `uploadIntervalInSec` | `number`. The events upload interval in seconds. | `0` |
     | `minIdLength` | `number`. Optional parameter allowing users to set minimum permitted length for user_id & device_id fields. | `5` |
-    | `requestTimeoutMillis` | `number`. Configurable timeout in millionseconds. | `10000` |
+    | `requestTimeoutMillis` | `number`. Configurable timeout in milliseconds. | `10000` |
     | `onRetry` | `(response: Response, attemptNumber: number, isLastRetry: boolean) => boolean) `. @param `response` - Response from the given retry attempt. @param `attemptNumber` - Index in retryTimeouts for how long Amplitude waited before this retry attempt. Starts at 0. @param `isLastRetry` - True if attemptNumber === retryTimeouts.length - 1. Lifecycle callback that is executed after a retry attempt. Called in {@link Retry.sendEventsWithRetry}.  | `null` |
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `maxCachedEvents` and `uploadIntervalInSec`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, you can use the batch mode. You need to set the serverl url to the the [batch event upload API](../../../analytics/apis/batch-event-upload-api.md) based on your needs. 
+To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `maxCachedEvents` and `uploadIntervalInSec`. By default, the serverUrl will be `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, you can use the batch mode. You need to set the server url to the the [batch event upload API](../../../analytics/apis/batch-event-upload-api.md) based on your needs. 
 
 - Standard Server Batch API - https://api2.amplitude.com/batch
 - EU Residency Server Batch API - https://api.eu.amplitude.com/batch
@@ -160,7 +160,7 @@ Middleware allows you to extend Amplitude by running a sequence of custom code o
 Each middleware is a simple function with this signature:
 
 ```js
-function (payload: MiddlwarePayload: next: MiddlewareNext): void;
+function (payload: MiddlewarePayload: next: MiddlewareNext): void;
 ```
 
 The `payload` contains the `event` as well as an optional `extra` that allows you to pass custom data to your own middleware implementations.
@@ -190,7 +190,7 @@ client.addEventMiddleware(loggingMiddleware)
 client.addEventMiddleware(filteringMiddleware)
 ```
 
-You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app/src/middleware) and [JavaScript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app/src/middleware).
+You can find examples for [Typescript](https://github.com/amplitude/ampli-examples/tree/main/browser/typescript/v1/react-app/src/middleware) and [JavaScript](https://github.com/amplitude/ampli-examples/tree/main/browser/javascript/v1/react-app/src/sdk-middleware).
 
 ## More resources
 

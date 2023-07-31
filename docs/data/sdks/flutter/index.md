@@ -61,7 +61,7 @@ class YourClass {
 
 ### Configuration
 
-Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options.
+Amplitude Flutter SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), [Amplitude iOS Maintenance SDK](../ios/) and [Amplitude JavaScript Maintenance SDK](../javascript/). The following are the Dart settable config options.
 For other default configurations:
 
 - on Android side, check the [Android Configuration](../android/#configuration)
@@ -89,12 +89,12 @@ To support high performance environments, the SDK sends events in batches. Every
 
 ```dart
 // Events queued in memory will flush when number of events exceed upload threshold
-// Default value is 10
-Amplitude.getInstance().setEventUploadThreshold(20);
+// Default value is 30
+Amplitude.getInstance().setEventUploadThreshold(1);
 
 // Events queue will flush every certain milliseconds based on setting
-// Default value is 10,000 milliseconds
-Amplitude.getInstance().setEventUploadPeriodMillis(20000);
+// Default value is 30,000 milliseconds
+Amplitude.getInstance().setEventUploadPeriodMillis(10000);
 ```
 
 #### EU data residency
@@ -249,7 +249,7 @@ Amplitude.getInstance().identify(identify);
 const array = ["some_string", 56];
 final Identify identify = Identify()
                           ..append("ab-tests", "new-user-test")
-                          ..preappend("some_list", array)
+                          ..prepend("some_list", array)
 Amplitude.getInstance().identify(identify);
 ```
 
@@ -289,6 +289,30 @@ final Identify identify = Identify()
                           ..unset("some_list",array);
 Amplitude.getInstance().identify(identify)
 ```
+
+### User groups
+
+--8<-- "includes/editions-growth-enterprise-with-accounts.md"
+
+--8<-- "includes/groups-intro-paragraph.md"
+
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```dart
+    // set group with a single group name
+    Amplitude.getInstance().setGroup("orgId", "15");
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```dart
+    // set group with multiple group names
+    Amplitude.getInstance().setGroup("sport", ["tennis", "soccer"]);
+    ```
+    
+!!!note
+    Event-level groups is currently unavailable and its availability is yet to be determined.
 
 ### Track revenue
 
@@ -335,9 +359,9 @@ On Android and iOS, you can choose to automatically log start and end session ev
 
 ```dart
 //Enable automatically log start and end session events
-Ampiltidue.getInstance().trackingSessionEvents(true);
+Amplitude.getInstance().trackingSessionEvents(true);
 //Disable automatically log start and end session events
-Amplitidue.getInstance().trackingSessionEvents(false);
+Amplitude.getInstance().trackingSessionEvents(false);
 ```
 
 `trackingSessionEvents()` is not supported on Flutter web. Please check [here](/#flutter-web-support) to learn more.
@@ -374,9 +398,9 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
  Remember that apps asking for information from children under 13 years of age must comply with COPPA.
 
 ```dart
-//Enable COPPA Control
+// Enable COPPA Control
 Amplitude.getInstance().enableCoppaControl();
-//Disable COPPA Control
+// Disable COPPA Control
 Amplitude.getInstance().disableCoppaControl();
 ```
 

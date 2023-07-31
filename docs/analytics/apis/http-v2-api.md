@@ -100,6 +100,10 @@ If the event doesn't have a `user_id` or `device_id` value, the upload may be re
     * "0"
     * "-1"
 
+### Language Field
+
+--8<-- "includes/http-api/shared-language-mapping.md"
+
 ## Upload request
 
 Send a POST request to `https://api2.amplitude.com/2/httpapi`. 
@@ -108,7 +112,7 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`.
 
     ???code-example "Example: Simple request (click to expand)"
 
-        This example uploads a 'watch_tutorial' event with a few properities and user properties for the user `12345`.
+        This example uploads a 'watch_tutorial' event with a few properties and user properties for the user `12345`.
 
         === "cURL"
 
