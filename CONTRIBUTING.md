@@ -37,4 +37,4 @@ It depends. We have a small documentation team. Someone will acknowledge your PR
 
 1. Spell Checker is flagging a word as misspelled and I believe it is a mistake. How can I move forward?
 
-Spell Checker detects misspelled words and prevents a pull requests from getting merged. The spell checker may not know brand names, industry jargons, abbreviations to name a few. If you believe that the spell checker is incorrectly flagging a word as misspelled, please add the word to `cspellignore.json`.
+Spell Checker detects misspelled words and prevents a pull requests from getting merged. The spell checker may not know brand names, industry jargons, abbreviations to name a few. If you believe that the spell checker is incorrectly flagging a word as misspelled, please add the word to `cspellignore.txt`.
