@@ -1,6 +1,6 @@
 ---
 title: Send Cohorts to Maze
-description: Send Amplitude audineces to Maze to create more personalized campaigns.
+description: Send Amplitude audiences to Maze to create more personalized campaigns.
 ---
 --8<-- "includes/editions-scholarship-growth-enterprise.md"
 

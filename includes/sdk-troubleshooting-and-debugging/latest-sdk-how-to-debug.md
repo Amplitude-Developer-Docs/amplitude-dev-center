@@ -4,5 +4,5 @@ Please ensure that the configuration and payload are accurate and check for any 
 
 #### Log
 
-- Set the log level to debug to collect useful information during debuggging. [More details](./#log-level).
+- Set the log level to debug to collect useful information during debugging. [More details](./#log-level).
 - Customize `loggerProvider` class from the `LoggerProvider` and implement your own logic, such as logging error message in server in a production environment. [More details](./#set-log-callback).

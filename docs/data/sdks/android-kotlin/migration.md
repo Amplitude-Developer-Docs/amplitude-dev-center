@@ -118,7 +118,7 @@ The `logEvent()` API maps to `track()`. The `eventProperties` is `JSONObject` ty
 
     - JSONObject eventProperties = new JSONObject();
     - try {
-    -   eventProperties.put("buttoncolor", "primary");
+    -   eventProperties.put("buttonColor", "primary");
     - } catch (JSONException e) {
     -   System.err.println("Invalid JSON");
     -   e.printStackTrace();
@@ -126,7 +126,7 @@ The `logEvent()` API maps to `track()`. The `eventProperties` is `JSONObject` ty
     - client.logEvent("Button Clicked", eventProperties);
 
     + client.track("Button Clicked", new HashMap() {{
-    +     put("buttoncolor", "primary");
+    +     put("buttonColor", "primary");
     + }});
     ```
 
@@ -235,7 +235,7 @@ The revenue verification logic is on Amplitude's backend. So revenue verificatio
 
 ## Advanced topics
 
-Most of the behaviours of the latest SDK remain the same with the maintenance SDK. Refer to the advanced topics sections of the [maintenance SDK](/data/sdks/android/#advanced-topics) and the [latest SDK](/data/sdks/android-kotlin/#advanced-topics) to learn more about a specific advanced topic.
+Most of the behaviors of the latest SDK remain the same with the maintenance SDK. Refer to the advanced topics sections of the [maintenance SDK](/data/sdks/android/#advanced-topics) and the [latest SDK](/data/sdks/android-kotlin/#advanced-topics) to learn more about a specific advanced topic.
 
 ## Comparison 
 
@@ -245,10 +245,10 @@ Most of the behaviours of the latest SDK remain the same with the maintenance SD
 | --- | --- | --- |
 | Package | [com.amplitude:analytics-android](https://mvnrepository.com/artifact/com.amplitude/analytics-android) | [com.amplitude:android-sdk](https://mvnrepository.com/artifact/com.amplitude/android-sdk) |
 | SSL Pinning | TBD | Supported. Check [here](../../android/#ssl-pinning) for the setup. |
-| Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../#configuration). | Support explicity setter methods. [More configurations](../../android/#configuration). |
+| Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../#configuration). | Supports specific setter methods. [More configurations](../../android/#configuration). |
 | Logger Provider | ConsoleLoggerProvider() by default. Fully customizable. | Amplitude Logger. Not customizable. |
 | Storage Provider | InMemoryStorageProvider() by default. File storage. Fully customizable. | SQLite Database. |
-| Customization | Plugins | Middelware |
+| Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API | HTTP V1 API |
 | Batch API| Supported, with configuration. | Not supported.|
 | Default Event Tracking| Support sessions, app lifecycles, screen views, and deep links trackings. [More details](../../android-kotlin/#tracking-default-events). | Support sessions tracking only, disabled by default.|

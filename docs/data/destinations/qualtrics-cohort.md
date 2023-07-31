@@ -27,8 +27,8 @@ You need to complete setup simultaneously in Amplitude and Qualtrics.
 5. Click the profile icon. From the *My Account* menu, select **Account Settings**.
 6. On the *Qualtrics IDs* tab under *Directories*, find *Default Directory* and copy the ID (it starts with `POOL_`).<!--vale on-->
 7. In Amplitude, paste this ID into the *Directory ID* field.
-8. In Qualtrics, locate *Datacenter ID* (under *User*) and copy the ID, a short string of lowercase-alphanumeric characters.
-9. Back in Amplitude, paste the ID into the *Datacenter ID* field.
+8. In Qualtrics, locate *Data Center ID* (under *User*) and copy the ID, a short string of lowercase-alphanumeric characters.
+9. Back in Amplitude, paste the ID into the *Data Center ID* field.
 10. In Qualtrics, find a mailing list ID.
       1. Click on the hamburger menu and select **Directories**.
 

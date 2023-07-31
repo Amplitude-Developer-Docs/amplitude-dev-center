@@ -993,7 +993,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Python"
 
-    The Python SDK lets you send events to Amplitude. See the [Pythohn SDK documentation](./python/index.md) for additional configurations and advanced topics.
+    The Python SDK lets you send events to Amplitude. See the [Python SDK documentation](./python/index.md) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)
@@ -1459,7 +1459,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
         ```
-        Learn more about [Unity package manager initizalization](../unity/#option-1-unity-package-manager)
+        Learn more about [Unity package manager initialization](../unity/#option-1-unity-package-manager)
 
     === "Manual download"
 
