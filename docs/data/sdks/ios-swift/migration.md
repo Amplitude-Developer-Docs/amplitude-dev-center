@@ -471,7 +471,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 
 #### Callback
 
-`Amplitude-Swft` supports configuration-level and event-level callback functions which are called for success and error upload. Configuration-level callback applies for every success and error event upload. Event-level callback is specific for one Event. Notice that the event-level callbacks are stored in cache, those callbacks are lost if the app crashes.
+`Amplitude-Swift` supports configuration-level and event-level callback functions which are called for success and error upload. Configuration-level callback applies for every success and error event upload. Event-level callback is specific for one Event. Notice that the event-level callbacks are stored in cache, those callbacks are lost if the app crashes.
 
 === "Amplitude-Swift"
 
@@ -482,7 +482,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
         configuration: Configuration(
             apiKey: "TEST-API-KEY",
             callback: { (event: BaseEvent, code: Int, message: String) -> Void in
-                print("eventcallback: \(event), code: \(code), message: \(message)")
+                print("eventCallback: \(event), code: \(code), message: \(message)")
             },
         )
     )
@@ -493,7 +493,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
     ```swift
     let event = BaseEvent(
       callback: { (event: BaseEvent, code: Int, message: String) -> Void in
-          print("eventcallback: \(event), code: \(code), message: \(message)")
+          print("eventCallback: \(event), code: \(code), message: \(message)")
       }, 
       eventType: "TEST-EVENT-TYPE")
       
@@ -508,7 +508,7 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
     amplitude.track(
       event: event2, 
       callback: { (event: BaseEvent, code: Int, message: String) -> Void in
-          print("eventcallback: \(event), code: \(code), message: \(message)")
+          print("eventCallback: \(event), code: \(code), message: \(message)")
     })
     ```
 
@@ -521,8 +521,8 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 | <div class="big-column">Feature</div> | [Latest iOS SDK](./) | [Maintenance iOS SDK](../../ios-swift/) |
 | --- | --- | --- |
 | Package | AmplitudeSwift | [Amplitude](https://cocoapods.org/pods/Amplitude-iOS) |
-| Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../../ios/#configuration). Latest iOS SDK support more configurations. Check [here](../#configuration) for more details. | Support explicity setter methods. [More configurations](../../ios/#configuration) |
-| Logger Provider | ConsoleLogger() by default. Fully customizable. | AMPLITUDE_LOG, config throught marcro. |
+| Configuration | Configuration is implemented by the configuration object. Configurations need to be passed into Amplitude Object during initialization. [More configurations](../../ios/#configuration). Latest iOS SDK support more configurations. Check [here](../#configuration) for more details. | Supports specific setter methods. [More configurations](../../ios/#configuration) |
+| Logger Provider | ConsoleLogger() by default. Fully customizable. | AMPLITUDE_LOG, config through macro. |
 | Storage Provider | PersistentStorage() by default. File storage and iOS user’s defaults database. Fully customizable. | SQLite Database. |
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API | HTTP V1 API |

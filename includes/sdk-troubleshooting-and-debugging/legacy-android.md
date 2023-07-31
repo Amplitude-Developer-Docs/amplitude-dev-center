@@ -4,7 +4,7 @@
 
 #### Log
 
-- Set the log level to debug to collect useful information during debuggging. [More details](../#log-level).
+- Set the log level to debug to collect useful information during debugging. [More details](../#log-level).
 
 #### Callback
 

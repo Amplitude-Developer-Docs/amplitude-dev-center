@@ -303,6 +303,7 @@ nav:
         - MoEngage: data/destinations/moengage-event-streaming.md
         - Moloco: data/destinations/moloco-event-streaming.md
         - Planhat: data/destinations/planhat-event-streaming.md
+        - Salesforce Marketing Cloud: data/destinations/marketing-cloud-event-streaming.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
         - Userlist: data/destinations/userlist-event-streaming.md
@@ -387,6 +388,7 @@ nav:
           - Variant Jumping: experiment/guides/troubleshooting/variant-jumping.md
           - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
           - Exposures without Assignments: experiment/guides/troubleshooting/exposures-without-assignments.md
+          - Restarting experiments (Beta): experiment/guides/troubleshooting/restarting-experiments.md
       - SDKs:
         - JavaScript SDK: experiment/sdks/javascript-sdk.md
         - Android SDK: experiment/sdks/android-sdk.md
