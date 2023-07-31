@@ -16,7 +16,7 @@ Anyone can suggest changes to the docs. Just open a PR with your changes! See ou
 
 ## Getting Started
 
-> :pushpin: This is an abbreviated version of the install instructions. For a full walkthrough that includes optional steps to create the best contributor experience, check out the [Amplitiude Developer Center Wiki](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki)
+> :pushpin: This is an abbreviated version of the install instructions. For a full walkthrough that includes optional steps to create the best contributor experience, check out the [Amplitude Developer Center Wiki](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki)
 
   Before you can install, you need pip. To install the link checker and Vale locally, you need brew and npm too.
 

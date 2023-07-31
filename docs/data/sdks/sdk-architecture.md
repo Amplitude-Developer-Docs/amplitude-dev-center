@@ -15,9 +15,9 @@ Refer to the [SDK status table](./#sdk-status-table) to check whether a SDK foll
 ## Benefits of the latest architecture
 
 - Uses **modern languages** for each platform and with **modern tools/frameworks**
-    - It's easier for develpers to onboard Amplitude and also gain more confidence on data quality
+    - It's easier for developers to onboard Amplitude and also gain more confidence on data quality
     - Latest Browser, Node.js, React Native SDK use TypeScript. Latest Android uses Kotlin. Latest iOS uses Swift
-    - Improved the code readability can speed up your the developement cycle
+    - Improved the code readability can speed up your the development cycle
     - Browser SDK implements tree-shaking technique to reduce the bundle size
 
 - Designed with a solid and **extensible architecture**

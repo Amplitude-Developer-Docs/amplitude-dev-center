@@ -235,7 +235,7 @@ The revenue verification logic is on Amplitude's backend. So revenue verificatio
 
 ## Advanced topics
 
-Most of the behaviours of the latest SDK remain the same with the maintenance SDK. Refer to the advanced topics sections of the [maintenance SDK](/data/sdks/android/#advanced-topics) and the [latest SDK](/data/sdks/android-kotlin/#advanced-topics) to learn more about a specific advanced topic.
+Most of the behaviors of the latest SDK remain the same with the maintenance SDK. Refer to the advanced topics sections of the [maintenance SDK](/data/sdks/android/#advanced-topics) and the [latest SDK](/data/sdks/android-kotlin/#advanced-topics) to learn more about a specific advanced topic.
 
 ## Comparison 
 

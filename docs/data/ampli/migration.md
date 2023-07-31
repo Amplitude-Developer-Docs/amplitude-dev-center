@@ -223,7 +223,7 @@ amplitude.track({
 ampli.songPlayed({ title: "Get Back" })
 ampli.track(new SongPlayed({ title: "Hey"}))
 
-// Not recommmended, but possible
+// Not recommended, but possible
 // Ampli can track untyped events if desired
 ampli.track({
   event_type: 'Sign Up',

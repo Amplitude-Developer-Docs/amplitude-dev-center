@@ -120,7 +120,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 
 ### Configuration
 
-Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), and [Amplitude iOS Mantaince SDK](../ios/). The following are the C# settable config options.
+Amplitude Unity SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), and [Amplitude iOS Maintenance SDK](../ios/). The following are the C# settable config options.
 For other default configurations:
 
 - on Android side, check the [Android Configuration](../android-kotlin/#configuration)
@@ -486,10 +486,10 @@ using System.Runtime.InteropServices;
 #endif
 ```
 
-Inside the game class, add the following code inside your MonoBehaviour class, or any other class.
+Inside the game class, add the following code inside your MonoBehavior class, or any other class.
 
 ```c#
-public class AmplitudeDemo : MonoBehaviour {
+public class AmplitudeDemo : MonoBehavior {
 
 #if (UNITY_IPHONE || UNITY_TVOS)
     [DllImport ("__Internal")]

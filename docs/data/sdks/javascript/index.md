@@ -130,7 +130,7 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
     | `cookieExpiration` | `number`. The number of days after which the Amplitude cookie will expire. 12 months is for GDPR compliance. | `365` |
     | `sameSiteCookie` | `string`. Sets the SameSite flag on the amplitude cookie. Decides cookie privacy policy. | `Lax` |
     | `cookieForceUpgrade` | `boolean`. Forces pre-v6.0.0 instances to adopt post-v6.0.0 compat cookie formats. | `false` |
-    | `disableCookies` |  `boolean`. Whether disable Ampllitude cookies altogether. | `false` |
+    | `disableCookies` |  `boolean`. Whether disable Amplitude cookies altogether. | `false` |
     | `deferInitialization` | `boolean`.  Whether defer initialization. If `true`, disables the core functionality of the sdk, including saving a cookie and all logging, until explicitly enabled. | `false` |
     | `deviceIdFromUrlParam` | `boolean`. If `true`, then the SDK will parse Device ID values from the URL parameter amp_device_id if available. Device IDs defined in the configuration options during init will take priority over Device IDs from URL parameters. | `false` |
     | `domain` | `string`. Set a custom domain for the Amplitude cookie. To include subdomains, add a preceding period, eg: `.amplitude.com`. | `null` |
@@ -585,7 +585,7 @@ Here is an example URL:
 
 In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK automatically pulls UTM parameters from the referring URL and include them as user properties on all relevant events:
 
-- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_gclid` and `gclid` as user properties.
 - `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example: `"?fbclid=392foih3"`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
 - `includeUtm`: If `true`, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
 UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time.
@@ -951,7 +951,7 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
 In SDK version 8.5.0 and higher, the SDK can send events using the browser's built-in navigator.sendBeacon API.
  Unlike standard network requests, sendBeacon sends events in the background, even if the user closes the browser or leaves the page.
 
---8<-- "includes/sdk-ts/sendBeacon-warnning.md"
+--8<-- "includes/sdk-ts/sendBeacon-warning.md"
 
 To send an event using sendBeacon, set the transport SDK option to 'beacon' in one of two ways
 
@@ -1035,7 +1035,7 @@ instanceProd.init("API-KEY-2", undefined, {
 });
 ```
 
-- Method2: Set device ID after inialization whenever you need it to be the same
+- Method2: Set device ID after initialization whenever you need it to be the same
 
 ```javascript
 var instanceDev = amplitude.getInstance("amplitude-dev");
@@ -1048,7 +1048,7 @@ instanceProd.init("API-KEY-2");
 instanceProd.setDeviceId(instanceDev.getDeviceId());
 ```
 
-- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [corss domain tracking](./#cross-domain-tracking-javascript) for more details.
+- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [cross domain tracking](./#cross-domain-tracking-javascript) for more details.
 
 ### Content Security Policy (CSP)
 

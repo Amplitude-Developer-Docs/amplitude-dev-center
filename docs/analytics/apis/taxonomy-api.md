@@ -1238,7 +1238,7 @@ This is a basic request with only the required parameters.
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'event_type=Onboard Start' \
-        --data-urlencode 'description=User completed an oboarding task' \
+        --data-urlencode 'description=User completed an onboarding task' \
         --data-urlencode 'new_event_property_value=Task Completed' \
         --data-urlencode 'type=any'
         ```
@@ -1253,7 +1253,7 @@ This is a basic request with only the required parameters.
         Content-Type: application/x-www-form-urlencoded
         Content-Length: 130
 
-        event_type=Onboard%20Start&description=User%20completed%20an%20oboarding%20task&new_event_property_value=Task%20Completed&type=any
+        event_type=Onboard%20Start&description=User%20completed%20an%20onboarding%20task&new_event_property_value=Task%20Completed&type=any
         ```
 
 ##### Path parameters

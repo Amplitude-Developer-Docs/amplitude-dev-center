@@ -150,7 +150,7 @@ Amplitude highly suggests giving a clear Failure Reason (Description) and Error 
 
 !!!note "How Amplitude handles undefined status codes"
 
-    For any error response code that's "undefined" at the point of configuration (without failure reason or status code), Amplitude will by default show an "unclassified" error type with the following error eessage:
+    For any error response code that's "undefined" at the point of configuration (without failure reason or status code), Amplitude will by default show an "unclassified" error type with the following error message:
 
     "This cohort sync has encountered an unidentified kind of error for this integration. Please contact support or your CSM to create a ticket and ask for help in solving this issue."
 

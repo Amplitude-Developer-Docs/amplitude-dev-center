@@ -15,9 +15,9 @@ This is the server-side Google Tag Manager Template for Amplitude Analytics. The
 
 ### Container Setup
 
-If you start from zero, you need to setup your conatiner first. This Amplitude Analytics tag template can be found in **Server** target platform which for the uses on desktop and mobile web pages.
+If you start from zero, you need to setup your container first. This Amplitude Analytics tag template can be found in **Server** target platform which for the uses on desktop and mobile web pages.
 
-![Server Container Setup](../../assets/images/gtm/gtm-server-conatiner-setup.png)
+![Server Container Setup](../../assets/images/gtm/gtm-server-container-setup.png)
 
 ### Add Template
 
@@ -84,7 +84,7 @@ Use this table to add completely new event properties to the hit sent to Amplitu
 | <div class="big-column">Name</div>  | Description |
 | --- | --- |
 | `Event Property Key` | Required. `string`.  The `event_name` in the Event Data object. |
-| `Event Property Value` | OptionaRequiredl. `string`. The value of the event property key. |
+| `Event Property Value` | Optional. `string`. The value of the event property key. |
 
 #### User Property Configuration
 
@@ -146,9 +146,9 @@ All tags fire based on events. Anytime Google Tag Manager registers an event, ev
 
 ## Common Issues
 
-### Why I cannot find Amplitude Analytics in the GTM Gallary
+### Why I cannot find Amplitude Analytics in the GTM Gallery
 
-Please make sure you have selected a server container. Server-side tempalte will only exist in server container gallary. 
+Please make sure you have selected a server container. Server-side template will only exist in server container gallery. 
 
 ## Video Tutorial
 

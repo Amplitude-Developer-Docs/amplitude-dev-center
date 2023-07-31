@@ -694,7 +694,7 @@ The `groupIdentifyWithGroupType` method accepts a group type string parameter 
 
     ```obj-c
     NSString *groupType = @"plan";
-    NSObject *groupName = @"enterprese";
+    NSObject *groupName = @"enterprise";
     AMPIdentify *identify = [[AMPIdentify identify] set:@"key" value:@"value"];
     [[Amplitude instance] groupIdentifyWithGroupType:groupType groupName:groupName groupIdentify:identify];
     ```
