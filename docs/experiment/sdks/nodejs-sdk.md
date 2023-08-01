@@ -300,7 +300,7 @@ app.use((req, res, next) => {
     deviceId = random22CharBase64String();
     const ampCookieValue = AmplitudeCookie.generate(deviceId);
     res.cookie(ampCookieName, ampCookieValue, {
-      domain: '.yourdomain.com', // this should be the same domain used by the Amplitude JS SDK
+      domain: '.your-domain.com', // this should be the same domain used by the Amplitude JS SDK
       maxAge: 365 * 24 * 60 * 60 * 1000, // this is currently the same as the default in the Amplitude JS SDK, can be modified
       sameSite: 'Lax'
     });

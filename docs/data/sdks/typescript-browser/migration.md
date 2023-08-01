@@ -96,7 +96,7 @@ The new Browser SDK configuration comes in a different shape. The configurations
 |`config.optOut`|`config.optOut`|
 |`config.onError`|NOT SUPPORTED|
 |`config.onExitPage`|NOT SUPPORTED. See [Flush](#flush-or-onexitpage).|
-|`config.platform`|NOT SUPPORTED. See [Plugins](#plugins).|
+|`config.platform`|NOT SUPPORTED. `platform` is not supported at configuration level. But it still exist in event object. You can overwrite this by either assign a platform while tracking an event, or enriching the event.platform using enrichment plugin. See [Plugins](#plugins).|
 |`config.savedMaxCount`|NOT SUPPORTED|
 |`config.saveEvents`|NOT SUPPORTED|
 |`config.saveParamsReferrerOncePerSession`|`config.attribution.trackNewCampaigns`. Opposite of `saveParamsReferrerOncePerSession`. See [configuration](../#configuration). |
@@ -514,26 +514,33 @@ For `@amplitude/analytics-browser`, Amplitude recommends adding your own event l
 === "@amplitude/analytics-browser"
 
     ```javascript
-    window.addEventListener('pagehide',
-      () => {
-        amplitude.setTransport('beacon') // Optional. Sets https transport to use `sendBeacon` API
-        amplitude.flush()
-      },
-    );
+    window.addEventListener('pagehide', () => {
+      // Set https transport to use sendBeacon API
+      amplitude.setTransport('beacon')
+      // Send all pending events to server
+      amplitude.flush()
+    });
     ```
 
 #### Callback
 
-For `amplitude-js`, two separate callback functions are passed for success and error. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `track()`, `identify()`, `groupIdentify()` return a custom promise interface.
+For `amplitude-js`, one `init` callback function for executing any function after initialization and two separate callback functions are passed for success and error network request. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `init()`, `track()`, `identify()`, `groupIdentify()` return a custom promise interface.
 
 === "@amplitude/analytics-browser"
 
     ```javascript
+    const initResult = await amplitude.init("YOUR_API_KEY").promise
+    if (initResult.code === 200) {
+      // success logic
+    } else {
+      // error logic
+    }
+
     const result = await amplitude.track("Button Clicked").promise
     if (result.code === 200) {
       // success logic
     } else {
-      // errr logic
+      // error logic
     }
 
     ```
@@ -564,7 +571,7 @@ For `amplitude-js`, two separate callback functions are passed for success and e
 | --- | --- | --- |
 | Configurable | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../#tracking-default-eventsr/#page-view). |  Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../../marketing-analytics-browser/#page-view). |
 | Events | Includes with [configuration](./#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul> | Includes with [configuration](../../marketing-analytics-browser/#page-view) <ul><li> page view event (`Page view`)</li> </ul>  </li></ul> | 
-| Archtecture |  Implemented through different plugins. | Implemented through `page-view-tracking` plugin. |  
+| Architecture |  Implemented through different plugins. | Implemented through `page-view-tracking` plugin. |  
 | Customizable | Yes. Through [Enrichment Plugin](./#plugins). | Yes. Through [Enrichment Plugin](./#plugins). |
 
 ### Web Attribution V2 vs Web Attribution V1 vs Maintenance Web Attribution

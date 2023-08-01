@@ -15,6 +15,9 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
 
+!!!note "Migration guide"
+    This is the documentation for the Amplitude Browser SDK 2.0. If you are using the Browser SDK 1.0, refer to the migration documentation: [Browser SDK 2.0 Migration Guide](/data/sdks/browser-2/migration/). If you are using the maintenance SDK, refer to the migration documentation: [Browser SDK Migration Guide](/data/sdks/typescript-browser/migration/).
+
 ## Getting started
 
 Use [this quickstart guide](../sdk-quickstart#browser) to get started with Amplitude Browser SDK.
@@ -37,7 +40,7 @@ amplitude.init(API_KEY, options);
 // Option 3, initialize with user ID if it's already known
 amplitude.init(API_KEY, 'user@amplitude.com');
 
-// Option 4, initialize with user ID and options
+// Option 4, initialize with a user ID and options
 amplitude.init(API_KEY, 'user@amplitude.com', options);
 ```
 
@@ -51,7 +54,7 @@ amplitude.init(API_KEY, 'user@amplitude.com', options);
     |`cookieOptions.expiration` | `number`. Sets expiration of cookies created in days. | 365 days |
     |`cookieOptions.sameSite` | `string`. Sets `SameSite` property of cookies created. | `Lax` |
     |`cookieOptions.secure` | `boolean`. Sets `Secure` property of cookies created. | `false` |
-    |`cookieOptions.upgrade` | `boolean`. Sets upgrading from cookies created by legacy Browser SDK. If `true`, new Browser SDK deletes cookies created by legacy Browser SDK. If `false`, Browser SDK keeps cookies created by legacy Browser SDK. | `true` |
+    |`cookieOptions.upgrade` | `boolean`. Sets upgrading from cookies created by [maintenance Browser SDK](../javascript/). If `true`, new Browser SDK deletes cookies created by maintenance Browser SDK. If `false`, Browser SDK keeps cookies created by maintenance Browser SDK. | `true` |
     |`identityStorage` | `string`. Sets storage API for user identity. Options include `cookie` for `document.cookie`, `localStorage` for `localStorage`, or `none` to opt-out of persisting user identity. | `cookie` |
     |`partnerId` | `string`. Sets partner ID. Amplitude requires the customer who built an event ingestion integration to add the partner identifier to `partner_id`. | `undefined` |
     |`sessionTimeout` | `number`. Sets the period of inactivity from the last tracked event before a session expires in milliseconds. | 1,800,000 milliseconds (30 minutes) |
@@ -59,7 +62,6 @@ amplitude.init(API_KEY, 'user@amplitude.com', options);
     |`userId` | `number`. Sets an identifier for the user being tracked. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. | `undefined` |
     |`trackingOptions` | `TrackingOptions`. Configures tracking of additional properties. Please refer to `Optional tracking` section for more information. | Enable all tracking options by default. |
     |`transport` | `string`. Sets request API to use by name. Options include `fetch` fro fetch, `xhr` for `XMLHttpRequest`, or  `beacon` for `navigator.sendBeacon`. | `fetch` |
-
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -91,7 +93,7 @@ amplitude.init(API_KEY, {
 });
 ```
 
-The default logger outputs logs to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
+The default logger outputs log to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
 
 Set the logger by configuring the `loggerProvider` with your own implementation.
 
@@ -102,7 +104,8 @@ amplitude.init(API_KEY, {
 ```
 
 ##### Debug Mode
-Enable the debug mode by setting the `logLevel` to "Debug", example:
+
+Enable the debug mode by setting the `logLevel` to "Debug", for example:
 
 ```ts
 amplitude.init(API_KEY, {
@@ -119,10 +122,23 @@ With the default logger, extra function context information will be output to th
 - 'time': Start and end timestamp of the function invocation.
 - 'states': Useful internal states snapshot before and after the function invocation.
 
-
 ### Tracking an event
 
 --8<-- "includes/sdk-ts-browser/tracking-an-event.md"
+
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, {
+  instanceName: 'env',
+});
+```
 
 ### Tracking default events
 
@@ -144,9 +160,9 @@ Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can b
     `config.defaultTracking.fileDownloads` | Optional. `boolean` | Enables/disables file download tracking. If value is `true`, Amplitude tracks file download events otherwise file download tracking is disabled. Default value is `true`.<br /><br />Event properties tracked includes: `[Amplitude] File Extension`, `[Amplitude] File Name`, `[Amplitude] Link ID`, `[Amplitude] Link Text`, `[Amplitude] Link URL`<br /><br />See [Tracking file downloads](#tracking-file-downloads) for more information.|
 
 !!!note
-    The events above are tracked by default with no configuration needed. Amplitude may add more events in a future version, and default configuration enables tracking for those events as well.
+    The events above are tracked by default with no configuration needed. Amplitude may add more events in a future version, and the default configuration enables tracking for those events as well.
 
-To opt out, refer to the code below. Otherwise, you can omit the configuration to keep them enabled.
+To opt-out, refer to the code below. Otherwise, you can omit the configuration to keep them enabled.
 
 ```ts
 amplitude.init(API_KEY, {
@@ -196,7 +212,7 @@ You can also use advanced configuration for better control of how marketing attr
     `config.defaultTracking.attribution.initialEmptyValue` | Optional. `string` | Sets the value to represent undefined/no initial campaign parameter for first-touch attribution. The default value is `"EMPTY`. |
     `config.defaultTracking.attribution.resetSessionOnNewCampaign` | Optional. `boolean` | Configures Amplitude to start a new session if any campaign parameter changes. The default value is `false`. |
 
-For example, you can configure Amplitude to track marketing attribution separately for each of your subdomain. Refer to the code sample for how to achieve this.
+For example, you can configure Amplitude to track marketing attribution separately for each of your subdomains. Refer to the code sample for how to achieve this.
 
 ```ts
 amplitude.init(API_KEY, {
@@ -244,7 +260,7 @@ amplitude.init(API_KEY, {
 
 #### Tracking form interactions
 
-Amplitude tracks form interaction events by default. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
+Amplitude tracks form interaction events by default. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to a text input, radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
 
 Amplitude can track forms that are constructed with `<form>` tags and `<input>` tags nested. For example:
 
@@ -307,7 +323,7 @@ amplitude.init(API_KEY, {
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```ts
 amplitude.setUserId('user@amplitude.com');
@@ -357,11 +373,19 @@ amplitude.init(API_KEY, {
 
 --8<-- "includes/sdk-ts-browser/shared-plugins-2.md"
 
+### Troubleshooting and Debugging 
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
+
 ## Advanced topics
 
-### Cross domain tracking
+### Cross-domain tracking
 
 --8<-- "includes/sdk-ts-browser/shared-cross-domain-tracking.md"
+
+### Use sendBeacon
+
+--8<-- "includes/sdk-ts-browser/shared-use-sendbeacon.md"
 
 ### Content Security Policy (CSP)
 
@@ -387,4 +411,4 @@ amplitude.init(API_KEY, {
 
 #### Disable cookies
 
-You can opt out using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+You can opt-out of using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).

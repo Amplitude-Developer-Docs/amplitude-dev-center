@@ -322,7 +322,7 @@ if device_id is None:
   amp_cookie_value = AmplitudeCookie.generate(device_id)
   resp.set_cookie(amp_cookie_name, {
     "value": amp_cookie_value,
-    "domain": ".yourdomain.com",  # this should be the same domain used by the Amplitude JS SDK
+    "domain": ".your-domain.com",  # this should be the same domain used by the Amplitude JS SDK
     "httponly": False,
     "secure": False
   })

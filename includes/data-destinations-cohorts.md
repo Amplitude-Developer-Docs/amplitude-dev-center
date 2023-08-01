@@ -8,6 +8,7 @@
 - :appcues: [Appcues](../data/destinations/appcues-cohort.md)
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :blitzllama: [Blitzllama](../data/destinations/blitzllama-cohort.md)  
+- :bento: [Bento](../data/destinations/bento-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :clevertap: [Clevertap](../data/destinations/clevertap-cohort.md)

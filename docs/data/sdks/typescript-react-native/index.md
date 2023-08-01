@@ -14,6 +14,11 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for React Native](../typescript-react-native/ampli.md).
 
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [React Native SDK Migration Guide](/data/sdks/typescript-react-native/migration/).
+
+--8<-- "includes/sdk-rn/rn-notification.md"
+
 ## Getting started
 
 ### Installation
@@ -121,6 +126,22 @@ const eventProperties = {
 track('Button Clicked', eventProperties);
 ```
 
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-react-native';
+
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, {
+  instanceName: 'env',
+});
+```
+
 ### User properties
 
 User properties help you understand your users at the time they performed some action within your app such as their device details, their preferences, or language.
@@ -212,7 +233,7 @@ identify(identifyObj);
 
 #### `Identify.preInsert`
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+This method pre-inserts a value or values to a user property if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -225,7 +246,7 @@ identify(identifyObj);
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+This method post-inserts a value or values to a user property if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -238,7 +259,7 @@ identify(identifyObj);
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the item doesn't exist in the user property, it will be no operation.
+This method removes a value or values to a user property if it exists in the user property. Remove means remove the existing values from the given list. If the item doesn't exist in the user property, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -290,7 +311,7 @@ track({
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that will be applied to the group.
 
@@ -309,7 +330,7 @@ groupIdentify(groupType, groupName, identify);
 
 The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances will store each revenue transaction and allow you to define several special revenue properties (such as "revenueType", "productIdentifier", etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
-To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
+To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product were purchased at $3.99.
 
 ```ts
 import { Revenue, revenue } from '@amplitude/analytics-react-native';
@@ -344,7 +365,7 @@ import { flush } from '@amplitude/analytics-react-native';
 flush();
 ```
 
-By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
+By default, `flush` is called automatically in an interval, if you want to flush the events altogether, you can control the async flow with the optional Promise interface, for example:
 
 ```typescript
 await init(AMPLITUDE_API_KEY).promise;
@@ -354,7 +375,7 @@ await flush().promise;
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 TypeScript
 
@@ -386,7 +407,7 @@ setSessionId(Date.now());
 
 ### Custom device ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. A UUID is recommended.
 
@@ -452,10 +473,12 @@ By default, the SDK tracks these properties automatically. You can override this
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   trackingOptions: {
     adid: false,
+    appSetId: false,
     carrier: false,
     deviceManufacturer: false,
     deviceModel: false,
     ipAddress: false,
+    idfv: false,
     language: false,
     osName: false,
     osVersion: false,
@@ -466,7 +489,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Callback
 
-All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
+All asynchronous APIs are optionally awaitable through a Promise interface. This also serves as a callback interface.
 
 ```ts
 import { track } from '@amplitude/analytics-react-native';
@@ -487,7 +510,7 @@ track('Button Clicked').promise.then((result) => {
 
 ### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 #### `add`
 
@@ -630,5 +653,93 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   transportProvider: new MyTransport(),
 });
 ```
+
+### Advertising Identifiers
+
+Different platforms have different advertising identifiers. Due to user privacy concerns, Amplitude does not automatically collect these identifiers. However, it is easy to enable them using the instructions below. It is important to note that some identifiers are no longer recommended for use by the platform providers. Please read the notes below before deciding to enable them.
+
+| Platform | Advertising Identifier | Recommended | Notes |
+| --- | --- |-------------| --- |
+| Android | AppSetId | Yes         | [AppSetId](https://developer.android.com/training/articles/app-set-id) is a unique identifier for the app instance. It is reset when the app is reinstalled. |
+| Android | ADID | No          | [ADID](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en) is a unique identifier for the device. It is reset when the user opts out of personalized ads. |
+| iOS | IDFV | Yes         | [IDFV](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) is a unique identifier for the app instance. It is reset when the app is reinstalled. |
+| iOS | IDFA | No          | [IDFA](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614151-advertisingidentifier) is a unique identifier for the device. It is reset when the user opts out of personalized ads. |
+
+#### Android
+
+##### App set ID
+
+App set ID is a unique identifier for each app install on a device. App set ID is reset by the user manually when they uninstall the app, or after 13 months of not opening the app. Google designed this as a privacy-friendly alternative to Ad ID for users who want to opt out of stronger analytics.
+
+To use App Set ID, follow these steps.
+
+1. Add `play-services-appset` as a dependency to the Android project of your app.
+
+    ```bash
+    dependencies {
+        implementation 'com.google.android.gms:play-services-appset:16.0.2'
+    }
+    ```
+
+2. Enable `trackingOptions.appSetId`
+
+    ```ts
+    amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+      trackingOptions: {
+        appSetId: true,
+      },
+    });
+    ```
+   
+##### Android Ad ID
+
+Android Ad ID is a unique identifier for each device. Android Ad ID is reset by the user manually when they opt out of personalized ads.
+
+To use Android Ad ID, follow these steps.
+
+1. Add `play-services-ads` as a dependency to the Android project of your app. More detailed setup is [described in our latest Android SDK docs](/data/sdks/android-kotlin/#advertiser-id).
+
+    ```bash
+    dependencies {
+      implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    }
+    ```
+
+Android Ad Id is enabled by default. To disable it, set `trackingOptions.adId` to `false`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  trackingOptions: {
+    adId: false,
+  },
+});
+```
+
+#### iOS
+
+##### IDFV
+
+IDFV is a unique identifier for the app instance. It is reset when the app is reinstalled.
+
+To enable IDFV on iOS devices set `trackingOptions.idfv` to `true`.
+
+```ts
+amplitude.init(API_KEY, OPTIONAL_USER_ID, {
+  trackingOptions: {
+    idfv: true,
+  },
+});
+```
+
+##### IDFA
+
+!!! warning "Not recommended"
+    IDFA is no longer recommended. You should consider using IDFV instead when possible.
+
+IDFA is a unique identifier for the device. It is reset when the user opts out of personalized ads.
+
+The React Native SDK does not directly access the IDFA as it would require adding the `AdSupport.framework` to your app. Instead you can use an Enrichment Plugin to set the IDFA yourself.
+
+Here is an [example Plugin that sets the IDFA](https://github.com/amplitude/Amplitude-TypeScript/blob/main/examples/plugins/react-native-idfa-plugin/idfaPlugin.ts)  using a third-party library.
 
 --8<-- "includes/abbreviations.md"

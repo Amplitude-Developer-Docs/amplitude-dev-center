@@ -168,8 +168,8 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `optOut` | Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | Automatic tracking of "Start Session" and "End Session" events that count toward event volume. | `false` |
-    | `sessionTimeoutMillis` | The amount of time for session timeout if enable foreground tracking. | `1800000` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `sessionTimeoutMillis` | The amount of time for session timeout if disable foreground tracking. Foreground tracking is disabled by default. | `1800000` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if enable foreground tracking by `enableForegroundTracking()` | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/` |
     | `useDynamicConfig` |  Find the best server url automatically based on users' geo location. | `false` |
 
@@ -749,6 +749,10 @@ For purchases on the Amazon store, you first need to set up Amazon as a data sou
 
     client.logRevenueV2(revenue);
     ```
+    
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/legacy-android.md"
 
 ## Advanced topics
 
@@ -824,7 +828,7 @@ You can use the helper method `getSessionId` to get the value of the current `se
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 === "Java"
 

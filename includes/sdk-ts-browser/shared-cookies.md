@@ -14,7 +14,7 @@ The SDK creates two types of cookies: user session cookies and marketing campaig
     |<div class="big-column">Name</div>| Description|
     | --- | --- |
     |`utm_campaign`| This identifies a specific campaign used (for example, "summer_sale") |
-    |`utm_content` | This identifies what brought the user to the site and is commonly used for A/B testing (for example, "bannerlink", "textlink") |
+    |`utm_content` | This identifies what brought the user to the site and is commonly used for A/B testing (for example, "banner-link", "text-link") |
     |`utm_id`|An optional parameter for tracking unique IDs or transaction IDs associated with the link.|
     |`utm_medium`| This identifies a specific campaign used (for example, "summer_sale") |
     |`utm_source`| This identifies which website sent the traffic (for example, Google, Facebook) |

@@ -15,6 +15,8 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 --8<-- "includes/no-ampli.md"
     To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead. For customers beginning with Amplitude Experiment, please note that this SDK does not support the [Amplitude Experiment integration](https://www.docs.developers.amplitude.com/experiment/sdks/ios-sdk/#initialize). 
 
+--8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
+
 ## Getting started
 
 Use [this quickstart guide](../../sdks/sdk-quickstart#ios-beta) to get started with Amplitude iOS SDK.
@@ -124,7 +126,7 @@ amplitude.track(
     event: BaseEvent(
         eventType: "event type",
         eventProperties: [
-            "eventPropertykey": "eventPropertyValue"
+            "eventPropertyKey": "eventPropertyValue"
         ], 
         groups: ["orgId": 15]
     )
@@ -167,7 +169,7 @@ amplitude.revenue(revenue: revenue)
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```swift
 amplitude.setUserId(userId: "user@amplitude.com")
@@ -211,7 +213,7 @@ amplitude.reset()
 
 ## Amplitude SDK plugin
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 ### Plugin.setup
 
@@ -288,6 +290,10 @@ class TestDestinationPlugin: DestinationPlugin {
 }
 ```
 
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/latest-ios.md"
+
 ## Advanced topics
 
 ### User sessions
@@ -332,7 +338,7 @@ let amplitude = Amplitude(
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```swift
 amplitude.setUserId(userId: "USER_ID")

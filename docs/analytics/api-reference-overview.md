@@ -1,6 +1,6 @@
 ---
 title: Amplitude API References
-description: These references help you use the Amplitude APIs to send and recieve data and extend Amplitude.
+description: These references help you use the Amplitude APIs to send and receive data and extend Amplitude.
 ---
 
 ## Analytics and Data APIs

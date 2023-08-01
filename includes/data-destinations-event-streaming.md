@@ -2,9 +2,11 @@
 
 <div class="grid cards" markdown>
 
+- :appfit: [Appfit](/data/destinations/appfit-event-streaming)
 - :appsflyer: [AppsFlyer](/data/destinations/appsflyer)
 - :amazon-kinesis: [Amazon Kinesis Data Stream](/data/destinations/kinesis-data-stream)
 - :amazon-kinesis: [Amazon Kinesis Firehose](/data/destinations/kinesis-firehose)
+- :bento: [Bento](/data/destinations/bento-event-streaming)
 - :branch: [Branch](/data/destinations/branch)
 - :braze: [Braze](/data/destinations/braze)
 - :customerio: [Customer.io](/data/destinations/customerio)
@@ -20,8 +22,10 @@
 - :kameleoon: [Kameleoon](/data/destinations/kameleoon-event-streaming)
 - :lantern: [Lantern](/data/destinations/lantern-event-streaming)
 - :meta: [Meta Pixel](/data/destinations/meta-pixel)
-- :moengage: [Meta Pixel](/data/destinations/moengage-event-streaming)
+- :moengage: [MoEngage](/data/destinations/moengage-event-streaming)
+- :moloco: [Moloco](/data/destinations/moloco-event-streaming) 
 - :planhat: [Planhat](/data/destinations/planhat-event-streaming)
+- :sfmc: [Salesforce Marketing Cloud](/data/destinations/marketing-cloud-event-streaming)
 - :statsig: [Statsig](/data/destinations/statsig)
 - :toplyne: [Toplyne](/data/destinations/toplyne)
 - :userlist: [Userlist](/data/destinations/userlist-event-streaming)

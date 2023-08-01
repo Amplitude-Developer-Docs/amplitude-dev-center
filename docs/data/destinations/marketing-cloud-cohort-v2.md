@@ -22,7 +22,7 @@ This integration combines Amplitude's analytics with Salesforce Marketing Cloud.
 - The Salesforce Marketing Cloud v2 integration is only available on paid Amplitude plans.
 - You must enable this integration in each Amplitude project you want to use it in.
 - Anonymized UUID as identifiers in both Amplitude and Salesforce Marketing Cloud work for this integration so you don't have to send email addresses or PII to Amplitude.
-- Amplitude will automatically create new contacts for users within the cohort who do not already exist within Salesforce Marketing Cloud.
+- Amplitude will automatically create new contacts for users within the Data Extension in Salesforce Marketing Cloud who do not already exist within Salesforce Marketing Cloud.
 
 ## Setup
 
@@ -30,7 +30,7 @@ This integration combines Amplitude's analytics with Salesforce Marketing Cloud.
 
 You need a Subdomain, Client ID, and Client Secret from Salesforce Marketing Cloud.
 
-1. In Salesforce Marketing Cloud, navigate to **Setup** under Settings.
+1. In [Salesforce Marketing Cloud](https://mc.exacttarget.com/), navigate to **Setup** under Settings.
 2. In the Quick Find box, search for **Installed Packages**.
 3. Click **New** to create a new package.
 4. Click **Add Component**.
@@ -56,7 +56,7 @@ You need a Subdomain, Client ID, and Client Secret from Salesforce Marketing Clo
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **Salesforce Marketing Cloud V2**.
 3. Paste in the **Client ID**, **Client Secret**, and **Subdomain** credentials you generated in Salesforce Marketing Cloud.
-4. (Optional) Enter a folder name you created in the Data Extension page.
+4. (Optional) Enter a folder name you created on the Data Extension page.
 5. Provide a **Name** for the Name field. This name will be used as the name for the API Target when you are syncing a cohort from Amplitude. 
 6. Map an **Amplitude User Property** to the Marketing Cloud contact key.
 
@@ -66,12 +66,12 @@ To sync your first cohort, follow these steps:
 
 1. In Amplitude, open the cohort you want to sync, then click **Sync**.
 2. Select Salesforce Marketing Cloud v2, then click **Next**.
-3. Choose the account you want to sync to.
+3. Choose the API target you want to sync to.
 4. Choose the sync cadence.
 5. When finished, save your work.
 
 ## Locating your Amplitude Cohort in Salesforce Marketing Cloud
-1. Log into [Salesforce Marketing Cloud](https://mc.s11.exacttarget.com/cloud/#app/Setup/Users).
+1. Log into [Salesforce Marketing Cloud](https://mc.exacttarget.com/).
 2. Click on **Audience Builder** on the top navigation bar and navigate to **Contact Builder**. 
 3. Click on **Data Extensions** at the top navigation bar.
 4. Find the relevant **Data Extensions** folder that you specified during the setup process.

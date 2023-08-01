@@ -1,0 +1,1 @@
+You can take advantage of a Destination Plugin to print out the configuration value and event payload before sending them to the server. You can set the logLevel to debug, copy the following `TroubleShootingPlugin` into your project, add the plugin into amplitude instance.

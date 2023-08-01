@@ -41,20 +41,22 @@ To set up the Amazon S3 integration, follow these steps:
 
 Amplitude verifies your bucket access. After access is verified, Amplitude immediately starts hourly exports.
 
+After setup is complete, check the status of your exports from the integration. 
+
+![screen shot of the export status screen](../../assets/images/integrations-amazon-s3-export-screen.png)
+
 ## Run a manual export
 
 You can backfill historical data to S3 by manually exporting data.
 
-1. Manage the Amazon S3 destination.
-2. Click **Export Data**.
+1. Go to the Google Cloud Storage export connection page created in the section above.
+2. Go to **Backfills** tab.
 3. Select the desired date range. 
-4. Click **Start Export**. 
+4. Click **Start Backfill**. 
+
+If the backfill range overlaps with the range of previously exported data, Amplitude will de-duplicate overlapping data.
 
 **![screenshot of the export data modal](../../assets/images/integrations-amazon-s3-export-manual-export.png)**
-
-After setup is complete, check the status of your exports from the integration. 
-
-![screen shot of the export status screen](../../assets/images/integrations-amazon-s3-export-screen.png)
 
 ## Disable automatic exports
 

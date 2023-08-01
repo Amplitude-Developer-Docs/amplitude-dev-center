@@ -30,7 +30,7 @@ Install the Experiment JavaScript Client SDK.
 === "Script Tag"
 
     ```html
-    <script src="https://unpkg.com/@amplitude/experiment-js-client@1.5.6/dist/experiment.umd.js"></script>
+    <script src="https://unpkg.com/@amplitude/experiment-js-client@1.8.1/dist/experiment.umd.js"></script>
     <script>
         // TODO: Replace DEPLOYMENT_KEY with your own deployment, use
         // initializeWithAmplitudeAnalytics() to set up an integration

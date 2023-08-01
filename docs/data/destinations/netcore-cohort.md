@@ -1,6 +1,6 @@
 ---
 title: Send Cohorts to Netcore Cloud
-description: Send Amplitude cohorts to Netcore Cloud to deliuver AI-powered customer experiences. 
+description: Send Amplitude cohorts to Netcore Cloud to deliver AI-powered customer experiences. 
 ---
 
 

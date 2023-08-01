@@ -1,8 +1,8 @@
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment plugin) or sending to a third-party endpoints (destination plugin). A plugin is an `Object` with optional fields `name` and `type` and methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment plugin) or sending to third-party endpoints (destination plugin). A plugin is an `Object` with optional fields `name` and `type` and methods `setup()`, `execute()` and `teardown()`.
 
 #### `add`
 
-The `add` method adds a plugin to Amplitude..
+The `add` method adds a plugin to Amplitude.
 
 ```ts
 amplitude.add(new Plugin());
@@ -40,13 +40,13 @@ const enrichPageUrlPlugin = (): EnrichmentPlugin => {
 }
 
 amplitude.init(API_KEY);
-amplitude.add(addEventIdPlugin());
+amplitude.add(enrichPageUrlPlugin());
 ```
 
 
 ##### Destination plugin
 
-Here's an example of a destination plugin that sends each tracked event to a custom server URL using you Fetch API.
+Here's an example of a destination plugin that sends each tracked event to a custom server URL using Fetch API.
 
 ```ts
 const customDestination = (customUrl: string): DestinationPlugin => {

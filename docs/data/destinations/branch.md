@@ -28,13 +28,6 @@ Enter your **Branch Key**.
 Under **Send Events**, make sure the toggle is enabled ("Events are sent to Branch") if you want to stream events to Branch. When enabled, events are automatically forwarded to Branch when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration. Events are sent to Branch as [Branch custom events](https://help.branch.io/developers-hub/docs/tracking-commerce-content-lifecycle-and-custom-events#track-custom-events) and can have a maximum event name length of 40 characters.
 
 1. In **Select and filter events** choose which events you want to send. Choose only the events you need in Branch. _Transformed events aren't supported._
-
-    !!!warning "Events for anonymous users cannot be streamed"
-
-        Branch requires that all events have a user ID present. If you have selected any events to send to Branch that may not have a user ID, add a filter to send only events where the user ID is present. Otherwise, your delivery metrics may be affected.
-
-        ![Setting up a filter for anonymous users on events](/../assets/images/streaming-anonymous-users-filter.png)
-
 2. In **Map properties to destination**:
     _Transformed user properties aren't supported._
 
@@ -70,25 +63,25 @@ When satisfied with your configuration, at the top of the page toggle the **Stat
 
 ### Supported Branch properties
 
-- **Developer Identity**    
+- **Developer Identity**
 - **Browser Fingerprint ID**
-- **IDFA**              
-- **IDFV**              
-- **OS**                
-- **Android ID**        
-- **AAID**              
-- OS Version            
-- Environment           
-- User Agent            
-- HTTP Origin           
-- HTTP Referrer         
-- Country               
-- IP Address            
-- Language              
-- Device Brand          
-- Branch Device Token   
+- **IDFA**
+- **IDFV**
+- **OS**
+- **Android ID**
+- **AAID**
+- OS Version
+- Environment
+- User Agent
+- HTTP Origin
+- HTTP Referrer
+- Country
+- IP Address
+- Language
+- Device Brand
+- Branch Device Token
 - Downloaded App Version
-- Device Model          
-- Screen DPI            
-- Screen Height         
-- Screen Width          
+- Device Model
+- Screen DPI
+- Screen Height
+- Screen Width

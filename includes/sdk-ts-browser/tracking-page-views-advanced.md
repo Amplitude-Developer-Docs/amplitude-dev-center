@@ -1,4 +1,4 @@
-You can also use advanced configuration for better control of when page views event are sent.
+You can also use advanced configuration for better control of when page view events are sent.
 
 ???config "Tracking page views options"
     |<div class="big-column">Name</div>|Value|Description|
@@ -31,6 +31,6 @@ The following information is tracked in the page view events.
 |`event_properties.[Amplitude] Page Path`| `string`. The page path. | location.path or ''.|
 |`event_properties.[Amplitude] Page Title`| `string`. The page title. | document.title or ''.|
 |`event_properties.[Amplitude] Page URL`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
-|`event_properties.${CampaignParam}`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possilbe keys. | Any undefined campaignParam or `undefined`. |
+|`event_properties.${CampaignParam}`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possible keys. | Any undefined campaignParam or `undefined`. |
 
 Check [this example](https://github.com/amplitude/Amplitude-TypeScript/blob/main/examples/plugins/page-view-tracking-enrichment/index.ts) to understand how to enrich default page view events, such as adding more properties along with page view tracking.
