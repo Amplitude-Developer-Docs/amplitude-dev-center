@@ -29,7 +29,6 @@ For more information on setting up this integration, see Blitzllama's [documenta
 2. Click on Amplitude under the Sources section.
 3. Click **Connect** and copy the API key.
 
-
 ### Amplitude setup
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
@@ -53,4 +52,3 @@ To sync your first cohort, follow these steps:
 1. **User onboarding feedback:** A business may identify a cohort of users who recently signed up for their product but have not yet completed the onboarding process. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about the onboarding experience. This can help to identify pain points and areas for improvement in the onboarding process, which can ultimately lead to higher user engagement and retention.
 2. **Feature request feedback:** A business may identify a cohort of power users who frequently use a particular feature of their product. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about how that feature could be improved or expanded. This can help to identify opportunities for new features or improvements to existing features, which can help to drive product differentiation and user satisfaction.
 3. **Customer support feedback:** A business may identify a cohort of users who have recently contacted customer support with a question or issue. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about the customer support experience. This can help to identify areas for improvement in the customer support process, which can ultimately lead to higher customer satisfaction and loyalty.
-
