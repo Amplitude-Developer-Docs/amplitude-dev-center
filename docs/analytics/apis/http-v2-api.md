@@ -34,8 +34,6 @@ Limit your upload to 100 batches per second and 1000 events per second. You can 
 
 **For customers on Growth and Enterprise plans:**
 
-There is no hard limit for paying customers, but devices or users that exceed 30 events per second are throttled.
-
 Keep request sizes under 1 MB with fewer than 2000 events per request. When you exceed these size limits, you get a 413 error.
 
 If you have high volume and concerned with scale, partition your work based on `device_id` or `user_id`. This ensures that throttling on a particular `device_id` (or `user_id`) doesn't impact all senders in your system. If you are using a proxy service to send events to Amplitude, make sure that throttling is forwarded to your clients, instead of letting spammy clients slow down a partition of work in your system.
