@@ -525,7 +525,7 @@ Edit an experiment.
 |`name`| Optional | string | Name of the experiment. |
 |`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. Range 0 - 100. |
 |`experimentType`| Optional | string | Experiment type, options include `no-harm` or `hypothesis-testing`. |
-|`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). |
+|`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../../general/evaluation/implementation.md#sticky-bucketing). |
 |`startDate`| Optional | string | Start date of the experiment in ISO 8601 format. |
 |`endDate`| Optional | string | End date of the experiment in ISO 8601 format. End date can be null. |
 |`exposureEvent`| Optional | object | See the [`exposureEvent`](#exposureevent) table for more information. If set to null, the Amplitude Exposure Event will be used. |

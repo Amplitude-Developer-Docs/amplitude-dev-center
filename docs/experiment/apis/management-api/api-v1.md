@@ -93,7 +93,7 @@ GET https://experiment.amplitude.com/api/1/flags
                     "enabled": false,
                     "evaluationMode": "remote",
                     "bucketingKey": "amplitude_id",
-                    "bucketingSalt": "CRLjLsvv",
+                    "bucketingSalt": <bucketingSalt>,
                     "bucketingUnit": "User",
                     "variants": [
                         {
@@ -159,7 +159,7 @@ GET https://experiment.amplitude.com/api/1/experiments
                     "enabled": false,
                     "evaluationMode": "remote",
                     "bucketingKey": "amplitude_id",
-                    "bucketingSalt": "CRLjLsvv",
+                    "bucketingSalt": <bucketingSalt>,
                     "bucketingUnit": "User",
                     "variants": [
                         {
@@ -314,7 +314,7 @@ GET https://experiment.amplitude.com/api/1/experiments/<id>
             "enabled": true,
             "evaluationMode": "remote",
             "bucketingKey": "amplitude_id",
-            "bucketingSalt": "CRLjLsvv",
+            "bucketingSalt": <bucketingSalt>,
             "bucketingUnit": "User",
             "variants": [
                 {
@@ -1490,7 +1490,7 @@ GET https://experiment.amplitude.com/api/1/flags/{id}/deployments
                 "id": <id>,
                 "projectId": <projectId>,
                 "label": "rest-api",
-                "key": "secret-0UXKMawzuu1wKbZlEDGgx5YUZ2st2eYQ",
+                "key": <key>,
                 "deleted": false
             }
         ]
@@ -1518,7 +1518,7 @@ GET https://experiment.amplitude.com/api/1/experiments/{id}/deployments
                 "id": <id>,
                 "projectId": <projectId>,
                 "label": "rest-api",
-                "key": "secret-0UXKMawzuu1wKbZlEDGgx5YUZ2st2eYQ",
+                "key": <key>,
                 "deleted": false
             }
         ]
@@ -1670,7 +1670,7 @@ Edit a flag or an experiment.
 |`enabled`| Optional | boolean | Property to activate or deactivate flag or experiment. | <div class="required">Flag & experiment</div> |
 |`archive`| Optional | boolean | Property to archive or restore flag or experiment. | <div class="required">Flag & experiment</div> |
 |`experimentType`| Optional | string | Experiment type, options include `no-harm` or `hypothesis-testing`. | <div class="required">Experiment only</div> |
-|`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../general/evaluation/implementation.md#sticky-bucketing). | <div class="required">Experiment only</div> 
+|`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../../general/evaluation/implementation.md#sticky-bucketing). | <div class="required">Experiment only</div> 
 |`startDate`| Optional | string | Start date of the experiment in ISO 8601 format. | <div class="required">Experiment only</div> 
 |`endDate`| Optional | string | End date of the experiment in ISO 8601 format. End date can be null. | <div class="required">Experiment only</div> 
 |`exposureEvent`| Optional | object | See the [`exposureEvent`](#exposureevent) table for more information. If set to null, the Amplitude Exposure Event will be used. | <div class="required">Experiment only</div> 
@@ -1738,7 +1738,7 @@ PATCH https://experiment.amplitude.com/api/1/flags/{id}
             "name": "updated name",
             "description": "updated description",
             "bucketingKey": "amplitude_id",
-            "bucketingSalt": "CRLjLsvv",
+            "bucketingSalt": <bucketingSalt>,
             "bucketingUnit": "org id",
             "evaluationMode": "remote",
             "rolloutPercentage": 0,
@@ -1769,7 +1769,7 @@ PATCH https://experiment.amplitude.com/api/1/experiments/{id}
             "name": "updated name",
             "description": "updated description",
             "bucketingKey": "amplitude_id",
-            "bucketingSalt": "CRLjLsvv",
+            "bucketingSalt": <bucketingSalt>,
             "evaluationMode": "remote",
             "rolloutPercentage": 0,
             "enabled": true,
@@ -2036,14 +2036,14 @@ A successful request returns a `200 OK` response and a list of deployments encod
                     "id": <id>,
                     "projectId": <projectId>,
                     "label": "deployment-1",
-                    "key": "client-vWK5ULaTfWKrACGBeTY4NuJvDQmyZP1Z",
+                    "key": <key>,
                     "deleted": true
                 },
                 {
                     "id": <id>,
                     "projectId": <projectId>,
                     "label": "deployment-2",
-                    "key": "server-3RdnTMBYlY1g63JYjLQopqnoEC34STEU",
+                    "key": <key>,
                     "deleted": false
                 }
             ]
@@ -2063,7 +2063,7 @@ Create a deployment that experiments or flags can be assigned to.
 |Name|Description|
 |---|----|
 |`projectId`| Required | string | The project's ID. |
-|`label`| Required | Deployment's label. Must containt alphanumeric and/or `_`, `-` characters. |
+|`label`| Required | Deployment's label. Must contain alphanumeric and/or `_`, `-` characters. |
 |`type`| Required | string | Deployment's type.  Must be either `client` or `server`. |
 
 ### Response
@@ -2105,7 +2105,7 @@ Edit a deployment that experiments or flags can be assigned to.
 
 |Name|Description|
 |---|----|
-|`label`| Optional | Deployment's label. Must containt alphanumeric and/or `_`, `-` characters. |
+|`label`| Optional | Deployment's label. Must contain alphanumeric and/or `_`, `-` characters. |
 |`archive`| Optional | string | Soft delete or restore deployment. |
 
 ### Response
