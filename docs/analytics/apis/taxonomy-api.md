@@ -26,6 +26,7 @@ See [Find your Amplitude Project API Credentials](../find-api-credentials.md) fo
 If your Data project has more than one environment, the project associated with the first environment should be used for authentication.
 
 For example, if a workspace has:
+
 * Production environment associated with Project A
 * Development environment associated with Project B
 
