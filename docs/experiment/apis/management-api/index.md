@@ -19,6 +19,15 @@ The header must be: `Authorization: Bearer <management-api-key>`.
 !!!warning "Management API Keys"
     Management API keys are different from the deployment keys used to fetch flag variants. They're created and managed via the Management API link in the Experiment sidebar.
 
+## Rate limiting
+
+Current API limits are per project, and impose the following restrictions:
+
+| Limit (requests) | Duration |
+| --- | --- |
+| 100 | 1 second |
+| 100000 | Daily. Daily limits is reset at the end of the day. |
+
 ## Conventions
 
 ### Status codes
@@ -31,6 +40,7 @@ The API uses meaningful status codes to communicate the result of requests.
 | 400 | Input is missing or invalid |
 | 401 | Invalid or revoked API key |
 | 403 | API key doesn't have access to the specified environment |
+| 429 |Too many requests |
 
 ### Cursors
 
