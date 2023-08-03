@@ -144,11 +144,11 @@ envInstance.init(API_KEY_ENV, {
 
 Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can be configured to track the following events automatically:
 
-* Attribution
-* Page views
-* Sessions
-* Form interactions
-* File downloads
+- Attribution
+- Page views
+- Sessions
+- Form interactions
+- File downloads
 
 ???config "Tracking default events options"
     |<div class="big-column">Name</div>|Value|Description|
