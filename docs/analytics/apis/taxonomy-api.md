@@ -13,7 +13,24 @@ You can edit planned events and properties, and not events and properties that a
 
 --8<-- "includes/postman-interactive.md"
 
---8<-- "includes/auth-basic.md"
+## Authorization
+
+This API uses [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic_authentication), using the API key and secret key for your project. Pass base64-encoded credentials in the request header like `{{api-key}}:{{secret-key}}`. `api-key` replaces username, and `secret-key` replaces the password.
+
+Your authorization header should look something like this:
+
+`--header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo'`
+
+See [Find your Amplitude Project API Credentials](../find-api-credentials.md) for help locating your credentials.
+
+If your Data project has more than one environment, the project associated with the first environment should be used for authentication.
+
+For example, if a workspace has:
+
+* Production environment associated with Project A
+* Development environment associated with Project B
+
+Project A’s key and secret key must be used. Taxonomy API requests with Project B’s key and secret key will fail with `403 Forbidden` error.
 
 ## Endpoints
 
