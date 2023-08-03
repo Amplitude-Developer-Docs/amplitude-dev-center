@@ -30,10 +30,6 @@ Amplitude Browser SDK 2.0 (`@amplitude/analytics-browser`) features default even
 
 --8<-- "includes/sdk-migration/sdk-browser-2-migration/cookie-options.mddefault-event-tracking.md"
 
-### Deprecates user agent client-side parsing
-
---8<-- "includes/sdk-migration/sdk-browser-2-migration/user-agent-parsing.md"
-
 ### Marketing attribution tracking
 
 --8<-- "includes/sdk-migration/sdk-browser-2-migration/marketing-attribution-tracking-1.md"
@@ -65,6 +61,10 @@ This option no longer exists but Amplitude can be configured similarly using pag
 ### Cookie options
 
 --8<-- "includes/sdk-migration/sdk-browser-2-migration/cookie-options.md"
+
+### Deprecates user agent client-side parsing
+
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/user-agent-parsing.md"
 
 ### No to enums
 
