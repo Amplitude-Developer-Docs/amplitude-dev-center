@@ -28,7 +28,7 @@ Amplitude Browser SDK 2.0 (`@amplitude/analytics-browser`) features default even
 
 ### Default events tracking
 
---8<-- "includes/sdk-migration/sdk-browser-2-migration/cookie-options.mddefault-event-tracking.md"
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/default-event-tracking.md"
 
 ### Marketing attribution tracking
 
