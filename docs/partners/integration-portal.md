@@ -39,10 +39,10 @@ Here are the high-level steps to having your integration listed within the Ampli
 
 1. **Go to the Integration Portal**: In Amplitude, navigate to the **My Settings** page and click **Integration Portal**. If you don't see this option, send an email to integrations@amplitude.com with your [Org ID](https://help.amplitude.com/hc/en-us/articles/235649848-The-Settings-page), and Amplitude will enable it for you.
 2. **Configure your integration**: After you've submitted your integration, it notifies the Amplitude Engineering team to review your integration.
-3. **Amplitude Engineering team reviews integration**: During the review process, the Amplitude team validates the integration which could take up to 1 week. During this process, Amplitude may reach out to you if the team has questions.
-4. **Integration goes live in Amplitude**: After Amplitude approves the integration, it's automatically deployed and enabled for your organization. You can then see a tile within Amplitude app on the source or destination page depending on the integration type.
+3. **Amplitude Engineering team reviews integration**: During the review process, the Amplitude team validates the integration which could take up to 2 weeks. During this process, Amplitude may reach out to you if the team has questions.
+4. **Integration goes live in Amplitude**: After Amplitude approves the integration, it's automatically deployed and enabled for your organization. You can then see a tile within the Amplitude app on the source or destination page depending on the integration type.
 5. **Get listed on Integrations Catalog**: Amplitude includes your logo on the [Integration Catalog](https://amplitude.com/integrations) page to improve discoverability and promote your Integration. Just make sure you complete this [survey](https://docs.google.com/forms/d/e/1FAIpQLSc-fQrCQsV48V46QroyjEonKkn02PXmwhsVEKguES9M-la7CQ/viewform).
-6. **Co-Marketing Opportunities**: Click on this [Amplitude Technology Partner Overview doc](https://info.amplitude.com/rs/138-CDN-550/images/Amplitude_Tech_Partner_Overview.pdf) to learn more about the benefits and requirements associated with each partnership tier (Integration, Advanced & Premier). Each level provides benefits designed to help your company evolve towards digital optimization.
+6. **Co-Marketing Opportunities**: Click on this [Amplitude Technology Partner Overview doc](https://info.amplitude.com/rs/138-CDN-550/images/Amplitude_Tech_Partner_Overview.pdf) to learn more about the benefits and requirements associated with each partnership tier (Integration, Advanced & Premier). Each level provides benefits designed to help your company evolve toward digital optimization.
 
 ## Give feedback
 
