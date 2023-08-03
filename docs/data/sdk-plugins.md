@@ -116,7 +116,7 @@ Use an Enrichment Plugin to modify event properties:
             amplitude.init('API_KEY');
             ```
     
-    ???code-example "Set universial user properties(click to expand)"
+    ???code-example "Set universal user properties(click to expand)"
 
         === "JavaScript"
             ```js
