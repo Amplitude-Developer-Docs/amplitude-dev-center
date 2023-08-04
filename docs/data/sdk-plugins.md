@@ -136,6 +136,10 @@ Use an Enrichment Plugin to modify event properties:
                 }
                 return undefined;
               }
+
+              async execute(event) {
+                  return event
+              }
             }
     
             amplitude.add(new PropertiesEnrichmentPlugin());
@@ -159,6 +163,10 @@ Use an Enrichment Plugin to modify event properties:
                   amplitude.identify(identifyEvent);
                 }
                 return undefined;
+              }
+
+              async execute(event: Event): Promise<Event> {
+                  return event
               }
             }
 
