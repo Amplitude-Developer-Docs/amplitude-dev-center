@@ -68,11 +68,11 @@ This option no longer exists but Amplitude can be configured similarly using pag
 
 ### No to enums
 
---8<-- "includes/sdk-migration/sdk-browser-2-migration/no-enum.md" 
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/no-enum.md"
 
 ### Simplified plugin interface
 
---8<-- "includes/sdk-migration/sdk-browser-2-migration/simplified-plugin-interface.md" 
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/simplified-plugin-interface.md"
 
 ### Comparison
 

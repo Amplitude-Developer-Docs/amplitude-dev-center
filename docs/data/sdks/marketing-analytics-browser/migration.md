@@ -92,11 +92,11 @@ This provides a simpler and consistent interface to opt out of page view trackin
 
 ### No to enums
 
---8<-- "includes/sdk-migration/sdk-browser-2-migration/no-enum.md" 
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/no-enum.md"
 
 ### Simplified plugin interface
 
---8<-- "includes/sdk-migration/sdk-browser-2-migration/simplified-plugin-interface.md" 
+--8<-- "includes/sdk-migration/sdk-browser-2-migration/simplified-plugin-interface.md"
 
 ### Comparison
 
