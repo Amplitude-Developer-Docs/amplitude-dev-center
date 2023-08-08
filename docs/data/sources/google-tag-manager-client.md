@@ -40,7 +40,7 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 ???Breaking change "Attribution Tracking"
     | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
     | --- | --- | --- | --- |
-    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | <ul><li>Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked with no additional configuration.</li><li>The chart analystic around campaign tracking.</li></ul>| Add the value of `location.hostname` in the exclude referral section to track attribution of all subdomains. |
+    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | <ul><li>Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked with no additional configuration.</li><li>The chart analytics around campaign tracking.</li></ul>| Add the value of `location.hostname` in the exclude referral section to track attribution of all subdomains. |
 
 ## Workflow
 
@@ -153,7 +153,7 @@ If the userId already available you can initialize the instance with a User ID. 
 
 Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details]().
 
-To avoid breaking changes in chart analytics, ou have the option to enable client-side parsing. If you are new user. We highly recommened adopting use server-side parsing, the new enrichment stratgy offeres more accurate result.
+To avoid breaking changes in chart analytics, ou have the option to enable client-side parsing. If you are new user. We highly recommend adopting use server-side parsing, the new enrichment strategy offers more accurate result.
 
 ##### Default Event Tracking
 
@@ -178,7 +178,7 @@ Check this box to enable attribution tracking. The following configurations are 
 
 ##### Page View Tracking
 
-Check this box to enable page view tracking. The following configurations are available page view tracking options. [More details](../../browser-2/#tracking-page-views).
+Check this box to enable page view tracking. The following configurations are available page view tracking options. [More details](../../sdks/browser-2/#tracking-page-views).
 
 ???config "Default Configurations"
     | <div class="big-column">Name</div>  | Description | Default Value |
@@ -190,15 +190,15 @@ Check this box to enable page view tracking. The following configurations are av
 
 ##### Sessions Tracking
 
-Check this box to enable sessions tracking. [More details](../../browser-2/#tracking-sessions).
+Check this box to enable sessions tracking. [More details](../../sdks/browser-2/#tracking-sessions).
 
 ##### Form Interactions Tracking
 
-Check this box to enable form interactions tracking. [More details](../../browser-2/#tracking-form-interactions).
+Check this box to enable form interactions tracking. [More details](../..//sdks/browser-2/#tracking-form-interactions).
 
 ##### File Downloads Tracking
 
-Check this box to enable file downloads tracking. [More details](../../browser-2/#tracking-file-downloads).
+Check this box to enable file downloads tracking. [More details](../..//sdks/browser-2/#tracking-file-downloads).
     
 #### track
 
