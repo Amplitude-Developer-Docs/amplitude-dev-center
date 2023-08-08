@@ -246,7 +246,6 @@ You can configure the SDK client on initialization.
     | `cacheCapacity` | The maximum number of assignments stored in the assignment cache | `65536` |
     | [Analytics SDK Options](../../data/sdks/typescript-node/index.md#configuration) | Options to configure the underlying Amplitude Analytics SDK used to track assignment events |  |
 
-
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
 
