@@ -26,7 +26,7 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
     | --- | --- | --- | --- |
-    | Using client-side user agent parser.  | Using server-side user agent parser which is offered by Amplitude ingestion endpoints. | <ul><li>Value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties.</li><li>The chart analytics</li></ul>| Enable client side user agent enrichment. [Read More](). |
+    | Using client-side user agent parser.  | Using server-side user agent parser which is offered by Amplitude ingestion endpoints. | <ul><li>Value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties.</li><li>The chart analytics</li></ul>| Enable client side user agent enrichment. [Read More](./#enable-client-side-user-agent-enrichment). |
 
 ### page view event type and properties
 
@@ -151,7 +151,7 @@ If the userId already available you can initialize the instance with a User ID. 
 
 ##### Enable client side user agent enrichment
 
-Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details]().
+Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser).
 
 To avoid breaking changes in chart analytics, ou have the option to enable client-side parsing. If you are new user. We highly recommend adopting use server-side parsing, the new enrichment strategy offers more accurate result.
 
@@ -183,7 +183,7 @@ Check this box to enable page view tracking. The following configurations are av
 ???config "Default Configurations"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `Use the legacy page view properties` | `check box`. Whether use the legacy page view properties. Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we improved the event type and event properties of the page view. [More Details](). | `Enabled`. Use the latest page view event type and properties as in [Amplitude Browser 2.0](). |
+    | `Use the legacy page view properties` | `check box`. Whether use the legacy page view properties. Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we improved the event type and event properties of the page view. | `Enabled`. Use the latest page view event type and properties as in [Amplitude Browser 2.0](../../sdks/browser-2/#tracking-page-views). |
     | `Page View Type` | `string`. The event type for page view event. | `[Amplitude] Page Viewed` |
     | `Page View trigger` | `Page Loads` or `Only with Attribution changes` or a `Variable Configuration`.  The trigger of page view event. A variable configuration can be either build-in or customized that returns a function with a true or false return value. If the function returns true, then Page Views are tracked automatically, if it returns false then Page Views are not tracked. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-page-views). | `Page Loads` if enable page view tracking. |
     | `Track history events automatically` | `All history changes` or `Only when page path changes`. Whether to track history events. This is for tracking page view on SPA. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-page-views). | `All history changes` |
