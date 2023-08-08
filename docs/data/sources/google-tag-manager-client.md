@@ -8,7 +8,7 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
 
-!!!warnning "Breaking Changes Checklist from the version xxxx, Aug, 2023"
+!!!warning "Breaking Changes Checklist from the version xxxx, Aug, 2023"
     Starting from the version xxxx, Aug, 2023, We upgrade this template to use from [Marketing Analytics SDK(Deprecated)](../../sdks/marketing-analytics-browser/) to the [Amplitude Browser SDK 2.0](../../sdks/browser-2/) to offer better support, enhanced functions, and additional features. 
  
     While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts. However, we've made these changes configurable to maintain consistency. If you wish to retain the legacy behavior, it's essential to review the following [list of breaking changes](./#breaking-changes-checklist) and adjust your configuration accordingly.
