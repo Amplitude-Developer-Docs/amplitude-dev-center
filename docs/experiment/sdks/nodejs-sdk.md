@@ -228,12 +228,24 @@ You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
 
+    **LocalEvaluationConfig**
+
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `debug` | Set to `true` to enable debug logging. | `false` |
     | `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
     | `flagConfigPollingIntervalMillis` | The interval (in milliseconds) to poll for updated flag configs after calling `start()` | `30000` |
+    | `assignmentConfig` | Configuration for automatically tracking assignment events after an evaluation. | `null` |
+
+    **AssignmentConfig**
+
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `apiKey` | The analytics API key and NOT the experiment deployment key | *required* |
+    | `cacheCapacity` | The maximum number of assignments stored in the assignment cache | `65536` |
+    | [Analytics SDK Options](../../data/sdks/typescript-node/index.md#configuration) | Options to configure the underlying Amplitude Analytics SDK used to track assignment events |  |
+
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -255,6 +267,9 @@ await experiment.start();
 ### Evaluate
 
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). You must give evaluate a user object argument. You can optionally pass an array of flag keys if you require only a specific subset of required flag variants.
+
+!!!tip "Automatic Assignment Tracking"
+    Set [`assignmentConfig`](#configuration-1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
 
 ```js
 evaluate(user: ExperimentUser, flagKeys?: string[]): Promise<Variants>
