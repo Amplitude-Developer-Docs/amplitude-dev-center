@@ -8,16 +8,16 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
 
+!!!warnning "Breaking Changes Checklist from the version xxxx, Aug, 2023"
+    Starting from the version xxxx, Aug, 2023, We upgrade this template to use from [Marketing Analytics SDK(Deprecated)](../../sdks/marketing-analytics-browser/) to the [Amplitude Browser SDK 2.0](../../sdks/browser-2/) to offer better support, enhanced functions, and additional features. 
+ 
+    While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts. However, we've made these changes configurable to maintain consistency. If you wish to retain the legacy behavior, it's essential to review the following [list of breaking changes](./#breaking-changes-checklist) and adjust your configuration accordingly.
+
 !!!warning
     Due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how the SDK gets loaded in GTM, this could lead to missing data.
 
 !!!note
     Ensure to consistently update your Amplitude GTM template to the latest version for an enhanced feature set, crucial bug fixes, and a significantly improved user experience.
-
-!!!note "Migration guide"
-    Starting from the version `xxxxx`, June 14, 2023, we upgrade this template to use [Amplitude Browser SDK 2.0](../../sdks/browser-2/) for data collection. This new implementation will cause the template's default behavior to align with the specifications of the Amplitude Browser SDK 2.0.
-    
-    While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts.  If you wish to retain the legacy behavior, it's essential to review the following list of breaking changes and adjust your configuration accordingly.
 
 ## Breaking changes checklist
 
@@ -26,7 +26,7 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
     | --- | --- | --- | --- |
-    | Using client-side user agent parser.  | Using server-side user agent parser which is offered by Amplitude ingestion endpoints. | <ul><li>Value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties.</li><li>The chart analytics</li></ul>| Enable client side user agent enrichment. [Read More](./#enable-client-side-user-agent-enrichment). |
+    | Using [client-side user agent parser](https://github.com/amplitude/ua-parser-js).  | Using server-side user agent parser which is offered by Amplitude ingestion endpoints. | <ul><li>Value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties.</li><li>The chart analytics</li></ul>| Enable client side user agent enrichment. [Read More](./#enable-client-side-user-agent-enrichment). |
 
 ### page view event type and properties
 
@@ -151,9 +151,9 @@ If the userId already available you can initialize the instance with a User ID. 
 
 ##### Enable client side user agent enrichment
 
-Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser).
+Starting with version xxxxx, as of Aug, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser).
 
-To avoid breaking changes in chart analytics, ou have the option to enable client-side parsing. If you are new user. We highly recommend adopting use server-side parsing, the new enrichment strategy offers more accurate result.
+To avoid breaking changes in chart analytics, we provide the option to enable client-side parsing. If you are a new user. We highly recommend adopting use server-side parsing, the new enrichment strategy offers more accurate result.
 
 ##### Default Event Tracking
 
@@ -173,7 +173,7 @@ Check this box to enable attribution tracking. The following configurations are 
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     | `Initial empty value` | `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY`|
-    | `Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we improved the default behavior of exclude referrers. It will exclude referral section to track attribution of all subdomains of the input domain. [More Details](./#subdomain-attribution-tracking).  | `[]` | 
+    | `Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. By default, it will also exclude referral section to track attribution of all subdomains of the input domain. [More Details](./#subdomain-attribution-tracking).  | `[]` | 
     | `Reset the session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deleted. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-marketing-attribution). The session isn't reset in the case where the referrer is just a different subdomain of your site. | `false`|
 
 ##### Page View Tracking
@@ -183,7 +183,7 @@ Check this box to enable page view tracking. The following configurations are av
 ???config "Default Configurations"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
-    | `Use the legacy page view properties` | `check box`. Whether use the legacy page view properties. Starting with version xxxxx, as of June 14, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we improved the event type and event properties of the page view. | `Enabled`. Use the latest page view event type and properties as in [Amplitude Browser 2.0](../../sdks/browser-2/#tracking-page-views). |
+    | `Use the legacy page view properties` | `check box`. Whether use the legacy page view properties. [More Details](./#breaking-changes-checklist). | `Enabled`. Use the latest page view event type and properties as in [Amplitude Browser 2.0](../../sdks/browser-2/#tracking-page-views). |
     | `Page View Type` | `string`. The event type for page view event. | `[Amplitude] Page Viewed` |
     | `Page View trigger` | `Page Loads` or `Only with Attribution changes` or a `Variable Configuration`.  The trigger of page view event. A variable configuration can be either build-in or customized that returns a function with a true or false return value. If the function returns true, then Page Views are tracked automatically, if it returns false then Page Views are not tracked. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-page-views). | `Page Loads` if enable page view tracking. |
     | `Track history events automatically` | `All history changes` or `Only when page path changes`. Whether to track history events. This is for tracking page view on SPA. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-page-views). | `All history changes` |
