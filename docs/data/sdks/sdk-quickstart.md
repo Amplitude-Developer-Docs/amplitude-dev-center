@@ -764,7 +764,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     ```swift
-    import Amplitude_Swift
+    import AmplitudeSwift
 
     let amplitude = Amplitude(
         configuration: Configuration(
@@ -775,7 +775,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
     ```swift
-    import Amplitude_Swift
+    import AmplitudeSwift
 
     let amplitude = Amplitude(
         Configuration(
@@ -799,7 +799,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     ```swift
-    import Amplitude_Swift
+    import AmplitudeSwift
 
     let amplitude = Amplitude(
         configuration: Configuration(
