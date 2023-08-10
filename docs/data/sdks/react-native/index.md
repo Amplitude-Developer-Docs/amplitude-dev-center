@@ -22,7 +22,7 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
 
 ## Compatibility Matrix
 
-The following matrix lists the support for Amplitude React Native SDK version for different versions of React Native and React Native CLI.
+The following matrix lists the support for Amplitude React Native SDK version for [different versions of React Native and React Native CLI](https://github.com/react-native-community/cli).
 
 | @amplitude/react-native  | @react-native-community/cli | react-native      |Gradle|Android Gradle Plugin|
 |--------------------------|-----------------------------|-------------------|---|---|
