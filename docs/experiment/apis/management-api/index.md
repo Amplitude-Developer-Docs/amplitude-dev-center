@@ -26,7 +26,14 @@ Current API limits are per project, and impose the following restrictions:
 | Limit (requests) | Duration |
 | --- | --- |
 | 100 | 1 second |
-| 100000 | Daily. Daily limits is reset at the end of the day. |
+| 100000 | Daily. Daily limits is reset at the end of the day UTC time. |
+
+## Regions
+
+| Region | Endpoint |
+| --- | --- |
+| Standard Server | [https://experiment.amplitude.com](https://experiment.amplitude.com) |
+| EU Residency Server | [https://experiment.eu.amplitude.com](https://experiment.eu.amplitude.com) |
 
 ## Conventions
 
@@ -48,9 +55,20 @@ Endpoints that list resources such as `/experiments` will only return a limited 
 
 ------
 
-[Endpoints Version 1](api-v1.md)
+[Flag Apis](flags.md)
 
-[Endpoints Beta](api-beta.md)
+------
+
+[Experiment Apis](experiments.md)
+
+------
+
+[Deployment Apis](deployments.md)
+
+------
+
 !!!warning "Using Beta version is not recommended. Use versioned APIs instead."
 
 !!!tip "Our versioned API is fully backwards compatible and does not introduce any breaking changes; simply update the request url."
+
+[Endpoints Beta](api-beta.md)

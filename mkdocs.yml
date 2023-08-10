@@ -404,8 +404,9 @@ nav:
         - Evaluation API: experiment/apis/evaluation-api.md
         - Management API: 
           - experiment/apis/management-api/index.md
-          - Version 1: experiment/apis/management-api/api-v1.md
-          - Beta: experiment/apis/management-api/api-beta.md
+          - Flags: experiment/apis/management-api/flags.md
+          - Experiments: experiment/apis/management-api/experiments.md
+          - Deployments: experiment/apis/management-api/deployments.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md

@@ -3,7 +3,7 @@ title: Management API Endpoints (Beta)
 description: REST API for managing feature flags and experiment configurations.
 ---
 
-!!!warning "Not recommended. Use versioned APIs instead."
+!!!warning "Not recommended. Use versioned APIs instead. [APIs](index.md)"
 
 ## Regions
 
