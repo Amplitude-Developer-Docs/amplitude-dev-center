@@ -4,7 +4,7 @@ The preferred method of tracking revenue for a user is to use `revenue()` in con
 
 <!--vale on-->
 
-To track revenue from a user, call revenue each time a user generates revenue. In this example, 3 units of a product was purchased at $3.99.
+To track revenue from a user, call revenue each time a user generates revenue. In this example, 3 units of a product were purchased at $3.99.
 
 ```ts
 const event = new amplitude.Revenue()

@@ -39,7 +39,7 @@ Add plugin to Ampli via `amplitude.add()`. You can add as many plugin as you lik
 
 ### Enrichment type plugin
 
-Enrichment Plugin is for modifying properties in Event object or drop an Event. Here are the [availabe keys for Event Object](../../analytics/apis/http-v2-api/#keys-for-the-event-argument) which you can enrich in the Enrichment Plugin. Please check [here](./#enrichment-type-plugin_1) for more examples.
+Enrichment Plugin is for modifying properties in Event object or drop an Event. Here are the [available keys for Event Object](../../analytics/apis/http-v2-api/#keys-for-the-event-argument) which you can enrich in the Enrichment Plugin. Please check [here](./#enrichment-type-plugin_1) for more examples.
 
 ### Destination type plugin
 
@@ -73,12 +73,12 @@ Use an Enrichment Plugin to modify event properties:
               async execute(event) {
                 // ignore events with a certain property
                 if (event.event_properties['ignore'] === true){
-                // returning null will prevent this event from being processed by subsequent plugins
-                return null;
-              }
+                  // returning null will prevent this event from being processed by subsequent plugins
+                  return null;
+                }
     
-              // Allow other events to be processed and sent to destination plugins
-              return event;
+                // Allow other events to be processed and sent to destination plugins
+                return event;
               }
             }
     
@@ -103,16 +103,74 @@ Use an Enrichment Plugin to modify event properties:
               async execute(event: Event): Promise<Event | null> {
                 // ignore events with a certain property
                 if (event.event_properties['ignore'] === true){
-                // returning null will prevent this event from being processed by subsequent plugins
-                return null;
-              }
+                  // returning null will prevent this event from being processed by subsequent plugins
+                  return null;
+                }
 
-              // Allow other events to be processed and sent to destination plugins
-              return event;
+                // Allow other events to be processed and sent to destination plugins
+                return event;
               }
             }
 
             amplitude.add(new FilterEventsPlugin());
+            amplitude.init('API_KEY');
+            ```
+    
+    ???code-example "Set universal user properties(click to expand)"
+
+        === "JavaScript"
+            ```js
+            import * as amplitude from '@amplitude/analytics-browser';
+    
+            import {PluginType} from '@amplitude/analytics-types';
+    
+            class PropertiesEnrichmentPlugin {
+              name = 'properties-plugin';
+              type = PluginType.ENRICHMENT;
+    
+              async setup(_, amplitude) {
+                if (shouldSetUserProperties) {
+                  const identifyEvent = new amplitude.Identify();
+                  identifyEvent.set("testKey", "testValue");
+                  amplitude.identify(identifyEvent);
+                }
+                return undefined;
+              }
+
+              async execute(event) {
+                  return event
+              }
+            }
+    
+            amplitude.add(new PropertiesEnrichmentPlugin());
+            amplitude.init('API_KEY');
+            ```
+
+        === "TypeScript"
+            ```ts
+            import * as amplitude from '@amplitude/analytics-browser';
+
+            import { EnrichmentPlugin, BrowserConfig, PluginType, Event } from '@amplitude/analytics-types';
+
+            class PropertiesEnrichmentPlugin implements EnrichmentPlugin {
+              name = 'filter-events-plugin';
+              type = PluginType.ENRICHMENT as any;
+
+              async setup(config: BrowserConfig, amplitude: Amplitude): Promise<void> {
+                if (shouldSetUserProperties) {
+                  const identifyEvent = new amplitude.Identify();
+                  identifyEvent.set("testKey", "testValue");
+                  amplitude.identify(identifyEvent);
+                }
+                return undefined;
+              }
+
+              async execute(event: Event): Promise<Event> {
+                  return event
+              }
+            }
+
+            amplitude.add(new PropertiesEnrichmentPlugin());
             amplitude.init('API_KEY');
             ```
 
@@ -618,6 +676,7 @@ Use a Destination Plugin to send events to a third-party APIs
               }
             }
             ```
+
 ## Supported SDKs
 
 |Platform|SDK|Github|

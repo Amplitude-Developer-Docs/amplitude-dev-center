@@ -9,7 +9,7 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 
 ## Considerations
 
-- Amplitude event streaming currently only supports raw (untransformed) events, event properties, and user properties. Transformed events and properties (such as merged properties) can't be sent.
+- Amplitude event streaming currently only supports raw (untransformed) events, event properties, and user properties. [Transformed](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure) events and properties (such as merged properties) can't be sent.
 - The following keywords can't be used as event names when streaming events from Amplitude:
     - _all
     - _identify

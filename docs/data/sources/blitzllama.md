@@ -5,7 +5,7 @@ description: Import Blitzllama events into Amplitude with just a few clicks.
 
 [Blitzllama](https://www.linkedin.com/company/blitzllama/) GPT-powered feedback analytics automatically categorizes survey responses into topics, sentiments, and provides recommendations. This saves time that would be spent manually summarizing the feedback. As all the feedback is stored in one place, you can segment historical feedback and create charts within a few clicks.
 
-This integration enables you to seamlessly stream feedback data from Blitzllama to Amplitude to further analyse the feedback data with user attributes or to create feedback dashboards.
+This integration enables you to seamlessly stream feedback data from Blitzllama to Amplitude to further analyze the feedback data with user attributes or to create feedback dashboards.
 
 
 !!!tip "Contact  for help"

@@ -13,7 +13,24 @@ You can edit planned events and properties, and not events and properties that a
 
 --8<-- "includes/postman-interactive.md"
 
---8<-- "includes/auth-basic.md"
+## Authorization
+
+This API uses [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic_authentication), using the API key and secret key for your project. Pass base64-encoded credentials in the request header like `{{api-key}}:{{secret-key}}`. `api-key` replaces username, and `secret-key` replaces the password.
+
+Your authorization header should look something like this:
+
+`--header 'Authorization: Basic YWhhbWwsdG9uQGFwaWdlZS5jb206bClwYXNzdzByZAo'`
+
+See [Find your Amplitude Project API Credentials](../find-api-credentials.md) for help locating your credentials.
+
+If your Data project has more than one environment, the project associated with the first environment should be used for authentication.
+
+For example, if a workspace has:
+
+* Production environment associated with Project A
+* Development environment associated with Project B
+
+Project A’s key and secret key must be used. Taxonomy API requests with Project B’s key and secret key will fail with `403 Forbidden` error.
 
 ## Endpoints
 
@@ -606,7 +623,7 @@ A successful request returns a `200 OK` status with a JSON body:
             "description": null
         },
         {
-            "event_type": "Converstion",
+            "event_type": "Conversation",
             "category": {
                 "name": "Conversion Events"
             },
@@ -1238,7 +1255,7 @@ This is a basic request with only the required parameters.
         --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA==' \
         --header 'Content-Type: application/x-www-form-urlencoded' \
         --data-urlencode 'event_type=Onboard Start' \
-        --data-urlencode 'description=User completed an oboarding task' \
+        --data-urlencode 'description=User completed an onboarding task' \
         --data-urlencode 'new_event_property_value=Task Completed' \
         --data-urlencode 'type=any'
         ```
@@ -1253,7 +1270,7 @@ This is a basic request with only the required parameters.
         Content-Type: application/x-www-form-urlencoded
         Content-Length: 130
 
-        event_type=Onboard%20Start&description=User%20completed%20an%20oboarding%20task&new_event_property_value=Task%20Completed&type=any
+        event_type=Onboard%20Start&description=User%20completed%20an%20onboarding%20task&new_event_property_value=Task%20Completed&type=any
         ```
 
 ##### Path parameters

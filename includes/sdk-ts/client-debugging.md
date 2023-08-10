@@ -14,7 +14,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-The default logger outputs logs to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
+The default logger outputs log to the developer console. You can provide your own logger implementation based on the `Logger` interface for any customization purpose. For example, collecting any error messages from the SDK in a production environment.
 
 Set the logger by configuring the `loggerProvider` with your own implementation.
 
@@ -25,7 +25,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 ```
 
 ##### Debug Mode
-Enable the debug mode by setting the `logLevel` to "Debug", example:
+Enable the debug mode by setting the `logLevel` to "Debug", for example:
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {

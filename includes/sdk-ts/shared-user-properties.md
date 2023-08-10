@@ -75,7 +75,7 @@ amplitude.identify(identifyEvent);
 
 #### Identify.preInsert
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the values at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, this method is a no-op.
+This method pre-inserts a value or values to a user property if it doesn't exist in the user property yet. Pre-insert means inserting the values at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, this method is a no-op.
 
 ```ts
 const identifyEvent = new amplitude.Identify();
@@ -86,7 +86,7 @@ identify(identifyEvent);
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the values at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, this method is a no-op..
+This method post-inserts a value or values to a user property if it doesn't exist in the user property yet. Post-insert means inserting the values at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, this method is a no-op..
 
 ```ts
 const identifyEvent = new amplitude.Identify();
@@ -97,7 +97,7 @@ amplitude.identify(identifyEvent);
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the user property has an existing value, this method is a no-op.
+This method removes a value or values to a user property if it exists in the user property. Remove means remove the existing values from the given list. If the user property has an existing value, this method is a no-op.
 
 ```ts
 const identifyEvent = new amplitude.Identify();
