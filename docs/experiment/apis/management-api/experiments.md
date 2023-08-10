@@ -948,6 +948,7 @@ Edit an experiment.
 |`startDate`| Optional | string | Start date of the experiment in ISO 8601 format. |
 |`endDate`| Optional | string | End date of the experiment in ISO 8601 format. End date can be null. |
 |`exposureEvent`| Optional | object | See the [`exposureEvent`](#exposureevent) table for more information. If set to null, the Amplitude Exposure Event will be used. |
+|`tags` | Optional | string array | A list of tags for the experiment. Tags are added and deleted by the same operation. If you would like to add new tags to the existing ones, you should fetch a list of all experiment tags first.
 
 #### `exposureEvent` 
 
@@ -993,6 +994,7 @@ Edit an experiment.
         "stickyBucketing": false,
         "startDate": "2023-07-31T10:26:00.996Z",
         "endDate": "2023-09-23T10:26:00.996Z",
+        "tags": ["prod", "staging"],
         "exposureEvent": {
             "event_type": "_active",
             "filters": [
