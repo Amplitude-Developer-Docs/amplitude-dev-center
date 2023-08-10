@@ -52,55 +52,54 @@ A successful request returns a `200 OK` response and a list of flags encoded as 
     --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        {
-            "flags": [
-                {
-                    "id": <id>,
-                    "projectId": <projectId>,
-                    "deployments": [<deploymentId>],
-                    "key": "flag-key",
-                    "name": "flag-name",
-                    "description": "description",
-                    "enabled": false,
-                    "evaluationMode": "remote",
-                    "bucketingKey": "amplitude_id",
-                    "bucketingSalt": <bucketingSalt>,
-                    "bucketingUnit": "User",
-                    "variants": [
-                        {
-                            "key": "on"
-                        }
-                    ],
-                    "rolloutPercentage": 0,
-                    "rolloutWeights": {
-                        "on": 1
-                    },
-                    "targetSegments": [
-                        {
-                            "name": "Segment 1",
-                            "conditions": [
-                                {
-                                    "prop": "city",
-                                    "op": "is",
-                                    "type": "property",
-                                    "values": []
-                                }
-                            ],
-                            "percentage": 0,
-                            "bucketingKey": "amplitude_id",
-                            "rolloutWeights": {
-                                "on": 1
+???example "Example response (click to open)"
+    ```bash
+    {
+        "flags": [
+            {
+                "id": <id>,
+                "projectId": <projectId>,
+                "deployments": [<deploymentId>],
+                "key": "flag-key",
+                "name": "flag-name",
+                "description": "description",
+                "enabled": false,
+                "evaluationMode": "remote",
+                "bucketingKey": "amplitude_id",
+                "bucketingSalt": <bucketingSalt>,
+                "bucketingUnit": "User",
+                "variants": [
+                    {
+                        "key": "on"
+                    }
+                ],
+                "rolloutPercentage": 0,
+                "rolloutWeights": {
+                    "on": 1
+                },
+                "targetSegments": [
+                    {
+                        "name": "Segment 1",
+                        "conditions": [
+                            {
+                                "prop": "city",
+                                "op": "is",
+                                "type": "property",
+                                "values": []
                             }
+                        ],
+                        "percentage": 0,
+                        "bucketingKey": "amplitude_id",
+                        "rolloutWeights": {
+                            "on": 1
                         }
-                    ]
-                }
-            ],
-            "nextCursor": <cursorId>
-        }
-        ```
+                    }
+                ]
+            }
+        ],
+        "nextCursor": <cursorId>
+    }
+    ```
 
 ------
 
@@ -130,53 +129,52 @@ A successful request returns a `200 OK` response and a JSON object with the flag
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        {
-            "id": <id>,
-            "projectId": <projectId>,
-            "deployments": [<deploymentId>],
-            "key": "flag-key",
-            "name": "flag-key",
-            "description": "feature flag access",
-            "enabled": true,
-            "evaluationMode": "remote",
-            "bucketingKey": "amplitude_id",
-            "bucketingSalt": "mHdQDzeE",
-            "bucketingUnit": "User",
-            "variants": [
-                {
-                    "key": "on"
-                }
-            ],
-            "rolloutPercentage": 0,
-            "rolloutWeights": {
-                "on": 1
-            },
-            "targetSegments": [
-                {
-                    "name": "Segment 1",
-                    "conditions": [
-                        {
-                            "prop": "country",
-                            "op": "is",
-                            "type": "property",
-                            "values": [
-                                "United States"
-                            ]
-                        }
-                    ],
-                    "percentage": 0,
-                    "bucketingKey": "amplitude_id",
-                    "rolloutWeights": {
-                        "on": 1
+???example "Example response (click to open)"
+    ```bash
+    {
+        "id": <id>,
+        "projectId": <projectId>,
+        "deployments": [<deploymentId>],
+        "key": "flag-key",
+        "name": "flag-key",
+        "description": "feature flag access",
+        "enabled": true,
+        "evaluationMode": "remote",
+        "bucketingKey": "amplitude_id",
+        "bucketingSalt": "mHdQDzeE",
+        "bucketingUnit": "User",
+        "variants": [
+            {
+                "key": "on"
+            }
+        ],
+        "rolloutPercentage": 0,
+        "rolloutWeights": {
+            "on": 1
+        },
+        "targetSegments": [
+            {
+                "name": "Segment 1",
+                "conditions": [
+                    {
+                        "prop": "country",
+                        "op": "is",
+                        "type": "property",
+                        "values": [
+                            "United States"
+                        ]
                     }
+                ],
+                "percentage": 0,
+                "bucketingKey": "amplitude_id",
+                "rolloutWeights": {
+                    "on": 1
                 }
-            ],
-            "deleted": false
-        }
-        ```
+            }
+        ],
+        "deleted": false
+    }
+    ```
 
 ------
 
@@ -206,8 +204,7 @@ A successful request returns a `200 OK` response and a list of flag's versions e
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
+???example "Example response (click to open)"
     ```bash
     [
         {
@@ -364,57 +361,56 @@ A successful request returns a `200 OK` response and a JSON object with details 
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        {
-            "createdAt": "2023-07-29T03:32:49.594Z",
-            "createdBy": <userId>,
-            "version": 3,
-            "flagConfig": {
-                "id": <id>,
-                "projectId": <projectId>,
-                "deployments": [<deploymentId>],
-                "key": "flag-key",
-                "name": "flag-key",
-                "description": "feature flag access",
-                "enabled": true,
-                "evaluationMode": "remote",
-                "bucketingKey": "amplitude_id",
-                "bucketingSalt": "mHdQDzeE",
-                "bucketingUnit": "User",
-                "variants": [
-                    {
-                        "key": "on"
-                    }
-                ],
-                "rolloutPercentage": 0,
-                "rolloutWeights": {
-                    "on": 1
-                },
-                "targetSegments": [
-                    {
-                        "name": "Segment 1",
-                        "conditions": [
-                            {
-                                "prop": "country",
-                                "op": "is",
-                                "type": "property",
-                                "values": [
-                                    "United States"
-                                ]
-                            }
-                        ],
-                        "percentage": 0,
-                        "bucketingKey": "amplitude_id",
-                        "rolloutWeights": {
-                            "on": 1
+???example "Example response (click to open)"
+    ```bash
+    {
+        "createdAt": "2023-07-29T03:32:49.594Z",
+        "createdBy": <userId>,
+        "version": 3,
+        "flagConfig": {
+            "id": <id>,
+            "projectId": <projectId>,
+            "deployments": [<deploymentId>],
+            "key": "flag-key",
+            "name": "flag-key",
+            "description": "feature flag access",
+            "enabled": true,
+            "evaluationMode": "remote",
+            "bucketingKey": "amplitude_id",
+            "bucketingSalt": "mHdQDzeE",
+            "bucketingUnit": "User",
+            "variants": [
+                {
+                    "key": "on"
+                }
+            ],
+            "rolloutPercentage": 0,
+            "rolloutWeights": {
+                "on": 1
+            },
+            "targetSegments": [
+                {
+                    "name": "Segment 1",
+                    "conditions": [
+                        {
+                            "prop": "country",
+                            "op": "is",
+                            "type": "property",
+                            "values": [
+                                "United States"
+                            ]
                         }
+                    ],
+                    "percentage": 0,
+                    "bucketingKey": "amplitude_id",
+                    "rolloutWeights": {
+                        "on": 1
                     }
-                ]
-            }
+                }
+            ]
         }
-        ```
+    }
+    ```
 
 ------
 
@@ -444,20 +440,19 @@ A successful request returns a `200 OK` response and a list of variants encoded 
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        [
-            {
-                "key": "on",
-                "name": "",
-                "payload": {},
-                "description": "",
-                "rolloutWeight": 1
-            }
-        ]
-      
-        ```
+???example "Example response (click to open)"
+    ```bash
+    [
+        {
+            "key": "on",
+            "name": "",
+            "payload": {},
+            "description": "",
+            "rolloutWeight": 1
+        }
+    ]
+    ```
+
 ------
 
 ## Get variant details
@@ -487,17 +482,16 @@ A successful request returns a `200 OK` response and a JSON object with details 
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        {
-            "key": "on",
-            "name": "",
-            "payload": {},
-            "description": "",
-            "rolloutWeight": 1
-        }
-        ```
+???example "Example response (click to open)"
+    ```bash
+    {
+        "key": "on",
+        "name": "",
+        "payload": {},
+        "description": "",
+        "rolloutWeight": 1
+    }
+    ```
 
 ------
 
@@ -528,14 +522,13 @@ A successful request returns a `200 OK` response and a list of inclusions of fla
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        [
-            <user>@<your-company-email>,
-            <userId>
-        ]
-        ```
+???example "Example response (click to open)"
+    ```bash
+    [
+        <user>@<your-company-email>,
+        <userId>
+    ]
+    ```
 
 ------
 
@@ -563,6 +556,17 @@ Create a new variant for a flag
 |`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
 |`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "key": "new-variant-key",
+        "description": "optional description for variant",
+        "name": "optional name for variant",
+        "payload": {"variant-payload": "example payload"},
+        "rolloutWeight": 0
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and `OK` text.
@@ -576,22 +580,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
-
-???example "Flag examples"
-    === "Request example"
-        ```bash
-        {
-            "key": "new-variant-key",
-            "description": "optional description for variant",
-            "name": "optional name for variant",
-            "payload": {"variant-payload": "example payload"},
-            "rolloutWeight": 0
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -609,6 +597,17 @@ Edit a variant for a flag.
 |---|----|
 |`id`| Required. String. Flag's ID.|
 |`variantKey`| Required. String. The variant's key.|
+
+???example "Example request (click to open)"
+    ```bash
+    {
+        "key": "updated-variant-key",
+        "description": "updated optional description for variant",
+        "name": "optional name for variant",
+        "payload": {"variant-payload": "example payload"},
+        "rolloutWeight": 0
+    }
+    ```
 
 ### Request body
 
@@ -633,22 +632,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
-
-???example "Flag examples"
-    === "Request example"
-        ```bash
-        {
-            "key": "updated-variant-key",
-            "description": "updated optional description for variant",
-            "name": "optional name for variant",
-            "payload": {"variant-payload": "example payload"},
-            "rolloutWeight": 0
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -679,12 +662,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        OK
-        ```
-
 ------
 
 ## Add users to variant
@@ -708,6 +685,13 @@ Add inclusions (users or devices) to flag's variant.
 |---|---|---|---|
 |`inclusions`| Required | object | Contains an string array of user or device ids. |
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "inclusions": [<user1>@<your-company-email>", <user2>@<your-company-email>m <userId>]
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and `OK` text.
@@ -721,18 +705,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"inclusions":<["id1", "id2", "id3"]>}'
     ```
-
-???example "Flag examples"
-    === "Request example"
-        ```bash
-        {
-            "inclusions": [<user1>@<your-company-email>", <user2>@<your-company-email>m <userId>]
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -756,8 +728,6 @@ Remove inclusions (users or devices) from flag's variant.
 
 A successful request returns a `200 OK` response and `OK` text.
 
-#### Flag example request
-
 !!!example "Example cURL"
     ```bash
     curl --request DELETE \
@@ -765,12 +735,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```
-
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -801,12 +765,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        OK
-        ```
-
 ------
 
 ## List deployments
@@ -835,19 +793,18 @@ A successful request returns a `200 OK` response and an array of JSON objects wi
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Flag examples"
-    === "Response example"
-        ```bash
-        [
-            {
-                "id": <id>,
-                "projectId": <projectId>,
-                "label": "rest-api",
-                "key": <key>,
-                "deleted": false
-            }
-        ]
-        ```
+???example "Example response (click to open)"
+    ```bash
+    [
+        {
+            "id": <id>,
+            "projectId": <projectId>,
+            "label": "rest-api",
+            "key": <key>,
+            "deleted": false
+        }
+    ]
+    ```
 
 ------
 
@@ -871,6 +828,13 @@ Add a deployment for a flag.
 |---|---|---|---|
 |`deployments`| Required | object | Contains an string array of deployment ids. |
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "deployments": [<deploymentId>]
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and `OK` text.
@@ -883,18 +847,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>'
       --data '{"deployments":[<deploymentId>]}'
     ```
-
-???example "Flag examples"
-    === "Request example"
-        ```bash
-        {
-            "deployments": [<deploymentId>]
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -955,6 +907,20 @@ Edit a flag.
 |`enabled`| Optional | boolean | Property to activate or deactivate flag. |
 |`archive`| Optional | boolean | Property to archive or restore flag. |
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "name": "updated name",
+        "description": "updated description",
+        "bucketingKey": "amplitude_id",
+        "bucketingSalt": <bucketingSalt>,
+        "bucketingUnit": "org id",
+        "evaluationMode": "remote",
+        "rolloutPercentage": 0,
+        "enabled": false
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response.
@@ -968,21 +934,6 @@ A successful request returns a `200 OK` response.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"enabled":<enabled>,"rolloutPercentage":<rolloutPercentage>}'
     ```
-
-???example "Flag examples"
-    === "Request example"
-        ```bash
-        {
-            "name": "updated name",
-            "description": "updated description",
-            "bucketingKey": "amplitude_id",
-            "bucketingSalt": <bucketingSalt>,
-            "bucketingUnit": "org id",
-            "evaluationMode": "remote",
-            "rolloutPercentage": 0,
-            "enabled": false
-        }
-        ```
 
 ------
 
@@ -1057,6 +1008,44 @@ A string value representing operations on a property value. Possible values are:
 - `glob match`
 - `glob does not match`
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "projectId":"<projectId>",
+        "name": "Analyze button clicks",
+        "key": "analyze-button-clicks",
+        "description": "analyze button clicks on the main page",
+        "variants": [
+            {
+                "key": "on"
+            }
+        ],
+        "rolloutWeights": {"on": 1},
+        "targetSegments": [
+            {
+                "name": "Segment 1",
+                "conditions": [
+                    {
+                        "prop": "country",
+                        "op": "is",
+                        "type": "property",
+                        "values": [
+                            "United States"
+                        ]
+                    }
+                ],
+                "percentage": 0,
+                "bucketingKey": "amplitude_id",
+                "rolloutWeights": {
+                    "on": 1
+                }
+            }
+        ],
+        "deployments": [<deploymentId>],
+        "evaluationMode": "remote"
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and a JSON object with the flag's id and url.
@@ -1071,48 +1060,10 @@ A successful request returns a `200 OK` response and a JSON object with the flag
       --data '{"projectId":"<projectId>","key":"<key>"}'
     ```
 
-???example "Flag examples"
-    === "Request example"
-        ```bash
-        {
-            "projectId":"<projectId>",
-            "name": "Analyze button clicks",
-            "key": "analyze-button-clicks",
-            "description": "analyze button clicks on the main page",
-            "variants": [
-                {
-                    "key": "on"
-                }
-            ],
-            "rolloutWeights": {"on": 1},
-            "targetSegments": [
-                {
-                    "name": "Segment 1",
-                    "conditions": [
-                        {
-                            "prop": "country",
-                            "op": "is",
-                            "type": "property",
-                            "values": [
-                                "United States"
-                            ]
-                        }
-                    ],
-                    "percentage": 0,
-                    "bucketingKey": "amplitude_id",
-                    "rolloutWeights": {
-                        "on": 1
-                    }
-                }
-            ],
-            "deployments": [<deploymentId>],
-            "evaluationMode": "remote"
-        }
-        ```
-    === "Response example"
-        ```bash
-        {
-            "id": <id>,
-            "url": "http://experiment.amplitude.com/amplitude/<projectId>/config/<id>"
-        }
-        ```
+???example "Example response (click to open)"
+    ```bash
+    {
+        "id": <id>,
+        "url": "http://experiment.amplitude.com/amplitude/<projectId>/config/<id>"
+    }
+    ```

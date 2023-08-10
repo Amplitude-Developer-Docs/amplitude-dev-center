@@ -36,8 +36,7 @@ A successful request returns a `200 OK` response and a list of deployments encod
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```
-???example "Deployments example"
-    === "Response example"
+???example "Example response (click to open)"
     ```bash
         {
             "deployments": [
@@ -75,6 +74,15 @@ Create a deployment that experiments or flags can be assigned to.
 |`label`| Required | Deployment's label. Must contain alphanumeric and/or `_`, `-` characters. |
 |`type`| Required | string | Deployment's type.  Must be either `client` or `server`. |
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "projectId":"<projectId>",
+        "label": "hello-world",
+        "type": "client"
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and a deployment's id.
@@ -87,21 +95,12 @@ A successful request returns a `200 OK` response and a deployment's id.
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Deployments example"
-    === "Request example"
-        ```bash
+???example "Example response (click to open)"
+    ```bash
         {
-            "projectId":"<projectId>",
-            "label": "hello-world",
-            "type": "client"
+            "id": <id>
         }
-        ```
-    === "Response example"
-        ```bash
-            {
-                "id": <id>
-            }
-        ```
+    ```
     
 ## Edit deployment
 
@@ -118,6 +117,13 @@ Edit a deployment that experiments or flags can be assigned to.
 |`label`| Optional | Deployment's label. Must contain alphanumeric and/or `_`, `-` characters. |
 |`archive`| Optional | string | Soft delete or restore deployment. |
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "label": "updated-label"
+    }
+    ```
+    
 ### Response
 
 A successful request returns a `200 OK` response and `OK` text.
@@ -129,16 +135,3 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```
-
-???example "Deployments example"
-    === "Request example"
-        ```bash
-        {
-            "label": "updated-label"
-        }
-        ```
-    === "Response example"
-        ```bash
-            OK
-        ```
-    

@@ -1,10 +1,22 @@
 ---
-title: Management API Endpoints
+title: Management API
 description: REST API for managing feature flags and experiment configurations.
 toplevel: true
 ---
 
 The Experiment management API can be used to programmatically create and control flags and experiments.
+
+## Endpoints
+
+| <div class="big-column">API</div> | Description |
+| --- | --- |
+|[Flag Apis](flags.md)| Flag APIs to create, edit, and display flags, and their properties.  |
+|[Experiment Apis](experiments.md)| Experiment APIs to create, edit, and display experiments, and their properties.  |
+|[Deployment Apis](deployments.md)| Deployment APIs to create, edit, and display deployments that flags or experiments can be assigned to. |
+
+!!!info "Beta API Migration"
+    
+    If you're currently using the [Beta API](api-beta.md), please update to use the new API URL domain (`experiment.amplitude.com` and path prefix` /api/1`).
 
 ## Management API Key
 
@@ -52,23 +64,3 @@ The API uses meaningful status codes to communicate the result of requests.
 ### Cursors
 
 Endpoints that list resources such as `/experiments` will only return a limited number of items per request. To fetch the next page of items, the `nextCursor` value returned from the first request must be passed as the `cursor` parameter of the next request. In this way multiple requests can be chained together to fetch the total set of items.
-
-------
-
-[Flag Apis](flags.md)
-
-------
-
-[Experiment Apis](experiments.md)
-
-------
-
-[Deployment Apis](deployments.md)
-
-------
-
-!!!warning "Using Beta version is not recommended. Use versioned APIs instead."
-
-!!!tip "Our versioned API is fully backwards compatible and does not introduce any breaking changes; simply update the request url."
-
-[Endpoints Beta](api-beta.md)

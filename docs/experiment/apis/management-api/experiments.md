@@ -52,70 +52,69 @@ A successful request returns a `200 OK` response and a list of experiments encod
     --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        {
-            "experiments": [
-                {
-                    "id": <id>,
-                    "projectId": <projectId>,
-                    "deployments": [<deploymentId>],
-                    "key": "experiment-key",
-                    "name": "experiment-name",
-                    "decision": null,
-                    "decisionReason": null,
-                    "description": "description",
-                    "enabled": false,
-                    "evaluationMode": "remote",
-                    "bucketingKey": "amplitude_id",
-                    "bucketingSalt": <bucketingSalt>,
-                    "bucketingUnit": "User",
-                    "variants": [
-                        {
-                            "key": "control"
-                        },
-                        {
-                            "key": "treatment"
-                        }
-                    ],
-                    "rolledOutVariant": null,
-                    "rolloutPercentage": 10,
-                    "rolloutWeights": {
-                        "control": 1,
-                        "treatment": 1
+???example "Example response (click to open)"
+    ```bash
+    {
+        "experiments": [
+            {
+                "id": <id>,
+                "projectId": <projectId>,
+                "deployments": [<deploymentId>],
+                "key": "experiment-key",
+                "name": "experiment-name",
+                "decision": null,
+                "decisionReason": null,
+                "description": "description",
+                "enabled": false,
+                "evaluationMode": "remote",
+                "bucketingKey": "amplitude_id",
+                "bucketingSalt": <bucketingSalt>,
+                "bucketingUnit": "User",
+                "variants": [
+                    {
+                        "key": "control"
                     },
-                    "targetSegments": [
-                        {
-                            "name": "Segment 1",
-                            "conditions": [
-                                {
-                                    "prop": "device_id",
-                                    "op": "is",
-                                    "type": "property",
-                                    "values": [
-                                        "(none)"
-                                    ]
-                                }
-                            ],
-                            "percentage": 50,
-                            "bucketingKey": "amplitude_id",
-                            "rolloutWeights": {
-                                "control": 1,
-                                "treatment": 1
-                            }
-                        }
-                    ],
-                    "stickyBucketing": false,
-                    "state": "planning",
-                    "startDate": null,
-                    "endDate": null,
-                    "experimentType": "hypothesis-testing"
+                    {
+                        "key": "treatment"
+                    }
+                ],
+                "rolledOutVariant": null,
+                "rolloutPercentage": 10,
+                "rolloutWeights": {
+                    "control": 1,
+                    "treatment": 1
                 },
-                "nextCursor": <cursorId>
-            ]
-        }
-        ```
+                "targetSegments": [
+                    {
+                        "name": "Segment 1",
+                        "conditions": [
+                            {
+                                "prop": "device_id",
+                                "op": "is",
+                                "type": "property",
+                                "values": [
+                                    "(none)"
+                                ]
+                            }
+                        ],
+                        "percentage": 50,
+                        "bucketingKey": "amplitude_id",
+                        "rolloutWeights": {
+                            "control": 1,
+                            "treatment": 1
+                        }
+                    }
+                ],
+                "stickyBucketing": false,
+                "state": "planning",
+                "startDate": null,
+                "endDate": null,
+                "experimentType": "hypothesis-testing"
+            },
+            "nextCursor": <cursorId>
+        ]
+    }
+    ```
 
 ------
 
@@ -145,66 +144,65 @@ A successful request returns a `200 OK` response and a JSON object with the expe
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        {
-            "id": <id>,
-            "projectId": <projectId>,
-            "deployments": [<deploymentId>],
-            "key": "experiment-key",
-            "name": "experiment-key",
-            "decision": null,
-            "decisionReason": null,
-            "description": "save button color",
-            "enabled": true,
-            "evaluationMode": "remote",
-            "bucketingKey": "amplitude_id",
-            "bucketingSalt": <bucketingSalt>,
-            "bucketingUnit": "User",
-            "variants": [
-                {
-                    "key": "control"
-                },
-                {
-                    "key": "treatment"
-                }
-            ],
-            "rolledOutVariant": null,
-            "rolloutPercentage": 0,
-            "rolloutWeights": {
-                "control": 1,
-                "treatment": 1
+???example "Example response (click to open)"
+    ```bash
+    {
+        "id": <id>,
+        "projectId": <projectId>,
+        "deployments": [<deploymentId>],
+        "key": "experiment-key",
+        "name": "experiment-key",
+        "decision": null,
+        "decisionReason": null,
+        "description": "save button color",
+        "enabled": true,
+        "evaluationMode": "remote",
+        "bucketingKey": "amplitude_id",
+        "bucketingSalt": <bucketingSalt>,
+        "bucketingUnit": "User",
+        "variants": [
+            {
+                "key": "control"
             },
-            "targetSegments": [
-                {
-                    "name": "Segment 1",
-                    "conditions": [
-                        {
-                            "prop": "city",
-                            "op": "is",
-                            "type": "property",
-                            "values": [
-                                "San Francisco"
-                            ]
-                        }
-                    ],
-                    "percentage": 0,
-                    "bucketingKey": "amplitude_id",
-                    "rolloutWeights": {
-                        "control": 1,
-                        "treatment": 1
+            {
+                "key": "treatment"
+            }
+        ],
+        "rolledOutVariant": null,
+        "rolloutPercentage": 0,
+        "rolloutWeights": {
+            "control": 1,
+            "treatment": 1
+        },
+        "targetSegments": [
+            {
+                "name": "Segment 1",
+                "conditions": [
+                    {
+                        "prop": "city",
+                        "op": "is",
+                        "type": "property",
+                        "values": [
+                            "San Francisco"
+                        ]
                     }
+                ],
+                "percentage": 0,
+                "bucketingKey": "amplitude_id",
+                "rolloutWeights": {
+                    "control": 1,
+                    "treatment": 1
                 }
-            ],
-            "stickyBucketing": false,
-            "state": "running",
-            "startDate": "2023-07-29",
-            "endDate": null,
-            "experimentType": "hypothesis-testing",
-            "deleted": false
-        }
-        ```
+            }
+        ],
+        "stickyBucketing": false,
+        "state": "running",
+        "startDate": "2023-07-29",
+        "endDate": null,
+        "experimentType": "hypothesis-testing",
+        "deleted": false
+    }
+    ```
 
 ------
 
@@ -234,164 +232,9 @@ A successful request returns a `200 OK` response and a list of experiment's vers
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        [
-            {
-                "createdAt": "2023-07-29T03:30:18.427Z",
-                "createdBy": <userId>,
-                "version": 3,
-                "flagConfig": {
-                    "id": <id>,
-                    "projectId": <projectId>,
-                    "deployments": [<deploymentId>],
-                    "key": "experiment-key",
-                    "name": "experiment-key",
-                    "description": "save button color",
-                    "enabled": true,
-                    "bucketingKey": "amplitude_id",
-                    "variants": [
-                        {
-                            "key": "control"
-                        },
-                        {
-                            "key": "treatment"
-                        }
-                    ],
-                    "rolloutWeights": {
-                        "control": 1,
-                        "treatment": 1
-                    },
-                    "targetSegments": [
-                        {
-                            "name": "Segment 1",
-                            "conditions": [
-                                {
-                                    "prop": "city",
-                                    "op": "is",
-                                    "type": "property",
-                                    "values": [
-                                        "San Francisco"
-                                    ]
-                                }
-                            ],
-                            "percentage": 0,
-                            "bucketingKey": "amplitude_id",
-                            "rolloutWeights": {
-                                "control": 1,
-                                "treatment": 1
-                            }
-                        }
-                    ],
-                    "stickyBucketing": false,
-                    "state": "decision-made",
-                    "startDate": "2023-07-29",
-                    "endDate": "2023-07-29",
-                    "experimentType": "hypothesis-testing"
-                }
-            },
-            {
-                "createdAt": "2023-07-29T03:26:23.603Z",
-                "createdBy": <userId>,
-                "version": 2,
-                "flagConfig": {
-                    "id": <id>,
-                    "projectId": <projectId>,
-                    "deployments": [],
-                    "key": "experiment-key",
-                    "name": "experiment-key",
-                    "description": "save button color",
-                    "enabled": false,
-                    "bucketingKey": "amplitude_id",
-                    "variants": [
-                        {
-                            "key": "control"
-                        },
-                        {
-                            "key": "treatment"
-                        }
-                    ],
-                    "rolloutWeights": {
-                        "control": 1,
-                        "treatment": 1
-                    },
-                    "targetSegments": [],
-                    "stickyBucketing": false,
-                    "state": "planning",
-                    "startDate": null,
-                    "endDate": null,
-                    "experimentType": "hypothesis-testing"
-                }
-            },
-            {
-                "createdAt": "2023-07-29T03:25:42.236Z",
-                "createdBy": <userId>,
-                "version": 1,
-                "flagConfig": {
-                    "id": <id>,
-                    "projectId": <projectId>,
-                    "deployments": [],
-                    "key": "experiment-key",
-                    "name": "experiment-key",
-                    "description": "",
-                    "enabled": false,
-                    "bucketingKey": "amplitude_id",
-                    "variants": [
-                        {
-                            "key": "control"
-                        },
-                        {
-                            "key": "treatment"
-                        }
-                    ],
-                    "rolloutWeights": {
-                        "control": 1,
-                        "treatment": 1
-                    },
-                    "targetSegments": [],
-                    "stickyBucketing": false,
-                    "state": "planning",
-                    "startDate": null,
-                    "endDate": null,
-                    "experimentType": "hypothesis-testing"
-                }
-            }
-        ]
-        ```
-
-------
-
-## Get version details
-
-```bash
-GET https://experiment.amplitude.com/api/1/experiments/{id}/versions/{versionId}
-```
-
-Fetch details of a specific version of an experiment.
-
-### Path variables
-
-|Name|Description|
-|---|----|
-|`id`| Required. String. Experiment's ID.|
-|`versionId`| Required. String. The version's ID.|
-
-### Response
-
-A successful request returns a `200 OK` response and a JSON object with details of the version.
-
-!!!example "Example cURL"
+???example "Example response (click to open)"
     ```bash
-    curl --request GET \
-      --url 'https://experiment.amplitude.com/api/1/experiments/<id>/versions/<versionId>' \
-      --header 'Accept: application/json' \
-      --header 'Authorization: Bearer <management-api-key>'
-    ```
-
-???example "Experiment examples"
-    === "Response example"
-        ```bash
+    [
         {
             "createdAt": "2023-07-29T03:30:18.427Z",
             "createdBy": <userId>,
@@ -444,8 +287,161 @@ A successful request returns a `200 OK` response and a JSON object with details 
                 "endDate": "2023-07-29",
                 "experimentType": "hypothesis-testing"
             }
+        },
+        {
+            "createdAt": "2023-07-29T03:26:23.603Z",
+            "createdBy": <userId>,
+            "version": 2,
+            "flagConfig": {
+                "id": <id>,
+                "projectId": <projectId>,
+                "deployments": [],
+                "key": "experiment-key",
+                "name": "experiment-key",
+                "description": "save button color",
+                "enabled": false,
+                "bucketingKey": "amplitude_id",
+                "variants": [
+                    {
+                        "key": "control"
+                    },
+                    {
+                        "key": "treatment"
+                    }
+                ],
+                "rolloutWeights": {
+                    "control": 1,
+                    "treatment": 1
+                },
+                "targetSegments": [],
+                "stickyBucketing": false,
+                "state": "planning",
+                "startDate": null,
+                "endDate": null,
+                "experimentType": "hypothesis-testing"
+            }
+        },
+        {
+            "createdAt": "2023-07-29T03:25:42.236Z",
+            "createdBy": <userId>,
+            "version": 1,
+            "flagConfig": {
+                "id": <id>,
+                "projectId": <projectId>,
+                "deployments": [],
+                "key": "experiment-key",
+                "name": "experiment-key",
+                "description": "",
+                "enabled": false,
+                "bucketingKey": "amplitude_id",
+                "variants": [
+                    {
+                        "key": "control"
+                    },
+                    {
+                        "key": "treatment"
+                    }
+                ],
+                "rolloutWeights": {
+                    "control": 1,
+                    "treatment": 1
+                },
+                "targetSegments": [],
+                "stickyBucketing": false,
+                "state": "planning",
+                "startDate": null,
+                "endDate": null,
+                "experimentType": "hypothesis-testing"
+            }
         }
-        ```
+    ]
+    ```
+
+------
+
+## Get version details
+
+```bash
+GET https://experiment.amplitude.com/api/1/experiments/{id}/versions/{versionId}
+```
+
+Fetch details of a specific version of an experiment.
+
+### Path variables
+
+|Name|Description|
+|---|----|
+|`id`| Required. String. Experiment's ID.|
+|`versionId`| Required. String. The version's ID.|
+
+### Response
+
+A successful request returns a `200 OK` response and a JSON object with details of the version.
+
+!!!example "Example cURL"
+    ```bash
+    curl --request GET \
+      --url 'https://experiment.amplitude.com/api/1/experiments/<id>/versions/<versionId>' \
+      --header 'Accept: application/json' \
+      --header 'Authorization: Bearer <management-api-key>'
+    ```
+
+???example "Example response (click to open)"
+    ```bash
+    {
+        "createdAt": "2023-07-29T03:30:18.427Z",
+        "createdBy": <userId>,
+        "version": 3,
+        "flagConfig": {
+            "id": <id>,
+            "projectId": <projectId>,
+            "deployments": [<deploymentId>],
+            "key": "experiment-key",
+            "name": "experiment-key",
+            "description": "save button color",
+            "enabled": true,
+            "bucketingKey": "amplitude_id",
+            "variants": [
+                {
+                    "key": "control"
+                },
+                {
+                    "key": "treatment"
+                }
+            ],
+            "rolloutWeights": {
+                "control": 1,
+                "treatment": 1
+            },
+            "targetSegments": [
+                {
+                    "name": "Segment 1",
+                    "conditions": [
+                        {
+                            "prop": "city",
+                            "op": "is",
+                            "type": "property",
+                            "values": [
+                                "San Francisco"
+                            ]
+                        }
+                    ],
+                    "percentage": 0,
+                    "bucketingKey": "amplitude_id",
+                    "rolloutWeights": {
+                        "control": 1,
+                        "treatment": 1
+                    }
+                }
+            ],
+            "stickyBucketing": false,
+            "state": "decision-made",
+            "startDate": "2023-07-29",
+            "endDate": "2023-07-29",
+            "experimentType": "hypothesis-testing"
+        }
+    }
+    ```
 
 ------
 
@@ -474,26 +470,25 @@ A successful request returns a `200 OK` response and a list of variants encoded 
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>'
     ```
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        [
-            {
-                "key": "control",
-                "name": "",
-                "payload": {},
-                "description": "",
-                "rolloutWeight": 1
-            },
-            {
-                "key": "treatment",
-                "name": "",
-                "payload": {},
-                "description": "",
-                "rolloutWeight": 1
-            }
-        ]
-        ```
+???example "Example response (click to open)"
+    ```bash
+    [
+        {
+            "key": "control",
+            "name": "",
+            "payload": {},
+            "description": "",
+            "rolloutWeight": 1
+        },
+        {
+            "key": "treatment",
+            "name": "",
+            "payload": {},
+            "description": "",
+            "rolloutWeight": 1
+        }
+    ]
+    ```
 
 ------
 
@@ -524,17 +519,16 @@ A successful request returns a `200 OK` response and a JSON object with details 
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        {
-            "key": "control",
-            "name": "",
-            "payload": {},
-            "description": "",
-            "rolloutWeight": 1
-        }
-        ```
+???example "Example response (click to open)"
+    ```bash
+    {
+        "key": "control",
+        "name": "",
+        "payload": {},
+        "description": "",
+        "rolloutWeight": 1
+    }
+    ```
 
 ------
 
@@ -565,14 +559,13 @@ A successful request returns a `200 OK` response and a list of inclusions of exp
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        [
-            <user>@<your-company-email>,
-            <userId>
-        ]
-        ```
+???example "Example response (click to open)"
+    ```bash
+    [
+        <user>@<your-company-email>,
+        <userId>
+    ]
+    ```
 
 ------
 
@@ -600,6 +593,17 @@ Create a new variant for an experiment.
 |`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
 |`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "key": "new-variant-key",
+        "description": "optional description for variant",
+        "name": "optional name for variant",
+        "payload": {"variant-payload": "example payload"},
+        "rolloutWeight": 0
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and `OK` text.
@@ -613,21 +617,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
-???example "Experiment examples"
-    === "Request example"
-        ```bash
-        {
-            "key": "new-variant-key",
-            "description": "optional description for variant",
-            "name": "optional name for variant",
-            "payload": {"variant-payload": "example payload"},
-            "rolloutWeight": 0
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -656,6 +645,17 @@ Edit a variant for an experiment.
 |`payload`| Optional | string | Optional payload. Value must be a valid JSON element.|
 |`rolloutWeight`| Optional | number | Rollout weight for non-targeted users.|
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "key": "updated-variant-key",
+        "description": "updated-optional description for variant",
+        "name": "optional name for variant",
+        "payload": {"variant-payload": "example payload"},
+        "rolloutWeight": 10
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and `OK` text.
@@ -669,21 +669,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"key":"<key>","name":"<name>","description":"<description>","payload":"<payload>","rolloutWeight":<rolloutWeight>}'
     ```
-???example "Experiment examples"
-    === "Request example"
-        ```bash
-        {
-            "key": "updated-variant-key",
-            "description": "updated-optional description for variant",
-            "name": "optional name for variant",
-            "payload": {"variant-payload": "example payload"},
-            "rolloutWeight": 10
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -714,12 +699,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        OK
-        ```
-
 ------
 
 ## Add users to variant
@@ -736,6 +715,13 @@ Add inclusions (users or devices) to experiment's variant.
 |---|----|
 |`id`| Required. String. Experiment's ID.|
 |`variantKey`| Required. String. The variant's key.|
+
+???example "Example request (click to open)"
+    ```bash
+    {
+        "inclusions": [<user1>@<your-company-email>", <user2>@<your-company-email>m <userId>]
+    }
+    ```
 
 ### Request body
 
@@ -756,18 +742,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"inclusions":<["id1", "id2", "id3"]>}'
     ```
-
-???example "Experiment examples"
-    === "Request example"
-        ```bash
-        {
-            "inclusions": [<user1>@<your-company-email>", <user2>@<your-company-email>m <userId>]
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -799,12 +773,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        OK
-        ```
-
 ------
 
 ## Remove all users from variant
@@ -834,12 +802,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        OK
-        ```
-
 ------
 
 ## List deployments
@@ -868,19 +830,18 @@ A successful request returns a `200 OK` response and an array of JSON objects wi
       --header 'Authorization: Bearer <management-api-key>'
     ```
 
-???example "Experiment examples"
-    === "Response example"
-        ```bash
-        [
-            {
-                "id": <id>,
-                "projectId": <projectId>,
-                "label": "rest-api",
-                "key": <key>,
-                "deleted": false
-            }
-        ]
-        ```
+???example "Example response (click to open)"
+    ```bash
+    [
+        {
+            "id": <id>,
+            "projectId": <projectId>,
+            "label": "rest-api",
+            "key": <key>,
+            "deleted": false
+        }
+    ]
+    ```
 
 ------
 
@@ -904,6 +865,13 @@ Add a deployment for an experiment.
 |---|---|---|---|
 |`deployments`| Required | object | Contains an string array of deployment ids. |
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "deployments": [<deploymentId>]
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and `OK` text.
@@ -916,17 +884,6 @@ A successful request returns a `200 OK` response and `OK` text.
       --header 'Authorization: Bearer <management-api-key>'
       --data '{"deployments":[<deploymentId>]}'
     ```
-???example "Experiment examples"
-    === "Request example"
-        ```bash
-        {
-            "deployments": [<deploymentId>]
-        }
-        ```
-    === "Response example"
-        ```bash
-        OK
-        ```
 
 ------
 
@@ -1022,6 +979,37 @@ Edit an experiment.
 - `glob match`
 - `glob does not match`
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "name": "updated name",
+        "description": "updated description",
+        "bucketingKey": "amplitude_id",
+        "bucketingSalt": <bucketingSalt>,
+        "evaluationMode": "remote",
+        "rolloutPercentage": 0,
+        "enabled": true,
+        "experimentType": "no-harm",
+        "stickyBucketing": false,
+        "startDate": "2023-07-31T10:26:00.996Z",
+        "endDate": "2023-09-23T10:26:00.996Z",
+        "exposureEvent": {
+            "event_type": "_active",
+            "filters": [
+                {
+                    "group_type": "User",
+                    "subprop_key": "amplitude_day_of_week",
+                    "subprop_op": "is",
+                    "subprop_type": "day_time_prop",
+                    "subprop_value": [
+                        "Tuesday"
+                    ]
+                }
+            ]
+        }
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response.
@@ -1035,38 +1023,6 @@ A successful request returns a `200 OK` response.
       --header 'Authorization: Bearer <management-api-key>' \
       --data '{"enabled":<enabled>,"rolloutPercentage":<rolloutPercentage>}'
     ```
-
-???example "Experiment examples"
-    === "Request example"
-        ```bash
-        {
-            "name": "updated name",
-            "description": "updated description",
-            "bucketingKey": "amplitude_id",
-            "bucketingSalt": <bucketingSalt>,
-            "evaluationMode": "remote",
-            "rolloutPercentage": 0,
-            "enabled": true,
-            "experimentType": "no-harm",
-            "stickyBucketing": false,
-            "startDate": "2023-07-31T10:26:00.996Z",
-            "endDate": "2023-09-23T10:26:00.996Z",
-            "exposureEvent": {
-                "event_type": "_active",
-                "filters": [
-                    {
-                        "group_type": "User",
-                        "subprop_key": "amplitude_day_of_week",
-                        "subprop_op": "is",
-                        "subprop_type": "day_time_prop",
-                        "subprop_value": [
-                            "Tuesday"
-                        ]
-                    }
-                ]
-            }
-        }
-        ```
 
 ------
 
@@ -1142,6 +1098,49 @@ A string value representing operations on a property value. Possible values are:
 - `glob match`
 - `glob does not match`
 
+???example "Example request (click to open)"
+    ```bash
+    {
+        "projectId":"<projectId>",
+        "name": "Analyze button clicks experiment",
+        "key": "analyze-button-clicks-experiment",
+        "description": "analyze button clicks on the main page",
+        "variants": [
+            {
+                "key": "control"
+            },
+            {
+                "key": "treatment"
+            }
+        ],
+        "rolloutWeights": {"control": 1, "treatment": 1},
+        "targetSegments": [
+            {
+                "name": "Segment 1",
+                "conditions": [
+                    {
+                        "prop": "country",
+                        "op": "is",
+                        "type": "property",
+                        "values": [
+                            "United States"
+                        ]
+                    }
+                ],
+                "percentage": 0,
+                "bucketingKey": "amplitude_id",
+                "rolloutWeights": {
+                    "control": 1,
+                    "treatment": 1
+                }
+            }
+        ],
+        "deployments": [<deploymentId>],
+        "evaluationMode": "remote",
+        "experimentType": "no-harm"
+    }
+    ```
+
 ### Response
 
 A successful request returns a `200 OK` response and a JSON object with the experiment's id and url.
@@ -1156,55 +1155,10 @@ A successful request returns a `200 OK` response and a JSON object with the expe
       --data '{"projectId":"<projectId>","key":"<key>"}'
     ```
 
-???example "Experiment examples"
-    === "Request example"
-        ```bash
-        {
-            "projectId":"<projectId>",
-            "name": "Analyze button clicks experiment",
-            "key": "analyze-button-clicks-experiment",
-            "description": "analyze button clicks on the main page",
-            "variants": [
-                {
-                    "key": "control"
-                },
-                {
-                    "key": "treatment"
-                }
-            ],
-            "rolloutWeights": {"control": 1, "treatment": 1},
-            "targetSegments": [
-                {
-                    "name": "Segment 1",
-                    "conditions": [
-                        {
-                            "prop": "country",
-                            "op": "is",
-                            "type": "property",
-                            "values": [
-                                "United States"
-                            ]
-                        }
-                    ],
-                    "percentage": 0,
-                    "bucketingKey": "amplitude_id",
-                    "rolloutWeights": {
-                        "control": 1,
-                        "treatment": 1
-                    }
-                }
-            ],
-            "deployments": [<deploymentId>],
-            "evaluationMode": "remote",
-            "experimentType": "no-harm"
-        }
-        ```
-    === "Response example"
-        ```bash
-        {
-            "id": <id>,
-            "url": "http://experiment.amplitude.com/amplitude/<projectId>/config/<id>"
-        }
-        ```
-
-------
+???example "Example response (click to open)"    
+    ```bash
+    {
+        "id": <id>,
+        "url": "http://experiment.amplitude.com/amplitude/<projectId>/config/<id>"
+    }
+    ```
