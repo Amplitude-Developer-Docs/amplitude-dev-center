@@ -942,7 +942,7 @@ Edit an experiment.
 |`evaluationMode`| Optional | string | Evaluation mode for the experiment, either `local` or `remote`. |
 |`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. Range 0 - 100. |
 |`enabled`| Optional | boolean | Property to activate or deactivate experiment. |
-|`archive`| Optional | boolean | Property to archive or restore experiment. |
+|`archive`| Optional | boolean | Property to archive or unarchive experiment. |
 |`experimentType`| Optional | string | Experiment type, options include `no-harm` or `hypothesis-testing`. |
 |`stickyBucketing`| Optional | boolean | If true, the experiment uses [sticky bucketing](../../general/evaluation/implementation.md#sticky-bucketing). |
 |`startDate`| Optional | string | Start date of the experiment in ISO 8601 format. |

@@ -905,7 +905,7 @@ Edit a flag.
 |`evaluationMode`| Optional | string | Evaluation mode for the flag, either `local` or `remote`. |
 |`rolloutPercentage`| Optional | number | Rollout percentage for non-targeted users. Range 0 - 100. |
 |`enabled`| Optional | boolean | Property to activate or deactivate flag. |
-|`archive`| Optional | boolean | Property to archive or restore flag. |
+|`archive`| Optional | boolean | Property to archive or unarchive flag. |
 |`tags` | Optional | string array | A list of tags for the flag. Tags are added and deleted by the same operation. If you would like to add new tags to the existing ones, you should fetch a list of all flag tags first.
 
 ???example "Example request (click to open)"
