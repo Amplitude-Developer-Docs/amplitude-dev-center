@@ -21,26 +21,26 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 
 ## Breaking changes checklist
 
-### user agent parser
+### User agent parser
 
-???Breaking change "User Agent Parser"
-    | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
-    | --- | --- | --- | --- |
-    | Using [client-side user agent parser](https://github.com/amplitude/ua-parser-js).  | Using server-side user agent parser which is offered by Amplitude ingestion endpoints. | <ul><li>Value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties.</li><li>The chart analytics</li></ul>| Enable client side user agent enrichment. [Read More](./#enable-client-side-user-agent-enrichment). |
-
-### page view event type and properties
+### Page view event_type and event_properties
 
 ???Breaking change "Page View Tracking"
     | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
     | --- | --- | --- | --- |
-    | <ul><li>event_type: `Page View`</li><li>event_properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event_type:  `[Amplitude] Page Viewed`</li><li>event properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> | <ul><li>The chart analytic.</li><li>Unexpected tracking plans if you have Data.</li></ul>| <ul><li>Use the legacy event type and event properties of page view by checking `Use the legacy page view properties` checkbox.</li><li>Overwrite the display name in Data dashboard.</li></ul>|
+    | <ul><li>event_type: `Page View`</li><li>event_properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event_type:  `[Amplitude] Page Viewed`</li><li>event properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> | <ul><li>The chart analytic.</li><li>Events may show as unexpected in tracking plans in Data.</li></ul>| <ul><li>Use the legacy event type and event properties of page view by checking `Use the legacy page view properties` checkbox.</li><li>Overwrite the display name in Data dashboard.</li></ul>|
 
-### subdomain attribution tracking 
+### Subdomain attribution tracking 
 
 ???Breaking change "Attribution Tracking"
     | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
     | --- | --- | --- | --- |
     | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | <ul><li>Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked with no additional configuration.</li><li>The chart analytics around campaign tracking.</li></ul>| Add the value of `location.hostname` in the exclude referral section to track attribution of all subdomains. |
+
+???Breaking change "User Agent Parser"
+    | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
+    | --- | --- | --- | --- |
+    | [Client-side user agent parsing](https://github.com/amplitude/ua-parser-js).  | Server-side user agent parsing by Amplitude ingestion endpoints. | <ul><li>Value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties.</li><li>The chart analytics</li></ul>| Enable client side user agent enrichment. [Read More](./#enable-client-side-user-agent-enrichment). 
 
 ## Workflow
 
@@ -117,7 +117,10 @@ For EU data residency, you must set up your project inside Amplitude EU and use 
 
 ##### User ID
 
-If the userId already available you can initialize the instance with a User ID. You can also use the setUserId tag type to initialize the User ID at a later time. [More details](../../sdks/browser-2/#custom-user-id).
+If the user ID is already available you can:
+
+- Initialize the instance with it by inputing it in the "User ID" input box of the `init` tag
+- Use the `setUserId` tag type to set the use ID at a later time. [More details](../../sdks/browser-2/#custom-user-id).
 
 ##### Configurations
 
@@ -153,11 +156,13 @@ If the userId already available you can initialize the instance with a User ID. 
 
 Starting with version xxxxx, as of Aug, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser).
 
-To avoid breaking changes in chart analytics, we provide the option to enable client-side parsing. If you are a new user. We highly recommend adopting use server-side parsing, the new enrichment strategy offers more accurate result.
+To avoid breaking changes in chart analytics, we provide the option to enable client-side parsing by simply checking the check box. You can also choose which user agent field (OS name, OS version, device manufacture, and device model) you want to enrich by checking the checkbox accordingly.
+
+If you are a new user, we highly recommend adopting server-side parsing by leaving this checkbox empty as the new enrichment strategy offers more accurate result.
 
 ##### Default Event Tracking
 
-This section include: 
+Check this checkbox to enable default event tracking and configure the following default tracking events
 
 - Attribution Tracking
 - Page View Tracking
@@ -165,7 +170,7 @@ This section include:
 - Form Interaction Tracking
 - File downloads Tracking
 
-##### Attribution tracking
+###### Attribution tracking
 
 Check this box to enable attribution tracking. The following configurations are available attribution options. [More details](../../sdks/browser-2/#tracking-marketing-attribution).
 
@@ -176,7 +181,7 @@ Check this box to enable attribution tracking. The following configurations are 
     | `Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. By default, it will also exclude referral section to track attribution of all subdomains of the input domain. [More Details](./#subdomain-attribution-tracking).  | `[]` | 
     | `Reset the session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deleted. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-marketing-attribution). The session isn't reset in the case where the referrer is just a different subdomain of your site. | `false`|
 
-##### Page View Tracking
+###### Page View Tracking
 
 Check this box to enable page view tracking. The following configurations are available page view tracking options. [More details](../../sdks/browser-2/#tracking-page-views).
 
@@ -188,17 +193,17 @@ Check this box to enable page view tracking. The following configurations are av
     | `Page View trigger` | `Page Loads` or `Only with Attribution changes` or a `Variable Configuration`.  The trigger of page view event. A variable configuration can be either build-in or customized that returns a function with a true or false return value. If the function returns true, then Page Views are tracked automatically, if it returns false then Page Views are not tracked. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-page-views). | `Page Loads` if enable page view tracking. |
     | `Track history events automatically` | `All history changes` or `Only when page path changes`. Whether to track history events. This is for tracking page view on SPA. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-page-views). | `All history changes` |
 
-##### Sessions Tracking
+###### Sessions Tracking
 
 Check this box to enable sessions tracking. [More details](../../sdks/browser-2/#tracking-sessions).
 
-##### Form Interactions Tracking
+###### Form Interactions Tracking
 
-Check this box to enable form interactions tracking. [More details](../..//sdks/browser-2/#tracking-form-interactions).
+Check this box to enable form interactions tracking. [More details](../../sdks/browser-2/#tracking-form-interactions).
 
-##### File Downloads Tracking
+###### File Downloads Tracking
 
-Check this box to enable file downloads tracking. [More details](../..//sdks/browser-2/#tracking-file-downloads).
+Check this box to enable file downloads tracking. [More details](../../sdks/browser-2/#tracking-file-downloads).
     
 #### track
 
@@ -226,7 +231,7 @@ The `track` tag type is for tracking an event under a specific trigger.
 
 ##### Track Groups
 
-Set event level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user unless explicitly set with setGroup. [More details](../../sdks//browser-2/#user-groups).
+Set event level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user unless explicitly set with setGroup. [More details](../../sdks/browser-2/#user-groups).
 
 | Name  | Description |
 | --- | --- |
