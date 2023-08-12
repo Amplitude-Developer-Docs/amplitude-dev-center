@@ -21,8 +21,6 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 
 ## Breaking changes checklist
 
-### User agent parser
-
 ### Page view event_type and event_properties
 
 ???Breaking change "Page View Tracking"
@@ -36,6 +34,8 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
     | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
     | --- | --- | --- | --- |
     | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | <ul><li>Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked with no additional configuration.</li><li>The chart analytics around campaign tracking.</li></ul>| Add the value of `location.hostname` in the exclude referral section to track attribution of all subdomains. |
+
+### User agent parser
 
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
@@ -119,7 +119,7 @@ For EU data residency, you must set up your project inside Amplitude EU and use 
 
 If the user ID is already available you can:
 
-- Initialize the instance with it by inputing it in the "User ID" input box of the `init` tag
+- Initialize the instance with it by inputting it in the "User ID" input box of the `init` tag
 - Use the `setUserId` tag type to set the use ID at a later time. [More details](../../sdks/browser-2/#custom-user-id).
 
 ##### Configurations
