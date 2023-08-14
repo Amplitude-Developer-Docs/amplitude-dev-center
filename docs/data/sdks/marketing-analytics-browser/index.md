@@ -10,7 +10,7 @@ The Marketing Analytics Browser SDK extends the Browser SDK to identify users an
 
 !!!info "Marketing Analytics Browser SDK Resources"
 
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
 
 !!!info "Browser SDK 2.0 is now available"
 
@@ -100,11 +100,11 @@ The following information is tracked in the page view events.
 |<div class="big-column">Name</div>| Description| Default Value|
 |---|----|---|
 |`event_type`| `string`. The event type for page view event. Configurable through enrichment plugin. | `Page View`. |
-|`event_properties.page_domain`| `string`. The page domain. | location.hostname or ''. |
-|`event_properties.page_location`| `string`. The page location. | location.href or ''. |
-|`event_properties.page_path`| `string`. The page path. | location.path or ''.|
-|`event_properties.page_title`| `string`. The page title. | document.title or ''.|
-|`event_properties.page_url`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
+|`event_properties.page_domain`| `string`. The page domain. | `location.hostname` or ''. |
+|`event_properties.page_location`| `string`. The page location. | `location.href` or ''. |
+|`event_properties.page_path`| `string`. The page path. | `location.path` or ''.|
+|`event_properties.page_title`| `string`. The page title. | `document.title` or ''.|
+|`event_properties.page_url`| `string`. The value of page url. | `location.href.split('?')[0]` or ``.|
 |`event_properties.[CampaignParam]`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possible keys. | Any undefined campaignParam or `undefined`. |
 
 ### Use the Marketing Analytics SDK with Ampli
