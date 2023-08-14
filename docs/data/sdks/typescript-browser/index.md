@@ -322,7 +322,7 @@ amplitude.init(API_KEY);
 See the [configuration options](../marketing-analytics-browser/#configuration).
 Learn more about what the [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution) supports.
 
-###### Differences from base SDK
+##### Differences from base SDK
 
 Enabling the Attribution plugin overwrites the default attribution tracking behavior of the SDK.
 
