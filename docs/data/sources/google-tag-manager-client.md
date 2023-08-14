@@ -171,7 +171,7 @@ Set event level groups. With event-level groups, the group designation applies o
 #### identify
 
 !!!note 
-    Identify calls _don't_ appear in user look up. The identify calls will set the user properties, and those updated user properties will appear only after the next event fired by the user.
+    Identify calls *don't* appear in user look up. The identify calls will set the user properties, and those updated user properties will appear only after the next event fired by the user.
 
 Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. [More details](../../sdks/typescript-browser/#user-properties).
 
