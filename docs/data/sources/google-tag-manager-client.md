@@ -23,25 +23,31 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 
 ### Page view event_type and event_properties
 
+The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties`. See full details in table. 
+
 ???Breaking change "Page View Tracking"
-    | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
-    | --- | --- | --- | --- |
-    | <ul><li>event_type: `Page View`</li><li>event_properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event_type:  `[Amplitude] Page Viewed`</li><li>event properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> | <ul><li>The chart analytic.</li><li>Events may show as unexpected in tracking plans in Data.</li></ul>| <ul><li>Use the legacy event type and event properties of page view by checking `Use the legacy page view properties` checkbox.</li><li>Overwrite the display name in Data dashboard.</li></ul>|
+    | <div class="big-column">Before</div>  | Current |
+    | --- | --- |
+    | <ul><li>event_type: `Page View`</li><li>event_properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event_type:  `[Amplitude] Page Viewed`</li><li>event properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
 
 ### Subdomain attribution tracking 
 
+Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked with no additional configuration. If you want to only want to exclude the attribution tracking on `location.hostname`, not other subdmaion, add the value of `location.hostname` in the exclude referral section. See full details in table. 
+
 ???Breaking change "Attribution Tracking"
-    | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
+    | <div class="big-column">Before</div>  | Current |
     | --- | --- | --- | --- |
-    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | <ul><li>Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked with no additional configuration.</li><li>The chart analytics around campaign tracking.</li></ul>| Add the value of `location.hostname` in the exclude referral section to track attribution of all subdomains. |
+    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | 
 
 ### User agent parser
 
-???Breaking change "User Agent Parser"
-    | <div class="big-column">Before</div>  | Current | Effect Area | Solution |
-    | --- | --- | --- | --- |
-    | [Client-side user agent parsing](https://github.com/amplitude/ua-parser-js).  | Server-side user agent parsing by Amplitude ingestion endpoints. | <ul><li>Value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties.</li><li>The chart analytics</li></ul>| Enable client side user agent enrichment. [Read More](./#enable-client-side-user-agent-enrichment). 
+The new template changes they way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older page view events check `Use legacy page view properties`. See full details in table. 
 
+???Breaking change "User Agent Parser"
+    | <div class="big-column">Before</div>  | Current |
+    | --- | --- | --- | --- |
+    | [Client-side user agent parsing](https://github.com/amplitude/ua-parser-js).  | Server-side user agent parsing by Amplitude ingestion endpoints. |
+    
 ## Workflow
 
 ### Container Setup
