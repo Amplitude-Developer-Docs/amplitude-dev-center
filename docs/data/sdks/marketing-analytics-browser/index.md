@@ -6,7 +6,7 @@ icon: simple/javascript
 
 ![npm version](https://img.shields.io/npm/v/@amplitude/marketing-analytics-browser)
 
-The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
+The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/marketing-analytics-browser).
 
 !!!info "Marketing Analytics Browser SDK Resources"
 
