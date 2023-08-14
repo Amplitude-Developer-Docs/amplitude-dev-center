@@ -1,0 +1,2 @@
+!!! warning "Supported browser versions"
+    This SDK uses [nullish coalescing](https://caniuse.com/mdn-javascript_operators_nullish_coalescing) (`??`) and [optional chaining](https://caniuse.com/mdn-javascript_operators_optional_chaining) (`?.`) operators. Please refer to the links to see supported browser versions.

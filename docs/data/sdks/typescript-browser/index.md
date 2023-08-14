@@ -25,6 +25,8 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
 
+--8<-- "includes/sdk-browser-supported-version.md"
+
 ## Getting started
 
 Use [this quickstart guide](../sdk-quickstart#browser) to get started with Amplitude Browser SDK.

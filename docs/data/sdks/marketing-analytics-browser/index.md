@@ -20,6 +20,8 @@ The Marketing Analytics Browser SDK extends the Browser SDK to identify users an
 
     The Marketing Analytics Browser SDK extends the Browser SDK 1.0 with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Browser SDK](../typescript-browser).
 
+--8<-- "includes/sdk-browser-supported-version.md"
+
 ## Getting started
 
 ### Installation

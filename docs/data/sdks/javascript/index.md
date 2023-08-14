@@ -18,6 +18,8 @@ This is the official documentation for the Amplitude Analytics JavaScript SDK.
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
 
+--8<-- "includes/sdk-browser-supported-version.md"
+
 ## Install
 
 Install the Amplitude Analytics JavaScript SDK in your project.
