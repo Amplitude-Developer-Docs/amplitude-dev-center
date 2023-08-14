@@ -296,7 +296,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 --8<-- "includes/sdk-ts-browser/shared-plugins.md"
 
-##### Web attribution enrichment plugin
+#### Web attribution enrichment plugin
 
 You need to download `plugin-web-attribution-browser` package and add the `webAttributionPlugin` before call init method. 
 
@@ -431,9 +431,9 @@ You can opt-out of using cookies by setting `disableCookies` to `true` so that
 
 --8<-- "includes/sdk-device-id/change-scenarios.md"
 
-- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
-- On initialization, a device ID is passed in from URL param `deviceId`
-- `reset()` is called
+* By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
+* On initialization, a device ID is passed in from URL param `deviceId`
+* `reset()` is called
 
 --8<-- "includes/sdk-device-id/set-device-id.md"
 
