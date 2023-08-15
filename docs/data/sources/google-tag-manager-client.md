@@ -8,10 +8,10 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 !!!info Resources
     [:simple-googletagmanager: GTM Template Gallery](https://tagmanager.google.com/gallery/#/owners/amplitude/templates/amplitude-browser-sdk-gtm-template) · [:material-github: GitHub](https://github.com/amplitude/amplitude-browser-sdk-gtm-template)
 
-!!!warning "Breaking Changes Checklist from the version xxxx, Aug, 2023"
-    Starting from the version xxxx, Aug, 2023, We upgrade this template to use from [Marketing Analytics SDK(Deprecated)](../../sdks/marketing-analytics-browser/) to the [Amplitude Browser SDK 2.0](../../sdks/browser-2/) to offer better support, enhanced functions, and additional features. 
+!!!warning "Breaking Changes Checklist from the version 240a7, Aug, 2023"
+    Starting from the version 240a7, Aug, 2023, this template has been updated from using the [Marketing Analytics SDK(Deprecated)](../../sdks/marketing-analytics-browser/) to the [Amplitude Browser SDK 2.0](../../sdks/browser-2/), offering better support, enhanced functionality, and additional features. 
  
-    While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts. However, we've made these changes configurable to maintain consistency. If you wish to retain the legacy behavior, it's essential to review the following [list of breaking changes](./#breaking-changes-checklist) and adjust your configuration accordingly.
+    While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts. However, we've made these changes configurable to maintain consistency. If you wish to retain the legacy behavior, it's essential to review the following [list of breaking changes](./#browser-sdk-20-breaking-changes) and adjust your configuration accordingly.
 
 !!!warning
     Due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how the SDK gets loaded in GTM, this could lead to missing data.
@@ -117,6 +117,16 @@ A tag type allow you to specify what kind of action or event should be tracked i
 
 Cookies are generated at the initialization stage. For more information on managing cookies, please refer to our [cookie management details](../../sdks/typescript-browser/#cookie-management). It is recommended to initialize after obtaining cookie consent. As we support deferred initialization, any event tracking that takes place before the init command will still be captured and won't be lost.
 
+##### Default Event Tracking
+
+Check this checkbox to enable default event tracking and configure the following default tracking events
+
+- Attribution Tracking
+- Page View Tracking
+- Sessions Tracking
+- Form Interaction Tracking
+- File downloads Tracking
+
 ##### EU Data Residency
 
 For EU data residency, you must set up your project inside Amplitude EU and use the API key from Amplitude EU. You can configure the server zone by checking the checkbox **EU Data Residency** under **Tag Configuration** -> **Initialization** of the `init` tag. The initialization section only shows up when tag type is set to `init`. [More details](../../sdks/browser-2/#eu-data-residency).
@@ -160,21 +170,11 @@ If the user ID is already available you can:
 
 ##### Enable client side user agent enrichment
 
-Starting with version xxxxx, as of Aug, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser).
+Starting with version 240a7 in Aug, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser).
 
 To avoid breaking changes in chart analytics, we provide the option to enable client-side parsing by simply checking the check box. You can also choose which user agent field (OS name, OS version, device manufacture, and device model) you want to enrich by checking the checkbox accordingly.
 
 If you are a new user, we highly recommend adopting server-side parsing by leaving this checkbox empty as the new enrichment strategy offers more accurate result.
-
-##### Default Event Tracking
-
-Check this checkbox to enable default event tracking and configure the following default tracking events
-
-- Attribution Tracking
-- Page View Tracking
-- Sessions Tracking
-- Form Interaction Tracking
-- File downloads Tracking
 
 ###### Attribution tracking
 
