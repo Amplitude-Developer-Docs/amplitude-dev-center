@@ -130,7 +130,7 @@ If the userId already available you can initialize the instance with a User ID. 
     |`domain`| `string`. Set the top level domain. | `null` |
     |`partnerId`| `string`. The partner Id value. Amplitude requires the customer who built an event ingestion integration to add the partner identifier to `partner_id`. | `null` |
     |`sessionTimeout`| `number`. How long one session expire. | `30` minutes. |
-    |`userId`| `number`. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. | `undefined` |
+    |`userId`| `number`. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_id_length` option. | `undefined` |
     |`trackingOptions`| `TrackingOptions`. Please check the `Optional tracking` section for more tracking options configuration. | Enable all tracking options by default. |
     |`transport`| `TransportType.XHR` or `TransportType.SendBeacon` or `TransportType.Fetch`. Set the transport type. | `TransportType.Fetch` |
 - `Select a **GTM variable** from the list`. It's necessary to return an object containing the key-value pairs you wish to use for instance configuration. Ensure that the keys are part of the available configurations.
@@ -171,7 +171,7 @@ Set event level groups. With event-level groups, the group designation applies o
 #### identify
 
 !!!note 
-    Identify calls _don't_ appear in user look up. The identify calls will set the user properties, and those updated user properties will appear only after the next event fired by the user.
+    Identify calls *don't* appear in user look up. The identify calls will set the user properties, and those updated user properties will appear only after the next event fired by the user.
 
 Add individual user property operations each as its own row in the table. You can add as many as you like, but note that you can only include a specific User Property in a single operation. The operations are executed in order. [More details](../../sdks/typescript-browser/#user-properties).
 
