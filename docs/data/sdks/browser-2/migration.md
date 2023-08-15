@@ -48,8 +48,8 @@ amplitude.init(API_KEY, undefined, {
     attribution: true,
     pageViews: true,
     sessions: false,
-    fileDownload: false,
-    formInteraction: false,
+    fileDownloads: false,
+    formInteractions: false,
   },
 });
 ```
