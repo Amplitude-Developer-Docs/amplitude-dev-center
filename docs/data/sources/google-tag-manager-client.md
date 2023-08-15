@@ -32,7 +32,7 @@ The new template changes the default page view events to include `[Amplitude]` p
 
 ### Subdomain attribution tracking 
 
-Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked with no additional configuration. If you want to only want to exclude the attribution tracking on `location.hostname`, not other subdmaion, add the value of `location.hostname` in the exclude referral section. See full details in table. 
+Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked by default. If you want to exclude the attribution tracking on `location.hostname`, but not other subdomains, add the value of `location.hostname` in the exclude referral section. See full details in table. 
 
 ???Breaking change "Attribution Tracking"
     | <div class="big-column">Before</div>  | Current |
@@ -41,7 +41,7 @@ Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.
 
 ### User agent parser
 
-The new template changes they way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older page view events check `Use legacy page view properties`. See full details in table. 
+The new template changes they way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `Enable client side user agent enrichment `. See full details in table. 
 
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current |
