@@ -3,7 +3,7 @@ title: Format Guide
 description: See how different formatting options render
 ---
 
-This cheatsheet covers our most frequently-used formatting features like admonitions and code blocks.
+This cheatsheet covers the most used formatting features like admonitions and code blocks.
 
 ## Abbreviations
 
