@@ -10,7 +10,6 @@ status: new
 
 [Planhat](https://www.planhat.com/) is a customer platform built to give insights, manage workflow and drive customer experience. Planhat is helping hundreds of modern technology companies worldwide center their business around their customers in order to maximize customer success and customer lifetime value. 
 
-
 ## Considerations
 
 Amplitude Data’s Planhat integration allows you to send a continuous, real-time stream of events as User Activities on the End User, Asset or Project level.
@@ -26,15 +25,19 @@ Keep these things in mind when sending events to [Planhat](https://support.planh
 - Note that because the Planhat Analytics endpoint is a “data sink”, it will always return status 200 (OK) even when there is an error in the payload. See Planhat’s [API documentation](https://docs.planhat.com/#response_codes) for details.
 
 ## Setup
+
 See the [Planhat documentation](https://www.google.com/url?q=http://support.planhat.com/en/articles/7181975-setting-up-the-amplitude-integration%23h_87f475e94b&sa=D&source=docs&ust=1681362614710965&usg=AOvVaw2y7G6XhmQHzvEoK8v9w8fU) for more details.
 
 ### Prerequisites
+
 To configure an Event Streaming integration from Amplitude to Planhat, you need the following information from Planhat:
+
 - **Tenant Token:** To start sending data into Planhat, you first have to get your API Key. See the Planhat documentation for more help.
 
 ### Planhat setup
 
 Please ensure that:
+
 - Planhat End User, Company and/or Asset/Project **externalIds** match the corresponding ids in Amplitude
 - You have your Tenant Token, so you can set up your integration from Amplitude
 
@@ -55,7 +58,6 @@ There are no other setup steps in Planhat.
     2. **Additionally:** you may specify "companyExternalId", which is advisable for example in the event that you have an End User associated with multiple companies, or if End User email domains do not always match Company Related Domains, necessitating creation of End Users from events
 10. Once you have finished choosing the identifier, click **Save**.
 
-
 ### Use Cases
 
 Bringing Amplitude data into Planhat enables you to act on product usage in the context of all the rest of your customer data. Is your Onboarding process leading to high adoption? Do EBRs lead to improved product usage? Is your training effective? Further, you can use Amplitude data proactively to drive your customer lifecycle forward, for example if a user disengages with the product, automatically drop them in an email sequence to educate them about recent product releases. 
@@ -64,4 +66,4 @@ Bringing Amplitude data into Planhat enables you to act on product usage in the 
 - Creates and updates **sales opportunities** based on event signals such as elevated product usage
 - **Triggers workflows** and actions in response to event data like user “logged In”, driving proactive & timely customer management
 - Automates end user **email campaigns** based on event data like “last seen more than a week ago” and embedded analytics on email opens and clicks
-- Visualises event data in **custom dashboards** directly shareable with customers via portals
+- Visualizes event data in **custom dashboards** directly shareable with customers via portals

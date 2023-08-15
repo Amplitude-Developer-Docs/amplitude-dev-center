@@ -130,7 +130,7 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
     | `cookieExpiration` | `number`. The number of days after which the Amplitude cookie will expire. 12 months is for GDPR compliance. | `365` |
     | `sameSiteCookie` | `string`. Sets the SameSite flag on the amplitude cookie. Decides cookie privacy policy. | `Lax` |
     | `cookieForceUpgrade` | `boolean`. Forces pre-v6.0.0 instances to adopt post-v6.0.0 compat cookie formats. | `false` |
-    | `disableCookies` |  `boolean`. Whether disable Ampllitude cookies altogether. | `false` |
+    | `disableCookies` |  `boolean`. Whether disable Amplitude cookies altogether. | `false` |
     | `deferInitialization` | `boolean`.  Whether defer initialization. If `true`, disables the core functionality of the sdk, including saving a cookie and all logging, until explicitly enabled. | `false` |
     | `deviceIdFromUrlParam` | `boolean`. If `true`, then the SDK will parse Device ID values from the URL parameter amp_device_id if available. Device IDs defined in the configuration options during init will take priority over Device IDs from URL parameters. | `false` |
     | `domain` | `string`. Set a custom domain for the Amplitude cookie. To include subdomains, add a preceding period, eg: `.amplitude.com`. | `null` |
@@ -170,7 +170,7 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `eventUploadThreshold` and `eventUploadPeriodMillis`. By default, the serverUrl will be `https://api.amplitude.com`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `eventUploadThreshold` and `eventUploadPeriodMillis`. By default, the serverUrl will be `https://api.amplitude.com`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```js
 amplitude.getInstance().init(apiKey, null, {
@@ -467,7 +467,7 @@ By default, the JavaScript SDK tracks some properties automatically. You can ove
 
 ## Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time:
+If your app has its login system that you want to track users with, you can call `setUserId` at any time:
 
 ```js
 amplitude.getInstance().setUserId('USER_ID');
@@ -575,17 +575,17 @@ There are five different standard UTM parameters:
 - `utm_medium`: This identifies the link type that was used (for example: banner, button, email).
 - `utm_campaign`: This identifies a specific campaign used (for example: "summer_sale").
 - `utm_term`: This identifies paid search terms used (for example:  product+analytics).
-- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: "bannerlink", "textlink").
+- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: "banner-link", "text-link").
 
 Here is an example URL:
 
-`https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=bannerlink`
+`https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=banner-link`
 
 #### Enable via SDK
 
 In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK automatically pulls UTM parameters from the referring URL and include them as user properties on all relevant events:
 
-- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_gclid` and `gclid` as user properties.
 - `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example: `"?fbclid=392foih3"`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
 - `includeUtm`: If `true`, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
 UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time.
@@ -834,7 +834,7 @@ You can also define the path in your RequireJS configuration like this:
 </script>
 ```
 
-### Cross domain tracking (JavaScript)
+### Cross-domain tracking (JavaScript)
 
 You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
 
@@ -951,7 +951,7 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
 In SDK version 8.5.0 and higher, the SDK can send events using the browser's built-in navigator.sendBeacon API.
  Unlike standard network requests, sendBeacon sends events in the background, even if the user closes the browser or leaves the page.
 
---8<-- "includes/sdk-ts/sendBeacon-warnning.md"
+--8<-- "includes/sdk-ts/sendBeacon-warning.md"
 
 To send an event using sendBeacon, set the transport SDK option to 'beacon' in one of two ways
 
@@ -1035,7 +1035,7 @@ instanceProd.init("API-KEY-2", undefined, {
 });
 ```
 
-- Method2: Set device ID after inialization whenever you need it to be the same
+- Method2: Set device ID after initialization whenever you need it to be the same
 
 ```javascript
 var instanceDev = amplitude.getInstance("amplitude-dev");
@@ -1048,7 +1048,7 @@ instanceProd.init("API-KEY-2");
 instanceProd.setDeviceId(instanceDev.getDeviceId());
 ```
 
-- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [corss domain tracking](./#cross-domain-tracking-javascript) for more details.
+- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [cross domain tracking](./#cross-domain-tracking-javascript) for more details.
 
 ### Content Security Policy (CSP)
 

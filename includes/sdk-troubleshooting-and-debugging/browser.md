@@ -4,11 +4,11 @@ Debugging in a browser can help you identify problems related to your code's imp
 
 ##### Console
 
-You can find JavaScript errors under **Inspect > Console**, which might have the details about the line of code and file that caused the problem. The console also allows you to execute JavaScript code in real-time.
+You can find JavaScript errors under **Inspect > Console**, which might have the details about the line of code and file that caused the problem. The console also allows you to execute JavaScript code in real time.
 
 * Enable debug mode by following these [instructions](./#debug-mode). Then With the default logger, extra function context information will be output to the developer console when any SDK public method is invoked, which can be helpful for debugging.
 
-* Amplitude supports SDK deferred initialization. Events tracked before initialization will be dispatched after the initialization call. If you cannot send events but are able to send the event successfully after entering `amplitude.init(API_KEY, 'USER_ID')` in the browser console, it indicates that your `amplitude.init` call might not have been triggered in your codebase or you are not using the correct amplitude instance during initialization. Therefore, please check your implementation."
+* Amplitude supports SDK deferred initialization. Events tracked before initialization will be dispatched after the initialization call. If you cannot send events but can send the event successfully after entering `amplitude.init(API_KEY, 'USER_ID')` in the browser console, it indicates that your `amplitude.init` call might not have been triggered in your codebase or you are not using the correct amplitude instance during initialization. Therefore, please check your implementation."
 
 ##### Network Request
 
@@ -36,20 +36,20 @@ Console: error net::ERR_BLOCKED_BY_CLIENT
 Network: status (blocked:other)
 * Firefox (Ubuntu)
 Console: error text doesn’t contain any blocking-specific info
-Network: Transferred column contains name of plugin Blocked by uBlock Origin
+Network: Transferred column contains the name of plugin Blocked by uBlock Origin
 * Safari (MacOS)
-Console: error contains text Conent blocker prevented frame ... from loading a resource from ...
+Console: error contains text Content Blocker prevented frame ... from loading a resource from ...
 Network: it looks like blocked requests are not listed. Not sure if it’s possible to show them.
 
-We are recomend to using Proxy server to avoid this situation.
+We recommend using a proxy server to avoid this situation.
 
 ##### Cookies related
 
-Here is the [information](./#cookie-management) SDK store in the cookies. This means that client behavior, like disabling cookies or using a private browser/window/tab, will affect the persistence of these saved values in the cookies. So, if these values are not persistent or are not increasing by one, that could possibly be the reason.
+Here is the [information](./#cookie-management) SDK stored in the cookies. This means that client behavior, like disabling cookies or using a private browser/window/tab, will affect the persistence of these saved values in the cookies. So, if these values are not persistent or are not increasing by one, that could be the reason.
 
 ##### CORS
 
-Cross-Origin Resource Sharing (CORS) is a security measure implemented by browsers to restrict how resources on a web page can be requested from a different domain. It might cause this issue, if you used `setServerURL`.
+Cross-Origin Resource Sharing (CORS) is a security measure implemented by browsers to restrict how resources on a web page can be requested from a different domain. It might cause this issue if you used `setServerURL`.
 
 ```Access to fetch at 'xxx' from origin 'xxx' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.```
 

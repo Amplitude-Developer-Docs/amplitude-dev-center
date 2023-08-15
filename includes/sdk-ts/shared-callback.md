@@ -1,4 +1,4 @@
-All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
+All asynchronous APIs are optionally awaitable through a Promise interface. This also serves as a callback interface.
 
 === "Promise"
 

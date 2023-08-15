@@ -64,7 +64,7 @@ For Amplitude's time-based import option, it's best practice to use a monotonica
 
 !!!example
 
-    Upon first import, Amplitude imports all the data returned from the query configured in the Import Config. Amplitude saves a reference of the maximum timestamp referenced in the *Timestamp Column Name*: `timestamp_1`. Upon subsequent import, Amplitude imports all data from the previously saved timestamp (`timestamp_1`), to what's now the new maximum timestamp (`timestamp_2`). After that import, Amplitude saves `timestamp_2` as the new maximum timestamp.
+    Upon first import, Amplitude imports all the data returned from the query configured in the Import Config. Amplitude saves a reference of the maximum timestamp referenced in the *Timestamp Column Name*: `timestamp_1`. Upon subsequent import, Amplitude imports all data from the previously saved timestamp (`timestamp_1`), to what's now the new maximum timestamp (`timestamp_2`). Then after that import, Amplitude saves `timestamp_2` as the new maximum timestamp.
 
 ## Mandatory data fields
 

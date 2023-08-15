@@ -12,7 +12,7 @@ Learn more about behavioral cohorts in the [Help Center](https://help.amplitude.
 Keep these general considerations in mind when working with cohort destinations.
 
 - You must have a paid [Amplitude plan](https://amplitude.com/pricing) to send cohorts via these integrations.
-- Some destinations support datacenters outside of the US. For more info, refer to the documentation for the specific destination you want to use. 
+- Some destinations support data centers outside of the US. For more info, refer to the documentation for the specific destination you want to use. 
 - Hourly sync cohorts have a maximum of 1 million users.
 - Daily sync cohorts have a maximum of 10 million users.
 

@@ -439,7 +439,7 @@ Starting from release v8.17.0, the SDK is able to track more default events now.
 [^1]:
     Session tracking is the same as supported in previous versions, which was previously enabled/disabled via the [`trackingSessionEvents`](#configuration) configuration.
 [^2]:
-    Deep link tracking is not fully automated, you will need to call the correspoding methods manually.
+    Deep link tracking is not fully automated, you will need to call the corresponding methods manually.
 
 ???config "Tracking default events options"
     | <div class="big-column">Name</div> | Type | Default Value | Description |
@@ -686,7 +686,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentifyWithGroupType` method accepts a group type string parameter and group name object parameter, as well as an Identify object that's applied to the group.
 
@@ -694,7 +694,7 @@ The `groupIdentifyWithGroupType` method accepts a group type string parameter 
 
     ```obj-c
     NSString *groupType = @"plan";
-    NSObject *groupName = @"enterprese";
+    NSObject *groupName = @"enterprise";
     AMPIdentify *identify = [[AMPIdentify identify] set:@"key" value:@"value"];
     [[Amplitude instance] groupIdentifyWithGroupType:groupType groupName:groupName groupIdentify:identify];
     ```
@@ -842,7 +842,7 @@ You can use the helper method getSessionId to get the value of the current `sess
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call setUserId at any time.
+If your app has its login system that you want to track users with, you can call setUserId at any time.
 
 === "Objective-C"
 
@@ -953,6 +953,14 @@ Before initializing the SDK with your `apiKey`, create a `AMPTrackingOptions` 
     ```obj-c
     AMPTrackingOptions *options = [[[[AMPTrackingOptions options] disableCity] disableIPAddress] disablePlatform];
     [[Amplitude instance] setTrackingOptions:options];
+    ```
+
+=== "Swift"
+
+    ```swift
+    let trackingOptions = AMPTrackingOptions().disableCity()
+                                              .disableCarrier();
+    Amplitude.instance().setTrackingOptions(trackingOptions!);
     ```
 
 Tracking for each field can be individually controlled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).

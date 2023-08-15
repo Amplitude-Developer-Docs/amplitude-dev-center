@@ -394,7 +394,7 @@ amplitude.revenue(revenue)
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```kotlin
 amplitude.setUserId("user@amplitude.com")
@@ -425,7 +425,7 @@ amplitude.reset()
 
 ## Amplitude SDK plugin
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 ### Plugin.setup
 
@@ -636,7 +636,7 @@ You can define your own session expiration time. The default session expiration 
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 === "Kotlin"
 

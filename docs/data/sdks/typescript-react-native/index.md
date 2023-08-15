@@ -233,7 +233,7 @@ identify(identifyObj);
 
 #### `Identify.preInsert`
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+This method pre-inserts a value or values to a user property if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -246,7 +246,7 @@ identify(identifyObj);
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+This method post-inserts a value or values to a user property if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -259,7 +259,7 @@ identify(identifyObj);
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the item doesn't exist in the user property, it will be no operation.
+This method removes a value or values to a user property if it exists in the user property. Remove means remove the existing values from the given list. If the item doesn't exist in the user property, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -311,7 +311,7 @@ track({
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that will be applied to the group.
 
@@ -330,7 +330,7 @@ groupIdentify(groupType, groupName, identify);
 
 The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances will store each revenue transaction and allow you to define several special revenue properties (such as "revenueType", "productIdentifier", etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
-To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
+To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product were purchased at $3.99.
 
 ```ts
 import { Revenue, revenue } from '@amplitude/analytics-react-native';
@@ -365,7 +365,7 @@ import { flush } from '@amplitude/analytics-react-native';
 flush();
 ```
 
-By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
+By default, `flush` is called automatically in an interval, if you want to flush the events altogether, you can control the async flow with the optional Promise interface, for example:
 
 ```typescript
 await init(AMPLITUDE_API_KEY).promise;
@@ -375,7 +375,7 @@ await flush().promise;
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 TypeScript
 
@@ -407,7 +407,7 @@ setSessionId(Date.now());
 
 ### Custom device ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. A UUID is recommended.
 
@@ -489,7 +489,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Callback
 
-All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
+All asynchronous APIs are optionally awaitable through a Promise interface. This also serves as a callback interface.
 
 ```ts
 import { track } from '@amplitude/analytics-react-native';
@@ -510,7 +510,7 @@ track('Button Clicked').promise.then((result) => {
 
 ### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 #### `add`
 

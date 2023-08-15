@@ -54,4 +54,4 @@ After successfully tracking these events, you can [track more](https://help.ampl
 
 As you advance, it’s critical to [create a tracking plan](https://help.amplitude.com/hc/en-us/articles/5078731378203-Create-a-tracking-plan) document that outlines what events and properties to track, why you're tracking them, and where they're tracked. A tracking plan should be based on the business outcomes you’re trying to measure or improve.
 
-If you are using Amplitude SDKs, it's recommended to use Ampli Wrapper which is a lightweight wrapper over the Amplitude SDK that provides type-safety, supports linting, and enables features like input validation. Ampli CLI works together with the Ampli wrapper to bring a tracking library into your project. Learn more about [Ampli](../../data/ampli/).
+If you are using Amplitude SDKs, it's recommended to use Ampli Wrapper which is a lightweight wrapper over the Amplitude SDK that provides type safety, supports linting, and enables features like input validation. Ampli CLI works together with the Ampli wrapper to bring a tracking library into your project. Learn more about [Ampli](../../data/ampli/).
