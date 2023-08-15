@@ -404,7 +404,11 @@ nav:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
-        - Management API (Beta): experiment/apis/management-api.md
+        - Management API: 
+          - experiment/apis/management-api/index.md
+          - Flags: experiment/apis/management-api/flags.md
+          - Experiments: experiment/apis/management-api/experiments.md
+          - Deployments: experiment/apis/management-api/deployments.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
