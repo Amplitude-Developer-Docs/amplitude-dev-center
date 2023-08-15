@@ -10,9 +10,9 @@ The Experiment management API can be used to programmatically create and control
 
 | <div class="big-column">API</div> | Description |
 | --- | --- |
-|[Flag Apis](flags.md)| Flag APIs to create, edit, and display flags, and their properties.  |
-|[Experiment Apis](experiments.md)| Experiment APIs to create, edit, and display experiments, and their properties.  |
-|[Deployment Apis](deployments.md)| Deployment APIs to create, edit, and display deployments that flags or experiments can be assigned to. |
+|[Flag APIs](flags.md)| Flag APIs to create, edit, and display flags, and their properties.  |
+|[Experiment APIs](experiments.md)| Experiment APIs to create, edit, and display experiments, and their properties.  |
+|[Deployment APIs](deployments.md)| Deployment APIs to create, edit, and display deployments that flags or experiments can be assigned to. |
 
 !!!info "Beta API Migration"
     
