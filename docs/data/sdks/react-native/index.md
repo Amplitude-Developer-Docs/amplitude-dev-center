@@ -27,7 +27,7 @@ The following matrix lists the support for Amplitude React Native SDK version fo
 | @amplitude/react-native  | @react-native-community/cli | react-native      |Gradle|Android Gradle Plugin|
 |--------------------------|-----------------------------|-------------------|---|---|
 | >= 2.17.1                | >= 10.0                     | >= 0.71           | 7.5.1+ | 7.2.1+ |
-| <= 2.17.0                | <= 9.0                      | >= 0.61,  <= 0.70 | 7.5.1+ | 7.2.1+ |
+| <= 2.17.0                | <= 9.0                      | >= 0.61,  <= 0.70 | 3.5.3+ | 3.5.3+ |
 
 Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle).
 
