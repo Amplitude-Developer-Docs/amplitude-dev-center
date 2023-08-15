@@ -7,12 +7,11 @@ This cheatsheet covers the most used formatting features like admonitions and co
 
 ## Abbreviations
 
-
 If you're working with a doc that has a lot of acronyms or initialisms, add `--8<-- "includes/abbreviations.md"` to the bottom of the doc, and add the abbreviations to `includes/abbreviations.md`
 
 [Learn more](https://squidfunk.github.io/mkdocs-material/reference/abbreviations "https://squidfunk.github.io/mkdocs-material/reference/abbreviations")
 
-## Admonitions (callouts, notes, warnings)
+## Admonitions
 
 Admonitions are the note blocks.
 The syntax for these is:
@@ -99,7 +98,7 @@ For example:
 ```
 
 
-### Adding titles to code blocks
+### Add titles to code blocks
 
 To add a title to a code block, add `"My title"` after the language declaration.
 
@@ -289,7 +288,7 @@ Here is an example of what a footnote[^1] looks like.
 
 You can add the next page and previous page buttons to guides that you intend readers to go through in a particular order, one page at a time. For example, the Experiment Getting Started Guide (experiment/guides/getting-started/create-a-deployment/).
 
-On the first page, set the page's `template` metadata to `guide-first.html`.
+On the first page, set the page's `template` metadata to `guide-first.html`. 
 
 ~~~
 ---
