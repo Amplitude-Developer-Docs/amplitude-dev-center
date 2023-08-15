@@ -296,7 +296,8 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 --8<-- "includes/sdk-ts-browser/shared-plugins.md"
 
-#### Web attribution enrichment plugin
+<!-- markdownlint-disable-next-line MD001 -->
+##### Web attribution enrichment plugin
 
 You need to download `plugin-web-attribution-browser` package and add the `webAttributionPlugin` before call init method. 
 
@@ -322,7 +323,7 @@ amplitude.init(API_KEY);
 See the [configuration options](../marketing-analytics-browser/#configuration).
 Learn more about what the [Web Attribution Plugin](../marketing-analytics-browser/#web-attribution) supports.
 
-##### Differences from base SDK
+###### Differences from base SDK
 
 Enabling the Attribution plugin overwrites the default attribution tracking behavior of the SDK.
 
@@ -334,7 +335,7 @@ The Attribution plugin tracks all campaigns, regardless of whether the user is a
 
 Set the `resetSessionOnNewCampaign` option to `true` to cause the user’s session to be reset when a new campaign is detected. The session isn't reset in the case where the referrer is just a different subdomain of your site.
 
-#### Page view enrichment plugin
+##### Page view enrichment plugin
 
 You need to download `plugin-page-view-tracking-browser` and add the `pageViewTrackingPlugin` before calling the init method.
 
@@ -359,7 +360,7 @@ amplitude.init(API_KEY);
 See the [configuration options](../marketing-analytics-browser/#configuration).
 Learn more about what the [Page View Plugin](../marketing-analytics-browser/#page-view) supports.
 
-##### Differences from base SDK
+###### Differences from base SDK
 
 The base SDK sends Page View events when a user’s campaign is tracked if the `attribution.trackPageViews` option is set to `true`.
 
