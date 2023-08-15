@@ -551,7 +551,7 @@ You can send these keys in the JSON event object. Note that one of `user_id` or 
 
 | <div class="big-column">Name</div>| Description |
 | --- | --- |
-| `user_id` | <span class="required">Required if `device_id` isn't used</span>. String. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. |
+| `user_id` | <span class="required">Required if `device_id` isn't used</span>. String. ID for the user. Must have a minimum length of 5 characters unless overridden with the `min_id_length` option. |
 | `device_id` | <span class="required">Required if `user_id` isn't used</span>. String. A device-specific identifier, such as the Identifier for Vendor on iOS. If a `device_id` isn't sent with the event, then it's set to a hashed version of the `user_id`. |
 | `event_type` | <span class="required">Required</span>. String. A unique identifier for your event. The following event names are reserved for Amplitude use: `[Amplitude]` Start Session", `[Amplitude]` End Session", `[Amplitude]` Revenue", `[Amplitude]` Revenue (Verified)", `[Amplitude]` Revenue (Unverified)", and `[Amplitude]` Merged User". Note: `$identify` and `$groupidentify` are predefined for identification and group identification. |
 | `time` | <span class="optional">Optional</span>. The timestamp of the event in milliseconds since epoch. If time isn't sent with the event, then it's set to the request upload time. |
