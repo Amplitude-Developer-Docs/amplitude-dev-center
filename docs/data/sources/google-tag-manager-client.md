@@ -41,7 +41,7 @@ Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.
 
 ### User agent parser
 
-The new template changes they way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `Enable client side user agent enrichment `. See full details in table. 
+The new template changes the way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `Enable client side user agent enrichment `. See full details in table.
 
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current |
