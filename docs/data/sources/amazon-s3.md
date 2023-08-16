@@ -101,6 +101,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
     - **{{prefix}}**: the optional prefix of files that you want to import, for example `filePrefix`. For folders, make sure prefix ends with `/`, for example `folder/`. For the root folder, keep prefix as empty.
 
     Example 1: IAM policy without prefix:
+
     ```json hl_lines="16 29 40"
     {
       "Version":"2012-10-17",
@@ -149,6 +150,7 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
     ```
   
     Example 2: IAM policy with a prefix. For a folder, make sure the prefix ends with `/`, for example `folder/`:
+    
     ```json hl_lines="16 29 40"
     {
       "Version":"2012-10-17",
