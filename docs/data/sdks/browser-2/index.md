@@ -246,8 +246,6 @@ amplitude.init(API_KEY, {
 
 #### Tracking sessions
 
-Amplitude tracks session events by default. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
-
 Amplitude tracks session events by default. A session is the period of time a user has your website open. See [How Amplitude defines sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) for more information. When a new session starts, Amplitude tracks a session start event and is the first event of the session. The event type for session start is "[Amplitude] Start Session". When an existing session ends, a session end is tracked and is the last event of the session. The event type for session end is "[Amplitude] End Session".
 
 You can opt out of session tracking by setting `config.defaultTracking.sessions` to `false`. Refer to the code sample below.
