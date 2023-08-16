@@ -11,7 +11,7 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 !!!warning "Breaking Changes Checklist from the version 240a7, Aug, 2023"
     Starting from the version 240a7, Aug, 2023, this template has been updated from using the [Marketing Analytics SDK(Deprecated)](../../sdks/marketing-analytics-browser/) to the [Amplitude Browser SDK 2.0](../../sdks/browser-2/), offering better support, enhanced functionality, and additional features. 
  
-    While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts. However, we've made these changes configurable to maintain consistency. If you wish to retain the legacy behavior, it's essential to review the following [list of breaking changes](./#browser-sdk-20-breaking-changes) and adjust your configuration accordingly.
+    While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts. However, we've made these changes configurable to maintain consistency. If you wish to retain the legacy behavior, it's essential to review the following [list of breaking changes](./#breaking-changes-checklist) and adjust your configuration accordingly.
 
 !!!warning
     Due to inherent limitations of GTM, certain features, such as plugins, are not well supported in this GTM template. You are still able to add plugins using the Custom HTML tag, but because of how the SDK gets loaded in GTM, this could lead to missing data.
@@ -19,35 +19,6 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
 !!!note
     Ensure to consistently update your Amplitude GTM template to the latest version for an enhanced feature set, crucial bug fixes, and a significantly improved user experience.
 
-## Breaking changes checklist
-
-### Page view event_type and event_properties
-
-The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties`. See full details in table. 
-
-???Breaking change "Page View Tracking"
-    | <div class="big-column">Before</div>  | Current |
-    | --- | --- |
-    | <ul><li>event_type: `Page View`</li><li>event_properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event_type:  `[Amplitude] Page Viewed`</li><li>event properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
-
-### Subdomain attribution tracking 
-
-Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked by default. If you want to exclude the attribution tracking on `location.hostname`, but not other subdomains, add the value of `location.hostname` in the exclude referral section. See full details in table. 
-
-???Breaking change "Attribution Tracking"
-    | <div class="big-column">Before</div>  | Current |
-    | --- | --- | --- | --- |
-    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | 
-
-### User agent parser
-
-The new template changes the way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `Enable client side user agent enrichment `. See full details in table.
-
-???Breaking change "User Agent Parser"
-    | <div class="big-column">Before</div>  | Current |
-    | --- | --- | --- | --- |
-    | [Client-side user agent parsing](https://github.com/amplitude/ua-parser-js).  | Server-side user agent parsing by Amplitude ingestion endpoints. |
-    
 ## Workflow
 
 ### Container Setup
@@ -77,7 +48,7 @@ Copy your amplitude project API Key in the API Key field. For EU residency, your
 
 #### Instance Name
 
-If you plan on running multiple Amplitude instances, each with distinct API keys or initialization options, you can assign an `Instance Name` to each one. It's crucial to configure the `Instance Name` in the tag settings for every Amplitude tag that should be associated with a specific instance. 
+If you plan on running more than one Amplitude instance, each with distinct API keys or initialization options, you'll need to assign an `Instance Name` to each one. Tags with the same `Instance Name` are linked together and use the API key of the Initialization tag for that `Instance Name`.
 
 !!!note
     This approach can also prevent missing events if different versions of the Amplitude SDK coexist in your system.
@@ -106,9 +77,9 @@ amplitudeGTM._iq["yourInstanceName"].getDeviceId();
 amplitude._iq["yourInstanceName"].getDeviceId();
 ```
 
-### Select a Tag Types
+### Select a Tag Type
 
-A tag type allow you to specify what kind of action or event should be tracked in your application. The following tag types are supported in Amplitude GTM template.
+A tag type allows you to specify what kind of action or event should be tracked in your application. The following tag types are supported in Amplitude GTM template.
 
 #### init
 
@@ -121,11 +92,21 @@ Cookies are generated at the initialization stage. For more information on manag
 
 Check this checkbox to enable default event tracking and configure the following default tracking events
 
-- Attribution Tracking
-- Page View Tracking
-- Sessions Tracking
-- Form Interaction Tracking
-- File downloads Tracking
+- Track Marketing Attribution
+
+  The following configurations are available attribution options. [More details](../../sdks/browser-2/#tracking-marketing-attribution).
+
+???config "Default Configurations"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    | `Initial Empty Value` | `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY`|
+    | `Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. By default, it will also exclude referral section to track attribution of all subdomains of the input domain. [More Details](./#subdomain-attribution-tracking).  | `[]` | 
+    | `Reset session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deleted. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-marketing-attribution). The session isn't reset in the case where the referrer is just a different subdomain of your site. | `false`|
+
+- Track Page Views
+- Track Sessions
+- Track Form Interactions
+- Track File Downloads
 
 ##### EU Data Residency
 
@@ -175,17 +156,6 @@ Starting with version 240a7 in Aug, 2023, we have upgraded this template to use 
 To avoid breaking changes in chart analytics, we provide the option to enable client-side parsing by simply checking the check box. You can also choose which user agent field (OS name, OS version, device manufacture, and device model) you want to enrich by checking the checkbox accordingly.
 
 If you are a new user, we highly recommend adopting server-side parsing by leaving this checkbox empty as the new enrichment strategy offers more accurate result.
-
-###### Attribution tracking
-
-Check this box to enable attribution tracking. The following configurations are available attribution options. [More details](../../sdks/browser-2/#tracking-marketing-attribution).
-
-???config "Default Configurations"
-    | <div class="big-column">Name</div>  | Description | Default Value |
-    | --- | --- | --- |
-    | `Initial empty value` | `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY`|
-    | `Exclude Referrers`| `string` or `string1, string2`. The referrer_domain you want to exclude the attribution tracking. If you exclude a referring_domain, it won't fire any web attribution tracking. That means for the event fired from the exclude referring_domain won't have any web attribution user properties, it will maps to `(none)` in chart analysis. By default, it will also exclude referral section to track attribution of all subdomains of the input domain. [More Details](./#subdomain-attribution-tracking).  | `[]` | 
-    | `Reset the session on new campaign` | `boolean`. Enable this will broke the current session and create a new session if there has a new campaign is deleted. [More details](../../sdks/browser-2/#advanced-configuration-for-tracking-marketing-attribution). The session isn't reset in the case where the referrer is just a different subdomain of your site. | `false`|
 
 ###### Page View Tracking
 
@@ -369,3 +339,33 @@ If you hardcode the value in your tag, the input will be forced into a string ty
 This video tutorial walks through the implementation basics. 
 
 <script src="https://fast.wistia.com/embed/medias/n337njhoot.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_n337njhoot videoFoam=true" style="height:100%;position:relative;width:100%"><div class="wistia_swatch" style="height:100%;left:0;opacity:0;overflow:hidden;position:absolute;top:0;transition:opacity 200ms;width:100%;"><img src="https://fast.wistia.com/embed/medias/n337njhoot/swatch" style="filter:blur(5px);height:100%;object-fit:contain;width:100%;" alt="" aria-hidden="true" onload="this.parentNode.style.opacity=1;" /></div></div></div></div>
+
+## Breaking changes checklist
+
+### Page view event_type and event_properties
+
+The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties`. See full details in table. 
+
+???Breaking change "Page View Tracking"
+    | <div class="big-column">Before</div>  | Current |
+    | --- | --- |
+    | <ul><li>event_type: `Page View`</li><li>event_properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event_type:  `[Amplitude] Page Viewed`</li><li>event properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
+
+### Subdomain attribution tracking 
+
+Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked by default. If you want to exclude the attribution tracking on `location.hostname`, but not other subdomains, add the value of `location.hostname` in the exclude referral section. See full details in table. 
+
+???Breaking change "Attribution Tracking"
+    | <div class="big-column">Before</div>  | Current |
+    | --- | --- | --- | --- |
+    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | 
+
+### User agent parser
+
+The new template changes the way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `Enable client side user agent enrichment `. See full details in table.
+
+???Breaking change "User Agent Parser"
+    | <div class="big-column">Before</div>  | Current |
+    | --- | --- | --- | --- |
+    | [Client-side user agent parsing](https://github.com/amplitude/ua-parser-js).  | Server-side user agent parsing by Amplitude ingestion endpoints. |
+    
