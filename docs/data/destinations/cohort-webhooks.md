@@ -117,10 +117,10 @@ Some webhook destinations would need a list of users as a batch. For these cases
 
 ```text
 [ < #list input.users.iterator() as user > {
-	'user_id': '${user.user_id}',
-	'amplitude_${input.cohort_name}_${input.cohort_id}': $ {
-		input.in_cohort
-	}
+        'user_id': '${user.user_id}',
+        'amplitude_${input.cohort_name}_${input.cohort_id}': $ {
+        input.in_cohort
+        }
 } < #if user_has_next > , < /#if></#list > ]
 ```
 
