@@ -125,6 +125,7 @@ Some webhook destinations would need a list of users as a batch. For these cases
 ```
 
 Using this template results in sending this JSON array payload to the Webhook endpoint:
+
 ```json
 {
       {
@@ -143,6 +144,7 @@ Using this template results in sending this JSON array payload to the Webhook en
 ```
 
 ### Other useful information for templates
+
 - FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
 - `input` is a reserved variable that refers to the event as an object. The "input" will have the exact format as the example payload we provided.
 - `input` has the following below format:
@@ -153,7 +155,3 @@ Using this template results in sending this JSON array payload to the Webhook en
   - `message_id` string. The unique identifier of this update message. When a retry happens, it can be used to de-duplicate.
   - `users` list of JSON objects. The actual user payload.
     - `user_id:` string. The Amplitude user_id of the user. 
-
-    
-
-     
