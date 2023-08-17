@@ -6,62 +6,52 @@ description: Use this integration to send Amplitude cohort updates to your custo
 
     This feature is in closed beta and is in active development. Contact your Amplitude Success Manager for support with this integration.
 
-Amplitude Cohort webhooks allows customers to receive cohort updates to their own webhook endpoints. This allows for custom data enrichment, filtering, or aggregation based on the specific requirements of the webhook endpoint or internal systems. The transformed cohort data can then be seamlessly integrated into marketing automation platforms or other systems, enabling personalized and targeted marketing campaigns with up-to-date cohort insights.
+Amplitude Cohort webhooks enables customers to receive cohort updates to their own webhook endpoints. This allows for custom data enrichment, filtering, or aggregation based on the specific requirements of the webhook endpoint or internal systems. The transformed cohort data then integrates into marketing automation platforms or other systems, which enables personalized and targeted marketing campaigns with up-to-date cohort insights.
 
 ## Considerations
 
 - You must enable this integration in each Amplitude project you want to use it in.
-- You will need a paid Amplitude plan to leverage Cohort Webhooks.
+- You need a paid Amplitude plan to use Cohort Webhooks.
 
 ## Setup
 
-### 1) Prerequisites
+1. To configure streaming from Amplitude to your webhook, collect the following information:
 
-To configure streaming from Amplitude to your webhook, you need the following information.
+      - **Webhook URL**: The destination URL Amplitude should use to send events and users.
+      - **Header Information**: You can set up to five extra headers for the webhook request.
 
-- **Webhook URL** The destination URL Amplitude should use to send events and users.
-- **Header Information** You can set up to five extra headers for the webhook request.
+2. Create a new destination.
 
-### 2) Create a new destination
+      1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
+      2. In the Cohorts section, click **Webhook**.
 
-1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
-2. In the Cohorts section, click **Webhook**.
+3. Enter the URL endpoint for the webhook. For example, `https://mycompany.com/webhook`.
+Amplitude doesn't have a single IP address for forwarding events and users, so ensure that your URL can receive payloads from any Amplitude hosts.
 
-### 3) Enter webhook URL
+4. There are two preset headers for every webhook sync:
 
-Enter the URL endpoint for the webhook. For example, `https://mycompany.com/webhook`.
-Note that Amplitude doesn't have a single IP address for forwarding events and users, so ensure that your URL can receive payloads from any Amplitude hosts.
+      - `Content-Type: application/json`
+      - `User-Agent: Amplitude/Webhook/1.0`
 
-### 4) Select headers
+      After these preset headers, you can define five more headers. To create a new header:
 
-There are two preset headers for every webhook sync:
+      1. Enter the header name on the left side text box
+      2. Enter the header value on the right side text box
+      3. A new header row appears if the limit isn't reached
 
-- `Content-Type`: `application/json`
-- `User-Agent`: `Amplitude/Webhook/1.0`
-
-After these preset headers, you can define five more headers. To create a new header:
-
-1. Enter the header name on the left side text box
-2. Enter the header value on the right side text box
-3. A new header row appears if the limit isn't reached
-
-### 5) Define cohort payload
-
-1. Define the payload you want to receive in the webhook. You can choose to:
+5. Define the payload you want to receive in the webhook. You can choose to:
     1. Send the default Amplitude payload which follows the Amplitude cohort format. 
     2. Customize the payload using an [Apache FreeMarker](https://freemarker.apache.org/) template. See more details below.
 
-### 6) Save destination
-
-When satisfied with your configuration, click Save to complete the setup process.
+6. When satisfied with your configuration, click **Save** to complete the setup process.
 
 ## Establish Cohort syncs to your destination
 
 1. In Amplitude, open the cohort you want to export.
-2. Click Sync, and choose Webhook.
-3. Select your defined webhook destination.
+2. Click **Sync**, and choose Webhook.
+3. Select the defined webhook destination.
 4. Select the sync cadence.
-5. Click sync to initiate the sync. 
+5. Click **Sync** to begin the sync. 
 
 ## FreeMarker Templating Language
 
@@ -69,7 +59,7 @@ When satisfied with your configuration, click Save to complete the setup process
 
     See the FreeMarker [guide to creating templates](https://freemarker.apache.org/docs/dgui.html) for more help.
 
-### Example template for sending cohort updates
+### Example template to send cohort updates
 
 ```text
 {
@@ -84,11 +74,11 @@ When satisfied with your configuration, click Save to complete the setup process
          "user_id": "${user.user_id}"
       }<#sep>,
      </#list>
-]
+    ]
 }
 ```
 
-Using this template results in sending this JSON payload to the Webhook endpoint:
+This template creates and sends this JSON payload to the Webhook endpoint:
 
 ```json
 {
@@ -111,9 +101,9 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 }
 ```
 
-### Example template for sending cohort updates per user
+### Example template to send cohort updates per user
 
-Some webhook destinations would need a list of users as a batch. For these cases, the template can be updated accordingly. In the below example, we can set the cohort name and cohort id as a single boolean property determining whether the user is in the cohort or not.
+Some webhook destinations need a list of users as a batch. For these cases, you can update the template to match. The example below shows the cohort name and cohort id as a single boolean property which determines if the user is in the cohort or not.
 
 ```text
 [ < #list input.users.iterator() as user > {
@@ -124,7 +114,7 @@ Some webhook destinations would need a list of users as a batch. For these cases
 } < #if user_has_next > , < /#if></#list > ]
 ```
 
-Using this template results in sending this JSON array payload to the Webhook endpoint:
+This template creates and sends this JSON payload to the Webhook endpoint:
 
 ```json
 {
@@ -145,13 +135,13 @@ Using this template results in sending this JSON array payload to the Webhook en
 
 ### Other useful information for templates
 
-- FreeMarker replaces the `${ ... }` constructs with the actual value of the expression inside the curly braces.
-- `input` is a reserved variable that refers to the event as an object. The "input" will have the exact format as the example payload we provided.
+- FreeMarker replaces the `${ ... }` constructs with the value of the expression inside the curly braces.
+- `input` is a reserved variable that refers to the event as an object. The "input" has the same format as the example payload above.
 - `input` has the following below format:
   - `cohort_name` string. The display name of the cohort.
   - `cohort_id` string. The unique identifier of the cohort.
-  - `in_cohort` boolean. Indicate whether this batch of users is entering/leaving the cohort
-  - `compute_time` string. The time when this cohort update is computed
-  - `message_id` string. The unique identifier of this update message. When a retry happens, it can be used to de-duplicate.
+  - `in_cohort` boolean. Indicate if this batch of users is entering/leaving the cohort.
+  - `compute_time` string. The time when this cohort update is computed.
+  - `message_id` string. The unique identifier of this update message. When a retry happens, you can use this value to de-duplicate.
   - `users` list of JSON objects. The actual user payload.
-    - `user_id:` string. The Amplitude user_id of the user. 
+    - `user_id` string. The Amplitude user_id of the user. 
