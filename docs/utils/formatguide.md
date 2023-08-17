@@ -53,9 +53,6 @@ Admonition types in Dev Docs use (replace the text after the `!!!` with the lowe
 !!! deprecated
     Displays feature deprecation notices.
 
-
-
-
 [Learn more](https://squidfunk.github.io/mkdocs-material/reference/admonitions/ "https://squidfunk.github.io/mkdocs-material/reference/admonitions/")
 
 ## Annotations
@@ -90,7 +87,6 @@ my example code
 ~~~
 
 For example:
-
 
 ```js 
 
@@ -270,13 +266,13 @@ To add footnotes, bracket the footnote number prepended with a caret:
 
 Footnote content can be inserted anywhere in the document. Use the same syntax for creating the footnote, followed by a colon and your note. To include a paragraph, indent the content 4 spaces.
 
-~~~
+```text
 [^1]: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 [^2]: 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, 
     justo purus auctor massa, nec semper lorem quam in massa.
-~~~
+```
 
 Here is an example of what a footnote[^1] looks like.
 
@@ -290,36 +286,35 @@ You can add the next page and previous page buttons to guides that you intend re
 
 On the first page, set the page's `template` metadata to `guide-first.html`. 
 
-~~~
+```text
 ---
 title: Create a Deployment
 description: How to create a deployment for delivering your feature flags and experiments.
 template: guide-first.html
 ---
-~~~
+```
 
 On each additional page, set the page's `template` metadata to `guide.html`
 
-~~~
+```text
 ---
 title: Create a Flag
 description: How to create a feature flag, add a deployment, configure targeting rules, and activate the feature flag.
 template: guide.html
 ---
-~~~
+``````
 
 On the last page of the guide, set the page's `template` metadata to `guide-last.html`
 
-~~~
+```text
 ---
 title: Track Exposure
 description: How to track an exposure event for the variant which a user has been exposed to.
 template: guide-last.html
 ---
-~~~
+``````
 
 ## Images
-
 
 Add your image file to `docs/assets/images`. Prefix image filenames with the product they belong to (for example `experiment-dashboard.png`).
 
@@ -336,11 +331,11 @@ You can set different titles for a page -- its page title and it's nav title. Th
 <img src="https://raw.githubusercontent.com/Amplitude-Developer-Docs/amplitude-dev-center/main/docs/assets/images/metadocs-page-and-nav-titles.png"  width="600">
 
 1. Page title
-2.  Nav title
+2. Nav title
 
 Set the page title in the `title` metadata on each page. You can set the title that appears in the left nav separately in mkdocs.yml by entering the name before the file path like `- Page Title: path/to/page.md`
 
-```
+```text
  - Cloud Storage:
         - data/destinations/cloud-storage-overview.md
         - Amazon S3: data/destinations/amazon-s3.md
@@ -360,10 +355,9 @@ See the formatting in action on [this page](https://www.docs.developers.amplitud
 
 ## `screen-reader-only` Class
 
-
 If you use a table with icons instead of words (like [this one](https://www.docs.developers.amplitude.com/guides/amplitude-keys-guide/#keys-overview)), use a span tag with the `screen-reader-only` class to add alt text for accessibility. Put your alt text content between the `<span>` tags. 
 
-```
+```text
 |Key   | Yes or No                                                     |
 |------|---------------------------------------------------------------|
 | Key 1| :white_check_mark: <span class="screen-reader-only">Yes</span>|
@@ -373,7 +367,6 @@ If you use a table with icons instead of words (like [this one](https://www.docs
 Note that we must add this in for accessibility -- adding a tooltip to the icon is only visual and doesn't make it screenreader-friendly.
 
 ## Snippets
-
 
 Snippets let you embed arbitrary content (including markdown) in other documents. They're used frequently in our project to embed content that's repeated, such as beta notices, tables that are reused, and required Amplitude plans.
 
@@ -386,7 +379,6 @@ To use Snippets, add a file with the content in the `/includes` directory. In th
 [Learn more](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/ "https://facelessuser.github.io/pymdown-extensions/extensions/snippets/") (Snippets docs)
 
 ## Tables
-
 
 Tables are created with markdown. If the items in the first column have unwanted line breaks, wrap the table head with one of the following:
 
@@ -401,7 +393,6 @@ Accessibility note: Don't use markdown tables for formatting, only for tabular d
 [Learn more](https://squidfunk.github.io/mkdocs-material/reference/data-tables/ "https://squidfunk.github.io/mkdocs-material/reference/data-tables/")
 
 ## Tooltips
-
 
 Tooltips display plain text when you hover over an element. Use them with links or icons, never with headings or bare text. Tooltips can be added to data tables, and are a great alternative for annotations (which aren't supported in tables), or where a footnote doesn't make sense. 
 
@@ -420,7 +411,6 @@ Add a tooltip to an info icon:
 ```text
 :material-information-outline:{ title="Important information" }
 ```
-
 
 [Learn more](https://squidfunk.github.io/mkdocs-material/reference/tooltips)
 
