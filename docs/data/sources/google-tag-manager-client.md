@@ -344,29 +344,29 @@ This video tutorial walks through the implementation basics.
 
 ## Breaking changes checklist
 
-### Page view event_type and event_properties
+### Page View event name and properties
 
-The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties`. See full details in table. 
+The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties` checkbox. See full details in table. 
 
 ???Breaking change "Page View Tracking"
     | <div class="big-column">Before</div>  | Current |
     | --- | --- |
-    | <ul><li>event_type: `Page View`</li><li>event_properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event_type:  `[Amplitude] Page Viewed`</li><li>event properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
+    | <ul><li>event type: `Page View`</li><li>properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event type:  `[Amplitude] Page Viewed`</li><li>properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
 
 ### Subdomain attribution tracking 
 
-Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked by default. If you want to exclude the attribution tracking on `location.hostname`, but not other subdomains, add the value of `location.hostname` in the exclude referral section. See full details in table. 
+Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked by default. If you want to exclude the attribution tracking on `location.hostname`, but not other subdomains, add the string value of `location.hostname` in the `Exclude Referrers` input under the `Track marketing attribution` section. See full details in table. 
 
 ???Breaking change "Attribution Tracking"
     | <div class="big-column">Before</div>  | Current |
-    | --- | --- | --- | --- |
-    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer | 
+    | --- | --- |
+    | Track attribution of all subdomains. | Excludes all subdomains of the same root domain as referrer. | 
 
 ### User agent parser
 
-The new template changes the way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `(Legacy) Enable client side user agent enrichment `. See full details in table.
+The new template changes the way to parse the device related info which might affect the value of OS, Device Type, Device Family (`event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer`), and related properties. If you want to continue using the older way to parse user agent, check `Enable client side user agent enrichment` checkbox.
 
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current |
-    | --- | --- | --- | --- |
+    | --- | --- |
     | [Client-side user agent parsing](https://github.com/amplitude/ua-parser-js).  | Server-side user agent parsing by Amplitude ingestion endpoints. |
