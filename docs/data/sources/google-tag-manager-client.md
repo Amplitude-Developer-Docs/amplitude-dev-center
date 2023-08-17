@@ -350,8 +350,6 @@ This video tutorial walks through the implementation basics.
 
 The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties` checkbox. See full details in table. 
 
-![Amplitude Analytics Browser SDK ](../../assets/images/gtm/gtm-web-legacy-page-view-properties.png) 
-
 ???Breaking change "Page View Tracking"
     | <div class="big-column">Before</div>  | Current |
     | --- | --- |
@@ -360,8 +358,6 @@ The new template changes the default page view events to include `[Amplitude]` p
 ### Subdomain attribution tracking 
 
 Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) is not tracked by default. If you want to exclude the attribution tracking on `location.hostname`, but not other subdomains, add the string value of `location.hostname` in the `Exclude Referrers` input under the `Track marketing attribution` section. See full details in table. 
-
-![Amplitude Analytics Browser SDK ](../../assets/images/gtm/gtm-web-exclude-referrers.png) 
 
 ???Breaking change "Attribution Tracking"
     | <div class="big-column">Before</div>  | Current |
@@ -372,9 +368,13 @@ Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.
 
 The new template changes the way to parse the device related info which might affect the value of OS, Device Type, Device Family (`event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer`), and related properties. If you want to continue using the older way to parse user agent, check `(Legacy) Enable client side user agent enrichment` checkbox. See full details in table.
 
-![Amplitude Analytics Browser SDK ](../../assets/images/gtm/gtm-web-user-agent.png) 
-
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current |
     | --- | --- |
     | [Client-side user agent parsing](https://github.com/amplitude/ua-parser-js).  | Server-side user agent parsing by Amplitude ingestion endpoints. |
+
+Here are the related settings in the GTM template:
+
+| ![Legacy page view properties](../../assets/images/gtm/gtm-web-legacy-page-view-properties.png)  | ![Exclude referrers](../../assets/images/gtm/gtm-web-exclude-referrers.png)  | ![User agent parser](../../assets/images/gtm/gtm-web-user-agent.png)  |
+|:--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------:|
+|                                   Legacy page view properties checkbox                                    |                             Exclude referrers input                             |                                User agent parser checkbox                                |
