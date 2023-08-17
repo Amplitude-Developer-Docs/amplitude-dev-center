@@ -13,6 +13,8 @@ This is the client-side Google Tag Manager Template for Amplitude Analytics. The
  
     While this updated template offers additional features and improvements,it may result in slightly different behavior that could potentially affect your existing analytics charts. However, we've made these changes configurable to maintain consistency. If you wish to retain the legacy behavior, it's essential to review the following [list of breaking changes](./#breaking-changes-checklist) and adjust your configuration accordingly.
 
+    Check the breaking changes checklist at [here](./#breaking-changes-checklist).
+
 --8<-- "includes/gtm/data-layer-messages-warning.md"
 
 !!!warning
@@ -348,12 +350,12 @@ This video tutorial walks through the implementation basics.
 
 The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties` checkbox. See full details in table. 
 
+![Amplitude Analytics Browser SDK ](../../assets/images/gtm/gtm-web-legacy-page-view-properties.png) 
+
 ???Breaking change "Page View Tracking"
     | <div class="big-column">Before</div>  | Current |
     | --- | --- |
     | <ul><li>event name: `Page View`</li><li>properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event name:  `[Amplitude] Page Viewed`</li><li>properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
-
-![Amplitude Analytics Browser SDK ](../../assets/images/gtm/gtm-web-legacy-page-view-properties.png) 
 
 ### Subdomain attribution tracking 
 
