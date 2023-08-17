@@ -52,6 +52,7 @@ After these preset headers, you can define five more headers. To create a new he
     2. Customize the payload using an [Apache FreeMarker](https://freemarker.apache.org/) template. See more details below.
 
 ### 6) Save destination
+
 When satisfied with your configuration, click Save to complete the setup process.
 
 ## Establish Cohort syncs to your destination
@@ -111,6 +112,7 @@ Using this template results in sending this JSON payload to the Webhook endpoint
 ```
 
 ### Example template for sending cohort updates per user
+
 Some webhook destinations would need a list of users as a batch. For these cases, the template can be updated accordingly. In the below example, we can set the cohort name and cohort id as a single boolean property determining whether the user is in the cohort or not.
 
 ```text
