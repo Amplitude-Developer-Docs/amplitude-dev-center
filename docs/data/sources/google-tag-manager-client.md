@@ -88,7 +88,7 @@ A tag type allows you to specify what kind of action or event should be tracked 
 
 Cookies are generated at the initialization stage. For more information on managing cookies, please refer to our [cookie management details](../../sdks/typescript-browser/#cookie-management). It is recommended to initialize after obtaining cookie consent. As we support deferred initialization, any event tracking that takes place before the init command will still be captured and won't be lost.
 
-##### Default Event Tracking
+##### Track default Amplitude events
 
 Check this checkbox to enable default event tracking and configure the following default tracking events
 
@@ -149,11 +149,11 @@ If the user ID is already available you can:
     |`transport`| `TransportType.XHR` or `TransportType.SendBeacon` or `TransportType.Fetch`. Set the transport type. | `TransportType.Fetch` |
 - `Select a **GTM variable** from the list`. It's necessary to return an object containing the key-value pairs you wish to use for instance configuration. Ensure that the keys are part of the available configurations.
 
-##### Enable client side user agent enrichment
+##### (Legacy) Enable client side user agent enrichment
 
 Starting with version 240a7 in Aug, 2023, we have upgraded this template to use the Amplitude Browser SDK 2.0 for data collection. In Amplitude Browser SDK 2.0, we have deprecated client-side user agent parsing in favor of server-side user agent parsing. [More details](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-user-agent-enrichment-browser).
 
-To avoid breaking changes in chart analytics, we provide the option to enable client-side parsing by simply checking the check box. You can also choose which user agent field (OS name, OS version, device manufacture, and device model) you want to enrich by checking the checkbox accordingly.
+To avoid breaking changes in chart analytics, we've added the option to enable client-side user agent parsing via the `(Legacy) Enable client side user agent enrichment` option. You can also choose which user agent field (OS name, OS version, device manufacture, and device model) you want to enrich by checking the checkbox accordingly.
 
 If you are a new user, we highly recommend adopting server-side parsing by leaving this checkbox empty as the new enrichment strategy offers more accurate result.
 
@@ -362,7 +362,7 @@ Traffic from one subdomain to another (ie analytics.amplitude.com to experiment.
 
 ### User agent parser
 
-The new template changes the way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `Enable client side user agent enrichment `. See full details in table.
+The new template changes the way to parse the device related info which might effect the value of `event.os_name`, `event.os_version`, `event.device_model`, `event.device_manufacturer` and related properties. If you want to continue using the older way to parse user agent, check `(Legacy) Enable client side user agent enrichment `. See full details in table.
 
 ???Breaking change "User Agent Parser"
     | <div class="big-column">Before</div>  | Current |
