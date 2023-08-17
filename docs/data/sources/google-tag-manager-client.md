@@ -344,7 +344,7 @@ This video tutorial walks through the implementation basics.
 
 ## Breaking changes checklist
 
-### Page View event name and properties
+### Page View event's name and properties
 
 The new template changes the default page view events to include `[Amplitude]` prefixes. If you want to continue using the older page view events check `Use legacy page view properties` checkbox. See full details in table. 
 
