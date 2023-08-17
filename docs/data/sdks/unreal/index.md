@@ -17,7 +17,7 @@ icon: simple/unrealengine
 
 ### Install the SDK plugin
 
-Install the Unreal Engine SDK by downloading the latest version of `AmplitudUnreal.zip` found on the [GitHub releases](https://github.com/amplitude/Amplitude-Unreal/releases/latest) page.
+Install the Unreal Engine SDK by downloading the latest version of `AmplitudeUnreal.zip` found on the [GitHub releases](https://github.com/amplitude/Amplitude-Unreal/releases/latest) page.
  Unzip it into a folder inside your Unreal project's `Plugins` directory.
 
 ```bash
@@ -91,7 +91,7 @@ FAnalytics::Get().GetDefaultConfiguredProvider()->SetAge(TEXT(27));
 
 ### Set custom user IDs
 
-If your app has its own login system that you want to track users with, use `SetUserId` to set a custom user ID.
+If your app has its login system that you want to track users with, use `SetUserId` to set a custom user ID.
 
 ```c++
 FAnalytics::Get().GetDefaultConfiguredProvider()->SetUserID(TEXT("test123@test.com"));

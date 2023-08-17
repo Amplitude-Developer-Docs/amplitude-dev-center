@@ -43,7 +43,7 @@ Usually, you can initialize the SDK in the `application:didFinishLaunchingWithO
     ```obj-c
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
       // Enable sending automatic session events
-      [Amplitude instance].trackingSessionEvents = YES;
+      [Amplitude instance].defaultTracking.sessions = YES;
       // Initialize SDK
       [[Amplitude instance] initializeApiKey:@"API_KEY"];
       // Set userId
@@ -60,14 +60,14 @@ Usually, you can initialize the SDK in the `application:didFinishLaunchingWithO
     ```swift
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       // Enable sending automatic session events
-      Amplitude.instance().trackingSessionEvents = true
+      Amplitude.instance().defaultTracking.sessions = true
       // Initialize SDK
       Amplitude.instance().initializeApiKey("API_KEY")
       // Set userId
       Amplitude.instance().setUserId("userId")
       // Log an event
       Amplitude.instance().logEvent("app_start")
-          
+
       return true
     }
     ```
@@ -82,7 +82,7 @@ Usually, you can initialize the SDK in the `application:didFinishLaunchingWithO
     | `eventUploadMaxBatchSize` | The maximum number of events sent with each upload request. | `100` |
     | `eventMaxCount` | The maximum number of unsent events to keep on the device. | `1000` |
     | `minTimeBetweenSessionsMillis` |  When a user closes and reopens the app within minTimeBetweenSessionsMillis milliseconds, the reopen is considered part of the same session and the session continues. Otherwise, a new session is created. The default is 5 minutes. | `5 minutes` |
-    | `trackingSessionEvents` |  Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `NO` |
+    | `trackingSessionEvents` |  Deprecated. Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `NO` |
     | `setServerUrl` | Sends events to a custom URL. | `Amplitude HTTP API URL` |
     | `setOptOut` | Opt the user out of tracking. | `NO` |
     | `setTrackingOptions` | By default the iOS SDK will track several user properties such as carrier, city, country, ip_address, language, platform, etc. You can use the provided AMPTrackingOptions interface to customize and disable individual fields. | `NO` |
@@ -427,6 +427,217 @@ If the user property doesn't exist, it's initialized to an empty list before the
     Amplitude.instance().identify(identify)
     ```
 
+### Tracking default events
+
+Starting from release v8.17.0, the SDK is able to track more default events now. It can be configured to track the following events automatically:
+
+- Sessions [^1]
+- App lifecycles
+- Screen views
+- Deep links [^2]
+
+[^1]:
+    Session tracking is the same as supported in previous versions, which was previously enabled/disabled via the [`trackingSessionEvents`](#configuration) configuration.
+[^2]:
+    Deep link tracking is not fully automated, you will need to call the corresponding methods manually.
+
+???config "Tracking default events options"
+    | <div class="big-column">Name</div> | Type | Default Value | Description |
+    |-|-|-|-|
+    `defaultTracking.sessions` | Optional. `boolean` | `NO` | Enables session tracking. This configuration replaces [`trackingSessionEvents`](#configuration). If value is `YES`, Amplitude tracks session start and session end events.<br /><br />See [Tracking sessions](#tracking-sessions) for more information.|
+    `defaultTracking.appLifecycles` | Optional. `boolean` | `NO` | Enables application lifecycle events tracking. If value is `YES`, Amplitude tracks application installed, application updated, application opened, and application backgrounded events.<br /><br />Event properties tracked includes: `[Amplitude] Version`,<br /> `[Amplitude] Build`,<br /> `[Amplitude] Previous Version`, `[Amplitude] Previous Build`, `[Amplitude] From Background`<br /><br />See [Tracking application lifecycles](#tracking-application-lifecycles) for more information.|
+    `defaultTracking.screenViews` | Optional. `boolean` | `NO` | Enables screen views tracking. If value is `YES`, Amplitude tracks screen viewed events.<br /><br />Event properties tracked includes: `[Amplitude] Screen Name`<br /><br />See [Tracking screen views](#tracking-screen-views) for more information.|
+    `defaultTracking.deepLinks` | Optional. `boolean` | `NO` | Enables deep link tracking. If value is `YES`, Amplitude tracks deep link opened events. Note that you still need to call `continueUserActivity` or `openURL` manually for tracking this event.<br /><br />Event properties tracked includes: `[Amplitude] Link URL`, `[Amplitude] Link Referrer`<br /><br />See [Tracking deep links](#tracking-deep-links) for more information.|
+
+You can enable Amplitude to start tracking all events mentioned above, use the code sample below.
+
+=== "Objective-C"
+
+    ```obj-c
+    [Amplitude instance].defaultTracking = [AMPDefaultTrackingOptions initWithAllEnabled];
+    [[Amplitude instance] initializeApiKey:@"API_KEY"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithAllEnabled()
+    Amplitude.instance().initializeApiKey("API_KEY")
+    ```
+
+!!!note
+    Amplitude may add more events in a future version, and this configuration enables tracking for those events as well.
+
+Similarly, you can disable Amplitude to track all events mentioned above with the code sample below.
+
+=== "Objective-C"
+
+    ```obj-c
+    [Amplitude instance].defaultTracking = [AMPDefaultTrackingOptions initWithNoneEnabled];
+    [[Amplitude instance] initializeApiKey:@"API_KEY"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithNoneEnabled()
+    Amplitude.instance().initializeApiKey("API_KEY")
+    ```
+
+You can also customize the tracking with `DefaultTrackingOptions`, see code sample below.
+
+=== "Objective-C"
+
+    ```obj-c
+    [Amplitude instance].defaultTracking = [AMPDefaultTrackingOptions initWithSessions:YES
+                                                                         appLifecycles:NO
+                                                                             deepLinks:NO
+                                                                           screenViews:NO];
+    [[Amplitude instance] initializeApiKey:@"API_KEY"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        true,
+        appLifecycles: false,
+        deepLinks: false,
+        screenViews: false
+    )
+    Amplitude.instance().initializeApiKey("API_KEY")
+    ```
+
+#### Tracking sessions
+
+You can enable Amplitude to start tracking session events by setting `defaultTracking.sessions` to `true`. Refer to the code sample below.
+
+=== "Objective-C"
+
+    ```obj-c
+    [Amplitude instance].defaultTracking = [AMPDefaultTrackingOptions initWithSessions:YES
+                                                                         appLifecycles:NO
+                                                                             deepLinks:NO
+                                                                           screenViews:NO];
+    [[Amplitude instance] initializeApiKey:@"API_KEY"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        true,
+        appLifecycles: false,
+        deepLinks: false,
+        screenViews: false
+    )
+    Amplitude.instance().initializeApiKey("API_KEY")
+    ```
+
+For more information about session tracking, refer to [User sessions](#user-sessions).
+
+!!!note
+    `trackingSessionEvents` is deprecated and replaced with `defaultTracking.sessions`.
+
+#### Tracking application lifecycles
+
+You can enable Amplitude to start tracking application lifecycle events by setting `defaultTracking.appLifecycles` to `true`. Refer to the code sample below.
+
+=== "Objective-C"
+
+    ```obj-c
+    [Amplitude instance].defaultTracking = [AMPDefaultTrackingOptions initWithSessions:NO
+                                                                         appLifecycles:YES
+                                                                             deepLinks:NO
+                                                                           screenViews:NO];
+    [[Amplitude instance] initializeApiKey:@"API_KEY"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        false,
+        appLifecycles: true,
+        deepLinks: false,
+        screenViews: false
+    )
+    Amplitude.instance().initializeApiKey("API_KEY")
+    ```
+
+After enabling this setting, Amplitude will track the following events:
+
+-`[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
+-`[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
+-`[Amplitude] Application Opened`, this event fires when a user launches or foregrounds the application after the first open, by observing the `UIApplicationDidFinishLaunchingNotification` or `UIApplicationWillEnterForegroundNotification` notification underneath.
+-`[Amplitude] Application Backgrounded`, this event fires when a user backgrounds the application, by observing the `UIApplicationDidEnterBackgroundNotification` notification underneath.
+
+#### Tracking screen views
+
+You can enable Amplitude to start tracking screen view events by setting `defaultTracking.screenViews` to `true`. Refer to the code sample below.
+
+=== "Objective-C"
+
+    ```obj-c
+    [Amplitude instance].defaultTracking = [AMPDefaultTrackingOptions initWithSessions:NO
+                                                                         appLifecycles:NO
+                                                                             deepLinks:NO
+                                                                           screenViews:YES];
+    [[Amplitude instance] initializeApiKey:@"API_KEY"];
+    ```
+
+=== "Swift"
+
+    ```swift
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        false,
+        appLifecycles: false,
+        deepLinks: false,
+        screenViews: true
+    )
+    Amplitude.instance().initializeApiKey("API_KEY")
+    ```
+
+After enabling this setting, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the controller class metadata with `viewDidAppear` method swizzling.
+
+#### Tracking deep links
+
+You can enable Amplitude to start tracking deep link events by setting `defaultTracking.deepLinks` to `true`. Refer to the code sample below.
+
+=== "Objective-C"
+
+    ```obj-c
+    // Enable tracking deep links.
+    [Amplitude instance].defaultTracking = [AMPDefaultTrackingOptions initWithSessions:NO
+                                                                         appLifecycles:NO
+                                                                             deepLinks:YES
+                                                                           screenViews:NO];
+    [[Amplitude instance] initializeApiKey:@"API_KEY"];
+
+    // Call helper method to track, e.g., in `onOpenURL` callback.
+    [[Amplitude instance] openURL:url];
+    [[Amplitude instance] continueUserActivity:activity];
+    ```
+
+=== "Swift"
+
+    ```swift
+    // Enable tracking deep links.
+    Amplitude.instance().defaultTracking = AMPDefaultTrackingOptions.initWithSessions(
+        false,
+        appLifecycles: false,
+        deepLinks: true,
+        screenViews: false
+    )
+    Amplitude.instance().initializeApiKey("API_KEY")
+
+    // Call helper method to track, e.g., in `onOpenURL` callback.
+    Amplitude.instance().openURL(url: url)
+    Amplitude.instance().continueUserActivity(activity: activity)
+    ```
+
+After enabling this setting, Amplitude is able to track the `[Amplitude] Deep Link Opened` event with the URL and referrer information. Note that you still need to call `continueUserActivity` or `openURL` manually for tracking deep links.
+
 ### Set user groups
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
@@ -467,7 +678,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
     ```swift
     let eventProperties: [String: Any] = ["key": "value"]
     let groups: [String: Any] = ["orgId": 10]
-            
+
     Amplitude.instance().logEvent("initialize_game", withEventProperties: eventProperties, withGroups: groups)
     ```
 
@@ -475,7 +686,7 @@ You can also use `logEventWithGroups` to set event-level groups, meaning the gro
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentifyWithGroupType` method accepts a group type string parameter and group name object parameter, as well as an Identify object that's applied to the group.
 
@@ -483,7 +694,7 @@ The `groupIdentifyWithGroupType` method accepts a group type string parameter 
 
     ```obj-c
     NSString *groupType = @"plan";
-    NSObject *groupName = @"enterprese";
+    NSObject *groupName = @"enterprise";
     AMPIdentify *identify = [[AMPIdentify identify] set:@"key" value:@"value"];
     [[Amplitude instance] groupIdentifyWithGroupType:groupType groupName:groupName groupIdentify:identify];
     ```
@@ -571,7 +782,7 @@ Amplitude groups events together by session. A session represents a single perio
 === "Objective-C"
 
     ```obj-c
-    [Amplitude instance].trackingSessionEvents = YES;
+    [Amplitude instance].defaultTracking.sessions = YES;
     [[Amplitude instance].minTimeBetweenSessionsMillis = 10 * 60 * 1000; // 10 minutes
     [[Amplitude instance] initializeApiKey:@"API_KEY"];
     ```
@@ -579,7 +790,7 @@ Amplitude groups events together by session. A session represents a single perio
 === "Swift"
 
     ```swift
-    Amplitude.instance().trackingSessionEvents = true
+    Amplitude.instance().defaultTracking.sessions = true
     Amplitude.instance().minTimeBetweenSessionsMillis = 10 * 60 * 1000 // 10 minutes
     Amplitude.instance().initializeApiKey("API_KEY")
     ```
@@ -631,7 +842,7 @@ You can use the helper method getSessionId to get the value of the current `sess
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call setUserId at any time.
+If your app has its login system that you want to track users with, you can call setUserId at any time.
 
 === "Objective-C"
 
@@ -744,6 +955,14 @@ Before initializing the SDK with your `apiKey`, create a `AMPTrackingOptions` 
     [[Amplitude instance] setTrackingOptions:options];
     ```
 
+=== "Swift"
+
+    ```swift
+    let trackingOptions = AMPTrackingOptions().disableCity()
+                                              .disableCarrier();
+    Amplitude.instance().setTrackingOptions(trackingOptions!);
+    ```
+
 Tracking for each field can be individually controlled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
 
 | <div class="big-column">Method</div> | Description |
@@ -822,7 +1041,7 @@ Amplitude uses the IDFV as the device ID by default, but you can change this beh
 
 1. Device id fetched from the SQLite database
 2. IDFA if `useAdvertisingIdForDeviceId` is true and `disableIDFA()` wasn’t called
-3. IDFV If `disableIDFA()` wasn’t called
+3. IDFV If `disableIDFV()` wasn’t called
 4. A randomly generated UUID
 
 --8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
@@ -949,8 +1168,8 @@ The SDK allows for tracking in iOS extensions. To set up tracking in iOS extensi
 
 There are a few things to note:
 
-- The `viewDidLoad` method gets called every time your extension is opened. This means that the SDK's `initializeApiKey` method gets called every single time. However, this is okay because it safely ignores calls after the first one. You can protect the initialization with something like a `dispatch_once` block.
-- Amplitude's sessions are defined for an app use case. Depending on your expected extension use case, you might not want to enable `trackingSessionEvents`, or you may want to extend the `minTimeBetweenSessionsMillis` to be longer than five minutes. You should experiment with these two settings to get your desired session definition.
+- The `viewDidLoad` method gets called every time your extension is opened. This means that the SDK's `initializeApiKey` method gets called every single time. However, this is okay because it safely ignores calls after the first one. You can protect the initialization with something like a `dispatch_once` block.
+- Amplitude's sessions are defined for an app use case. Depending on your expected extension use case, you might not want to enable `defaultTracking.sessions`, or you may want to extend the `minTimeBetweenSessionsMillis` to be longer than five minutes. You should experiment with these two settings to get your desired session definition.
 - If you don't expect users to keep your extension open long, you can decrease `eventUploadPeriodSeconds` to something shorter than 30 seconds to upload events at shorter intervals. You can also manually call `[[Amplitude instance] uploadEvents];` to manually force an upload.
     Here is a simple [demo application](https://github.com/amplitude/iOS-Extension-Demo) showing how to instrument the iOS SDK in an extension.
 

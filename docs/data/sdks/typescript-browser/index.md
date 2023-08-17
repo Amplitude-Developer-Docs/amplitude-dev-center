@@ -15,6 +15,8 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 !!!info "Browser SDK 2.0 is now available"
     An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md). See the [Migration Guide](../browser-2/migration.md) for more help.
 
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [Browser SDK Migration Guide](/data/sdks/typescript-browser/migration/).
 
 !!!note "Browser SDK versus the Marketing Analytics Browser"
     Amplitude recommends the Browser SDK for most users. You can extend its functionality using plugins.
@@ -22,6 +24,8 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
+
+--8<-- "includes/sdk-browser-supported-version.md"
 
 ## Getting started
 
@@ -184,7 +188,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-By setting `config.defaultTracking.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
+By setting `config.defaultTracking.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to a text input, radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
 
 Amplitude can track forms that are constructed with `<form>` tags and `<input>` tags nested. For example:
 
@@ -292,6 +296,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 --8<-- "includes/sdk-ts-browser/shared-plugins.md"
 
+<!-- markdownlint-disable-next-line MD001 -->
 ##### Web attribution enrichment plugin
 
 You need to download `plugin-web-attribution-browser` package and add the `webAttributionPlugin` before call init method. 
@@ -365,9 +370,9 @@ The page view plugin sends a Page View event on each page a user visits by defau
 
 --8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
 
-## Advainced topics
+## Advanced topics
 
-### Cross domain tracking
+### Cross-domain tracking
 
 --8<-- "includes/sdk-ts-browser/shared-cross-domain-tracking.md"
 
@@ -415,7 +420,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 #### Disable cookies
 
-You can opt out using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+You can opt-out of using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
 
 --8<-- "includes/sdk-device-id/lifecycle-header.md"
 
@@ -427,9 +432,9 @@ You can opt out using cookies by setting `disableCookies` to `true` so that th
 
 --8<-- "includes/sdk-device-id/change-scenarios.md"
 
-- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
-- On initialization, a device ID is passed in from URL param `deviceId`
-- `reset()` is called
+* By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
+* On initialization, a device ID is passed in from URL param `deviceId`
+* `reset()` is called
 
 --8<-- "includes/sdk-device-id/set-device-id.md"
 

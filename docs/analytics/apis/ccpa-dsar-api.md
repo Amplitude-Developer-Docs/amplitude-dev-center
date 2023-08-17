@@ -50,12 +50,12 @@ In general for each POST, there is typically one output file per month per proje
 
 If you need to get data for 40 users per hour, you can spend `14400 / 40 = 360` cost per request.
  Conservatively allocating 52 GETs for output files (twice the computed amount) and 8 for the initial POST, you can poll for the status of the request `360 - 8 - 52 = 300` times.
- Given the 5 day SLA for results, this allows for checking the status every `52460 / 300 = 24` minutes over 5 days.
-  A practical usage might be to have a service which runs every 30 minutes, posting 20 new requests and checking on the status of all outstanding requests.
+ Given the 3 day SLA for results (4,320 minutes), this allows for checking the status every `4320 / 300 ~= 15` minutes over 3 days.
+  A practical usage might be to have a service which runs every 20 minutes, posting 20 new requests and checking on the status of all outstanding requests.
 
 ### SLAs
 
-- Request jobs complete within 5 days.
+- Request jobs complete within 3 days.
 - Request result expires in 2 days.
 - Users with more than 100k events per month aren't supported.
 

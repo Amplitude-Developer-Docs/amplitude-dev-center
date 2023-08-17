@@ -59,7 +59,7 @@ Client-side SDKs work in a single-user context. Server-side SDKs work in a multi
 | API | Description |
 | --- | --- |
 | [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
-| [Management API (Beta)](apis/management-api.md) | Manage or list flags and experiments within your organization. |
+| [Management API](apis/management-api/index.md) | Manage or list flags and experiments within your organization. |
 
 ## System overview
 <!-- vale Amplitude.Contractions = NO-->

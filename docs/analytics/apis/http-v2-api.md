@@ -30,11 +30,9 @@ For EU data residency, the project must be set up inside Amplitude EU. Remember 
 
 **For Starter plan customers:**
 
-Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload, but don't send more than 10 events per batch. Amplitude expects fewer than 100 batches per second, and the 1000 events per second limit still applies.
+Limit your upload to 100 batches per second and 1000 events per second. You can batch events into an upload, but we recommend not sending more than 10 events per batch. Amplitude expects fewer than 100 batches per second, and the 1000 events per second limit still applies.
 
 **For customers on Growth and Enterprise plans:**
-
-Contact Support if you need to send more than 1000 events per second. There is no hard limit on the Enterprise plan, but devices that exceed 30 events per second are throttled.
 
 Keep request sizes under 1 MB with fewer than 2000 events per request. When you exceed these size limits, you get a 413 error.
 
@@ -77,7 +75,7 @@ It's highly recommended that you send an `insert_id` for each event to prevent s
 
 Device IDs and User IDs must be strings with a length of 5 characters or more. This is to prevent potential instrumentation issues. If an event contains a device ID or user ID that's too short, the ID value is removed from the event. 
 
-Override the default minimum length of 5 character by passing the `min_id_length` option with the request.
+Override the default minimum length of 5 characters by passing the `min_id_length` option with the request.
 
 If the event doesn't have a `user_id` or `device_id` value, Amplitude can reject the with a 400 status. 
 
@@ -112,7 +110,7 @@ Send a POST request to `https://api2.amplitude.com/2/httpapi`.
 
     ???code-example "Example: Simple request (click to expand)"
 
-        This example uploads a 'watch_tutorial' event with a few properities and user properties for the user `12345`.
+        This example uploads a 'watch_tutorial' event with a few properties and user properties for the user `12345`.
 
         === "cURL"
 

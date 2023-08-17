@@ -1,24 +1,26 @@
 ---
-title: Marketing Analytics Browser
+title: Marketing Analytics Browser (Maintenance)
 description: The Amplitude Marketing Analytics Browser SDK Installation & Quick Start guide.
 icon: simple/javascript
 ---
 
 ![npm version](https://img.shields.io/npm/v/@amplitude/marketing-analytics-browser)
 
-The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser).
+The Marketing Analytics Browser SDK extends the Browser SDK to identify users and events based on marketing channels. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/marketing-analytics-browser).
 
 !!!info "Marketing Analytics Browser SDK Resources"
 
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/marketing-analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=marketing-analytics-browser&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/modules/_amplitude_marketing_analytics_browser.html)
 
-!!!info "Browser SDK 2.0 is now available"
+!!!deprecated "Maintenance SDK"
 
-    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md).
+    This is a maintenance SDK and will only receive bug fixes until deprecation. An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md).
 
 !!!note "Marketing Analytics Browser SDK versus the Browser SDK 1.0"
 
     The Marketing Analytics Browser SDK extends the Browser SDK 1.0 with automatic web attribution and page view tracking. This doc only includes the configuration related with web attribution and page view tracking. For other functionality check the [Browser SDK](../typescript-browser).
+
+--8<-- "includes/sdk-browser-supported-version.md"
 
 ## Getting started
 
@@ -100,12 +102,12 @@ The following information is tracked in the page view events.
 |<div class="big-column">Name</div>| Description| Default Value|
 |---|----|---|
 |`event_type`| `string`. The event type for page view event. Configurable through enrichment plugin. | `Page View`. |
-|`event_properties.page_domain`| `string`. The page domain. | location.hostname or ''. |
-|`event_properties.page_location`| `string`. The page location. | location.href or ''. |
-|`event_properties.page_path`| `string`. The page path. | location.path or ''.|
-|`event_properties.page_title`| `string`. The page title. | document.title or ''.|
-|`event_properties.page_url`| `string`. The value of page url. | location.href.split('?')[0] or ``.|
-|`event_properties.[CampaignParam]`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possilbe keys. | Any undefined campaignParam or `undefined`. |
+|`event_properties.page_domain`| `string`. The page domain. | `location.hostname` or ''. |
+|`event_properties.page_location`| `string`. The page location. | `location.href` or ''. |
+|`event_properties.page_path`| `string`. The page path. | `location.path` or ''.|
+|`event_properties.page_title`| `string`. The page title. | `document.title` or ''.|
+|`event_properties.page_url`| `string`. The value of page url. | `location.href.split('?')[0]` or ``.|
+|`event_properties.[CampaignParam]`| `string`. The value of `UTMParameters` `ReferrerParameters` `ClickIdParameters` if has any. Check [here](./#web-attribution) for the possible keys. | Any undefined campaignParam or `undefined`. |
 
 ### Use the Marketing Analytics SDK with Ampli
 

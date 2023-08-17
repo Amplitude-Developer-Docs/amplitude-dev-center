@@ -303,6 +303,7 @@ nav:
         - MoEngage: data/destinations/moengage-event-streaming.md
         - Moloco: data/destinations/moloco-event-streaming.md
         - Planhat: data/destinations/planhat-event-streaming.md
+        - Salesforce Marketing Cloud: data/destinations/marketing-cloud-event-streaming.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
         - Userlist: data/destinations/userlist-event-streaming.md
@@ -317,6 +318,7 @@ nav:
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
+        - Cohort Webhooks: data/destinations/cohort-webhooks.md
         - Cordial: data/destinations/cordial-cohort.md
         - Customer.io: data/destinations/customerio-cohort.md
         - Enterpret: data/destinations/enterpret-cohort.md
@@ -387,6 +389,7 @@ nav:
           - Variant Jumping: experiment/guides/troubleshooting/variant-jumping.md
           - Sample Ratio Mismatch (SRM): experiment/guides/troubleshooting/sample-ratio-mismatch.md
           - Exposures without Assignments: experiment/guides/troubleshooting/exposures-without-assignments.md
+          - Restarting experiments (Beta): experiment/guides/troubleshooting/restarting-experiments.md
       - SDKs:
         - JavaScript SDK: experiment/sdks/javascript-sdk.md
         - Android SDK: experiment/sdks/android-sdk.md
@@ -402,7 +405,11 @@ nav:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
-        - Management API (Beta): experiment/apis/management-api.md
+        - Management API: 
+          - experiment/apis/management-api/index.md
+          - Flags: experiment/apis/management-api/flags.md
+          - Experiments: experiment/apis/management-api/experiments.md
+          - Deployments: experiment/apis/management-api/deployments.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
@@ -450,25 +457,22 @@ nav:
         - v2.0:
           - data/sdks/browser-2/index.md
           - Ampli Codegen: data/sdks/browser-2/ampli.md
-          - Migration Guide: data/sdks/browser-2/migration.md
         - v1.0:
           - data/sdks/typescript-browser/index.md
-          - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
           - Ampli Codegen: data/sdks/typescript-browser/ampli.md
-          - Migration Guide: data/sdks/typescript-browser/migration.md
+          - Migration Guide: data/sdks/browser-2/migration.md
       - Node.js:
         - data/sdks/typescript-node/index.md
         - Ampli Codegen: data/sdks/typescript-node/ampli.md
       - Android:
         - data/sdks/android-kotlin/index.md
         - Ampli Codegen: data/sdks/android-kotlin/ampli.md
-        - Migration Guide: data/sdks/android-kotlin/migration.md
       - iOS:
         - data/sdks/ios/index.md
         - Ampli Codegen: data/sdks/ios/ampli.md
+        - Migration Guide: data/sdks/ios-swift/migration.md
       - iOS (Beta):
         - data/sdks/ios-swift/index.md
-        - Migration Guide: data/sdks/ios-swift/migration.md
       - Java:
         - data/sdks/java/index.md
         - Ampli Codegen: data/sdks/java/ampli.md
@@ -490,10 +494,17 @@ nav:
     - Maintenance SDKs:
       - Browser:
         - data/sdks/javascript/index.md
-        - Ampli Codegen: data/sdks/javascript/ampli.md
+        - JavaScript SDK:
+          - data/sdks/javascript/index.md
+          - Ampli Codegen: data/sdks/javascript/ampli.md
+          - Migration Guide: data/sdks/typescript-browser/migration.md
+        - Marketing Analytics Browser:
+          - data/sdks/marketing-analytics-browser/index.md
+          - Migration Guide: data/sdks/marketing-analytics-browser/migration.md
       - Android:
         - data/sdks/android/index.md
         - Ampli Codegen: data/sdks/android/ampli.md
+        - Migration Guide: data/sdks/android-kotlin/migration.md
       - React Native:
         - data/sdks/react-native/index.md
         - Ampli Codegen: data/sdks/react-native/ampli.md

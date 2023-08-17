@@ -1,11 +1,11 @@
 ---
 title: Group Identify API
-description: Use the Group Identify API to set or update properties of particular groups.
+description: Use the Group Identify API to set or update the properties of particular groups.
 ---
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups.
+Use the Group Identify API to set or update the properties of particular groups.
 
 The Amplitude [Accounts add-on](https://help.amplitude.com/hc/en-us/articles/115001765532-Accounts) makes analytical functionality available at the group level. A group is an object that a set of users might belong to, like a company of customers, team of users, or a playlist with listeners. Groups can help you understand how accounts interact with your product, instead of how individual users interact.
 

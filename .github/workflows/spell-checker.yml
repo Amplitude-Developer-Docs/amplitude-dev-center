@@ -1,0 +1,27 @@
+name: Spell Checker
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Spell Checker
+    runs-on: ubuntu-latest
+    steps:
+      # Git Checkout
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      # Setup Node
+      - name: Setup Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install spell checker
+        run: npm i -g cspell@^6.31.2
+      # cspell
+      - name: Run spell checker
+        run: cspell lint -c cspell.json --show-context --no-progress --relative "**/*.md"

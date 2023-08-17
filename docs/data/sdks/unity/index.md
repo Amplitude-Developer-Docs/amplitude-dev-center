@@ -50,7 +50,7 @@ Please refer to [this](https://developers.amplitude.com/docs/ios#carrier-inform
 
 ### 4. Android: Dependencies management
 
-Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrain).
+Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrains).
 
 If by any chance you have OkHttp included in your project, feel free to choose not to include OkHttp and its related dependencies by unchecking them.
 
@@ -120,7 +120,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 
 ### Configuration
 
-Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), and [Amplitude iOS Mantaince SDK](../ios/). The following are the C# settable config options.
+Amplitude Unity SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), and [Amplitude iOS Maintenance SDK](../ios/). The following are the C# settable config options.
 For other default configurations:
 
 - on Android side, check the [Android Configuration](../android-kotlin/#configuration)
@@ -143,7 +143,7 @@ For other default configurations:
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadPeriodSeconds`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by the `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `setEventUploadPeriodSeconds`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```c#
 // Events queue will flush every certain seconds based on setting
@@ -412,7 +412,7 @@ For location tracking, Amplitude converts the IP of a user event into a location
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```c#
 Amplitude.Instance.setUserId("USER_ID");
@@ -486,10 +486,10 @@ using System.Runtime.InteropServices;
 #endif
 ```
 
-Inside the game class, add the following code inside your MonoBehaviour class, or any other class.
+Inside the game class, add the following code inside your MonoBehavior class, or any other class.
 
 ```c#
-public class AmplitudeDemo : MonoBehaviour {
+public class AmplitudeDemo : MonoBehavior {
 
 #if (UNITY_IPHONE || UNITY_TVOS)
     [DllImport ("__Internal")]
