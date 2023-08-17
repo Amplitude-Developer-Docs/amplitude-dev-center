@@ -25,7 +25,7 @@ Amplitude GTM templates are custom templates which define tags and variables so 
 
 Google tags are snippets of code that measure user activity such as time on page, clicks, and purchases.
 
---8<-- "includes/gtm/data-layer-messages-warning.md"
+Learn more about the [client-side container](/data/sources/google-tag-manager-client).
 
 ### Server Container
 
@@ -34,6 +34,8 @@ Google tags are snippets of code that measure user activity such as time on page
 Client-side container communicates with the server-side container through HTTP requests with the standardized **Event Data** format.
 
 The client container might be also required because it needs to parse an incoming HTTP request and generate an event data object for tags to utilize.
+
+Learn more about the [service-side container](/data/sources/google-tag-manager-server).
 
 ## Client-side vs server-side
 
