@@ -100,6 +100,14 @@ You must include the mandatory fields for the data type when creating the SQL qu
 
 Each group property in `group_properties` would be applied to every group in `groups`
 
+## Updating Your BigQuery Service Account Key
+
+In order for you to update the [Service Account](https://cloud.google.com/iam/docs/service-account-overview) used for your BigQuery Source, you must select the existing BigQuery Source within the Sources section of Data and select the ⚙️ icon. Within the modal, you can upload the new Service Account Key you want Amplitude to use moving forward. 
+
+!!!warning "Service Account Data Access"
+
+      Before updating your Service Account Key, ensure the new Service Account Key has the proper data access to ensure Amplitude can successfully import any relevant data. 
+
 ## BigQuery SQL helper
 
 ### Properties fields
