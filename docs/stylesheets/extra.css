@@ -167,6 +167,10 @@
   background-color: var(--md-accent-fg-color);
 }
 
+.md-typeset ol li::marker {
+  font-weight: 700;
+}
+
 /* Overrides theme defaults */
 
 .md-nav__item--section>.md-nav__link[for],.md-nav--lifted>.md-nav__list>.md-nav__item>[for] {

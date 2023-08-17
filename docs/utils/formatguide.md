@@ -423,3 +423,14 @@ Add a tooltip to an info icon:
 
 
 [Learn more](https://squidfunk.github.io/mkdocs-material/reference/tooltips)
+
+## Lists {.class}
+
+1. Here is a first item.
+2. Here is a second item
+
+      1. Here is a nested thing
+
+       A paragraph is below it.
+
+3. Another list item
