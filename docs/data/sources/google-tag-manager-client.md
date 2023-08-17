@@ -351,7 +351,7 @@ The new template changes the default page view events to include `[Amplitude]` p
 ???Breaking change "Page View Tracking"
     | <div class="big-column">Before</div>  | Current |
     | --- | --- |
-    | <ul><li>event type: `Page View`</li><li>properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event type:  `[Amplitude] Page Viewed`</li><li>properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
+    | <ul><li>event name: `Page View`</li><li>properties: `page_location`, `page_path`, `page_title`. `page_url`</li></ul> | <ul><li>event name:  `[Amplitude] Page Viewed`</li><li>properties: `[Amplitude] Page Domain`, `[Amplitude] Page Location`, `[Amplitude] Page Path`, `[Amplitude] Page Title`, `[Amplitude] Page URL`</li></ul> |
 
 ### Subdomain attribution tracking 
 
