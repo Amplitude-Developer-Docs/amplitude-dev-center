@@ -6,7 +6,7 @@ description: Use this integration to send Amplitude cohort updates to your custo
 
     This feature is in closed beta and is in active development. Contact your Amplitude Success Manager for support with this integration.
 
-Amplitude CDP’s cohort webhook allows customers to receive cohort updates to their own webhook endpoints. This allows for custom data enrichment, filtering, or aggregation based on the specific requirements of the webhook endpoint or internal systems. The transformed cohort data can then be seamlessly integrated into marketing automation platforms or other systems, enabling personalized and targeted marketing campaigns with up-to-date cohort insights.
+Amplitude Cohort webhooks allows customers to receive cohort updates to their own webhook endpoints. This allows for custom data enrichment, filtering, or aggregation based on the specific requirements of the webhook endpoint or internal systems. The transformed cohort data can then be seamlessly integrated into marketing automation platforms or other systems, enabling personalized and targeted marketing campaigns with up-to-date cohort insights.
 
 ## Considerations
 
