@@ -40,7 +40,6 @@ To sync your first cohort, follow these steps:
 
 It may take a few minutes depending on the size of your cohort to see the correct number of cohort users on CleverTap’s side.
 
-
 ## Use Cases
 
 1. **Improved retention analysis:** Cohort analysis allows you to track user behavior and retention over time, based on the time they joined or took a specific action. By sending Amplitude cohort data to CleverTap, you can better understand which cohorts are more likely to churn or retain, and create targeted campaigns to re-engage them.
