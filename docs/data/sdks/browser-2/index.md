@@ -18,6 +18,8 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 !!!note "Migration guide"
     This is the documentation for the Amplitude Browser SDK 2.0. If you are using the Browser SDK 1.0, refer to the migration documentation: [Browser SDK 2.0 Migration Guide](/data/sdks/browser-2/migration/). If you are using the maintenance SDK, refer to the migration documentation: [Browser SDK Migration Guide](/data/sdks/typescript-browser/migration/).
 
+--8<-- "includes/sdk-browser-supported-version.md"
+
 ## Getting started
 
 Use [this quickstart guide](../sdk-quickstart#browser) to get started with Amplitude Browser SDK.
@@ -59,7 +61,7 @@ amplitude.init(API_KEY, 'user@amplitude.com', options);
     |`partnerId` | `string`. Sets partner ID. Amplitude requires the customer who built an event ingestion integration to add the partner identifier to `partner_id`. | `undefined` |
     |`sessionTimeout` | `number`. Sets the period of inactivity from the last tracked event before a session expires in milliseconds. | 1,800,000 milliseconds (30 minutes) |
     |`storageProvider`| `Storage<Event[]>`. Sets a custom implementation of `Storage<Event[]>` to persist unsent events. | `LocalStorage` |
-    |`userId` | `number`. Sets an identifier for the user being tracked. Must have a minimum length of 5 characters unless overridden with the `min_user_length` option. | `undefined` |
+    |`userId` | `number`. Sets an identifier for the user being tracked. Must have a minimum length of 5 characters unless overridden with the `min_id_length` option. | `undefined` |
     |`trackingOptions` | `TrackingOptions`. Configures tracking of additional properties. Please refer to `Optional tracking` section for more information. | Enable all tracking options by default. |
     |`transport` | `string`. Sets request API to use by name. Options include `fetch` fro fetch, `xhr` for `XMLHttpRequest`, or  `beacon` for `navigator.sendBeacon`. | `fetch` |
 
@@ -243,8 +245,6 @@ amplitude.init(API_KEY, {
 --8<-- "includes/sdk-ts-browser/tracking-page-views-advanced.md"
 
 #### Tracking sessions
-
-Amplitude tracks session events by default. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
 
 Amplitude tracks session events by default. A session is the period of time a user has your website open. See [How Amplitude defines sessions](https://help.amplitude.com/hc/en-us/articles/115002323627-Track-sessions-in-Amplitude#how-amplitude-defines-sessions) for more information. When a new session starts, Amplitude tracks a session start event and is the first event of the session. The event type for session start is "[Amplitude] Start Session". When an existing session ends, a session end is tracked and is the last event of the session. The event type for session end is "[Amplitude] End Session".
 

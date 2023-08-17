@@ -404,7 +404,11 @@ nav:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
-        - Management API (Beta): experiment/apis/management-api.md
+        - Management API: 
+          - experiment/apis/management-api/index.md
+          - Flags: experiment/apis/management-api/flags.md
+          - Experiments: experiment/apis/management-api/experiments.md
+          - Deployments: experiment/apis/management-api/deployments.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
@@ -454,7 +458,6 @@ nav:
           - Ampli Codegen: data/sdks/browser-2/ampli.md
         - v1.0:
           - data/sdks/typescript-browser/index.md
-          - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
           - Ampli Codegen: data/sdks/typescript-browser/ampli.md
           - Migration Guide: data/sdks/browser-2/migration.md
       - Node.js:
@@ -490,8 +493,13 @@ nav:
     - Maintenance SDKs:
       - Browser:
         - data/sdks/javascript/index.md
-        - Ampli Codegen: data/sdks/javascript/ampli.md
-        - Migration Guide: data/sdks/typescript-browser/migration.md
+        - JavaScript SDK:
+          - data/sdks/javascript/index.md
+          - Ampli Codegen: data/sdks/javascript/ampli.md
+          - Migration Guide: data/sdks/typescript-browser/migration.md
+        - Marketing Analytics Browser:
+          - data/sdks/marketing-analytics-browser/index.md
+          - Migration Guide: data/sdks/marketing-analytics-browser/migration.md
       - Android:
         - data/sdks/android/index.md
         - Ampli Codegen: data/sdks/android/ampli.md
