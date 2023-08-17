@@ -1,13 +1,6 @@
 ---
 title: Send Cohorts to CleverTap
 description: Use this integration to send Amplitude cohorts to CleverTap
-status: new
-
----
-
-!!!beta
-    
-    This integration is in open beta, and is still in active development. If you have any feedback to help improve this destination and or its documentation, [contact the CleverTap support team](https://clevertap.com/contact-us/).
 
 [CleverTap](https://clevertap.com/index/) is a modern, integrated retention cloud that empowers digital consumer brands to increase customer retention and lifetime value. With this integration, you can ingest event data from CleverTap into Amplitude for further analysis.
 
