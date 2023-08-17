@@ -318,6 +318,7 @@ nav:
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
+        - Cohort Webhooks: data/destinations/cohort-webhooks.md
         - Cordial: data/destinations/cordial-cohort.md
         - Customer.io: data/destinations/customerio-cohort.md
         - Enterpret: data/destinations/enterpret-cohort.md
