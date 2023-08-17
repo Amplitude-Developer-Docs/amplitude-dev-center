@@ -9,7 +9,7 @@
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
 - :bento: [Bento](../data/destinations/bento-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
-- :cohortwebhooks:[Cohort Webhooks](../data/destinations/cohort-webhooks.md)
+- :cohort-webhooks:[Cohort Webhooks](../data/destinations/cohort-webhooks.md)
 - :cordial: [Cordial](../data/destinations/cordial-cohort.md)
 - :clevertap: [Clevertap](../data/destinations/clevertap-cohort.md)
 - :customerio: [Customer.io](../data/destinations/customerio-cohort.md)
