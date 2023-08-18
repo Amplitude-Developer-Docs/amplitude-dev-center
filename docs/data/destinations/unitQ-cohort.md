@@ -7,7 +7,7 @@ description: Sync cohorts from Amplitude to unitQ
 
     This integration is currently in beta and is in active development. If you have any feedback to improve the unitQ destination or have suggestions for their documentation, please contact [unitQ support team](https://unitQ.com/). 
 
-[unitQ](https://www.unitq.com/) empowers companies with AI-powered, actionable insights from user feedback to help them craft high-quality products, services and experiences. unitQ centralizes feedback from all sources and automatically groups it into thousands of granular categories to help organizations discover what matters most to users.
+[unitQ](https://www.unitq.com/) empowers companies with AI-powered, actionable insights from user feedback to help them craft high-quality products, services, and experiences. unitQ centralizes feedback from all sources and automatically groups it into thousands of granular categories to help organizations discover what matters most to users.
 
 ## Considerations
 
@@ -44,9 +44,9 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
-### Use Cases
+### Use cases
 
-1) **Pinpoint key drivers behind attrition:** identify common pain points among users who stopped engaging with your product by complementing product analytics data with user feedback.
-2) **Get insights by user type:** better understand the different types of users you serve. Easily discover what matters the most to each kind of user, including common issues, trends, feature requests, and more.
-3) **Optimize your product onboarding:** identify and address top pain points experienced by new users and reasons why specific features have low engagement. 
-4) **Supercharge your A/B testing:** analyze the behavior, feedback, and engagement metrics of users of A/B tests to gain a deeper understanding of the outcomes and implications of the variations.
+1. **Pinpoint key drivers behind attrition:** identify common pain points among users who stopped engaging with your product by complementing product analytics data with user feedback.
+2. **Get insights by user type:** better understand the different types of users you serve. Discover what matters the most to each kind of user, including common issues, trends, feature requests, and more.
+3. **Optimize your product onboarding:** identify and address top pain points experienced by new users and reasons why specific features have low engagement. 
+4. **Supercharge your A/B testing:** analyze the behavior, feedback, and engagement metrics of users of A/B tests to gain a deeper understanding of the outcomes and implications of the variations.
