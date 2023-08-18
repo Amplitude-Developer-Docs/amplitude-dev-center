@@ -53,9 +53,9 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
-## Using the Cohort in Braze
+## Use the cohort in Braze
 
 1. In Braze, to create a segment of these users, navigate to **Audience** and click on **Segments**.
 2. Click on **Create Segment** and name your Segment.
 3. Under Add Filter, select **Amplitude Cohorts** and choose the cohort you created and synced from Amplitude.
-4. Once saved, you can reference this segment during Canvas or campaign creation in the targeting users step.
+4. When saved, you can reference this segment during Canvas or campaign creation in the targeting users step.
