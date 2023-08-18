@@ -1,6 +1,7 @@
 ---
 title: Send Cohorts to CleverTap
 description: Use this integration to send Amplitude cohorts to CleverTap
+---
 
 [CleverTap](https://clevertap.com/index/) is a modern, integrated retention cloud that empowers digital consumer brands to increase customer retention and lifetime value. With this integration, you can ingest event data from CleverTap into Amplitude for further analysis.
 
@@ -42,7 +43,7 @@ It may take a few minutes depending on the size of your cohort to see the correc
 
 ## Use Cases
 
-1. **Improved retention analysis:** Cohort analysis allows you to track user behavior and retention over time, based on the time they joined or took a specific action. By sending Amplitude cohort data to CleverTap, you can better understand which cohorts are more likely to churn or retain, and create targeted campaigns to re-engage them.
+1. **Improved retention analysis:** Cohort analysis allows you to track user behavior and retention over time, based on the time they joined or took a specific action. By sending Amplitude cohort data to CleverTap, you can better understand which cohorts are more likely to churn or retain and create targeted campaigns to re-engage them.
 2. **Personalized messaging:** By using cohort data, CleverTap can create personalized messages and campaigns for users based on their behavior and actions. For example, you could create a targeted campaign for users who joined during a specific time period or who performed a specific action, such as making a purchase.
 3. **Improved A/B testing:** By comparing the behavior of different cohorts, you can gain insights into the effectiveness of different features, campaigns, or user experiences. CleverTap's A/B testing capabilities allow you to test and optimize different campaigns based on cohort data.
 4. **Better insights into user behavior:** By combining Amplitude's cohort data with CleverTap's engagement analytics, you can gain a more complete picture of your users' behavior and engagement with your product or service. This can lead to valuable insights and opportunities for optimization.
