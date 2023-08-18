@@ -5,7 +5,7 @@ description: Send Amplitude cohorts to Blitzllama.
 
 --8<-- "includes/editions-all-paid-editions.md"
 
-[Blitzllama](https://www.linkedin.com/company/blitzllama/) GPT-powered feedback analytics automatically categorizes survey responses into topics, sentiments, and provides recommendations. This saves time that would be spent manually summarizing the feedback. As all the feedback is stored in one place, you can segment historical feedback and create charts within a few clicks.
+[Blitzllama](https://www.linkedin.com/company/blitzllama/) GPT-powered feedback analytics automatically categorizes survey responses into topics, and sentiments, and provides recommendations. This saves time that would be spent manually summarizing the feedback. As all the feedback is stored in one place, you can segment historical feedback and create charts within a few clicks.
 
 This integration lets you sync cohorts from Amplitude to Blitzllama.
 
@@ -33,7 +33,7 @@ For more information on setting up this integration, see Blitzllama's [documenta
 
 1. In Amplitude Data, click **Catalog** and select the **Destinations** tab.
 2. In the Cohort section, click **Blitzllama**.
-3. Enter Name and paste in the API key you copied from **Blitzllama**.
+3. Enter **Name** and paste in the **API key** you copied from **Blitzllama**.
 4. Map the same Amplitude User ID with the primary key from the Blitzllama panel.
 5. Save when finished.
 
