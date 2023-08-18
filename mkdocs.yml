@@ -341,6 +341,7 @@ nav:
         - Notivize: data/destinations/notivize-cohort.md
         - OneSignal: data/destinations/onesignal-cohort.md
         - Plotline: data/destinations/plotline-cohort.md
+        - Pushwoosh: data/destinations/pushwoosh-cohort.md
         - Productboard: data/destinations/productboard-cohort.md
         - Qualtrics: data/destinations/qualtrics-cohort.md
         - Salesforce Marketing V1: data/destinations/marketing-cloud-cohort.md
