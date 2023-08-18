@@ -47,6 +47,7 @@ To sync your first cohort, follow these steps:
 ### Use Cases
 
 With WebEngage and Amplitude Integration, product teams can:
+
 1) **Personalized Messaging:** You can create segments or cohorts in Amplitude based on specific user behaviors or attributes. For example, you can create a cohort of users who have abandoned their shopping carts. By sending this cohort to WebEngage, you can trigger personalized cart abandonment emails or push notification campaigns to encourage them to complete their purchase.
 2) **Behavior-Based Campaigns:** Use Amplitude's behavioral data to identify users who have taken specific actions, such as signing up, making a purchase, or achieving a certain engagement level. Sending these cohorts to WebEngage allows you to tailor campaigns that acknowledge their actions and encourage further engagement. For instance, you could send a congratulatory email to users who have reached a milestone within your app.
 3) **Cross-Channel Consistency:** With WebEngage's support for multiple communication channels, you can use Amplitude's cohorts to ensure consistent messaging across various touchpoints. For instance, if a user has shown interest in a specific product category through their behavior, you can send them relevant product recommendations through email, push notifications, and other channels simultaneously.
