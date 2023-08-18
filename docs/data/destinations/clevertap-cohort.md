@@ -16,7 +16,7 @@ This CleverTap integration allows you to send audiences from Amplitude to Clever
 
 ### CleverTap setup
 
-1. Log into your CleverTap dashboard and copy your **Account ID** and **Account Passcode**.
+1. Log into your CleverTap dashboard and copy your **Account ID** and **Account Pass code**.
 
 ### Amplitude setup
 
@@ -25,7 +25,7 @@ This CleverTap integration allows you to send audiences from Amplitude to Clever
 3. Add a new destination.
 4. Enter a name for this integration.
 5. Select your **CleverTap Region**.
-6. Paste in your **Account ID** and **Account Passcode**.
+6. Paste in your **Account ID** and **Account Pass code**.
 7. Map your Amplitude properties to CleverTap’s User ID, Anonymous ID and CleverTap User ID.
 8. Save when finished.
 
@@ -41,9 +41,9 @@ To sync your first cohort, follow these steps:
 
 It may take a few minutes depending on the size of your cohort to see the correct number of cohort users on CleverTap’s side.
 
-## Use Cases
+## Use cases
 
 1. **Improved retention analysis:** Cohort analysis allows you to track user behavior and retention over time, based on the time they joined or took a specific action. By sending Amplitude cohort data to CleverTap, you can better understand which cohorts are more likely to churn or retain and create targeted campaigns to re-engage them.
-2. **Personalized messaging:** By using cohort data, CleverTap can create personalized messages and campaigns for users based on their behavior and actions. For example, you could create a targeted campaign for users who joined during a specific time period or who performed a specific action, such as making a purchase.
+2. **Personalized messaging:** By using cohort data, CleverTap can create personalized messages and campaigns for users based on their behavior and actions. For example, you could create a targeted campaign for users who joined during a specific time or who performed a specific action, such as making a purchase.
 3. **Improved A/B testing:** By comparing the behavior of different cohorts, you can gain insights into the effectiveness of different features, campaigns, or user experiences. CleverTap's A/B testing capabilities allow you to test and optimize different campaigns based on cohort data.
 4. **Better insights into user behavior:** By combining Amplitude's cohort data with CleverTap's engagement analytics, you can gain a more complete picture of your users' behavior and engagement with your product or service. This can lead to valuable insights and opportunities for optimization.
