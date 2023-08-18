@@ -27,6 +27,7 @@ Apphud
 apphud
 appset
 appsflyer
+apxor
 ARPPU
 ARPU
 Axeptio
