@@ -19,7 +19,7 @@ Keep these things in mind when sending events to [MoEngage](https://www.moengage
 - Relevant limits for MoEngage events are:
     - 10k events per app per minute
 - Amplitude sends selected user and event properties along with the event.
-- This integration supports user identify forwarding. This means when **Send Users** is enabled during the setup, user updates will be sent to MoEngage every time any user property is changed in Amplitude.
+- This integration supports user identify forwarding. This means when you enable **Send Users**  during setup, user updates are sent to MoEngage every time any user property changes in Amplitude.
 
 ## Setup
 
