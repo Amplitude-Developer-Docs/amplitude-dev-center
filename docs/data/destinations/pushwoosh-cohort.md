@@ -9,10 +9,6 @@ description: Sync cohorts from Amplitude to Pushwoosh
 
 [Pushwoosh](https://Pushwoosh.com/) is a user engagement and retention platform which enables you to send personalized marketing communications across 12+ channels, including email, push notification, WhatsApp, and more. This integration lets you sync cohorts from Amplitude to Pushwoosh. Now you can track user behavior in Amplitude, and then send them relevant email campaigns in Pushwoosh.
 
-!!!tip
-
-    This integration is maintained by Pushwoosh. Contact the Pushwoosh support team for support with this integration.
-
 ## Considerations
 
 - This integration is only available for customers who have paid plans with Amplitude.
