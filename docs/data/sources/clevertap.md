@@ -5,9 +5,16 @@ description: Use this integration to import CleverTap retention data into Amplit
 
 [CleverTap](https://clevertap.com/) is a modern, integrated retention cloud that empowers digital consumer brands to increase customer retention and lifetime value. With this integration, you can ingest event data from CleverTap into Amplitude for further analysis.
 
+!!!note "Other Amplitude + CleverTap integrations"
+
+    Amplitude offers other integrations with CleverTap: 
+
+    - [Send Amplitude Cohorts to CleverTap](/data/destinations/clevertap-cohort)
+    - [Stream Amplitude Events to CleverTap](/data/destinations/clevertap-event-streaming)
+
 ## Considerations
 
-- CleverTap Integration lets you select the region where you have implemented Amplitude: Standard or EU. Contact the [Amplitude support team](https://help.amplitude.com/hc/en-us/requests/new) if you don't know which data center you are on.
+- CleverTap Integration lets you select the region where you have implemented Amplitude: Standard or EU. Contact the [Amplitude support team](https://help.amplitude.com/hc/en-us/requests/new) if you don't know which data centre you are on.
 - This feature is available to users on the CleverTap Enterprise plan.
 
 ## Setup
