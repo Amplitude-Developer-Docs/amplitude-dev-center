@@ -9,6 +9,7 @@
 - :bento: [Bento](/data/destinations/bento-event-streaming)
 - :branch: [Branch](/data/destinations/branch)
 - :braze: [Braze](/data/destinations/braze)
+- :clevertap: [CleverTap](/data/destinations/clevertap)
 - :customerio: [Customer.io](/data/destinations/customerio)
 - :extole: [Extole](/data/destinations/extole-event-streaming)
 - :fivetran: [Fivetran](/data/destinations/fivetran-event-forwarding)
