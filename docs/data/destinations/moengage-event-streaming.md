@@ -54,7 +54,7 @@ Create an access token in MoEngage. You need this to complete the Amplitude setu
 ## View forwarded events from Amplitude in MoEngage
 1. Log into MoEngage.
 2. Click on **Events** tab.
-3. Click on **Custom Events** to view the log of events.
+3. Click **Custom Events** to view the log of events.
 
 
 ## Use cases
