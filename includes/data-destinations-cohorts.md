@@ -44,6 +44,7 @@
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :talonone: [Talon.One](../data/destinations/talonone-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
+- :unitQ: [unitQ](../data/destinations/unitQ-cohort.md)
 - :userflow: [Userflow](../data/destinations/userflow-cohort.md)
 - :userlist: [Userlist](../data/destinations/userlist-cohort.md)
 - :user.com: [User.com](../data/destinations/user.com-cohort.md)
