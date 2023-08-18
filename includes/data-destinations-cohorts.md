@@ -34,6 +34,7 @@
 - :notivize: [Notivize](../data/destinations/notivize-cohort.md)
 - :plotline: [Plotline](../data/destinations/plotline-cohort.md)
 - :productboard: [Productboard](../data/destinations/productboard-cohort.md)
+- :pushwoosh: [Pushwoosh](../data/destinations/pushwoosh-cohort.md)
 - :qualtrics-xm: [Qualtrics](../data/destinations/qualtrics-cohort.md)
 - :salesforce: [Salesforce Marketing Cloud v1](../data/destinations/marketing-cloud-cohort.md)
 - :salesforce: [Salesforce Marketing Cloud v2](../data/destinations/marketing-cloud-cohort-v2.md)
