@@ -52,12 +52,13 @@ Create an access token in MoEngage. You need this to complete the Amplitude setu
 10. When finished, save your work.
 
 ## View forwarded events from Amplitude in MoEngage
+
 1. Log into MoEngage.
-2. Navigate to the the **Events** tab.
+2. Navigate to the **Events** tab.
 3. Click **Custom Events** to view the log of events.
 
-
 ## Use cases
+
 1. **Personalization:** By sending user properties from Amplitude to MoEngage, you can create more personalized experiences for your users. For example, you could send information about a user's location or language preference, and use that information to tailor your messaging or content to their specific needs.
 2. **Segmentation:** By sending events and event properties from Amplitude to MoEngage, you can create segments of users based on their behavior. For example, you could create a segment of users who have completed a specific action in your app or website, and then target them with a specific campaign or message.
 3. **Conversion tracking:** By sending events from Amplitude to MoEngage, you can track the effectiveness of your marketing campaigns and measure user behavior throughout the funnel. For example, you could track how many users who received a specific message from MoEngage went on to make a purchase or complete another desired action.
