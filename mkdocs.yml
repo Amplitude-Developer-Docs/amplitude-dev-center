@@ -352,7 +352,7 @@ nav:
         - Statsig: data/destinations/statsig-cohort.md
         - Talon.One: data/destinations/talonone-cohort.md
         - TikTok: data/destinations/tiktok-cohort.md
-        - unitQ: data/destinations/unitq-cohort.md
+        - unitQ: data/destinations/unitQ-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
         - User.com: data/destinations/user.com-cohort.md
