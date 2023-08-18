@@ -5,7 +5,7 @@ description: Send Amplitude cohorts to Blitzllama.
 
 --8<-- "includes/editions-all-paid-editions.md"
 
-[Blitzllama](https://www.linkedin.com/company/blitzllama/) GPT-powered feedback analytics automatically categorizes survey responses into topics, and sentiments, and provides recommendations. This saves time that would be spent manually summarizing the feedback. As all the feedback is stored in one place, you can segment historical feedback and create charts within a few clicks.
+[Blitzllama](https://www.linkedin.com/company/blitzllama/) GPT-powered feedback analytics automatically categorizes survey responses into topics, and sentiments, and provides recommendations. This saves time that you would spend manually summarizing the feedback. Blitzllama stores feedback in one place, you can segment historical feedback and create charts within a few clicks.
 
 This integration lets you sync cohorts from Amplitude to Blitzllama.
 
@@ -47,8 +47,8 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
-## Use Cases
+## Use cases
 
-1. **User onboarding feedback:** A business may identify a cohort of users who recently signed up for their product but have not yet completed the onboarding process. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about the onboarding experience. This can help to identify pain points and areas for improvement in the onboarding process, which can ultimately lead to higher user engagement and retention.
-2. **Feature request feedback:** A business may identify a cohort of power users who frequently use a particular feature of their product. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about how that feature could be improved or expanded. This can help to identify opportunities for new features or improvements to existing features, which can help to drive product differentiation and user satisfaction.
-3. **Customer support feedback:** A business may identify a cohort of users who have recently contacted customer support with a question or issue. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about the customer support experience. This can help to identify areas for improvement in the customer support process, which can ultimately lead to higher customer satisfaction and loyalty.
+1. **User onboarding feedback:** A business may identify a cohort of users who recently signed up for their product but haven't yet completed the onboarding process. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about the onboarding experience. This can help to identify pain points and areas for improvement in the onboarding process, which can lead to higher user engagement and retention.
+2. **Feature request feedback:** A business may identify a cohort of power users who use a particular feature of their product. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about how they may improve or expand that feature. This can help to identify opportunities for new features or improvements to existing features, which can help to drive product differentiation and user satisfaction.
+3. **Customer support feedback:** A business may identify a cohort of users who have recently contacted customer support with a question or issue. They can then use this cohort to target an in-product survey through Blitzllama that asks specific questions about the customer support experience. This can help to identify areas for improvement in the customer support process, which can lead to higher customer satisfaction and loyalty.
