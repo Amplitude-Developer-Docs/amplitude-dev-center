@@ -59,4 +59,3 @@ To sync your first cohort, follow these steps:
 2. Click on **Create Segment** and name your Segment.
 3. Under Add Filter, select **Amplitude Cohorts** and choose the cohort you created and synced from Amplitude.
 4. Once saved, you can reference this segment during Canvas or campaign creation in the targeting users step.
-
