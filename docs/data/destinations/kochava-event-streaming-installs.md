@@ -60,7 +60,7 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 8. Under **Send Events**, make sure the toggle is enabled ("Events are sent to Kochava") if you want to stream events to Kochava. When enabled, events are automatically forwarded to Kochava when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 9. In **Select and Filter** events choose which events you want to send. Choose only the events you need in Kochava. [Transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure#:~:text=Amplitude%20Data's%20transformations%20feature%20allows,them%20to%20all%20historical%20data.) aren't supported.
 10. Click on **Map properties to destination** to specify the identity mapping between Amplitude and Kochava. 
-11. *(optional)* In Select additional properties, select any more user properties you want to send to Kochava. If you don't select any properties here, Amplitude doesn't send any. Transformed user properties aren't supported.
+11. *(optional)* In **Select additional properties**, select any more user properties you want to send to Kochava. If you don't select any properties here, Amplitude doesn't send any. Transformed user properties aren't supported.
 12. When finished, enable the destination and **Save**.
 
 ### Use Cases
