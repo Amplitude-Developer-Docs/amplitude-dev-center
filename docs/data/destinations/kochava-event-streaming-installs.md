@@ -46,7 +46,7 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 1. Log into your Kochava dashboard and copy your **Account ID** and **Account Passcode**.
 2. Go to the All **Apps** section and copy the GUID of the App you created.
 3. (Optional) Go to **Account Options** and select **API Keys** to locate or create your API key.
-4. (Optional) Ask your Kochava Client Success Manager to obtain your Kochava secret authentication key.
+4. (Optional) Contact your Kochava Client Success Manager to obtain your Kochava secret authentication key.
 
 ### Amplitude setup
 
@@ -58,7 +58,7 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 6. *(Optional)* Paste your **API Key** (taken from the Kochava account).
 7. *(Optional)* Paste your secret key to **API secret** (provided by Kochava's CS team).
 8. Under **Send Events**, make sure the toggle is enabled ("Events are sent to Kochava") if you want to stream events to Kochava. When enabled, events are automatically forwarded to Kochava when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
-9. In Select and filter events choose which events you want to send. Choose only the events you need in Kochava. [Transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure#:~:text=Amplitude%20Data's%20transformations%20feature%20allows,them%20to%20all%20historical%20data.) aren't supported.
+9. In **Select and Filter** events choose which events you want to send. Choose only the events you need in Kochava. [Transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure#:~:text=Amplitude%20Data's%20transformations%20feature%20allows,them%20to%20all%20historical%20data.) aren't supported.
 10. Click on **Map properties to destination** to specify the identity mapping between Amplitude and Kochava. 
 11. *(optional)* In Select additional properties, select any more user properties you want to send to Kochava. If you don't select any properties here, Amplitude doesn't send any. Transformed user properties aren't supported.
 12. When finished, enable the destination and **Save**.
