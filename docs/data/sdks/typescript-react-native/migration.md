@@ -3,9 +3,9 @@ title: React Native SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's maintenance React Native SDK (@amplitude/react-native) to the latest SDK (@amplitude/analytics-react-native).
 ---
 
---8<-- "includes/sdk-missing-migration.md"
+Amplitude's latest React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support.
 
-Amplitude's latest React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support. Latest React Native SDK isn't backwards compatible with maintenance React Native SDK `@amplitude/react-native`. 
+The latest React Native SDK isn't fully backwards compatible with maintenance React Native SDK `@amplitude/react-native`. However, it will transfer user, device, and event data to the new SDK automatically in versions `v1.3.4` and above.
 
 To migrate to `@amplitude/analytics-react-native`, update your dependencies and instrumentation.
 
