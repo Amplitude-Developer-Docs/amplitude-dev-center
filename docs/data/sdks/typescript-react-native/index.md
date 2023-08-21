@@ -655,6 +655,16 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
+## Location
+
+The SDK will set the `country` based on network information. However, to remove permissions from the SDK that may not be required for all customers, we extracted precise location support from the core SDK. To use location you will now need to create an enrichment Plugin to set the location yourself. 
+
+Here is an [example](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/examples/plugins/react-native-get-location-plugin/LocationPlugin.ts) of how to set `location_lat` and `location_lng` for more granular location tracking.
+
+## Carrier
+
+Carrier support works on Android, but Apple stopped supporting it in iOS 16. In earlier versions of iOS, we fetch carrier info using `CTCarrier` and `serviceSubscriberCellularProviders` which are [deprecated](https://developer.apple.com/documentation/coretelephony/cttelephonynetworkinfo/3024511-servicesubscribercellularprovide) with [no replacement](https://developer.apple.com/forums/thread/714876?answerId=728276022#728276022).
+
 ### Advertising Identifiers
 
 Different platforms have different advertising identifiers. Due to user privacy concerns, Amplitude does not automatically collect these identifiers. However, it is easy to enable them using the instructions below. It is important to note that some identifiers are no longer recommended for use by the platform providers. Please read the notes below before deciding to enable them.
