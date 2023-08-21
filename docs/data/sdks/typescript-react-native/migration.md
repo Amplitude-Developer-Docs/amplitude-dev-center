@@ -258,3 +258,13 @@ The maintenance React Native SDK supports automatically log start and end events
 | Logger provider | Amplitude Logger. Fully customizable. | Depends on the native iOS, Android, Amplitude JavaScript logger provider. |
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API |  HTTP V1 API |
+
+## Data migration
+
+Starting [v1.3.4](https://github.com/amplitude/Amplitude-TypeScript/releases/tag/%40amplitude%2Fanalytics-react-native%401.3.4), existing [maintenance SDK](../../react-native) data (events, user/device ID) are moved to the latest SDK by default. It can be disabled by setting `migrateLegacyData` to `false` in the [Configuration](../#configuration).
+
+```typescript
+init(API_KEY, OPTIONAL_USER_ID, {
+  migrateLegacyData: false,
+})
+```
