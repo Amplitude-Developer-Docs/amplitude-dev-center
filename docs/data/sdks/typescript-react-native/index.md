@@ -657,9 +657,18 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Location
 
-The SDK will set the `country` based on network information. However, to remove permissions from the SDK that may not be required for all customers, we extracted precise location support from the core SDK. To use location you will now need to create an enrichment Plugin to set the location yourself. 
+The Amplitude ingestion servers resolve event location in the following order:
 
-Here is an [example](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/examples/plugins/react-native-get-location-plugin/LocationPlugin.ts) of how to set `location_lat` and `location_lng` for more granular location tracking.
+1. User-provided `city`, `country`, `region`
+2. Resolved from `location_lat` and `location_lng`
+3. Resolved from `ip`
+
+By default, location will be determined by the `ip` on the server side. If you want more provide more granular location you can set `city`, `country` and `region` individually, or set `location_lat` and `location_lng` which will then be resolved to `city`, `country` and `region` on the server. 
+We do not automatically set precise location in the SDK to avoid extra permissions that my not be needed by all customers.
+
+To set fine grain location, you can use an enrichment Plugin. Here is an [example](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/examples/plugins/react-native-get-location-plugin/LocationPlugin.ts) of how to set `location_lat` and `location_lng`.
+
+Note that disabling IP tracking via `ipTracking: false` in [TrackingOptions](/data/sdks/typescript-react-native/#optional-tracking) will prevent location from being resolved on the backend. In this case you may want to create a Plugin like above to set any relevant location information yourself.
 
 ### Carrier
 
