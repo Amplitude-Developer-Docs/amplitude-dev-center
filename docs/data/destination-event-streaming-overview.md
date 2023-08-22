@@ -9,13 +9,14 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 
 ## Considerations
 
-- Amplitude event streaming currently only supports raw (untransformed) events, event properties, and user properties. [Transformed](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure) events and properties (such as merged properties) can't be sent.
-- The following keywords can't be used as event names when streaming events from Amplitude:
-    - _all
-    - _identify
-- Amplitude tracks event volume as distinct events streamed out. The same event going to multiple event streaming destinations is only counted once for billing purposes.
-- For latency, Amplitude is targeting an end-to-end p95 latency of 60s. This means 95% of Events streamed must be delivered within 60s or less. We have internal processes, monitors, and alerts in place to monitor and maintain this target.
-- Amplitude's streaming integrations are designed to transmit data from the point of event streaming setup onwards. Historical data is not included in this process, meaning that only events captured after the event streaming configuration will be included in the transmission.
+- **No transformations:** Amplitude event streaming currently only supports raw (untransformed) events, event properties, and user properties. [Transformed](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure) events and properties (such as merged properties) can't be sent.
+- **User Properties Format:** All forwarded user properties are currently sent as strings.
+- **Reserved Keywords:** Specific keywords, including "_all" and "_identify," cannot be used as event names when streaming events from Amplitude.
+- **Billing Efficiency:** Event volume is tracked based on distinct events streamed out. If the same event is sent to multiple event streaming destinations, it's counted only once for billing.
+- **Latency Target:** For latency, Amplitude is targeting an end-to-end p95 latency of 60s. This means 95% of Events streamed must be delivered within the 60s or less. We have internal processes, monitors, and alerts in place to monitor and maintain this target.
+- **Starting from Event Streaming Setup:** Amplitude's streaming integrations focus on data from the setup point forward. Historical data isn't included in this process, ensuring that only events captured post-configuration are transmitted.
+- **Reliable Retry Mechanism:** Addressing intermittent errors, we employ in-memory retries with exponential backoff for initial sends. Furthermore, a robust retry pipeline is implemented to handle retriable errors, attempting up to 10 times within a 4-hour timeframe. This universally enabled retry mechanism covers all Event Streaming destinations.
+- **Streamlined Monitoring and Management:** Use the Event Streaming Debugger UI to oversee pending retries and their progress. Once all retry attempts are exhausted, expired payloads are clearly marked. The UI also offers insight into error categories and samples of failed payloads.
 
 ## FAQs
 
