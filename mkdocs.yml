@@ -297,7 +297,7 @@ nav:
         - Kameleoon: data/destinations/kameleoon-event-streaming.md
         - Kinesis: data/destinations/kinesis-data-stream.md
         - Kinesis Firehose: data/destinations/kinesis-firehose.md
-        - Kochava : data/destinations/kochava-event-streaming-post-installs.md
+        - Kochava (post-installs) : data/destinations/kochava-event-streaming-post-installs.md
         - Lantern: data/destinations/lantern-event-streaming.md
         - Mailchimp: data/destinations/mailchimp-event-streaming.md
         - Meta Pixel: data/destinations/meta-pixel.md
