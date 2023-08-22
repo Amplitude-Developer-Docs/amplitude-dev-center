@@ -28,12 +28,9 @@ Replace the Google Analytics (GA4) initialization calls with Amplitude initializ
 Then the corresponding Amplitude call is this:
 
 ```html
-<script src="https://cdn.amplitude.com/libs/plugin-ga-events-forwarder-browser-0.1.0-min.js.gz"></script>
 <script type="text/javascript">
   !function(){"use strict";!function(e,t){var r=e.amplitude||{_q:[],_iq:{}};if(r.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var n=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,r){return function(n){e._q.push({name:t,args:Array.prototype.slice.call(r,0),resolve:n})}},i=function(e,t,r){e[t]=function(){if(r)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},o=function(e){for(var t=0;t<g.length;t++)i(e,g[t],!1);for(var r=0;r<m.length;r++)i(e,m[r],!0)};r.invoked=!0;var a=t.createElement("script");a.type="text/javascript",a.integrity="sha384-tVVRWU7GrpjrC44WiDzQSQ9/fCEp3KlzT6HvGeU9Q4YPkOziz0qa/azi73J6jBr6",a.crossOrigin="anonymous",a.async=!0,a.src="https://cdn.amplitude.com/libs/analytics-browser-1.12.1-min.js.gz",a.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c);for(var u=function(){return this._q=[],this},p=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],l=0;l<p.length;l++)n(u,p[l]);r.Identify=u;for(var d=function(){return this._q=[],this},f=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],v=0;v<f.length;v++)n(d,f[v]);r.Revenue=d;var g=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],m=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];o(r),r.createInstance=function(e){return r._iq[e]={_q:[]},o(r._iq[e]),r._iq[e]},e.amplitude=r}}(window,document)}();
 
-  const gaEventsForwarderPlugin = gaEventsForwarder.plugin();
-  amplitude.add(gaEventsForwarderPlugin);
   amplitude.add('YOUR_API_KEY');
 </script>
 ```
