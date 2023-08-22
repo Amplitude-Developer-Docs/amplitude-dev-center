@@ -295,7 +295,7 @@ nav:
         - Intercom: data/destinations/intercom.md
         - Iterable: data/destinations/iterable.md
         - Kameleoon: data/destinations/kameleoon-event-streaming.md
-        - Kochava: data/destinations/kochava-event-streaming-installs.md
+        - Kochava (installs): data/destinations/kochava-event-streaming-installs.md
         - Kinesis: data/destinations/kinesis-data-stream.md
         - Kinesis Firehose: data/destinations/kinesis-firehose.md
         - Lantern: data/destinations/lantern-event-streaming.md
