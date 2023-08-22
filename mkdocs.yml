@@ -521,6 +521,9 @@ nav:
       - Middleware: data/sdk-middleware.md
       - Troubleshooting and debugging: data/sdk-troubleshooting-and-debugging.md
       - Maintenance and support: data/sdks/sdk-maintenance-and-support.md
+      - Tutorials:
+        - Migrating from Google Analytics:
+          - data/tutorials/migrating-from-google-analytics/index.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:
