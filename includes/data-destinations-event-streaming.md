@@ -20,7 +20,7 @@
 - :intercom: [Intercom](/data/destinations/intercom)
 - :iterable: [Iterable](/data/destinations/iterable)
 - :kameleoon: [Kameleoon](/data/destinations/kameleoon-event-streaming)
-- :kochava: [Kochava](/data/destinations/kochava-event-streaming-installs)
+- :kochava: [Kochava (Install)](/data/destinations/kochava-event-streaming-installs)
 - :lantern: [Lantern](/data/destinations/lantern-event-streaming)
 - :meta: [Meta Pixel](/data/destinations/meta-pixel)
 - :moengage: [MoEngage](/data/destinations/moengage-event-streaming)
