@@ -14,6 +14,7 @@ Migrating from the Google Analytics (GA4) SDK to the Amplitude SDK involves adju
 ### Initializing Amplitude
 
 Replace the Google Analytics (GA4) initialization calls with Amplitude initialization calls in your application code. If you were tracking an event in Google Analytics (GA4) like this:
+
 ```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
@@ -25,6 +26,7 @@ Replace the Google Analytics (GA4) initialization calls with Amplitude initializ
 ```
 
 Then the corresponding Amplitude call is this:
+
 ```html
 <script src="https://cdn.amplitude.com/libs/plugin-ga-events-forwarder-browser-0.1.0-min.js.gz"></script>
 <script type="text/javascript">
@@ -42,7 +44,7 @@ It's important to initialize the Amplitude SDK in order to start capturing event
 
 Amplitude's tracking function require different parameters than Google Analytics (GA4). Refer to the code snippets below for the equivalent tracking functions.
 
-**Google Analytics (GA4)**
+Google Analytics (GA4)
 
 ```js
 gtag('event', 'event_name', {
@@ -51,7 +53,7 @@ gtag('event', 'event_name', {
 });
 ```
 
-**Amplitude**
+Amplitude
 
 ```js
 amplitude.track('event_name, {
@@ -62,7 +64,7 @@ amplitude.track('event_name, {
 
 ### Setting user ID
 
-**Google Analytics (GA4)**
+Google Analytics (GA4)
 
 ```js
 gtag('config', 'GA_MEASUREMENT_ID', {
@@ -70,7 +72,7 @@ gtag('config', 'GA_MEASUREMENT_ID', {
 });
 ```
 
-**Amplitude**
+Amplitude
 
 ```js
 amplitude.setUserId('USER_ID');
@@ -78,7 +80,7 @@ amplitude.setUserId('USER_ID');
 
 ### Setting user properties
 
-**Google Analytics (GA4)**
+Google Analytics (GA4)
 
 ```js
 gtag('set', 'user_properties', {
@@ -87,7 +89,7 @@ gtag('set', 'user_properties', {
 });
 ```
 
-**Amplitude**
+Amplitude
 
 ```js
 amplitude.identify(
