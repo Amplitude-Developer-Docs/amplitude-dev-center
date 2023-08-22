@@ -104,7 +104,7 @@ We understand that transitioning from your current analytics platform to a new o
 
 #### Using Google Analytics events forwarder
 
-Amplitude offers a Google Analytics events forwarder which is a low-code solution that works as a plugin to the Amplitude Browser SDK. This plugin is installed on your application listens for events that Google Analytics (GA4) tracks. For each event sent to Google Analytics (GA4), a corresponding event is sent to Amplitude.
+Amplitude offers a Google Analytics events forwarder which is a low-code solution that works as a plugin to the Amplitude Browser SDK. Once this plugin is installed on your application, it listens for events that Google Analytics (GA4) tracks. For each event sent to Google Analytics (GA4), a corresponding event is sent to Amplitude.
 
 ##### Initializing Amplitude with Google Analytics events forwarder
 
