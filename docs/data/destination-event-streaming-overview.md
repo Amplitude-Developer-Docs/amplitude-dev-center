@@ -15,8 +15,8 @@ Event streaming includes powerful, no-code, configuration-based tools that give 
 - **Billing Efficiency:** Event volume is tracked based on distinct events streamed out. If the same event is sent to multiple event streaming destinations, it's counted only once for billing.
 - **Latency Target:** For latency, Amplitude is targeting an end-to-end p95 latency of 60s. This means 95% of Events streamed must be delivered within the 60s or less. We have internal processes, monitors, and alerts in place to monitor and maintain this target.
 - **Starting from Event Streaming Setup:** Amplitude's streaming integrations focus on data from the setup point forward. Historical data isn't included in this process, ensuring that only events captured post-configuration are transmitted.
-- **Reliable Retry Mechanism:** Addressing intermittent errors, we employ in-memory retries with exponential backoff for initial sends. Furthermore, a robust retry pipeline is implemented to handle retriable errors, attempting up to 10 times within a 4-hour timeframe. This universally enabled retry mechanism covers all Event Streaming destinations.
-- **Streamlined Monitoring and Management:** Use the Event Streaming Debugger UI to oversee pending retries and their progress. Once all retry attempts are exhausted, expired payloads are clearly marked. The UI also offers insight into error categories and samples of failed payloads.
+- **Reliable Retry Mechanism:** Intermittent errors are addressed through in-memory retries with exponential backoff for initial sends. A robust retry pipeline attempts up to 10 times within a 4-hour timeframe to handle retriable errors. This mechanism is applied universally to all Event Streaming destinations.
+- **Streamlined Monitoring and Management:** The Event Streaming Debugger UI in Amplitude Data allows users to monitor pending retries and their progress. Expired payloads are clearly marked after retry attempts are exhausted. The UI provides insights into error categories and also offers samples of failed payloads for analysis.
 
 ## FAQs
 
