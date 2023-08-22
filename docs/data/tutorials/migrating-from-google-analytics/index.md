@@ -35,7 +35,7 @@ Then the corresponding Amplitude call is this:
 </script>
 ```
 
-It's important to initialize the Amplitude SDK in order to start capturing events and user properties. By including this initialization snippet in your application, you are initializing Amplitude. You must replace 'YOUR_API_KEY' with your actual Amplitude API key, which you can find in your Amplitude account.
+It's important to initialize the Amplitude SDK in order to start capturing events and user properties. By including this initialization snippet in your application, you are initializing Amplitude. You must replace `'YOUR_API_KEY'` with your actual Amplitude API key, which you can find in your Amplitude account.
 
 ### Tracking events
 
@@ -117,6 +117,8 @@ Add Amplitude SDK with Google Analytics events forwarder snippet right before yo
   amplitude.init('YOUR_API_KEY');
 </script>
 ```
+
+You must replace `'YOUR_API_KEY'` with your actual Amplitude API key, which you can find in your Amplitude account.
 
 ???code-example "How do I find my Google Tag?"
     Your Google Tag can be found in every page of your website, immediately after the <head> element. The Google Tag for your account should look like the snippet below.
