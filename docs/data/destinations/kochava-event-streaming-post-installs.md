@@ -23,7 +23,7 @@ description: Stream Amplitude events to Kochava (Post-Installs)
 
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a Kochava account to enable this integration.
-- Amplitude has two destinations for **Kochava (Install)** and Kochava **(Post Install)**.
+- Amplitude has two destinations for **Kochava (Install)** and **Kochava (Post Install)**.
   - We support only the identity (user-attributes) forwarding to Kochava in **Kochava (Post Install)**.
 - Amplitude uses the **IdentityLink** API of Kochava to send user-attributes and this will link the user-level data with the device ID. The user attributes sent by Amplitude will not be tied if the Install event with the same device ID was not received at Kochava before.
 - **Send User Feature:** This feature, "Send User," is available in the destination for Post Install Events. It helps you send the IdentityLink data along with the other event data. This ensures that Kochava knows who the user is and can connect their actions to them.
