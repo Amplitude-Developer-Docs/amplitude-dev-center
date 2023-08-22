@@ -51,7 +51,7 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 
 ### Amplitude setup
 
-1. In Amplitude, navigate to **Data Destinations**, then find **Kochava (Install)**.
+1. In Amplitude, navigate to **Data Destinations**, then find **Kochava (Post Install)**.
 2. Enter a sync name, then click **Create Sync**.
 3. Toggle Status from **Disabled** to **Enabled**.
 4. Paste your **App GUID**.
