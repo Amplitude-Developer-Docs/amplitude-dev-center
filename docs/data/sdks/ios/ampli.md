@@ -315,7 +315,7 @@ For the most part Ampli for the latest iOS SDK is backwards compatible with the 
 
 #### All Amplitude fields are accessible via EventOptions
 
-All Amplitude fields are now accessible via `EventOptions`. For example, `Ampli.instance.track(event, options: EventOptions(price: 0.99, quanity: 1))`. In the maintenance SDK only a subset of Amplitude fields were accessible.
+All Amplitude fields are now accessible via `EventOptions`. For example, `Ampli.instance.track(event, options: EventOptions(price: 0.99, quantity: 1))`. In the maintenance SDK only a subset of Amplitude fields were accessible.
 
 #### Middleware is replaced by Plugins
 
