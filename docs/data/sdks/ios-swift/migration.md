@@ -410,3 +410,16 @@ To install your custom plugin, use `add()` with your custom plugin as parameter.
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API | HTTP V1 API |
 | Batch API| Yes, with configuration. | Not supported. |
+
+## Data migration
+
+Existing [maintenance SDK](../../ios) data (events, user/device ID) are moved to the latest SDK by default. It can be disabled by setting `migrateLegacyData` to `false` in the [Configuration](../#configuration).
+
+```swift
+amplitude = Amplitude(
+    Configuration(
+        ...
+        migrateLegacyData: false,
+    )
+)
+```
