@@ -18,7 +18,14 @@ This is the official documentation for the Amplitude Analytics JavaScript SDK.
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
 
---8<-- "includes/sdk-browser-supported-version.md"
+!!! warning "Supported browser versions"
+
+    This SDK uses modern JavaScript features. For browser compatibility information, please refer to the links below:
+
+    - [Nullish coalescing `??` operator](https://caniuse.com/mdn-javascript_operators_nullish_coalescing)
+    - [Optional chaining `?.` operator](https://caniuse.com/mdn-javascript_operators_optional_chaining)
+
+    To ensure [wider browser support and ES5 conformity](https://caniuse.com/es5), we recommend using [Amplitude's TypeScript Browser SDK](/data/sdks/browser-2/).
 
 ## Install
 
