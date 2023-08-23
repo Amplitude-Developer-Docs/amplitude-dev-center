@@ -287,3 +287,39 @@ You can send all Event objects using the generic track method.
 --8<-- "includes/ampli/flush/ampli-flush-snippet-ios.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
+
+## Migration
+
+To migrated to the latest version of Ampli for iOS based on the Amplitude-Swift SDK. You will need to make some changes to your code.
+
+### Change your Ampli configuration using the Ampli CLI
+
+1. Run `ampli configure` to configure Ampli to use the new runtime.
+```typescript
+ampli configure
+? Select a platform: iOS
+? Select a language: Swift
+? Select a SDK: AmplitudeSwift ~> 1.0 (recommended)
+```
+2. Run `ampli pull` to pull the latest version of your tracking plan.
+
+### Update dependencies
+
+See our [migration guide for updating from the maintenance iOS SDK to the latest iOS Swift SDK](/data/sdks/ios-swift/migration). This will help you remove the old SDK and add the new SDK to your project.
+
+### Ampli updates
+
+For the most part Ampli for the latest iOS SDK is backwards compatible with the maintenance iOS SDK. However, there are some changes you will need to make to your code.
+
+#### All Amplitude fields are accessible via EventOptions
+
+All Amplitude fields are now accessible via `EventOptions`. For example, `Ampli.instance.track(event, options: EventOptions(price: 0.99, quanity: 1))`. In the maintenance SDK only a subset of Amplitude fields were accessible.
+
+#### Middleware is replaced by Plugins
+
+Ampli for the latest iOS SDK uses [Plugins](/data/sdk-plugins) instead of [Middleware](/data/sdk-middleware/). Plugins are more flexible and allow you to do more with your data. Any middleware can be converted to an enrichment plugin.
+
+#### Middleware extra is now on EventOptions
+
+The latest version of Ampli removes the `extra` argument from `track()`and `identify()` and replaces it with `EventOptions.extra`.
+
