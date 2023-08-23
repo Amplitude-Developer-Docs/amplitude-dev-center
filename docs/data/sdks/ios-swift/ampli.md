@@ -1,14 +1,14 @@
 ---
 title: iOS Ampli Wrapper
-description: Learn how to install and use the Ampli Wrapper for the iOS Swift and Objective-C runtimes. 
+description: Learn how to install and use the Ampli Wrapper for the iOS Swift runtime. 
 ---
 
 --8<-- "includes/ampli/ampli-overview-section.md"
 
-Amplitude Data supports tracking analytics events from iOS apps written in Swift and Objective-C.
+Amplitude Data supports tracking analytics events from iOS apps written in Swift.
 
 !!!info "Ampli iOS Resources"
-    [:material-language-swift: Swift Example](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/v1/AmpliSwiftSampleApp) · [:material-language-c: Objective-C Example](https://github.com/amplitude/ampli-examples/tree/main/ios/objective-c/v1/AmpliObjectiveCSampleApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-swift: Swift Example](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/v2/AmpliSwiftSampleApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Visit the [Amplitude iOS SDK](./index.md) documentation.
@@ -22,7 +22,7 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```shell
-    pod 'Amplitude', '~> 8.14'
+    pod 'AmplitudeSwift', '~> 0.4.14'
     ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)
@@ -88,21 +88,11 @@ If you haven't already, install the core Amplitude SDK dependencies.
 
 Initialize Ampli in your code. The `load()` method accepts configuration option arguments:
 
-=== "Swift"
-
-    ```swift
-    Ampli.instance.load(LoadOptions(
-      environment: AmpliEnvironment.Production
-    ));
-    ```
-=== "Objective-C"
-
-    ```objectivec
-    #import "Ampli.h"
-    [Ampli.instance load:[LoadOptions builderBlock:^(LoadOptionsBuilder *b) {
-        b.environment = development;
-    }]];
-    ```
+```swift
+Ampli.instance.load(LoadOptions(
+  environment: AmpliEnvironment.Production
+));
+```
 
 | Arg | Description |
 |-|-|
@@ -122,33 +112,17 @@ The `identify()` function accepts an optional `userId`, optional user properties
 
 For example your tracking plan contains a user property called `userProp`. The property's type is a string.
 
-=== "Swift"
-
-    ```swift
-    Ampli.instance.identify("userID", Identify(
-      userProp: "A trait associated with this user"
-    ));
-    ```
-
-=== "Objective-C"
-
-    ```objectivec
-    [Ampli.instance identify:@"userID" event:[Identify userProp:@"A trait associated with this user"]];
-    ```
+```swift
+Ampli.instance.identify("userID", Identify(
+  userProp: "A trait associated with this user"
+));
+```
 
 The options argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#keys-for-the-event-argument) for this call, such as `deviceId`.
 
-=== "Swift"
-
-    ```swift
-    Ampli.instance.identify("userID", Identify(deviceID: "my_device_id")
-    ```
-
-=== "Objective-C"
-
-    ```objectivec
-    [Ampli.instance identify:@"userID" event:[Identify deviceID: "my_device_id"];
-    ```
+```swift
+Ampli.instance.identify("userID", Identify(deviceID: "my_device_id")
+```
 
 ### Group
 
@@ -157,17 +131,9 @@ The options argument allows you to pass [Amplitude fields](https://developers.am
 
 Call `setGroup()` to associate a user with their group (for example, their department or company). The `setGroup()` function accepts a required `groupType`, and `groupName`.
 
-=== "Swift"
-
-    ```swift
-    Ampli.instance.setGroup("groupType", "groupName")
-    ```
-
-=== "Objective-C"
-
-    ```objectivec
-    [Ampli.instance setGroup:"groupType" value:"groupName"]
-    ```
+```swift
+Ampli.instance.client.setGroup("groupType", "groupName")
+```
 
 Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group.
 
@@ -179,108 +145,55 @@ When setting groups, define a `groupType` and `groupName`. In the previous examp
 <!--vale on-->
  Your code might look like this:
 
-=== "Swift"
-
-    ```swift
-    Ampli.instance.setGroup("orgID", ["10", "20"])
-    ```
-
-=== "Objective-C"
-
-    ```objc
-    [Ampli.instance setGroup:"orgID" value:["10", "20"]]
-    ```
+```swift
+Ampli.instance.client.setGroup("orgID", ["10", "20"])
+```
 
 ### Track
 
 To track an event, call the event's corresponding function. Every event in your tracking plan gets its own function in the Ampli Wrapper. The call is structured like this:
 
-=== "Swift"
+```swift
+Ampli.instance.track(_ event: Event, options: EventOptions)
+```
 
-    ```swift
-    Ampli.instance.track(_ event: Event, options: EventOptions, extra: MiddlewareExtra)
-    ```
-
-=== "Objective-C"
-
-    ```objectivec
-    [Ampli.instance track:(Event *)event
-                    options:(EventOptions *_Nullable)options
-                    extra:(MiddlewareExtra *_Nullable)extra
-    ];
-    ``
-
-The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `deviceID`. The `extra` argument lets you pass data to middleware.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `deviceID`.
 
 !!! note
     EventOptions are set via generic track and aren't exposed on the strongly typed event methods such as `Ampli.instance.songPlayed(songId: 'id', songFavorited: true)`.
 
 For example, in the following code snippet, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited.` The property type for `songId` is string, and `songFavorited` is a boolean.
 
-The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1). The event has one MiddlewareExtra defined: `myMiddleware`. Learn more about [Middleware](../../../sdk-middleware).
+The event has two Amplitude fields defined: `price`, and `quantity`. Learn more about Amplitude fields [here](https://developers.amplitude.com/docs/http-api-v2#properties-1).
 
-=== "Swift"
-
-    ```swift
-    Ampli.instance.track(SongPlayed(songId: 'songId', songFavorited: true), options: EventOptions(deviceId: 'deviceId'))
-    );
-    ```
-
-=== "Objective-C"
-
-    ```objectivec
-    SongPlayed* event = [SongPlayed
-        songId:'songId', // NSString *
-        songFavorited:true, // NSNumber *
-    ];
-
-    EventOptions* options = [EventOptions builderBlock:^(EventOptionsBuilder *builder) {
-        builder.deviceId = deviceId;
-        builder.userId = userId;
-    }];
-
-    [Ampli.instance track:event options:options]
-    ```
+```swift
+Ampli.instance.track(
+    SongPlayed(songId: 'songId', songFavorited: true),
+    options: EventOptions(
+        deviceId: 'deviceId',
+        price: 0.99,
+        quantity: 1
+    )
+);
+```
 
 Ampli also generates a class for each event.
 
-=== "Swift"
-
-    ```swift
-    let myEventObject = SongPlayed(
-      songId: 'songId', // String,
-      songFavorited: true, // Bool
-    );
-    ```
-
-=== "Objective-C"
-
-    ```objectivec
-    SongPlayed *songPlayed = [SongPlayed
-        songId:'songId', // NSString *
-        songFavorited:true, // NSNumber *
-    ];
-    ```
+```swift
+let myEventObject = SongPlayed(
+  songId: 'songId', // String,
+  songFavorited: true, // Bool
+);
+```
 
 You can send all Event objects using the generic track method.
 
-=== "Swift"
-
-    ```swift
-    Ampli.instance.track(SongPlayed(
-      songId: 'songId', // String,
-      songFavorited: true, // Bool
-    );
-    ```
-
-=== "Objective-C"
-
-    ```objectivec
-    [Ampli.instance track:[SongPlayed
-        songId:'songId', // NSString *
-        songFavorited:true, // NSNumber *
-    ]];
-    ```
+```swift
+Ampli.instance.track(SongPlayed(
+  songId: 'songId', // String,
+  songFavorited: true, // Bool
+);
+```
 
 --8<-- "includes/ampli/flush/ampli-flush-section.md"
 
