@@ -295,12 +295,14 @@ To migrate to the latest version of Ampli for iOS based on the `Amplitude-Swift`
 ### Change your Ampli configuration using the Ampli CLI
 
 1. Run `ampli configure` to configure Ampli to use the new runtime.
-```shell
-ampli configure
-? Select a platform: iOS
-? Select a language: Swift
-? Select a SDK: AmplitudeSwift ~> 1.0 (recommended)
-```
+
+    ```shell
+    ampli configure
+    ? Select a platform: iOS
+    ? Select a language: Swift
+    ? Select a SDK: AmplitudeSwift ~> 1.0 (recommended)
+    ```
+
 2. Run `ampli pull` to pull the latest version of your tracking plan.
 
 ### Update dependencies
@@ -322,4 +324,3 @@ Ampli for the latest iOS SDK uses [Plugins](/data/sdk-plugins) instead of [Middl
 #### Middleware extra is now on EventOptions
 
 The latest version of Ampli removes the `extra` argument from `track()`and `identify()` and replaces it with `EventOptions.extra`.
-
