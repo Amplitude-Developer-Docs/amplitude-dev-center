@@ -290,12 +290,12 @@ You can send all Event objects using the generic track method.
 
 ## Migration
 
-To migrated to the latest version of Ampli for iOS based on the Amplitude-Swift SDK. You will need to make some changes to your code.
+To migrate to the latest version of Ampli for iOS based on the `Amplitude-Swift` SDK. You will need to make some changes to your code.
 
 ### Change your Ampli configuration using the Ampli CLI
 
 1. Run `ampli configure` to configure Ampli to use the new runtime.
-```typescript
+```shell
 ampli configure
 ? Select a platform: iOS
 ? Select a language: Swift
