@@ -294,7 +294,6 @@ Track revenue using `revenue()` API on `amplitude` without calling `instance()`.
 + amplitude.revenue(revenue: revenue)
 ```
 
-
 ### Patterns
 
 #### Plugins
