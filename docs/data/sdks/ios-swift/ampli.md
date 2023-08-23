@@ -7,6 +7,9 @@ description: Learn how to install and use the Ampli Wrapper for the iOS Swift ru
 
 Amplitude Data supports tracking analytics events from iOS apps written in Swift.
 
+!!!warning "Objective-C Not Supported"
+    Please note that the [latest iOS SDK](/data/sdks/ios-swift) is NOT compatible with Objective-C projects. Use the [maintenance iOS SDK](/data/sdks/ios) with [maintenance Ampli](/data/sdks/ios/ampli) if your project requires compatibility with Objective-C.
+
 !!!info "Ampli iOS Resources"
     [:material-language-swift: Swift Example](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/v2/AmpliSwiftSampleApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 

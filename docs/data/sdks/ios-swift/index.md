@@ -12,6 +12,9 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 !!!beta "iOS Swift SDK Resources (Beta)"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-Swift) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Swift/releases)
 
+!!!warning "Objective-C Not Supported"
+    Please note that the latest iOS SDK is NOT compatible with Objective-C projects. Use the [maintenance iOS SDK](/data/sdks/ios) if your project requires compatibility with Objective-C.
+
 !!!warning "Some Features Not Yet Available"
     For customers beginning with Amplitude Experiment, please note that this SDK does not support the [Amplitude Experiment integration](https://www.docs.developers.amplitude.com/experiment/sdks/ios-sdk/#initialize). 
 
