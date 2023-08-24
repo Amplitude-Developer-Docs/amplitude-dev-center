@@ -50,7 +50,9 @@ To configure an Event Streaming integration from Amplitude to Movable Ink, you m
 10. (optional) In **Select additional properties**, select any more user properties you want to send to MovableInk. If you don't select any properties here, Amplitude doesn't send any. _Transformed user properties aren't supported._
 11. When finished, enable the destination and **Save**.
 
-_Once the initial endpoint setup is finalized within Movable Ink and Amplitude, event data will need to be mapped within Movable Ink. Work with your Movable Ink CXM on next-steps._
+!!!note "Additional configuration required"
+ 
+    Movable Ink requires additional data mapping in their application. Contact your Movable Ink CXM for next steps.
 
 ### Use Cases
 
