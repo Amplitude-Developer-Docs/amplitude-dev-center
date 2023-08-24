@@ -33,7 +33,7 @@ To configure an Event Streaming integration from Amplitude to Movable Ink, you m
 1. Log in to your Movable Ink account.
 2. Navigate to **Customer Data Endpoints** with the dropdown navigation at the top-left of the screen.
 3. Click **New Endpoint**.
-4. Fill in your endpoint name, vendor, and description and click **Create Endpoint**.
+4. Add an Endpoint Name, Vendor, and Description. Click **Create Endpoint**.
 5. You should now see an Endpoint URL. This is the endpoint URL that you will paste into Amplitude. You should also see an Access Key ID and an Access Secret. You will need to convert these to Basic Authorization format before pasting these into Amplitude. 
 
 ### Amplitude setup
