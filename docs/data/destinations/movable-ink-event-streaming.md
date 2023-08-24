@@ -13,7 +13,7 @@ status: new
 ## Considerations
 
 - You must enable this integration in each Amplitude project you want to use it in.
-- You need to be an admin of a paid Planhat plan to enable this integration.
+- You need to be an admin of a paid Movable Ink plan to enable this integration.
 - Relevant limits for Movable Ink events are:
     - Movable Ink does not impose any hard limits on quantity or velocity. If you send requests  too quickly, Movable Ink returns 429 responses. Amplitude will handle these automatically. 
     - Requests must be smaller than 2MB.
