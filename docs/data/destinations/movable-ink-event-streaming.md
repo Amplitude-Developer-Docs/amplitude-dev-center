@@ -23,7 +23,7 @@ status: new
 
 ### Prerequisites
 
-To configure an Event Streaming integration from Amplitude to Movable Ink, you must fulfill the following prerequisites from Movable Ink:
+To configure an Event Streaming integration from Amplitude to Movable Ink, you need to retrieve these items from Movable Ink:
 
 - **Tenant Token**
 - **Basic Authorization Header**
