@@ -41,7 +41,7 @@ It's important to initialize the Amplitude SDK in order to start capturing event
 
 Amplitude's tracking function require different parameters than Google Analytics (GA4). Refer to the code snippets below for the equivalent tracking functions.
 
-Google Analytics (GA4)
+#### Google Analytics (GA4)
 
 ```js
 gtag('event', 'event_name', {
@@ -50,7 +50,9 @@ gtag('event', 'event_name', {
 });
 ```
 
-Amplitude
+#### Amplitude
+
+See more details on [Tracking an event](../../sdks/browser-2/index.md#tracking-an-event).
 
 ```js
 amplitude.track('event_name, {
@@ -61,7 +63,7 @@ amplitude.track('event_name, {
 
 ### Setting user ID
 
-Google Analytics (GA4)
+#### Google Analytics (GA4)
 
 ```js
 gtag('config', 'GA_MEASUREMENT_ID', {
@@ -69,7 +71,9 @@ gtag('config', 'GA_MEASUREMENT_ID', {
 });
 ```
 
-Amplitude
+#### Amplitude
+
+See more details on [Custom user ID](../../sdks/browser-2/index.md#custom-user-id).
 
 ```js
 amplitude.setUserId('USER_ID');
@@ -77,7 +81,7 @@ amplitude.setUserId('USER_ID');
 
 ### Setting user properties
 
-Google Analytics (GA4)
+#### Google Analytics (GA4)
 
 ```js
 gtag('set', 'user_properties', {
@@ -86,7 +90,9 @@ gtag('set', 'user_properties', {
 });
 ```
 
-Amplitude
+#### Amplitude
+
+See more details on [User properties](../../sdks/browser-2/index.md#user-properties).
 
 ```js
 amplitude.identify(
