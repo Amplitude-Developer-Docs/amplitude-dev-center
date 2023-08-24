@@ -13,7 +13,7 @@ Migrating from the Google Analytics (GA4) SDK to the Amplitude SDK involves adju
 
 ### Initializing Amplitude
 
-Replace the Google Analytics (GA4) initialization calls with Amplitude initialization calls in your application code. If you were tracking an event in Google Analytics (GA4) like this:
+Replace the Google Analytics (GA4) initialization calls with Amplitude initialization calls in your application code. If you are configuring Google Analytics (GA4) like this:
 
 ```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
