@@ -61,7 +61,7 @@ Before you can instrument, you must initialize the SDK using the API key for you
     import { Amplitude, Identify } from '@amplitude/react-native';
 
     const ampInstance = Amplitude.getInstance();
-    ampInstance.init(API_KEY);
+    ampInstance.init(AMPLITUDE_API_KEY);
 
     export function MyApp() {
       return (

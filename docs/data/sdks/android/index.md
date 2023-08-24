@@ -65,7 +65,7 @@ After you've installed the SDK and its dependencies, import Amplitude into any f
         // initialize 
 
         AmplitudeClient client = Amplitude.getInstance()
-          .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+          .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
           .enableForegroundTracking(getApplication());
 
         // send an event 
@@ -89,7 +89,7 @@ After you've installed the SDK and its dependencies, import Amplitude into any f
         // initialize 
 
         val client = Amplitude.getInstance()
-          .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+          .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
           .enableForegroundTracking(application)
 
         // send event 
@@ -122,7 +122,7 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
 
     ```java
     AmplitudeClient client = Amplitude.getInstance()
-      .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+      .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
       .enableForegroundTracking(getApplication());
     ```
 
@@ -130,7 +130,7 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
 
     ```kotlin 
     val client = Amplitude.getInstance()
-      .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+      .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
       .enableForegroundTracking(application)
     ```
 
@@ -1006,7 +1006,6 @@ App set ID is a unique identifier for each app install on a device. App set ID i
     ```kotlin
     client.setDeviceId("DEVICE-ID");
     ```
-
 
 ### Location tracking
 

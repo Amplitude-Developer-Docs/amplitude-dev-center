@@ -49,7 +49,7 @@ Amplitude Data supports tracking analytics events from React Native apps written
     ```js
     import { ampli } from './src/ampli';
     
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 5. [Identify users and set user properties](#identify)
@@ -103,13 +103,13 @@ Initialize Ampli in your code.
 
     ```ts
     import { ampli } from './ampli';
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 === "JavaScript"
 
     ```js
     import { ampli } from './ampli';
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 The `load()` function accepts an options object to configure the SDK's behavior:

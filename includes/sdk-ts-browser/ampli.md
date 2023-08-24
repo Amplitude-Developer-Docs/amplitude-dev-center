@@ -46,7 +46,7 @@ Amplitude Data supports tracking analytics events from browser apps written in J
     ```js
     import { ampli } from './src/ampli';
     
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 5. [Identify users and set user properties](#identify)
@@ -61,7 +61,7 @@ Amplitude Data supports tracking analytics events from browser apps written in J
 
     ```js
     ampli.songPlayed({ songId: 'song-1' });
-    ampli.track(new SongPlayed({ songId: 'song-2' });
+    ampli.track(new SongPlayed({ songId: 'song-2' }));
     ```
 
 7. [Flush events before application exit](#flush)
@@ -120,8 +120,8 @@ Example of initialization with `load` to override the default configuration:
 
     ```ts
     ampli.load({
-      environment: 'development',
       client: {
+        apiKey: AMPLITUDE_API_KEY,
         configuration: {
           minIdLength: 10,
         }
@@ -133,8 +133,8 @@ Example of initialization with `load` to override the default configuration:
 
     ```js
     ampli.load({
-      environment: 'development',
       client: {
+        apiKey: AMPLITUDE_API_KEY,
         configuration: {
           minIdLength: 10,
         }
@@ -245,7 +245,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `properties` argument passes event properties.
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
 
 For example, in the following code, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
  The property type for `songId` is string, and `songFavorited` is a boolean.
