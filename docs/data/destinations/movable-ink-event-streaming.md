@@ -46,7 +46,7 @@ To configure an Event Streaming integration from Amplitude to Movable Ink, you m
 6. Toggle the **Send events**.
 7. In **Select and filter events** choose which events you want to send. Choose only the events you need in Movable Ink. Transformed events aren't supported.
 8. (optional) In **Select additional properties**, select any more event and user properties you want to send to Movable Ink. If you don't select any properties here, Amplitude doesn't send any. Transformed event properties and transformed user properties aren't supported.
-9. Under **Send Users**, make sure the toggle is enabled ("Users are sent to MovableInk") if you want to stream users and their properties to MovableInk. When enabled, users are automatically created or updated in MovableInk when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to MovableInk. Users aren't sent on a schedule or on-demand using this integration.
+9. In the **Send Users** section, be sure to enable the **Users are sent to Movable Ink** toggle to stream users and their properties to Movable Ink. When you enable this feature, Movable Ink creates or updates users whenever an event is sent to Amplitude. Amplitude also forwards [Identify API](/analytics/apis/identify-api/) calls to Movable link. This integration does not support sending users on a schedule or on demand.
 10. (optional) In the **Select additional properties** section, select any additional user properties you want to send to Movable Ink. Amplitude sends only the properties you select here. This integration does not support transformed user properties. 
 11. When finished, enable the destination and **Save**.
 
