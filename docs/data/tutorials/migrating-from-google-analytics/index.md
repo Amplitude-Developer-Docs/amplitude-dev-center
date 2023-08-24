@@ -35,6 +35,8 @@ Then the corresponding Amplitude call is this:
 </script>
 ```
 
+For NPM and other installation methods [click here](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/plugin-ga-events-forwarder-browser#1-import-amplitude-packages).
+
 It's important to initialize the Amplitude SDK in order to start capturing events and user properties. By including this initialization snippet in your application, you are initializing Amplitude. You must replace `'YOUR_API_KEY'` with your actual Amplitude API key, which you can find in your Amplitude account.
 
 ### Tracking events
