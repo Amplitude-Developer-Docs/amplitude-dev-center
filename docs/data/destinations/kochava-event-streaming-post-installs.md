@@ -28,8 +28,8 @@ description: Stream Amplitude events to Kochava (Post-Installs)
 - Amplitude uses the **IdentityLink** API of Kochava to send user-attributes and this will link the user-level data with the device ID. The user attributes sent by Amplitude will not be tied if the Install event with the same device ID was not received at Kochava before.
 - **Send User Feature:** This feature, "Send User," is available in the destination for Post Install Events. It helps you send the IdentityLink data along with the other event data. This ensures that Kochava knows who the user is and can connect their actions to them.
 - Relevant limits for Kochava events are:
-  - Kochava does not impose any hard limits on quantity or velocity; however, requests sent too quickly will return 429 responses. Amplitude will handle these automatically. 
-  - The requests must be smaller than 2MB.
+    - Kochava does not impose any hard limits on quantity or velocity; however, requests sent too quickly will return 429 responses. Amplitude will handle these automatically. 
+    - The requests must be smaller than 2MB.
 
 ## Setup
 
