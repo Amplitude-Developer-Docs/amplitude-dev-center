@@ -70,6 +70,6 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 
 Sending events from Amplitude to Kochava can enhance the effectiveness of your communication strategies and help drive higher-value conversions through targeted and personalized messaging. Here are some specific use cases for integrating Amplitude with Kochava:
 
-1) **Campaign ROI Insights:** Correlate user actions tracked by Amplitude with specific marketing campaigns in Kochava for accurate attribution, enabling optimized allocation of marketing budgets.
-2) **Personalized Ad Targeting:** Combine Amplitude's user behavior data with Kochava's audience segmentation to deliver tailored ads to users based on their interactions, increasing conversion chances.
-3) **LTV Analysis and Retention:** Analyze user behavior from Amplitude in Kochava to identify high lifetime value users, allowing for targeted retention strategies like customized incentives or offers.
+1. **Campaign ROI Insights:** Correlate user actions tracked by Amplitude with specific marketing campaigns in Kochava for accurate attribution, enabling optimized allocation of marketing budgets.
+2. **Personalized Ad Targeting:** Combine Amplitude's user behavior data with Kochava's audience segmentation to deliver tailored ads to users based on their interactions, increasing conversion chances.
+3. **LTV Analysis and Retention:** Analyze user behavior from Amplitude in Kochava to identify high lifetime value users, allowing for targeted retention strategies like customized incentives or offers.
