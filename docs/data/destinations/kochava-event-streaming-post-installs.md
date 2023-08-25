@@ -44,7 +44,7 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 
 ### Kochava setup
 
-1. Log into your Kochava dashboard and copy your **Account ID** and **Account Passcode**.
+1. Log into your Kochava dashboard.
 2. Go to the All **Apps** section and copy the GUID of the App you created.
 3. (Optional) Go to **Account Options** and select **API Keys** to locate or create your API key.
 4. (Optional) Contact your Kochava Client Success Manager to obtain your Kochava secret authentication key.
