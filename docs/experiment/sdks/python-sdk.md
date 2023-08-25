@@ -264,7 +264,7 @@ You can configure the SDK client on initialization.
     | --- | --- | --- |
     | `api_key` | The analytics API key and NOT the experiment deployment key | *required* |
     | `cache_capacity` | The maximum number of assignments stored in the assignment cache | `65536` |
-    | [Analytics SDK Options](../../data/sdks/typescript-node/index.md#configuration) | Options to configure the underlying Amplitude Analytics SDK used to track assignment events |  |
+    | [Analytics SDK Options](../../data/sdks/python/index.md#configuration) | Options to configure the underlying Amplitude Analytics SDK used to track assignment events |  |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -290,7 +290,7 @@ Executes the [evaluation logic](../general/evaluation/implementation.md) using t
 !!!tip "Automatic Assignment Tracking"
     Set [`assignment_config`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
 
-```go
+```python
 evaluate(self, user: User, flag_keys: List[str]) : Dict[str, Variant]
 ```
 
