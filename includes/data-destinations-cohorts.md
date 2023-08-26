@@ -43,6 +43,7 @@
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :talonone: [Talon.One](../data/destinations/talonone-cohort.md)
+- :thetradedesk: [TheTradeDesk](../data/destinations/thetradedesk-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
 - :unitQ: [unitQ](../data/destinations/unitQ-cohort.md)
 - :userflow: [Userflow](../data/destinations/userflow-cohort.md)
