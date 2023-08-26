@@ -313,6 +313,8 @@ Taplytics's
 TDLTEST
 Tealium
 Templating
+TheTradeDesk
+thetradedesk
 tiktok
 timeframe
 toplevel
