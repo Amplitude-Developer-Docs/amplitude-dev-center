@@ -7,7 +7,7 @@ description: Sync cohorts from Amplitude to WebEngage
 
     This integration is currently in beta and is in active development. If you have any feedback to improve the WebEngage destination or have suggestions for their documentation, please contact [WebEngage support team](https://webengage.com/). 
 
-[Webengage](https://webengage.com/) is a user engagement and retention platform which enables you to send personalized marketing communications across 12+ channels, including email, push notification, WhatsApp, and more.
+[Webengage](https://webengage.com/) is a user engagement and retention platform that enables you to send personalized marketing communications across 12+ channels, including email, push notification, WhatsApp, and more.
 
 !!!tip
 
