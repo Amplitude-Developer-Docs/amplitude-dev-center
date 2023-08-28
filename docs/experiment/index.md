@@ -71,7 +71,7 @@ That said, you can generally split experimentation and feature-flagging systems 
 
 !!!done "Easiest way to get started delivering flag and experimenting on your client side application."
 
-Client-side implementations assume a single user context. Flag and experiment configurations are loaded on startup for use with [local evaluation](./general/evaluation/local-evaluation.md), and a [remote evaluation](./general/evaluation/remote-evaluation.md) variants are fetched dynamically from Amplitude's remote evaluation service. When a variant is accessed from the SDK, an [exposure event](./general/exposure-tracking.md) is tracked for the user.
+Client-side implementations assume a single user context. Amplitude Experiment loads flag and experiment configurations on startup for use with [local evaluation](./general/evaluation/local-evaluation.md), and  fetches [remote evaluation](./general/evaluation/remote-evaluation.md) variants dynamically from Amplitude's remote evaluation service. When a variant is accessed from the SDK, an [exposure event](./general/exposure-tracking.md) is tracked for the user.
 
 ![Client-side experimentation diagram.](../assets/images/experiment/client-side-overview.drawio.svg)
 
