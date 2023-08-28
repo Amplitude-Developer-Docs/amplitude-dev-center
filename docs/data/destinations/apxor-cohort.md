@@ -7,7 +7,7 @@ description: Sync cohorts from Amplitude to Apxor
 
     This integration is currently in beta and is in active development. If you have any feedback to improve the Apxor destination or have suggestions for their documentation, please contact [Apxor support team](https://Apxor.com/). 
 
-[Apxor](https://Apxor.com/) is a no-code in-app nudging tool for product folks. Personalize all stages of the user journey for exceptional product success.This integration lets you sync cohorts from Amplitude to Apxor.
+[Apxor](https://Apxor.com/) is a no-code in-app nudging tool for product folks. Personalize all stages of the user journey for exceptional product success. This integration lets you sync cohorts from Amplitude to Apxor.
 
 ## Considerations
 
@@ -44,8 +44,8 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
-### Use Cases
+### Use cases
 
-1) **Personalized Onboarding:** You can use data from Amplitude to identify specific user segments based on their behavior, such as those who drop off during onboarding or those who engage extensively. With Apxor, you can create personalized nudges and messages to guide users through onboarding, helping them understand the value of your product and reducing abandonment rates.
-2) **Feature Adoption:** By analyzing user behavior in Amplitude, you can identify which features are underutilized or causing confusion. Apxor enables you to target these users with in-app nudges that provide step-by-step guidance on how to use these features effectively, encouraging greater feature adoption and utilization.
-3) **User Activation:** Use Amplitude data to pinpoint users who haven't reached the desired level of engagement with your product. With Apxor, you can create nudges that encourage users to take specific actions or follow certain paths to achieve activation, thus increasing the likelihood of them becoming long-term users.
+1. **Personalized Onboarding:** You can use data from Amplitude to identify specific user segments based on their behavior, such as those who drop off during onboarding or those who engage extensively. With Apxor, you can create personalized nudges and messages to guide users through onboarding, helping them understand the value of your product and reducing abandonment rates.
+2. **Feature Adoption:** When you analyze user behavior in Amplitude, you can identify underused features or features that cause confusion. Apxor enables you to target these users with in-app nudges that provide step-by-step guidance on how to use these features effectively, encouraging greater feature adoption and use.
+3. **User Activation:** Use Amplitude data to pinpoint users who haven't reached the desired level of engagement with your product. With Apxor, you can create nudges that encourage users to take specific actions or follow certain paths to achieve activation, thus increasing the likelihood of them becoming long-term users.
