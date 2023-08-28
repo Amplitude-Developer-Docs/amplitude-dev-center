@@ -12,15 +12,17 @@
 
 {% block scripts %}
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-<script>
-docsearch({
-  container: '#docsearch',
-  appId: 'R2IYF7ETH7',
-  apiKey: '599cec31baffa4868cae4e79f180729b',
-  indexName: 'docsearch',
-});
-
+<script type="text/javascript">
+  docsearch({
+    appId: 'T85LGF6MNG',
+    apiKey: '84081a5ad9297e37f8ac4f3416cd3684',
+    indexName: 'developers-amplitude',
+    insights: true, // Optional, automatically send insights when user interacts with search result
+    container: '#docsearch',
+    debug: false // Set debug to true if you want to inspect the modal
+  });
 </script>
 
 {{ super ()}}
 {% endblock %}
+
