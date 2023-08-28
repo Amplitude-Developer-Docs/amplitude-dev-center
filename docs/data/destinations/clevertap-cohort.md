@@ -12,7 +12,6 @@ This CleverTap integration allows you to send audiences from Amplitude to Clever
     Amplitude offers other integrations with CleverTap: 
 
     - [Import CleverTap Data](/data/sources/clevertap)
-    - [Stream Amplitude Events to CleverTap](/data/destinations/clevertap-event-streaming)
 
 ## Considerations
 
