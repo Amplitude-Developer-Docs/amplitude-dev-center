@@ -28,7 +28,7 @@ Local evaluation is just [evaluation](./implementation.md)--a function which tak
 
 ![Diagram of a local evaluation SDK.](../../../assets/images/experiment/local-evaluation.drawio.svg)
 
-The only non-local part of local evaluation is getting flag configurations from Amplitude Experiment, but this can happen at an interval, and flags can be cached in-memory in the SDK for zero latency access.
+The SDK loads flag configuration updates from the server on startup and stores them in memory for access prior to each evaluation. After startup, the SDK begins polling for flag configuration updates from the server.
 
 !!!tip "Edge Evaluation"
     The local evaluation Node.js SDK can be run in edge worker/functions which support JavaScript and a distributed store. Contact your representative or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to learn more.
