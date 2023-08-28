@@ -259,7 +259,7 @@ if err != nil {
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
 
 !!!tip "Automatic Assignment Tracking"
-    Set [`AssignmentConfig`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
+    Set [`AssignmentConfig`](#configuration_1) to automatically track an assignment event to Amplitude when `Evaluate()` is called.
 
 ```go
 func (c *Client) Evaluate(user *experiment.User, flagKeys []string) (map[string]experiment.Variant, error)
