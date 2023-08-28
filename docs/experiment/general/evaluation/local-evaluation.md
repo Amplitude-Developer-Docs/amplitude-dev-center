@@ -40,7 +40,7 @@ Local evaluation SDKs track evaluations differently on the client-side vs on the
 - Client-side SDKs track an [**exposure event**](../exposure-tracking.md) when the user is evaluated due to a variant being accessed from the SDK.
 - Server-side SDKs track an **assignment event** (if configured to do so) when a user is evaluated.
 
-Thus, server-side local evaluation experiments often set the Assignment event as a heuristic for Exposure.
+Server-side local evaluation experiments often set the Assignment event as a heuristic for Exposure.
 
 ## SDKs
 
