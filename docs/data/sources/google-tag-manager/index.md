@@ -25,9 +25,7 @@ Amplitude GTM templates are custom templates which define tags and variables so 
 
 Google tags are snippets of code that measure user activity such as time on page, clicks, and purchases.
 
-!!! warning "Messages are queued"
-
-    To enforce the processing order of messages pushed to the data layer, add an event name to a message as it is pushed to the data layer, and then listen for that event name with a Custom Event trigger. Learn more about [how Google processes data layer information](https://developers.google.com/tag-platform/devguides/datalayer?hl=en#how_data_layer_information_is_processed).
+Learn more about the [client-side container](/data/sources/google-tag-manager-client).
 
 ### Server Container
 
@@ -36,6 +34,8 @@ Google tags are snippets of code that measure user activity such as time on page
 Client-side container communicates with the server-side container through HTTP requests with the standardized **Event Data** format.
 
 The client container might be also required because it needs to parse an incoming HTTP request and generate an event data object for tags to utilize.
+
+Learn more about the [service-side container](/data/sources/google-tag-manager-server).
 
 ## Client-side vs server-side
 
