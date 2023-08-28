@@ -216,12 +216,23 @@ func Initialize(apiKey string, config *Config) *Client
 The SDK client can be configured on initialization.
 
 ???config "Configuration Options"
+
+    **Config**
+
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `Debug` | Set to `true` to enable debug logging. | `false` |
     | `ServerUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `FlagConfigPollingInterval` | The interval to poll for updated flag configs after calling [`Start()`](#start) | `30 * time.Second` |
     | `FlagConfigPollerRequestTimeout` | The timeout for the request made by the flag config poller | `10 * time.Second` |
+    | `AssignmentConfig` | Configuration for automatically tracking assignment events after an evaluation. | `nil` |
+
+     **AssignmentConfig**
+
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `cacheCapacity` | The maximum number of assignments stored in the assignment cache | `65536` |
+    | [`Config`](../../data/sdks/go/index.md#configuration) | Options to configure the underlying Amplitude Analytics SDK used to track assignment events |  |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -246,6 +257,9 @@ if err != nil {
 ### Evaluate
 
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+
+!!!tip "Automatic Assignment Tracking"
+    Set [`AssignmentConfig`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
 
 ```go
 func (c *Client) Evaluate(user *experiment.User, flagKeys []string) (map[string]experiment.Variant, error)
