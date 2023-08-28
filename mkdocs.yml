@@ -207,7 +207,6 @@ nav:
           - Tribe: data/sources/tribe.md
         - Customer Engagement:
           - Chameleon: data/sources/chameleon.md
-          - CleverTap: data/sources/clevertap.md
           - Cordial: data/sources/cordial.md
           - Intercom: data/sources/intercom.md
           - OneSignal: data/sources/onesignal.md
@@ -234,6 +233,7 @@ nav:
         - Marketing Automation:
           #- Airship: data/sources/airship.md
           - Braze: data/sources/braze.md
+          - CleverTap: data/sources/clevertap.md
           - HubSpot: data/sources/hubspot.md
           - Iterable: data/sources/iterable.md
           - Leanplum: data/sources/leanplum.md
