@@ -6,10 +6,10 @@ icon: simple/react
 
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-react-native)
 
-The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native).
+The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-react-native).
 
 !!!info "React Native SDK Resources"
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=analytics-react-native&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for React Native](../typescript-react-native/ampli.md).
@@ -96,6 +96,7 @@ init(API_KEY, 'user@amplitude.com', {
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
     |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `MemoryStorage` |
     |`trackingSessionEvents`| `boolean`. Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `false` |
+    |`migrateLegacyData`| `boolean`. Available in `1.3.4`+. Whether to migrate [maintenance SDK](../react-native) data (events, user/device ID). | `true` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -664,6 +665,25 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
   transportProvider: new MyTransport(),
 });
 ```
+
+### Location
+
+The Amplitude ingestion servers resolve event location in the following order:
+
+1. User-provided `city`, `country`, `region`
+2. Resolved from `location_lat` and `location_lng`
+3. Resolved from `ip`
+
+By default, location will be determined by the `ip` on the server side. If you want more provide more granular location you can set `city`, `country` and `region` individually, or set `location_lat` and `location_lng` which will then be resolved to `city`, `country` and `region` on the server. 
+We do not automatically set precise location in the SDK to avoid extra permissions that my not be needed by all customers.
+
+To set fine grain location, you can use an enrichment Plugin. Here is an [example](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/examples/plugins/react-native-get-location-plugin/LocationPlugin.ts) of how to set `location_lat` and `location_lng`.
+
+Note that disabling IP tracking via `ipTracking: false` in [TrackingOptions](/data/sdks/typescript-react-native/#optional-tracking) will prevent location from being resolved on the backend. In this case you may want to create a Plugin like above to set any relevant location information yourself.
+
+### Carrier
+
+Carrier support works on Android, but Apple stopped supporting it in iOS 16. In earlier versions of iOS, we fetch carrier info using `CTCarrier` and `serviceSubscriberCellularProviders` which are [deprecated](https://developer.apple.com/documentation/coretelephony/cttelephonynetworkinfo/3024511-servicesubscribercellularprovide) with [no replacement](https://developer.apple.com/forums/thread/714876?answerId=728276022#728276022).
 
 ### Advertising Identifiers
 
