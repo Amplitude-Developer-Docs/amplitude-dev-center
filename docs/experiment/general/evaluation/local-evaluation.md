@@ -44,7 +44,7 @@ Server-side local evaluation experiments often set the Assignment event as a heu
 
 ## SDKs
 
-Local evaluation is supported by all server-side SDKs and some client-side SDKs which have local evaluation implemented.
+All server-side SDKs and some client-side (which have local evaluation enabled) support local evaluation.
 
 ### Client-side
 
