@@ -7,7 +7,7 @@ Local evaluation runs [evaluation logic](./implementation.md) in the SDK, saving
 
 ## Targeting capabilities
 
-Because local evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics isn't supported. That said, local evaluation allows you to perform consistent bucketing with target segments, which is often enough.
+Local evaluation happens outside of Amplitude, which means advanced targeting and identity resolution powered by Amplitude Analytics isn't supported. That said, local evaluation allows you to perform consistent bucketing with target segments, which is often enough.
 
 !!!warning "Client-side local evaluation data sensitivity"
 
