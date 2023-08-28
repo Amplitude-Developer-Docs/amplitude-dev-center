@@ -3,7 +3,7 @@ title: Local Evaluation
 description: Detailed information about Amplitude Experiment's local evaluation architecture, limitations, and tradeoffs.
 ---
 
-Local evaluation runs [evaluation logic](./implementation.md) on in the SDK, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](../performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale.
+Local evaluation runs [evaluation logic](./implementation.md) in the SDK, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](../performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale.
 
 ## Targeting capabilities
 
