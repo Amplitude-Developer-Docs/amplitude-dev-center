@@ -156,6 +156,7 @@ The SDK client can be configured on initialization.
     | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay is scaled by the `fetchRetryBackoffScalar` | `0` |
     | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10000` |
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1` |
+    | `assignmentConfiguration` | Configuration for automatically tracking assignment events after an evaluation. | `None` |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -344,12 +345,25 @@ Initializes a [local evaluation](../general/evaluation/local-evaluation.md) clie
 You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
+
+    **LocalEvaluationConfig**
+
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `debug` | Set to `true` to enable debug logging. | `false` |
     | `serverUrl` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `flagConfigPollingIntervalMillis` | The interval to poll for updated flag configs after calling [`Start()`](#start) | `30000` |
     | `flagConfigPollerRequestTimeoutMillis` | The timeout for the request made by the flag config poller | `10000` |
+
+    **AssignmentConfiguration**
+
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `api_key` | The analytics API key and NOT the experiment deployment key | *required* |
+    | `cache_capacity` | The maximum number of assignments stored in the assignment cache | `65536` |
+    | `eventUploadThreshold` | `setEventUploadThreshold()` in the underlying [Analytics SDK](../../data/sdks/java/index.md#configuration) | `10` |
+    | `eventUploadPeriodMillis` | `setEventUploadPeriodMillis()` in the underlying [Analytics SDK](../../data/sdks/java/index.md#configuration) | `10000` |
+    | `useBatchMode` | `useBatchMode()` in the underlying [Analytics SDK](../../data/sdks/java/index.md#configuration) | `true` |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -375,6 +389,9 @@ You should wait for `start()` to return before calling [`evaluate()`](#evaluate)
 ### Evaluate
 
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+
+!!!tip "Automatic Assignment Tracking"
+    Set [`assignmentConfiguration`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
 
 === "Kotlin"
 
