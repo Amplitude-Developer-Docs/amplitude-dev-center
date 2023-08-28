@@ -156,7 +156,7 @@ The SDK client can be configured on initialization.
     | `fetchRetryBackoffMinMillis` | The minimum (initial) backoff after a request to fetch variants fails. This delay is scaled by the `fetchRetryBackoffScalar` | `0` |
     | `fetchRetryBackoffMaxMillis` | The maximum backoff between retries. If the scaled backoff becomes greater than the max, the max is used for all subsequent requests | `10000` |
     | `fetchRetryBackoffScalar` | Scales the minimum backoff exponentially. | `1` |
-    | `assignmentConfiguration` | Configuration for automatically tracking assignment events after an evaluation. | `None` |
+    | `assignmentConfiguration` | Configuration for automatically tracking assignment events after an evaluation. | `null` |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
