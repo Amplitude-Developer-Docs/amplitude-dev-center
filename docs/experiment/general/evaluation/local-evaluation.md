@@ -3,18 +3,11 @@ title: Local Evaluation
 description: Detailed information about Amplitude Experiment's local evaluation architecture, limitations, and tradeoffs.
 ---
 
-Server-side local evaluation runs [evaluation logic](./implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](../performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale.
+Local evaluation runs [evaluation logic](./implementation.md) on in the SDK, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](../performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale.
 
-![Client-side local evaluation experimentation diagram.](../../../assets/images/experiment/server-side-local-overview.drawio.svg)
+## Targeting capabilities
 
-!!!warning "Exposure Tracking"
-    **Local evaluation doesn't automatically set experiment user properties**. If you use local evaluation and you want to run experiments where success metrics are analyzed, you will need to implement [exposure tracking](../exposure-tracking.md) (generally done on the client-side).
-
-    To more easily track exposures on the client-side, [bootstrap](../../sdks/javascript-sdk.md#bootstrapping) the client-side SDK with the variants evaluated server-side and utilize [automatic exposure tracking](../exposure-tracking.md#automatic-exposure-tracking) using one of the [analytics SDK integrations](../../sdks/javascript-sdk.md#integrations).
-
-## Targeting Capabilities
-
-Because local evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics isn't supported. That said, local evaluation allows you to perform consistent bucketing with target segments, which is often sufficient.
+Because local evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics isn't supported. That said, local evaluation allows you to perform consistent bucketing with target segments, which is often enough.
 
 | <div class='big-column'>Feature</div> | Remote Evaluation | Local Evaluation |
 | --- | --- | --- |
@@ -31,22 +24,42 @@ Local evaluation is just [evaluation](./implementation.md)--a function which tak
 
 ![Diagram of a local evaluation SDK.](../../../assets/images/experiment/local-evaluation.drawio.svg)
 
-The only non-local part of local evaluation is getting flag configurations from Amplitude Experiment, but this can happen at an interval, and flags can be cached in-memory on the server-side for zero latency access.
+The only non-local part of local evaluation is getting flag configurations from Amplitude Experiment, but this can happen at an interval, and flags can be cached in-memory in the SDK for zero latency access.
 
 !!!tip "Edge Evaluation"
     The local evaluation Node.js SDK can be run in edge worker/functions which support JavaScript and a distributed store. Contact your representative or email [experiment@amplitude.com](mailto:experiment@amplitude.com) to learn more.
 
+### Exposure and assignment tracking
+
+Local evaluation SDKs track evaluations differently on the client-side vs on the server-side.
+
+- Client-side SDKs track an [**exposure event**](../exposure-tracking.md) when the user is evaluated due to a variant being accessed from the SDK.
+- Server-side SDKs track an **assignment event** (if configured to do so) when a user is evaluated.
+
+Thus, server-side local evaluation experiments often set the Assignment event as a heuristic for Exposure.
+
 ## SDKs
 
-Local evaluation is only supported by server-side SDKs which have local evaluation implemented.
+Local evaluation is supported by all server-side SDKs and some client-side SDKs which have local evaluation implemented.
+
+### Client-side
 
 | SDK | Remote Evaluation | Local Evaluation |
 | --- | --- | --- |
-| [:material-nodejs: Node.js](../../sdks/nodejs-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green }  |
-| [:material-language-ruby: Ruby](../../sdks/ruby-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green }  |
-| [:material-language-java: JVM](../../sdks/jvm-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
-| [:fontawesome-brands-golang: Go](../../sdks/go-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
-| [:material-language-python: Python](../../sdks/python-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
+| [:javascript-color: JavaScript](../../sdks/javascript-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green }  |
+| [:android: Android](../../sdks/android-sdk.md) |  :material-check-bold:{ .green } | :material-close-thick:{ .red }  |
+| [:material-apple-ios: iOS](../../sdks/ios-sdk.md) |  :material-check-bold:{ .green } | :material-close-thick:{ .red } |
+| [:react: React Native](../../sdks/react-native-sdk.md) |  :material-check-bold:{ .green } | :material-close-thick:{ .red } |
+
+### Server-side
+
+| SDK | Remote Evaluation | Local Evaluation |
+| --- | --- | --- |
+| [:node: Node.js](../../sdks/nodejs-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green }  |
+| [:ruby: Ruby](../../sdks/ruby-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green }  |
+| [:java: JVM](../../sdks/jvm-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
+| [:golang: Go](../../sdks/go-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
+| [:python: Python](../../sdks/python-sdk.md) |  :material-check-bold:{ .green } | :material-check-bold:{ .green } |
 
 ### Performance
 
