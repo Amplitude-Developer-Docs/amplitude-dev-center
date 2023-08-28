@@ -7,7 +7,7 @@ description: Sync cohorts from Amplitude to WebEngage
 
     This integration is currently in beta and is in active development. If you have any feedback to improve the WebEngage destination or have suggestions for their documentation, please contact [WebEngage support team](https://webengage.com/). 
 
-[Webengage](https://webengage.com/) is a user engagement and retention platform that enables you to send personalized marketing communications across 12+ channels, including email, push notification, WhatsApp, and more.
+[WebEngage](https://webengage.com/) is a user engagement and retention platform that enables you to send personalized marketing communications across 12+ channels, including email, push notification, WhatsApp, and more.
 
 !!!tip
 
@@ -17,7 +17,7 @@ description: Sync cohorts from Amplitude to WebEngage
 
 - This integration is only available for customers who have paid plans with Amplitude.
 - You must enable this integration in each Amplitude project you want to use it in.
-- Amplitude matches the user_id to the id within WebEngage to associated events. If a user with that id doesn't exist within WebEngage, a user is created. Make sure that the Amplitude user_id field matches the WebEngage id field to avoid user duplication.
+- Amplitude matches the `user_id` to the `id` in WebEngage to associate events. If a user with that `id` doesn't exist in WebEngage, WebEngage creates a user. Make sure that the Amplitude `user_id` field matches the WebEngage `id` field to avoid user duplication.
 
 ## Setup
 
@@ -44,7 +44,7 @@ To sync your first cohort, follow these steps:
 4. Choose the sync cadence.
 5. When finished, save your work.
 
-### Use Cases
+### Use cases
 
 With WebEngage and Amplitude Integration, product teams can:
 
