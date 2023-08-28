@@ -278,12 +278,24 @@ AmplitudeExperiment.initialize_local(api_key)
 You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
+  
+    **LocalEvalutaionConfig**
+
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `server_url` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
     | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start`](#start) | `30000` |
     | `debug` | Set to `true` to enable debug logging. | `false` |
+    | `assignment_config` | Configuration for automatically tracking assignment events after an evaluation. | `None` |
+
+    **AssignmentConfig**
+
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `api_key` | The analytics API key and NOT the experiment deployment key | *required* |
+    | `cache_capacity` | The maximum number of assignments stored in the assignment cache | `65536` |
+    | [`amp_config`](../../data/sdks/python/index.md#configuration) | Options to configure the underlying Amplitude Analytics SDK used to track assignment events |  |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -304,7 +316,10 @@ experiment.start
 
 ### Evaluate
 
-Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). You must give evaluate a user object argument, and can you can optionally pass it an array of flag keys if only a specific subset of required flag variants are required.
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start`](#start). You must give evaluate a user object argument, and can you can optionally pass it an array of flag keys if only a specific subset of required flag variants are required.
+
+!!!tip "Automatic Assignment Tracking"
+    Set [`assignment_config`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
 
 ```ruby
 evaluate(user, flag_keys)
