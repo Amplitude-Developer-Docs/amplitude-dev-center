@@ -1,15 +1,13 @@
 ---
-title: Import Google Ads Data (Beta)
+title: Import Google Ads Data
 description: Amplitude Data's Google Ads integration lets you import your Google Ad spend, click, and impression data in just a few steps.
 ---
 
 Amplitude Data's Google Ads integration lets you import your Google Ad spend, click, and impression data in just a few steps.
 
---8<-- "includes/closed-beta.md"
-
 !!!note "Other Amplitude + Google Ads Integrations"
 
-    This integration imports Google Ads data into Amplitude. Amplitude offers other integrations with Google Ads: 
+    This integration imports Google Ads data into Amplitude. Amplitude offers other integrations with Google Ads:
 
     - [Send Cohorts to Google Ads](/data/destinations/google-ads-cohort)
 
@@ -17,19 +15,16 @@ Amplitude Data's Google Ads integration lets you import your Google Ad spend, cl
 
 ### Prerequisites
 
-To set up, you need the following: 
+To set up, you need the following:
 
 - [Google Ads Customer ID](https://support.google.com/google-ads/answer/1704344?hl=en) of the ad account you want to connect to.
 - If you don't have direct access to the account, `Google Ads Manager ID` that you authorized access on which can view this ad account.
 
-### Amplitude setup 
+### Amplitude setup
 
 In Amplitude, navigate to **Data Sources**, then find **Google Ad** in the **I want to import data into Amplitude** tab.
 
 ![Google Add Source](../../assets/images/marketing-analytics/add-sources.png)
-
-!!! note 
-    This integration must be enabled on a per-project basis.
 
 1. Log into Google and grant Amplitude permission in the consent form.
 ![Google Login Image](../../assets/images/marketing-analytics/google-login.png)

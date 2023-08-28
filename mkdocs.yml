@@ -303,6 +303,7 @@ nav:
         - MoEngage: data/destinations/moengage-event-streaming.md
         - Moloco: data/destinations/moloco-event-streaming.md
         - Planhat: data/destinations/planhat-event-streaming.md
+        - Plotline: data/destinations/plotline-event-streaming.md
         - Salesforce Marketing Cloud: data/destinations/marketing-cloud-event-streaming.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
@@ -318,6 +319,7 @@ nav:
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
+        - Cohort Webhooks: data/destinations/cohort-webhooks.md
         - Cordial: data/destinations/cordial-cohort.md
         - Customer.io: data/destinations/customerio-cohort.md
         - Enterpret: data/destinations/enterpret-cohort.md
@@ -351,12 +353,15 @@ nav:
         - Statsig: data/destinations/statsig-cohort.md
         - Talon.One: data/destinations/talonone-cohort.md
         - TikTok: data/destinations/tiktok-cohort.md
+        - unitQ: data/destinations/unitQ-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
         - User.com: data/destinations/user.com-cohort.md
         - Zeda.io: data/destinations/zeda.io-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
+      - Group Property:
+        - Salesforce: data/destinations/salesforce-group-export.md
     - Privacy and PII:
       - Overview: data/pii.md
       - DataGrail: data/pii/datagrail.md
