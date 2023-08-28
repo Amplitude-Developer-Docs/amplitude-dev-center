@@ -279,7 +279,7 @@ You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
   
-    **LocalEvalutaionConfig**
+    **LocalEvaluationConfig**
 
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
