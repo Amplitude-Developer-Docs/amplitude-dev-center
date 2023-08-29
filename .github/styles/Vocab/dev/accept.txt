@@ -13,6 +13,7 @@ API
 APIs
 Appcues
 Apphud
+Apxor
 awaitable
 AWS
 batchEvents
