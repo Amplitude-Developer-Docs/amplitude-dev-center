@@ -29,6 +29,7 @@
 - :moloco: [Moloco](/data/destinations/moloco-event-streaming) 
 - :planhat: [Planhat](/data/destinations/planhat-event-streaming)
 - :plotline: [Plotline](/data/destinations/plotline-event-streaming)
+- :pushwoosh: [Pushwoosh](/data/destinations/pushwoosh-event-streaming)
 - :sfmc: [Salesforce Marketing Cloud](/data/destinations/marketing-cloud-event-streaming)
 - :statsig: [Statsig](/data/destinations/statsig)
 - :toplyne: [Toplyne](/data/destinations/toplyne)
