@@ -5,7 +5,7 @@ description: Send Amplitude cohorts to Blitzllama.
 
 --8<-- "includes/editions-all-paid-editions.md"
 
-[Blitzllama](https://www.linkedin.com/company/blitzllama/) GPT-powered feedback analytics automatically categorizes survey responses into topics, and sentiments, and provides recommendations. This saves time that you would spend manually summarizing the feedback. Blitzllama stores feedback in one place, you can segment historical feedback and create charts within a few clicks.
+[Blitzllama](https://www.blitzllama.com/) GPT-powered feedback analytics automatically categorizes survey responses into topics, and sentiments, and provides recommendations. This saves time that you would spend manually summarizing the feedback. Blitzllama stores feedback in one place, you can segment historical feedback and create charts within a few clicks.
 
 This integration lets you sync cohorts from Amplitude to Blitzllama.
 
