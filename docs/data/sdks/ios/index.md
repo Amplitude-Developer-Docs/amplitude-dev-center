@@ -955,6 +955,14 @@ Before initializing the SDK with your `apiKey`, create a `AMPTrackingOptions` 
     [[Amplitude instance] setTrackingOptions:options];
     ```
 
+=== "Swift"
+
+    ```swift
+    let trackingOptions = AMPTrackingOptions().disableCity()
+                                              .disableCarrier();
+    Amplitude.instance().setTrackingOptions(trackingOptions!);
+    ```
+
 Tracking for each field can be individually controlled, and has a corresponding method (for example, `disableCountry`, `disableLanguage`).
 
 | <div class="big-column">Method</div> | Description |

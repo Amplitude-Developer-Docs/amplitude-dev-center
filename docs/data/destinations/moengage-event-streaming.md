@@ -18,14 +18,14 @@ Keep these things in mind when sending events to [MoEngage](https://www.moengage
 - You need a MoEngage account to enable this integration.
 - Relevant limits for MoEngage events are:
     - 10k events per app per minute
-- Amplitude sends selected user, event, and group properties along with the event.
-
+- Amplitude sends selected user and event properties along with the event.
+- This integration supports user identify forwarding. This means when you enable **Send Users**  during setup, user updates are sent to MoEngage every time any user property changes in Amplitude.
 
 ## Setup
 
 ### MoEngage setup
 
-Create an access token in Extole. You need this to complete the Amplitude setup.
+Create an access token in MoEngage. You need this to complete the Amplitude setup.
 
 1. Log in to your My MoEngage account.
 2. Navigate to MoEngage Dashboard >> Settings >> APIs.
@@ -46,10 +46,16 @@ Create an access token in Extole. You need this to complete the Amplitude setup.
 ![a diagram that shows Moengage setup steps](/assets/images/moengage-api-key.png)
 6. Paste your **Basic Auth Token**, **DATA APP ID** and **Data Center** information.
     1. Data Center Values: “01”, “02”, “03”, “04”. You can refer to this [article](https://help.moengage.com/hc/en-us/articles/360057030512-Data-Centers-in-MoEngage) for more details on identifying your MoEngage data center.
-7. Toggle the Send events filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
-8. Use the Event Properties filter to select which Event Properties you would like to send.
-9. When finished, save your work.
+7. Toggle the **Send events** filter to select the events to send. You can send all events, but Amplitude recommends choosing the most important ones.
+8. Use the **Event Properties** filter to select which Event Properties you would like to send.
+9. Under **Send Users**, make sure the toggle is enabled ("Users are sent to MoEngage") if you want to stream users and their properties to MoEngage. When enabled, users are automatically created or updated in MoEngage when an event is sent to Amplitude.
+10. When finished, save your work.
 
+## View forwarded events from Amplitude in MoEngage
+
+1. Log into MoEngage.
+2. Navigate to the **Events** tab.
+3. Click **Custom Events** to view the log of events.
 
 ## Use cases
 
