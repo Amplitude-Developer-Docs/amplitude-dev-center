@@ -42,8 +42,9 @@ Amplitude Data supports tracking analytics events from Python apps (Python 3.6 o
     ```python
     from .ampli import *
     
+
     ampli.load(LoadOptions(
-      environment=Environment.PRODUCTION
+      client=LoadClientOptions(AMPLITUDE_API_KEY)
     ))
     ```
 
@@ -95,7 +96,7 @@ from .ampli import *
 
 
 ampli.load(LoadOptions(
-  environment=Environment.PRODUCTION
+   client=LoadClientOptions(AMPLITUDE_API_KEY)
 ))
 ```
 

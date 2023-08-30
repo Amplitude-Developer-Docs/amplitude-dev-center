@@ -46,7 +46,7 @@ Ampli supports Node.js apps written in JavaScript (ES6 and higher) and TypeScrip
     ```js
     import { ampli } from './src/ampli';
     
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 5. [Identify users and set user properties](#identify)
@@ -117,8 +117,8 @@ Example of initialization with `load` to override the default configuration:
 
     ```typescript
     ampli.load({
-      environment: 'development',
       client: {
+        apiKey: AMPLITUDE_API_KEY,
         configuration: {
           minIdLength: 10,
         }
@@ -130,8 +130,8 @@ Example of initialization with `load` to override the default configuration:
 
     ```javascript
     ampli.load({
-      environment: 'development',
       client: {
+        apiKey: AMPLITUDE_API_KEY,
         configuration: {
           minIdLength: 10,
         }

@@ -47,7 +47,7 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
     ```js
     import { ampli } from './src/ampli';
     
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 5. [Identify users and set user properties](#identify)

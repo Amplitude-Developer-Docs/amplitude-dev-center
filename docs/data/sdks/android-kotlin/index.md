@@ -74,7 +74,7 @@ Use [this quickstart guide](../../sdks/sdk-quickstart#android) to get started wi
     ```java 
     import com.amplitude.android.Amplitude;
 
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setFlushIntervalMillis(1000);
     configuration.setFlushQueueSize(10);
 
@@ -103,7 +103,7 @@ You can dynamically set the configuration after initialization.
     ```java 
     import com.amplitude.android.Amplitude;
 
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     Amplitude amplitude = new Amplitude(configuration);
 
     amplitude.getConfiguration().setOptOut(true);
@@ -118,7 +118,7 @@ You can dynamically set the configuration after initialization.
 
     val amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             serverZone = ServerZone.EU
         )
@@ -130,7 +130,7 @@ You can dynamically set the configuration after initialization.
     ```java
     import com.amplitude.android.Amplitude;
 
-    Configuration configuration = new Configuration("API_KEY", getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setServerZone(ServerZone.EU);
 
     Amplitude amplitude = new Amplitude(configuration);
@@ -207,7 +207,7 @@ You can enable Amplitude to start tracking all events mentioned above, use the c
 ```kotlin
 Amplitude(
     Configuration(
-        apiKey = API_KEY,
+        apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
         defaultTracking = DefaultTrackingOptions.ALL
     )
@@ -222,7 +222,7 @@ Similarly, you can disable Amplitude to track all events mentioned above with th
 ```kotlin
 Amplitude(
     Configuration(
-        apiKey = API_KEY,
+        apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
         defaultTracking = DefaultTrackingOptions.NONE
     )
@@ -234,7 +234,7 @@ You can also customize the tracking with `DefaultTrackingOptions`, see code samp
 ```kotlin
 Amplitude(
     Configuration(
-        apiKey = API_KEY,
+        apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
         defaultTracking = DefaultTrackingOptions(
             appLifecycles = true,
@@ -253,7 +253,7 @@ You can enable Amplitude to start tracking session events by setting `configurat
 ```kotlin
 Amplitude(
     Configuration(
-        apiKey = API_KEY,
+        apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
         defaultTracking = DefaultTrackingOptions(
             sessions = true
@@ -274,7 +274,7 @@ You can enable Amplitude to start tracking application lifecycle events by setti
 ```kotlin
 Amplitude(
     Configuration(
-        apiKey = API_KEY,
+        apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
         defaultTracking = DefaultTrackingOptions(
             appLifecycles = true
@@ -297,7 +297,7 @@ You can enable Amplitude to start tracking screen view events by setting `config
 ```kotlin
 Amplitude(
     Configuration(
-        apiKey = API_KEY,
+        apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
         defaultTracking = DefaultTrackingOptions(
             screenViews = true
@@ -315,7 +315,7 @@ You can enable Amplitude to start tracking deep link events by setting `configur
 ```kotlin
 Amplitude(
     Configuration(
-        apiKey = API_KEY,
+        apiKey = AMPLITUDE_API_KEY,
         context = applicationContext,
         defaultTracking = DefaultTrackingOptions(
             deepLinks = true
@@ -553,7 +553,7 @@ You can adjust the time window for which sessions are extended. The default sess
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             minTimeBetweenSessionsMillis = 10000
         )
@@ -563,7 +563,7 @@ You can adjust the time window for which sessions are extended. The default sess
 === "Java"
 
     ```java
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setMinTimeBetweenSessionsMillis(1000);
 
     Amplitude amplitude = new Amplitude(configuration);
@@ -577,7 +577,7 @@ You can also disable those session events.
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             defaultTracking = DefaultTrackingOptions(
                 sessions = false
@@ -591,7 +591,7 @@ You can also disable those session events.
     ```
     defaultTrackingOptions = new DefaultTrackingOptions();
     defaultTrackingOptions.setSessions(false);
-    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
         configuration.setDefaultTracking(defaultTrackingOptions);
         return Unit.INSTANCE;
     });
@@ -618,7 +618,7 @@ You can define your own session expiration time. The default session expiration 
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             minTimeBetweenSessionsMillis = 10000
         )
@@ -628,7 +628,7 @@ You can define your own session expiration time. The default session expiration 
 === "Java"
 
     ```java
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setMinTimeBetweenSessionsMillis(10000);
 
     Amplitude amplitude = new Amplitude(configuration);
@@ -720,7 +720,7 @@ Before initializing the SDK with your apiKey, create a `TrackingOptions` insta
     trackingOptions.disableCity().disableIpAddress().disableLatLng()
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             trackingOptions = trackingOptions
         )
@@ -734,7 +734,7 @@ Before initializing the SDK with your apiKey, create a `TrackingOptions` insta
     trackingOptions.disableCity().disableIpAddress().disableLatLng();
 
     // init instance
-    amplitude = AmplitudeKt.Amplitude(API_KEY, getApplicationContext(), configuration -> {
+    amplitude = AmplitudeKt.Amplitude(AMPLITUDE_API_KEY, getApplicationContext(), configuration -> {
         configuration.setTrackingOptions(trackingOptions);
         return Unit.INSTANCE;
     });
@@ -777,7 +777,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             enableCoppaControl = true //Disables ADID, city, IP, and location tracking
         )
@@ -787,7 +787,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 === "Java"
 
     ```java
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     //Disables ADID, city, IP, and location tracking
     configuration.setEnableCoppaControl(true);
 
@@ -807,7 +807,7 @@ After you set up the logic to fetch the advertising ID, you can enable `useAdver
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             useAdvertisingIdForDeviceId = true
         )
@@ -817,7 +817,7 @@ After you set up the logic to fetch the advertising ID, you can enable `useAdver
 === "Java"
 
     ```java
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setUseAdvertisingIdForDeviceId(true);
 
     Amplitude amplitude = new Amplitude(configuration);
@@ -845,7 +845,7 @@ App set ID is a unique identifier for each app install on a device. App set ID i
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             useAppSetIdForDeviceId = true
         )
@@ -855,7 +855,7 @@ App set ID is a unique identifier for each app install on a device. App set ID i
 === "Java"
 
     ```java
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setUseAppSetIdForDeviceId(true);
 
     Amplitude amplitude = new Amplitude(configuration);
@@ -895,7 +895,7 @@ By default, Amplitude can use Android location service (if available) to add the
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             locationListening = true
         )
@@ -905,7 +905,7 @@ By default, Amplitude can use Android location service (if available) to add the
 === "Java"
 
     ```java
-    Configuration configuration = new Configuration("API_KEY", getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setLocationListening(true);
 
     Amplitude amplitude = new Amplitude(configuration);
@@ -924,7 +924,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
     ```kotlin
     amplitude = Amplitude(
         Configuration(
-            apiKey = API_KEY,
+            apiKey = AMPLITUDE_API_KEY,
             context = applicationContext,
             optOut = true
         )
@@ -934,7 +934,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
 === "Java"
 
     ```java
-    Configuration configuration = new Configuration(API_KEY, getApplicationContext());
+    Configuration configuration = new Configuration(AMPLITUDE_API_KEY, getApplicationContext());
     configuration.setOptOut(true);
 
     Amplitude amplitude = new Amplitude(configuration);

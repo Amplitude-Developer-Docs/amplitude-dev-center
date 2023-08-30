@@ -92,7 +92,7 @@ Amplitude.init(AMPLITUDE_API_KEY, {
 Sending data to Amplitude's EU servers, you need to configure the server URL during the initialization.
 
 ```ts
-client = Amplitude.init(<AMPLITUDE_API_KEY>, {
+client = Amplitude.init(AMPLITUDE_API_KEY, {
     serverUrl: "https://api.eu.amplitude.com/2/httpapi"
 });
 ```
@@ -106,7 +106,7 @@ client = Amplitude.init(<AMPLITUDE_API_KEY>, {
     ```ts
     import * as Amplitude from '@amplitude/node';
 
-    const client = Amplitude.init(<AMPLITUDE_API_KEY>);
+    const client = Amplitude.init(AMPLITUDE_API_KEY);
 
     client.logEvent({
       event_type: 'Node.js Event',
@@ -134,7 +134,7 @@ client = Amplitude.init(<AMPLITUDE_API_KEY>, {
     // ES6 Syntax
     import * as Amplitude from '@amplitude/node';
 
-    var client = Amplitude.init(<AMPLITUDE_API_KEY>);
+    var client = Amplitude.init(AMPLITUDE_API_KEY);
     client.logEvent({
       event_type: 'Node.js Event',
       user_id: 'datamonster@gmail.com',

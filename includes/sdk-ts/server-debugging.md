@@ -9,7 +9,7 @@ You can control the level of logs printed to the developer console.
 Set the log level by configuring the `logLevel` with the level you want.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   logLevel: amplitude.Types.LogLevel.Warn,
 });
 ```
@@ -19,7 +19,7 @@ The default logger outputs log to the developer console. You can provide your ow
 Set the logger by configuring the `loggerProvider` with your own implementation.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   loggerProvider: new MyLogger(),
 });
 ```
@@ -28,7 +28,7 @@ amplitude.init(API_KEY, {
 Enable the debug mode by setting the `logLevel` to "Debug", for example:
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   logLevel: amplitude.Types.LogLevel.Debug,
 });
 ```
