@@ -365,6 +365,8 @@ nav:
         - Zeda.io: data/destinations/zeda.io-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
+      - Group Property:
+        - Salesforce: data/destinations/salesforce-group-export.md
     - Privacy and PII:
       - Overview: data/pii.md
       - DataGrail: data/pii/datagrail.md
