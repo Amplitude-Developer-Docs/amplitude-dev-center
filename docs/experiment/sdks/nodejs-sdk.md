@@ -220,7 +220,7 @@ initializeLocal(apiKey: string, config?: LocalEvaluationConfig): LocalEvaluation
 | `config` | optional | The client [configuration](#configuration) used to customize SDK client behavior. |
 
 !!!tip "Flag Polling Interval"
-    Use the `flagConfigPollingIntervalMillis` [configuration](#configuration-1) to determine the time flag configs take to update once modified (default 30s).
+    Use the `flagConfigPollingIntervalMillis` [configuration](#configuration_1) to determine the time flag configs take to update once modified (default 30s).
 
 #### Configuration
 
@@ -268,7 +268,7 @@ await experiment.start();
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). You must give evaluate a user object argument. You can optionally pass an array of flag keys if you require only a specific subset of required flag variants.
 
 !!!tip "Automatic Assignment Tracking"
-    Set [`assignmentConfig`](#configuration-1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
+    Set [`assignmentConfig`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
 
 ```js
 evaluate(user: ExperimentUser, flagKeys?: string[]): Promise<Variants>

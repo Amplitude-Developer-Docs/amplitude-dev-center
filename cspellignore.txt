@@ -27,6 +27,7 @@ Apphud
 apphud
 appset
 appsflyer
+apxor
 ARPPU
 ARPU
 Axeptio
@@ -253,6 +254,7 @@ prereqs
 Prework
 Println
 println
+pushwoosh
 Productboard
 productboard
 Productboard's
@@ -267,6 +269,7 @@ quickstart
 retargeted
 Retargeting
 retargeting
+retriable
 retryable
 revenuecat
 routingkey
@@ -312,6 +315,8 @@ Taplytics's
 TDLTEST
 Tealium
 Templating
+TheTradeDesk
+thetradedesk
 tiktok
 timeframe
 toplevel
@@ -326,6 +331,7 @@ typealias
 typeof
 unhide
 unitypackage
+unitQ
 UNIVAC
 Unmap
 unmap
