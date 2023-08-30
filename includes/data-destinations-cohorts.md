@@ -7,6 +7,7 @@
 - :amazon-s3: [Amazon S3](../data/destinations/amazon-s3-cohort.md)
 - :appcues: [Appcues](../data/destinations/appcues-cohort.md)
 - :appsflyer: [AppsFlyer](../data/destinations/appsflyer-cohort.md)
+- :apxor: [Apxor](../data/destinations/apxor-cohort.md)
 - :bento: [Bento](../data/destinations/bento-cohort.md)
 - :braze: [Braze](../data/destinations/braze-cohort.md)
 - :cohort-webhooks:[Cohort Webhooks](../data/destinations/cohort-webhooks.md)
@@ -44,10 +45,13 @@
 - :split: [Split](../data/destinations/split-cohort.md)
 - :statsig: [Statsig](../data/destinations/statsig-cohort.md)
 - :talonone: [Talon.One](../data/destinations/talonone-cohort.md)
+- :thetradedesk: [TheTradeDesk](../data/destinations/thetradedesk-cohort.md)
 - :tiktok: [TikTok Ads](../data/destinations/tiktok-cohort.md)
+- :unitQ: [unitQ](../data/destinations/unitQ-cohort.md)
 - :userflow: [Userflow](../data/destinations/userflow-cohort.md)
 - :userlist: [Userlist](../data/destinations/userlist-cohort.md)
 - :user.com: [User.com](../data/destinations/user.com-cohort.md)
+- :webengage: [Webengage](../data/destinations/webengage-cohort.md)
 - :zeda.io: [Zeda.io](../data/destinations/zeda.io-cohort.md)
 
 </div>
