@@ -3,9 +3,9 @@ title: React Native SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's maintenance React Native SDK (@amplitude/react-native) to the latest SDK (@amplitude/analytics-react-native).
 ---
 
---8<-- "includes/sdk-missing-migration.md"
+Amplitude's latest React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support.
 
-Amplitude's latest React Native SDK (`@amplitude/analytics-react-native`) features a plugin architecture, built-in type definition and broader platform support. Latest React Native SDK isn't backwards compatible with maintenance React Native SDK `@amplitude/react-native`. 
+The latest React Native SDK isn't fully backwards compatible with maintenance React Native SDK `@amplitude/react-native`. However, it will transfer user, device, and event data to the new SDK automatically in versions `v1.3.4` and above.
 
 To migrate to `@amplitude/analytics-react-native`, update your dependencies and instrumentation.
 
@@ -258,3 +258,13 @@ The maintenance React Native SDK supports automatically log start and end events
 | Logger provider | Amplitude Logger. Fully customizable. | Depends on the native iOS, Android, Amplitude JavaScript logger provider. |
 | Customization | Plugins | Middleware |
 | Server Endpoint | HTTP V2 API |  HTTP V1 API |
+
+## Data migration
+
+Starting [v1.3.4](https://github.com/amplitude/Amplitude-TypeScript/releases/tag/%40amplitude%2Fanalytics-react-native%401.3.4), existing [maintenance SDK](../../react-native) data (events, user/device ID) are moved to the latest SDK by default. It can be disabled by setting `migrateLegacyData` to `false` in the [Configuration](../#configuration).
+
+```typescript
+init(API_KEY, OPTIONAL_USER_ID, {
+  migrateLegacyData: false,
+})
+```

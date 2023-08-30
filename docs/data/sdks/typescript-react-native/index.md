@@ -6,10 +6,10 @@ icon: simple/react
 
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-react-native)
 
-The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native).
+The React Native SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-react-native).
 
 !!!info "React Native SDK Resources"
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-react-native) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=analytics-react-native&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for React Native](../typescript-react-native/ampli.md).
@@ -18,6 +18,17 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
     [React Native SDK Migration Guide](/data/sdks/typescript-react-native/migration/).
 
 --8<-- "includes/sdk-rn/rn-notification.md"
+
+## Compatibility Matrix
+
+The following matrix lists the support for Amplitude React Native SDK version for [different versions of React Native and React Native CLI](https://github.com/react-native-community/cli).
+
+| @amplitude/analytics-react-native | react-native     |Gradle|Android Gradle Plugin|
+|-----------------------------------|------------------|---|---|
+| >= 1.4.0                          | >= 0.68          | 7.5.1+ | 7.2.1+ |
+| >= 1.0.0, <= 1.3.6                | >= 0.61, <= 0.70 | 3.5.3+ | 3.5.3+ |
+
+Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle).
 
 ## Getting started
 
@@ -85,6 +96,7 @@ init(API_KEY, 'user@amplitude.com', {
 --8<-- "includes/sdk-ts-browser/shared-configurations.md"
     |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `MemoryStorage` |
     |`trackingSessionEvents`| `boolean`. Whether to automatically log start and end session events corresponding to the start and end of a user's session. | `false` |
+    |`migrateLegacyData`| `boolean`. Available in `1.3.4`+. Whether to migrate [maintenance SDK](../react-native) data (events, user/device ID). | `true` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -233,7 +245,7 @@ identify(identifyObj);
 
 #### `Identify.preInsert`
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+This method pre-inserts a value or values to a user property if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -246,7 +258,7 @@ identify(identifyObj);
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+This method post-inserts a value or values to a user property if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -259,7 +271,7 @@ identify(identifyObj);
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the item doesn't exist in the user property, it will be no operation.
+This method removes a value or values to a user property if it exists in the user property. Remove means remove the existing values from the given list. If the item doesn't exist in the user property, it will be no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-react-native';
@@ -311,7 +323,7 @@ track({
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that will be applied to the group.
 
@@ -330,7 +342,7 @@ groupIdentify(groupType, groupName, identify);
 
 The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances will store each revenue transaction and allow you to define several special revenue properties (such as "revenueType", "productIdentifier", etc.) that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
-To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
+To track revenue from a user, call revenue each time a user generates revenue. For example, 3 units of a product were purchased at $3.99.
 
 ```ts
 import { Revenue, revenue } from '@amplitude/analytics-react-native';
@@ -365,7 +377,7 @@ import { flush } from '@amplitude/analytics-react-native';
 flush();
 ```
 
-By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
+By default, `flush` is called automatically in an interval, if you want to flush the events altogether, you can control the async flow with the optional Promise interface, for example:
 
 ```typescript
 await init(AMPLITUDE_API_KEY).promise;
@@ -375,7 +387,7 @@ await flush().promise;
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 TypeScript
 
@@ -407,7 +419,7 @@ setSessionId(Date.now());
 
 ### Custom device ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. A UUID is recommended.
 
@@ -489,7 +501,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Callback
 
-All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
+All asynchronous APIs are optionally awaitable through a Promise interface. This also serves as a callback interface.
 
 ```ts
 import { track } from '@amplitude/analytics-react-native';
@@ -510,7 +522,7 @@ track('Button Clicked').promise.then((result) => {
 
 ### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 #### `add`
 
@@ -654,6 +666,25 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
+### Location
+
+The Amplitude ingestion servers resolve event location in the following order:
+
+1. User-provided `city`, `country`, `region`
+2. Resolved from `location_lat` and `location_lng`
+3. Resolved from `ip`
+
+By default, location will be determined by the `ip` on the server side. If you want more provide more granular location you can set `city`, `country` and `region` individually, or set `location_lat` and `location_lng` which will then be resolved to `city`, `country` and `region` on the server. 
+We do not automatically set precise location in the SDK to avoid extra permissions that my not be needed by all customers.
+
+To set fine grain location, you can use an enrichment Plugin. Here is an [example](https://github.com/amplitude/Amplitude-TypeScript/blob/v1.x/examples/plugins/react-native-get-location-plugin/LocationPlugin.ts) of how to set `location_lat` and `location_lng`.
+
+Note that disabling IP tracking via `ipTracking: false` in [TrackingOptions](/data/sdks/typescript-react-native/#optional-tracking) will prevent location from being resolved on the backend. In this case you may want to create a Plugin like above to set any relevant location information yourself.
+
+### Carrier
+
+Carrier support works on Android, but Apple stopped supporting it in iOS 16. In earlier versions of iOS, we fetch carrier info using `CTCarrier` and `serviceSubscriberCellularProviders` which are [deprecated](https://developer.apple.com/documentation/coretelephony/cttelephonynetworkinfo/3024511-servicesubscribercellularprovide) with [no replacement](https://developer.apple.com/forums/thread/714876?answerId=728276022#728276022).
+
 ### Advertising Identifiers
 
 Different platforms have different advertising identifiers. Due to user privacy concerns, Amplitude does not automatically collect these identifiers. However, it is easy to enable them using the instructions below. It is important to note that some identifiers are no longer recommended for use by the platform providers. Please read the notes below before deciding to enable them.
@@ -743,3 +774,13 @@ The React Native SDK does not directly access the IDFA as it would require addin
 Here is an [example Plugin that sets the IDFA](https://github.com/amplitude/Amplitude-TypeScript/blob/main/examples/plugins/react-native-idfa-plugin/idfaPlugin.ts)  using a third-party library.
 
 --8<-- "includes/abbreviations.md"
+
+### Over the air updates (OTA)
+
+If you are using platform like Expo that supports OTA updates. It is important to know our SDK has both native and JS code. If you are using OTA updates, you will need to make sure the native code is updated as well. See Expo's documentation on [publishing](https://docs.expo.dev/archive/classic-updates/publishing) and [runtime versions](https://docs.expo.dev/eas-update/runtime-versions/) for more details.
+
+Below are versions of the SDK with the native code changes:
+
+| @amplitude/analytics-react-native                                                                                     |
+|-----------------------------------------------------------------------------------------------------------------------|
+| [1.3.0](https://github.com/amplitude/Amplitude-TypeScript/releases/tag/%40amplitude%2Fanalytics-react-native%401.3.0) |

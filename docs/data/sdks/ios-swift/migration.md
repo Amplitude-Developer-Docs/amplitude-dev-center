@@ -73,7 +73,7 @@ Like all other calls, `instance()` has been removed. Configuration is handled di
 === "Amplitude-Swift"
 
     ```swift
-    import Amplitude_Swift
+    import AmplitudeSwift
 
     Amplitude(
       configuration: Configuration(
@@ -422,7 +422,7 @@ The configs `amplitude.adSupportBlock` or `amplitude.useAdvertisingIdForDeviceId
 
     ```swift
     import AdSupport
-    import Amplitude_Swift
+    import AmplitudeSwift
     import AppTrackingTransparency
     import Foundation
     import SwiftUI

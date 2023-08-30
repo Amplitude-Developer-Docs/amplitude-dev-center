@@ -59,7 +59,7 @@ Client-side SDKs work in a single-user context. Server-side SDKs work in a multi
 | API | Description |
 | --- | --- |
 | [Evaluation API](apis/evaluation-api.md) | Evaluate a user for the feature flags and experiments assigned to the deployment used to authorize the request |
-| [Management API (Beta)](apis/management-api.md) | Manage or list flags and experiments within your organization. |
+| [Management API](apis/management-api/index.md) | Manage or list flags and experiments within your organization. |
 
 ## System overview
 <!-- vale Amplitude.Contractions = NO-->
@@ -71,7 +71,7 @@ That said, you can generally split experimentation and feature-flagging systems 
 
 !!!done "Easiest way to get started delivering flag and experimenting on your client side application."
 
-Client-side experimentation and feature-flagging involves the client making a request to fetch flags and experiments from Amplitude's [remote evaluation](./general/evaluation/remote-evaluation.md) servers when the application is initialized.
+Client-side implementations assume a single user context. Amplitude Experiment loads flag and experiment configurations on startup for use with [local evaluation](./general/evaluation/local-evaluation.md), and  fetches [remote evaluation](./general/evaluation/remote-evaluation.md) variants dynamically from Amplitude's remote evaluation service. When a variant is accessed from the SDK, an [exposure event](./general/exposure-tracking.md) is tracked for the user.
 
 ![Client-side experimentation diagram.](../assets/images/experiment/client-side-overview.drawio.svg)
 
@@ -90,8 +90,6 @@ Server-side [remote evaluation](./general/evaluation/remote-evaluation.md) invol
 #### Local evaluation
 
 !!!tip "Fast evaluation for performance minded systems."
-
-<!-- !!!caution "Unable to utilized advanced targeting powered by historical analytics data." -->
 
 Server-side [local evaluation](./general/evaluation/local-evaluation.md) runs [evaluation logic](./general/evaluation/implementation.md) on your server, saving you the overhead incurred by making a network request per user evaluation. The [sub-millisecond evaluation](./general/performance-and-caching.md#local-evaluation) is perfect for latency-minded systems which need to be performant at scale. However, because evaluation happens outside of Amplitude, advanced targeting and identity resolution powered by Amplitude Analytics isn't possible.
 

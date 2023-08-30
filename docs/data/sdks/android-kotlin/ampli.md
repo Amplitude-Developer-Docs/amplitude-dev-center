@@ -345,7 +345,7 @@ Send event objects using the generic track method.
 
 ### Plugin
 
-Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type).
+Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type).
 
 First you need to define your plugin. Destination Plugin example:
 

@@ -1,6 +1,6 @@
 # Project information
 site_name: Amplitude Developer Center
-site_url: https://docs.developers.amplitude.com
+site_url: https://www.docs.developers.amplitude.com
 site_author: Amplitude
 site_description: >-
     Developer resources for Amplitude's digital analytics platform.
@@ -207,7 +207,6 @@ nav:
           - Tribe: data/sources/tribe.md
         - Customer Engagement:
           - Chameleon: data/sources/chameleon.md
-          - CleverTap: data/sources/clevertap.md
           - Cordial: data/sources/cordial.md
           - Intercom: data/sources/intercom.md
           - OneSignal: data/sources/onesignal.md
@@ -234,6 +233,7 @@ nav:
         - Marketing Automation:
           #- Airship: data/sources/airship.md
           - Braze: data/sources/braze.md
+          - CleverTap: data/sources/clevertap.md
           - HubSpot: data/sources/hubspot.md
           - Iterable: data/sources/iterable.md
           - Leanplum: data/sources/leanplum.md
@@ -282,6 +282,7 @@ nav:
         - Branch: data/destinations/branch.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
+        - CleverTap: data/destinations/clevertap-event-streaming.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
         - Fullstory: data/destinations/fullstory-event-streaming.md
@@ -297,12 +298,15 @@ nav:
         - Kameleoon: data/destinations/kameleoon-event-streaming.md
         - Kinesis: data/destinations/kinesis-data-stream.md
         - Kinesis Firehose: data/destinations/kinesis-firehose.md
+        - Kochava (install): data/destinations/kochava-event-streaming.md
+        - Kochava (post-installs): data/destinations/kochava-event-streaming-post-installs.md
         - Lantern: data/destinations/lantern-event-streaming.md
         - Mailchimp: data/destinations/mailchimp-event-streaming.md
         - Meta Pixel: data/destinations/meta-pixel.md
         - MoEngage: data/destinations/moengage-event-streaming.md
         - Moloco: data/destinations/moloco-event-streaming.md
         - Planhat: data/destinations/planhat-event-streaming.md
+        - Plotline: data/destinations/plotline-event-streaming.md
         - Salesforce Marketing Cloud: data/destinations/marketing-cloud-event-streaming.md
         - Statsig: data/destinations/statsig.md
         - Toplyne: data/destinations/toplyne.md
@@ -315,9 +319,11 @@ nav:
         - Amazon S3: data/destinations/amazon-s3-cohort.md
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
+        - Apxor: data/destinations/apxor-cohort.md
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
+        - Cohort Webhooks: data/destinations/cohort-webhooks.md
         - Cordial: data/destinations/cordial-cohort.md
         - Customer.io: data/destinations/customerio-cohort.md
         - Enterpret: data/destinations/enterpret-cohort.md
@@ -350,13 +356,18 @@ nav:
         - Snapchat Ads: data/destinations/snapchat-ads-cohort.md
         - Statsig: data/destinations/statsig-cohort.md
         - Talon.One: data/destinations/talonone-cohort.md
+        - TheTradeDesk: data/destinations/thetradedesk-cohort.md
         - TikTok: data/destinations/tiktok-cohort.md
+        - unitQ: data/destinations/unitQ-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
         - User.com: data/destinations/user.com-cohort.md
+        - Webengage: data/destinations/webengage-cohort.md
         - Zeda.io: data/destinations/zeda.io-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
+      - Group Property:
+        - Salesforce: data/destinations/salesforce-group-export.md
     - Privacy and PII:
       - Overview: data/pii.md
       - DataGrail: data/pii/datagrail.md
@@ -404,7 +415,11 @@ nav:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
-        - Management API (Beta): experiment/apis/management-api.md
+        - Management API: 
+          - experiment/apis/management-api/index.md
+          - Flags: experiment/apis/management-api/flags.md
+          - Experiments: experiment/apis/management-api/experiments.md
+          - Deployments: experiment/apis/management-api/deployments.md
 - Guides:
   - guides/index.md
   - Accounts Guide: guides/accounts-instrumentation-guide.md
@@ -454,7 +469,6 @@ nav:
           - Ampli Codegen: data/sdks/browser-2/ampli.md
         - v1.0:
           - data/sdks/typescript-browser/index.md
-          - Marketing Analytics Browser: data/sdks/marketing-analytics-browser/index.md
           - Ampli Codegen: data/sdks/typescript-browser/ampli.md
           - Migration Guide: data/sdks/browser-2/migration.md
       - Node.js:
@@ -490,8 +504,13 @@ nav:
     - Maintenance SDKs:
       - Browser:
         - data/sdks/javascript/index.md
-        - Ampli Codegen: data/sdks/javascript/ampli.md
-        - Migration Guide: data/sdks/typescript-browser/migration.md
+        - JavaScript SDK:
+          - data/sdks/javascript/index.md
+          - Ampli Codegen: data/sdks/javascript/ampli.md
+          - Migration Guide: data/sdks/typescript-browser/migration.md
+        - Marketing Analytics Browser:
+          - data/sdks/marketing-analytics-browser/index.md
+          - Migration Guide: data/sdks/marketing-analytics-browser/migration.md
       - Android:
         - data/sdks/android/index.md
         - Ampli Codegen: data/sdks/android/ampli.md
@@ -510,6 +529,9 @@ nav:
       - Middleware: data/sdk-middleware.md
       - Troubleshooting and debugging: data/sdk-troubleshooting-and-debugging.md
       - Maintenance and support: data/sdks/sdk-maintenance-and-support.md
+      - Tutorials:
+        - Migrating from Google Analytics:
+          - data/tutorials/migrating-from-google-analytics/index.md
 - Partners:
   - partners/index.md
   - Integrate with Amplitude:

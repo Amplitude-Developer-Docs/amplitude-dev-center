@@ -22,12 +22,12 @@ This is the official documentation for the Amplitude Analytics React Native SDK.
 
 ## Compatibility Matrix
 
-The following matrix lists the support for Amplitude React Native SDK version for different versions of React Native and React Native CLI.
+The following matrix lists the support for Amplitude React Native SDK version for [different versions of React Native and React Native CLI](https://github.com/react-native-community/cli).
 
-| <div class="med-column">Amplitude React Native</div> | @react-native-community/cli | react-native      |Gradle|Android Gradle Plugin|
-|------------------------------------------------------|-----------------------------|-------------------|---|---|
-| >= 2.17.1                                            | >= 10.0                     | >= 0.71           | 7.5.1+ | 7.2.1+ |
-| <= 2.17.0                                            | <= 9.0                      | >= 0.61,  <= 0.70 | 7.5.1+ | 7.2.1+ |
+| @amplitude/react-native | react-native      |Gradle|Android Gradle Plugin|
+|-------------------------|-------------------|---|---|
+| >= 2.17.1               | >= 0.71           | 7.5.1+ | 7.2.1+ |
+| <= 2.17.0               | >= 0.61,  <= 0.70 | 3.5.3+ | 3.5.3+ |
 
 Learn more about the Android [Gradle Plugin compatibility](https://developer.android.com/studio/releases/gradle-plugin#updating-gradle).
 
@@ -103,7 +103,7 @@ For other default configurations:
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold` and `setEventUploadPeriodMillis`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by the `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `setEventUploadThreshold` and `setEventUploadPeriodMillis`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```js
 // Events queued in memory will flush when number of events exceed upload threshold
@@ -266,7 +266,7 @@ If the user property doesn't have a value set yet, it will be initialized to an 
 
 #### `preInsert`
 
-`preInsert` insert a value or values to a user property, if it doesn't exist in the user property yet.
+`preInsert` insert a value or values to a user property if it doesn't exist in the user property yet.
 Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
 
 === "TypeScript"
@@ -280,7 +280,7 @@ Pre-insert means inserting the value at the beginning of a given list. If the us
 
 #### `postInsert`
 
-`postInsert` insert a value or values to a user property, if it doesn't exist in the user property yet.
+`postInsert` insert a value or values to a user property if it doesn't exist in the user property yet.
 Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
 
 === "TypeScript"
@@ -310,7 +310,7 @@ Amplitude.getInstance().clearUserProperties();
 
 ##### `remove`
 
-`remove` removes a value or values to a user property, if it does exist in the user property. If the item doesn't exist in the user property, nothing happens.
+`remove` removes a value or values to a user property if it does exist in the user property. If the item doesn't exist in the user property, nothing happens.
 
 === "TypeScript"
 
@@ -410,7 +410,7 @@ You are able to determine whether to automatically log start and end session eve
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 === "TypeScript"
 

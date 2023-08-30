@@ -27,6 +27,7 @@ Apphud
 apphud
 appset
 appsflyer
+apxor
 ARPPU
 ARPU
 Axeptio
@@ -75,6 +76,7 @@ CPRA
 croffles
 CRUDQ
 CSAT
+cspellignore
 customerio
 customername
 customizability
@@ -252,6 +254,7 @@ prereqs
 Prework
 Println
 println
+pushwoosh
 Productboard
 productboard
 Productboard's
@@ -266,6 +269,7 @@ quickstart
 retargeted
 Retargeting
 retargeting
+retriable
 retryable
 revenuecat
 routingkey
@@ -311,6 +315,8 @@ Taplytics's
 TDLTEST
 Tealium
 Templating
+TheTradeDesk
+thetradedesk
 tiktok
 timeframe
 toplevel
@@ -325,6 +331,7 @@ typealias
 typeof
 unhide
 unitypackage
+unitQ
 UNIVAC
 Unmap
 unmap
@@ -333,6 +340,7 @@ Unmaps
 unrealengine
 unsets
 upsell
+upselling
 Upsert
 urlencode
 userdata
@@ -351,6 +359,9 @@ utmz
 uuidv
 VARCHAR
 wbraid
+webengage
+WebEngage
+web-engage
 xcodeproj
 xcodeworkspace
 xsmall
@@ -360,7 +371,6 @@ zeda
 
 # cspell false negative
 timest
-
 
 # identifiers
 26umsb5
