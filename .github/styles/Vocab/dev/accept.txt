@@ -44,7 +44,9 @@ backgrounded
 backoff
 batchEvents
 Bitcode
+Blitzllama
 bool
+BOOL
 Bronto
 bundler
 canonicalized
@@ -143,8 +145,10 @@ postback
 prepends
 preprocessor
 Productboard
+Productboard
 ProGuard
 Pushwoosh
+Qualtrics
 Qualtrics
 Qualtrics
 queryable

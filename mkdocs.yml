@@ -321,6 +321,7 @@ nav:
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
         - Apxor: data/destinations/apxor-cohort.md
+        - Blitzllama: data/destinations/blitzllama-cohort.md
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
