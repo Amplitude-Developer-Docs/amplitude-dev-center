@@ -282,6 +282,7 @@ nav:
         - Branch: data/destinations/branch.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
+        - CleverTap: data/destinations/clevertap-event-streaming.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
         - Fullstory: data/destinations/fullstory-event-streaming.md
