@@ -24,7 +24,7 @@ description: Stream Amplitude events to CleverTap
 - You need a CleverTap account to enable this integration.
 - Relevant limits for CleverTap events are:
     - CleverTap does not impose any hard limits on quantity or velocity; however, requests sent too quickly will return 429 responses. Amplitude will handle these automatically. 
-  - The requests must be smaller than 2MB.
+    - The requests must be smaller than 2MB.
 - Amplitude sends selected user and event properties along with the event.
 
 ## Setup
