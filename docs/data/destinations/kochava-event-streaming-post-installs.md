@@ -28,8 +28,8 @@ description: Stream Amplitude events to Kochava (Post-Installs)
 - Amplitude uses the **IdentityLink** API of Kochava to send user-attributes and this will link the user-level data with the device ID. The user attributes sent by Amplitude will not be tied if the Install event with the same device ID was not received at Kochava before.
 - **Send User Feature:** This feature, "Send User," is available in the destination for Post Install Events. It helps you send the IdentityLink data along with the other event data. This ensures that Kochava knows who the user is and can connect their actions to them.
 - Relevant limits for Kochava events are:
-  - Kochava does not impose any hard limits on quantity or velocity; however, requests sent too quickly will return 429 responses. Amplitude will handle these automatically. 
-  - The requests must be smaller than 2MB.
+    - Kochava does not impose any hard limits on quantity or velocity; however, requests sent too quickly will return 429 responses. Amplitude will handle these automatically. 
+    - The requests must be smaller than 2MB.
 
 ## Setup
 
@@ -70,6 +70,6 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 
 Sending events from Amplitude to Kochava can enhance the effectiveness of your communication strategies and help drive higher-value conversions through targeted and personalized messaging. Here are some specific use cases for integrating Amplitude with Kochava:
 
-1) **Campaign ROI Insights:** Correlate user actions tracked by Amplitude with specific marketing campaigns in Kochava for accurate attribution, enabling optimized allocation of marketing budgets.
-2) **Personalized Ad Targeting:** Combine Amplitude's user behavior data with Kochava's audience segmentation to deliver tailored ads to users based on their interactions, increasing conversion chances.
-3) **LTV Analysis and Retention:** Analyze user behavior from Amplitude in Kochava to identify high lifetime value users, allowing for targeted retention strategies like customized incentives or offers.
+1. **Campaign ROI Insights:** Correlate user actions tracked by Amplitude with specific marketing campaigns in Kochava for accurate attribution, enabling optimized allocation of marketing budgets.
+2. **Personalized Ad Targeting:** Combine Amplitude's user behavior data with Kochava's audience segmentation to deliver tailored ads to users based on their interactions, increasing conversion chances.
+3. **LTV Analysis and Retention:** Analyze user behavior from Amplitude in Kochava to identify high lifetime value users, allowing for targeted retention strategies like customized incentives or offers.

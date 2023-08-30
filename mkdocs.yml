@@ -282,6 +282,7 @@ nav:
         - Branch: data/destinations/branch.md
         - Braze: data/destinations/braze.md
         - Customer.io: data/destinations/customerio.md
+        - CleverTap: data/destinations/clevertap-event-streaming.md
         - Extole: data/destinations/extole-event-streaming.md
         - Fivetran: data/destinations/fivetran-event-forwarding.md
         - Fullstory: data/destinations/fullstory-event-streaming.md
@@ -319,6 +320,7 @@ nav:
         - Amazon S3: data/destinations/amazon-s3-cohort.md
         - Appcues: data/destinations/appcues-cohort.md
         - AppsFlyer: data/destinations/appsflyer-cohort.md
+        - Apxor: data/destinations/apxor-cohort.md
         - Bento: data/destinations/bento-cohort.md
         - Braze: data/destinations/braze-cohort.md
         - CleverTap: data/destinations/clevertap-cohort.md
@@ -355,14 +357,18 @@ nav:
         - Snapchat Ads: data/destinations/snapchat-ads-cohort.md
         - Statsig: data/destinations/statsig-cohort.md
         - Talon.One: data/destinations/talonone-cohort.md
+        - TheTradeDesk: data/destinations/thetradedesk-cohort.md
         - TikTok: data/destinations/tiktok-cohort.md
         - unitQ: data/destinations/unitQ-cohort.md
         - Userflow: data/destinations/userflow-cohort.md
         - Userlist: data/destinations/userlist-cohort.md
         - User.com: data/destinations/user.com-cohort.md
+        - Webengage: data/destinations/webengage-cohort.md
         - Zeda.io: data/destinations/zeda.io-cohort.md
       - Profile API:
         - Moveable Ink: data/destinations/moveable-ink-profile-api.md
+      - Group Property:
+        - Salesforce: data/destinations/salesforce-group-export.md
     - Privacy and PII:
       - Overview: data/pii.md
       - DataGrail: data/pii/datagrail.md

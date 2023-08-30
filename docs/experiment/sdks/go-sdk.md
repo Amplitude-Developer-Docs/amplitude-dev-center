@@ -245,7 +245,7 @@ Start the local evaluation client, pre-fetching local evaluation mode flag confi
 func (c *Client) Start() error
 ```
 
-You should await the result of `start()` to ensure that flag configs are ready to be used before calling [`evaluate()`](#evaluate)
+You should await the result of `Start()` to ensure that flag configs are ready to be used before calling [`Evaluate()`](#evaluate)
 
 ```go
 err := client.Start()
@@ -256,10 +256,10 @@ if err != nil {
 
 ### Evaluate
 
-Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`Start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
 
 !!!tip "Automatic Assignment Tracking"
-    Set [`AssignmentConfig`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
+    Set [`AssignmentConfig`](#configuration_1) to automatically track an assignment event to Amplitude when `Evaluate()` is called.
 
 ```go
 func (c *Client) Evaluate(user *experiment.User, flagKeys []string) (map[string]experiment.Variant, error)
