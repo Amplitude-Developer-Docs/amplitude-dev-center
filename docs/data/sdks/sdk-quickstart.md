@@ -91,7 +91,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ```ts
     import { ampli } from './ampli';
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
 
     ampli.buttonClicked({
         buttonColor: 'primary',

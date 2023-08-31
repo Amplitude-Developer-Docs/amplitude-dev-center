@@ -7,6 +7,12 @@ description: Use this integration to send Amplitude cohorts to CleverTap
 
 This CleverTap integration allows you to send audiences from Amplitude to CleverTap to create more personalized campaigns.
 
+!!!note "Other Amplitude + CleverTap integrations"
+
+    Amplitude offers other integrations with CleverTap: 
+
+    - [Import CleverTap Data](/data/sources/clevertap)
+
 ## Considerations
 
 - This integration is only available for customers who have paid plans with Amplitude.

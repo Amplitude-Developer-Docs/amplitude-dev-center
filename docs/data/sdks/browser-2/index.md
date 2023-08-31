@@ -31,17 +31,17 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 --8<-- "includes/sdk-ts-browser/init.md"
 
 ```ts
-// Option 1, initialize with API_KEY only
-amplitude.init(API_KEY);
+// Option 1, initialize with Amplitude API key only
+amplitude.init(AMPLITUDE_API_KEY);
 
 // Option 2, initialize with options
-amplitude.init(API_KEY, options);
+amplitude.init(AMPLITUDE_API_KEY, options);
 
 // Option 3, initialize with user ID if it's already known
-amplitude.init(API_KEY, 'user@amplitude.com');
+amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com');
 
 // Option 4, initialize with a user ID and options
-amplitude.init(API_KEY, 'user@amplitude.com', options);
+amplitude.init(AMPLITUDE_API_KEY, 'user@amplitude.com', options);
 ```
 
 ### Configuration
@@ -70,7 +70,7 @@ amplitude.init(API_KEY, 'user@amplitude.com', options);
 --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   serverZone: 'EU',
 });
 ```
@@ -88,7 +88,7 @@ You can control the level of logs printed to the developer console.
 Set the log level by configuring the `logLevel` with the level you want.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   logLevel: amplitude.Types.LogLevel.Warn,
 });
 ```
@@ -98,7 +98,7 @@ The default logger outputs log to the developer console. You can provide your ow
 Set the logger by configuring the `loggerProvider` with your own implementation.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   loggerProvider: new MyLogger(),
 });
 ```
@@ -108,7 +108,7 @@ amplitude.init(API_KEY, {
 Enable the debug mode by setting the `logLevel` to "Debug", for example:
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   logLevel: amplitude.Types.LogLevel.Debug,
 });
 ```
@@ -165,7 +165,7 @@ Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can b
 To opt-out, refer to the code below. Otherwise, you can omit the configuration to keep them enabled.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: {
     attribution: false,
     pageViews: false,
@@ -179,7 +179,7 @@ amplitude.init(API_KEY, {
 Alternatively, you can disable Amplitude from tracking all events mentioned above (and future default events) by setting `config.defaultTracking` to `false`.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: false,
 });
 ```
@@ -194,7 +194,7 @@ Amplitude marketing attribution by default by tracking UTM, referrers and click 
 You can opt out of marketing attribution tracking by setting `config.defaultTracking.attribution` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: {
     attribution: false,
   },
@@ -215,7 +215,7 @@ You can also use advanced configuration for better control of how marketing attr
 For example, you can configure Amplitude to track marketing attribution separately for each of your subdomains. Refer to the code sample for how to achieve this.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: {
     attribution: {
       excludeReferrers: [location.hostname],
@@ -231,7 +231,7 @@ Amplitude tracks page view events by default. The default behavior sends a page 
 You can opt out of page view tracking by setting `config.defaultTracking.pageViews` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: {
     pageViews: false,
   },
@@ -249,7 +249,7 @@ Amplitude tracks session events by default. A session is the period of time a us
 You can opt out of session tracking by setting `config.defaultTracking.sessions` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: {
     sessions: false,
   },
@@ -272,7 +272,7 @@ Amplitude can track forms that are constructed with `<form>` tags and `<input>` 
 You can opt out of form interaction tracking by setting `config.defaultTracking.formInteractions` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: {
     formInteractions: false,
   },
@@ -288,7 +288,7 @@ Amplitude tracks file download events by default. A file download event is track
 You can opt out of tracking file download events by setting `config.defaultTracking.fileDownloads` to `false`. Refer to the code sample below.
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   defaultTracking: {
     fileDownloads: false,
   },
@@ -354,7 +354,7 @@ By default, the SDK tracks these properties automatically. You can override this
 | `platform` | `true` |
 
 ```ts
-amplitude.init(API_KEY, {
+amplitude.init(AMPLITUDE_API_KEY, {
   trackingOptions: {
     ipAddress: false,
     language: false,

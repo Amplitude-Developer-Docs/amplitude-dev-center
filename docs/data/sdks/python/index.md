@@ -31,7 +31,7 @@ You must initialize the SDK before any events are instrumented. The API key for 
 from amplitude import Amplitude
 
 
-client = Amplitude('API_KEY')
+client = Amplitude(AMPLITUDE_API_KEY)
 ```
 
 ### Configuration
@@ -80,7 +80,7 @@ To support high-performance environments, the SDK sends events in batches. Every
 from amplitude import Amplitude
 
 
-client = Amplitude('API_KEY')
+client = Amplitude(AMPLITUDE_API_KEY)
 
 # Events queued in memory will flush when number of events exceed upload threshold
 # Default value is 200
@@ -98,7 +98,7 @@ Events represent how users interact with your application. For example, “Butto
 from amplitude import Amplitude, BaseEvent
 
 
-client = Amplitude('API_KEY')
+client = Amplitude(AMPLITUDE_API_KEY)
 
 # Track a basic event
 # One of user_id and device_id is required
@@ -392,7 +392,7 @@ class AddEventIdPlugin(EventPlugin):
             self.current_id += 1
         return event
   
-client = Amplitude("API_KEY")
+client = Amplitude(AMPLITUDE_API_KEY)
 client.add(AddInsertIdPlugin())
 ```
 
@@ -426,6 +426,6 @@ class MyDestinationPlugin(DestinationPlugin):
         self.configuration.logger.info("Event sent")
         
     
-client = Amplitude("API_KEY")
+client = Amplitude(AMPLITUDE_API_KEY)
 client.add(MyDestinationPlugin())
 ```

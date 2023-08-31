@@ -50,7 +50,7 @@ Some SDKs exposes a default Client instance that can be used across the entire a
 
 import * as amplitude from '@amplitude/analytics-browser';
 
-amplitude.init('API_KEY');
+amplitude.init(AMPLITUDE_API_KEY);
 ```
 
 But you can also create one Amplitude Client on your own . Refer to each SDK document for more details.
@@ -81,7 +81,7 @@ You can pass a Configuration on Client initialization.
 
 import * as amplitude from '@amplitude/analytics-browser';
  
-amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
+amplitude.init(AMPLITUDE_API_KEY, 'OPTIONAL_USER_ID', {
   flushQueueSize: 30, // flush queued events when there are 30 or more
   flushIntervalMillis: 10000, // flush queued events every 1 seconds
   useBatch: true //use batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
@@ -123,7 +123,7 @@ class MyStorage<T> {
   }
 }
 
-amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
+amplitude.init(AMPLITUDE_API_KEY, 'OPTIONAL_USER_ID', {
   storageProvider: new MyStorage(),
 });
 ```
@@ -174,7 +174,7 @@ class MyLogger{
   }
 }
 
-amplitude.init('API_KEY', 'OPTIONAL_USER_ID', {
+amplitude.init(AMPLITUDE_API_KEY, 'OPTIONAL_USER_ID', {
   loggerProvider: new MyLogger(),
 });
 ```

@@ -4,7 +4,6 @@ description: The Amplitude iOS Swift SDK installation and quick start guide.
 icon: simple/ios
 ---
 
-
 ![CocoaPods](https://img.shields.io/cocoapods/v/AmplitudeSwift)
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
@@ -32,7 +31,7 @@ You must initialize the SDK before you can instrument. The API key for your Ampl
 
 ```swift
 let amplitude = Amplitude(configuration: Configuration(
-    apiKey: 'YOUR-API-KEY'
+    apiKey: AMPLITUDE_API_KEY
 ))
 ```
 
@@ -61,7 +60,8 @@ let amplitude = Amplitude(configuration: Configuration(
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
     | `useBatch` |  Whether to use batch api. | `false` |
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |'
+    | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |
+    | `migrateLegacyData` | Available in `0.4.7`+. Whether to migrate [maintenance SDK](../ios) data (events, user/device ID). | `true`|
 
 ### `track`
 
@@ -195,7 +195,7 @@ Every iOS app gets a slice of storage just for itself, meaning that you can read
 ```swift
 Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         storageProvider: YourOwnStorage() // YourOwnStorage() should implement Storage
     )
 )
@@ -310,7 +310,7 @@ You can adjust the time window for which sessions are extended. The default sess
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         minTimeBetweenSessionsMillis: 1000
     )
 )
@@ -322,7 +322,7 @@ You can also disable those session events.
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         trackingSessionEvents: false
     )
 )
@@ -333,7 +333,7 @@ You can define your own session expiration time. The default session expiration 
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         minTimeBetweenSessionsMillis: 100000
     )
 )
@@ -384,7 +384,7 @@ let trackingOptions = TrackingOptions()
 trackingOptions.disableCity().disableIpAddress().disableLatLng()
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         trackingOptions: trackingOptions
     )
 )
@@ -425,7 +425,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         enableCoppaControl: true
     )
 )
@@ -466,7 +466,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         optOut: true
     )
 )
@@ -505,7 +505,7 @@ class SampleLogger: Logger {
 
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         loggerProvider: SampleLogger()
     )
 )

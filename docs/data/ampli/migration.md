@@ -40,7 +40,7 @@ Start by passing your existing Amplitude SDK instance to Ampli. Ampli will use t
 ampli.load({ client: { instance: amplitude }})
 ```
 
-All existing `amplitude.track('Song Played')` (a.k.a `amplitude.logEvent()`) will continue to work. However, you now also have access to strongly typed methods and types for all events for the Source in your tracking plan e.g. `ampli.songPlayed()` and `ampli.track(new SongPlayed())`.
+All existing `amplitude.track('Song Played')` (a.k.a. `amplitude.logEvent()`) will continue to work. However, you now also have access to strongly typed methods and types for all events for the Source in your tracking plan e.g. `ampli.songPlayed()` and `ampli.track(new SongPlayed())`.
 
 #### Process
 
@@ -64,7 +64,7 @@ import * as amplitude, { BaseEvent } from '@amplitude/analytics-browser';
 // Notice this will keep working as-is, so you can keep the
 // existing implementation while progressively migrating to Ampli
 
-amplitude.init('API-KEY');
+amplitude.init(AMPLITUDE_API_KEY);
 amplitude.add(new MyPlugin());
 amplitude.setUserId('me');
 amplitude.track('Song Played', { title: 'Happy Birthday'});
@@ -99,10 +99,10 @@ After all existing Amplitude SDK instrumentation has been replaced with Ampli, y
 
 // Initialize
 const sdkOptions: Options = { ... };
-- amplitude.init('API-KEY', undefined, sdkOptions);
+- amplitude.init(AMPLITUDE_API_KEY, undefined, sdkOptions);
 + ampli.load({
-+   environment: 'production',
 +   client: {
++     apiKey: AMPLITUDE_API_KEY,
 +     configuration: sdkOptions
 +   }
 + })
@@ -178,12 +178,14 @@ amplitude.init(AMPLITUDE_API_KEY);
 ```typescript
 import { ampli, SongPlayed } from './ampli';
 
-// Initialize with an Environment from Data
+// Initialize with Amplitude API Key
 ampli.load({
-  environment: 'my-production'
+    client: {
+        apiKey: AMPLITUDE_API_KEY
+    }
 });
 
-// Initialize with pre-existing Amplitude SDK instance
+// Or initialize with pre-existing Amplitude SDK instance
 ampli.load({
   client: {
     instance: amplitude,

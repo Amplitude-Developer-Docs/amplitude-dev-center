@@ -27,7 +27,7 @@ Install the Amplitude Analytics JavaScript SDK in your project.
 === "Snippet"
 
     You can install the JavaScript SDK using a small snippet of code that you paste on your site to asynchronously load the SDK.
-    On every page that you want to install Amplitude analytics, paste the code snippet just before the `</head>` tag, replacing `API_KEY` with your project's API key.
+    On every page that you want to install Amplitude analytics, paste the code snippet just before the `</head>` tag, replacing `AMPLITUDE_API_KEY` with your project's API key.
     You can find your project's API Key in your project's [Settings page](https://help.amplitude.com/hc/en-us/articles/360058073772).
 
     ```html
@@ -60,7 +60,7 @@ Install the Amplitude Analytics JavaScript SDK in your project.
     !Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])}
     return n._iq[e]};e.amplitude=n})(window,document);
 
-    amplitude.getInstance().init("API_KEY");
+    amplitude.getInstance().init(AMPLITUDE_API_KEY);
     </script>
     ```
 
@@ -89,7 +89,7 @@ import amplitude from 'amplitude-js';
 
     ```js 
     // initialize the client
-    var instance1 = amplitude.getInstance().init("API_KEY");
+    var instance1 = amplitude.getInstance().init(AMPLITUDE_API_KEY);
     ```
     ```js
     // send an event
@@ -109,8 +109,8 @@ Before you can instrument, you must initialize the SDK using the API key for you
  Initialization creates a default instance, but you can create more instances using `getInstance` with a string name.
 
 ```js
-var instance1 = amplitude.getInstance().init("API_KEY"); // initializes default instance of Amplitude client
-var instance2 = amplitude.getInstance("instance-name").init("API_KEY"); // initializes named instance of Amplitude client
+var instance1 = amplitude.getInstance().init("AMPLITUDE_API_KEY"); // initializes default instance of Amplitude client
+var instance2 = amplitude.getInstance("instance-name").init("AMPLITUDE_API_KEY"); // initializes named instance of Amplitude client
 ```
 
 #### Initialization with options
@@ -119,7 +119,7 @@ Pass custom options in the `init` method. See a [list of options](https://github
 
 ```js
 var options = {};
-var instance = amplitude.getInstance("instance").init("API_KEY", null, options); // initializes with the given options
+var instance = amplitude.getInstance("instance").init(AMPLITUDE_API_KEY, null, options); // initializes with the given options
 ```
 
 ### Configuration
@@ -220,7 +220,7 @@ Set `userID` when initializing the client, or after initialization with the `set
 
     ```js
     var userId = "12345";
-    amplitude.getInstance().init("API_KEY", userId); // initializes client with the given userId
+    amplitude.getInstance().init(AMPLITUDE_API_KEY, userId); // initializes client with the given userId
     ```
 
 === "Set `userID` with `setUserId`"
@@ -478,7 +478,7 @@ amplitude.getInstance().setUserId('USER_ID');
 You can also add the User ID as an argument to the init call.
 
 ```js
-amplitude.getInstance().init('API_KEY', 'USER_ID');
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID');
 ```
 
 Don't assign users a user ID that could change, because each unique user ID represents a unique user in Amplitude. For more information see
@@ -512,7 +512,7 @@ const sessionId = amplitude.getInstance().getSessionId();
 If you are using a [domain proxy](https://developers.amplitude.com/docs/domain-proxies) that requires custom HTTP request headers, configure them with `options.headers` during initialization.
 
 ```js
-amplitude.getInstance().init(APIKEY, null, {
+amplitude.getInstance().init(AMPLITUDE_API_KEY, null, {
   headers: {
      'x-session-id': appToken,
         'Content-Type': 'application/json;charset=utf-8'
@@ -749,7 +749,7 @@ var deviceId = amplitude.getInstance().getDeviceId() // existing device ID
 Configure Amplitude by passing an object as the third argument to the init:
 
 ```js
-amplitude.getInstance().init("API_KEY", null, {
+amplitude.getInstance().init(AMPLITUDE_API_KEY, null, {
     // optional configuration options
     saveEvents: true,
     includeUtm: true,
@@ -805,7 +805,7 @@ If you are using RequireJS to load your JavaScript files, then you can use it to
 <script src='scripts/require.js'></script> <!-- loading RequireJS -->
 <script>
  require(['https://cdn.amplitude.com/libs/amplitude-6.2.0-min.umd.gz.js'], function(amplitude) {
- amplitude.getInstance().init('API_KEY'); // replace API_KEY with your Amplitude API key.
+ amplitude.getInstance().init(AMPLITUDE_API_KEY); // replace AMPLITUDE_API_KEY with your Amplitude API key.
  window.amplitude = amplitude; // You can bind the amplitude object to window if you want to use it directly.
  amplitude.getInstance().logEvent('Clicked Link A');
  });
@@ -824,7 +824,7 @@ You can also define the path in your RequireJS configuration like this:
  });
 
  require(['amplitude'], function(amplitude) {
-  amplitude.getInstance().init('API_KEY'); // replace API_KEY with your Amplitude API key.
+  amplitude.getInstance().init(AMPLITUDE_API_KEY); // replace AMPLITUDE_API_KEY with your Amplitude API key.
   window.amplitude = amplitude; // You can bind the amplitude object to window if you want to use it directly.
   amplitude.getInstance().logEvent('Clicked Link A');
  });
@@ -848,7 +848,7 @@ Users who start on Site 1 and then navigate to Site 2 must have the device ID ge
 
 1. From Site 1, grab the device ID from `amplitude.getInstance().options.deviceId`.
 2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?amp_device_id=device_id_from_site_1`)
-3. Initialize the Amplitude SDK on Site 2 with `amplitude.init('API_KEY', null, {deviceIdFromUrlParam: true})`.
+3. Initialize the Amplitude SDK on Site 2 with `amplitude.init(AMPLITUDE_API_KEY, null, {deviceIdFromUrlParam: true})`.
 
 ### Tracking UTM parameters, referrer, and gclid (JavaScript)
 
@@ -943,7 +943,7 @@ amplitude.getInstance().logEvent('event', null, successCallback, errorCallback);
 You can also pass a callback function to init, which is called after the SDK finishes its asynchronous loading. The instance is passed as an argument to the callback:
 
 ```js
-amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID', null, function(instance) {
   console.log(instance.options.deviceId);  // access Amplitude's deviceId after initialization
 });
 ```
@@ -959,7 +959,7 @@ To send an event using sendBeacon, set the transport SDK option to 'beacon' in o
 
 ```js
 // set transport to 'beacon' when initializing an event
-amplitude.getInstance().init('API_KEY', 'USER_ID', {transport: 'beacon'});
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID', {transport: 'beacon'});
 
 // set transport to 'beacon' after initialization
 amplitude.getInstance().setTransport('beacon');
@@ -984,7 +984,7 @@ var exitCallback = function {
   amplitude.getInstance().logEvent('Logging a final event as user exits via sendBeacon');
 };
 
-amplitude.getInstance().init('API_KEY', 'USER_ID', { onExitPage: exitCallback });
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID', { onExitPage: exitCallback });
 ```
 
 --8<-- "includes/sdk-device-id/lifecycle-header.md"

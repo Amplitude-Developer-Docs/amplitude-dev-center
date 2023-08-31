@@ -638,7 +638,7 @@ A successful request returns a `200 OK` response and `OK` text.
 ## Remove variant
 
 ```bash
-DELETE https://experiment.amplitude.com/flags/{id}/variants/{variantKey}
+DELETE https://experiment.amplitude.com/api/1/flags/{id}/variants/{variantKey}
 ```
 
 Remove a variant from a flag.
@@ -942,7 +942,7 @@ A successful request returns a `200 OK` response.
 ## Create
 
 ```bash
-POST https://experiment.amplitude.com/flags
+POST https://experiment.amplitude.com/api/1/flags
 ```
 
 Create a new flag.
@@ -1055,7 +1055,7 @@ A successful request returns a `200 OK` response and a JSON object with the flag
 !!!example "Example cURL"
     ```bash
     curl --request POST \
-      --url 'https://experiment.amplitude.com/flags' \
+      --url 'https://experiment.amplitude.com/api/1/flags' \
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \

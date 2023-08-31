@@ -36,14 +36,14 @@ You must initialize the SDK before any events are instrumented. The API key for 
 
 ```java
 Amplitude client = Amplitude.getInstance();
-client.init("YOUR_API_KEY");
+client.init(AMPLITUDE_API_KEY);
 ```
 
 `Amplitude.getInstance(String name)` may optionally take a name which uniquely holds settings.
 
 ```java
 Amplitude client = Amplitude.getInstance("YOUR_INSTANCE_NAME");
-client.init("YOUR_API_KEY");
+client.init(AMPLITUDE_API_KEY);
 ```
 
 ### Configuration

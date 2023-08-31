@@ -42,9 +42,9 @@ Amplitude Data supports tracking analytics events from JRE programs written in J
 
     ```java
     import com.amplitude.ampli.*;
-    
-    Ampli.getInstance().load(
-      new LoadOptions().setEnvironment(Ampli.Environment.PRODUCTION)
+
+    Ampli.getInstance().load(new LoadOptions()
+      .setClient(new LoadClientOptions().setApiKey(AMPLITUDE_API_KEY))
     );
     ```
 
@@ -123,18 +123,18 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
     import com.amplitude.ampli.*;
 
     Ampli.getInstance().load(new LoadOptions()
-      .setEnvironment(Ampli.Environment.PRODUCTION)
+      .setClient(new LoadClientOptions().setApiKey(AMPLITUDE_API_KEY))
     );
     ```
 
 === "Kotlin"
 
-    ```java
+    ```kotlin
     import com.amplitude.ampli.*
 
     ampli.load(LoadOptions(
-      environment = Ampli.Environment.PRODUCTION
-    ));
+      client = LoadClientOptions(apiKey = AMPLITUDE_API_KEY)
+    ))
     ```
 
 | <div class="big-column">Arg</div> | Description |

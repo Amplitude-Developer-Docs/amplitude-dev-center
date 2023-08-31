@@ -41,7 +41,7 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 
     ```swift
     Ampli.instance.load(LoadOptions(
-      environment: AmpliEnvironment.Production
+      client: LoadClientOptions(apiKey: AMPLITUDE_API_KEY)
     ))
     ```
 
@@ -92,7 +92,7 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
 
     ```swift
     Ampli.instance.load(LoadOptions(
-      environment: AmpliEnvironment.Production
+      client: LoadClientOptions(apiKey: AMPLITUDE_API_KEY)
     ));
     ```
 === "Objective-C"
@@ -100,7 +100,7 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
     ```objectivec
     #import "Ampli.h"
     [Ampli.instance load:[LoadOptions builderBlock:^(LoadOptionsBuilder *b) {
-        b.environment = development;
+        b.apiKey = AMPLITUDE_API_KEY;
     }]];
     ```
 

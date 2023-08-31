@@ -59,7 +59,7 @@ import (
 
 func main() {
     // Create a Config struct
-    config := amplitude.NewConfig("your-api-key")
+    config := amplitude.NewConfig(AMPLITUDE_API_KEY)
     
     // Events queued in memory will flush when number of events exceed upload threshold
     // Default value is 200
@@ -356,7 +356,7 @@ func (plugin *addEventIDPlugin) Execute(event *amplitude.Event) *amplitude.Event
 }
 
 func main() {
-    config := amplitude.NewConfig("your-api-key")
+    config := amplitude.NewConfig(AMPLITUDE_API_KEY)
     client := amplitude.NewClient(config)
     defer client.Shutdown()
 
@@ -426,7 +426,7 @@ func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 }
 
 func main() {
-    config := amplitude.NewConfig("your-api-key")
+    config := amplitude.NewConfig(AMPLITUDE_API_KEY)
     client := amplitude.NewClient(config)
     defer client.Shutdown()
 
