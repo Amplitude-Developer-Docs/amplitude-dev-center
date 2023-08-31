@@ -29,7 +29,7 @@ You must initialize the SDK before you can instrument. The API key for your Ampl
 
 ```swift
 let amplitude = Amplitude(configuration: Configuration(
-    apiKey: 'YOUR-API-KEY'
+    apiKey: AMPLITUDE_API_KEY
 ))
 ```
 
@@ -192,7 +192,7 @@ Every iOS app gets a slice of storage just for itself, meaning that you can read
 ```swift
 Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         storageProvider: YourOwnStorage() // YourOwnStorage() should implement Storage
     )
 )
@@ -307,7 +307,7 @@ You can adjust the time window for which sessions are extended. The default sess
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         minTimeBetweenSessionsMillis: 1000
     )
 )
@@ -319,7 +319,7 @@ You can also disable those session events.
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         trackingSessionEvents: false
     )
 )
@@ -330,7 +330,7 @@ You can define your own session expiration time. The default session expiration 
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         minTimeBetweenSessionsMillis: 100000
     )
 )
@@ -381,7 +381,7 @@ let trackingOptions = TrackingOptions()
 trackingOptions.disableCity().disableIpAddress().disableLatLng()
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         trackingOptions: trackingOptions
     )
 )
@@ -422,7 +422,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         enableCoppaControl: true
     )
 )
@@ -463,7 +463,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         optOut: true
     )
 )
@@ -502,7 +502,7 @@ class SampleLogger: Logger {
 
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         loggerProvider: SampleLogger()
     )
 )

@@ -45,8 +45,8 @@ Amplitude Data supports tracking analytics events from Android apps written in K
     import com.amplitude.ampli.*
     
     ampli.load(appContext, LoadOptions(
-        environment = Ampli.Environment.PRODUCTION
-    ));
+      client = LoadClientOptions(apiKey = AMPLITUDE_API_KEY)
+    ))
     ```
 
 5. [Identify users and set user properties](#identify)
@@ -111,19 +111,19 @@ Initialize Ampli in your code. The `load()` method accepts configuration option 
     ```java
     import com.amplitude.ampli.*;
 
-    Ampli.getInstance().load(appContext, new LoadOptions()
-      .setEnvironment(Ampli.Environment.PRODUCTION)
+    Ampli.getInstance().load(this, new LoadOptions()
+      .setClient(new LoadClientOptions().setApiKey(AMPLITUDE_API_KEY))
     );
     ```
 
 === "Kotlin"
 
-    ```java
+    ```kotlin
     import com.amplitude.ampli.*
 
     ampli.load(appContext, LoadOptions(
-      environment = Ampli.Environment.PRODUCTION
-    ));
+      client = LoadClientOptions(apiKey = AMPLITUDE_API_KEY)
+    ))
     ```
 
 | <div class ="big-column">Arg</div> | Description |

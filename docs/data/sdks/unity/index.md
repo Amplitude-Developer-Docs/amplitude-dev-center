@@ -106,7 +106,7 @@ Amplitude amplitude = Amplitude.getInstance();
 amplitude.setServerUrl("https://api2.amplitude.com");
 amplitude.logging = true;
 amplitude.trackSessionEvents(true);
-amplitude.init("YOUR_API_KEY");
+amplitude.init(AMPLITUDE_API_KEY);
 ```
 
 Optionally, you may send a string `instanceName` to `getInstance()`. This string is associated with all the settings of one `Amplitude` object.
@@ -380,7 +380,7 @@ By default, '[Amplitude] Start Session' and '[Amplitude] End Session' events are
 ```c#
 Amplitude amplitude = Amplitude.Instance;
 amplitude.trackSessionEvents(true);
-amplitude.init("API_KEY");
+amplitude.init(AMPLITUDE_API_KEY);
 ```
 
 You can also log events as out-of-session. Internally (in Amplitude dashboards), out-of-session events have a `session_id` of `-1` and aren't considered part of the current session, meaning they don't extend the current session.
@@ -421,7 +421,7 @@ Amplitude.Instance.setUserId("USER_ID");
 You can also add the User ID as an argument to the init call.
 
 ```c#
-Amplitude.Instance.init("API_KEY", "USER_ID");
+Amplitude.Instance.init(AMPLITUDE_API_KEY, "USER_ID");
 ```
 
 Don't assign users a User ID that could change as each unique User ID is interpreted as a unique user in Amplitude.
@@ -502,12 +502,12 @@ public class AmplitudeDemo : MonoBehavior {
 Finally, in your game code, probably in `void Start()`, call these functions. `YOUR_INSTANCE_NAME` is a string associated with this particular instance of Amplitude. `YOUR_INSTANCE_NAME` may also be null or an empty string.
 
 ```c#
-Amplitude amplitude = Amplitude.getInstance("YOUR_INSTANCE_NAME");
-amplitude.init("e7177d872ff62c0356c973848c7bffba"); //API key
+Amplitude amplitude = Amplitude.getInstance(YOUR_INSTANCE_NAME);
+amplitude.init(AMPLITUDE_API_KEY);
 
 #if (UNITY_IPHONE || UNITY_TVOS)
-    setLocationInfoBlock("YOUR_INSTANCE_NAME");
-    setIdfaBlock("YOUR_INSTANCE_NAME");
+    setLocationInfoBlock(YOUR_INSTANCE_NAME);
+    setIdfaBlock(YOUR_INSTANCE_NAME);
 #endif
 ```
 
