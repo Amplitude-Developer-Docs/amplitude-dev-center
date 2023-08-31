@@ -215,6 +215,7 @@ client.logEvent(event);
     }
 
     event.groups = groups;
+    event.userProperties = groups
     client.logEvent(event);
     ```
 
@@ -232,6 +233,7 @@ client.logEvent(event);
     }
 
     event.groups = groupProps;
+    event.userProperties = groups
     client.logEvent(event);
     ```
 
