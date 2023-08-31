@@ -50,7 +50,7 @@ Please refer to [this](https://developers.amplitude.com/docs/ios#carrier-inform
 
 ### 4. Android: Dependencies management
 
-Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrain).
+Amplitude's `com.amplitude.android-sdk` is a transitive library, it doesn't include any other dependencies by itself. Other dependencies for `com.amplitude.android-sdk` are placed into `Assets/Plugins/Android`. Amplitude uses OkHttp, and the other dependencies you see are ones OkHttp depends on (for example, Okio or Jetbrains).
 
 If by any chance you have OkHttp included in your project, feel free to choose not to include OkHttp and its related dependencies by unchecking them.
 
@@ -106,7 +106,7 @@ Amplitude amplitude = Amplitude.getInstance();
 amplitude.setServerUrl("https://api2.amplitude.com");
 amplitude.logging = true;
 amplitude.trackSessionEvents(true);
-amplitude.init("YOUR_API_KEY");
+amplitude.init(AMPLITUDE_API_KEY);
 ```
 
 Optionally, you may send a string `instanceName` to `getInstance()`. This string is associated with all the settings of one `Amplitude` object.
@@ -120,7 +120,7 @@ Amplitude.getInstance("client_1") //this is the same reference as amplitude1
 
 ### Configuration
 
-Amplitude Unity SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), and [Amplitude iOS Mantaince SDK](../ios/). The following are the C# settable config options.
+Amplitude Unity SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), and [Amplitude iOS Maintenance SDK](../ios/). The following are the C# settable config options.
 For other default configurations:
 
 - on Android side, check the [Android Configuration](../android-kotlin/#configuration)
@@ -143,7 +143,7 @@ For other default configurations:
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadPeriodSeconds`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by the `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `setEventUploadPeriodSeconds`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```c#
 // Events queue will flush every certain seconds based on setting
@@ -380,7 +380,7 @@ By default, '[Amplitude] Start Session' and '[Amplitude] End Session' events are
 ```c#
 Amplitude amplitude = Amplitude.Instance;
 amplitude.trackSessionEvents(true);
-amplitude.init("API_KEY");
+amplitude.init(AMPLITUDE_API_KEY);
 ```
 
 You can also log events as out-of-session. Internally (in Amplitude dashboards), out-of-session events have a `session_id` of `-1` and aren't considered part of the current session, meaning they don't extend the current session.
@@ -412,7 +412,7 @@ For location tracking, Amplitude converts the IP of a user event into a location
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```c#
 Amplitude.Instance.setUserId("USER_ID");
@@ -421,7 +421,7 @@ Amplitude.Instance.setUserId("USER_ID");
 You can also add the User ID as an argument to the init call.
 
 ```c#
-Amplitude.Instance.init("API_KEY", "USER_ID");
+Amplitude.Instance.init(AMPLITUDE_API_KEY, "USER_ID");
 ```
 
 Don't assign users a User ID that could change as each unique User ID is interpreted as a unique user in Amplitude.
@@ -486,10 +486,10 @@ using System.Runtime.InteropServices;
 #endif
 ```
 
-Inside the game class, add the following code inside your MonoBehaviour class, or any other class.
+Inside the game class, add the following code inside your MonoBehavior class, or any other class.
 
 ```c#
-public class AmplitudeDemo : MonoBehaviour {
+public class AmplitudeDemo : MonoBehavior {
 
 #if (UNITY_IPHONE || UNITY_TVOS)
     [DllImport ("__Internal")]
@@ -502,12 +502,12 @@ public class AmplitudeDemo : MonoBehaviour {
 Finally, in your game code, probably in `void Start()`, call these functions. `YOUR_INSTANCE_NAME` is a string associated with this particular instance of Amplitude. `YOUR_INSTANCE_NAME` may also be null or an empty string.
 
 ```c#
-Amplitude amplitude = Amplitude.getInstance("YOUR_INSTANCE_NAME");
-amplitude.init("e7177d872ff62c0356c973848c7bffba"); //API key
+Amplitude amplitude = Amplitude.getInstance(YOUR_INSTANCE_NAME);
+amplitude.init(AMPLITUDE_API_KEY);
 
 #if (UNITY_IPHONE || UNITY_TVOS)
-    setLocationInfoBlock("YOUR_INSTANCE_NAME");
-    setIdfaBlock("YOUR_INSTANCE_NAME");
+    setLocationInfoBlock(YOUR_INSTANCE_NAME);
+    setIdfaBlock(YOUR_INSTANCE_NAME);
 #endif
 ```
 

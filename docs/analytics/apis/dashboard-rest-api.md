@@ -266,7 +266,7 @@ This is a basic request with only the required parameters.
         === "cURL"
 
             ```curl
-            ccurl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=7'
+            curl --location --request GET 'https://amplitude.com/api/2/users?start=20210101&end=20210901&m=active&i=7'
             --header 'Authorization: Basic MTIzNDU2NzgwMDoxMjM0NTY3MDA='
             ```
         === "HTTP"
@@ -327,7 +327,7 @@ This is a basic request with only the required parameters.
             ```
         **Response**
 
-        Returns active users for the period grouped by city, in montly intervals, following the response schema for this API.
+        Returns active users for the period grouped by city, in monthly intervals, following the response schema for this API.
 
     ???code-example "Get new users for a period"
 
@@ -1738,7 +1738,7 @@ The response is a JSON object with this schema:
             "dma": "San Francisco-Oakland-San Jose, CA",
             "language": "English",
             "start_version": "1.2.3",
-            "device_ids": ["somedevice", "someotherdevice"],
+            "device_ids": ["some-device", "some-other-device"],
             "last_location": {
                 "lat": 37.133,
                 "lng": -122.241
@@ -2059,7 +2059,7 @@ Learn more about this chart in the [Help Center](https://help.amplitude.com/hc/e
             ```
           **Response**
 
-          The response follows the response schema decribed previously.
+          The response follows the response schema described previously.
 
     ???code-example "LTV aggregated monthly for new paying users"
 
@@ -2101,7 +2101,7 @@ Learn more about this chart in the [Help Center](https://help.amplitude.com/hc/e
             ```
           **Response**
 
-          The response follows the response schema decribed previously. 
+          The response follows the response schema described previously. 
 
 ### Query parameters
 

@@ -6,17 +6,18 @@ search:
   boost: 2
 ---
 
-@{% from 'sdk-configuration-ts.md' import sdk_configuration_ts %}
-
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-node)
 
-The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
+The Node.js SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-node).
 
 !!!info "Node SDK Resources"
-    [:material-github: GitHub](https://amplitude.github.io/Amplitude-TypeScript) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-node) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=analytics-node&expanded=true) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Node](../typescript-node/ampli.md).
+
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [Node.JS SDK Migration Guide](/data/sdks/typescript-node/migration/).
 
 ## Getting started
 
@@ -42,7 +43,22 @@ init(API_KEY, {
 
 ### Configuration
 
-@{{ sdk_configuration_ts(10, 200, 12) }}
+???config "Configuration Options"
+    | <div class="big-column">Name</div>  | Description | Default Value |
+    | --- | --- | --- |
+    |`instanceName`| `string`. The instance name. | `$default_instance` |
+    |`flushIntervalMillis`| `number`. Sets the interval of uploading events to Amplitude in milliseconds. | 10,000 (10 seconds) |
+    |`flushQueueSize`| `number`. Sets the maximum number of events that are batched in a single upload attempt. | 300 events |
+    |`flushMaxRetries`| `number`. Sets the maximum number of reties for failed upload attempts. This is only applicable to retryable errors. | 12 times.|
+    |`logLevel` | `LogLevel.None` or `LogLevel.Error` or `LogLevel.Warn` or `LogLevel.Verbose` or `LogLevel.Debug`. Sets the log level. | `LogLevel.Warn` |
+    |`loggerProvider `| `Logger`. Sets a custom `loggerProvider` class from the Logger to emit log messages to desired destination. | `Amplitude Logger` |
+    |`minIdLength`|  `number`. Sets the minimum length for the value of `user_id` and `device_id` properties. | `5` |
+    |`optOut` | `boolean`. Sets permission to track events. Setting a value of `true` prevents Amplitude from tracking and uploading events. | `false` |
+    |`serverUrl`| `string`. Sets the URL where events are upload to. | `https://api2.amplitude.com/2/httpapi` | 
+    |`serverZone`| `EU` or  `US`. Sets the Amplitude server zone. Set this to `EU` for Amplitude projects created in `EU` data center. | `US` |
+    |`storageProvider`| `Storage<Event[]>`. Sets a custom implementation of `Storage<Event[]>` to persist unsent events. | `MemoryStorage` |
+    |`transportProvider`| `Transport`. Sets a custom implementation of `Transport` to use different request API. | `HTTPTransport` |
+    |`useBatch`| `boolean`. Sets whether to upload events to Batch API instead of the default HTTP V2 API or not. | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
@@ -93,6 +109,22 @@ const eventProperties = {
 };
 track('Button Clicked', eventProperties, {
   user_id: 'user@amplitude.com',
+});
+```
+
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
+
+```ts
+import * as amplitude from '@amplitude/analytics-node';
+
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT);
+
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, {
+  instanceName: 'env',
 });
 ```
 
@@ -199,7 +231,7 @@ identify(identifyObj, {
 
 #### Identify.preInsert
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it's a no operation.
+This method pre-inserts a value or values to a user property if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -214,7 +246,7 @@ identify(identifyObj, {
 
 #### Identify.postInsert
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it's a no operation.
+This method post-inserts a value or values to a user property if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -229,7 +261,7 @@ identify(identifyObj, {
 
 #### Identify.remove
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it's a no operation.
+This method removes a value or values to a user property if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it's a no operation.
 
 ```ts
 import { Identify, identify } from '@amplitude/analytics-node';
@@ -248,16 +280,39 @@ identify(identifyObj, {
 
 --8<-- "includes/groups-intro-paragraph.md"
 
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-node';
+
+    // set group with a single group name
+    setGroup('orgId', '15', {
+      user_id: 'user@amplitude.com',
+    });
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```ts
+    import { setGroup } from '@amplitude/analytics-node';
+
+    // set group with multiple group names
+    setGroup('sport', ['soccer', 'tennis'], {
+      user_id: 'user@amplitude.com',
+    });
+    ```
+
+--8<-- "includes/event-level-groups-intro.md"
+
 ```ts
-import { setGroup } from '@amplitude/analytics-node';
+import { track } from '@amplitude/analytics-node';
 
-// set group with single group name
-setGroup('orgId', '15', {
-  user_id: 'user@amplitude.com',
-});
-
-// set group with multiple group names
-setGroup('sport', ['soccer', 'tennis'], {
+track({
+  event_type: 'event type',
+  event_properties: { eventPropertyKey: 'event property value' },
+  groups: { 'orgId': '15' }
+}, undefined, {
   user_id: 'user@amplitude.com',
 });
 ```
@@ -266,7 +321,7 @@ setGroup('sport', ['soccer', 'tennis'], {
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. These updates only affect events going forward.
 
 The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that's applied to the group.
 
@@ -324,7 +379,7 @@ import { flush } from '@amplitude/analytics-node';
 flush();
 ```
 
-By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
+By default, `flush` is called automatically in an interval, if you want to flush the events altogether, you can control the async flow with the optional Promise interface, for example:
 
 ```typescript
 await init(AMPLITUDE_API_KEY).promise;
@@ -356,7 +411,7 @@ setOptOut(false);
 
 ### Callback
 
-All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
+All asynchronous APIs are optionally awaitable through a Promise interface. This also serves as a callback interface.
 
 ```ts
 import { track } from '@amplitude/analytics-node';
@@ -381,7 +436,7 @@ track('Button Clicked', undefined, {
 
 ### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 #### `add`
 

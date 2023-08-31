@@ -36,14 +36,14 @@ You must initialize the SDK before any events are instrumented. The API key for 
 
 ```java
 Amplitude client = Amplitude.getInstance();
-client.init("YOUR_API_KEY");
+client.init(AMPLITUDE_API_KEY);
 ```
 
 `Amplitude.getInstance(String name)` may optionally take a name which uniquely holds settings.
 
 ```java
 Amplitude client = Amplitude.getInstance("YOUR_INSTANCE_NAME");
-client.init("YOUR_API_KEY");
+client.init(AMPLITUDE_API_KEY);
 ```
 
 ### Configuration
@@ -55,7 +55,7 @@ client.init("YOUR_API_KEY");
     | `useBatchMode()` | `Boolean`. Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. For example, `Amplitude.getInstance().useBatchMode(true)`. | `false` |
     | `setLogMode()` | `AmplitudeLog.LogMode`. The level at which to filter out debug messages. For example, `Amplitude.getInstance().setLogMode(AmplitudeLog.LogMode.DEBUG);`. | `AmplitudeLog.LogMode.ERROR` |
     | `setEventUploadThreshold()` | `int`. SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach eventUploadPeriodSeconds interval. For example, `Amplitude.getInstance().setEventUploadThreshold(50);`. | `10` |
-    | `setEventUploadPeriodMillis()` | `int`. The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. The input parameter is in millionseconds. For example, `Amplitude.getInstance().setEventUploadPeriodMillis(200000);`. | `10 seconds` |
+    | `setEventUploadPeriodMillis()` | `int`. The amount of time SDK will attempt to upload the unsent events to the server or reach eventUploadThreshold threshold. The input parameter is in milliseconds. For example, `Amplitude.getInstance().setEventUploadPeriodMillis(200000);`. | `10 seconds` |
     | `setCallbacks()` | `AmplitudeCallbacks`. Event callback which are triggered after event sent. | `null`|
     | `setProxy()` | `Proxy`. Custom proxy for https requests. For example, `Amplitude.getInstance().setProxy(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.domain.com", port)));`. | `Proxy.NO_PROXY` |
     | `setFlushTimeout()` | `long`. Events flushing thread timeout in milliseconds.  For example, `Amplitude.getInstance().setFlushTimeout(2000L);`. | `0` |
@@ -63,7 +63,7 @@ client.init("YOUR_API_KEY");
 
 ### Options
 
-???config "Availabe Options"
+???config "Available Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     | `Options.setMinIdLength()` | `Integer`. Set the minimum length for user id or device id. For example, `Amplitude.getInstance().setOptions(new Options().setMinIdLength(8));`. | `5` |
@@ -72,7 +72,7 @@ client.init("YOUR_API_KEY");
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold` and `setEventUploadPeriodMillis`. By default, the SDK is in regular mode with `serverUrl` to `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, switch to batch mode by setting `useBatchMode` to `true` to set setServerUrl to batch event upload API `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
+To support high-performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `setEventUploadThreshold` and `setEventUploadPeriodMillis`. By default, the SDK is in regular mode with `serverUrl` to `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, switch to batch mode by setting `useBatchMode` to `true` to set setServerUrl to batch event upload API `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
 
 ```java
 Amplitude client = Amplitude.getInstance();
@@ -155,7 +155,7 @@ client.setFlushTimeout(2000L); // 2 seconds
 
 ### Shutdown client and release resource
 
-New in version 1.10.0. Stops the Amplitude client from accepting new events and shuts down the threadspool. Events in the buffer trigger callbacks. A new instance is created and returned if you call `Amplitude.getInstance(INSTANCE_NAME)` with the same instance name.
+New in version 1.10.0. Stops the Amplitude client from accepting new events and shuts down the threads pool. Events in the buffer trigger callbacks. A new instance is created and returned if you call `Amplitude.getInstance(INSTANCE_NAME)` with the same instance name.
 
 ```java
 client.shutdown();
@@ -198,17 +198,56 @@ client.logEvent(event);
 
 #### Events with groups
 
-You can also use `logEvent` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
+--8<-- "includes/groups-intro-paragraph.md"
+
+!!! example
+    If Joe is in 'orgId' '10', then the `groupName` would be '10':
+
+    ```java
+    Event event = new Event("$identify", "test_user_id");
+
+    JSONObject groupProps = new JSONObject();
+    try {
+        groupProps.put("orgId", 10);
+    } catch (JSONException e) {
+        e.printStackTrace();
+        System.err.println("Invalid JSON");
+    }
+
+    event.groupProperties = groupProps;
+    client.logEvent(event);
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```java
+    Event event = new Event("$identify", "test_user_id");
+
+    JSONObject groupProps = new JSONObject();
+    try {
+        groupProps.put("sport", new String[] {"tennis", "soccer"});
+    } catch (JSONException e) {
+        e.printStackTrace();
+        System.err.println("Invalid JSON");
+    }
+
+    event.groupProperties = groupProps;
+    client.logEvent(event);
+    ```
+
+You can also use `logEvent` to set **event-level groups**. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
 
 ```java
-Event event = New Event('Button Clicked', 'test_user_id');
+Event event = New Event('event type', 'test_user_id');
 
 JsonObject groups = new JSONObject();
-groups.put("groupKey", "groupValue");
-JsonObject groups_properties = new JSONObject();
-groups_properties.put("groupProperty", "groupPropertyValue");
+try {
+    groups.put("orgId", 10);
+} catch (JSONException e) {
+    e.printStackTrace();
+    System.err.println("Invalid JSON");
+}
 event.groups = groups;
-event.groups_properties = groups_properties;
 
 client.logEvent(event);
 ```

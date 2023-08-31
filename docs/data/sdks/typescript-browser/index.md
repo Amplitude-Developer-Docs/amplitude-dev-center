@@ -2,23 +2,21 @@
 title: Browser SDK
 description: The Amplitude Browser SDK Installation & Quick Start guide.
 icon: simple/javascript
-foo: bar
 ---
 
-@{% from 'macros.md' import input %}
-@{% from 'sdk-configuration-ts.md' import sdk_configuration_ts %}
 
-<p>Name: @{{ input('username') }}</p>
-<p>Password: @{{ input('password', type='password') }}</p>
-
-@{{foo}}
-
-![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser.svg)
+![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser/v1)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 !!!info "Browser SDK Resources"
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-TypeScript/)
+
+!!!info "Browser SDK 2.0 is now available"
+    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md). See the [Migration Guide](../browser-2/migration.md) for more help.
+
+--8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
+    [Browser SDK Migration Guide](/data/sdks/typescript-browser/migration/).
 
 !!!note "Browser SDK versus the Marketing Analytics Browser"
     Amplitude recommends the Browser SDK for most users. You can extend its functionality using plugins.
@@ -39,35 +37,39 @@ Use [this quickstart guide](../sdk-quickstart#browser) to get started with Ampli
 
 --8<-- "includes/sdk-ts-browser/init.md"
 
+```ts
+// Option 1, initialize with API_KEY only
+amplitude.init(API_KEY);
+
+// Option 2, initialize with user ID if it's already known
+amplitude.init(API_KEY, 'user@amplitude.com');
+
+// Option 3, initialize with configuration
+amplitude.init(API_KEY, 'user@amplitude.com', options);
+```
+
 ### Configuration
 
-@{{ sdk_configuration_ts() }}
+--8<-- "includes/sdk-ts-browser/shared-configurations.md"
+    |`storageProvider`| `Storage<Event[]>`. Implements a custom `storageProvider` class from Storage. | `LocalStorage` |
+    |`attribution`| `AttributionOptions`. Configurations for web attribution plugin | Check "Attribution Options" config table below |
+    |`defaultTracking`| `boolean | DefaultTrackingOptions`. Configurations for default event tracking | Check [tracking default events](./#tracking-default-events)|
 
 In addition to the basic configuration options, there also has options to configure attribution.
     
 ???config "Attribution Options"
     |<div class="big-column">Name</div>| Description| Default Value|
     |---|----|---|
-    |`attribution.disabled`| `boolean`. Whether disable the attribution tracking. | `false` |
-    |`attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
-    |`attribution.initialEmptyValue`| `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY` |
-    |`attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
-    |`attribution.trackPageViews`| `boolean`. Whether track page view on attribution. | `false` |
+    |`config.attribution.disabled`| `boolean`. Whether disable the attribution tracking. | `false` |
+    |`config.attribution.excludeReferrers`| `string[]`. Exclude the attribution tracking for the provided referrers string | Including all referrers by default. |
+    |`config.attribution.initialEmptyValue`| `string`. Customize the initial empty value for attribution related user properties to any string value. | `EMPTY` |
+    |`config.attribution.resetSessionOnNewCampaign`| `boolean`. Whether to reset user sessions when a new campaign is detected. Note a new| `false` |
+    |`config.attribution.trackNewCampaigns`| `boolean`. Whether tracking new campaigns on the current session. | `false` | 
+    |`config.attribution.trackPageViews`| `boolean`. Whether track page view on attribution. Note that `config.defaultTracking.pageViews` has higher priority over this configuration. Learn more about it [here](./#tracking-page-views). | `false` |
 
 --8<-- "includes/sdk-ts/shared-batch-configuration.md"
 
-```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  // Events queued in memory will flush when number of events exceed upload threshold
-  // Default value is 30
-  flushQueueSize: 50, 
-  // Events queue will flush every certain milliseconds based on setting
-  // Default value is 10000 milliseconds
-  flushIntervalMillis: 20000,
-  // Using batch mode with batch API endpoint, `https://api2.amplitude.com/batch`
-  useBatch: true
-});
-```
+--8<-- "includes/sdk-ts-browser/shared-batch-code.md"
 
 --8<-- "includes/sdk-ts/client-eu-residency.md"
 
@@ -77,29 +79,33 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Tracking an event
 
---8<-- "includes/sdk-httpv2-notice.md"
+--8<-- "includes/sdk-ts-browser/tracking-an-event.md"
 
-Events represent how users interact with your application. For example, "Button Clicked" may be an action you want to note.
+### Tracking events to multiple projects
+
+--8<-- "includes/sdk-tracking-events-to-multiple-projects.md"
 
 ```ts
-// Track a basic event
-amplitude.track('Button Clicked');
+const defaultInstance = amplitude.createInstance();
+defaultInstance.init(API_KEY_DEFAULT, OPTIONAL_USER_ID);
 
-// Track events with optional properties
-const eventProperties = {
-  buttonColor: 'primary',
-};
-amplitude.track('Button Clicked', eventProperties);
+const envInstance = amplitude.createInstance();
+envInstance.init(API_KEY_ENV, OPTIONAL_USER_ID, {
+  instanceName: 'env',
+});
 ```
 
 ### Tracking default events
 
 Starting version 1.9.1, Browser SDK now tracks default events. Browser SDK can be configured to track the following events automatically:
 
-* Page views
+* Page views [^1]
 * Sessions
 * Form interactions
 * File downloads
+
+[^1]:
+    If you want to track page views before 1.9.0, you need to enable config.attribution.trackPageViews ([More details](./#configuration)) or add `page-view-tracking` plugin ([More details](../marketing-analytics-browser/#page-view)). The event type for page views will be different.
 
 ???config "Tracking default events options"
     |<div class="big-column">Name</div>|Value|Description|
@@ -147,29 +153,12 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 By setting `config.defaultTracking.pageViews` to `true`, you enable Amplitude to use default page view tracking behavior. The default behavior sends a page view event on initialization. The event type for this event is "[Amplitude] Page Viewed".
 
+!!!note Page view event configuration priority
+    You may notice that both `config.defaultTracking.pageViews` and `config.attribution.trackPageViews` have configurations for whether to enable page view tracking especially when you are using the web attribution plugin. Notice that `config.defaultTracking.pageViews` has higher priority over `config.attribution.trackPageViews` which means that `config.defaultTracking.pageViews` will overwrite the setting of the attribution page view event. When `config.attribution.trackPageViews` is enabled, the SDK tracks page view events only when attribution changed. When `config.defaultTracking.pageViews` is enabled, the SDK tracks page view events when page changed.
+
 ##### Advanced configuration for tracking page views
 
-You can also use advanced configuration for better control of when page views event are sent.
-
-???config "Tracking page views options"
-    |<div class="big-column">Name</div>|Value|Description|
-    |-|-|-|
-    `defaultTracking.pageViews.trackOn` | Optional. `"attribution"` or `() => boolean` | Provides advanced control on when page view events are tracked.<br /><br />You can omit or set the value to `undefined`,  and configure page view events to be tracked on initialization.<br /><br />You can set the value to `"attribution"` and configure page view events to be tracked only when web attribution are tracked.<br /><br />You can set the value to a function that returns a boolean (`true` or `false`) and configure page view events to be tracked based on your criteria.|
-    `defaultTracking.pageViews.trackHistoryChanges` | Optional. `"pathOnly"` or `"all"` | Provides advanced control for single page application on when page views are tracked.<br /><br />You can omit or set the value to `"all"`,  and configure page view events to be tracked on any navigation change to the URL within your single page application. For example: navigating from `https://amplitude.com/#company` to `https://amplitude.com/#blog`.<br /><br />You can omit or set the value to "pathOnly",  and configure page view events to be tracked on navigation change to the URL path only within your single page application. For example: navigating from `https://amplitude.com/company` to `https://amplitude.com/blog`.|
-
-For example, you can configure Amplitude to track page views only when the URL path contains a certain substring, let’s say “home”. Refer to the code sample for how to achieve this.
-
-```ts
-amplitude.init(API_KEY, OPTIONAL_USER_ID, {
-  defaultTracking: {
-    pageViews: {
-      trackOn: () => {
-        return window.location.pathname.includes('home');
-      },
-    },
-  },
-});
-```
+--8<-- "includes/sdk-ts-browser/tracking-page-views-advanced.md"
 
 #### Tracking sessions
 
@@ -187,7 +176,7 @@ By setting `config.defaultTracking.sessions` to `true`, you enable Amplitude to 
 
 #### Tracking form interactions
 
-You can enable Amplitude to start tracking form interaction events by setting config.defaultTracking.formInteractions to true. Refer to the code sample below.
+You can enable Amplitude to start tracking form interaction events by setting `config.defaultTracking.formInteractions` to `true`. Refer to the code sample below.
 
 ```ts
 amplitude.init(API_KEY, OPTIONAL_USER_ID, {
@@ -197,7 +186,7 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
-By setting `config.defaultTracking.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to an text input, or radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
+By setting `config.defaultTracking.formInteractions` to `true`, you enable Amplitude to track form start and form submit events. A form start event is tracked when the user initially interacts with the form. An initial interaction can be the first change to a text input, radio button, or dropdown. The event type for session start is "[Amplitude] Form Started". A form submit event is tracked when the user submits the form. The event type for session start is "[Amplitude] Form Submitted". If a form is submitted with no initial change to any form fields, both "[Amplitude] Form Started" and "[Amplitude] Form Submitted" are tracked.
 
 Amplitude can track forms that are constructed with `<form>` tags and `<input>` tags nested. For example:
 
@@ -226,252 +215,48 @@ By setting `config.defaultTracking.fileDownloads` to `true`, you enable Amplitud
 
 ### User properties
 
-User properties are details like device details, user preferences, or language to help you understand your users at the time they performed an action in your app.
-
-Identify is for setting the user properties of a particular user without sending any event. The SDK supports the operations `set`, `setOnce`, `unset`, `add`, `append`, `prepend`, `preInsert`, `postInsert`, and `remove` on individual user properties. Declare the operations via a provided Identify interface. You can chain together multiple operations in a single Identify object. The Identify object is then passed to the Amplitude client to send to the server.
-
-!!!note
-    If the Identify call is sent after the event, the results of operations are visible immediately in the dashboard user’s profile area. However, they don't appear in chart results until another event is sent after the Identify call. The identify call only affects events going forward. More details [here](https://amplitude.zendesk.com/hc/en-us/articles/115002380567-User-Properties-Event-Properties#applying-user-properties-to-events).
-
-#### Set a user property
-
-The Identify object provides controls over setting user properties. It works like this: first, instantiate an Identify object, then call Identify methods on it, and finally, the client can make a call with the Identify object.
-
-```ts
-const identifyEvent = new amplitude.Identify();
-amplitude.identify(identifyEvent);
-```
-
-#### Identify.set
-
-This method sets the value of a user property. For example, you can set a role property of a user.
-
-```ts
-const identifyEvent = new amplitude.Identify();
-identifyEvent.set('location', 'LAX');
-
-amplitude.identify(identifyEvent);
-```
-
-#### Identify.setOnce
-
-This method sets the value of a user property only one time. Subsequent calls using `setOnce()` are ignored. For example, you can set an initial login method for a user and because only the initial value is tracked, `setOnce()` ignores later calls.
-
-```ts
-const identifyEvent = new amplitude.Identify();
-identifyEvent.setOnce('initial-location', 'SFO');
-
-identify(identifyEvent);
-```
-
-#### Identify.add
-
-This method increments a user property by some numerical value. If the user property doesn't have a value set yet, it's initialized to 0 before it's incremented. For example, you can track a user's travel count.
-
-```ts
-const identifyEvent = new amplitude.Identify();
-identifyEvent.add('travel-count', 1);
-
-amplitude.identify(identifyEvent);
-```
-
-#### Arrays in user properties
-
-You can use arrays as user properties. Directly set arrays or use `prepend`, `append`, `preInsert` and `postInsert` to generate an array.
-
-#### Identify.prepend
-
-This method prepends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
-
-```ts
-const identifyEvent = new Identify();
-identifyEvent.prepend('visited-locations', 'LAX');
-
-identify(identifyEvent);
-```
-
-#### Identify.append
-
-This method appends a value or values to a user property array. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are prepended.
-
-```ts
-const identifyEvent = new amplitude.Identify();
-identifyEvent.append('visited-locations', 'SFO');
-
-amplitude.identify(identifyEvent);
-```
-
-#### Identify.preInsert
-
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the values at the beginning of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, this method is a no-op.
-
-```ts
-const identifyEvent = new amplitude.Identify();
-identifyEvent.preInsert('unique-locations', 'LAX');
-
-identify(identifyEvent);
-```
-
-#### Identify.postInsert
-
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the values at the end of a given list. If the user property doesn't have a value set yet, it's initialized to an empty list before the new values are post-inserted. If the user property has an existing value, this method is a no-op..
-
-```ts
-const identifyEvent = new amplitude.Identify();
-identifyEvent.postInsert('unique-locations', 'SFO');
-
-amplitude.identify(identifyEvent);
-```
-
-#### Identify.remove
-
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing values from the given list. If the user property has an existing value, this method is a no-op.
-
-```ts
-const identifyEvent = new amplitude.Identify();
-identifyEvent.remove('unique-locations', 'JFK')
-
-amplitude.identify(identifyEvent);
-```
+--8<-- "includes/sdk-ts/shared-user-properties.md"
 
 ### User groups
 
---8<-- "includes/editions-growth-enterprise-with-accounts.md"
-
---8<-- "includes/groups-intro-paragraph.md"
-
-```ts
-// set group with single group name
-amplitude.setGroup('orgId', '15');
-
-// set group with multiple group names
-amplitude.setGroup('sport', ['soccer', 'tennis']);
-```
+--8<-- "includes/sdk-ts/shared-user-groups.md"
 
 ### Group properties
 
---8<-- "includes/editions-growth-enterprise-with-accounts.md"
-
-Use the Group Identify API to set or update properties of particular groups. These updates only affect events going forward.
-
-The `groupIdentify()` method accepts a group type and group name string parameter, as well as an Identify object that's applied to the group.
-
-```ts
-const groupType = 'plan';
-const groupName = 'enterprise';
-const groupIdentifyEvent = new amplitude.Identify()
-groupIdentifyEvent.set('key1', 'value1');
-
-amplitude.groupIdentify(groupType, groupName, groupIdentifyEvent);
-```
+--8<-- "includes/sdk-ts/shared-group-properties.md"
 
 ### Revenue tracking
 <!-- vale off-->
 
-The preferred method of tracking revenue for a user is to use `revenue()` in conjunction with the provided Revenue interface. Revenue instances store each revenue transaction and allow you to define several special revenue properties (such as 'revenueType' and 'productIdentifier') that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue instance objects are then passed into `revenue()` to send as revenue events to Amplitude. This lets automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
-
-<!--vale on-->
-
-To track revenue from a user, call revenue each time a user generates revenue. In this example, 3 units of a product was purchased at $3.99.
-
-```ts
-const event = new amplitude.Revenue()
-  .setProductId('com.company.productId')
-  .setPrice(3.99)
-  .setQuantity(3);
-
-amplitude.revenue(event);
-```
+--8<-- "includes/sdk-ts/shared-revenue-tracking.md"
 
 #### Revenue interface
 
-|Name | Description |
-|-----|-------|
-|`product_id` | Optional. String. An identifier for the product. Amplitude recommend something like the Google Play Store product ID. Defaults to null. |
-|`quantity` | Required. Int. The quantity of products purchased. Note: revenue = quantity * price. Defaults to 1|
-|`price` | Required. Double. The price of the products purchased, and this can be negative. Note: revenue = quantity * price. Defaults to null. |
-|`revenue_type` | Optional, but required for revenue verification. String. The revenue type (for example, tax, refund, income).  Defaults to null.|
-|`receipt`| Optional. String. The receipt identifier of the revenue. Defaults to null|
-|`receipt_sig`| Optional, but required for revenue verification. String. The receipt signature of the revenue. Defaults to null.|
-|`properties`| Optional. JSONObject. An object of event properties to include in the revenue event. Defaults to null.
+--8<-- "includes/sdk-ts/shared-revenue-interface.md"
 
 ### Flush the event buffer
 
-The `flush` method triggers the client to send buffered events immediately.
-
-```ts
-amplitude.flush();
-```
-
-By default, `flush` is called automatically in an interval, if you want to flush the events all together, you can control the async flow with the optional Promise interface, example:
-
-```ts
-amplitude.init(API_KEY).promise.then(function() {
-  amplitude.track('Button Clicked');
-  amplitude.flush();
-});
-```
+--8<-- "includes/sdk-ts/shared-flush.md"
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
-
-```ts
-amplitude.setUserId('user@amplitude.com');
-```
-
-You can also assign the User ID as an argument to the init call.
-
-```ts
-amplitude.init(API_KEY, 'user@amplitude.com');
-```
+--8<-- "includes/sdk-ts-browser/shared-custom-user-id.md"
 
 ### Custom session ID
 
-You can assign a new Session ID using `setSessionId`. When setting a custom session ID, make sure the value is in milliseconds since epoch (Unix Timestamp).
-
-```ts
-amplitude.setSessionId(Date.now());
-```
+--8<-- "includes/sdk-ts-browser/shared-custom-session-id.md"
 
 ### Custom device ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
-
-You can assign a new device ID using `deviceId`. When setting a custom device ID, make sure the value is sufficiently unique. Amplitude recommends using a UUID.
-
-```ts
-amplitude.setDeviceId(uuid());
-```
+--8<-- "includes/sdk-ts-browser/shared-custom-device-id.md"
 
 ### Reset when user logs out
 
-`reset` is a shortcut to anonymize users after they log out, by:
-
-* setting `userId` to `undefined`
-* setting `deviceId` to a new UUID value
-
-With an undefined `userId` and a completely new `deviceId`, the current user would appear as a brand new user in dashboard.
-
-```ts
-amplitude.reset();
-```
+--8<-- "includes/sdk-ts-browser/shared-reset.md"
 
 ### Opt users out of tracking
 
-You can turn off logging for a given user by setting `setOptOut` to `true`.
-
-```ts
-amplitude.setOptOut(true);
-```
-
-Events aren't saved or sent to the server while `setOptOut` is enabled, and the setting persists across page loads. 
-
-Re-enable logging by setting `setOptOut` to `false`.
-
-```ts
-amplitude.setOptOut(false);
-```
+--8<-- "includes/sdk-ts/shared-opt-out.md"
 
 ### Optional tracking
 
@@ -503,157 +288,13 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 
 ### Callback
 
-All asynchronous API are optionally awaitable through a Promise interface. This also serves as callback interface.
-
-=== "Promise"
-
-    ```ts
-    amplitude.track('Button Clicked').promise.then(function(result) {
-      result.event; // {...} (The final event object sent to Amplitude)
-      result.code; // 200 (The HTTP response status code of the request.
-      result.message; // "Event tracked successfully" (The response message)
-    });
-    ```
-
-=== "async/await"
-
-    ```ts
-    import * as amplitude from '@amplitude/analytics-browser';
-
-    // Using async/await
-    const results = await amplitude.track('Button Clicked').promise;
-    result.event; // {...} (The final event object sent to Amplitude)
-    result.code; // 200 (The HTTP response status code of the request.
-    result.message; // "Event tracked successfully" (The response message)
-    ```
+--8<-- "includes/sdk-ts/shared-callback.md"
 
 ### Plugins
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+--8<-- "includes/sdk-ts-browser/shared-plugins.md"
 
-#### `add`
-
-The `add` method adds a plugin to Amplitude. Plugins can help processing and sending events.
-
-```ts
-amplitude.add(new Plugin());
-```
-
-#### `remove`
-
-The `remove` method removes the given plugin name from the client instance if it exists.
-
-```ts
-amplitude.remove(plugin.name);
-```
-
-#### Create your custom plugin
-
-##### Plugin.setup
-
-This method contains logic for preparing the plugin for use and has config as a parameter. The expected return value is undefined. A typical use for this method, is to copy configuration from config or instantiate plugin dependencies. This method is called when the plugin is registered to the client via `amplitude.add()`.
-
-##### Plugin.execute
-
-This method contains the logic for processing events and has event as parameter. If used as enrichment type plugin, the expected return value is the modified/enriched event. If used as a destination type plugin, the expected return value is a map with keys: `event` (BaseEvent), `code` (number), and `message` (string). This method is called for each event that's instrumented using the client interface, including Identify, GroupIdentify and Revenue events.
-
-#### Plugin examples
-
-##### Destination type plugin
-
-Here's an example of a plugin that sends each event that's instrumented to a target server URL using your preferred HTTP client.
-
-```ts
-function myDestinationPlugin (serverUrl) {
-  const name = 'my-destination-plugin';
-  const type = amplitude.Types.PluginType.DESTINATION;
-  let amplitudeConfig;
-  
-  /**
-   * setup() is called on plugin installation
-   * example: amplitude.add(new myDestinationPlugin());
-   */
-  const setup = function (config) {
-    amplitudeConfig = config;
-  }
-
-  /**
-   * execute() is called on each event instrumented
-   * example: amplitude.track('New Event');
-   */
-  const execute = function (event) {
-    const payload = {
-      key: 'secret',
-      data: event,
-    };
-    return fetch(this.serverUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: '*/*',
-      },
-      body: JSON.stringify(payload),
-    }).then(function(response) {
-      return {
-        code: response.status,
-        event: event,
-        message: response.statusText,
-      };
-    });
-  }
-
-  return {
-    name,
-    type,
-    setup,
-    execute,
-  },
-}
-
-amplitude.init(API_KEY);
-amplitude.add(myDestinationPlugin('https://custom.domain.com'));
-```
-
-##### Enrichment type plugin
-
-Here's an example of a plugin that modifies each event that's instrumented by adding an increment integer to `event_id` property of an event starting from 100.
-
-```ts
-const addEventIdPlugin = () => {
-  const name = 'add-event-id';
-  const type = amplitude.Types.PluginType.ENRICHMENT;
-  let currentId = 100;
-  let amplitudeConfig;
-
-  /**
-   * setup() is called on plugin installation
-   * example: amplitude.add(new AddEventIdPlugin());
-   */
-  const setup = function (config) {
-    amplitudeConfig = config;
-  }
-
-  /**
-   * execute() is called on each event instrumented
-   * example: client.track('New Event');
-   */
-  const execute = function (event: Event) {
-    event.event_id = currentId++;
-    return event;
-  }
-
-  return {
-    name,
-    type,
-    setup,
-    execute,
-  }
-}
-
-amplitude.init(API_KEY);
-amplitude.add(addEventIdPlugin());
-```
-
+<!-- markdownlint-disable-next-line MD001 -->
 ##### Web attribution enrichment plugin
 
 You need to download `plugin-web-attribution-browser` package and add the `webAttributionPlugin` before call init method. 
@@ -723,23 +364,15 @@ The base SDK sends Page View events when a user’s campaign is tracked if the `
 
 The page view plugin sends a Page View event on each page a user visits by default. It also offers options to customize this behavior.
 
+### Troubleshooting and Debugging 
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
+
 ## Advanced topics
 
-### Cross domain tracking
+### Cross-domain tracking
 
-You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
-
-* Site 1: `www.example.com`
-* Site 2: `www.example.org`
-
-Users who start on Site 1 and then navigate to Site 2 must have the device ID generated from Site 1 passed as a parameter to Site 2. Site 2 then needs to initialize the SDK with the device ID.
- The SDK can parse the URL parameter automatically if `deviceId` is in the URL query parameters.
-
-1. From Site 1, grab the device ID from `getDeviceId()`.
-2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?deviceId=device_id_from_site_1`)
-3. Initialize the Amplitude SDK on Site 2 with `init('API_KEY', null)`.
-
-If the `deviceId` isn't provided with the `init` like `init('API_KEY', null, { deviceId: 'custom-device-id' })`, then it automatically fallbacks to use URL parameter.
+--8<-- "includes/sdk-ts-browser/shared-cross-domain-tracking.md"
 
 ### Custom HTTP client
 
@@ -757,11 +390,58 @@ amplitude.init(API_KEY, OPTIONAL_USER_ID, {
 });
 ```
 
+### Use sendBeacon
+
+--8<-- "includes/sdk-ts-browser/shared-use-sendbeacon.md"
+
 ### Content Security Policy (CSP)
 
-If your web app configures the strict Content Security Policy (CSP) for security concerns, adjust the policy to whitelist the Amplitude domains:
-
-* When using ["Script Loader"](../sdk-quickstart/#install-the-dependency), add `https://*.amplitude.com` to `script-src`.
-* Add `https://*.amplitude.com` to `connect-src`.
+--8<-- "includes/sdk-ts-browser/shared-csp.md"
 
 --8<-- "includes/abbreviations.md"
+
+### Cookie management
+
+--8<-- "includes/sdk-ts-browser/shared-cookie-management.md"
+
+#### Cookie prefix
+
+--8<-- "includes/sdk-ts-browser/shared-cookie-prefix.md"
+
+#### Cookie domain
+
+--8<-- "includes/sdk-ts-browser/shared-cookie-domain.md"
+
+#### Cookie data
+
+--8<-- "includes/sdk-ts-browser/shared-cookies.md"
+
+#### Disable cookies
+
+You can opt-out of using cookies by setting `disableCookies` to `true` so that the SDK will use `LocalStorage` instead. `LocalStorage` is a great alternative, but because access to `LocalStorage` is restricted by subdomain, you can't track anonymous users across subdomains of your product (for example: `www.amplitude.com` vs `analytics.amplitude.com`).
+
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device id in configuration on initialization
+2. "deviceId" value from URL param, for example http://example.com/?deviceId=123456789. Refer to [cross domain tracking](./#cross-domain-tracking) for more details
+3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
+4. Device id in cookie storage of Browser SDK. Refer to [cookie management](../typescript-browser/#cookie-management) for more details
+5. A randomly generated 36-character UUID
+
+--8<-- "includes/sdk-device-id/change-scenarios.md"
+
+* By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
+* On initialization, a device ID is passed in from URL param `deviceId`
+* `reset()` is called
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+```ts
+amplitude.setDeviceId(uuid());
+```
+
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+```ts
+const deviceId = amplitude.getDeviceId();
+```

@@ -28,7 +28,7 @@ Create an [IAM role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_cr
 - Finalize the role without assigning any policies.
 - The Trust Relationships for the new should look like this:
 
-    ```json title="Trust Relationshps"
+    ```json title="Trust Relationships"
     {
       "Version": "2012-10-17",
       "Statement": [

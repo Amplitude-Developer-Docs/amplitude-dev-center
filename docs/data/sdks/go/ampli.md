@@ -43,7 +43,9 @@ Amplitude Data supports tracking analytics events from Go apps. The generated tr
     import "<your-module-name>/ampli"
 
     ampli.Instance.Load(ampli.LoadOptions{
-        Environment: ampli.EnvironmentProduction,
+        Client: ampli.LoadClientOptions{
+            Configuration: ampli.NewClientConfig(AMPLITUDE_API_KEY),
+        },
     })
     ```
 
@@ -97,7 +99,9 @@ Initialize Ampli in your code. The `Load()` method requires a configuration opti
 import  "<your-module-name>/ampli"
 
 ampli.Instance.Load(ampli.LoadOptions{
-    Environment: ampli.EnvironmentProduction,
+  Client: ampli.LoadClientOptions{
+    Configuration: ampli.NewClientConfig(AMPLITUDE_API_KEY),
+  },
 })
 ```
 
@@ -224,7 +228,7 @@ ampli.Instance.Track("user-id", ampli.SongPlayed.Builder().
 
 ### Plugin
 
-Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type).
+Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type).
 
 First you need to define your plugin: [plugin examples](./index.md#plugin-examples).
 

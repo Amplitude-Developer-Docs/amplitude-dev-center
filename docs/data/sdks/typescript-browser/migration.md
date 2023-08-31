@@ -1,20 +1,23 @@
 ---
 title: Browser SDK Migration Guide
-description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the new SDK (@amplitude/analytics-browser).
+description: Use this guide to easily migrate from Amplitude's maintenance browser SDK (amplitude-js) to the Browser SDK 1.0 (@amplitude/analytics-browser).
 ---
 
-The new version of Amplitude's Browser SDK (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `amplitude-js`. 
+Amplitude Browser SDK 1.0 (`@amplitude/analytics-browser`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. Browser SDK 1.0 isn't backwards compatible with `amplitude-js`. 
 
 To migrate to `@amplitude/analytics-browser`, update your dependencies and instrumentation.
+
+!!!info "Browser SDK 2.0 is now available"
+    An improved version of Amplitude Browser SDK is now available. Amplitude Browser SDK 2.0 features default event tracking, improved marketing attribution tracking, simplified interface and a lighter weight package. Amplitude recommends the Browser SDK 2.0 for both product analytics and marketing analytics use cases. Upgrade to the latest [Browser SDK 2.0](../browser-2/index.md). See the [Migration Guide](../browser-2/migration.md) for more help.
 
 ### Terminology
 
 * `amplitude-js`: Maintenance Browser SDK
-* `@amplitude/analytics-browser`: New Browser SDK
+* `@amplitude/analytics-browser`: Browser SDK 1.0
 
 ## Dependency
 
-For snippet installation, update your project's [snippet loader](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser#using-script-loader).
+For snippet installation, update your project's [snippet loader](https://github.com/amplitude/Amplitude-TypeScript/tree/v1.x/packages/analytics-browser#using-script-loader).
 
 For Node projects, update your dependency list in package.json.
 
@@ -40,7 +43,7 @@ For Node projects, update your dependency list in package.json.
 
 ## Instrumentation
 
-The new Browser SDK offers an API to instrument events. To migrate to the new SDK, you need to update a few calls. The following sections detail which calls have changed.
+Browser SDK 1.0 offers an API to instrument events. To migrate to the Browser SDK 1.0, you need to update a few calls. The following sections detail which calls have changed.
 
 ### Initialization
 
@@ -93,7 +96,7 @@ The new Browser SDK configuration comes in a different shape. The configurations
 |`config.optOut`|`config.optOut`|
 |`config.onError`|NOT SUPPORTED|
 |`config.onExitPage`|NOT SUPPORTED. See [Flush](#flush-or-onexitpage).|
-|`config.platform`|NOT SUPPORTED. See [Plugins](#plugins).|
+|`config.platform`|NOT SUPPORTED. `platform` is not supported at configuration level. But it still exist in event object. You can overwrite this by either assign a platform while tracking an event, or enriching the event.platform using enrichment plugin. See [Plugins](#plugins).|
 |`config.savedMaxCount`|NOT SUPPORTED|
 |`config.saveEvents`|NOT SUPPORTED|
 |`config.saveParamsReferrerOncePerSession`|`config.attribution.trackNewCampaigns`. Opposite of `saveParamsReferrerOncePerSession`. See [configuration](../#configuration). |
@@ -511,26 +514,88 @@ For `@amplitude/analytics-browser`, Amplitude recommends adding your own event l
 === "@amplitude/analytics-browser"
 
     ```javascript
-    window.addEventListener('pagehide',
-      () => {
-        amplitude.setTransport('beacon') // Optional. Sets https transport to use `sendBeacon` API
-        amplitude.flush()
-      },
-    );
+    window.addEventListener('pagehide', () => {
+      // Set https transport to use sendBeacon API
+      amplitude.setTransport('beacon')
+      // Send all pending events to server
+      amplitude.flush()
+    });
     ```
 
 #### Callback
 
-For `amplitude-js`, two separate callback functions are passed for success and error. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `track()`, `identify()`, `groupIdentify()` return a custom promise interface.
+For `amplitude-js`, one `init` callback function for executing any function after initialization and two separate callback functions are passed for success and error network request. With `@amplitude/analytics-browser` supporting Promises (and async/await), the asynchronous methods like `init()`, `track()`, `identify()`, `groupIdentify()` return a custom promise interface.
 
 === "@amplitude/analytics-browser"
 
     ```javascript
+    const initResult = await amplitude.init("YOUR_API_KEY").promise
+    if (initResult.code === 200) {
+      // success logic
+    } else {
+      // error logic
+    }
+
     const result = await amplitude.track("Button Clicked").promise
     if (result.code === 200) {
       // success logic
     } else {
-      // errr logic
+      // error logic
     }
 
     ```
+
+## Comparison 
+
+--8<-- "includes/sdk-migration/sdk-migration-note.md"
+
+| Feature| <div class="big-column"> [Latest Browser SDK](../) </div> | <div class="big-column"> [Marketing analytics Browser SDK](../../marketing-analytics-browser/) <div> | [Maintenance Browser SDK](../../javascript)|
+| --- | --- | --- | --- |
+| Package | [@amplitude/analytics-browser](https://www.npmjs.com/package/@amplitude/analytics-browser) | [@amplitude/marketing-analytics-browser](https://www.npmjs.com/package/@amplitude/marketing-analytics-browser) | [amplitude-js](https://www.npmjs.com/package/amplitude-js) |
+| Web Attribution [^1] | By default, the Browser SDK includes the `web-attribution` plugin which implements [**Web Attribution V1**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Web Attribution V2**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). | Configuration required. Use [**Maintenance Web Attribution**](./#web-attribution-v2-vs-web-attribution-v1-vs-maintenance-web-attribution). |
+| Default Event Tracking [^2] |  [**Default Event Tracking V2**](./#default-event-tracking-v2-vs-default-event-tracking-v1) | [**Default Event Tracking V1**](./#default-event-tracking-v2-vs-default-event-tracking-v1) |  Not supported. |
+| Configuration | Configuration is implemented by Configuration object during initialize amplitude. [More configurations](../#configuration). Check [here](./) for migration guide from the Maintenance SDK to the latest SDK. | The same as latest Browser SDK.  | Support explicit  setter methods. [More configurations](../../javascript/#configuration). |
+| Logger provider | Amplitude Logger by Default. Fully customizable. | The same as latest Browser SDK. | Amplitude Logger by default. Not customizable. |
+| Storage Provider | LocalStorage by default. Fully customizable. | The same as latest Browser SDK. | Limited storage - cookies, localStorage, sessionStorage, or none available. Not able to be customized. |
+| Customization | Plugins | Plugins | Not supported.  (Middleware is supported in Ampli JS) |
+| Bundle Size | Tree shaking for optimization. | The same as latest Browser SDK.  |  No Optimization. |
+| Server Endpoint | HTTP V2 API | The same as latest Browser SDK. | HTTP V1 API |
+| Batch API| Supported, with configuration. | The same as latest Browser SDK. | Not supported. |
+
+[^1]: **Web Attribution**: For Browser SDK version lower than 1.9.0, you are able to choose if use Web Attribution V1 or use Web Attribution V2. For using Web Attribution V2 you need to disable the Web Attribution V1 by setting `config.attribution.disabled = false`, install the `@amplitude/plugin-web-attribution-browser` and add `web-attribution` plugin manually, which will lead web attribution behavior the same as Marketing Analytics Browser SDK.
+[^2]: **Default Event Tracking**: For Browser SDK version lower than 1.9.0, to track page view events, you need to install the `npm install @amplitude/plugin-page-view-tracking-browser` and add `page-view-tracking` plugin manually. The event name for page views, along with the event properties for page views are different than the latest default event tracking. 
+
+### Default Event Tracking V2 vs Default Event Tracking V1
+
+| Feature| <div class="big-column"> Default Event Tracking V2 </div> | <div class="big-column"> Default Event Tracking V1 <div> |
+| --- | --- | --- |
+| Configurable | Yes. Enable by setting `config.defaultTracking` configuration. [More Details](../#tracking-default-eventsr/#page-view). |  Yes. Enable by setting `config.pageViewTracking` configuration. [More Details](../../marketing-analytics-browser/#page-view). |
+| Events | Includes with [configuration](./#tracking-default-events) <ul><li>page view event(`[Amplitude] Page viewed`)</li> <li>sessions events(`[Amplitude] Session Start`, `[Amplitude] Session End`)</li> <li>form interactions events(`[Amplitude] Form Started`, `[Amplitude] Form Submitted`, `[Amplitude] Form Downloaded`)</li></ul> | Includes with [configuration](../../marketing-analytics-browser/#page-view) <ul><li> page view event (`Page view`)</li> </ul>  </li></ul> | 
+| Architecture |  Implemented through different plugins. | Implemented through `page-view-tracking` plugin. |  
+| Customizable | Yes. Through [Enrichment Plugin](./#plugins). | Yes. Through [Enrichment Plugin](./#plugins). |
+
+### Web Attribution V2 vs Web Attribution V1 vs Maintenance Web Attribution
+
+#### Configurable
+
+| <div class="big-column"> Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | <div class="big-column"> Maintenance Web Attribution </div>|
+| --- | --- | --- |
+| No. | Yes. | Yes. |
+
+#### Behavior 
+
+| <div class="big-column"> Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | Maintenance Web Attribution |
+| --- | --- | --- |
+| <ul><li>Enabled by default.</li> <li>This SDK tracks attribution on init with a new campaign no matter if a new session or during a session and **NOT** configurable.</li> <li>Default value for all `init` attribution is `Empty` and configurable.</li> <li>If reset session ID on new campaign is configurable. </li> <li> Collect all latest ClickIds.</li></ul> | <ul><li>Enabled by default.</li> <li> The SDK track web attribution on init with a new session by default. This SDK tracks attribution on init with a new campaign is disable by default and configurable with `config.trackNewCampaigns = true`. If tracking web attribution on init with a new campaign is enable, the campaign will be unset (set to none) if that attribution not included. </li> <li>Default value for all `init` attribution is `Empty` and configurable.</li> <li>If reset session ID on new campaign is configurable. </li> <li>Collect all latest ClickIds. </li> | <ul><li>Disable by default.</li> <li>This SDK tracks attribution on init with a new session by default. This SDK tracks attribution on init during a session is disable by default and configurable with `config.saveParamsReferrerOncePerSession = false`. By default the existing web attribution values will be carried through each new session. Unless you set `config.unsetParamsReferrerOnNewSession = true`, web attribution will be set to `null` upon instantiating a new session.</li> <li> It only track the `init` attribution which has value. </li> <li> Cannot set session ID on campaign. </li><li>Only collect `gclid` and `fbclid` ClickIds.</li></ul>|
+
+#### Workflow 
+
+|                 Web Attribution V2                     |                Web Attribution V1                     |Maintenance Web Attribution|
+|:--------------------------------------------------------------------------------------------------------------:| :--------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------:|
+|  ![Web Attribution V2](../../../assets/images/sdk/web-attribution-v2.drawio.svg)  | ![Web Attribution V1](../../../assets/images/sdk/web-attribution-v1.drawio.svg) | ![Maintenance Web Attribution](../../../assets/images/sdk/web-attribution-maintenance.drawio.svg)  |
+
+### Architecture
+
+| <div class="big-column">  Web Attribution V2 </div> | <div class="big-column"> Web Attribution V1 </div> | <div class="big-column">  Maintenance Web Attribution </div>|
+| --- | --- | --- |
+| Implemented through `web-attribution` Plugin. | Implemented through `web-attribution` Plugin. | Build in logic. |

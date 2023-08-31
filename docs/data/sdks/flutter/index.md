@@ -61,7 +61,7 @@ class YourClass {
 
 ### Configuration
 
-Amplitude Flutter SDK runs on the top of the [Amplitude Android Mantaince SDK](../android/), [Amplitude iOS Mantaince SDK](../ios/) and [Amplitude JavaScript Mantaince SDK](../javascript/). The following are the Dart settable config options.
+Amplitude Flutter SDK runs on the top of the [Amplitude Android Maintenance SDK](../android/), [Amplitude iOS Maintenance SDK](../ios/) and [Amplitude JavaScript Maintenance SDK](../javascript/). The following are the Dart settable config options.
 For other default configurations:
 
 - on Android side, check the [Android Configuration](../android/#configuration)
@@ -85,7 +85,7 @@ For other default configurations:
     
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `setEventUploadThreshold`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by the `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `setEventUploadThreshold`. By default, the serverUrl will be `https://api2.amplitude.com/`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```dart
 // Events queued in memory will flush when number of events exceed upload threshold
@@ -249,7 +249,7 @@ Amplitude.getInstance().identify(identify);
 const array = ["some_string", 56];
 final Identify identify = Identify()
                           ..append("ab-tests", "new-user-test")
-                          ..preappend("some_list", array)
+                          ..prepend("some_list", array)
 Amplitude.getInstance().identify(identify);
 ```
 
@@ -289,6 +289,30 @@ final Identify identify = Identify()
                           ..unset("some_list",array);
 Amplitude.getInstance().identify(identify)
 ```
+
+### User groups
+
+--8<-- "includes/editions-growth-enterprise-with-accounts.md"
+
+--8<-- "includes/groups-intro-paragraph.md"
+
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```dart
+    // set group with a single group name
+    Amplitude.getInstance().setGroup("orgId", "15");
+    ```
+
+    If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```dart
+    // set group with multiple group names
+    Amplitude.getInstance().setGroup("sport", ["tennis", "soccer"]);
+    ```
+    
+!!!note
+    Event-level groups is currently unavailable and its availability is yet to be determined.
 
 ### Track revenue
 
@@ -335,16 +359,16 @@ On Android and iOS, you can choose to automatically log start and end session ev
 
 ```dart
 //Enable automatically log start and end session events
-Ampiltidue.getInstance().trackingSessionEvents(true);
+Amplitude.getInstance().trackingSessionEvents(true);
 //Disable automatically log start and end session events
-Amplitidue.getInstance().trackingSessionEvents(false);
+Amplitude.getInstance().trackingSessionEvents(false);
 ```
 
 `trackingSessionEvents()` is not supported on Flutter web. Please check [here](/#flutter-web-support) to learn more.
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```dart
 Amplitude.getInstance().setUserId("test_user_id");

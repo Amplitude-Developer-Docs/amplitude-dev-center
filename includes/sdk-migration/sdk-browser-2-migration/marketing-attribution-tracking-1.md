@@ -1,0 +1,3 @@
+Starting Browser SDK 2.0, Amplitude consolidates Browser SDK and Marketing Analytics SDK to provide a single solution for both product and marketing analytics use case.
+
+Marketing attribution tracking excludes all subdomains of the same root domain as referrer. This means traffic from one subdomain to another (ie analytics.amplitude.com to experiment.amplitude.com) are not tracked with no additional configuration.

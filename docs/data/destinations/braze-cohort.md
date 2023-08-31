@@ -14,18 +14,26 @@ Amplitude Data's Braze integration lets you send your Amplitude cohorts straight
 
 ## Considerations
 
+- You must enable this integration in each Amplitude project you want to use it in.
+- You need a paid Amplitude plan to enable this integration.
+- For more details on using this integration in Braze, see the [Braze documentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_audiences/).
 - You must have a Braze account. 
-- For more details on using this integration in Braze, see the [Braze documentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_for_currents/).
 
 ## Setup
 
 ### Prerequisites
 
-To configure an cohort integration from Amplitude to Braze, you need the following information from Braze:
+To configure a cohort integration from Amplitude to Braze, you need the following information from Braze:
 
-- Endpoint: the endpoint for the REST operations. It looks like : `https://rest.iad-##.braze.com`, See the [Braze documentation](https://www.braze.com/docs/api/basics/#endpoints) to find your endpoint.
-- Data Import Key. Use the [Braze documentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_audiences/#step-1-get-the-braze-data-import-key) for help finding this. 
-- App Group REST API Key: Find this in your Braze Developer Console. See the [Braze documentation](https://www.braze.com/docs/api/basics/#rest-api-key) for more help. 
+1. Data Import Key 
+   - In Braze, click on **Partner Integrations** then click on **Amplitude** and **Generate New Key**. 
+   - See [Braze documentation](https://www.braze.com/docs/partners/data_and_infrastructure_agility/analytics/amplitude/amplitude_audiences/#step-1-get-the-braze-data-import-key) for more detail.
+2. Endpoint: the endpoint for the REST operations 
+   - In Braze, click on **Partner Integrations** and click on **Amplitude**.
+   - It looks like: `https://rest.iad-##.braze.com`. See the [Braze documentation](https://www.braze.com/docs/api/basics/#endpoints) to find your endpoint.
+3. App Group REST API Key
+   - In Braze, click on **Settings**, click on **API Keys** and then click on **Create New API Key** OR choose an existing API key.
+   - Find this in your Braze Developer Console. See the [Braze documentation](https://www.braze.com/docs/api/basics/#rest-api-key) for more detail.
 
 ### Amplitude setup 
 
@@ -37,8 +45,17 @@ To configure an cohort integration from Amplitude to Braze, you need the followi
 
 ## Send a cohort
 
-1. In Amplitude, open the cohort to export. 
-2. Click **Sync**, and choose Braze.
-3. Select the destination.
-4. Select the sync frequency you need.
-5. Save when finished.
+To sync your first cohort, follow these steps:
+
+1. In Amplitude, open the cohort you want to sync, then click **Sync**.
+2. Select Braze, then click **Next**.
+3. Choose the account you want to sync to.
+4. Choose the sync cadence.
+5. When finished, save your work.
+
+## Use the cohort in Braze
+
+1. In Braze, to create a segment of these users, navigate to **Audience** and click on **Segments**.
+2. Click on **Create Segment** and name your Segment.
+3. Under Add Filter, select **Amplitude Cohorts** and choose the cohort you created and synced from Amplitude.
+4. When saved, you can reference this segment during Canvas or campaign creation in the targeting users step.

@@ -62,7 +62,7 @@ Amplitude Data supports tracking analytics events from Node.js apps written in J
     ```js
     import { ampli } from './src/ampli';
     
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 5. [Identify users and set user properties](#identify)
@@ -114,14 +114,14 @@ Initialize Ampli in your code.
 
     ```js
     const { ampli } = require('./ampli');
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 === "TypeScript"
 
     ```js
     import { ampli } from './ampli';
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 The `load()` function requires an options object to configure the SDK's behavior:
@@ -250,7 +250,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 `properties` passes in event properties specific to this event in the tracking plan.
 
-The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
 
 The `extra` argument lets you pass data to middleware.
 

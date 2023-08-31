@@ -48,7 +48,7 @@ Set your configuration before a client is initialized.
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `track` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `FlushQueueSize` and `FlushInterval`. By default, the SDK is in regular mode with `serverUrl` to `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, switch to batch mode by setting `UseBatch` to `true` to set setServerUrl to batch event upload API `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
+To support high-performance environments, the SDK sends events in batches. Every event logged by `track` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `FlushQueueSize` and `FlushInterval`. By default, the SDK is in regular mode with `serverUrl` to `https://api2.amplitude.com/2/httpapi`. For customers who want to send large batches of data at a time, switch to batch mode by setting `UseBatch` to `true` to set setServerUrl to batch event upload API `https://api2.amplitude.com/batch`. Both the regular mode and the batch mode use the same flush queue size and flush intervals.
 
 ```GO
 package main
@@ -59,7 +59,7 @@ import (
 
 func main() {
     // Create a Config struct
-    config := amplitude.NewConfig("your-api-key")
+    config := amplitude.NewConfig(AMPLITUDE_API_KEY)
     
     // Events queued in memory will flush when number of events exceed upload threshold
     // Default value is 200
@@ -175,7 +175,7 @@ client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 
 #### `Identify.PreInsert`
 
-This method pre-inserts a value or values to a user property, if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
+This method pre-inserts a value or values to a user property if it doesn't exist in the user property yet. Pre-insert means inserting the value at the beginning of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are pre-inserted. If the user property has an existing value, it will be no operation.
 
 ```Go
 identifyObj := amplitude.Identify{}
@@ -185,7 +185,7 @@ client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 
 #### `Identify.PostInsert`
 
-This method post-inserts a value or values to a user property, if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
+This method post-inserts a value or values to a user property if it doesn't exist in the user property yet. Post-insert means inserting the value at the end of a given list. If the user property doesn't have a value set yet, it will be initialized to an empty list before the new values are post-inserted. If the user property has an existing value, it will be no operation.
 
 ```Go
 identifyObj := amplitude.Identify{}
@@ -195,7 +195,7 @@ client.Identify(identifyObj, amplitude.EventOptions{UserID: "user-id"})
 
 #### `Identify.Remove`
 
-This method removes a value or values to a user property, if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it will be no operation.
+This method removes a value or values to a user property if it exists in the user property. Remove means remove the existing value from the given list. If the item doesn't exist in the user property, it will be no operation.
 
 ```Go
 identifyObj := amplitude.Identify{}
@@ -239,7 +239,7 @@ client.Track(event)
 
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
-Use the Group Identify API to set or update properties of particular groups. However, these updates will only affect events going forward.
+Use the Group Identify API to set or update the properties of particular groups. However, these updates will only affect events going forward.
 
 The `GroupIdentify()` method accepts a group type and group name string parameter, as well as an Identify struct that will be applied to the group.
 
@@ -253,7 +253,7 @@ client.GroupIdentify("org-id", "15", identifyObj, amplitude.EventOptions{})
 
 The preferred method of tracking revenue for a user is to use `Revenue()` in conjunction with the provided Revenue interface. Revenue `struct` stores each revenue transaction and allow you to define several special revenue properties (such as 'RevenueType' and 'ProductID') that are used in Amplitude's Event Segmentation and Revenue LTV charts. These Revenue struct are then passed into `Revenue` to send as revenue events to Amplitude. This allows Amplitude to automatically display data relevant to revenue in the platform. You can use this to track both in-app and non-in-app purchases.
 
-To track revenue from a user, call `Revenue()` each time a user generates revenue. For example, 3 units of a product was purchased at $3.99.
+To track revenue from a user, call `Revenue()` each time a user generates revenue. For example, 3 units of a product were purchased at $3.99.
 
 ```Go
 revenueObj := amplitude.Revenue{
@@ -295,7 +295,7 @@ client.Shutdown()
 
 ## Amplitude SDK plugin
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is struct with methods `Setup()` and `Execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is struct with methods `Setup()` and `Execute()`.
 
 ### `Client.Add`
 
@@ -356,7 +356,7 @@ func (plugin *addEventIDPlugin) Execute(event *amplitude.Event) *amplitude.Event
 }
 
 func main() {
-    config := amplitude.NewConfig("your-api-key")
+    config := amplitude.NewConfig(AMPLITUDE_API_KEY)
     client := amplitude.NewClient(config)
     defer client.Shutdown()
 
@@ -426,7 +426,7 @@ func (plugin *myDestinationPlugin) Execute(event *amplitude.Event) {
 }
 
 func main() {
-    config := amplitude.NewConfig("your-api-key")
+    config := amplitude.NewConfig(AMPLITUDE_API_KEY)
     client := amplitude.NewClient(config)
     defer client.Shutdown()
 

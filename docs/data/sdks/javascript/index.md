@@ -10,13 +10,15 @@ icon: simple/javascript
 This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
 !!!deprecated "Maintenance SDK"
-    This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK](../typescript-browser/) which supports plugins and more. See the [Migration Guide](../../sdks/typescript-browser/migration) for more help.
+    This is a maintenance SDK and will only receive bug fixes until deprecation. Upgrade to the latest [Browser SDK 2.0](../browser-2/) which supports plugins and more.
 
 !!!info "Browser SDK Resources (Maintenance)"
     [:material-github: GitHub](https://github.com/amplitude/Amplitude-JavaScript) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-Javascript/releases) · [:material-book: API Reference](https://amplitude.github.io/Amplitude-JavaScript/)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
+
+--8<-- "includes/sdk-browser-supported-version.md"
 
 ## Install
 
@@ -25,7 +27,7 @@ Install the Amplitude Analytics JavaScript SDK in your project.
 === "Snippet"
 
     You can install the JavaScript SDK using a small snippet of code that you paste on your site to asynchronously load the SDK.
-    On every page that you want to install Amplitude analytics, paste the code snippet just before the `</head>` tag, replacing `API_KEY` with your project's API key.
+    On every page that you want to install Amplitude analytics, paste the code snippet just before the `</head>` tag, replacing `AMPLITUDE_API_KEY` with your project's API key.
     You can find your project's API Key in your project's [Settings page](https://help.amplitude.com/hc/en-us/articles/360058073772).
 
     ```html
@@ -58,7 +60,7 @@ Install the Amplitude Analytics JavaScript SDK in your project.
     !Object.prototype.hasOwnProperty.call(n._iq,e)){n._iq[e]={_q:[]};v(n._iq[e])}
     return n._iq[e]};e.amplitude=n})(window,document);
 
-    amplitude.getInstance().init("API_KEY");
+    amplitude.getInstance().init(AMPLITUDE_API_KEY);
     </script>
     ```
 
@@ -87,7 +89,7 @@ import amplitude from 'amplitude-js';
 
     ```js 
     // initialize the client
-    var instance1 = amplitude.getInstance().init("API_KEY");
+    var instance1 = amplitude.getInstance().init(AMPLITUDE_API_KEY);
     ```
     ```js
     // send an event
@@ -107,8 +109,8 @@ Before you can instrument, you must initialize the SDK using the API key for you
  Initialization creates a default instance, but you can create more instances using `getInstance` with a string name.
 
 ```js
-var instance1 = amplitude.getInstance().init("API_KEY"); // initializes default instance of Amplitude client
-var instance2 = amplitude.getInstance("instance-name").init("API_KEY"); // initializes named instance of Amplitude client
+var instance1 = amplitude.getInstance().init("AMPLITUDE_API_KEY"); // initializes default instance of Amplitude client
+var instance2 = amplitude.getInstance("instance-name").init("AMPLITUDE_API_KEY"); // initializes named instance of Amplitude client
 ```
 
 #### Initialization with options
@@ -117,7 +119,7 @@ Pass custom options in the `init` method. See a [list of options](https://github
 
 ```js
 var options = {};
-var instance = amplitude.getInstance("instance").init("API_KEY", null, options); // initializes with the given options
+var instance = amplitude.getInstance("instance").init(AMPLITUDE_API_KEY, null, options); // initializes with the given options
 ```
 
 ### Configuration
@@ -130,7 +132,7 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
     | `cookieExpiration` | `number`. The number of days after which the Amplitude cookie will expire. 12 months is for GDPR compliance. | `365` |
     | `sameSiteCookie` | `string`. Sets the SameSite flag on the amplitude cookie. Decides cookie privacy policy. | `Lax` |
     | `cookieForceUpgrade` | `boolean`. Forces pre-v6.0.0 instances to adopt post-v6.0.0 compat cookie formats. | `false` |
-    | `disableCookies` |  `boolean`. Whether disable Ampllitude cookies altogether. | `false` |
+    | `disableCookies` |  `boolean`. Whether disable Amplitude cookies altogether. | `false` |
     | `deferInitialization` | `boolean`.  Whether defer initialization. If `true`, disables the core functionality of the sdk, including saving a cookie and all logging, until explicitly enabled. | `false` |
     | `deviceIdFromUrlParam` | `boolean`. If `true`, then the SDK will parse Device ID values from the URL parameter amp_device_id if available. Device IDs defined in the configuration options during init will take priority over Device IDs from URL parameters. | `false` |
     | `domain` | `string`. Set a custom domain for the Amplitude cookie. To include subdomains, add a preceding period, eg: `.amplitude.com`. | `null` |
@@ -170,7 +172,7 @@ var instance = amplitude.getInstance("instance").init("API_KEY", null, options);
 
 #### Configure batching behavior
 
-To support high performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batch in background. You can customize batch behavior with `eventUploadThreshold` and `eventUploadPeriodMillis`. By default, the serverUrl will be `https://api.amplitude.com`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
+To support high-performance environments, the SDK sends events in batches. Every event logged by `logEvent` method is queued in memory. Events are flushed in batches in background. You can customize batch behavior with `eventUploadThreshold` and `eventUploadPeriodMillis`. By default, the serverUrl will be `https://api.amplitude.com`. This SDK doesn't support batch mode, the [batch API](../../../analytics/apis/batch-event-upload-api.md) endpoint.
 
 ```js
 amplitude.getInstance().init(apiKey, null, {
@@ -218,7 +220,7 @@ Set `userID` when initializing the client, or after initialization with the `set
 
     ```js
     var userId = "12345";
-    amplitude.getInstance().init("API_KEY", userId); // initializes client with the given userId
+    amplitude.getInstance().init(AMPLITUDE_API_KEY, userId); // initializes client with the given userId
     ```
 
 === "Set `userID` with `setUserId`"
@@ -360,10 +362,10 @@ If the user property doesn't have a value set yet, it's initialized to an empty 
 
 !!! example
 
-    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Your code might look like this:
+    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '["10", "16"]'. Your code might look like this:
 
     ```js
-    amplitude.getInstance().setGroup('orgId', '[10,16]');
+    amplitude.getInstance().setGroup('orgId', ["10","16"]);
     ```
 
 You can also use `logEventWithGroups` to set event-level groups. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user unless explicitly
@@ -467,7 +469,7 @@ By default, the JavaScript SDK tracks some properties automatically. You can ove
 
 ## Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time:
+If your app has its login system that you want to track users with, you can call `setUserId` at any time:
 
 ```js
 amplitude.getInstance().setUserId('USER_ID');
@@ -476,7 +478,7 @@ amplitude.getInstance().setUserId('USER_ID');
 You can also add the User ID as an argument to the init call.
 
 ```js
-amplitude.getInstance().init('API_KEY', 'USER_ID');
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID');
 ```
 
 Don't assign users a user ID that could change, because each unique user ID represents a unique user in Amplitude. For more information see
@@ -510,7 +512,7 @@ const sessionId = amplitude.getInstance().getSessionId();
 If you are using a [domain proxy](https://developers.amplitude.com/docs/domain-proxies) that requires custom HTTP request headers, configure them with `options.headers` during initialization.
 
 ```js
-amplitude.getInstance().init(APIKEY, null, {
+amplitude.getInstance().init(AMPLITUDE_API_KEY, null, {
   headers: {
      'x-session-id': appToken,
         'Content-Type': 'application/json;charset=utf-8'
@@ -575,17 +577,17 @@ There are five different standard UTM parameters:
 - `utm_medium`: This identifies the link type that was used (for example: banner, button, email).
 - `utm_campaign`: This identifies a specific campaign used (for example: "summer_sale").
 - `utm_term`: This identifies paid search terms used (for example:  product+analytics).
-- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: "bannerlink", "textlink").
+- `utm_content`: This identifies what brought the user to the site and is commonly used for A/B testing (for example: "banner-link", "text-link").
 
 Here is an example URL:
 
-`https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=bannerlink`
+`https://www.amplitude.com/?utm_source=newsletter&utm_campaign=product_analytics_playbook&utm_medium=email&utm_term=product%20analytics&utm_content=banner-link`
 
 #### Enable via SDK
 
 In Amplitude, after you set the `includeUtm` option to true, the JavaScript SDK automatically pulls UTM parameters from the referring URL and include them as user properties on all relevant events:
 
-- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_glid` and `gclid` as user properties.
+- `includeGclid`: Gclid (Google Click Identifier) is a globally unique tracking parameter used by Google. If used, Google appends a unique parameter (for example: `"?gclid=734fsdf3"`) to URLs at runtime. By setting this to true, the SDK captures `initial_gclid` and `gclid` as user properties.
 - `includeFbclid`: Fbclid (Facebook Click Identifier) is a globally unique tracking parameter used by Facebook. If used, Facebook appends a unique parameter (for example: `"?fbclid=392foih3"`) to URLs at runtime. By setting this to `true`, the SDK captures `initial_fblid` and `fbclid` as user properties.
 - `includeUtm`: If `true`, finds the standard UTM parameters from either the URL or the browser cookie and sets them as user properties. This sets `utm_source`, `utm_medium`, `utm_campaign`, `utm_term`, and `utm_content` as well as `initial_utm_source`, `initial_utm_medium`, `initial_utm_campaign`, `initial_utm_term`, and `initial_utm_content` as user properties for the user.
 UTM parameters are captured once per session by default and occurs when the user loads your site and the Amplitude SDK for the first time.
@@ -693,11 +695,15 @@ If you set `logAttributionCapturedEvent` to `true` in your JavaScript SDK config
 
 Amplitude's JavaScript SDK supports integration with Google Tag Manager. See the [demo app](https://github.com/amplitude/GTM-Web-Demo) on GitHub for instructions on how to set it up.
 
-Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
+Check [here](../../sources/google-tag-manager-client-legacy/) for the instruction details. Refer to [Introducing the Amplitude Google Tag Manager (GTM) Template](https://amplitude.com/blog/google-tag-manager-template/) for more guidance.
 
 !!!tip
 
     It's best practice to use a custom instance name to avoid a naming collision.
+
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/browser.md"
 
 ## Advanced topics
 
@@ -743,7 +749,7 @@ var deviceId = amplitude.getInstance().getDeviceId() // existing device ID
 Configure Amplitude by passing an object as the third argument to the init:
 
 ```js
-amplitude.getInstance().init("API_KEY", null, {
+amplitude.getInstance().init(AMPLITUDE_API_KEY, null, {
     // optional configuration options
     saveEvents: true,
     includeUtm: true,
@@ -799,7 +805,7 @@ If you are using RequireJS to load your JavaScript files, then you can use it to
 <script src='scripts/require.js'></script> <!-- loading RequireJS -->
 <script>
  require(['https://cdn.amplitude.com/libs/amplitude-6.2.0-min.umd.gz.js'], function(amplitude) {
- amplitude.getInstance().init('API_KEY'); // replace API_KEY with your Amplitude API key.
+ amplitude.getInstance().init(AMPLITUDE_API_KEY); // replace AMPLITUDE_API_KEY with your Amplitude API key.
  window.amplitude = amplitude; // You can bind the amplitude object to window if you want to use it directly.
  amplitude.getInstance().logEvent('Clicked Link A');
  });
@@ -818,7 +824,7 @@ You can also define the path in your RequireJS configuration like this:
  });
 
  require(['amplitude'], function(amplitude) {
-  amplitude.getInstance().init('API_KEY'); // replace API_KEY with your Amplitude API key.
+  amplitude.getInstance().init(AMPLITUDE_API_KEY); // replace AMPLITUDE_API_KEY with your Amplitude API key.
   window.amplitude = amplitude; // You can bind the amplitude object to window if you want to use it directly.
   amplitude.getInstance().logEvent('Clicked Link A');
  });
@@ -830,7 +836,7 @@ You can also define the path in your RequireJS configuration like this:
 </script>
 ```
 
-### Cross domain tracking (JavaScript)
+### Cross-domain tracking (JavaScript)
 
 You can track anonymous behavior across two different domains. Amplitude identifies anonymous users by their device IDs which must be passed between the domains. For example:
 
@@ -842,7 +848,7 @@ Users who start on Site 1 and then navigate to Site 2 must have the device ID ge
 
 1. From Site 1, grab the device ID from `amplitude.getInstance().options.deviceId`.
 2. Pass the device ID to Site 2 via a URL parameter when the user navigates. (for example: `www.example.com?amp_device_id=device_id_from_site_1`)
-3. Initialize the Amplitude SDK on Site 2 with `amplitude.init('API_KEY', null, {deviceIdFromUrlParam: true})`.
+3. Initialize the Amplitude SDK on Site 2 with `amplitude.init(AMPLITUDE_API_KEY, null, {deviceIdFromUrlParam: true})`.
 
 ### Tracking UTM parameters, referrer, and gclid (JavaScript)
 
@@ -937,7 +943,7 @@ amplitude.getInstance().logEvent('event', null, successCallback, errorCallback);
 You can also pass a callback function to init, which is called after the SDK finishes its asynchronous loading. The instance is passed as an argument to the callback:
 
 ```js
-amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID', null, function(instance) {
   console.log(instance.options.deviceId);  // access Amplitude's deviceId after initialization
 });
 ```
@@ -947,15 +953,13 @@ amplitude.getInstance().init('API_KEY', 'USER_ID', null, function(instance) {
 In SDK version 8.5.0 and higher, the SDK can send events using the browser's built-in navigator.sendBeacon API.
  Unlike standard network requests, sendBeacon sends events in the background, even if the user closes the browser or leaves the page.
 
-!!!warning
-
-    Because sendBeacon sends events in the background, Amplitude has no way of knowing if a send has failed, and can't try to resend the event.  
+--8<-- "includes/sdk-ts/sendBeacon-warning.md"
 
 To send an event using sendBeacon, set the transport SDK option to 'beacon' in one of two ways
 
 ```js
 // set transport to 'beacon' when initializing an event
-amplitude.getInstance().init('API_KEY', 'USER_ID', {transport: 'beacon'});
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID', {transport: 'beacon'});
 
 // set transport to 'beacon' after initialization
 amplitude.getInstance().setTransport('beacon');
@@ -980,26 +984,73 @@ var exitCallback = function {
   amplitude.getInstance().logEvent('Logging a final event as user exits via sendBeacon');
 };
 
-amplitude.getInstance().init('API_KEY', 'USER_ID', { onExitPage: exitCallback });
+amplitude.getInstance().init(AMPLITUDE_API_KEY, 'USER_ID', { onExitPage: exitCallback });
 ```
 
-### Custom device IDs
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
 
-By default, device IDs are randomly generated UUIDs. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
+1. Device id in configuration on initialization
+2. "amp_device_id" value from URL param if `configuration.deviceIdFromUrlParam` is true. Refer to [cross domain tracking](.#cross-domain-tracking-javascript) for more details
+3. Device id in cookie storage. Refer to [cookie management](./#cookie-management) for more details
+4. A randomly generated 22-character base64 ID. It is more compacted compared to a 36-character UUID which has the same range 128-bit.
+
+--8<-- "includes/sdk-device-id/change-scenarios.md"
+
+- By default the SDK stores device IDs in cookies, so a device ID will change if a user clears cookies, uses another device, or uses privacy mode
+- On initialization, a device ID is passed in from URL param `amp_device_id` when `deviceIdFromUrlParam` is enabled
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+By default, the device ID is randomly generated base64 ID. You can define a custom device ID by setting it as a configuration option or by calling `setDeviceId`.
 
 ```js
 amplitude.getInstance().setDeviceId('DEVICE_ID');
 ```
 
-You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId().` This method can return `null` if a `deviceId` hasn't been generated yet.
-
-!!!note
-    Amplitude doesn't recommend defining your own device IDs unless you have your own system for tracking user devices. Make sure the `deviceId` you set is unique to prevent conflicts with other devices in your Amplitude data.
-     It's best practice to use something like a UUID.
-
-    [See an example](https://github.com/amplitude/Amplitude-Javascript/blob/master/src/uuid.js) of how to generate UUIDs with JavaScript.
-
 --8<-- "includes/abbreviations.md"
+
+#### Get device ID
+
+You can retrieve the device ID that Amplitude uses with `Amplitude.getInstance().getDeviceId()` or `Amplitude.getInstance('YOUR-INSTANCE-NAME').getDeviceId()` if you defined a custom instance name. This method can return `null` if a `deviceId` hasn't been generated yet.
+
+```js
+const deviceId = amplitude.getInstance().getDeviceId();
+```
+
+#### Share current device ID to another instance
+
+Sometimes you have more than one Amplitude Javascript SDK instance setup and want to share the device ID across instances.
+
+- Method1: Initialize the other instance with device ID in configuration
+
+```javascript
+// Initialize an instance with default configuration 
+// Device Id of this instance is created by default
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+// Initialize another instance with a different API key
+// And pass the deviceId from the previous instance to the configuration
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2", undefined, {
+  deviceId: instanceDev.getDeviceId()
+});
+```
+
+- Method2: Set device ID after initialization whenever you need it to be the same
+
+```javascript
+var instanceDev = amplitude.getInstance("amplitude-dev");
+instanceDev.init("API-KEY-1");
+
+var instanceProd = amplitude.getInstance("amplitude-prod");
+instanceProd.init("API-KEY-2");
+
+// Before the line blow, the device Ids of the two instances are different
+instanceProd.setDeviceId(instanceDev.getDeviceId());
+```
+
+- Method3: Pass the device ID in URL param `amp_device_id`. Refer to [cross domain tracking](./#cross-domain-tracking-javascript) for more details.
 
 ### Content Security Policy (CSP)
 

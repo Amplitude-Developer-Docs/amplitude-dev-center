@@ -29,12 +29,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     === "Script loader"
         This package is also distributed through a CDN. Copy and paste this script in your HTML file.
-        ```html
-
-        <script type="text/javascript">
-        !function(){"use strict";!function(e,t){var n=e.amplitude||{_q:[],_iq:{}};if(n.invoked)e.console&&console.error&&console.error("Amplitude snippet has been loaded.");else{var r=function(e,t){e.prototype[t]=function(){return this._q.push({name:t,args:Array.prototype.slice.call(arguments,0)}),this}},s=function(e,t,n){return function(r){e._q.push({name:t,args:Array.prototype.slice.call(n,0),resolve:r})}},o=function(e,t,n){e[t]=function(){if(n)return{promise:new Promise(s(e,t,Array.prototype.slice.call(arguments)))}}},i=function(e){for(var t=0;t<y.length;t++)o(e,y[t],!1);for(var n=0;n<g.length;n++)o(e,g[n],!0)};n.invoked=!0;var a=t.createElement("script");a.type="text/javascript",a.integrity="sha384-TPZhteUkZj8CAyBx+GZZytBdkuKnhKsSKcCoVCq0QSteWf/Kw5Kb9oVFUROLE1l3",a.crossOrigin="anonymous",a.async=!0,a.src="https://cdn.amplitude.com/libs/analytics-browser-1.9.1-min.js.gz",a.onload=function(){e.amplitude.runQueuedFunctions||console.log("[Amplitude] Error: could not load SDK")};var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c);for(var u=function(){return this._q=[],this},l=["add","append","clearAll","prepend","set","setOnce","unset","preInsert","postInsert","remove","getUserProperties"],p=0;p<l.length;p++)r(u,l[p]);n.Identify=u;for(var d=function(){return this._q=[],this},f=["getEventProperties","setProductId","setQuantity","setPrice","setRevenue","setRevenueType","setEventProperties"],v=0;v<f.length;v++)r(d,f[v]);n.Revenue=d;var y=["getDeviceId","setDeviceId","getSessionId","setSessionId","getUserId","setUserId","setOptOut","setTransport","reset"],g=["init","add","remove","track","logEvent","identify","groupIdentify","setGroup","revenue","flush"];i(n),n.createInstance=function(e){return n._iq[e]={_q:[]},i(n._iq[e]),n._iq[e]},e.amplitude=n}}(window,document)}();
-        </script>
-        ```
+        For the latest script loader, visit [Amplitude's GitHub repository](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser#installing-via-script-loader).
     === "NPM"
         ```bash
         npm install @amplitude/analytics-browser
@@ -96,7 +91,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ```ts
     import { ampli } from './ampli';
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
 
     ampli.buttonClicked({
         buttonColor: 'primary',
@@ -552,7 +547,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         Add the dependency to `Podfile`.
 
         ```bash
-        pod 'Amplitude', '~> 8.14'
+        pod 'Amplitude', '~> 8.17.1'
         ```
         Run `pod install` in the project directory to download the dependency.
 
@@ -577,7 +572,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Objective-C"
 
         ```obj-c
-        #import <Amplitude/Amplitude.h>
+        #import <Amplitude.h>
 
         [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
         ```
@@ -644,19 +639,19 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     === "Objective-C"
 
         ```obj-c
-        #import "Amplitude.h"
+        #import <Amplitude.h>
 
         (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
             // Enable sending automatic session events
-            [Amplitude instance].trackingSessionEvents = YES;
-            
+            [Amplitude instance].defaultTracking.sessions = YES;
+
             // Initialize SDK
             [[Amplitude instance] initializeApiKey:@"YOUR_API_KEY"];
-            
+
             // Set userId
             [[Amplitude instance] setUserId:@"userId"];
-            
+
             // Log an event
             [[Amplitude instance] logEvent:@"app_start"];
         }
@@ -671,7 +666,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
             // Enable sending automatic session events
-            Amplitude.instance().trackingSessionEvents = true
+            Amplitude.instance().defaultTracking.sessions = true
             // Initialize SDK
             Amplitude.instance().initializeApiKey("YOUR_API_KEY")
             // Set userId
@@ -722,7 +717,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
         This SDK is currently in beta version. It can only be used in Swift projects and is **NOT** compatible with Objective-C projects. If you require support for Objective-C or have any concern with the Beta version, check out the [non-Beta iOS SDK](./ios/index.md).
 
         To migrate to the latest version of Amplitude iOS SDK, see the [Migration Guide](./ios-swift/migration.md).
-    
+
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_4)
         2. [Send data](#send-data_4)
@@ -764,7 +759,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
     ```swift
-    import Amplitude_Swift
+    import AmplitudeSwift
 
     let amplitude = Amplitude(
         configuration: Configuration(
@@ -775,7 +770,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-eu-data-residency.md"
 
     ```swift
-    import Amplitude_Swift
+    import AmplitudeSwift
 
     let amplitude = Amplitude(
         Configuration(
@@ -799,7 +794,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-complete-code-example.md"
 
     ```swift
-    import Amplitude_Swift
+    import AmplitudeSwift
 
     let amplitude = Amplitude(
         configuration: Configuration(
@@ -993,7 +988,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
 === "Python"
 
-    The Python SDK lets you send events to Amplitude. See the [Pythohn SDK documentation](./python/index.md) for additional configurations and advanced topics.
+    The Python SDK lets you send events to Amplitude. See the [Python SDK documentation](./python/index.md) for additional configurations and advanced topics.
 
     !!!info "Table of Contents"
         1. [Initialize the library](#initialize-the-library_6)
@@ -1459,7 +1454,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
         Add 'https://github.com/amplitude/unity-plugin.git?path=/Assets'.
         ```
-        Learn more about [Unity package manager initizalization](../unity/#option-1-unity-package-manager)
+        Learn more about [Unity package manager initialization](../unity/#option-1-unity-package-manager)
 
     === "Manual download"
 

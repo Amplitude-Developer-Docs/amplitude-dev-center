@@ -1,6 +1,6 @@
 ???tip "Linting with Prettier"
 
-    To prevent linting errors for eslint and tslint, the SDK-generated files have the following to diasable the linters: 
+    To prevent linting errors for eslint and tslint, the SDK-generated files have the following to disable the linters: 
 
     `/* tslint:disable */`
 

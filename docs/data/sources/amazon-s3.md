@@ -70,10 +70,10 @@ When your dataset is ready for ingestion, you can set up Amazon S3 Import in Amp
 Follow these steps to give Amplitude read access to your AWS S3 bucket.
 
 1. Create a new IAM role, for example: `AmplitudeReadRole`.
-2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy, using the following example. Update **{{}}** in highlighted text. 
+2. Go to **Trust Relationships** for the role and add Amplitude’s account to the trust relationship policy to allow Amplitude to assume the role using the following example. Please update **{{}}** in highlighted text. 
 
     - **{{amplitude_account}}**: `358203115967` for Amplitude US data center. `202493300829` for Amplitude EU data center. 
-    - **{{external_id}}**: unique identifiers used when assuming roles. Example can be `vzup2dfp-5gj9-8gxh-5294-sd9wsncks7dc`.
+    - **{{external_id}}**: unique identifiers used when Amplitude assumes the role. You can generate it with help from [third party tools](https://www.uuidgenerator.net/). Example external id can be `vzup2dfp-5gj9-8gxh-5294-sd9wsncks7dc`.
 
     ``` json hl_lines="7 12"
     {
@@ -98,9 +98,60 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
 3. Create a new IAM policy, for example, `AmplitudeS3ReadOnlyAccess`. Use the entire example code that follows, but be sure to update **{{}}** in highlighted text.
 
     - **{{bucket_name}}**: the s3 bucket name where your data is imported from.
-    - **{{prefix}}**: the prefix of files that you want to import, for example `/prefix`. For folders, make sure prefix ends with `/`. But for root folder, keep prefix as empty.
+    - **{{prefix}}**: the optional prefix of files that you want to import, for example `filePrefix`. For folders, make sure prefix ends with `/`, for example `folder/`. For the root folder, keep prefix as empty.
 
-    ```json hl_lines="16 30 41"
+    Example 1: IAM policy without prefix:
+
+    ```json hl_lines="16 29 40"
+    {
+      "Version":"2012-10-17",
+      "Statement":[
+        {
+          "Sid":"AllowListingOfDataFolder",
+          "Action":[
+            "s3:ListBucket"
+          ],
+          "Effect":"Allow",
+          "Resource":[
+            "arn:aws:s3:::{{bucket_name}}"
+          ],
+          "Condition":{
+            "StringLike":{
+              "s3:prefix":[
+                "*"
+              ]
+            }
+          }
+        },
+        {
+          "Sid":"AllowAllS3ReadActionsInDataFolder",
+          "Effect":"Allow",
+          "Action":[
+            "s3:GetObject",
+            "s3:ListObjects"
+          ],
+          "Resource":[
+            "arn:aws:s3:::{{bucket_name}}/*"
+          ]
+        },
+        {
+          "Sid":"AllowUpdateS3EventNotification",
+          "Effect":"Allow",
+          "Action":[
+            "s3:PutBucketNotification",
+            "s3:GetBucketNotification"
+          ],
+          "Resource":[
+            "arn:aws:s3:::{{bucket_name}}"
+          ]
+        }
+      ]
+    }
+    ```
+  
+    Example 2: IAM policy with a prefix. For a folder, make sure the prefix ends with `/`, for example `folder/`:
+    
+    ```json hl_lines="16 29 40"
     {
       "Version":"2012-10-17",
       "Statement":[
@@ -125,11 +176,11 @@ Follow these steps to give Amplitude read access to your AWS S3 bucket.
           "Sid":"AllowAllS3ReadActionsInDataFolder",
           "Effect":"Allow",
           "Action":[
-            "s3:Get*",
-            "s3:List*"
+            "s3:GetObject",
+            "s3:ListObjects"
           ],
           "Resource":[
-            "arn:aws:s3:::{{bucket_name}}{{prefix}}*"
+            "arn:aws:s3:::{{bucket_name}}/{{prefix}}*"
           ]
         },
         {
@@ -160,7 +211,7 @@ In Amplitude, create the S3 Import source.
 To create the data source in Amplitude, gather information about your S3 bucket:
 
 - IAM role ARN: The IAM role that Amplitude uses to access your S3 bucket. This is the role created in [Give Amplitude access to your S3 bucket](#give-amplitude-access-to-your-s3-bucket).
-- IAM role external id: The external id for the IAM role that Amplitude uses to access your S3 bucket.
+- IAM role external id: The external id for the IAM role that Amplitude uses to access your S3 bucket. This is the external id created in [Give Amplitude access to your S3 bucket](#give-amplitude-access-to-your-s3-bucket).
 - S3 bucket name: The name of the S3 bucket with your data.
 - S3 bucket prefix: The S3 folder with your data.
 - S3 bucket region: The region where S3 bucket was created.
@@ -244,6 +295,7 @@ After you have added all the fields you wish to bring into Amplitude, you can vi
 
 !!!note
     The group properties import feature requires that groups are set in the [HTTP API event format](../../analytics/apis/http-v2-api.md). The converter expects a `groups` object and a `group_properties` object.
+
 ### Manual converter creation
 
 The converter file tells Amplitude how to process the ingested files. Create it in two steps: first, configure the compression type, file name, and escape characters for your files.

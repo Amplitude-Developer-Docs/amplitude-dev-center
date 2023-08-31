@@ -46,7 +46,7 @@ Amplitude Data supports tracking analytics events from React Native apps written
     ```js
     import { ampli } from './src/ampli';
     
-    ampli.load({ environment: 'production' });
+    ampli.load({ client: { apiKey: AMPLITUDE_API_KEY } });
     ```
 
 5. [Identify users and set user properties](#identify)
@@ -108,7 +108,7 @@ The `load()` function accepts an options object to configure the SDK's behavior:
 |`environment`| Required. String. Specifies the environment the Ampli Wrapper is running in. For example, `production` or `development`. Create, rename, and manage environments in Amplitude Data.<br /><br />Environment determines which API token is used when sending events.<br /><br />If a `client.apiKey` or `client.instance` is provided, `environment` is ignored, and can be omitted.|
 |`disabled`                       | Optional. `Boolean`. Specifies whether the Ampli Wrapper does any work. When `true`, all calls to the Ampli Wrapper are no-ops. Useful in local or development environments.<br /><br />Defaults to `false`.|
 |`client.apiKey`| Optional. `String`. Specifies an API Key. This option overrides the default, which is the API Key configured in your tracking plan.|
-|`client.instance`| Optional. `AmpltitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
+|`client.instance`| Optional. `AmplitudeClient`. Specifies an Amplitude instance. By default Ampli creates an instance for you.|
 |`client.configuration`| Optional. `Amplitude.Config`. Overrides the default configuration for the AmplitudeClient.|
 
 Example of initialization with `load` to override the default configuration:
@@ -117,8 +117,8 @@ Example of initialization with `load` to override the default configuration:
 
     ```typescript
     ampli.load({
-      environment: 'development',
       client: {
+        apiKey: AMPLITUDE_API_KEY,
         configuration: {
           minIdLength: 10,
         }
@@ -130,8 +130,8 @@ Example of initialization with `load` to override the default configuration:
 
     ```javascript
     ampli.load({
-      environment: 'development',
       client: {
+        apiKey: AMPLITUDE_API_KEY,
         configuration: {
           minIdLength: 10,
         }
@@ -249,7 +249,7 @@ To track an event, call the event's corresponding function. Every event in your 
 
 The `properties` argument passes event properties.
 
-The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quanity` and `revenue`.
+The `options` argument allows you to pass to pass [Amplitude fields](https://developers.amplitude.com/docs/http-api-v2#properties-1), like `price`, `quantity` and `revenue`.
 
 For example, in the code snippet below, your tracking plan contains an event called `songPlayed`. The event is defined with two required properties: `songId` and `songFavorited`.
  The property type for `songId` is string, and `songFavorited` is a boolean.
@@ -324,7 +324,7 @@ Track Event objects using Ampli `track`:
 
 ### Plugin
 
-Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type).
+Plugins allow you to extend the Amplitude behavior, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type).
 
 First you need to define your plugin. Enrichment Plugin example:
 

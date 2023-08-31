@@ -12,7 +12,7 @@ Often, this is enough. But sometimes you need reports built around an aggregated
 
 The Amplitude Accounts add on enables you to do exactly this, by giving you analytical capabilities at the group level.
 
-A **group** is an object that a set of users might belong to, such as a company of customers, a team of users, or a playlist with listeners. A group type defines the group, for example *`organziation_id`*, *`account_id`*, *`playlist`*, or *`company`*. Groups can help you understand how specific accounts interact with your product, instead of just seeing the individual users in those companies.
+A **group** is an object that a set of users might belong to, such as a company of customers, a team of users, or a playlist with listeners. A group type defines the group, for example *`organization_id`*, *`account_id`*, *`playlist`*, or *`company`*. Groups can help you understand how specific accounts interact with your product, instead of just seeing the individual users in those companies.
 
 This guide aims to help you plan your Accounts instrumentation and also offers guidance for using Amplitude Accounts with Segment and Salesforce.
 

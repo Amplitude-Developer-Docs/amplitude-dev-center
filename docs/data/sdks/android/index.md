@@ -65,7 +65,7 @@ After you've installed the SDK and its dependencies, import Amplitude into any f
         // initialize 
 
         AmplitudeClient client = Amplitude.getInstance()
-          .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+          .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
           .enableForegroundTracking(getApplication());
 
         // send an event 
@@ -89,7 +89,7 @@ After you've installed the SDK and its dependencies, import Amplitude into any f
         // initialize 
 
         val client = Amplitude.getInstance()
-          .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+          .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
           .enableForegroundTracking(application)
 
         // send event 
@@ -122,7 +122,7 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
 
     ```java
     AmplitudeClient client = Amplitude.getInstance()
-      .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+      .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
       .enableForegroundTracking(getApplication());
     ```
 
@@ -130,7 +130,7 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
 
     ```kotlin 
     val client = Amplitude.getInstance()
-      .initialize(getApplicationContext(), "YOUR_API_KEY_HERE")
+      .initialize(getApplicationContext(), AMPLITUDE_API_KEY)
       .enableForegroundTracking(application)
     ```
 
@@ -168,8 +168,8 @@ Accurate session tracking requires that you enable `enableForegroundTracking(ge
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `optOut` | Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | Automatic tracking of "Start Session" and "End Session" events that count toward event volume. | `false` |
-    | `sessionTimeoutMillis` | The amount of time for session timeout if enable foreground tracking. | `1800000` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `sessionTimeoutMillis` | The amount of time for session timeout if disable foreground tracking. Foreground tracking is disabled by default. | `1800000` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if enable foreground tracking by `enableForegroundTracking()` | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/` |
     | `useDynamicConfig` |  Find the best server url automatically based on users' geo location. | `false` |
 
@@ -539,13 +539,13 @@ If the user property doesn't exist, it's initialized to an empty list before the
 
 !!! example
 
-    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like:
+    If Joe is in 'orgId' '10' and '16', then the `groupName` would be '["10", "16"]'. Here is what your code might look like:
 
     ```java
     Amplitude.getInstance().setGroup("orgID", new JSONArray().put("10").put("16"));  // list values
     ```
 
-You can also use `logEventWithGroups` to set event-level groups. This means that the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with `setGroup`:
+You can also use `logEvent` to set event-level groups. This means that the group designation only applies for the specific event being logged and doesn't persist on the user unless you explicitly set it with `setGroup`:
 
 === "Java"
 
@@ -749,6 +749,10 @@ For purchases on the Amazon store, you first need to set up Amazon as a data sou
 
     client.logRevenueV2(revenue);
     ```
+    
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/legacy-android.md"
 
 ## Advanced topics
 
@@ -824,7 +828,7 @@ You can use the helper method `getSessionId` to get the value of the current `se
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 === "Java"
 
@@ -967,6 +971,41 @@ App set ID is a unique identifier for each app install on a device. App set ID i
         ```java
         client.useAppSetIdForDeviceId();
         ```
+
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device ID fetched from the SQLite database
+--8<-- "includes/sdk-device-id/android.md"
+
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+=== "Java"
+
+    ```java
+     String deviceId = client.getDeviceId();
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    val deviceId = client.getDeviceId();
+    ```
+
+--8<-- "includes/sdk-device-id/set-device-id.md"
+
+=== "Java"
+
+    ```java
+    client.setDeviceId("DEVICE-ID");
+    ```
+
+=== "Kotlin"
+
+    ```kotlin
+    client.setDeviceId("DEVICE-ID");
+    ```
 
 ### Location tracking
 

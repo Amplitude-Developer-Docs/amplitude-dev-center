@@ -247,12 +247,24 @@ Experiment.initialize_local(api_key, config = None) : LocalEvaluationClient
 You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
+
+    **LocalEvaluationConfig**
+
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `debug` | Set to `true` to enable debug logging. | `false` |
     | `server_url` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start()`](#start) | `30000` |
     | `flag_config_poller_request_timeout_millis` | The timeout for the request made by the flag config poller | `10000` |
+    | `assignment_config` | Configuration for automatically tracking assignment events after an evaluation. | `None` |
+
+    **AssignmentConfig**
+
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `api_key` | The analytics API key and NOT the experiment deployment key | *required* |
+    | `cache_capacity` | The maximum number of assignments stored in the assignment cache | `65536` |
+    | [Analytics SDK Options](../../data/sdks/python/index.md#configuration) | Options to configure the underlying Amplitude Analytics SDK used to track assignment events |  |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -275,7 +287,10 @@ experiment.start()
 
 Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). Evaluate must be given a user object argument and can optionally be passed an array of flag keys if only a specific subset of required flag variants are required.
 
-```go
+!!!tip "Automatic Assignment Tracking"
+    Set [`assignment_config`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
+
+```python
 evaluate(self, user: User, flag_keys: List[str]) : Dict[str, Variant]
 ```
 
@@ -322,7 +337,7 @@ if device_id is None:
   amp_cookie_value = AmplitudeCookie.generate(device_id)
   resp.set_cookie(amp_cookie_name, {
     "value": amp_cookie_value,
-    "domain": ".yourdomain.com",  # this should be the same domain used by the Amplitude JS SDK
+    "domain": ".your-domain.com",  # this should be the same domain used by the Amplitude JS SDK
     "httponly": False,
     "secure": False
   })

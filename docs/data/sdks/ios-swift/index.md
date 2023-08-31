@@ -4,7 +4,6 @@ description: The Amplitude iOS Swift SDK installation and quick start guide.
 icon: simple/ios
 ---
 
-
 ![CocoaPods](https://img.shields.io/cocoapods/v/AmplitudeSwift)
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
@@ -14,6 +13,8 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 
 --8<-- "includes/no-ampli.md"
     To use Ampli see the [non-Beta SDK](../../sdks/ios/) and [Ampli Wrapper](../../sdks/ios/ampli/) instead. For customers beginning with Amplitude Experiment, please note that this SDK does not support the [Amplitude Experiment integration](https://www.docs.developers.amplitude.com/experiment/sdks/ios-sdk/#initialize). 
+
+--8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
 
 ## Getting started
 
@@ -27,7 +28,7 @@ You must initialize the SDK before you can instrument. The API key for your Ampl
 
 ```swift
 let amplitude = Amplitude(configuration: Configuration(
-    apiKey: 'YOUR-API-KEY'
+    apiKey: AMPLITUDE_API_KEY
 ))
 ```
 
@@ -36,6 +37,11 @@ let amplitude = Amplitude(configuration: Configuration(
 ???config "Configuration Options"
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
+    | `apiKey` | The apiKey of your project. | `nil` |
+    | `instanceName` | The name of the instance. Instances with the same name will share storage and identity. For isolated storage and identity use a unique `instanceName` for each instance. | "default_instance" |
+    | `storageProvider` | Implements a custom `storageProvider` class from `Storage`. | `PersistentStorage` |
+    | `logLevel` | The log level enums: `LogLevelEnum.OFF`, `LogLevelEnum.ERROR`, `LogLevelEnum.WARN`, `LogLevelEnum.LOG`, `LogLevelEnum.DEBUG` | `LogLevelEnum.WARN` | 
+    | `loggerProvider` | Implements a custom `loggerProvider` class from the Logger, and pass it in the configuration during the initialization to help with collecting any error messages from the SDK in a production environment. | `ConsoleLogger` |
     | `flushIntervalMillis` | The amount of time SDK will attempt to upload the unsent events to the server or reach `flushQueueSize` threshold. | `30000` |
     | `flushQueueSize` | SDK will attempt to upload once unsent event count exceeds the event upload threshold or reach `flushIntervalMillis` interval.  | `30` |
     | `flushMaxRetries` | Maximum retry times.  | `5` |
@@ -46,12 +52,13 @@ let amplitude = Amplitude(configuration: Configuration(
     | `callback` | Callback function after event sent. | `nil` |
     | `optOut` | Opt the user out of tracking. | `false` |
     | `trackingSessionEvents` | Flushing of unsent events on app close. | `true` |
-    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout if disable foreground tracking. | `300000` |
+    | `minTimeBetweenSessionsMillis` | The amount of time for session timeout. | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
     | `useBatch` |  Whether to use batch api. | `false` |
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
-    | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |'
+    | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |
+    | `migrateLegacyData` | Available in `0.4.7`+. Whether to migrate [maintenance SDK](../ios) data (events, user/device ID). | `true`|
 
 ### `track`
 
@@ -97,11 +104,33 @@ amplitude.identify(identify: identify)
 
 --8<-- "includes/groups-intro-paragraph.md"
 
-For example, if Joe is in 'orgId' '10' and '16', then the `groupName` would be '[10, 16]'). Here is what your code might look like:
+!!! example
+    If Joe is in 'orgId' '15', then the `groupName` would be '15'.
+
+    ```swift
+    // set group with a single group name
+    amplitude.setGroup(groupType: "orgId", groupName: "15")
+    ```
+
+    If Joe is in 'orgId' 'sport', then the `groupName` would be '["tennis", "soccer"]'.
+
+    ```swift
+    // set group with multiple group names
+    amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
+    ```
+
+--8<-- "includes/event-level-groups-intro.md"
 
 ```swift
-amplitude.setGroup(groupType: "orgId", groupName: "15")
-amplitude.setGroup(groupType: "sport", groupName: ["tennis", "soccer"])
+amplitude.track(
+    event: BaseEvent(
+        eventType: "event type",
+        eventProperties: [
+            "eventPropertyKey": "eventPropertyValue"
+        ], 
+        groups: ["orgId": 15]
+    )
+)
 ```
 
 ### Group identify
@@ -140,7 +169,7 @@ amplitude.revenue(revenue: revenue)
 
 ### Custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```swift
 amplitude.setUserId(userId: "user@amplitude.com")
@@ -152,6 +181,21 @@ You can assign a new device ID using `deviceId`. When setting a custom device I
 
 ```swift
 amplitude.setDeviceId(NSUUID().uuidString)
+```
+
+### Custom storage
+
+If you don't want to store the data in the Amplitude-defined location, you can customize your own storage by implementing the [Storage protocol](https://github.com/amplitude/Amplitude-Swift/blob/211d0c05830fab47e74fa9a053615cf422618a02/Sources/Amplitude/Types.swift#L62-L86) and setting the `storageProvider` in your configuration.
+
+Every iOS app gets a slice of storage just for itself, meaning that you can read and write your app's files there without worrying about colliding with other apps. By default, Amplitude uses this file storage and creates an "amplitude" prefixed folder inside the app "Documents" directory. However, if you need to expose the Documents folder in the native iOS "Files" app and don't want expose "amplitude" prefixed folder, you can customize your own storage provider to persist events on initialization.
+
+```swift
+Amplitude(
+    configuration: Configuration(
+        apiKey: AMPLITUDE_API_KEY,
+        storageProvider: YourOwnStorage() // YourOwnStorage() should implement Storage
+    )
+)
 ```
 
 ### Reset when user logs out
@@ -169,7 +213,7 @@ amplitude.reset()
 
 ## Amplitude SDK plugin
 
-Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to a third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
+Plugins allow you to extend Amplitude SDK's behavior by, for example, modifying event properties (enrichment type) or sending to third-party APIs (destination type). A plugin is an object with methods `setup()` and `execute()`.
 
 ### Plugin.setup
 
@@ -246,6 +290,10 @@ class TestDestinationPlugin: DestinationPlugin {
 }
 ```
 
+## Troubleshooting and Debugging
+
+--8<-- "includes/sdk-troubleshooting-and-debugging/latest-ios.md"
+
 ## Advanced topics
 
 ### User sessions
@@ -259,7 +307,7 @@ You can adjust the time window for which sessions are extended. The default sess
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         minTimeBetweenSessionsMillis: 1000
     )
 )
@@ -271,7 +319,7 @@ You can also disable those session events.
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         trackingSessionEvents: false
     )
 )
@@ -282,7 +330,7 @@ You can define your own session expiration time. The default session expiration 
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         minTimeBetweenSessionsMillis: 100000
     )
 )
@@ -290,7 +338,7 @@ let amplitude = Amplitude(
 
 ### Set custom user ID
 
-If your app has its own login system that you want to track users with, you can call `setUserId` at any time.
+If your app has its login system that you want to track users with, you can call `setUserId` at any time.
 
 ```swift
 amplitude.setUserId(userId: "USER_ID")
@@ -333,7 +381,7 @@ let trackingOptions = TrackingOptions()
 trackingOptions.disableCity().disableIpAddress().disableLatLng()
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         trackingOptions: trackingOptions
     )
 )
@@ -374,7 +422,7 @@ COPPA (Children's Online Privacy Protection Act) restrictions on IDFA, IDFV, cit
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         enableCoppaControl: true
     )
 )
@@ -388,6 +436,22 @@ Advertiser ID (also referred to as IDFA) is a unique identifier provided by the 
 
 To retrieve the IDFA and add it to the tracking events, you can follow this [example plugin](https://github.com/amplitude/Amplitude-Swift/blob/main/Examples/AmplitudeSwiftUIExample/AmplitudeSwiftUIExample/ExamplePlugins/IDFACollectionPlugin.swift) to implement your own plugin.
 
+--8<-- "includes/sdk-device-id/lifecycle-header.md"
+
+1. Device ID of Amplitude instance if it’s set by `setDeviceId()`
+2. IDFV if it exists
+3. A randomly generated UUID string
+
+--8<-- "includes/sdk-device-id/transfer-to-a-new-device.md"
+
+--8<-- "includes/sdk-device-id/get-device-id.md"
+
+```swift
+let deviceId = amplitude.getDeviceId()
+```
+
+To set the device, refer to [custom device ID](./#custom-device-id).
+
 ### Location tracking
 
 Amplitude converts the IP of a user event into a location (GeoIP lookup) by default. This information may be overridden by an app's own tracking solution or user data.
@@ -399,7 +463,7 @@ Users may wish to opt out of tracking entirely, which means Amplitude doesn't tr
 ```swift
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         optOut: true
     )
 )
@@ -438,7 +502,7 @@ class SampleLogger: Logger {
 
 let amplitude = Amplitude(
     configuration: Configuration(
-        apiKey: "YOUR-API-KEY",
+        apiKey: AMPLITUDE_API_KEY,
         loggerProvider: SampleLogger()
     )
 )
