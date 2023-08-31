@@ -3,7 +3,7 @@
     | <div class="big-column">Name</div>  | Description | Default Value |
     | --- | --- | --- |
     |`apiKey`| Required. `string`. The apiKey of your project. | `null` | 
-    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in millionseconds. | @{{flushIntervalSeconds}} second@{% if flushIntervalSeconds > 1 %}s@{% endif %}.|
+    |`flushIntervalMillis`| `number`. The amount of time waiting to upload the event to the server in milliseconds. | @{{flushIntervalSeconds}} second@{% if flushIntervalSeconds > 1 %}s@{% endif %}.|
     |`flushQueueSize`| `number`. The maximum number of events that can be stored locally before forcing an upload.  | @{{flushQueueSize}} events. |
     |`flushMaxRetries`| `number`. The max retry limits. | @{{flushMaxRetries}} times.|
     |`logLevel`| `LogLevel.None` or `LogLevel.Error` or `LogLevel.Warn` or `LogLevel.Verbose` or `LogLevel.Debug`. The log level. | `LogLevel.Warn` |
