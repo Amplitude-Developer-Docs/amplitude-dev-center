@@ -229,10 +229,10 @@ The `setUserProperties` API has been removed, but you can now use the unified `i
 -   "membership": "paid",
 -   "payment": "bank",
 - ])
-+ amplitude.identify(
-    userProperties: ["membership": "paid", "payment": "bank"]
-)
-```
++ amplitude.identify(userProperties: [
++   "membership": "paid",
++   "payment": "bank"
++ ])
 ```
 
 #### `identify()`
