@@ -13,7 +13,7 @@ title: Management API Deployment Endpoints
 ## List deployments
 
 ```bash
-GET https://experiment.amplitude.com/deployments
+GET https://experiment.amplitude.com/api/1/deployments
 ```
 
 Fetch a list of deployments that experiments or flags can be assigned to.

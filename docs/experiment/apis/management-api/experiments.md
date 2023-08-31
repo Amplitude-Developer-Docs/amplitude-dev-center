@@ -675,7 +675,7 @@ A successful request returns a `200 OK` response and `OK` text.
 ## Remove variant
 
 ```bash
-DELETE https://experiment.amplitude.com/experiments/{id}/variants/{variantKey}
+DELETE https://experiment.amplitude.com/api/1/experiments/{id}/variants/{variantKey}
 ```
 
 Remove a variant from an experiment.
@@ -1019,7 +1019,7 @@ A successful request returns a `200 OK` response.
 !!!example "Example cURL"
     ```bash
     curl --request PATCH \
-      --url 'https://experiment.amplitude.com/experiments/<id>' \
+      --url 'https://experiment.amplitude.com/api/1/experiments/<id>' \
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
@@ -1031,7 +1031,7 @@ A successful request returns a `200 OK` response.
 ## Create
 
 ```bash
-POST https://experiment.amplitude.com/experiments
+POST https://experiment.amplitude.com/api/1/experiments
 ```
 
 Create a new experiment.
@@ -1150,7 +1150,7 @@ A successful request returns a `200 OK` response and a JSON object with the expe
 !!!example "Example cURL"
     ```bash
     curl --request POST \
-      --url 'https://experiment.amplitude.com/experiments/new' \
+      --url 'https://experiment.amplitude.com/api/1/experiments' \
       --header 'Content-Type: application/json' \
       --header 'Accept: application/json' \
       --header 'Authorization: Bearer <management-api-key>' \
