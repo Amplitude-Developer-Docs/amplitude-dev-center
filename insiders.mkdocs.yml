@@ -6,7 +6,13 @@ extra_css:
 plugins:
   - search
   - tags #insiders
-  - git-revision-date
+  - git-revision-date-localized
+  - macros:
+      include_dir: macros
+      j2_block_start_string: '@{%'
+      j2_block_end_string: '%}'
+      j2_variable_start_string: '@{{'
+      j2_variable_end_string: '}}'
   - glightbox # enables image light box
   - social: #insiders
       cards_color:
@@ -59,7 +65,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed: # Enables content tabs
-      alternate_style: true 
+      alternate_style: true
       slugify: !!python/object/apply:pymdownx.slugs.slugify
        kwds:
           case: lower
@@ -69,8 +75,8 @@ markdown_extensions:
 
 
 
-# Long explanation for this extra doc. 
+# Long explanation for this extra doc.
 # In order to use config inheritance, everything must use the alternative syntax (key:value vs lists)
-# Lists are replaced wholesale with config inheritence. 
+# Lists are replaced wholesale with config inheritence.
 # I couldn't get alternative syntax to work on mkdocs.yml without throwing constant errors and strange behavior.
-# For now, mkdocs.yml plugins need to be all NON-insiders plugins, and insiders.mkdocs.yml is ALL plugins. 
+# For now, mkdocs.yml plugins need to be all NON-insiders plugins, and insiders.mkdocs.yml is ALL plugins.
