@@ -204,34 +204,34 @@ client.logEvent(event);
     If Joe is in 'orgId' '10', then the `groupName` would be '10':
 
     ```java
-    Event event = new Event("$identify", "test_user_id");
+    Event event = new Event("$identify");
 
-    JSONObject groupProps = new JSONObject();
+    JSONObject groups = new JSONObject();
     try {
-        groupProps.put("orgId", 10);
+        groups.put("orgId", 10);
     } catch (JSONException e) {
         e.printStackTrace();
         System.err.println("Invalid JSON");
     }
 
-    event.groupProperties = groupProps;
+    event.groups = groups;
     client.logEvent(event);
     ```
 
     If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
 
     ```java
-    Event event = new Event("$identify", "test_user_id");
+    Event event = new Event("$identify");
 
-    JSONObject groupProps = new JSONObject();
+    JSONObject groups = new JSONObject();
     try {
-        groupProps.put("sport", new String[] {"tennis", "soccer"});
+        groups.put("sport", new String[] {"tennis", "soccer"});
     } catch (JSONException e) {
         e.printStackTrace();
         System.err.println("Invalid JSON");
     }
 
-    event.groupProperties = groupProps;
+    event.groups = groupProps;
     client.logEvent(event);
     ```
 
@@ -248,6 +248,29 @@ try {
     System.err.println("Invalid JSON");
 }
 event.groups = groups;
+
+client.logEvent(event);
+```
+
+After setting groups, you can then set or update the properties of particular groups. However, these updates will only affect events going forward. 
+
+--8<-- "includes/editions-growth-enterprise-with-accounts.md"
+
+```java
+Event event = new Event("$groupidentify");
+
+JsonObject groups = new JSONObject();
+JSONObject groupProps = new JSONObject();
+
+try {
+    groups.put("orgId", 10);
+    groupProps.put("Hover Time", 10).put("prop_2", "value_2");
+} catch (JSONException e) {
+    e.printStackTrace();
+    System.err.println("Invalid JSON");
+}
+event.groups = groups
+event.groupProperties = groupProps
 
 client.logEvent(event);
 ```
