@@ -263,8 +263,8 @@ JsonObject groups = new JSONObject();
 JSONObject groupProps = new JSONObject();
 
 try {
-    groups.put("orgId", 10);
-    groupProps.put("Hover Time", 10).put("prop_2", "value_2");
+    groups.put("org", "engineering");
+    groupProps.put("technology", "java");
 } catch (JSONException e) {
     e.printStackTrace();
     System.err.println("Invalid JSON");
