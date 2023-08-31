@@ -70,7 +70,7 @@ pod install
 ## Usage
 
 !!!info "Web vs Mobile"
-    The configuration of the SDK is shared across web and mobile platforms, but many of these options simply don't apply when running the SDK on native platforms (for example iOS, Android). For example, the when the SDK is run on web, the identity is stored in the browser cookie by default, whereas on native platforms identity is stored in async storage.
+    The configuration of the SDK is shared across web and mobile platforms, but many of these options simply don't apply when running the SDK on native platforms (for example iOS, Android). For example, when the SDK is run on web, the identity is stored in the browser cookie by default, whereas on native platforms identity is stored in async storage.
 
 ### Initialize the SDK
 
