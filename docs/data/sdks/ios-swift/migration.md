@@ -3,8 +3,6 @@ title: iOS SDK Migration Guide
 description: Use this guide to easily migrate from Amplitude's maintenance iOS SDK (Amplitude-iOS) to the new SDK (Amplitude-Swift).
 ---
 
---8<-- "includes/sdk-missing-migration.md"
-
 The new version of Amplitude's iOS SDK (`Amplitude-Swift`) features a plugin architecture, built-in type definition and broader support for front-end frameworks. The new version isn't backwards compatible with `Amplitude-iOS`. 
 
 To migrate to `Amplitude-Swift`, update your dependencies and instrumentation.
@@ -231,11 +229,10 @@ The `setUserProperties` API has been removed, but you can now use the unified `i
 -   "membership": "paid",
 -   "payment": "bank",
 - ])
-+ let identify = Identify()
-+ identify
-+   .set(property: "membership", value: "paid")
-+   .set(property: "payment", value: "bank")
-+ amplitude.identify(identify: identify)
++ amplitude.identify(
+    userProperties: ["membership": "paid", "payment": "bank"]
+)
+```
 ```
 
 #### `identify()`
@@ -289,8 +286,9 @@ Track revenue using `revenue()` API on `amplitude` without calling `instance()`.
 - Amplitude.instance().logRevenueV2(revenue)
 
 + let revenue = Revenue()
-+ revenue.productId = "123"
-+ revenue1.price = 12
++ revenue.productId = "productIdentifier"
++ revenue.quantity = 3
++ revenue.price = 3.99
 + amplitude.revenue(revenue: revenue)
 ```
 

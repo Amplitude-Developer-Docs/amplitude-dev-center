@@ -4,7 +4,6 @@ description: The Amplitude iOS Swift SDK installation and quick start guide.
 icon: simple/ios
 ---
 
-
 ![CocoaPods](https://img.shields.io/cocoapods/v/AmplitudeSwift)
 
 This is the official documentation for the Amplitude Analytics iOS SDK.
@@ -59,7 +58,7 @@ let amplitude = Amplitude(configuration: Configuration(
     | `useBatch` |  Whether to use batch api. | `false` |
     | `trackingOptions` |  Options to control the values tracked in SDK. | `enable` |
     | `enableCoppaControl` |  Whether to enable COPPA control for tracking options. | `false` |
-    | `migrateLegacyData` | `Boolean`. Available in `0.4.7`+. Whether to migrate [maintenance SDK](../ios) data (events, user/device ID). | `true`|
+    | `migrateLegacyData` | Available in `0.4.7`+. Whether to migrate [maintenance SDK](../ios) data (events, user/device ID). | `true`|
 
 ### `track`
 
