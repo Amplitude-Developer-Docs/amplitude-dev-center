@@ -540,32 +540,7 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     ### Install the dependency
 
-    Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager.
-
-    === "CocoaPods"
-
-        Add the dependency to `Podfile`.
-
-        ```bash
-        pod 'Amplitude', '~> 8.17.1'
-        ```
-        Run `pod install` in the project directory to download the dependency.
-
-    === "Swift Package Manager"
-
-        1. Navigate to `File` > `Swift Package Manager` > `Add Package Dependency`.
-        2. Enter `https://github.com/amplitude/Amplitude-iOS` into the search bar.
-        3. It automatically resolves to the latest version.
-
-        The Amplitude-iOS package appears as a dependency after it's added.
-
-    === "Carthage"
-
-        Add the following line to your `Cartfile`.
-      
-        ```bash
-        github "amplitude/Amplitude-iOS" ~> 8.14
-        ```
+    --8<-- "includes/sdk-ios/ios-install-dependencies.md"
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 
@@ -728,7 +703,8 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
     --8<-- "includes/sdk-quickstart/quickstart-initialize-library.md"
 
     ### Install the dependency
-    --8<-- "includes/sdk-swift/swift-install-dependencies.md"
+
+    --8<-- "includes/sdk-ios/swift-install-dependencies.md"
 
     --8<-- "includes/sdk-quickstart/quickstart-initialization.md"
 

@@ -78,7 +78,8 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
---8<-- "includes/sdk-swift/swift-install-dependencies.md"
+@{% from 'sdks/ios-install-dependencies.md' import ios_install_dependencies %}
+@{{ios_install_dependencies("Amplitude", "8.17.1", "amplitude/Amplitude-iOS")}}
 
 --8<-- "includes/ampli/cli-install-simple.md"
 
