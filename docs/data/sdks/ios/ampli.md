@@ -304,7 +304,11 @@ To migrate to the latest version of Ampli for iOS based on the `Amplitude-Swift`
     ? Select a SDK: AmplitudeSwift ~> 1.0 (recommended)
     ```
 
-2. Run `ampli pull` to pull the latest version of your tracking plan.
+2. Run `ampli pull` to pull the latest version of your tracking plan. Note that `ampli configure` will also prompt to run `ampli pull` for you on runtime change.
+
+    ```shell
+    ampli pull
+    ```
 
 ### Update dependencies
 
