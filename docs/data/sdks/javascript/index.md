@@ -20,6 +20,9 @@ This is the official documentation for the Amplitude Analytics JavaScript SDK.
 
 --8<-- "includes/sdk-browser-supported-version.md"
 
+--8<-- "includes/size/browser.md"
+    For example you can search `amplitude-js@8.21.2`.
+
 ## Install
 
 Install the Amplitude Analytics JavaScript SDK in your project.

@@ -1,0 +1,2 @@
+!!!info "SDK bundle size"
+    You can get the SDK bundle size by checking [Mave repository](https://mvnrepository.com/artifact/com.amplitude). Select the version you are using and you can find size in the "Files" raw after 

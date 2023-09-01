@@ -22,6 +22,8 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 
 --8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
 
+--8<-- "includes/size/ios.md"
+
 ## Getting started
 
 Use [this quickstart guide](../../sdks/sdk-quickstart#ios) to get started with Amplitude iOS SDK.

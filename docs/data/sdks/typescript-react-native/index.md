@@ -19,6 +19,9 @@ The React Native SDK lets you send events to Amplitude. This library is open-sou
 
 --8<-- "includes/sdk-rn/rn-notification.md"
 
+--8<-- "includes/size/browser.md"
+    For example you can search `@amplitude/analytics-react-native@0.5.1`.
+
 ## Compatibility Matrix
 
 The following matrix lists the support for Amplitude React Native SDK version for [different versions of React Native and React Native CLI](https://github.com/react-native-community/cli).
