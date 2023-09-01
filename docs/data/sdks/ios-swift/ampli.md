@@ -59,8 +59,8 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 6. [Track events with strongly typed methods and classes](#track)
 
     ```swift
-    Ampli.instance.songPlayed(SongPlayed(songId: 'song-1');
-    Ampli.instance.track(SongFavorited(songId: 'song-2');
+    Ampli.instance.songPlayed(SongPlayed(songId: "song-1")
+    Ampli.instance.track(SongFavorited(songId: "song-2")
     ```
 
 7. [Flush events before application exit](#flush)
