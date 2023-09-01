@@ -67,7 +67,13 @@ extra_javascript:
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml and insiders.local.build.yml too.
 plugins:
   - search # the search plugin
-  - git-revision-date # enables the git revision date functionality
+  - git-revision-date-localized # enables the git revision date functionality, compatible with macros plugin
+  - macros:
+      include_dir: macros
+      j2_block_start_string: '@{%'
+      j2_block_end_string: '%}'
+      j2_variable_start_string: '@{{'
+      j2_variable_end_string: '}}'
 
 # Extensions
 # When you add or change an extension here, mirror changes in insiders.mkdocs.yml.
