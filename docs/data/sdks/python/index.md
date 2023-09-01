@@ -18,7 +18,7 @@ The Python SDK lets you send events to Amplitude. This library is open-source, c
 --8<-- "includes/ampli-vs-amplitude.md"
 
 !!!info "SDK bundle size"
-    You can get the SDK bundle size by checking pypi. For example [v1.1.3](https://pypi.org/project/amplitude-analytics/1.1.3/#files).
+    You can get the SDK bundle size by checking PyPI. For example [v1.1.3](https://pypi.org/project/amplitude-analytics/1.1.3/#files).
 
 ## Getting started
 
