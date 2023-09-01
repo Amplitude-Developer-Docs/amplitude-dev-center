@@ -201,6 +201,6 @@ Ampli.instance.track(SongPlayed(
 
 --8<-- "includes/ampli/flush/ampli-flush-section.md"
 
---8<-- "includes/ampli/flush/ampli-flush-snippet-ios.md"
+--8<-- "includes/ampli/flush/ampli-flush-snippet-swift.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
