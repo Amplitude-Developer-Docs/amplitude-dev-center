@@ -22,8 +22,10 @@ This is the official documentation for the Amplitude Analytics iOS SDK.
 
 --8<-- "includes/sdk-ios/apple-deprecate-carrier.md"
 
+/*cspell:disable*/
 --8<-- "includes/size/ios.md"
     `./measure_cocoapod_size.py --cocoapods Amplitude:8.17.1`.
+/*cspell:enable*/
 
 ## Getting started
 
