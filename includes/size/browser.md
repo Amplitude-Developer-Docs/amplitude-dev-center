@@ -1,2 +1,2 @@
 !!!info "SDK bundle size"
-    You can get the SDK bundle size by searching the package name with the version you are using in [bundle phobia](https://bundlephobia.com/).
+    Search for the package on [bundle phobia](https://bundlephobia.com/) to view its size and other details.
