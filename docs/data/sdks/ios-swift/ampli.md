@@ -136,7 +136,7 @@ Ampli.instance.identify("userID", Identify(deviceID: "my_device_id")
 Call `setGroup()` to associate a user with their group (for example, their department or company). The `setGroup()` function accepts a required `groupType`, and `groupName`.
 
 ```swift
-Ampli.instance.client.setGroup("groupType", "groupName")
+Ampli.instance.client.setGroup(groupType:"groupType", groupName:"groupName")
 ```
 
 Amplitude supports assigning users to groups and performing queries, such as Count by Distinct, on those groups. If at least one member of the group has performed the specific event, then the count includes the group.
@@ -150,7 +150,7 @@ When setting groups, define a `groupType` and `groupName`. In the previous examp
  Your code might look like this:
 
 ```swift
-Ampli.instance.client.setGroup("orgID", ["10", "20"])
+Ampli.instance.client.setGroup(groupType: "orgID", groupName: ["10", "20"])
 ```
 
 ### Track
