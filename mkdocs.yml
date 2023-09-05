@@ -62,6 +62,8 @@ extra_javascript:
   - /javascripts/tablesort.js #script for Tablesort feature
   - /javascripts/anchor-copy.js #script for copying anchor links
   - /javascripts/statuspage.js #script for status page embed
+  - https://widget.kapa.ai/kapa-widget.bundle.js
+  - /javascripts/init_kapa_widget.js
 
 # Plugins
 # When you add a plugin here, make sure the change is updated in insiders.mkdocs.yml and insiders.local.build.yml too.
