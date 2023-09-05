@@ -63,11 +63,11 @@ If you have set up an API proxy and run into configuration issues related to tha
 
 ##### Events fired but no network requests
 
-If you [set the logger to "Debug" level](./#debug-mode), and you observe the `track()` method being printed in the developer console, it means the track() method has been called. However, if you don't see the corresponding event in Amplitude, the Amplitude Instrumentation Explorer Chrome extension, or the network request tab of the browser, it indicates that the event wasn't sent to Amplitude. Events are fired and placed in the SDK's internal queue upon a successful `track()` call, but sometimes these queued events may not be sent successfully. This can occur, for instance, when an HTTP request is in progress and gets canceled, such as when leaving the page using `history.push()` in React or closing the browser.
+If you [set the logger to "Debug" level](./#debug-mode), and see track calls in the developer console, the `track()` method has been called. If you don't see the corresponding event in Amplitude, the Amplitude Instrumentation Explorer Chrome extension, or the network request tab of the browser, the event wasn't sent to Amplitude. Events are fired and placed in the SDK's internal queue upon a successful `track()` call, but sometimes these queued events may not send successfully. This can happen when an in-progress HTTP request is cancelled. For example, if you close the browser or leave the page with a `history.push()` event in React.
 
-To address this issue, there are two solutions:
+There are two ways to address this issue:
 
-1. If you're using standard network requests, you might want to set the transport to `beacon` during initialization or set the transport to `beacon` upon page exit. However, because `sendBeacon` will send events in the background, it doesn't return server responses and thus cannot retry on failure responses like 4xx or 5xx errors. Also, note that only scheduled requests will be sent out in the background with a sendBeacon configuration. Please refer to the [sendBeacon](./#use-sendbeacon) section for more instructions.
+1. If you use standard network requests, set the transport to `beacon` during initialization or set the transport to `beacon` upon page exit. `sendBeacon` doesn't work in this case because it sends events in the background, and doesn't return server responses like `4xx` or `5xx`. As a result, it doesn't retry on failure. `sendBeacon` sends only scheduled requests in the background. For more information, see the [sendBeacon](./#use-sendbeacon) section.
 
 2. To make track() synchronous, [add the `await` keyword](./#callback) before the call.
 
