@@ -61,8 +61,14 @@ Cross-origin resource sharing (CORS) prevents a malicious site from reading anot
 
 If you have set up an API proxy and run into configuration issues related to that on a platform you’ve selected, that’s no longer an SDK issue but an integration issue between your application and the service provider.
 
-##### Event Dropping When Closes the Browser or Leaves the Page
+##### Events fired but no network requests
 
-If you're using standard network requests, scheduled requests might be dropped if the user closes the browser or leaves the page. To solve this issue, you might want to set the transport to `beacon` during initialization or set the transport to `beacon` upon page exit. However, because `sendBeacon` will send events in the background, it doesn't return server responses and thus cannot retry on failure responses like 4xx or 5xx errors. Also, note that only scheduled requests will be sent out in the background with a `sendBeacon` configuration.
+If you [set the logger to "Debug" level](./#debug-mode), and you observe the `track()` method being printed in the developer console, it means the track() method has been called. However, if you don't see the corresponding event in Amplitude, the Amplitude Instrumentation Explorer Chrome extension, or the network request tab of the browser, it indicates that the event wasn't sent to Amplitude. Events are fired and placed in the SDK's internal queue upon a successful `track()` call, but sometimes these queued events may not be sent successfully. This can occur, for instance, when an HTTP request is in progress and gets canceled, such as when leaving the page using `history.push()` in React or closing the browser.
 
-Please refer to the [sendBeacon](./#use-sendbeacon) section for more instructions.
+To address this issue, there are two solutions:
+
+1. If you're using standard network requests, you might want to set the transport to `beacon` during initialization or set the transport to `beacon` upon page exit. However, because `sendBeacon` will send events in the background, it doesn't return server responses and thus cannot retry on failure responses like 4xx or 5xx errors. Also, note that only scheduled requests will be sent out in the background with a sendBeacon configuration. Please refer to the [sendBeacon](./#use-sendbeacon) section for more instructions.
+
+2. To make track() synchronous, [add the `await` keyword](./#callback) before the call.
+
+
