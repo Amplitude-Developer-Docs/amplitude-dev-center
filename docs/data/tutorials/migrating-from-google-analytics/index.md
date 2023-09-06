@@ -11,6 +11,10 @@ Migrating from the Google Analytics (GA4) SDK to the Amplitude SDK involves adju
 
     While completely replacing Google Analytics (GA4) tracking functions with Amplitude tracking functions is our preferred long-term solution for migrating, Amplitude recognizes that this process can be complex. Amplitude offers a [Google Analytics event forwarder](#using-google-analytics-events-forwarder) that can get you started with your migration quickly, with only one small code change.
 
+!!!note "BigQuery Import for GA4 (Google Analytics 4) Beta"
+
+    We are working on BigQuery Import for GA4 Beta. Please feel free to reach out to <dwh+GA4beta@amplitude.com>. In addition, click [here](/data/sources/bigquery) to view how you can import BigQuery data into Amplitude.
+
 ### Initializing Amplitude
 
 Replace the Google Analytics (GA4) initialization calls with Amplitude initialization calls in your application code. If you are configuring Google Analytics (GA4) like this:
