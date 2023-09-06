@@ -63,7 +63,8 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 11. *(optional)* In **Select additional properties**, select any more user properties you want to send to Kochava. If you don't select any properties here, Amplitude doesn't send any. Transformed event properties and transformed user properties aren't supported.
 12. When finished, enable the destination and **Save**.
 
-#### What is difference between Kochava Device ID and the other identifiers?
+#### What is difference between Kochava Device ID and other identifiers?
+
 Kochava Device ID should be sent as a unique string that is consistent for each instance of the app on a single device. The other identifiers (e.g. Apple Advertising ID and Google Advertising ID) is the relevant mobile advertising IDs. So, Kochava device can have the multiple device ids but **Kochava Device ID** has to be unique. Kochava Device ID can be technically the same string as the other identifiers but it is different concept.
 
 ### Use Cases
