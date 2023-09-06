@@ -59,9 +59,12 @@ To configure an Event Streaming integration from Amplitude to Kochava, you must 
 7. *(Optional)* Paste your secret key to **API secret** (provided by Kochava's CS team).
 8. Under **Send Events**, make sure the toggle is enabled ("Events are sent to Kochava") if you want to stream events to Kochava. When enabled, events are automatically forwarded to Kochava when they're ingested in Amplitude. Events aren't sent on a schedule or on-demand using this integration.
 9. In **Select and Filter** events choose which events you want to send. Choose only the events you need in Kochava. [Transformed events](https://help.amplitude.com/hc/en-us/articles/5913315221915-Transformations-Retroactively-modify-your-event-data-structure#:~:text=Amplitude%20Data's%20transformations%20feature%20allows,them%20to%20all%20historical%20data.) aren't supported.
-10. Click on **Map properties to destination** to specify the identity mapping between Amplitude and Kochava. You must choose at least one of the following identifiers, Apple Advertising ID (idfa), Apple Vendor ID (idfv), Google Advertising ID (adid) and Android ID (android_id).
+10. Click on **Map properties to destination** to specify the identity mapping between Amplitude and Kochava. **Kochava Device ID** and **IP Address** (IP address of the device on install) are required to map to save your sync configuration. You must also choose at least one of the following identifiers, Apple Advertising ID (idfa), Apple Vendor ID (idfv), Google Advertising ID (adid) and Android ID (android_id).
 11. *(optional)* In **Select additional properties**, select any more user properties you want to send to Kochava. If you don't select any properties here, Amplitude doesn't send any. Transformed event properties and transformed user properties aren't supported.
 12. When finished, enable the destination and **Save**.
+
+#### What is difference between Kochava Device ID and the other identifiers?
+Kochava Device ID should be sent as a unique string that is consistent for each instance of the app on a single device. The other identifiers (e.g. Apple Advertising ID and Google Advertising ID) is the relevant mobile advertising IDs. So, Kochava device can have the multiple device ids but **Kochava Device ID** has to be unique. Kochava Device ID can be technically the same string as the other identifiers but it is different concept.
 
 ### Use Cases
 
