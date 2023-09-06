@@ -496,7 +496,7 @@ recommend.amplitude.com/0000/predictions/**0x10x**
 
 !!!note "Multiple Prediction IDs"
 
-    To fetch multiple prediction_id, separate predictionIDs by comma(,). For example: prediction_id=id1,id2. The response with multiple response will be in `propensities` field instead of `propensity` field
+    To fetch multiple prediction_id, separate prediction_id by comma(,). For example: `prediction_id=id1,id2`. Responses for multiple prediction IDs are in the `propensities` field.
 
 ### Request
 
