@@ -98,6 +98,8 @@ The Ampli Wrapper depends on the Amplitude SDK. If you haven't already, install 
 
 ## Ampli Wrapper API
 
+--8<-- "includes/ampli/ampli-ts-client.md"
+
 ### Load
 
 Initialize Ampli in your code.

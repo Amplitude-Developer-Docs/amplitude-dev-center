@@ -1,6 +1,81 @@
+
+
 {% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+{{ super() }}
+<style>
+
+  .DocSearch-Hit-content-wrapper {
+    font-size: 1.25em;
+  }
+
+  .DocSearch-Button {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.26);
+    border: 0;
+    border-radius: 2px;
+    color: rgba(255,255,255,0.8);
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    height: 1.8rem;
+    justify-content: space-between;
+    margin: 0 0 0 16px;
+    padding: 0 8px;
+    user-select: none;
+    transition: color .25s, background-color .25s;
+  }
+
+  .DocSearch-Button:hover, .DocSearch-Button:active {
+    background-color: #ffffff1f;
+    box-shadow: none;
+    color: rgba(255,255,255,0.8);
+    outline: none;
+  }
+
+  .DocSearch-Button .DocSearch-Search-Icon {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .DocSearch-Button-Placeholder {
+    font-size: .8rem;
+    margin-right:1.5rem;
+  }
+
+  .DocSearch-Hit-source {
+    font-size: .5rem;
+  }
+  </style>
+
+
+{% endblock %}
 
 {% block site_meta %}
     {{super()}}
     <meta name="google-site-verification" content="UHLjtoO7DV30dx3hVhwTOIWguEUr_VzS41msmq-uYKA" />
 {% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: 'T85LGF6MNG',
+    apiKey: '84081a5ad9297e37f8ac4f3416cd3684',
+    indexName: 'developers-amplitude',
+    insights: true, // Optional, automatically send insights when user interacts with search result
+    container: '#docsearch',
+    debug: true, // Set debug to true if you want to inspect the modal
+    transformItems(items) {
+      return items.map((item) => ({
+        ...item,
+        url: item.url.replace('https://www.docs.developers.amplitude.com','')
+      }))
+    }
+  });
+</script>
+
+{{ super ()}}
+{% endblock %}
+
