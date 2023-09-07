@@ -1,0 +1,1 @@
+Ampli generates a thin facade over the Amplitude SDK which provides convenience methods. The Ampli Wrapper also grants access to every method of the underlying Amplitude SDK through `ampli.client`. [More details](/data/sdks/ampli-overview/#wrapping-the-amplitude-sdk).

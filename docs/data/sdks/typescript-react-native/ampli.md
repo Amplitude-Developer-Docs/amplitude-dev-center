@@ -98,7 +98,7 @@ If you haven't already, install the core Amplitude SDK dependencies.
 
 ## API
 
---8<-- "includes/ampli/ampli-ts-client.md"
+--8<-- "includes/ampli/ampli-client-api.md"
 
 ### Load
 
