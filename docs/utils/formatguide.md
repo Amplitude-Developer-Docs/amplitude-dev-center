@@ -302,7 +302,7 @@ title: Create a Flag
 description: How to create a feature flag, add a deployment, configure targeting rules, and activate the feature flag.
 template: guide.html
 ---
-``````
+```
 
 On the last page of the guide, set the page's `template` metadata to `guide-last.html`
 
@@ -312,7 +312,7 @@ title: Track Exposure
 description: How to track an exposure event for the variant which a user has been exposed to.
 template: guide-last.html
 ---
-``````
+```
 
 ## Images
 
