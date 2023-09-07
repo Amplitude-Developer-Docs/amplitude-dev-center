@@ -48,6 +48,7 @@
 - :sprig: [Sprig](../data/sources/sprig.md)
 - :survicate: [Survicate](../data/sources/survicate.md)
 - :taplytics: [Taplytics](../data/sources/taplytics.md)
+- :tealium: [Tealium](../data/sources/tealium.md)
 - :tribe: [Tribe](../data/sources/tribe.md)
 - :userflow: [Userflow](../data/sources/userflow.md)
 - :userguiding: [Userguiding](../data/sources/userguiding.md)

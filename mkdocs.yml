@@ -209,6 +209,7 @@ nav:
           - mParticle: data/sources/mparticle.md
           - Rudderstack: data/sources/rudderstack.md
           - Segment: data/sources/segment.md
+          - Tealium: data/sources/tealium.md
         - Collaboration:
           - Tribe: data/sources/tribe.md
         - Customer Engagement:
