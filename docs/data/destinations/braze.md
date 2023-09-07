@@ -3,7 +3,7 @@ title: Braze Event Streaming
 description: Amplitude CDP's Braze streaming integration enables you to forward your Amplitude events and users straight to Braze with just a few clicks.
 ---
 
-Amplitude CDP's Braze streaming integration enables you to forward your Amplitude events and users straight to [Braze](https://www.braze.com/) with just a few clicks.
+The Amplitude CDP Braze streaming integration enables you to forward your Amplitude events and users straight to [Braze](https://www.braze.com/) with just a few clicks.
 
 !!!note "Other Amplitude CDP + Braze integrations"
 
@@ -61,8 +61,9 @@ Under **Send Events**, make sure the toggle is enabled ("Events are sent to Braz
 2. (optional) In **Select additional properties**, select any more event and user properties you want to send to Braze. If you don't select any properties here, Amplitude doesn't send any. These properties are sent to Braze as [Braze custom event properties](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events/#custom-event-properties). _Transformed event properties and transformed user properties aren't supported._
 
 ### Configure user forwarding
+
 !!!warning "Temporarily Disabled"
-    We're actively working on improving the experience of user forwarding to Braze, including addressing concerns around high call volumes which can incur additional costs in Braze. All enabled user forwarding syncs will continue to run. Temporarily, no new user forwarding syncs can be enabled. If an enabled user forwarding sync is disabled, it can not be re-enabled at this time. Event forwarding to Braze is unaffected by this and can still be configured as normal. User forwarding destinations other than Braze are also unaffected and can still be configured as normal.
+    Amplitude is working to improve the experience of user forwarding to Braze, including addressing concerns around high call volumes which can incur additional costs in Braze. All enabled user forwarding syncs will continue to run. Temporarily, no new user forwarding syncs can be enabled. If an enabled user forwarding sync is disabled, it can not be re-enabled at this time. Event forwarding to Braze is unaffected by this and can still be configured as normal. User forwarding destinations other than Braze are also unaffected and can still be configured as normal.
 
 Under **Send Users**, make sure the toggle is enabled ("Users are sent to Braze") if you want to stream users and their properties to Braze. When enabled, users are automatically created or updated in Braze when an event is sent to Amplitude. [Amplitude Identify API](https://www.docs.developers.amplitude.com/analytics/apis/identify-api/) calls are also forwarded to Braze. Users aren't sent on a schedule or on-demand using this integration.
 
