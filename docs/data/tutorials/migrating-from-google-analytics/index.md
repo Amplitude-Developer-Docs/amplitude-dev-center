@@ -13,7 +13,7 @@ Migrating from the Google Analytics (GA4) SDK to the Amplitude SDK involves adju
 
 !!!note "BigQuery Import for GA4 (Google Analytics 4) Beta"
 
-    We are working on BigQuery Import for GA4 Beta. Please feel free to reach out to <dwh+GA4beta@amplitude.com>. In addition, click [here](/data/sources/bigquery) to view how you can import BigQuery data into Amplitude.
+    Amplitude is working on BigQuery Import for GA4 Beta. Contact [dwh+GA4beta@amplitude.com](mailto:dwh+GA4beta@amplitude.com) to learn more. For more information about importing BiqQuery data in to Amplitude, see the [BigQuery Source documentation](/data/sources/bigquery).
 
 ### Initializing Amplitude
 
