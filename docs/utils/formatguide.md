@@ -2,6 +2,12 @@
 title: Format Guide
 description: See how different formatting options render
 ---
+<!-- /* cSpell:disable */ -->
+<!-- markdownlint-disable MD037 -->
+<!-- markdownlint-disable MD040 -->
+<!-- markdownlint-disable MD048 -->
+<!-- markdownlint-disable MD012 -->
+<!-- markdownlint-disable MD031 -->
 
 This cheatsheet covers the most used formatting features like admonitions and code blocks.
 
