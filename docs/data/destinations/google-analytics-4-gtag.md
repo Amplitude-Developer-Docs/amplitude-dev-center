@@ -9,6 +9,10 @@ Amplitude CDP's Google Analytics 4 (Web) streaming integration enables you to fo
 
       Google Analytics 4 (Web) destination works with a web application instrumented with Google Tag (gtag.js). If you are working with an iOS or Android mobile application using Firebase, set up a [Google Analytics 4 (iOS/Android)](../google-analytics-4-firebase) destination instead.
 
+!!!note "BigQuery Import for GA4 (Google Analytics 4) Beta"
+
+    Amplitude is working on a beta version of BigQuery Import for GA4. Contact [dwh+GA4beta@amplitude.com](mailto:dwh+GA4beta@amplitude.com) to learn more. For more information about importing BiqQuery data in to Amplitude, see the [BigQuery Source documentation](/data/sources/bigquery).
+
 ## Setup
 
 ### Prerequisites
