@@ -33,7 +33,8 @@ To configure streaming from Amplitude to Braze, you need the following informati
 1. Select your **Braze API Endpoint**.
 2. Enter your **Braze API Key**.
 3. Enter your **Braze App ID**.
-4. Check **Update Users Only** to only update users that exist in Braze, and not create new ones. If you're sending alias-only user profiles, don't check this field. If you check **Update Users Only**, your alias-only user profiles aren't created in Braze. More information available in the [Braze documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
+4. If you are using [Braze User Alias](https://www.braze.com/docs/api/objects_filters/user_alias_object) to identify your users on Braze, enter the **Braze User Alias Label** you plan on using. Otherwise this field can be safely ignored.
+5. Check **Update Users Only** to only update users that exist in Braze, and not create new ones. If you're sending alias-only user profiles, don't check this field. If you check **Update Users Only**, your alias-only user profiles aren't created in Braze. More information available in the [Braze documentation](https://www.braze.com/docs/api/objects_filters/user_attributes_object).
 
 ### Configure mappings
 
