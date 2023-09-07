@@ -21,13 +21,14 @@ There are two ways you can integrate Tealium iQ with your website: you can use T
 
 To integrate Tealium with Amplitude, follow these steps:
 
+<!-- /* cSpell:disable */ -->
+
 1. In your Tealium workspace, create a [**data layer**](#the-data-layer) for your application. This is where you define the variables you need. (See the next section for more details.)
 2. Next, create a project for your data on Amplitude. This generates an API key for you.
 3. In the *Tags* tab in Tealium, add Amplitude. You can input the Amplitude API key in the tag configuration. You can also create load rules and data mappings here.
 4. In Tealium, navigate to the Code Center, which can you can find in the dropdown menu in the top right-hand corner. This is where you find the JavaScript snippet to paste into your app.
 5. In your app, paste the snippet after the opening `body` tag. Specify the environment and whether you want to load the tags synchronously or asynchronously. (Asynchronously provides faster page loading. Amplitude's JavaScript SDK also loads asynchronously.)  
 
-<!-- /* cSpell:disable */ -->
     ```js
     <script type="text/javascript">  
     var utag_data = {  
@@ -46,10 +47,10 @@ To integrate Tealium with Amplitude, follow these steps:
         })();  
     </script>  
     ```
-<!-- /* cSpell:enable */ -->
 
 6. Make sure all variables you're adding to your instrumentation code have been defined in the *Data Layer* tab. Then, add an Amplitude vendor tag for any events you want to track. Tags can't have multiple variables mapped to the same destination; to send multiple events from the same page load, configure separate vendor tags for each. The destinations represent the different forms of data that you can send to Amplitude:  
-  
+<!-- /* cSpell:enable */ -->
+
 ## The data layer
 
 Tealium iQ uses data layers, which are a spec of the data that flow from a company's digital products and identifies events containing certain event attributes. After you define the data layer, you can install it across all your digital products and use that data for tag vendor configurations like Amplitude. The data layer is vendor-neutral, so you can instrument a data layer and then send it to many different vendor tags.
