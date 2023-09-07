@@ -27,6 +27,7 @@ To integrate Tealium with Amplitude, follow these steps:
 4. In Tealium, navigate to the Code Center, which can you can find in the dropdown menu in the top right-hand corner. This is where you find the JavaScript snippet to paste into your app.
 5. In your app, paste the snippet after the opening `body` tag. Specify the environment and whether you want to load the tags synchronously or asynchronously. (Asynchronously provides faster page loading. Amplitude's JavaScript SDK also loads asynchronously.)  
 
+<!-- /* cSpell:disable */ -->
     ```js
     <script type="text/javascript">  
     var utag_data = {  
@@ -45,6 +46,7 @@ To integrate Tealium with Amplitude, follow these steps:
         })();  
     </script>  
     ```
+<!-- /* cSpell:enable */ -->
 
 6. Make sure all variables you're adding to your instrumentation code have been defined in the *Data Layer* tab. Then, add an Amplitude vendor tag for any events you want to track. Tags can't have multiple variables mapped to the same destination; to send multiple events from the same page load, configure separate vendor tags for each. The destinations represent the different forms of data that you can send to Amplitude:  
   
@@ -59,6 +61,7 @@ In the data layer, you can define the following variable types:
 
 * **UDO Variables:** Variables defined in your UDO. This is a JavaScript object on your website. It contains dynamic values that describe each page and visitor:
 
+<!-- /* cSpell:disable */ -->
 ```js
 <script type="text/javascript">  
     var utag_data={
@@ -76,7 +79,7 @@ In the data layer, you can define the following variable types:
     };
 </script> 
 ```
-
+<!-- /* cSpell:enable */ -->
 * **Querystring Parameters:** This captures parameters from the URL. For example, if the URL is `http://example.com/path/file.html?sortOrder=price`,  the variable name in Tealium is `sortOrder`.
 * **First-Party Cookies:** Reference value in a cookie being set on your domain. When creating a cookie variable, you can either specify Tealium cookie, `utag_main`, or standard cookie. You can also add your own custom values to the `utag_main cookie`. The `utag.js` library creates and maintains a single cookie called `utag_main`; within it are several built-in values that keep track of the visitor session.
     * `ses_id`: Unique identifier for the session.
