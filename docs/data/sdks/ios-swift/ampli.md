@@ -88,6 +88,8 @@ If you haven't already, install the core Amplitude SDK dependencies.
 
 ## API
 
+--8<-- "includes/ampli/ampli-client-api.md"
+
 ### Load
 
 Initialize Ampli in your code. The `load()` method accepts configuration option arguments:
