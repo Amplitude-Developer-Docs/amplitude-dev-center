@@ -92,7 +92,7 @@ In the data layer, you can define the following variable types:
 * **JavaScript Variables:** Select this to reference a JavaScript variable on the web page other than the `utag_data` object.
 * **Meta Data Elements:** Reference content of a meta tag in the page.
 * **AudienceStream Attributes:** Attributes such as badges, metrics, and properties that are defined in AudienceStream, which takes data that flows into Tealium's other product (Universal Data Hub) and creates visitor profiles representing the most important attributes of user engagement.
-<!-- /* cSpell:enable */ -->
+
 ### Load rules
 
 Load rules are conditions that define when and where to load a tag. They consist of logical conditions that must pass before Amplitude loads a tag. For example, you can set it up so that only certain tags load on certain domains. You can use AND/OR logic or time/date-based conditions to load tags.
@@ -137,3 +137,4 @@ You can delete load rules when they're no longer useful to you, or just deactiva
     ```
 
 * You can configure the different SDK settings by mapping variables to the available destinations.
+<!-- /* cSpell:enable */ -->
