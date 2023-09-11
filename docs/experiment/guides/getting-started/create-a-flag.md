@@ -9,7 +9,7 @@ To create a [flag](../../general/data-model.md#flags-and-experiments), first nav
 1. From the Flags screen in Experiment, select your target project from the dropdowns.
 2. Click **Create Flag**.
 3. Enter a **Name** for the flag.
-   1. Experiment will automatically generate a normalized **Key** for your flag/experiment. The key is the string which is used to access the variant in you application. You may choose to customize this key, as once the key is set it can't be changed.
+   1. Experiment will automatically generate a normalized **Key** for your flag/experiment. The key is the string which is used to access the variant in your application. You may choose to customize this key, as once the key is set it can't be changed.
 4. (Optional) Enter a **Flag Description** to better describe the flag.
 5. Save the experiment configuration. You can edit most fields from the flag's settings.
 
