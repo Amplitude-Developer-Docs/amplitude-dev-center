@@ -7,7 +7,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 
 !!!note "Some features require Amplitude Audiences"
 
-    To get cohort IDs or recommendation IDs, you must have a plan with Audiences. 
+    To get cohort IDs or recommendation IDs, you must have a plan with Audiences.
 
 --8<-- "includes/postman-interactive.md"
 
@@ -41,7 +41,7 @@ The User Profile API serves Amplitude user profiles, which include user properti
 **Throttling errors**
 
 - Amplitude orgs have a limit of 100,000 recommendation requests per minute. If you go above this limit, the API returns the following error response:
-    - `{"error":"Number of requests per minute exceeds system limit. Contact Support if you need this limit raised"}` 
+    - `{"error":"Number of requests per minute exceeds system limit. Contact Support if you need this limit raised"}`
 - For batch recommendation use cases, consider rate limiting your requests so you don't go above this limit.
 - If you need this limit increased for your org, contact Support.
 
@@ -353,7 +353,7 @@ Retrieves a user's cohort IDs.
 
 Computations convert events into a new user property you can use to segment your users.
 
-Computations work by transforming an event or event property into a computed user property. 
+Computations work by transforming an event or event property into a computed user property.
 You can use the computed property as a configurable filter in any Amplitude chart for analysis, or as a personalization tool by syncing it to an external destination.
 
 ### Request
@@ -367,7 +367,7 @@ Retrieve all computations for a user.
     --header 'Authorization: Api-Key <SECRET KEY>'
     ```
 
-=== "HTTP" 
+=== "HTTP"
 
     ```bash
     GET /v1/userprofile?get_computations=true&user_id=USER_ID HTTP/1.1
@@ -382,11 +382,11 @@ Retrieve all computations for a user.
     === "cURL"
 
         ```bash
-        curl --location --request GET 'https://profile-api.amplitude.com/v1/userprofile?user_id=12345&get_computations=true'        
+        curl --location --request GET 'https://profile-api.amplitude.com/v1/userprofile?user_id=12345&get_computations=true'
         --header 'Authorization: Api-Key 123456789'
         ```
 
-    === "HTTP" 
+    === "HTTP"
 
         ```bash
         GET /v1/userprofile?get_computations=true&user_id=1234 HTTP/1.1
@@ -433,7 +433,7 @@ Retrieve a computation for a user by ID.
     --header 'Authorization: Api-Key <SECRET KEY>'
     ```
 
-=== "HTTP" 
+=== "HTTP"
 
     ```bash
     GET /v1/userprofile?user_id=USER_ID&get_computations=true&comp_id=COMP_ID HTTP/1.1
@@ -448,11 +448,11 @@ Retrieve a computation for a user by ID.
     === "cURL"
 
         ```bash
-        curl --location --request GET 'https://profile-api.amplitude.com/v1/userprofile?user_id=12345&get_computations=true&comp_id=t14bqib'        
+        curl --location --request GET 'https://profile-api.amplitude.com/v1/userprofile?user_id=12345&get_computations=true&comp_id=t14bqib'
         --header 'Authorization: Api-Key 123456789'
         ```
 
-    === "HTTP" 
+    === "HTTP"
 
         ```bash
         GET /v1/userprofile?get_computations=true&user_id=1234&comp_id=t14bqib HTTP/1.1
@@ -476,7 +476,7 @@ Retrieve a computation for a user by ID.
 }
 ```
 
-## Get prediction propensity
+## Get single/multiple prediction propensity
 
 !!!note "Feature availability"
 
@@ -493,6 +493,10 @@ Score is the raw propensity score.
 Find the `prediction_id` by navigating to the prediction in the Audiences web app and copying the ID at the end of the URL. The ID is bold in this example:
 
 recommend.amplitude.com/0000/predictions/**0x10x**
+
+!!!note "Multiple Prediction IDs"
+
+    To fetch multiple prediction_id, separate prediction_id by comma(,). For example: `prediction_id=id1,id2`. Responses for multiple prediction IDs are in the `propensities` field.
 
 ### Request
 
@@ -547,8 +551,25 @@ recommend.amplitude.com/0000/predictions/**0x10x**
             Host: profile-api.amplitude.com
             Authorization: Api-Key 123456789
             ```
+    ???code-example "Propensity percentage with multiple prediction IDs example"
 
-### Response 
+        This example requests a propensity percentage for prediction ID `0x10x` and `0x11x` for the user ID `12345`.
+
+        === "cURL"
+
+            ```bash
+            curl --location --request GET 'https://profile-api.amplitude.com/v1/userprofile?user_id=12345&get_propensity=true&prediction_id=0x10x,0x11x&propensity_type=pct'
+            --header 'Authorization: Api-Key 123456789'
+            ```
+        === "HTTP"
+
+            ```bash
+            GET /v1/userprofile?user_id=12345&get_propensity=&prediction_id=0x10x,0x11x&propensity_type=pct HTTP/1.1
+            Host: profile-api.amplitude.com
+            Authorization: Api-Key 123456789
+            ```
+
+### Response
 
 === "Prediction propensity score response"
 
@@ -557,11 +578,17 @@ recommend.amplitude.com/0000/predictions/**0x10x**
       "userData": {
         "recommendations": null,
         "user_id": "testUser",
-        "device_id": "ffff-ffff-ffff-ffff",
-        "amp_props": {
-          "computed-prop-2": "3"
-        },
-        "propensity": 0.500001
+        "device_id": null,
+        "amp_props": null,
+        "cohort_ids": null,
+        "propensity": 0.500001,
+        "propensities": [
+            {
+                "prop": 0.500001,
+                "pred_id": "0x10x",
+                "prop_type": "score"
+            }
+        ]
       }
     }
     ```
@@ -573,11 +600,44 @@ recommend.amplitude.com/0000/predictions/**0x10x**
       "userData": {
         "recommendations": null,
         "user_id": "testUser",
-        "device_id": "ffff-ffff-ffff-ffff",
-        "amp_props": {
-          "computed-prop-2": "3"
-        },
-        "propensity": 83
+        "device_id": null,
+        "amp_props": null,
+        "cohort_ids": null,
+        "propensity": 83,
+        "propensities": [
+            {
+                "prop": 83,
+                "pred_id": "0x10x",
+                "prop_type": "pct"
+            }
+        ]
+      }
+    }
+    ```
+
+=== "Prediction propensity score with multiple prediction IDs response"
+
+    ```json
+    {
+      "userData": {
+        "recommendations": null,
+        "user_id": "testUser",
+        "device_id": null,
+        "amp_props": null,
+        "cohort_ids": null,
+        "propensity": null,
+        "propensities": [
+            {
+                "prop": 83,
+                "pred_id": "0x10x",
+                "prop_type": "score"
+            },
+            {
+                "prop": 85,
+                "pred_id": "0x11x",
+                "prop_type": "score"
+            }
+        ]
       }
     }
     ```
