@@ -278,12 +278,34 @@ AmplitudeExperiment.initialize_local(api_key)
 You can configure the SDK client on initialization.
 
 ???config "Configuration Options"
+  
+    **LocalEvaluationConfig**
+
     | <div class="big-column">Name</div> | Description | Default Value |
     | --- | --- | --- |
     | `server_url` | The host to fetch flag configurations from. | `https://api.lab.amplitude.com` |
     | `bootstrap` | Bootstrap the client with a map of flag key to flag configuration | `{}` |
     | `flag_config_polling_interval_millis` | The interval to poll for updated flag configs after calling [`start`](#start) | `30000` |
     | `debug` | Set to `true` to enable debug logging. | `false` |
+    | `assignment_config` | Configuration for automatically tracking assignment events after an evaluation. | `None` |
+
+    **AssignmentConfig**
+
+    | <div class="big-column">Name</div> | Description | Default Value |
+    | --- | --- | --- |
+    | `api_key` | The analytics API key and NOT the experiment deployment key | *required* |
+    | `cache_capacity` | The maximum number of assignments stored in the assignment cache | `65536` |
+    | `flush_queue_size` | Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `flush_queue_size`. | `200` |
+    | `flush_interval_millis` | Events wait in the buffer and are sent in a batch. The buffer is flushed every `flush_interval_millis` milliseconds. | `10 seconds` |
+    | `flush_max_retries` | The number of times the client retries an event when the request returns an error. | `12` |
+    | `logger` | The logger instance used by Amplitude client. | Default Ruby logger |
+    | `min_id_length` | The minimum length of `user_id` and `device_id`. | `5` |
+    | `callback`  | Client level callback function. Takes three parameters:<br> 1. event: a Event instance<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. | `None` |
+    | `server_zone` | The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. | `US` |
+    | `server_url` | The API endpoint URL that events are sent to. Automatically selected by `server_zone` and `use_batch`. If this field is set with a string value instead of `None`, then `server_zone` and `use_batch` are ignored and the string value is used. | `https://api2.amplitude.com/2/httpapi` |
+    | `use_batch` | Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. | `False` |
+    | `storage_provider` | Used to create storage instance to hold events in the storage buffer. Events in storage buffer are waiting to be sent. | `InMemoryStorageProvider` |
+    | `opt_out`  | Opt out option. If set to `True`, client doesn't process and send events. | `False` |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
@@ -304,7 +326,10 @@ experiment.start
 
 ### Evaluate
 
-Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start()`](#start). You must give evaluate a user object argument, and can you can optionally pass it an array of flag keys if only a specific subset of required flag variants are required.
+Executes the [evaluation logic](../general/evaluation/implementation.md) using the flags pre-fetched on [`start`](#start). You must give evaluate a user object argument, and can you can optionally pass it an array of flag keys if only a specific subset of required flag variants are required.
+
+!!!tip "Automatic Assignment Tracking"
+    Set [`assignment_config`](#configuration_1) to automatically track an assignment event to Amplitude when `evaluate()` is called.
 
 ```ruby
 evaluate(user, flag_keys)
