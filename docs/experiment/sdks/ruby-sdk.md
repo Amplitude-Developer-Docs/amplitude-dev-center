@@ -295,16 +295,10 @@ You can configure the SDK client on initialization.
     | --- | --- | --- |
     | `api_key` | The analytics API key and NOT the experiment deployment key | *required* |
     | `cache_capacity` | The maximum number of assignments stored in the assignment cache | `65536` |
-    | Analytics Client Options | Options to configure the underlying Amplitude Analytics client used to track assignment events |  |
-
-    **Analytics Client Options**
-
-    | <div class="big-column">Name</div>  | Description | Default Value |
-    | --- | --- | --- |
     | `flush_queue_size` | `Integer`. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `flush_queue_size`. | `200` |
     | `flush_interval_millis` | `Integer`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `flush_interval_millis` milliseconds. | `10 seconds` |
     | `flush_max_retries` | `Integer`. The number of times the client retries an event when the request returns an error. | `12` |
-    | `logger` | Logger. The logger instance used by Amplitude client. | `[python built-in logging](https://docs.python.org/3/library/logging.html#logger-objects): logging.getLogger(name)`. |
+    | `logger` | Logger. The logger instance used by Amplitude client. | Default Ruby logger |
     | `min_id_length` | `Integer`. The minimum length of `user_id` and `device_id`. | `5` |
     | `callback`  | `Function`. Client level callback function. Takes three parameters:<br> 1. event: a Event instance<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. | `None` |
     | `server_zone` |`String`. The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. | `US` |
