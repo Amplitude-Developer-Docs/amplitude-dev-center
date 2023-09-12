@@ -295,17 +295,17 @@ You can configure the SDK client on initialization.
     | --- | --- | --- |
     | `api_key` | The analytics API key and NOT the experiment deployment key | *required* |
     | `cache_capacity` | The maximum number of assignments stored in the assignment cache | `65536` |
-    | `flush_queue_size` | `Integer`. Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `flush_queue_size`. | `200` |
-    | `flush_interval_millis` | `Integer`. Events wait in the buffer and are sent in a batch. The buffer is flushed every `flush_interval_millis` milliseconds. | `10 seconds` |
-    | `flush_max_retries` | `Integer`. The number of times the client retries an event when the request returns an error. | `12` |
-    | `logger` | Logger. The logger instance used by Amplitude client. | Default Ruby logger |
-    | `min_id_length` | `Integer`. The minimum length of `user_id` and `device_id`. | `5` |
-    | `callback`  | `Function`. Client level callback function. Takes three parameters:<br> 1. event: a Event instance<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. | `None` |
-    | `server_zone` |`String`. The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. | `US` |
-    | `server_url` | `String`. The API endpoint URL that events are sent to. Automatically selected by `server_zone` and `use_batch`. If this field is set with a string value instead of `None`, then `server_zone` and `use_batch` are ignored and the string value is used. | `https://api2.amplitude.com/2/httpapi` |
-    | `use_batch` | `Boolean`.  Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. | `False` |
-    | `storage_provider` | `StorageProvider`. Used to create storage instance to hold events in the storage buffer. Events in storage buffer are waiting to be sent. | `InMemoryStorageProvider` |
-    | `opt_out`  | `Boolean`. Opt out option. If set to `True`, client doesn't process and send events. | `False` |
+    | `flush_queue_size` | Events wait in the buffer and are sent in a batch. The buffer is flushed when the number of events reaches `flush_queue_size`. | `200` |
+    | `flush_interval_millis` | Events wait in the buffer and are sent in a batch. The buffer is flushed every `flush_interval_millis` milliseconds. | `10 seconds` |
+    | `flush_max_retries` | The number of times the client retries an event when the request returns an error. | `12` |
+    | `logger` | The logger instance used by Amplitude client. | Default Ruby logger |
+    | `min_id_length` | The minimum length of `user_id` and `device_id`. | `5` |
+    | `callback`  | Client level callback function. Takes three parameters:<br> 1. event: a Event instance<br> 2. code: a integer of HTTP response code <br> 3. message: a string message. | `None` |
+    | `server_zone` | The server zone of the projects. Supports `EU` and `US`. For EU data residency, Change to `EU`. | `US` |
+    | `server_url` | The API endpoint URL that events are sent to. Automatically selected by `server_zone` and `use_batch`. If this field is set with a string value instead of `None`, then `server_zone` and `use_batch` are ignored and the string value is used. | `https://api2.amplitude.com/2/httpapi` |
+    | `use_batch` | Whether to use [batch API](../../../analytics/apis/batch-event-upload-api/#batch-event-upload). By default, the SDK will use the default `serverUrl`. | `False` |
+    | `storage_provider` | Used to create storage instance to hold events in the storage buffer. Events in storage buffer are waiting to be sent. | `InMemoryStorageProvider` |
+    | `opt_out`  | Opt out option. If set to `True`, client doesn't process and send events. | `False` |
 
 !!!info "EU Data Center"
     If you're using Amplitude's EU data center, configure the `serverUrl` option on initialization to `https://api.lab.eu.amplitude.com`
