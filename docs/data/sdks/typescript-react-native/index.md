@@ -728,11 +728,11 @@ Android Ad ID is a unique identifier for each device. Android Ad ID is reset by 
 
 To use Android Ad ID, follow these steps.
 
-1. Add `play-services-ads` as a dependency to the Android project of your app. More detailed setup is [described in our latest Android SDK docs](/data/sdks/android-kotlin/#advertiser-id).
+1. Add `play-services-ads-identifier` as a dependency to the Android project of your app. More detailed setup is [described in our latest Android SDK docs](/data/sdks/android-kotlin/#advertiser-id).
 
     ```bash
     dependencies {
-      implementation 'com.google.android.gms:play-services-ads:18.3.0'
+      implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
     }
     ```
 
