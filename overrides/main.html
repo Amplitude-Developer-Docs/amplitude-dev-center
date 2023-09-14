@@ -9,17 +9,77 @@
 {% block libs %}
 
 {{ super() }}
+
+<script src="https://unpkg.com/@amplitude/experiment-js-client@1.9.0/dist/experiment.umd.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    var script = document.createElement("script");
-    script.src = "https://widget.kapa.ai/kapa-widget-v1.1.0.bundle.js";
-    script.setAttribute("data-website-id", "ad8ecaa4-5c43-413b-9d0a-8114b6e1f831");
-    script.setAttribute("data-project-name", "Amplitude");
-    script.setAttribute("data-project-color", "#301661");
-    script.setAttribute("data-project-logo", "https://avatars.githubusercontent.com/u/2291562?s=280&v=4");
-    script.async = true;
-    document.head.appendChild(script);
-  });
+    function getPageInfo() {
+        return {
+            path: window.location.pathname,
+            product: window.location.pathname.split('/')[1],
+            url: window.location.href
+        };
+    }
+
+    const initKapa = function () {
+        document.addEventListener("DOMContentLoaded", function () {
+        var script = document.createElement("script");
+        script.src = "https://widget.kapa.ai/kapa-widget-v1.1.0.bundle.js";
+        script.setAttribute("data-website-id", "ad8ecaa4-5c43-413b-9d0a-8114b6e1f831");
+        script.setAttribute("data-project-name", "Amplitude");
+        script.setAttribute("data-project-color", "#301661");
+        script.setAttribute("data-project-logo", "https://avatars.githubusercontent.com/u/2291562?s=280&v=4");
+        script.async = true;
+        document.head.appendChild(script);
+        // Tracking stuff starts here. 
+        setTimeout( function(){
+            const kapaWidget = document.getElementById("kapa-widget-container")
+        
+            kapaWidget.addEventListener("click", function () {
+                
+                amplitude.track('Kapa Click', getPageInfo())
+                setTimeout( function (){
+                    const kapaSearchButton = document.getElementsByClassName("mantine-UnstyledButton-root mantine-ActionIcon-root")
+                    const kapaSearchBox = document.getElementsByClassName('mantine-Input-input mantine-Textarea-input')
+                    kapaSearchButton[1].addEventListener("submit", function () {
+                    let kapaQuestion = kapaSearchBox[0].value
+                    // Kapa Search event here
+                        amplitude.track('Kapa Search', {
+                            ...getPageInfo(),
+                            question: kapaQuestion
+                            }
+                        )
+                    })
+                }, 1000)          
+            })
+        }, 1500);
+        });
+    }
+    
+    window.experiment = Experiment.Experiment.initializeWithAmplitudeAnalytics(
+        'client-TF7RK1kKHIpd9sS2tn63MrevvXTmriJv',
+        {
+            fetchOnStart: true
+        }
+    );
+
+    // await experiment.start();
+    experiment.start().then(() => {
+        const variant = experiment.variant('kapa-ai-widget');
+    if (variant.value === 'on') {
+        console.log('variant on')
+        initKapa()
+    } else {
+        console.log('variant off')
+        //initKapa()
+    }
+    })
+
+   
+
+
+
+
+    
 </script>
 
 {% endblock %}
