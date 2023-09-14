@@ -149,7 +149,12 @@ window.experiment = Experiment.Experiment.initializeWithAmplitudeAnalytics(
 experiment.start().then(() => {
     const variant = experiment.variant('kapa-ai-widget');
     if (variant.value === 'on') {
-        initKapa()
+        if (document.readyState != 'loading') {
+          initKapa()
+        } else {
+          document.addEventListener("DOMContentLoaded", initKapa())
+        }
+        
     }
 })
 </script>
