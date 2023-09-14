@@ -8,11 +8,11 @@ Follow these steps to use Android Ad ID.
 
     As of April 1, 2022, Google allows users to opt out of Ad ID tracking. Ad ID may return null or error. You can use am alternative ID called [App Set ID](#app-set-id), which is unique to every app install on a device. [Learn more](https://support.google.com/googleplay/android-developer/answer/6048248?hl=en).
 
-1. Add `play-services-ads` as a dependency.
+1. Add `play-services-ads-identifier` as a dependency.
 
     ```bash
     dependencies {
-      implementation 'com.google.android.gms:play-services-ads:18.3.0'
+      implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
     }
     ```
 

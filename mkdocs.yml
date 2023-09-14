@@ -209,6 +209,7 @@ nav:
           - mParticle: data/sources/mparticle.md
           - Rudderstack: data/sources/rudderstack.md
           - Segment: data/sources/segment.md
+          - Tealium: data/sources/tealium.md
         - Collaboration:
           - Tribe: data/sources/tribe.md
         - Customer Engagement:
@@ -424,7 +425,7 @@ nav:
           - React Native SDK: experiment/sdks/react-native-sdk-legacy.md
       - REST APIs:
         - Evaluation API: experiment/apis/evaluation-api.md
-        - Management API: 
+        - Management API:
           - experiment/apis/management-api/index.md
           - Flags: experiment/apis/management-api/flags.md
           - Experiments: experiment/apis/management-api/experiments.md
@@ -492,6 +493,7 @@ nav:
         - Migration Guide: data/sdks/ios-swift/migration.md
       - iOS (Beta):
         - data/sdks/ios-swift/index.md
+        - Ampli Codegen: data/sdks/ios-swift/ampli.md
       - Java:
         - data/sdks/java/index.md
         - Ampli Codegen: data/sdks/java/ampli.md

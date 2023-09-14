@@ -15,7 +15,7 @@ With Amplitude's BigQuery integration, you can ingest BigQuery data directly int
 
 !!!note "BigQuery Import for GA4 (Google Analytics 4) Beta"
 
-    We are working on BigQuery Import for GA4 Beta. Please feel free to reach out to <dwh+GA4beta@amplitude.com>.
+    Amplitude is working on a beta version of BigQuery Import for GA4. Contact [dwh+GA4beta@amplitude.com](mailto:dwh+GA4beta@amplitude.com) to learn more. For more information about importing BiqQuery data in to Amplitude, see the [BigQuery Source documentation](/data/sources/bigquery).
 
 ## Prerequisites
 

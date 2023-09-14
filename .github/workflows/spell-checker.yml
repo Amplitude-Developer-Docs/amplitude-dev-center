@@ -15,13 +15,20 @@ jobs:
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-      # Setup Node
-      - name: Setup Node 18
-        uses: actions/setup-node@v3
+      - name: Spell Check
+        uses: streetsidesoftware/cspell-action@v3
         with:
-          node-version: 18
-      - name: Install spell checker
-        run: npm i -g cspell@^6.31.2
-      # cspell
-      - name: Run spell checker
-        run: cspell lint -c cspell.json --show-context --no-progress --relative "**/*.md"
+          github_token: '${{ secrets.PAT || secrets.GITHUB_TOKEN }}'
+          files: '**/*.md'
+          incremental_files_only: true
+          config: '.'
+      # Setup Node
+      # - name: Setup Node 18
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18
+      # - name: Install spell checker
+      #   run: npm i -g cspell@^6.31.2
+      # # cspell
+      # - name: Run spell checker
+      #   run: cspell lint -c cspell.json --show-context --no-progress --relative "**/*.md"

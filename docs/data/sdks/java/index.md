@@ -181,16 +181,11 @@ client.logEvent(new Event("Button Clicked", "test_user_id"));
 Events can also contain properties. They provide context about the event taken. For example, "hover time" may be a relevant event property to "button click."
 
 ```java
-Event event = new Event("Button Clicked", "test_user_id");
+JSONObject eventProps = new JSONObject()
+    .put("Hover Time", 10)
+    .put("prop_2", "value_2");
 
-JSONObject eventProps = new JSONObject();
-try {
-  eventProps.put("Hover Time", 10).put("prop_2", "value_2");
-} catch (JSONException e) {
-  System.err.println("Invalid JSON");
-  e.printStackTrace();
-}
-
+Event event = new Event("Button Clicked", userId);
 event.eventProperties = eventProps;
 
 client.logEvent(event);
@@ -200,55 +195,41 @@ client.logEvent(event);
 
 --8<-- "includes/groups-intro-paragraph.md"
 
+Code [examples of group functionality can also be found in our demo application](https://github.com/amplitude/Amplitude-Java/blob/main/src/demo/java/com/demo/amplitude/LocalUploadDemo.java#L44-L71).
+
 !!! example
     If Joe is in 'orgId' '10', then the `groupName` would be '10':
 
     ```java
-    Event event = new Event("$identify", "test_user_id");
-
     JSONObject groups = new JSONObject();
-    try {
-        groups.put("orgId", 10);
-    } catch (JSONException e) {
-        e.printStackTrace();
-        System.err.println("Invalid JSON");
-    }
+    groups.put("orgId", 10);
 
-    event.groups = groups;
-    event.userProperties = groups
-    client.logEvent(event);
+    Event setGroupEvent = new Event("$identify", userId);
+    setGroupEvent.groups = groups;
+    setGroupEvent.userProperties = groups;
+    client.logEvent(setGroupEvent);
     ```
 
     If Joe is in 'sport' 'tennis' and 'soccer', then the `groupName` would be '["tennis", "soccer"]'.
 
     ```java
-    Event event = new Event("$identify", "test_user_id");
-
     JSONObject groups = new JSONObject();
-    try {
-        groups.put("sport", new String[] {"tennis", "soccer"});
-    } catch (JSONException e) {
-        e.printStackTrace();
-        System.err.println("Invalid JSON");
-    }
+    groups.put("sport", new String[] {"tennis", "soccer"});
 
-    event.groups = groupProps;
-    event.userProperties = groups
-    client.logEvent(event);
+    Event setGroupsEvent = new Event("$identify", userId);
+    setGroupsEvent.groups = groupProps;
+    setGroupsEvent.userProperties = groups;
+
+    client.logEvent(setGroupsEvent);
     ```
 
 You can also use `logEvent` to set **event-level groups**. With event-level groups, the group designation applies only to the specific event being logged, and doesn't persist on the user.
 
 ```java
-Event event = New Event('event type', 'test_user_id');
+JSONObject groups = new JSONObject();
+groups.put("orgId", 10);
 
-JsonObject groups = new JSONObject();
-try {
-    groups.put("orgId", 10);
-} catch (JSONException e) {
-    e.printStackTrace();
-    System.err.println("Invalid JSON");
-}
+Event event = new Event('event type', userId);
 event.groups = groups;
 
 client.logEvent(event);
@@ -259,20 +240,16 @@ After setting groups, you can then set or update the properties of particular gr
 --8<-- "includes/editions-growth-enterprise-with-accounts.md"
 
 ```java
-Event event = new Event("$groupidentify");
+JSONObject groups = new JSONObject()
+    .put("org", "engineering")
+    .put("department", "sdk");
+JSONObject groupProps = new JSONObject()
+    .put("technology", "java")
+    .put("location", "sf");
 
-JsonObject groups = new JSONObject();
-JSONObject groupProps = new JSONObject();
-
-try {
-    groups.put("org", "engineering");
-    groupProps.put("technology", "java");
-} catch (JSONException e) {
-    e.printStackTrace();
-    System.err.println("Invalid JSON");
-}
-event.groups = groups
-event.groupProperties = groupProps
+Event event = new Event("$groupidentify", userId);
+event.groups = groups;
+event.groupProperties = groupProps;
 
 client.logEvent(event);
 ```

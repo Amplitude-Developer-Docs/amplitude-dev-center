@@ -8,7 +8,7 @@ description: Learn how to install and use the Ampli Wrapper for the iOS Swift an
 Amplitude Data supports tracking analytics events from iOS apps written in Swift and Objective-C.
 
 !!!info "Ampli iOS Resources"
-    [:material-language-swift: Swift Example](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/AmpliSwiftSampleApp) · [:material-language-c: Objective-C Example](https://github.com/amplitude/ampli-examples/tree/main/ios/objective-c/AmpliObjectiveCSampleApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
+    [:material-language-swift: Swift Example](https://github.com/amplitude/ampli-examples/tree/main/ios/swift/v1/AmpliSwiftSampleApp) · [:material-language-c: Objective-C Example](https://github.com/amplitude/ampli-examples/tree/main/ios/objective-c/v1/AmpliObjectiveCSampleApp) · [:material-code-tags-check: Releases](https://www.npmjs.com/package/@amplitude/ampli?activeTab=versions)
 
 --8<-- "includes/ampli-vs-amplitude-link-to-core-sdk.md"
     Visit the [Amplitude iOS SDK](./index.md) documentation.
@@ -78,37 +78,8 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 
 If you haven't already, install the core Amplitude SDK dependencies.
 
-To install these dependencies with CocoaPods:
-
-1. Close Xcode
-2. Install CocoaPods with `sudo gem install cocoapods`.
-3. Create a file called `Podfile` in the project root folder (the one with your .xcodeproj) and edit it to contain this code:
-
-    === "Swift"
-
-        ```swift
-        platform :ios, '10.0'
-
-        target '{Project-Name}' do
-          use_frameworks!
-
-          pod 'Amplitude', "~> 8.14"
-        end
-        ```
-    === "Objective-C"
-
-        ```objectivec
-        platform :ios, '10.0'
-
-        target '{Project-Name}' do
-          use_frameworks!
-
-          pod 'Amplitude', "~> 8.14"
-        end
-        ```
-
-4. Run `pod install`
-5. Open Xcode. Don't open the .xcodeproj file, instead open the .xcodeworkspace file.
+@{% from 'sdks/ios-install-dependencies.md' import ios_install_dependencies %}
+@{{ios_install_dependencies("Amplitude", "8.17.1", "amplitude/Amplitude-iOS")}}
 
 --8<-- "includes/ampli/cli-install-simple.md"
 
@@ -292,7 +263,7 @@ Ampli also generates a class for each event.
     ];
     ```
 
-You can send all Even objects using the generic track method.
+You can send all Event objects using the generic track method.
 
 === "Swift"
 
@@ -317,3 +288,44 @@ You can send all Even objects using the generic track method.
 --8<-- "includes/ampli/flush/ampli-flush-snippet-ios.md"
 
 --8<-- "includes/ampli/cli-pull-and-status-section.md"
+
+## Migration
+
+To migrate to the latest version of Ampli for iOS based on the `Amplitude-Swift` SDK. You will need to make some changes to your code.
+
+### Change your Ampli configuration using the Ampli CLI
+
+1. Run `ampli configure` to configure Ampli to use the new runtime.
+
+    ```shell
+    ampli configure
+    ? Select a platform: iOS
+    ? Select a language: Swift
+    ? Select a SDK: AmplitudeSwift ~> 1.0 (recommended)
+    ```
+
+2. Run `ampli pull` to pull the latest version of your tracking plan. Note that `ampli configure` will also prompt to run `ampli pull` for you on runtime change.
+
+    ```shell
+    ampli pull
+    ```
+
+### Update dependencies
+
+See our [migration guide for updating from the maintenance iOS SDK to the latest iOS Swift SDK](/data/sdks/ios-swift/migration). This will help you remove the old SDK and add the new SDK to your project.
+
+### Ampli updates
+
+For the most part Ampli for the latest iOS SDK is backwards compatible with the maintenance iOS SDK. However, there are some changes you will need to make to your code.
+
+#### All Amplitude fields are accessible via EventOptions
+
+All Amplitude fields are now accessible via `EventOptions`. For example, `Ampli.instance.track(event, options: EventOptions(price: 0.99, quantity: 1))`. In the maintenance SDK only a subset of Amplitude fields were accessible.
+
+#### Middleware is replaced by Plugins
+
+Ampli for the latest iOS SDK uses [Plugins](/data/sdk-plugins) instead of [Middleware](/data/sdk-middleware/). Plugins are more flexible and allow you to do more with your data. Any middleware can be converted to an enrichment plugin.
+
+#### Middleware extra is now on EventOptions
+
+The latest version of Ampli removes the `extra` argument from `track()`and `identify()` and replaces it with `EventOptions.extra`.
