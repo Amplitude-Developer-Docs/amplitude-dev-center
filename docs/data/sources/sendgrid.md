@@ -22,7 +22,7 @@ There are no other required setup steps in Amplitude.
 
 1. In SendGrid, find Settings, then click **Mail Settings**.
 2. Select **Event Webhook**.
-3. Under HTTP Post URL, enter the following text: `https://<your-api-key>:CJdAK9fWEn4dH2UzKht37sAM@api.amplitude.com/sendgrid`. (If you are in the European Union, ensure you include `.eu` within the URl (i.e. `https://<your-api-key>:CJdAK9fWEn4dH2UzKht37sAM@api.eu.amplitude.com/sendgrid`))
+3. Under HTTP Post URL, enter the following text: `https://<your-api-key>:CJdAK9fWEn4dH2UzKht37sAM@api.amplitude.com/sendgrid`. (If you're in the European Union, include `.eu` in the URl (for example `https://<your-api-key>:CJdAK9fWEn4dH2UzKht37sAM@api.eu.amplitude.com/sendgrid`))
 4. Select the event data you want to send to Amplitude.
 5. Toggle the Event Webhook Status to **Enabled**.
 6. Save your work. 
