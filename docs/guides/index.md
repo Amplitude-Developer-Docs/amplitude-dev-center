@@ -25,7 +25,7 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
     Learn about best practices for instrumenting the Accounts add on.
 
-    [:octicons-arrow-right-24: Read the guide](../guides/accounts-instrumentation-guide)
+    [:octicons-arrow-right-24: Read the guide](../guides/accounts-instrumentation-guide/)
 
 - :material-key:{ .lg .middle } __Amplitude tokens and keys__
 
@@ -33,7 +33,7 @@ Getting started with Amplitude can be daunting. These guides break down sophisti
 
     Learn all about Amplitude's tokens and keys.
 
-    [:octicons-arrow-right-24: Read the guide](../guides/amplitude-keys-guide)
+    [:octicons-arrow-right-24: Read the guide](../guides/amplitude-keys-guide/)
 
 - :material-file-import-outline:{ .lg .middle } __Import historical data__
 
