@@ -18,14 +18,19 @@ You can also create and manage lookup tables via an API. See [Lookup Table API](
 To set up this integration, you need the following:
 
 - An event property or user property to create a mapping from.
-- A CSV that has the data you want to map to. The first column data must correspond to the mapping property value.
+- A CSV that has the data you want to map to:
+  - The first row should contain column names/headers
+  - The first column must correspond to the mapping property value and must contain *unique* values. Keep in mind that Lookup Tables are looking for exact matches, and are *case-sensitive*.
+  - Columns must be separated by commas
+  - Rows must be separated by line breaks
+  - If a field value contains commas or quotes, it should be wrapped within double quotation marks. The first double quote signifies the beginning of the column data, and the last double quote marks the end. If the value contains a string with double quotes, these are replaced by two double quotes `""`
 
 ### Amplitude setup
 
 1. In Amplitude Data, click **Catalog** and select the **Sources** tab.
 2. In the Lookup Tables section, click **CSV**.
 3. Upload the CSV then click **Next**.
-4. . Map your event property.
+4. Map your event property.
 5. When you're done mapping, click **Finish**.
 
 ## Update a lookup table
