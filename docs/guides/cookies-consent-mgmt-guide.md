@@ -10,6 +10,21 @@ This guide covers functional and technical information on how Amplitude works wi
 
     The guide covers the behavior with the legacy JavaScript SDK that is the most used client browser SDK with Amplitude Analytics for our current customers; new customers will have to use the new TypeScript SDK. This guide will be updated to apply to the new TypeScript SDK on its Analytics-Browser package which should be used for new browser implementations as well as the migration target from legacy Javascript SDK implementations. However, most of the information presented in this document also applies to the way the TypeScript SDK behaves, including names of options, constants and functionalities explained.
 
+!!!note "Table of Contents"
+    1. [Using Amplitude Cookies](#using-amplitude-cookies)
+    2. [Cookie Size](#cookie-size)
+    3. [Expiration Time](#expiration-time)
+    4. [Removing Amplitude Cookies](#removing-amplitude-cookies)
+    5. [Deprecated Cookies](#deprecated-cookies)
+    6. [Disabling Cookies, using LocalStorage  (opt-out cookies)](#disabling-cookies-using-localstorage-opt-out-cookies)
+    7. [Disabling Cookies and LocalStorage/SessionStorage (opt-out storage)](#disabling-cookies-and-localstoragesessionstorage-opt-out-storage)
+    8. [Disabling Tracking (opt-out tracking)](#disabling-tracking-opt-out-tracking)
+    9. [Managing Cookie Consent](#managing-cookie-consent)
+    10. [Getting the SDK Initialization Options per Project](#getting-the-sdk-initialization-options-per-project)
+    11. [Abstraction Layer for Storage](#abstraction-layer-for-storage)
+    12. [FAQs](#frequently-asked-questions)
+    13. [CNIL France FAQs](#cnil-france-frequently-asked-questions)
+
 ## Using Amplitude Cookies
 
 A **“Cookie”** is a piece of data from a website that is stored within a web browser that the website can retrieve at a later time to access the data that is there stored for functional and/or technical purposes. Upon initialization, the Amplitude SDK will create a cookie that begins with the prefix **amp_** and ends with this first six digits of your project API key; this prefix can be customized using the constant **“COOKIE_PREFIX”** (the constant value can be found in [the constants definition file](https://github.com/amplitude/Amplitude-JavaScript/blob/35e2dd3f342614cfb27fcb6455e361595ae222d7/src/constants.js#L36) and the cookie key definition detail can be found [in this link](https://github.com/amplitude/Amplitude-JavaScript/blob/03c0a890d578db1ada383cf1e6195d71275bac44/src/amplitude-client.js#L121)). For instance, if  the default value for the prefix is used and you do: 
@@ -358,6 +373,12 @@ const hasCookie = hasNewCookie || hasOldCookie;
     };
     ```
 
+## CNIL France - Frequently asked questions
+
+!!!warning "CNIL France FAQs"
+
+    Please note the FAQs related to CNIL are not intended as legal or regulatory advice and does not constitute any warranty or contractual commitment on the part of Amplitude. We encourage customers to seek independent legal advice on customer’s legal and regulatory obligations on issues related to this subject matter.
+
 ??? note "CNIL France - What is the CNIL cookie exemption?"
 
     **The CNIL (Commission Nationale Informatique & Libertés)** is the French Data Protection Agency. As a general rule, the CNIL requires the consent of users before cookies can be used on a website, a mobile application or other connected device. However, the CNIL allows for a very limited exemption from this requirement for cookies that only collect anonymous, aggregated statistical data that is used for measuring website traffic or performance..  Data collected from these cookies cannot be combined with other data or used to identify users. 
@@ -383,3 +404,60 @@ const hasCookie = hasNewCookie || hasOldCookie;
     Most of the exempted tools do not have the powerful analytics capabilities of Amplitude.
 
     Besides using our SDKs, customers can still send data to Amplitude server-side. This does not require customers to obtain consent for a separate Amplitude SDK cookie. However, as mentioned above, customers who integrate via a server side integration will still be responsible for ensuring that they obtain any necessary consents and make any necessary disclosures for the personal data they collect and send to Amplitude. 
+
+??? note "CNIL France - 13-month cookie limit"
+
+    The Amplitude SDK has a [cookieExpiration option](https://www.docs.developers.amplitude.com/guides/cookies-consent-mgmt-guide/?h=cookie#expiration-time) to allow customers to set the number of days a cookie will live. It is defaulted to 1 year as of the current version. However, most browsers will by default limit the lifetime of cookies set using document.cookie from 1 to 7 days.
+
+??? note "CNIL France - 25-month data retention max"
+
+    Customers can use [Amplitude’s Time to Live](https://www.docs.developers.amplitude.com/data/ttl-configuration/?h=time+live) functionality to set a retention schedule for their event data. 
+
+??? note "CNIL France - Purpose strictly limited to the sole measurement of the site’s or application’s audience"
+
+    On the requirement of having a purpose strictly limited to the sole measurement of the site’s or application’s audience (performance measurement, detection of browsing problems, optimization of technical performance or its ergonomics, estimation of the power of the servers required, analysis of contents consulted), for the exclusive account of the publisher, Amplitude customers are in full control of the data that they choose to send to the Amplitude platform, and can choose to only send Amplitude events related to audience measurement/page views.
+
+??? note "CNIL France - Only serve to produce anonymous statistical data"
+
+    In order for a customer to use Amplitude to produce anonymous statistical data, Amplitude recommends taking the following steps:
+
+    -  Reach out to Amplitude at <mailto:cnil-support@amplitude.com>, if you are a prospective customer, or via [this form](https://help.amplitude.com/hc/en-us/requests/new), if you are an existing customer, to:
+
+        - request that IP address be dropped for projects that contain end users that have not provided consent;
+        - discuss disabling Amplitude’s User Look-Up and the ability to view user streams for projects that contain data for end users that have not provided consent; and 
+        - discuss the most effective configuration options for your use case.  
+
+    - Do not send deviceID to Amplitude for end users that have not provided consent.
+    - For end users that have not provided consent, set a userID that is randomly generated or hashed.
+    - Consider disabling the capacity to filter end users at the individual level by hiding user properties, such as userID, deviceID and Amplitude ID. See [this documentation](https://help.amplitude.com/hc/en-us/articles/5913315221915#heading-3). 
+    -Consider disabling user downloads. See [this documentation](https://help.amplitude.com/hc/en-us/articles/360058073772#view-and-edit-your-project-information). 
+
+??? note "CNIL France - Compliant with GDPR"
+
+    Amplitude’s privacy program is based on privacy-by-design principles. Our privacy program ensures that we comply with all relevant domestic and international privacy regulations and laws regarding the processing of personal data, including GDPR.
+    
+    Amplitude also offers customers the choice of having their data hosted in our US-West based AWS environment or our EU based AWS environment. Moreover, in order to ensure that our customers can appropriately respond to and comply with end-user data deletion requests as required by global privacy laws such as GDPR, we have built a simple and easy-to-use API endpoint that allows customers to programmatically submit requests to delete all data for a set of known Amplitude IDs and/or User IDs. For more details, see our developer documentation: [User Privacy API](https://developers.amplitude.com/docs/user-deletion).
+    
+    Additionally, Data Subject Access Requests (DSARs) can be completed using the DSAR API, which makes it easy to retrieve all data about a single user. More details can be found [here](https://www.docs.developers.amplitude.com/analytics/apis/ccpa-dsar-api/?h=). 
+    
+    More information on Amplitude’s stance on privacy and security can be found [here](https://amplitude.com/trust). 
+
+??? note "CNIL France - Cookies must not lead to a cross-checking of the data with other processing or that data be passed on to third parties."
+
+    No data is exported from Amplitude unless the customer chooses to export data to third party products. Therefore, customers should not use Amplitude to export data related to end users that have not provided consent to third party products. 
+    
+    Additionally, upon request, Amplitude can disable its cohort syncing and data streaming capabilities for orgs containing only data for end users that have not provided consent. 
+
+??? note "CNIL France - Cookies must not allow the global follow-up"
+
+    The CNIL exemption mentions that cookies must not allow the global follow-up of the navigation of the person using different applications or browsing on different websites; any solution that uses the same identifier across multiple sites (e.g., via cookies placed on a third-party domain loaded by multiple sites) to cross-reference, duplicate, or measure a unified reach for content is excluded. 
+    
+    To comply with this requirement, **customers should not use Amplitude’s [cross domain tracking](https://www.docs.developers.amplitude.com/data/sdks/typescript-browser/#cross-domain-tracking)**, and should use a [separate platform instrumentation](https://help.amplitude.com/hc/en-us/articles/207108557) for any projects with data from end users that have not provided consent. By default, Amplitude does not employ cross domain tracking for customers.
+
+??? note "CNIL France - The data is collected, processed and stored independently for each publisher" 
+
+    In Amplitude, customer data is logically separated and stored in encrypted form in Amplitude’s AWS environment.
+
+??? note "CNIL France - The trackers are completely independent of each other and of any other tracker"
+
+    The cookie used by the Amplitude SDK is a [first party cookie](https://www.docs.developers.amplitude.com/guides/cookies-consent-mgmt-guide/?h=cookie#frequently-asked-questions) and any data collected by the cookie is collected by the customer as the controller of the data. Amplitude only processes the customer’s data as a processor / service provider, and does not use customer data for its own purposes. 
