@@ -15,7 +15,7 @@ description: Sync cohorts from Amplitude to TheTradeDesk
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a paid The Trade Desk plan to enable this integration.
 - You can map identifiers to TheTradeDesk's 36 character GUID, the raw device GUID (for example, iOS IDFA or Android AAID), or TheTradeDesk's Unified ID 2.0 (UID2). For more information about UID2, see TheTradeDesk's [Unified IDs](https://partner.thetradedesk.com/v3/portal/data/doc/UnifiedIDs).
--  Users in TheTradeDesk have a TTL (Time-To-Live) parameter. Amplitude sets this value to 30 days for users in Cohorts that you send to TheTradeDesk, and refreshes it with every sync. If you configure a scheduled sync, users in cohorts that you send to TheTradeDesk won't expire. If you run a one-time sync, users you send to TheTradeDesk will expire 30 days after the sync, unless you manually resync the cohort.
+- Users in TheTradeDesk have a TTL (Time-To-Live) parameter. Amplitude sets this value to 30 days for users in Cohorts that you send to TheTradeDesk, and refreshes it with every sync. If you configure a scheduled sync, users in cohorts that you send to TheTradeDesk won't expire. If you run a one-time sync, users you send to TheTradeDesk will expire 30 days after the sync, unless you manually resync the cohort.
 
 ## Setup
 
