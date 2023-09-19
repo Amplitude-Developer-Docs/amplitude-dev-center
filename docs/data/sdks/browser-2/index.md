@@ -10,7 +10,7 @@ icon: simple/javascript
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
 
 !!!info "Browser SDK Resources"
-    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases)
+    [:material-github: GitHub](https://github.com/amplitude/Amplitude-TypeScript/tree/main/packages/analytics-browser) · [:material-code-tags-check: Releases](https://github.com/amplitude/Amplitude-TypeScript/releases?q=analytics-browser&expanded=true)
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
