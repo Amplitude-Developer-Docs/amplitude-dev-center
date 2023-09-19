@@ -4,7 +4,6 @@ description: The Amplitude Browser SDK Installation & Quick Start guide.
 icon: simple/javascript
 ---
 
-
 ![npm version](https://img.shields.io/npm/v/@amplitude/analytics-browser/v1)
 
 The Browser SDK lets you send events to Amplitude. This library is open-source, check it out on [GitHub](https://github.com/amplitude/Amplitude-TypeScript).
@@ -24,6 +23,9 @@ The Browser SDK lets you send events to Amplitude. This library is open-source, 
 
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Browser](./ampli.md).
+
+--8<-- "includes/size/browser.md"
+    For example you can search `@amplitude/analytics-browser@1.6.1`.
 
 ## Getting started
 

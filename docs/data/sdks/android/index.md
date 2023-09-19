@@ -19,6 +19,9 @@ This is the official documentation for the Amplitude Analytics Android SDK.
 --8<-- "includes/ampli-vs-amplitude.md"
     Click here for more documentation on [Ampli for Android](./ampli.md).
 
+--8<-- "includes/size/java.md"
+    selecting "Android SDK".
+
 ## Install
 
 ### Add dependencies

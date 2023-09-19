@@ -19,6 +19,9 @@ The Node.js SDK lets you send events to Amplitude. This library is open-source, 
 --8<-- "includes/sdk-migration/admonition-link-to-migration-docs.md"
     [Node.JS SDK Migration Guide](/data/sdks/typescript-node/migration/).
 
+--8<-- "includes/size/browser.md"
+    For example you can search `@amplitude/analytics-node@0.6.0`.
+
 ## Getting started
 
 Use [this quickstart guide](../sdk-quickstart#node) to get started with Amplitude Node SDK.
