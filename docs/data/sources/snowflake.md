@@ -113,7 +113,7 @@ Each group property in `group_properties` would be applied to every group in `gr
 | `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "Title": "Data Engineer" |
 | `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "City": "San Francisco" |
 
-Note: Profile properties are only supported for known Amplitude users. Therefore, each profile property must be accompanied by a user identifier (user_id).
+Amplitude supports profile properties for known users. A `user_id` value must accompany each profile property.
 
 ## SQL query examples
 
