@@ -105,6 +105,16 @@ You must include the mandatory fields for the data type when creating the SQL qu
 
 Each group property in `group_properties` would be applied to every group in `groups`
 
+### Profile properties
+
+| Column name (must be lowercase) | Mandatory | Column data type | Example |
+|---|---|---|---|
+| `user_id` | Yes | VARCHAR | "user123" |
+| `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "Title": "Data Engineer" |
+| `property_name_1` | Yes | (key value) VARCHAR: VARCHAR | "City": "San Francisco" |
+
+Amplitude supports profile properties for known users. A `user_id` value must accompany each profile property.
+
 ## SQL query examples
 
 To make the data selection step a bit easier, here are few example SQL snippets to get you started.
