@@ -14,7 +14,8 @@ description: Sync cohorts from Amplitude to TheTradeDesk
 - This integration is only available for customers who have paid plans with Amplitude.
 - You must enable this integration in each Amplitude project you want to use it in.
 - You need a paid The Trade Desk plan to enable this integration.
-- This integration with The Trade Desk only allows you to map identifiers to The Trade Desk 36-character GUID, Raw device ID in 36-character GUID or Email (SHA256).
+- This integration with The Trade Desk only allows you to map identifiers to The Trade Desk 36-character GUID, Raw device ID in 36-character GUID (iOS IDFA or Android's AAID) or User's Unified ID 2.0 ([detail](https://partner.thetradedesk.com/v3/portal/data/doc/UnifiedIDs)).
+- Users in the Trade Desk's segment has a TTL (Time-To-Live) parameter. Amplitude set 30 days for TTL of our users in cohorts that are sent to the Trade Desk and this parameter will be refreshed for every sync. So, if you have scheduled sync (Daily, Hourly), you do not have to worry that the users in the Trade Desk's segment sent by Amplitude will expire. If you run `One-Time Sync`, the users in the segment of the Trade Desk will expire in 30 days unless it's synced again.
 
 ## Setup
 
@@ -22,7 +23,7 @@ description: Sync cohorts from Amplitude to TheTradeDesk
 
 1. In The Trade Desk, navigate to Settings > Integrations.
 2. Click **Add integration**, then find and add Amplitude.
-3. Copy the **Advertiser ID** and **Advertiser Secret Key to your clipboard.
+3. Copy the **Advertiser ID** and **Advertiser Secret Key** to your clipboard.
 
 ### Amplitude setup
 
@@ -31,7 +32,7 @@ description: Sync cohorts from Amplitude to TheTradeDesk
 3. Click **Add another destination**.
 4. Enter **Name**, **Advertiser ID** and **Advertiser Secret Key**.
 5. Choose your Data Center Region.
-6. Map the Amplitude User ID field to TheTradeDesk User ID field. You can only map identifiers to The Trade Desk 36-character GUID, Raw device ID in 36-character GUID or Email (SHA256).
+6. Map the Amplitude User ID field to TheTradeDesk User ID field. You can only map identifiers to The Trade Desk 36-character GUID, Raw device ID in 36-character GUID (iOS IDFA or Android's AAID) or User's Unified ID 2.0.
 7. Save when finished.
 
 ## Send a cohort
