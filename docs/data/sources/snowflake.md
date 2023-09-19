@@ -104,6 +104,7 @@ You must include the mandatory fields for the data type when creating the SQL qu
 | `update_time_column` | No (Yes if using time based import) | TIMESTAMP_NTZ | 2013-04-05 01:02:03.000 |
 
 Each group property in `group_properties` would be applied to every group in `groups`
+
 ### Profile properties
 
 | Column name (must be lowercase) | Mandatory | Column data type | Example |
