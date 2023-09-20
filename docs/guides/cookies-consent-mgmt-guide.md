@@ -43,7 +43,7 @@ In previous versions of the SDK, you could customize the key for this cookie upo
 
 If another cookie appears with the key `amplitude_cookie_test` followed by a suffix of a random base64 string, the cookie is used to test whether the user has cookies enabled, and the SDK should be remove it when the test completes. For more information, see the detail in the SDK's [base-cookie.js](https://github.com/amplitude/Amplitude-JavaScript/blob/main/src/base-cookie.js#L97) file.
 
-Sometimes, the SDK may not remove the `amplitude_test_cookie` cookie. In this case, the cookie remains in the cookie list, but isn't used. You can customize the key of this cookie with the `COOKIE_TEST_PREFEX` constant in the SDK's [constants.js]((https://github.com/amplitude/Amplitude-JavaScript/blob/35e2dd3f342614cfb27fcb6455e361595ae222d7/src/constants.js#L35)) file.
+Sometimes, the SDK may not remove the `amplitude_test_cookie` cookie. In this case, the cookie remains in the cookie list, but isn't used. You can customize the key of this cookie with the `COOKIE_TEST_PREFEX` constant in the SDK's [constants.js](https://github.com/amplitude/Amplitude-JavaScript/blob/35e2dd3f342614cfb27fcb6455e361595ae222d7/src/constants.js#L35) file.
 
 ### Data stored in the cookie
 
