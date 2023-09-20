@@ -36,7 +36,7 @@ let ExperimentServer;
 if (typeof window === 'undefined') {
   console.debug('Initializing Server Experiment');
   ExperimentServer = require('@amplitude/experiment-node-server').Experiment.initialize(
-    'client-IAxMYws9vVQESrrK88aTcToyqMxiiJoR',
+    'server-IAxMYws9vVQESrrK88aTcToyqMxiiJoR',
     { debug: true },
   );
 }

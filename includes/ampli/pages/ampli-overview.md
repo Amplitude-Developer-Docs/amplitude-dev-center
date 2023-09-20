@@ -87,13 +87,7 @@ The following examples will reference this tracking plan.
 
 The Ampli CLI connects to Amplitude Data and uses the schema information for a given Source to generate and verify the Ampli Wrapper in your project.
 
-### Install the Ampli CLI
-
-NPM and Homebrew are supported.
-
-```shell
-npm install -g @amplitude/ampli
-```
+--8<-- "includes/ampli/cli-install-only.md"
 
 ### Generate the Ampli Wrapper with `ampli pull`
 
