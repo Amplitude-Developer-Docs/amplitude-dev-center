@@ -118,9 +118,9 @@ Starting from release v0.6.0, the SDK can track more default events. You can con
 [^1]:
 Session tracking is the same as supported in previous versions, which was previously enabled/disabled with the [`trackingSessionEvents`](#configuration) configuration.
 [^2]:
-Screen views are only supported in UIKit. For Swift UI, you will need to call the corresponding methods manually.
+Screen views are supported in UIKit. For Swift UI, you need to manually call the corresponding methods.
 [^3]:
-Deep link tracking is not fully automated, you will need to call the corresponding methods manually.
+Deep link tracking is not fully automated. You need to manually call the corresponding methods.
 
 ???config "Tracking default events options"
 | <div class="big-column">Name</div> | Type | Default Value | Description |
@@ -129,7 +129,7 @@ Deep link tracking is not fully automated, you will need to call the correspondi
 `defaultTracking.appLifecycles` | Optional. `boolean` | `false` | Enables application lifecycle events tracking. If value is `true`, Amplitude tracks application installed, application updated, application opened, and application backgrounded events.<br /><br />Event properties tracked includes: `[Amplitude] Version`,<br /> `[Amplitude] Build`,<br /> `[Amplitude] Previous Version`, `[Amplitude] Previous Build`, `[Amplitude] From Background`<br /><br />See [Tracking application lifecycles](#tracking-application-lifecycles) for more information.|
 `defaultTracking.screenViews` | Optional. `boolean` | `false` | Enables screen views tracking. If value is `true`, Amplitude tracks screen viewed events.<br /><br />Event properties tracked includes: `[Amplitude] Screen Name`<br /><br />See [Tracking screen views](#tracking-screen-views) for more information.|
 
-You can enable Amplitude to start tracking all events mentioned above, use the code sample below.
+Use the code sample below to enable the above-mentioned tracking events.
 
 === "Swift"
 
@@ -144,7 +144,7 @@ You can enable Amplitude to start tracking all events mentioned above, use the c
 
     Amplitude may add more events in a future version, and this configuration enables tracking for those events as well.
 
-Similarly, you can disable Amplitude to track all events mentioned above with the code sample below.
+Use the code sample below to disable tracking the above-mentioned tracking events.
 
 === "Swift"
 
@@ -155,7 +155,7 @@ Similarly, you can disable Amplitude to track all events mentioned above with th
     ))
     ```
 
-You can also customize the tracking with `DefaultTrackingOptions`, see code sample below.
+Customize the tracking with `DefaultTrackingOptions`.
 
 === "Swift"
 
@@ -172,7 +172,7 @@ You can also customize the tracking with `DefaultTrackingOptions`, see code samp
 
 #### Tracking sessions
 
-Session tracking is enabled by default. You can enable Amplitude to start tracking session events by setting `defaultTracking.sessions` to `true`. Refer to the code sample below.
+Amplitude enables session tracking by default. Set `defaultTracking.sessions` to `true` to  track session events.
 
 === "Swift"
 
@@ -195,7 +195,7 @@ For more information about session tracking, refer to [User sessions](#user-sess
 
 #### Tracking application lifecycles
 
-You can enable Amplitude to start tracking application lifecycle events by setting `defaultTracking.appLifecycles` to `true`. Refer to the code sample below.
+Set `defaultTracking.appLifecycles` to `true` to enable Amplitude to track application lifecycle events.
 
 === "Swift"
 
@@ -210,7 +210,7 @@ You can enable Amplitude to start tracking application lifecycle events by setti
     ))
     ```
 
-After enabling this setting, Amplitude will track the following events:
+When you enable this setting, Amplitude tracks the following events:
 
 -`[Amplitude] Application Installed`, this event fires when a user opens the application for the first time right after installation, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
 -`[Amplitude] Application Updated`, this event fires when a user opens the application after updating the application, by observing the `UIApplicationDidFinishLaunchingNotification` notification underneath.
@@ -219,10 +219,10 @@ After enabling this setting, Amplitude will track the following events:
 
 #### Tracking screen views
 
-You can enable Amplitude to start tracking screen view events by setting `defaultTracking.screenViews` to `true`. Refer to the code sample below.
+Set `defaultTracking.screenViews` to `true` to enable Amplitude to track screen view events.
 
 !!!warning
-    This feature is only supported in UIKit. For Swift UI, you will need to track the corresponding event manually instead.
+    This feature is supported in UIKit. For Swift UI, track the corresponding event manually.
 
 === "Swift"
 
@@ -242,11 +242,11 @@ You can enable Amplitude to start tracking screen view events by setting `defaul
     instance.track(ScreenViewedEvent(screenName: "Screen Name"))
     ```
 
-After enabling this setting, Amplitude will track the `[Amplitude] Screen Viewed` event with the screen name property. This property value is read from the controller class metadata with `viewDidAppear` method swizzling.
+When you enable this setting, Amplitude tracks the `[Amplitude] Screen Viewed` event with the screen name property. Amplitude reads this value from the controller class metadata `viewDidAppear` method swizzling.
 
 #### Tracking deep links
 
-Deeplinks are not automated at this time. You will need to track the corresponding events manually instead.
+Deeplink tracking is not automated. To track deeplinks, track the corresponding events.
 
 === "Swift"
 
@@ -260,7 +260,7 @@ Deeplinks are not automated at this time. You will need to track the correspondi
     instance.track(DeepLinkOpenedEvent(activity: activity))
     ```
 
-Amplitude will track the `[Amplitude] Deep Link Opened` event with the URL and referrer information.
+Amplitude tracks the `[Amplitude] Deep Link Opened` event with the URL and referrer information.
 
 ### User groups
 
