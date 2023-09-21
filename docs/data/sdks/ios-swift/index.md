@@ -59,7 +59,7 @@ let amplitude = Amplitude(configuration: Configuration(
     | `flushEventsOnClose` | Flushing of unsent events on app close. | `true` |
     | `callback` | Callback function after event sent. | `nil` |
     | `optOut` | Opt the user out of tracking. | `false` |
-    | `trackingSessionEvents` | Flushing of unsent events on app close. | `true` |
+    | `defaultTracking` | Enable tracking of [default events](#tracking-default-events) for sessions, app lifecycle, screen views, and deep links. | `DefaultTrackingOptions(sessions: true)` |
     | `minTimeBetweenSessionsMillis` | The amount of time for session timeout. | `300000` |
     | `serverUrl` | The server url events upload to. | `https://api2.amplitude.com/2/httpapi` |
     | `serverZone` |  The server zone to send to, will adjust server url based on this config. | `US` |
