@@ -311,6 +311,7 @@ nav:
         - Mailchimp: data/destinations/mailchimp-event-streaming.md
         - Meta Pixel: data/destinations/meta-pixel.md
         - MoEngage: data/destinations/moengage-event-streaming.md
+        - Movable Ink: data/destinations/movable-ink-event-streaming.md
         - Moloco: data/destinations/moloco-event-streaming.md
         - Planhat: data/destinations/planhat-event-streaming.md
         - Plotline: data/destinations/plotline-event-streaming.md
