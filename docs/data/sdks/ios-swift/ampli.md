@@ -25,7 +25,7 @@ Amplitude Data supports tracking analytics events from iOS apps written in Swift
 1. [Install the Amplitude SDK](#install-the-amplitude-sdk)
 
     ```shell
-    pod 'AmplitudeSwift', '~> 0.4.14'
+    pod 'AmplitudeSwift', '~> 0.6.0'
     ```
 
 2. [Install the Ampli CLI](#install-the-ampli-cli)

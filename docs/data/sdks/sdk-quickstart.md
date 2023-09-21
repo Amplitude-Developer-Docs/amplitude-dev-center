@@ -762,11 +762,6 @@ Use this guide to get started with the Amplitude SDKs. Choose your target platfo
 
     --8<-- "includes/sdk-quickstart/quickstart-enforce-event-schema-intro.md"
 
-    --8<-- "includes/no-ampli.md"
-        To use Ampli see the [non-Beta SDK](./ios/index.md) and [Ampli Wrapper](./ios/ampli.md) instead.
-
-    Coming soon.
-
 === "JRE"
 
     This is the documentation for the **Amplitude Analytics Java SDK**. This is not the Android SDK. See the [Java SDK documentation](../java/) for additional configurations and advanced topics.
