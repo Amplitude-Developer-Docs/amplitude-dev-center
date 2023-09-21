@@ -116,7 +116,7 @@ Starting from release v0.6.0, the SDK can track more default events. You can con
 - Deep links [^3]
 
 [^1]:
-Session tracking is the same as supported in previous versions, which was previously enabled/disabled via the [`trackingSessionEvents`](#configuration) configuration.
+Session tracking is the same as supported in previous versions, which was previously enabled/disabled with the [`trackingSessionEvents`](#configuration) configuration.
 [^2]:
 Screen views are only supported in UIKit. For Swift UI, you will need to call the corresponding methods manually.
 [^3]:
