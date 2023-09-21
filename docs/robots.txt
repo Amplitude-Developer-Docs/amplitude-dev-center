@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /analytics/apis/taxonomy-import-api/
