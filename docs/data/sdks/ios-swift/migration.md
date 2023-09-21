@@ -20,7 +20,7 @@ Add `AmplitudeSwift` dependency to `Podfile`.
 
 ```diff
 - pod 'Amplitude', '~> 8.14'
-+ pod 'AmplitudeSwift', '~> 0.4'
++ pod 'AmplitudeSwift', '~> 0.6'
 ```
 
 ### Swift Package Manager
@@ -38,7 +38,7 @@ Add `amplitude/Amplitude-Swift` to your `Cartfile`.
 
 ```diff
 - github "amplitude/Amplitude-iOS" ~> 8.14
-+ github "amplitude/Amplitude-Swift" ~> 0.4
++ github "amplitude/Amplitude-Swift" ~> 0.6
 ```
 
 ## Instrumentation
