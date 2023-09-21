@@ -108,7 +108,7 @@ amplitude.identify(identify: identify)
 
 ### Tracking default events
 
-Starting from release v0.6.0, the SDK is able to track more default events. It can be configured to track the following events automatically:
+Starting from release v0.6.0, the SDK can track more default events. You can configure it to track the following events by default:
 
 - Sessions [^1]
 - App lifecycles
