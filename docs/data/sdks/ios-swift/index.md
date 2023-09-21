@@ -141,7 +141,8 @@ You can enable Amplitude to start tracking all events mentioned above, use the c
     ```
 
 !!!note
-Amplitude may add more events in a future version, and this configuration enables tracking for those events as well.
+
+    Amplitude may add more events in a future version, and this configuration enables tracking for those events as well.
 
 Similarly, you can disable Amplitude to track all events mentioned above with the code sample below.
 
@@ -189,7 +190,8 @@ Session tracking is enabled by default. You can enable Amplitude to start tracki
 For more information about session tracking, refer to [User sessions](#user-sessions).
 
 !!!note
-`trackingSessionEvents` is deprecated and replaced with `defaultTracking.sessions`.
+
+    `trackingSessionEvents` is deprecated and replaced with `defaultTracking.sessions`.
 
 #### Tracking application lifecycles
 
