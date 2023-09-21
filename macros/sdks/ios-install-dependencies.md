@@ -1,4 +1,4 @@
-@{% macro ios_install_dependencies(packageName='AmplitudeSwift', version='0.4.14', repo='amplitude/Amplitude-Swift') -%}
+@{% macro ios_install_dependencies(packageName='AmplitudeSwift', version='0.6.0', repo='amplitude/Amplitude-Swift') -%}
 Install the Amplitude Analytics iOS SDK via CocoaPods, Carthage, or Swift Package Manager. 
 
 === "CocoaPods"
