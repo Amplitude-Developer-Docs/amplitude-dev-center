@@ -15,7 +15,7 @@ More information is coming soon!
 ### For users
 --------
 
-If you are making substantial updates, read our [style guide](/style-guide.md) and [formatting cheatsheet](formatting-cheatsheet.md) before starting work. When you're ready, open a PR.
+If you are making substantial updates, read our [style guide](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki/Style-Guide) and [formatting cheatsheet](https://github.com/Amplitude-Developer-Docs/amplitude-dev-center/wiki/Formatting-Cheatsheet) before starting work. When you're ready, open a PR.
 
 ### For Ampliteers
 -----
